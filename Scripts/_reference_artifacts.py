@@ -62,6 +62,11 @@ SITE_OWNER_APPROVED_PATHS = frozenset(
         "Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf",
     }
 )
+AUTHOR_PERMISSION_APPROVED_PATHS = frozenset(
+    {
+        "Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf",
+    }
+)
 THIRD_PARTY_HTML_PREFIXES = (
     "Advaita-Vedanta/",
     "Applied-Studies/",
@@ -155,6 +160,8 @@ def _download_sources() -> dict[str, dict]:
 
 
 def _rights_status(notes: str, rel: str = "") -> str:
+    if rel in AUTHOR_PERMISSION_APPROVED_PATHS:
+        return "author-permission-recorded"
     if rel in SITE_OWNER_APPROVED_PATHS:
         return "existing-site-publication-approved"
     folded = notes.casefold()
@@ -494,6 +501,9 @@ def apply_storage_policy() -> None:
         if rel in SITE_OWNER_APPROVED_PATHS:
             rights["status"] = "existing-site-publication-approved"
             rights["notes"] = "Existing site publication; R2 storage migration approved by the site owner."
+        elif rel in AUTHOR_PERMISSION_APPROVED_PATHS:
+            rights["status"] = "author-permission-recorded"
+            rights["notes"] = "Copy supplied by the author with permission to publish through the site."
         row["rights"] = rights
         storage = (row.get("target") or {}).get("storage")
 

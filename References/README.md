@@ -13,14 +13,14 @@ PDFs and the two active translation sources remain in Git. See
 - The KD and MSM Hindi source PDFs while those translations are active.
 - PDFs whose redistribution status is still under review; the R2 Worker passes their
   existing public paths through to GitHub Pages.
-- Cleaned Markdown for the 12 former webpage snapshots. Their original HTML bytes are
+- Cleaned Markdown for the nine retained webpage snapshots. Their original HTML bytes are
   private in R2; generated PDFs are build-only unless the manifest records a public right.
 
 **What is stored outside Git**
 
-- Twenty-four approved PDFs are served from the private `amd-reference-archive` R2 bucket
+- Twenty-five approved PDFs are served from the private `amd-reference-archive` R2 bucket
   through the allowlisted `amd-generated-pdfs` Worker.
-- Twelve original webpage snapshots are retained under the non-public
+- Nine original webpage snapshots are retained under the non-public
   `archive/original-html/` prefix.
 - SEP entries and unresolved Poorvam/Carroll derivatives link to their canonical
   publisher pages rather than being electronically redistributed.
@@ -69,8 +69,8 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | MVD, SB, JV |
 | [The-Epistemology-of-Coexistence.pdf](../Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) | MVD, SB, JV; Advaita (BG, BU, BSB, CU, DDV, MU, TU, VC in R2; VP external); modern science/philosophy (27 works, 8 local / 19 external) |
 | [Nature-Of-Time.pdf](../Studies/Nature-Of-Time/Nature-Of-Time.pdf) | MVD, SB, JVD; Advaita (MU, BG, VC); Carroll 2010, Ashtekar-Singh 2011, McTaggart 1908; external (Rovelli 2018) |
-| [The-Ontology-of-Coexistence.pdf](../Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | MVD, SB, JV; Bhattacharya; Advaita (CU, TU, VC); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013, Whitehead 1929, Russell 1921, Mach 1914, Friston 2010, Carroll 2010, Guth 2007, Ashtekar and Singh 2011); external (Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995) |
-| [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Bhattacharya; Advaita (BU, TU, MU, CU, KU, BG, BSB, VC, DDV); Science (12 works, 3 local / 9 external) |
+| [The-Ontology-of-Coexistence.pdf](../Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | MVD, SB, JV; Advaita (CU, TU, VC); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013, Whitehead 1929, Russell 1921, Mach 1914, Friston 2010, Carroll 2010, Guth 2007, Ashtekar and Singh 2011); external (Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995) |
+| [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Advaita (BU, TU, MU, CU, KU, BG, BSB, VC, DDV); Science (12 works, 3 local / 9 external) |
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD |
 | [Axiology-Value-Theory.pdf](../Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf) | MVD, SB, JV, KD |
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, KD |
@@ -163,4 +163,4 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 | **SEP Natural Law Ethics** | [SEP entry](https://plato.stanford.edu/entries/natural-law-ethics/) | External canonical page; electronic redistribution is not permitted |
 | **SEP Theological Voluntarism** | [SEP entry](https://plato.stanford.edu/entries/voluntarism-theological/) | External canonical page; electronic redistribution is not permitted |
 | **SV** | [SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | *Practical Vedanta* lectures (Complete Works material) |
-| **Bhattacharya** | [Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | *The Relationship of Jeevan and Brain*; secondary exposition of Nagraj's works |
+| **Bhattacharya** | [Bhattacharya-Jeevan-And-Brain-Relationship.pdf](https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | *The Relationship of Jeevan and Brain*; author-supplied copy published with permission; secondary exposition of Nagraj's works |
