@@ -16,14 +16,12 @@ import shutil
 from pathlib import Path
 
 from _common import (
+    APPLICATIONS,
     BASE,
     REFERENCES,
     STUDIES,
     known_study_slugs,
     study_dir,
-    study_html,
-    study_md,
-    study_pdf,
     study_pdf_ref_path,
     validate_study_slug,
     write_text_lf,
@@ -79,11 +77,15 @@ def manifest_label(slug: str) -> str:
     return "-".join(parts[:2]) if len(parts) >= 2 else slug
 
 
-def study_files(slug: str) -> list[Path]:
-    directory = study_dir(slug)
+def study_files(slug: str, directory: Path | None = None) -> list[Path]:
+    directory = directory or study_dir(slug)
     if directory.is_dir():
         return sorted(directory.iterdir())
-    return [study_md(slug), study_pdf(slug), study_html(slug)]
+    return [
+        directory / f"{slug}.md",
+        directory / f"{slug}.pdf",
+        directory / f"{slug}.html",
+    ]
 
 
 def manifest_aliases(slug: str) -> set[str]:
@@ -178,6 +180,17 @@ def remove_registry_row(slug: str, *, dry_run: bool) -> bool:
     return True
 
 
+def proposal_registry_row(slug: str) -> dict | None:
+    """Return proposal metadata even when the study directory is already gone."""
+    if not PROPOSAL_REGISTRY_PATH.is_file():
+        return None
+    data = json.loads(PROPOSAL_REGISTRY_PATH.read_text(encoding="utf-8"))
+    return next(
+        (row for row in data.get("proposals", []) if row.get("slug") == slug),
+        None,
+    )
+
+
 def remove_presentation_manifest_entries(
     slug: str,
     *,
@@ -187,17 +200,25 @@ def remove_presentation_manifest_entries(
     """Remove every deck whose source lives in the retired study directory."""
     if not PRESENTATION_MANIFEST_PATH.is_file():
         return 0
-    study_directory = directory or study_dir(slug)
-    try:
-        prefix = study_directory.resolve().relative_to(BASE.resolve()).as_posix() + "/"
-    except ValueError as exc:
-        raise SystemExit(f"Study directory is outside the repository: {study_directory}") from exc
+    if directory is None:
+        prefixes = (f"Studies/{slug}/", f"Applications/{slug}/")
+    else:
+        try:
+            prefixes = (
+                directory.resolve().relative_to(BASE.resolve()).as_posix() + "/",
+            )
+        except ValueError as exc:
+            raise SystemExit(f"Study directory is outside the repository: {directory}") from exc
     data = json.loads(PRESENTATION_MANIFEST_PATH.read_text(encoding="utf-8"))
     decks = list(data.get("decks", []))
-    prefix_folded = prefix.casefold()
+    folded_prefixes = tuple(prefix.casefold() for prefix in prefixes)
     kept = [
-        deck for deck in decks
-        if not str(deck.get("source") or "").replace("\\", "/").casefold().startswith(prefix_folded)
+        deck
+        for deck in decks
+        if not str(deck.get("source") or "")
+        .replace("\\", "/")
+        .casefold()
+        .startswith(folded_prefixes)
     ]
     removed = len(decks) - len(kept)
     if removed and not dry_run:
@@ -229,13 +250,24 @@ def remove_study(
 ) -> None:
     slug = normalize_slug(slug)
     table = find_study_table(slug)
-    paths = study_files(slug)
+    registry_row = proposal_registry_row(slug)
+    is_applied = table == StudyTable.APPLIED or bool(
+        registry_row and registry_row.get("applied")
+    )
+    directory = APPLICATIONS / slug if is_applied else study_dir(slug)
+    paths = study_files(slug, directory)
     existing_paths = [path for path in paths if path.exists()]
+    deck_count = remove_presentation_manifest_entries(
+        slug,
+        dry_run=True,
+    )
 
-    if table is None and not existing_paths:
+    if table is None and not existing_paths and registry_row is None and not deck_count:
         known = known_study_slugs()
         hint = f"\nKnown studies: {', '.join(known)}" if known else ""
         raise SystemExit(f"Study not found: {slug}{hint}")
+
+    metadata_only = table is None and not existing_paths
 
     removed_label = manifest_label(slug)
     is_ongoing = table is not None and any(
@@ -245,18 +277,19 @@ def remove_study(
 
     if dry_run:
         print(f"Study slug:     {slug}")
-        print(f"Catalog table:  {table.value if table else '(files only)'}")
+        missing_state = "(metadata only)" if metadata_only else "(files only)"
+        print(f"Catalog table:  {table.value if table else missing_state}")
         print(f"MANIFEST label: {removed_label}")
-        print("Would delete:")
-        for path in existing_paths or paths:
-            print(f"  - {path}")
+        if existing_paths:
+            print("Would delete:")
+            for path in existing_paths:
+                print(f"  - {path}")
+        elif metadata_only:
+            print(
+                "No study files remain; only stale lifecycle metadata will be removed."
+            )
         if remove_registry_row(slug, dry_run=True):
             print(f"Would remove {slug} from {PROPOSAL_REGISTRY_PATH}")
-        deck_count = remove_presentation_manifest_entries(
-            slug,
-            dry_run=True,
-            directory=study_dir(slug),
-        )
         if deck_count:
             print(
                 f"Would remove {deck_count} deck entr{'y' if deck_count == 1 else 'ies'} "
@@ -272,7 +305,6 @@ def remove_study(
     deck_count = remove_presentation_manifest_entries(
         slug,
         dry_run=False,
-        directory=study_dir(slug),
     )
     if deck_count:
         print(
@@ -305,6 +337,13 @@ def remove_study(
                 rebuild_feedback_template=True,
             )
             print(f"Updated Studies/catalog JSON and Studies/README.md ({table.value} catalog)")
+
+    if metadata_only:
+        print(
+            "\nDone. Removed stale lifecycle metadata; "
+            "no study or reference files were changed."
+        )
+        return
 
     if not is_ongoing:
         write_references_readme_row(slug, "", remove=True)

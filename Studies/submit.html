@@ -591,6 +591,7 @@ const STAGE_LABELS = {
   'pr-open': 'Awaiting approval',
   'changes_requested': 'Changes requested',
   merged: 'Published',
+  retired: 'Retired',
   closed: 'Closed',
   'pr-closed': 'PR closed',
 };
@@ -1587,6 +1588,16 @@ async function checkProposalStatus() {
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not check proposal status');
     if (data.declined) {
       showProposalStatus('error', 'Proposal <strong>#' + issueNumber + '</strong> was declined. Review maintainer comments on the issue.');
+      return;
+    }
+    if (data.closed) {
+      document.getElementById('s-slug').readOnly = false;
+      showProposalStatus(
+        'pending',
+        'Proposal <strong>#' + issueNumber + '</strong> is closed and cannot accept a draft.' +
+        (data.url ? ' <a href="' + data.url + '" target="_blank">View issue</a>' : '')
+      );
+      updateSubmitAvailability();
       return;
     }
     if (data.approved) {

@@ -234,6 +234,15 @@ class ProposalPortalContractTests(unittest.TestCase):
         self.assertIn("const latestByReviewer = new Map();", self.worker)
         self.assertIn("latestByReviewer.set(reviewer, review);", self.worker)
 
+    def test_closed_removed_proposals_are_terminal(self) -> None:
+        self.assertIn("function proposalIsRetired(", self.worker)
+        self.assertIn("if (retired) stage = 'retired';", self.worker)
+        self.assertIn("proposal?.state === 'open'", self.worker)
+        self.assertIn("proposal?.state === 'closed'", self.worker)
+        self.assertIn("item.state === 'open' && existing.state !== 'open'", self.worker)
+        self.assertIn("retired: 'Retired'", self.portal)
+        self.assertIn("if (data.closed)", self.portal)
+
 
 if __name__ == "__main__":
     unittest.main()
