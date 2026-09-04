@@ -17,7 +17,7 @@ for the pipeline itself.**
 | [Studies index](workflows/studies-index-check.yml) | **every** `pull_request`; `push` to `master`/`main` | `verify` | No |
 | [PDF pipeline smoke](workflows/pdf-pipeline-smoke.yml) | `pull_request` path-filtered on the PDF pipeline; `workflow_dispatch` | `reproducible` | No |
 | [Presentation pipeline smoke](workflows/presentation-pipeline-smoke.yml) | `pull_request` path-filtered on presentation sources/tooling; `workflow_dispatch` | `libreoffice-production` | No |
-| [Generated PDF publish](workflows/generated-pdf-publish.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `markdown`, `reference-pdfs`, `presentations`, `publish-and-deploy` | No Git writes; protected-branch runs publish to R2 and deploy/audit the delivery Worker |
+| [Generated PDF publish](workflows/generated-pdf-publish.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `pdfs`, `presentations`, `publish-and-deploy` | No Git writes; protected-branch runs publish to R2 and deploy/audit the delivery Worker |
 | [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved`; `workflow_dispatch` | `comment`, `bootstrap` | **Yes** — `bootstrap` opens and merges its own PR to `master` |
 | [Portal notifications](workflows/portal-notify.yml) | `issues: labeled`; `pull_request_target: closed` | `notify` | No |
 | [Pages deploy retry](workflows/pages-deploy-retry.yml) | `workflow_run` on *pages build and deployment* completing | `retry` | No (re-runs a run) |
@@ -183,19 +183,29 @@ and never modifies the checkout.
 ### 2.5 Generated PDF publish — `generated-pdf-publish.yml`
 
 This is the protected-branch publication path for generated PDFs under `Studies/`
-and `Applications/` and manifest-approved reference PDFs. Pull requests run the
-`markdown` and `reference-pdfs` jobs: they regenerate through pinned pipelines,
-check manifest/link policy, and upload short-lived Actions artifacts for inspection.
+and `Applications/` and manifest-approved reference PDFs. Pull requests run one
+Linux `pdfs` job: it installs the shared Python/Node/Chrome environment once, runs
+the Markdown and normalized-reference pipelines in sequence, checks manifest/link
+policy, and uploads separate short-lived Actions artifacts for inspection.
 Pull-request jobs do not receive R2 or Cloudflare credentials and cannot publish.
 Normalized PDFs generated from archived HTML are checked by page count and a
 canonical extracted-text digest because Chromium's PDF container and font subsets
 are host-platform-specific even with identical embedded fonts. Linux CI is the
 canonical byte producer; immutable source PDFs remain byte-for-byte checked.
 
+The Markdown builder remains change-aware on pull requests and exits immediately
+with an empty provenance artifact when no study/companion PDF is affected. Because
+reference rendering shares its toolchain in the same job, that no-op no longer pays
+for a second npm install and Puppeteer cache restore. The repository-wide published-
+document scan runs through the required `verify` job on pull requests; `pdfs` repeats
+the direct scan only for protected-branch and manual publication runs, where deployment
+must not depend on a separate workflow.
+
 On a relevant `master` push (or a manual dispatch on `master`), CI builds the full
-publishable Markdown inventory on Linux, all manifest-approved reference PDFs on
-Linux, and all slides/notes PDFs with the pinned LibreOffice production renderer on
-Windows. `publish-and-deploy` does not start until all three complete successfully.
+publishable Markdown inventory and all manifest-approved reference PDFs in the shared
+Linux job, and all slides/notes PDFs with the pinned LibreOffice production renderer
+on Windows. `publish-and-deploy` does not start until both build jobs complete
+successfully.
 It merges the verified artifact trees; publishes generated PDFs and approved
 references to their separate R2 buckets; checks R2 coverage; deploys the shared,
 allowlisted Worker; preserves the guarded `/Studies/*`, `/Applications/*`, and

@@ -6,6 +6,7 @@ import unittest
 
 from _build_markdown_pdfs import markdown_specs, select_specs
 from _build_studies_index import _presentation_source_paths, catalog_build_id
+from _common import BASE
 from _presentation_pipeline import repo_relative
 
 
@@ -40,6 +41,19 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         self.assertTrue(sources)
         self.assertTrue(all(path.is_file() and path.suffix.lower() == ".pptx" for path in sources))
         self.assertEqual(catalog_build_id(), catalog_build_id())
+
+    def test_publish_workflow_reuses_one_linux_pdf_setup(self) -> None:
+        workflow_path = BASE / ".github" / "workflows" / "generated-pdf-publish.yml"
+        workflow = workflow_path.read_text(encoding="utf-8")
+        self.assertIn("\n  pdfs:\n", workflow)
+        self.assertNotIn("\n  markdown:\n", workflow)
+        self.assertNotIn("\n  reference-pdfs:\n", workflow)
+
+        pdf_job = workflow.split("\n  pdfs:\n", 1)[1].split("\n  presentations:\n", 1)[0]
+        self.assertEqual(pdf_job.count("uses: ./.github/actions/setup-study-env"), 1)
+
+        deploy_job = workflow.split("\n  publish-and-deploy:\n", 1)[1]
+        self.assertIn("needs: [pdfs, presentations]", deploy_job)
 
 
 if __name__ == "__main__":
