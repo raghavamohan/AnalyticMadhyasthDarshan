@@ -630,6 +630,56 @@
       }
     },
     {
+      "kind": "active-translation-output-pdf",
+      "repo_path": "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf",
+      "rights": {
+        "notes": "Machine-assisted working English translation generated from the canonical Markdown; retained with the active KD translation workspace and not treated as a published translation.",
+        "status": "active-working-translation"
+      },
+      "source": {
+        "bytes": 1527696,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated from References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.md for page-aligned working review.",
+        "sha256": "0c500ff9d23ab108e5cecfb5e8009f12b2882e2efb885343621bb031b1858c18",
+        "urls": []
+      },
+      "state": "git-retained",
+      "tags": [
+        "KD"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf",
+        "r2_key": null,
+        "storage": "git-retained-active-translation"
+      }
+    },
+    {
+      "kind": "active-translation-output-pdf",
+      "repo_path": "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf",
+      "rights": {
+        "notes": "Machine-assisted interleaved Hindi-English working PDF; retained with the active KD translation workspace and not treated as a published translation.",
+        "status": "active-working-translation"
+      },
+      "source": {
+        "bytes": 2801789,
+        "media_type": "application/pdf",
+        "minimum_bytes": 500,
+        "notes": "Generated from the retained Hindi source PDF and page-aligned English working PDF for translation review.",
+        "sha256": "5c1cc04f871ee1d1e7ad64d069e58bf71b1d982ca2f02ec292c8474b7d60c093",
+        "urls": []
+      },
+      "state": "git-retained",
+      "tags": [
+        "KD"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf",
+        "r2_key": null,
+        "storage": "git-retained-active-translation"
+      }
+    },
+    {
       "kind": "active-translation-source-pdf",
       "repo_path": "References/Madhyasth-Darshan/KD-karm darshan v5.pdf",
       "rights": {
