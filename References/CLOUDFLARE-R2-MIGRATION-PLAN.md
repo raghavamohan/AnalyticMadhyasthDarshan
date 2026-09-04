@@ -17,17 +17,17 @@ in Git by design. Git history has not been rewritten.
 | R2 bucket | Private `amd-reference-archive` |
 | Delivery Worker | Existing `amd-generated-pdfs`, with a second R2 binding |
 | Public route | `analyticmadhyasthdarshan.org/References/*` |
-| Public R2 PDFs | 24 objects, 272.74 MiB |
-| Private original HTML | 12 objects, 1.76 MiB |
-| Removed from current Git tree | 35 uploaded payloads plus 1 generated HTML |
-| Retained for rights review | 15 PDFs, 28.94 MiB |
+| Public R2 PDFs | 25 objects, 272.91 MiB |
+| Private original HTML | 9 objects, 1.42 MiB |
+| Removed from current Git tree | 36 uploaded payloads plus 1 generated HTML |
+| Retained for rights review | 14 PDFs, 28.78 MiB |
 | Retained active translation PDFs | KD and MSM sources plus 2 generated KD review PDFs, 81.60 MiB |
-| External-only generated derivatives | 11 PDFs, 5.18 MiB |
+| External-only generated derivatives | 8 PDFs, 3.88 MiB |
 | Generated on demand | 1 transcript HTML, 0.15 MiB |
-| Manifest | `References/r2-artifacts.json`, 67 artifact records |
-| Public verification | All 24 objects passed S3 checks and the full canary delivery audit |
-| Fresh-clone proof | All 24 hydrated and checksum-verified without credentials |
-| Next action | Complete rights review for the 15 retained PDFs; defer Git history cleanup until separately approved |
+| Manifest | `References/r2-artifacts.json`, 61 artifact records |
+| Public verification | All 25 objects passed S3 checks and the full public delivery audit |
+| Fresh-clone proof | All 25 hydrated and checksum-verified without credentials |
+| Next action | Complete rights review for the 14 retained PDFs; defer Git history cleanup until separately approved |
 
 No secret values are recorded in this repository. The current S3 credential was
 sufficient for create/probe/upload/verify work. The current Cloudflare API token
@@ -60,7 +60,7 @@ was sufficient to bind the bucket, deploy the Worker, and attach the route.
 
 | Follow-up | Status | Completion condition |
 |---|---|---|
-| Rights review for 15 retained third-party PDFs | Open | Each artifact has an authoritative source and explicit redistribution basis, then moves to R2; otherwise its citation moves to a canonical external URL |
+| Rights review for 14 retained third-party PDFs | Open | Each artifact has an authoritative source and explicit redistribution basis, then moves to R2; otherwise its citation moves to a canonical external URL |
 | KD and MSM translation exceptions | Ongoing | Keep their two source PDFs and the two generated KD review PDFs in Git until the active translation workflow no longer requires them |
 | R2 deletion protection and independent backup | Open hardening | Choose a retention policy, verify backup recovery, and apply a bucket lock only after confirming it will not block legitimate corrections |
 | Git history cleanup | Deferred by owner on September 4, 2026 | Schedule a separate maintenance window with backup tags, branch freeze, force-push coordination, and collaborator re-clones |
@@ -74,10 +74,10 @@ rewrite is performed.
 
 ### Public in R2
 
-The 24 public objects comprise eight owner-approved Advaita Vedanta PDFs, six
+The 25 public objects comprise eight owner-approved Advaita Vedanta PDFs, six
 owner-approved Madhyasth Darshan PDFs, the 2010 Nagraj transcript PDF, openly licensed
 MD-TOPOS, Limanowski, Melloni, Tufft, and Crockett papers, and public-domain Mach,
-McTaggart, Russell, and Whitehead works.
+McTaggart, Russell, and Whitehead works, plus the author-supplied Bhattacharya paper.
 Their exact URLs, object keys, hashes, sizes, licenses, and publication state are in
 `r2-artifacts.json`.
 
@@ -90,9 +90,9 @@ is retained for review/build reproducibility; their generated PDFs are not serve
 
 ### Retained in Git pending review
 
-The following 15 PDFs are deliberately excluded from the R2 public allowlist:
+The following 14 PDFs are deliberately excluded from the R2 public allowlist:
 
-- Comparative philosophy: Bhattacharya and Vivekananda's *Practical Vedanta*.
+- Comparative philosophy: Vivekananda's *Practical Vedanta*.
 - Modern philosophy: Frankish and Hashemi.
 - Science: Arnold, Ashtekar–Singh, Baehni, Chalmers, Feynman, Friston, Guth,
   Kotiuga–Lahtinen, Nagel, Strawson, and Terekhovich.
@@ -111,10 +111,10 @@ remain in Git.
 
 ### Phase 1 — Inventory, provenance, rights, and checksums
 
-Complete for the current boundary. `r2-artifacts.json` records all 67 artifacts and
+Complete for the current boundary. `r2-artifacts.json` records all 61 artifacts and
 distinguishes public R2, private original, Git-retained, external-only, and generated
 states. This includes both generated KD working-review PDFs. Rights review remains
-intentionally open only for the 15 listed third-party PDFs.
+intentionally open only for the 14 listed third-party PDFs.
 
 ### Phase 2 — Resolver and credential-free hydration
 
@@ -125,10 +125,12 @@ use the resolver.
 
 ### Phase 3 — Normalize archived HTML
 
-Complete. Twelve snapshots were normalized to reviewable Markdown and deterministically
-renderable PDFs. Original HTML was uploaded only to the private archive prefix. Only
-the public-domain McTaggart derivative is in the public R2 allowlist; the other eleven
-link to their canonical publishers.
+Complete. Nine retained snapshots were normalized to reviewable Markdown and
+deterministically renderable PDFs. Their original HTML is stored only under the private
+archive prefix. The three cited SEP entries for natural-law ethics, theological
+voluntarism, and empirical moral psychology are canonical-link-only and have no local
+snapshot or derivative. Only the public-domain McTaggart derivative is in the public R2
+allowlist; the other eight retained derivatives link to their canonical publishers.
 
 For normalized derivatives, the cleaned Markdown and embedded fonts determine the
 content, while Chromium's PDF container encoding still varies by host operating system.
@@ -149,10 +151,9 @@ legitimate corrections.
 
 ### Phase 5 — Upload and reconcile
 
-Complete through the Advaita tranche. Thirty-six R2 objects were uploaded and
-hash-verified: 24 public PDFs and 12 private HTML originals. The manifest records
-their published state. Re-running the
-publisher is idempotent.
+Complete through the Bhattacharya author-permission tranche. The archive currently
+contains 25 public PDFs and nine private HTML originals, all hash-verified. The manifest
+records their published state. Re-running the publisher is idempotent.
 
 ### Phase 6 — Link cutover and regeneration
 
@@ -165,7 +166,7 @@ HTML rather than Markdown or PDF. External-only sources resolve to canonical pag
 
 Complete for all currently approved artifacts, including the eight-file Advaita
 tranche merged in PR #372. Parent commits and Git history remain rollback sources.
-A clean cache hydration followed by `_check_references.py` passed for all 24 public
+A clean cache hydration followed by `_check_references.py` passed for all 25 public
 R2 PDFs.
 
 ## Remaining phases
@@ -175,7 +176,7 @@ R2 PDFs.
 In progress. The site owner confirmed redistribution rights for all eight Advaita
 Vedanta PDFs. They are recorded as approved, uploaded with their original checksums,
 included in the production Worker allowlist, and removed from the current Git tree.
-Fifteen PDFs remain under review.
+Fourteen PDFs remain under review.
 
 For each artifact:
 
@@ -239,7 +240,7 @@ the Worker, and performs a public audit.
 ## Merge gate
 
 - Manifest and unit tests pass.
-- Canary delivery checks pass for all 24 R2 PDFs; production delivery is audited by
+- Canary delivery checks pass for all 25 R2 PDFs; production delivery is audited by
   the protected-branch workflow after merge.
 - A clean cache can hydrate and pass the full reference checker without secrets.
 - No generated study HTML contains cross-study `.md`/`.pdf` navigation or a removed

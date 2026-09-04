@@ -39,6 +39,9 @@ Author-hosted copies kept for quote verification.
 
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
+| **SEP Natural Law Ethics** | Murphy, M. "The Natural Law Tradition in Ethics." *Stanford Encyclopedia of Philosophy*, Winter 2024 archived edition. | https://plato.stanford.edu/entries/natural-law-ethics/ |
+| **SEP Theological Voluntarism** | Murphy, M. "Theological Voluntarism." *Stanford Encyclopedia of Philosophy*. | https://plato.stanford.edu/entries/voluntarism-theological/ |
+| **SEP Moral Psychology** | Doris, J. M., and Stich, S. "Moral Psychology: Empirical Approaches." *Stanford Encyclopedia of Philosophy*, Winter 2025 archived edition. | https://plato.stanford.edu/entries/moral-psych-emp/ |
 | **Curry, Mullins, and Whitehouse 2019** | Curry, O. S., Mullins, D. A., and Whitehouse, H. "Is It Good to Cooperate? Testing the Theory of Morality-as-Cooperation in 60 Societies." *Current Anthropology*, 60(1), 47?69. | https://ora.ox.ac.uk/objects/uuid:8dd8d82d-3829-4857-bcf4-eebf196d11be |
 | **Graham et al. 2013** | Graham, J., Haidt, J., Koleva, S., Motyl, M., Iyer, R., Wojcik, S. P., and Ditto, P. H. "Moral Foundations Theory: The Pragmatic Validity of Moral Pluralism." *Advances in Experimental Social Psychology*, 47, 55?130. | https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2184440 |
 | **Greene et al. 2001** | Greene, J. D., Sommerville, R. B., Nystrom, L. E., Darley, J. M., and Cohen, J. D. "An fMRI Investigation of Emotional Engagement in Moral Judgment." *Science*, 293(5537), 2105?2108. | https://www.science.org/doi/10.1126/science.1062872 |
