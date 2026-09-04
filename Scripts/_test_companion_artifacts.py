@@ -12,6 +12,8 @@ sys.path.insert(0, str(SCRIPTS))
 from _common import BASE
 from _companion_artifacts import OUTPUT, build_registry, render_registry
 
+SUBMISSIONS_PAGE = BASE / "Studies" / "submit.html"
+
 
 def test_checked_in_registry_matches_repository() -> None:
     assert OUTPUT.read_text(encoding="utf-8") == render_registry()
@@ -41,6 +43,17 @@ def test_registry_has_known_multi_artifact_studies() -> None:
     ontology = by_slug["The-Ontology-of-Coexistence"]
     assert "Technical-Note-Roop-Guna-Svabhava-Dharma.md" in ontology["notes"]
     assert len(ontology["presentations"]) >= 2
+
+
+def test_my_submissions_groups_updates_inside_each_study_card() -> None:
+    page = SUBMISSIONS_PAGE.read_text(encoding="utf-8")
+    assert "Update existing study files" not in page
+    assert 'class="submission-files"' in page
+    assert "function renderSubmissionFiles(item)" in page
+    assert "artifactUpdateUrl(item.slug, 'note', '__new__')" in page
+    assert "artifactUpdateUrl(item.slug, 'presentation', '__new__')" in page
+    assert "isDashboard || isUpdate" in page
+    assert "'Replace a presentation'" in page
 
 
 def main() -> int:

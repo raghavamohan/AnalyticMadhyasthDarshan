@@ -93,6 +93,25 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .submission-meta-item dt{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;color:var(--text-muted);margin:0 0 4px;}
 .submission-meta-item dd{margin:0;font-size:13px;line-height:1.35;}
 .submission-card-actions{display:flex;flex-wrap:wrap;gap:6px 8px;border-top:1px solid #efe9e1;padding-top:11px;margin:0;}
+.dashboard-intro{margin:4px 0 16px;}
+.dashboard-intro h2{font-size:20px;margin:0 0 3px;}
+.dashboard-intro p{font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--text-muted);margin:0;}
+.submission-files{border-top:1px solid #efe9e1;margin-top:2px;padding:10px 0 0;}
+.submission-files summary{display:flex;align-items:center;gap:8px;cursor:pointer;color:var(--text);font-size:13px;font-weight:600;list-style:none;}
+.submission-files summary::-webkit-details-marker{display:none;}
+.submission-files summary::before{content:'\25B8';color:var(--accent);font-size:12px;transition:transform .15s ease;}
+.submission-files[open] summary::before{transform:rotate(90deg);}
+.artifact-count{color:var(--text-muted);font-size:12px;font-weight:400;}
+.artifact-groups{display:flex;flex-direction:column;gap:12px;margin:12px 0 2px;}
+.artifact-group-title{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-muted);margin:0 0 5px;}
+.artifact-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px;}
+.artifact-row{display:grid;grid-template-columns:42px minmax(0,1fr) auto;align-items:center;gap:9px;background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:7px 8px;}
+.artifact-kind{font-size:10px;font-weight:700;letter-spacing:.03em;text-align:center;color:var(--accent);background:var(--accent-soft);border-radius:4px;padding:3px 4px;}
+.artifact-name{font-size:12px;line-height:1.35;overflow-wrap:anywhere;}
+.artifact-row .action-btn{margin:0;white-space:nowrap;}
+.artifact-add-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px;}
+.artifact-blocked{font-size:12px;color:var(--text-muted);margin:0;}
+.submission-files + .submission-card-actions{border-top:0;padding-top:10px;}
 .submission-card.skeleton-card{color:var(--text-muted);font-size:13px;min-height:88px;justify-content:center;}
 .stage-badge,.type-badge,.catalog-badge,.ci-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;white-space:nowrap;}
 .type-badge{background:#f1f3f4;color:#5f6368;}
@@ -109,10 +128,11 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .action-btn{font-family:var(--sans);font-size:12px;font-weight:600;padding:5px 10px;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;text-decoration:none;display:inline-block;margin:2px 4px 2px 0;}
 .action-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
 .action-btn:disabled{opacity:0.5;cursor:not-allowed;}
+.action-btn[aria-disabled="true"]{opacity:0.5;cursor:not-allowed;}
 .dashboard-empty{color:var(--text-muted);font-family:var(--sans);font-size:14px;margin:8px 0 0;}
 .dashboard-truncated{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin:12px 0 0;}
 .hidden{display:none !important;}
-@media (max-width:600px){.page{padding:18px 14px 44px;}h1{font-size:28px;}.hero-row .auth-btn{font-size:13px;padding:7px 12px;}.submission-card-meta{grid-template-columns:1fr 1fr;}}
+@media (max-width:600px){.page{padding:18px 14px 44px;}h1{font-size:28px;}.hero-row .auth-btn{font-size:13px;padding:7px 12px;}.submission-card-meta{grid-template-columns:1fr 1fr;}.artifact-row{grid-template-columns:38px minmax(0,1fr);}.artifact-row .action-btn{grid-column:2;justify-self:start;}}
 .review-box{font-family:var(--sans);font-size:14px;line-height:1.55;border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:20px;background:var(--accent-soft);}
 .review-box h3{font-size:15px;margin:0 0 10px;color:var(--text);}
 .review-box dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;}
@@ -148,8 +168,8 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 /* A reader who chose Dark elsewhere on the site arrives with data-theme
    already stamped by the head script; anyone who chose nothing follows
    their OS, and an explicit Light choice wins over a dark OS. */
-html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] label{color:#f5f1ec;}html[data-theme="dark"] .submission-card-title{color:#f5f1ec;}html[data-theme="dark"] .submission-card-actions{border-top-color:var(--border);}html[data-theme="dark"] input[type="text"],html[data-theme="dark"] input[type="file"],html[data-theme="dark"] select,html[data-theme="dark"] textarea,html[data-theme="dark"] input[type="number"]{background:#1e1b18;color:var(--text);}html[data-theme="dark"] button.submit-btn,html[data-theme="dark"] .action-btn.primary{color:#1a1815;}html[data-theme="dark"] .alert.success,html[data-theme="dark"] .proposal-status.approved,html[data-theme="dark"] .stage-merged,html[data-theme="dark"] .catalog-released,html[data-theme="dark"] .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html[data-theme="dark"] .alert.error,html[data-theme="dark"] .proposal-status.error,html[data-theme="dark"] .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html[data-theme="dark"] .step-strip .step.done{background:#133a20;color:#81c995;}html[data-theme="dark"] .md-preview{background:#1e1b18;}html[data-theme="dark"] .md-preview h1,html[data-theme="dark"] .md-preview h2,html[data-theme="dark"] .md-preview h3{color:#f5f1ec;}html[data-theme="dark"] .fmt-checklist{background:#1e1b18;}
-@media (prefers-color-scheme:dark){html:not([data-theme="light"]){--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html:not([data-theme="light"]) h1,html:not([data-theme="light"]) h2,html:not([data-theme="light"]) label{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-title{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-actions{border-top-color:var(--border);}html:not([data-theme="light"]) input[type="text"],html:not([data-theme="light"]) input[type="file"],html:not([data-theme="light"]) select,html:not([data-theme="light"]) textarea,html:not([data-theme="light"]) input[type="number"]{background:#1e1b18;color:var(--text);}html:not([data-theme="light"]) button.submit-btn,html:not([data-theme="light"]) .action-btn.primary{color:#1a1815;}html:not([data-theme="light"]) .alert.success,html:not([data-theme="light"]) .proposal-status.approved,html:not([data-theme="light"]) .stage-merged,html:not([data-theme="light"]) .catalog-released,html:not([data-theme="light"]) .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html:not([data-theme="light"]) .alert.error,html:not([data-theme="light"]) .proposal-status.error,html:not([data-theme="light"]) .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html:not([data-theme="light"]) .step-strip .step.done{background:#133a20;color:#81c995;}html:not([data-theme="light"]) .md-preview{background:#1e1b18;}html:not([data-theme="light"]) .md-preview h1,html:not([data-theme="light"]) .md-preview h2,html:not([data-theme="light"]) .md-preview h3{color:#f5f1ec;}html:not([data-theme="light"]) .fmt-checklist{background:#1e1b18;}}
+html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html[data-theme="dark"] h1,html[data-theme="dark"] h2,html[data-theme="dark"] label{color:#f5f1ec;}html[data-theme="dark"] .submission-card-title{color:#f5f1ec;}html[data-theme="dark"] .submission-card-actions,html[data-theme="dark"] .submission-files{border-top-color:var(--border);}html[data-theme="dark"] input[type="text"],html[data-theme="dark"] input[type="file"],html[data-theme="dark"] select,html[data-theme="dark"] textarea,html[data-theme="dark"] input[type="number"]{background:#1e1b18;color:var(--text);}html[data-theme="dark"] button.submit-btn,html[data-theme="dark"] .action-btn.primary{color:#1a1815;}html[data-theme="dark"] .alert.success,html[data-theme="dark"] .proposal-status.approved,html[data-theme="dark"] .stage-merged,html[data-theme="dark"] .catalog-released,html[data-theme="dark"] .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html[data-theme="dark"] .alert.error,html[data-theme="dark"] .proposal-status.error,html[data-theme="dark"] .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html[data-theme="dark"] .step-strip .step.done{background:#133a20;color:#81c995;}html[data-theme="dark"] .md-preview{background:#1e1b18;}html[data-theme="dark"] .md-preview h1,html[data-theme="dark"] .md-preview h2,html[data-theme="dark"] .md-preview h3{color:#f5f1ec;}html[data-theme="dark"] .fmt-checklist{background:#1e1b18;}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]){--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html:not([data-theme="light"]) h1,html:not([data-theme="light"]) h2,html:not([data-theme="light"]) label{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-title{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-actions,html:not([data-theme="light"]) .submission-files{border-top-color:var(--border);}html:not([data-theme="light"]) input[type="text"],html:not([data-theme="light"]) input[type="file"],html:not([data-theme="light"]) select,html:not([data-theme="light"]) textarea,html:not([data-theme="light"]) input[type="number"]{background:#1e1b18;color:var(--text);}html:not([data-theme="light"]) button.submit-btn,html:not([data-theme="light"]) .action-btn.primary{color:#1a1815;}html:not([data-theme="light"]) .alert.success,html:not([data-theme="light"]) .proposal-status.approved,html:not([data-theme="light"]) .stage-merged,html:not([data-theme="light"]) .catalog-released,html:not([data-theme="light"]) .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html:not([data-theme="light"]) .alert.error,html:not([data-theme="light"]) .proposal-status.error,html:not([data-theme="light"]) .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html:not([data-theme="light"]) .step-strip .step.done{background:#133a20;color:#81c995;}html:not([data-theme="light"]) .md-preview{background:#1e1b18;}html:not([data-theme="light"]) .md-preview h1,html:not([data-theme="light"]) .md-preview h2,html:not([data-theme="light"]) .md-preview h3{color:#f5f1ec;}html:not([data-theme="light"]) .fmt-checklist{background:#1e1b18;}}
 </style>
 </head>
 <body>
@@ -181,8 +201,7 @@ html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-mut
   <section id="dashboard-tab" class="tab-content active">
     <div class="section-card">
       <div class="hub-toolbar" id="hub-toolbar">
-        <a class="auth-btn primary" href="?tab=propose">Propose a new study</a>
-        <a class="auth-btn" href="?tab=submit&amp;mode=update">Update existing study files</a>
+        <a class="auth-btn primary" href="?tab=propose">New study proposal</a>
         <span class="hub-toolbar-spacer"></span>
         <button type="button" class="auth-btn" id="dashboard-refresh-btn" hidden>Refresh</button>
       </div>
@@ -199,8 +218,12 @@ html[data-theme="dark"]{--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-mut
       </div>
 
       <div id="dashboard-content" hidden>
+        <div class="dashboard-intro">
+          <h2>Your studies and proposals</h2>
+          <p>Proposal, review status, and every editable file stay together by study.</p>
+        </div>
         <ul class="submission-grid" id="dashboard-cards" aria-label="Your submissions"></ul>
-        <p class="dashboard-empty" id="dashboard-empty" hidden>No submissions yet. <a href="?tab=propose">Propose a new study</a> or <a href="?tab=submit&amp;mode=update">update files for an existing study</a>.</p>
+        <p class="dashboard-empty" id="dashboard-empty" hidden>No submissions yet. <a href="?tab=propose">Propose a new study</a>.</p>
         <p class="dashboard-truncated" id="dashboard-truncated" hidden>Showing your 20 most recent items. View all activity on <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pulls" target="_blank" rel="noopener">GitHub</a>.</p>
       </div>
     </div>
@@ -467,6 +490,9 @@ async function loadCompanionRegistry() {
     companionRegistry = data.studies;
     populateStudySlugOptions();
     refreshMappedArtifactControls();
+    if (dashboardCache && Array.isArray(dashboardCache.submissions)) {
+      renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
+    }
     return companionRegistry;
   })().catch((err) => {
     companionRegistryPromise = null;
@@ -746,15 +772,68 @@ function statusTargetForLabel(label) {
   return null;
 }
 
+function artifactUpdateUrl(slug, artifactType, target) {
+  const params = new URLSearchParams({ tab: 'submit', mode: 'update', slug, artifact: artifactType });
+  if (target) params.set('target', target);
+  return '?' + params.toString();
+}
+
+function artifactAction(slug, artifactType, target, blocked, label) {
+  if (blocked) {
+    return '<span class="action-btn" aria-disabled="true" title="Finish the open study change before starting another update">' +
+      escapeHtml(label) + '</span>';
+  }
+  return '<a class="action-btn" href="' + escapeHtml(artifactUpdateUrl(slug, artifactType, target)) + '">' +
+    escapeHtml(label) + '</a>';
+}
+
+function renderArtifactGroup(label, kind, files, slug, artifactType, blocked) {
+  if (!files.length) return '';
+  const rows = files.map((file) => {
+    const actionLabel = artifactType === 'presentation' ? 'Replace' : 'Edit';
+    return '<li class="artifact-row">' +
+      '<span class="artifact-kind" aria-hidden="true">' + escapeHtml(kind) + '</span>' +
+      '<span class="artifact-name">' + escapeHtml(file) + '</span>' +
+      artifactAction(slug, artifactType, artifactType === 'study' ? '' : file, blocked, actionLabel) +
+      '</li>';
+  }).join('');
+  return '<section class="artifact-group"><h3 class="artifact-group-title">' + escapeHtml(label) + '</h3>' +
+    '<ul class="artifact-list">' + rows + '</ul></section>';
+}
+
+function renderSubmissionFiles(item) {
+  const study = item.slug ? mappedStudy(item.slug) : null;
+  if (!study) return '';
+  const notes = Array.isArray(study.notes) ? study.notes : [];
+  const presentations = Array.isArray(study.presentations) ? study.presentations : [];
+  const fileCount = 1 + notes.length + presentations.length;
+  const blocked = Boolean(item.studyPrBlocked || item.statusChangeBlocked);
+  const groups = [
+    renderArtifactGroup('Study document', 'MD', [item.slug + '.md'], item.slug, 'study', blocked),
+    renderArtifactGroup('Technical and research notes', 'MD', notes, item.slug, 'note', blocked),
+    renderArtifactGroup('Presentations', 'PPTX', presentations, item.slug, 'presentation', blocked),
+  ].join('');
+  const addActions = blocked
+    ? '<p class="artifact-blocked">New file updates are available after the open study change is completed.</p>'
+    : '<div class="artifact-add-actions">' +
+      '<a class="action-btn" href="' + escapeHtml(artifactUpdateUrl(item.slug, 'note', '__new__')) + '">Add note</a>' +
+      '<a class="action-btn" href="' + escapeHtml(artifactUpdateUrl(item.slug, 'presentation', '__new__')) + '">Add presentation</a>' +
+      '</div>';
+  return '<details class="submission-files">' +
+    '<summary>Files and updates <span class="artifact-count">' + fileCount + ' file' + (fileCount === 1 ? '' : 's') + '</span></summary>' +
+    '<div class="artifact-groups">' + groups + addActions + '</div></details>';
+}
+
 function renderActionButtons(item) {
   const parts = [];
   const primary = item.primaryAction;
+  const mappedWorkspace = Boolean(item.slug && mappedStudy(item.slug));
   // A blocked primary action (e.g. "Status change in review") and the
   // "awaiting approval" link below both describe the same open PR -- render
   // only the clickable link and drop the redundant disabled placeholder.
   const hasStatusChangeLink = Boolean(item.statusChangeBlocked && item.statusChangePr);
   const hasStudyPrLink = Boolean(item.studyPrBlocked && item.studyPr);
-  if (primary) {
+  if (primary && !(mappedWorkspace && primary.label === 'Update study')) {
     let href = primary.href;
     if (primary.issueOnly && item.issueUrl) href = item.issueUrl;
     if (primary.prOnly && item.pullRequest) href = item.pullRequest.url;
@@ -798,13 +877,14 @@ function submissionCardAccentClass(stage) {
 }
 
 function buildSubmissionFields(item) {
+  const mappedWorkspace = Boolean(item.slug && mappedStudy(item.slug));
   let titleHtml = escapeHtml(item.title || '');
   if (item.issueNumber) {
     titleHtml = '<a href="' + escapeHtml(item.issueUrl) + '" target="_blank" rel="noopener">#' + item.issueNumber + '</a> ' + titleHtml;
   } else if (item.issueUrl) {
     titleHtml = '<a href="' + escapeHtml(item.issueUrl) + '" target="_blank" rel="noopener">' + titleHtml + '</a>';
   }
-  titleHtml = '<span class="type-badge">' + escapeHtml(item.kindLabel || 'Item') + '</span> ' + titleHtml;
+  titleHtml = '<span class="type-badge">' + escapeHtml(mappedWorkspace ? 'Study' : (item.kindLabel || 'Item')) + '</span> ' + titleHtml;
 
   const stageCell = '<span class="stage-badge ' + stageClass(item.stage) + '">' + escapeHtml(STAGE_LABELS[item.stage] || item.stage) + '</span>';
 
@@ -831,6 +911,7 @@ function buildSubmissionFields(item) {
     catalogCell,
     ciCell,
     prCell,
+    filesHtml: renderSubmissionFiles(item),
     actionsHtml: renderActionButtons(item),
     accentClass: submissionCardAccentClass(item.stage),
   };
@@ -859,6 +940,7 @@ function renderDashboardCards(submissions, truncated) {
       '<div class="submission-meta-item"><dt>CI</dt><dd>' + fields.ciCell + '</dd></div>' +
       '<div class="submission-meta-item"><dt>Pull request</dt><dd>' + fields.prCell + '</dd></div>' +
       '</dl>' +
+      fields.filesHtml +
       '<div class="submission-card-actions">' + fields.actionsHtml + '</div>';
     list.appendChild(li);
   });
@@ -946,9 +1028,13 @@ function titleToSlug(title) {
 
 function updateHubChrome(tabId) {
   const isDashboard = tabId === 'dashboard';
+  const isUpdate = tabId === 'submit' && !document.getElementById('s-new').checked;
   document.getElementById('hub-lead').hidden = !isDashboard;
   document.getElementById('hub-back-link').hidden = !isDashboard;
-  document.getElementById('step-strip').classList.toggle('hidden', isDashboard);
+  document.getElementById('step-strip').classList.toggle('hidden', isDashboard || isUpdate);
+  ['step-propose', 'step-wait', 'step-submit'].forEach((id) => {
+    document.getElementById(id).classList.remove('active', 'done');
+  });
   if (tabId === 'propose') {
     document.getElementById('step-propose').classList.add('active');
   } else if (tabId === 'submit' && document.getElementById('s-new').checked) {
@@ -972,6 +1058,7 @@ function configureSubmitView(mode) {
   }
   updateArtifactUi({ clearFile: true });
   toggleProposalField();
+  updateHubChrome('submit');
 }
 
 function selectedArtifactType() {
@@ -1013,6 +1100,15 @@ function updateArtifactUi(opts = {}) {
     ? 'Updates the canonical study and refreshes its Edited on timestamp.'
     : 'Adds or replaces a companion file without changing the canonical study timestamp.';
   document.getElementById('submit-lead').textContent = isNew ? config.leadNew : config.leadUpdate;
+  if (!isNew) {
+    const target = document.getElementById('s-target').value;
+    const heading = artifactType === 'study'
+      ? 'Update study document'
+      : artifactType === 'note'
+        ? (target === '__new__' ? 'Add a note' : 'Update a note')
+        : (target === '__new__' ? 'Add a presentation' : 'Replace a presentation');
+    document.getElementById('submit-heading').textContent = heading;
+  }
   document.getElementById('s-submit-btn').textContent = isNew
     ? 'Submit draft'
     : artifactType === 'note' ? 'Submit note' : artifactType === 'presentation' ? 'Submit presentation' : 'Submit update';
@@ -1464,6 +1560,7 @@ document.getElementById('s-target').addEventListener('change', async (event) => 
   document.getElementById('s-file').value = '';
   uploadedPresentation = null;
   setFileStatus('');
+  updateArtifactUi();
   if (!target) return;
   if (target === '__new__') {
     document.getElementById('s-file-label').textContent = ARTIFACT_CONFIG[artifactType].fileLabel;
