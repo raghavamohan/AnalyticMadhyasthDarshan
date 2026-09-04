@@ -398,6 +398,21 @@ def registry_row_for_slug(slug: str) -> dict | None:
     return None
 
 
+def registry_row_was_removed(base_ref: str, slug: str) -> bool:
+    """Whether this PR removes the last lifecycle record for an absent study."""
+    registry_rel = "Studies/proposal-registry.json"
+    if not any(path == registry_rel for _status, path in changed_paths(base_ref)):
+        return False
+    try:
+        before = json.loads(_git("show", f"{base_ref}:{registry_rel}"))
+    except json.JSONDecodeError:
+        return False
+    existed_before = any(
+        row.get("slug") == slug for row in before.get("proposals", [])
+    )
+    return existed_before and registry_row_for_slug(slug) is None
+
+
 def study_was_removed(base_ref: str, slug: str) -> bool:
     """Whether the PR completely deletes one study tree.
 
@@ -724,6 +739,10 @@ def handle_study_update(body: str, base_ref: str) -> None:
             if study_was_removed(base_ref, slug):
                 verify_removal_metadata(slug)
                 print(f"Validated complete study removal: {slug}")
+                continue
+            if registry_row_was_removed(base_ref, slug):
+                verify_removal_metadata(slug)
+                print(f"Validated metadata-only retirement cleanup: {slug}")
                 continue
             raise SystemExit(f"Study not found in catalog: {slug}")
 

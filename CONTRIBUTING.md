@@ -60,6 +60,14 @@ Maintainers review proposals for overlap, scope, and alignment with [Studies/REA
 
 When approved, My Submissions first shows **Preparing workspace**. Automation creates `Studies/<Slug>/<Slug>.md` (proposal stub), `.proposal-meta.json`, HTML, and PDF on a branch, verifies that branch, merges it, and then unlocks **Ready for draft**. The study slug is written to the issue as `### Slug` and locked for draft submission. Topical and Formal proposals both appear as **Planned**; neither exposes a public reader or download until the first draft is merged.
 
+Closing an unpublished proposal issue makes its My Submissions card **Retired**
+and locks first-draft submission for as long as the issue remains closed.
+Closing the issue does not itself delete a Planned workspace from the
+repository: if one exists, retire it through the normal `study-update` removal
+pull request so its directory, catalog row, and proposal metadata are removed
+together. A closed historical proposal for a study that is still Draft or
+Released continues to resolve to that live study.
+
 ---
 
 ## Step 3 — Submit a draft

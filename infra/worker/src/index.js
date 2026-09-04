@@ -661,6 +661,7 @@ function assertProposalSlugMatch(proposal, slug, registry) {
 function proposalWorkspaceReady(proposal, slug, registry, catalogMap) {
   const row = registryByIssue(registry, proposal?.number);
   return Boolean(
+    proposal?.state === 'open' &&
     row &&
     row.slug === slug &&
     row.phase === 'pre-catalog' &&
@@ -669,6 +670,11 @@ function proposalWorkspaceReady(proposal, slug, registry, catalogMap) {
 }
 
 function assertProposalWorkspaceReady(proposal, slug, registry, catalogMap) {
+  if (proposal?.state === 'closed') {
+    throw validationError(
+      'This proposal is closed and can no longer accept a draft. Reopen it before continuing.'
+    );
+  }
   if (proposalWorkspaceReady(proposal, slug, registry, catalogMap)) return;
   throw validationError(
     'This proposal is approved, but its Planned workspace is still being prepared. ' +
@@ -876,6 +882,13 @@ function submissionStage(issue, pullRequest, options = {}) {
   return 'pending';
 }
 
+function proposalIsRetired(issue, pullRequest, catalogStatus) {
+  const published = catalogStatus === 'draft' || catalogStatus === 'released';
+  const hasOpenPullRequest = pullRequest?.state === 'open';
+  const declined = issueLabels(issue || {}).includes('proposal-declined');
+  return Boolean(issue?.state === 'closed' && !declined && !published && !hasOpenPullRequest);
+}
+
 function prStageFromSearchItem(item) {
   if (item.state === 'open') {
     return 'pr-open';
@@ -1069,6 +1082,14 @@ function buildActions(
       statusUrl: null,
     };
   }
+  if (stage === 'retired' && issueNumber) {
+    return {
+      primaryAction: { label: 'View proposal', href: null, variant: 'secondary', issueOnly: true },
+      secondaryActions: [],
+      updateUrl: null,
+      statusUrl: null,
+    };
+  }
   if (stage === 'preparing' && issueNumber) {
     return {
       primaryAction: { label: 'Preparing workspace', href: null, variant: 'secondary', disabled: true },
@@ -1257,7 +1278,10 @@ async function buildDashboard(session, env) {
   for (const item of prItems) {
     prByNumber.set(item.number, item);
     const linked = parseProposalIssueFromBody(item.body);
-    if (linked) prByProposal.set(linked, item);
+    const existing = linked ? prByProposal.get(linked) : null;
+    if (linked && (!existing || (item.state === 'open' && existing.state !== 'open'))) {
+      prByProposal.set(linked, item);
+    }
   }
 
   const usedPrNumbers = new Set();
@@ -1270,10 +1294,13 @@ async function buildDashboard(session, env) {
     let prDetails = linkedItem ? summarizePullRequestFromSearch(linkedItem) : null;
     if (linkedItem) usedPrNumbers.add(linkedItem.number);
 
-    const preCatalog = Boolean(slug && preCatalogSlugs.has(slug));
+    const liveCatalogStatus = slug ? (catalogMap.get(slug) || null) : null;
+    const retired = proposalIsRetired(issue, linkedItem, liveCatalogStatus);
+    const preCatalog = Boolean(!retired && slug && preCatalogSlugs.has(slug));
     const registryRow = registryByIssue(proposalRegistry, issue.number);
-    const catalogStatus = slug ? (catalogMap.get(slug) || (preCatalog ? 'pre-catalog' : null)) : null;
+    const catalogStatus = liveCatalogStatus || (preCatalog ? 'pre-catalog' : null);
     const workspaceReady = Boolean(
+      !retired &&
       registryRow &&
       registryRow.slug === slug &&
       registryRow.phase === 'pre-catalog' &&
@@ -1283,6 +1310,7 @@ async function buildDashboard(session, env) {
       state: linkedItem.state,
       merged_at: linkedItem.pull_request?.merged_at,
     } : null, { workspaceReady });
+    if (retired) stage = 'retired';
     // A proposal whose study is already published (draft/released in the
     // catalog) is treated as merged so the dashboard offers "Submit new
     // version" and the status toggle, even when no portal PR is linked.
@@ -1321,6 +1349,7 @@ async function buildDashboard(session, env) {
       stage,
       catalogStatus,
       preCatalog,
+      retired,
       workspaceReady,
       studyPrBlocked,
       statusChangeBlocked: statusBlocked,
@@ -1751,6 +1780,7 @@ router.get('/api/proposal-status', async (request, env) => {
       title,
       slug,
       preCatalog,
+      closed: issue.state === 'closed',
       workspaceReady,
       catalogStatus: slug ? (catalogMap.get(slug) || null) : null,
       url: issue.html_url,
