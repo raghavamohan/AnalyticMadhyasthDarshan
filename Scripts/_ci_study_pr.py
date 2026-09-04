@@ -19,6 +19,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from _common import BASE, STUDIES, slug_from_repo_relative_path, study_md, write_text_lf
+from _companion_artifacts import write_registry as sync_companion_artifacts  # noqa: E402
 
 from _verify_studies_index import collect_index_errors  # noqa: E402
 from _check_references import run_checks, print_report  # noqa: E402
@@ -825,6 +826,10 @@ def main() -> None:
 
     HANDLERS[label](body, args.base_ref)
 
+    # Keep My Submissions' durable study -> note/deck inventory in the same PR.
+    # This is generated after lifecycle handling so additions, removals, renames,
+    # and status changes all see their final repository paths.
+    sync_companion_artifacts()
     verify_studies_index()
     print("Study PR pipeline completed successfully.")
 
