@@ -319,10 +319,13 @@ def check_live() -> None:
     if status != 200:
         fail(f"GET /api/start-here returned HTTP {status}: {body[:300]}")
     path = json.loads(body)
+    expected_path = load_json(STUDIES / "start-here.json")
+    if path != expected_path:
+        fail("live GET /api/start-here does not match Studies/start-here.json")
     cores = [stage.get("core", {}).get("slug") for stage in path.get("stages") or []]
     if "The-Ontology-of-Coexistence" not in cores:
         fail(f"GET /api/start-here missing ontology core: {body[:400]}")
-    print("OK: live GET /api/start-here returns the reading path.")
+    print("OK: live GET /api/start-here matches the canonical reading path.")
 
     status, _headers, body = fetch_live(f"{SITE}/api/cite/{slug}")
     if status != 200:

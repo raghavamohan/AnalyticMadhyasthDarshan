@@ -15,7 +15,12 @@ Production attaches the zone Workers Route
 
 ## Deploy
 
-From the repository root:
+Changes to the canonical indexes, reader or maintainer skills, publisher, or
+Worker are generated and checked on pull requests, then deployed automatically
+after merge to `master` by `agent-publications.yml`. The post-deploy job compares
+both live indexes and every advertised skill artifact with the canonical files.
+
+For an intentional manual deployment from the repository root:
 
 ```powershell
 python Scripts/_build_agent_skills_index.py
@@ -25,3 +30,5 @@ python Scripts/_test_agent_skills.py --live
 
 The publish script writes `src/index.js` (gitignored), uploads Worker
 `amd-agent-skills`, enables the workers.dev host, and upserts the redirect.
+Pass `--generate-only` to write and syntax-check the bundle without Cloudflare
+credentials or a deployment.

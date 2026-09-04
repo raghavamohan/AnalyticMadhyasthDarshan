@@ -26,10 +26,18 @@ routes and keeps only the homepage 301.
 
 ## Deploy
 
-From the repository root:
+Changes to the Server Card, Start Here data, runtime, or publisher are generated
+and checked on pull requests, then deployed automatically after merge to
+`master` by `agent-publications.yml`. The post-deploy job verifies the live card,
+MCP runtime, and exact canonical Start Here response.
+
+For an intentional manual deployment from the repository root:
 
 ```powershell
 python Scripts/_publish_mcp_server_card.py
 python Scripts/_test_mcp_server_card.py --live
 python Scripts/_test_studies_api.py --live
 ```
+
+Pass `--generate-only` to the publisher to write and syntax-check the gitignored
+bundle without Cloudflare credentials or a deployment.
