@@ -8,6 +8,8 @@ import tempfile
 from pathlib import Path
 
 from _reference_artifacts import (
+    ACTIVE_TRANSLATION_OUTPUT_PDFS,
+    ACTIVE_TRANSLATION_RETAINED_PDFS,
     ACTIVE_TRANSLATION_SOURCE_PDFS,
     SITE_OWNER_APPROVED_PATHS,
     build_initial_manifest,
@@ -32,10 +34,18 @@ def test_scope_and_translation_exceptions() -> None:
     by_rel = {
         entry["repo_path"].removeprefix("References/"): entry for entry in artifacts
     }
-    assert set(ACTIVE_TRANSLATION_SOURCE_PDFS) <= set(by_rel)
-    for rel in ACTIVE_TRANSLATION_SOURCE_PDFS:
+    assert set(ACTIVE_TRANSLATION_RETAINED_PDFS) <= set(by_rel)
+    for rel in ACTIVE_TRANSLATION_RETAINED_PDFS:
         assert by_rel[rel]["state"] == "git-retained"
         assert by_rel[rel]["target"]["storage"] == "git-retained-active-translation"
+    assert all(
+        by_rel[rel]["kind"] == "active-translation-source-pdf"
+        for rel in ACTIVE_TRANSLATION_SOURCE_PDFS
+    )
+    assert all(
+        by_rel[rel]["kind"] == "active-translation-output-pdf"
+        for rel in ACTIVE_TRANSLATION_OUTPUT_PDFS
+    )
     assert sum(
         entry["kind"] == "third-party-html-snapshot" for entry in artifacts
     ) == 12
