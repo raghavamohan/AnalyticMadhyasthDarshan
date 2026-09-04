@@ -79,6 +79,10 @@ The worker verifies `turnstileToken` on every write request before calling GitHu
 
 ## Deploy
 
+Changes under `infra/worker/` are bundle-checked on pull requests and deployed
+automatically after merge to `master` by `submission-worker-deploy.yml`.
+For an intentional manual redeploy:
+
 ```powershell
 npx wrangler deploy
 ```
