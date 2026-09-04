@@ -104,11 +104,11 @@ After deploy, confirm the OAuth app callback URL matches `https://api.analyticma
 | `GET /api/auth/callback` | — | OAuth callback; sets session cookie |
 | `GET /api/auth/me` | cookie | `{ loggedIn, login }` |
 | `POST /api/auth/logout` | cookie | Clear session |
-| `GET /api/me/submissions` | cookie | Unified dashboard: proposals (pending/preparing/ready/declined), Planned/catalog status, PRs, CI, row actions |
+| `GET /api/me/submissions` | cookie | Unified dashboard: proposals (pending/preparing/ready/declined/retired), Planned/catalog status, PRs, CI, row actions |
 | `GET /api/me/notifications` | cookie | `{ configured, email, enabled }` notification preferences |
 | `POST /api/me/notifications` | cookie | Update notification `email` / `enabled` |
 | `POST /api/propose` | cookie + Turnstile | Create a `study-proposal` issue **as the signed-in user** |
-| `GET /api/proposal-status?issue=N` | optional | Approval/declined status, locked slug, `workspaceReady`, and `ownedByYou` when signed in |
+| `GET /api/proposal-status?issue=N` | optional | Approval/declined/closed status, locked slug, `workspaceReady`, and `ownedByYou` when signed in |
 | `GET /api/study-artifacts?slug=Slug` | — | Durable editable-study mapping, including every registered note and presentation; omit `slug` for the complete mapping |
 | `GET /api/study-source?slug=Slug` | — | Current published study Markdown, or a registered note when `artifactType=note&fileName=...` |
 | `GET /api/revision-source?pr=N` | cookie | Load the signed-in contributor's open first-draft PR Markdown for an in-place revision |
@@ -119,6 +119,13 @@ After deploy, confirm the OAuth app callback URL matches `https://api.analyticma
 | `POST /api/notify` | `X-Notify-Secret` | Called by the `portal-notify.yml` workflow to email a contributor on approval/decline/merge |
 
 For new studies, `/api/submit` requires `proposalIssue`, accepts only the canonical study Markdown, verifies `proposal-approved`, checks the signed-in user owns the proposal issue, and requires the verified Planned workspace before accepting a draft. Proposal creation validates required fields and rejects slugs already used by an open proposal, approved proposal, Planned row, or published study. Existing studies resolve through `Studies/companion-artifacts.json`, not the contributor's issue history, and may submit `artifactType: "study"`, `"note"`, or `"presentation"` only after the same ownership check used by deletion and status changes. Selecting an existing note or presentation preserves its mapped destination filename even if the local replacement has a different name. A previously unknown presentation source is also added to `Scripts/presentation-pipeline.json`, with collision-safe output names, so presentation CI validates it. Markdown is limited to 2 MB and normalized to LF; base64-decoded presentations are limited to 10 MB. PR bodies include `Portal-GitHub: @login` so submissions can be correlated in search. GitHub PR search remains only as a concurrency guard that prevents two open updates from changing the same study at once.
+
+A closed proposal cannot submit a first draft. When it has no live Draft or
+Released catalog row and no open pull request, the dashboard marks it
+**Retired** even if an old merged PR or `proposal-approved` label remains in
+GitHub history. Closing the issue is a portal-state action, not a repository
+deletion; any surviving Planned directory, catalog row, or registry entry must
+still be removed through the study-removal workflow.
 
 When review requests changes on a portal-created `new-study` PR, My Submissions offers **Revise draft**. `GET /api/revision-source` loads the Markdown from that PR's head branch, and `POST /api/revise` writes the revision back to the same branch. Both routes require the portal submitter marker, an open PR, the `new-study` label, and a same-repository head branch.
 

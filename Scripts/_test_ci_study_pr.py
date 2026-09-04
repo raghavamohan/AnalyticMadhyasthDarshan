@@ -12,6 +12,7 @@ Run from the repository root:
 """
 from __future__ import annotations
 
+import json
 import sys
 import tempfile
 from pathlib import Path
@@ -204,6 +205,33 @@ def test_study_was_removed_requires_a_complete_deletion() -> None:
         [("M", "Studies/README.md")],
         lambda: ci.study_was_removed("origin/master", slug),
     ) is False
+
+
+def test_registry_row_removal_counts_as_retirement_cleanup() -> None:
+    slug = "Metadata-Only-Study"
+    registry = {
+        "version": 1,
+        "proposals": [{"slug": slug, "phase": "pre-catalog"}],
+    }
+    original_git = ci._git
+    original_lookup = ci.registry_row_for_slug
+
+    def fake_git(*args: str) -> str:
+        if "--name-status" in args:
+            return "M\tStudies/proposal-registry.json\n"
+        if args[:1] == ("show",):
+            return json.dumps(registry)
+        raise AssertionError(f"Unexpected git call: {args}")
+
+    ci._git = fake_git
+    ci.registry_row_for_slug = lambda _slug: None
+    ci.changed_paths.cache_clear()
+    try:
+        assert ci.registry_row_was_removed("origin/master", slug) is True
+    finally:
+        ci._git = original_git
+        ci.registry_row_for_slug = original_lookup
+        ci.changed_paths.cache_clear()
 
 
 def test_portal_study_deletion_runs_supported_lifecycle() -> None:

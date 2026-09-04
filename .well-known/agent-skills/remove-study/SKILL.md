@@ -49,6 +49,12 @@ Use the slug without extension (e.g. `The-Ontology-of-Coexistence`).
 Ongoing placeholders (italic, no public PDF) are supported — their directory,
 catalog row, and proposal-registry row are removed.
 
+The command also supports **metadata-only cleanup** when an earlier removal
+already deleted the directory and catalog row but left the slug in
+`Studies/proposal-registry.json` or `Scripts/presentation-pipeline.json`. In
+that case, use the same slug with `--dry-run` first and then `--yes`; the tool
+removes only the surviving metadata and does not rewrite reference catalogs.
+
 ## After removal
 
 1. **Remove or retarget cross-links in the same PR** — CI rejects any remaining

@@ -230,6 +230,67 @@ def test_remove_registry_row_prevents_proposal_recreation() -> None:
         assert [row["slug"] for row in data["proposals"]] == ["Keep"]
 
 
+def test_remove_study_cleans_metadata_after_directory_and_catalog_are_gone() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        base = Path(tmp)
+        studies = base / "Studies"
+        applications = base / "Applications"
+        scripts = base / "Scripts"
+        studies.mkdir()
+        applications.mkdir()
+        scripts.mkdir()
+        registry = studies / "proposal-registry.json"
+        registry.write_text(
+            json.dumps(
+                {
+                    "version": 1,
+                    "proposals": [
+                        {"slug": "Keep"},
+                        {
+                            "slug": "Removed-App",
+                            "phase": "pre-catalog",
+                            "applied": True,
+                        },
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        presentation_manifest = scripts / "presentation-pipeline.json"
+        presentation_manifest.write_text(
+            json.dumps(
+                {
+                    "schemaVersion": 1,
+                    "decks": [
+                        {"source": "Applications/Removed-App/Deck.pptx"},
+                        {"source": "Studies/Keep/Deck.pptx"},
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+
+        with swapped(
+            remove,
+            BASE=base,
+            STUDIES=studies,
+            APPLICATIONS=applications,
+            PROPOSAL_REGISTRY_PATH=registry,
+            PRESENTATION_MANIFEST_PATH=presentation_manifest,
+            find_study_table=lambda _slug: None,
+        ):
+            remove.remove_study("Removed-App", dry_run=True, assume_yes=True)
+            assert len(json.loads(registry.read_text(encoding="utf-8"))["proposals"]) == 2
+            remove.remove_study("Removed-App", dry_run=False, assume_yes=True)
+
+        data = json.loads(registry.read_text(encoding="utf-8"))
+        assert [row["slug"] for row in data["proposals"]] == ["Keep"]
+        manifest_data = json.loads(presentation_manifest.read_text(encoding="utf-8"))
+        assert [deck["source"] for deck in manifest_data["decks"]] == [
+            "Studies/Keep/Deck.pptx"
+        ]
+
+
 def test_remove_study_unregisters_its_presentations() -> None:
     with tempfile.TemporaryDirectory() as tmp:
         base = Path(tmp)
