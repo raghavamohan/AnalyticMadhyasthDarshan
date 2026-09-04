@@ -639,6 +639,23 @@ def handle_new_study(body: str, base_ref: str) -> None:
 
 
 def handle_study_update(body: str, base_ref: str) -> None:
+    operation = (parse_body_field(body, r"^Operation:\s*([a-z-]+)") or "").lower()
+    if operation == "delete-study":
+        slug = resolve_slug(body, base_ref, allow_changed=True)
+        reject_other_study_changes(base_ref, {slug}, "study-update")
+        command = [
+            sys.executable,
+            str(SCRIPTS / "_remove_study.py"),
+            slug,
+            "--yes",
+        ]
+        print("Running:", " ".join(command))
+        subprocess.run(command, check=True, cwd=BASE)
+        verify_removal_metadata(slug)
+        run_reference_checks(full_repo=True)
+        print(f"Prepared complete study removal: {slug}")
+        return
+
     renames = detect_study_renames(base_ref)
     rename_targets = {new_slug for _old_slug, new_slug in renames}
     rename_sources = {old_slug for old_slug, _new_slug in renames}

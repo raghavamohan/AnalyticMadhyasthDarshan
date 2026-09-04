@@ -230,6 +230,37 @@ def test_remove_registry_row_prevents_proposal_recreation() -> None:
         assert [row["slug"] for row in data["proposals"]] == ["Keep"]
 
 
+def test_remove_study_unregisters_its_presentations() -> None:
+    with tempfile.TemporaryDirectory() as tmp:
+        base = Path(tmp)
+        study_directory = base / "Studies" / "Remove-Me"
+        study_directory.mkdir(parents=True)
+        manifest = base / "Scripts" / "presentation-pipeline.json"
+        manifest.parent.mkdir()
+        manifest.write_text(
+            json.dumps(
+                {
+                    "schemaVersion": 1,
+                    "decks": [
+                        {"id": "remove", "source": "Studies/Remove-Me/Deck.pptx"},
+                        {"id": "keep", "source": "Studies/Keep/Deck.pptx"},
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        with swapped(remove, BASE=base, PRESENTATION_MANIFEST_PATH=manifest):
+            assert remove.remove_presentation_manifest_entries(
+                "Remove-Me", dry_run=True, directory=study_directory
+            ) == 1
+            assert len(json.loads(manifest.read_text(encoding="utf-8"))["decks"]) == 2
+            assert remove.remove_presentation_manifest_entries(
+                "Remove-Me", dry_run=False, directory=study_directory
+            ) == 1
+        remaining = json.loads(manifest.read_text(encoding="utf-8"))["decks"]
+        assert [deck["id"] for deck in remaining] == ["keep"]
+
+
 def test_manifest_removal_preserves_other_citations() -> None:
     aliases = {"Why-Humans", "Why-Humans-Are-Not-Just-Material"}
     assert remove.strip_cited_in("Why-Humans, Aesthetics", aliases) == "Aesthetics"

@@ -81,7 +81,7 @@ The portal opens one **new-study** pull request at a time per slug. If a draft P
 
 ### Update an existing study or change status
 
-From **My Submissions**, each of your studies has one card for its proposal, review status, release status, and editable files. Expand **Files and updates** on that card to edit the study document, replace a mapped technical/research note or presentation, or add a new companion file. The mapped file list is independent of historical proposal issues or pull requests.
+From **My Submissions**, each of your studies has one card for its proposal, review status, release status, and editable files. Expand **Manage files** on that card to edit the study document, replace a mapped technical/research note or presentation, add a new companion file, or request deletion of a file. Deleting the complete study requires typing its slug; every deletion opens a `study-update` pull request and takes effect only after maintainer approval and merge. The mapped file list is independent of historical proposal issues or pull requests.
 
 - **Study Markdown (`.md`)** — choose a UTF-8 file, click **Load current content**, or work directly in the editor.
 - **Technical or research note (`.md`)** — select an existing mapped note to load and edit it, or add a file named `Technical-Note-Topic.md` or `Research-Note-Topic.md`.

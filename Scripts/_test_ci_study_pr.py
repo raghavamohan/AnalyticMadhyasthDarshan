@@ -206,6 +206,39 @@ def test_study_was_removed_requires_a_complete_deletion() -> None:
     ) is False
 
 
+def test_portal_study_deletion_runs_supported_lifecycle() -> None:
+    calls: list[tuple[str, object]] = []
+    originals = {
+        "resolve_slug": ci.resolve_slug,
+        "reject_other_study_changes": ci.reject_other_study_changes,
+        "verify_removal_metadata": ci.verify_removal_metadata,
+        "run_reference_checks": ci.run_reference_checks,
+        "subprocess_run": ci.subprocess.run,
+    }
+    try:
+        ci.resolve_slug = lambda *_args, **_kwargs: "Remove-Me"
+        ci.reject_other_study_changes = lambda *_args, **_kwargs: calls.append(("scope", None))
+        ci.verify_removal_metadata = lambda slug: calls.append(("verify", slug))
+        ci.run_reference_checks = lambda **kwargs: calls.append(("references", kwargs))
+        ci.subprocess.run = lambda command, **_kwargs: calls.append(("run", command))
+        ci.handle_study_update(
+            "Study slug: Remove-Me\nOperation: delete-study\n",
+            "origin/master",
+        )
+    finally:
+        ci.resolve_slug = originals["resolve_slug"]
+        ci.reject_other_study_changes = originals["reject_other_study_changes"]
+        ci.verify_removal_metadata = originals["verify_removal_metadata"]
+        ci.run_reference_checks = originals["run_reference_checks"]
+        ci.subprocess.run = originals["subprocess_run"]
+
+    run_command = next(value for name, value in calls if name == "run")
+    assert str(run_command[1]).endswith("_remove_study.py")
+    assert run_command[-2:] == ["Remove-Me", "--yes"]
+    assert ("verify", "Remove-Me") in calls
+    assert ("references", {"full_repo": True}) in calls
+
+
 def test_references_changed() -> None:
     assert _with_diff([("M", "References/MANIFEST.md")],
                       lambda: ci.references_changed("origin/master")) is True
