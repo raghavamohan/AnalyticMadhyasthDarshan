@@ -117,7 +117,7 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .submission-card.skeleton-card{color:var(--text-muted);font-size:13px;min-height:88px;justify-content:center;}
 .stage-badge,.type-badge,.catalog-badge,.ci-badge{display:inline-block;padding:3px 10px;border-radius:999px;font-size:11px;font-weight:600;white-space:nowrap;}
 .type-badge{background:#f1f3f4;color:#5f6368;}
-.stage-pending{background:var(--warm-soft);color:var(--warm);}
+.stage-pending,.stage-preparing{background:var(--warm-soft);color:var(--warm);}
 .stage-approved{background:var(--accent-soft);color:var(--accent);}
 .stage-pr-open{background:#e8f0fe;color:#1967d2;}
 .stage-merged{background:#e6f4ea;color:#1e8e3e;}
@@ -230,7 +230,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
         </div>
         <ul class="submission-grid" id="dashboard-cards" aria-label="Your submissions"></ul>
         <p class="dashboard-empty" id="dashboard-empty" hidden>No submissions yet. <a href="?tab=propose">Propose a new study</a>.</p>
-        <p class="dashboard-truncated" id="dashboard-truncated" hidden>Showing your 20 most recent items. View all activity on <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pulls" target="_blank" rel="noopener">GitHub</a>.</p>
+        <p class="dashboard-truncated" id="dashboard-truncated" hidden>Showing recent items. Older activity remains available on <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pulls" target="_blank" rel="noopener">GitHub</a>.</p>
       </div>
     </div>
   </section>
@@ -253,7 +253,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
         <div class="form-group">
           <label for="p-title">Proposed title *</label>
           <div class="help-text">Human-readable title. The file slug is derived from this.</div>
-          <input type="text" id="p-title" required placeholder="The Ontology of Coexistence">
+          <input type="text" id="p-title" required maxlength="160" placeholder="The Ontology of Coexistence">
           <div class="slug-preview" id="p-slug-preview" hidden>File will be <code>Studies/<span id="p-slug-value"></span>/<span id="p-slug-value2"></span>.md</code></div>
         </div>
 
@@ -284,12 +284,12 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 
         <div class="form-group">
           <label for="p-desc">One-line description *</label>
-          <textarea id="p-desc" rows="2" required placeholder="Madhyasth Darshan and modern philosophy on whether existence begins"></textarea>
+          <textarea id="p-desc" rows="2" required maxlength="600" placeholder="Madhyasth Darshan and modern philosophy on whether existence begins"></textarea>
         </div>
 
         <div class="form-group">
           <label for="p-summary">Study summary *</label>
-          <textarea id="p-summary" rows="5" required placeholder="Question: ...&#10;Primary texts: MVD, SB, ...&#10;Scope: ..."></textarea>
+          <textarea id="p-summary" rows="5" required maxlength="6000" placeholder="Question: ...&#10;Primary texts: MVD, SB, ...&#10;Scope: ..."></textarea>
         </div>
 
         <div class="form-group">
@@ -369,6 +369,8 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 
         <input type="checkbox" id="s-new" checked hidden>
         <input type="hidden" id="s-new-group" hidden>
+        <input type="hidden" id="s-mode" value="new">
+        <input type="hidden" id="s-pr" value="">
 
         <div class="form-group" id="s-proposal-group">
           <label for="s-proposal-select">Approved proposal *</label>
@@ -438,6 +440,8 @@ let dashboardCacheAt = 0;
 let uploadedPresentation = null;
 let companionRegistry = null;
 let companionRegistryPromise = null;
+let proposalWorkspaceReady = false;
+let revisionLoadedForPr = null;
 
 const MAX_MARKDOWN_BYTES = 2 * 1024 * 1024;
 const MAX_PRESENTATION_BYTES = 10 * 1024 * 1024;
@@ -580,7 +584,8 @@ function refreshMappedArtifactControls() {
 
 const STAGE_LABELS = {
   pending: 'Awaiting review',
-  approved: 'Approved',
+  approved: 'Preparing workspace',
+  preparing: 'Preparing workspace',
   accepted: 'Ready for draft',
   declined: 'Declined',
   'pr-open': 'Awaiting approval',
@@ -615,7 +620,8 @@ function showCookiesBlockedHint() {
 }
 
 function stageClass(stage) {
-  if (stage === 'approved' || stage === 'accepted') return 'stage-approved';
+  if (stage === 'accepted') return 'stage-approved';
+  if (stage === 'approved' || stage === 'preparing') return 'stage-preparing';
   if (stage === 'pr-open' || stage === 'changes_requested') return 'stage-pr-open';
   if (stage === 'merged') return 'stage-merged';
   if (stage === 'pending') return 'stage-pending';
@@ -658,6 +664,7 @@ function updateAuthUi(loggedIn) {
     authBtn.setAttribute('aria-label', 'Sign in with GitHub');
   }
   document.getElementById('dashboard-refresh-btn').hidden = !loggedIn;
+  updateSubmitAvailability();
 }
 
 async function refreshAuthState() {
@@ -690,8 +697,10 @@ async function refreshAuthState() {
     if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
       loadDashboard();
     }
-    if (currentUser && document.getElementById('submit-tab').classList.contains('active') && document.getElementById('s-new').checked) {
-      ensureProposalOptions();
+    if (currentUser && document.getElementById('submit-tab').classList.contains('active')) {
+      const mode = document.getElementById('s-mode').value;
+      if (mode === 'new') ensureProposalOptions();
+      if (mode === 'revise') loadRevisionSource();
     }
   } catch (err) {
     updateAuthUi(false);
@@ -890,7 +899,8 @@ function renderActionButtons(item) {
 function submissionCardAccentClass(stage) {
   if (stage === 'merged') return 'submission-card--merged';
   if (stage === 'pr-open' || stage === 'changes_requested') return 'submission-card--pr-open';
-  if (stage === 'approved' || stage === 'accepted') return 'submission-card--approved';
+  if (stage === 'accepted') return 'submission-card--approved';
+  if (stage === 'approved' || stage === 'preparing') return 'submission-card--pending';
   if (stage === 'pending') return 'submission-card--pending';
   return 'submission-card--closed';
 }
@@ -909,6 +919,7 @@ function buildSubmissionFields(item) {
 
   let catalogCell = '—';
   if (item.catalogStatus === 'pre-catalog') catalogCell = '<span class="catalog-badge stage-pending">Pre-catalog</span>';
+  if (item.catalogStatus === 'ongoing') catalogCell = '<span class="catalog-badge stage-pending">Planned</span>';
   if (item.catalogStatus === 'draft') catalogCell = '<span class="catalog-badge catalog-draft">Draft</span>';
   if (item.catalogStatus === 'released') catalogCell = '<span class="catalog-badge catalog-released">Released</span>';
 
@@ -1096,7 +1107,7 @@ function titleToSlug(title) {
 
 function updateHubChrome(tabId) {
   const isDashboard = tabId === 'dashboard';
-  const isUpdate = tabId === 'submit' && !document.getElementById('s-new').checked;
+  const isUpdate = tabId === 'submit' && document.getElementById('s-mode').value !== 'new';
   document.getElementById('hub-lead').hidden = !isDashboard;
   document.getElementById('hub-back-link').hidden = !isDashboard;
   document.getElementById('step-strip').classList.toggle('hidden', isDashboard || isUpdate);
@@ -1113,20 +1124,36 @@ function updateHubChrome(tabId) {
 }
 
 function configureSubmitView(mode) {
-  const isUpdate = mode === 'update';
-  document.getElementById('s-new').checked = !isUpdate;
-  document.getElementById('s-new-group').hidden = isUpdate;
+  const normalizedMode = mode === 'revise' ? 'revise' : mode === 'update' ? 'update' : 'new';
+  const isNew = normalizedMode === 'new';
+  const isUpdate = normalizedMode === 'update';
+  const isRevision = normalizedMode === 'revise';
+  document.getElementById('s-mode').value = normalizedMode;
+  document.getElementById('s-new').checked = isNew;
+  document.getElementById('s-new-group').hidden = !isNew;
   document.getElementById('s-artifact-group').hidden = !isUpdate;
   if (!isUpdate) document.getElementById('s-artifact').value = 'study';
-  document.getElementById('submit-heading').textContent = isUpdate ? 'Update a study' : 'Submit a draft';
+  document.getElementById('submit-heading').textContent = isRevision
+    ? 'Revise your draft'
+    : isUpdate ? 'Update a study' : 'Submit a draft';
   if (!isUpdate) {
     const statusEl = document.getElementById('s-load-source-status');
-    statusEl.style.display = 'none';
-    statusEl.textContent = '';
+    if (!isRevision) {
+      statusEl.style.display = 'none';
+      statusEl.textContent = '';
+    }
   }
   updateArtifactUi({ clearFile: true });
   toggleProposalField();
   updateHubChrome('submit');
+}
+
+function updateSubmitAvailability() {
+  const btn = document.getElementById('s-submit-btn');
+  if (!btn) return;
+  const mode = document.getElementById('s-mode').value;
+  const revisionReady = mode !== 'revise' || revisionLoadedForPr === document.getElementById('s-pr').value;
+  btn.disabled = !currentUser || (mode === 'new' && !proposalWorkspaceReady) || !revisionReady;
 }
 
 function selectedArtifactType() {
@@ -1140,8 +1167,10 @@ function setFileStatus(message, className) {
 }
 
 function updateArtifactUi(opts = {}) {
-  const isNew = document.getElementById('s-new').checked;
-  const artifactType = isNew ? 'study' : selectedArtifactType();
+  const mode = document.getElementById('s-mode').value;
+  const isNew = mode === 'new';
+  const isRevision = mode === 'revise';
+  const artifactType = isNew || isRevision ? 'study' : selectedArtifactType();
   const config = ARTIFACT_CONFIG[artifactType];
   const fileInput = document.getElementById('s-file');
   const content = document.getElementById('s-content');
@@ -1163,12 +1192,14 @@ function updateArtifactUi(opts = {}) {
   document.getElementById('s-editor-guide').hidden = artifactType !== 'study';
   document.getElementById('s-format-checklist').hidden = artifactType !== 'study';
   content.required = !isPresentation;
-  document.getElementById('s-load-source').hidden = isNew || artifactType !== 'study';
+  document.getElementById('s-load-source').hidden = isNew || isRevision || artifactType !== 'study';
   document.getElementById('s-artifact-help').textContent = artifactType === 'study'
     ? 'Updates the canonical study and refreshes its Edited on timestamp.'
     : 'Adds or replaces a companion file without changing the canonical study timestamp.';
-  document.getElementById('submit-lead').textContent = isNew ? config.leadNew : config.leadUpdate;
-  if (!isNew) {
+  document.getElementById('submit-lead').textContent = isRevision
+    ? 'Update the draft already attached to this pull request. Submitting commits to the same branch and reruns CI.'
+    : isNew ? config.leadNew : config.leadUpdate;
+  if (!isNew && !isRevision) {
     const target = document.getElementById('s-target').value;
     const heading = artifactType === 'study'
       ? 'Update study document'
@@ -1177,10 +1208,12 @@ function updateArtifactUi(opts = {}) {
         : (target === '__new__' ? 'Add a presentation' : 'Replace a presentation');
     document.getElementById('submit-heading').textContent = heading;
   }
-  document.getElementById('s-submit-btn').textContent = isNew
-    ? 'Submit draft'
+  document.getElementById('s-submit-btn').textContent = isRevision
+    ? 'Update draft pull request'
+    : isNew ? 'Submit draft'
     : artifactType === 'note' ? 'Submit note' : artifactType === 'presentation' ? 'Submit presentation' : 'Submit update';
   refreshMappedArtifactControls();
+  updateSubmitAvailability();
 }
 
 function arrayBufferToBase64(buffer) {
@@ -1286,6 +1319,33 @@ async function loadStudySource(opts = {}) {
   } catch (err) {
     if (!opts.silent) showStatus(err.message);
     else statusEl.style.display = 'none';
+    return false;
+  }
+}
+
+async function loadRevisionSource() {
+  const prNumber = document.getElementById('s-pr').value;
+  if (!prNumber || revisionLoadedForPr === prNumber || !currentUser) return false;
+  const statusEl = document.getElementById('s-load-source-status');
+  statusEl.style.display = 'block';
+  statusEl.textContent = 'Loading the draft from pull request #' + prNumber + '…';
+  updateSubmitAvailability();
+  try {
+    const res = await apiFetch('/api/revision-source?pr=' + encodeURIComponent(prNumber));
+    const data = await res.json();
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not load the pull-request draft.');
+    document.getElementById('s-slug').value = data.slug;
+    document.getElementById('s-slug').readOnly = true;
+    document.getElementById('s-content').value = data.content;
+    revisionLoadedForPr = String(data.prNumber);
+    setEditorMode('write');
+    scheduleDraftSave();
+    statusEl.textContent = 'Loaded pull request #' + data.prNumber + '. Your submission will update this same pull request.';
+    updateSubmitAvailability();
+    return true;
+  } catch (err) {
+    statusEl.textContent = err.message;
+    updateSubmitAvailability();
     return false;
   }
 }
@@ -1440,7 +1500,7 @@ function toggleProposalField() {
 function approvedProposalsFromCache() {
   if (!dashboardCache || !Array.isArray(dashboardCache.submissions)) return [];
   return dashboardCache.submissions.filter(
-    (item) => item.kind === 'proposal' && (item.stage === 'approved' || item.stage === 'accepted')
+    (item) => item.kind === 'proposal' && item.stage === 'accepted' && item.workspaceReady
   );
 }
 
@@ -1484,6 +1544,7 @@ async function ensureProposalOptions(force) {
 
 function setProposalValue(value) {
   if (!value) return;
+  proposalWorkspaceReady = false;
   const input = document.getElementById('s-proposal');
   const sel = document.getElementById('s-proposal-select');
   input.value = value;
@@ -1496,10 +1557,12 @@ function setProposalValue(value) {
 }
 
 function hideProposalStatus() {
+  proposalWorkspaceReady = false;
   const el = document.getElementById('proposal-status');
   el.style.display = 'none';
   el.className = 'proposal-status';
   el.textContent = '';
+  updateSubmitAvailability();
 }
 
 function showProposalStatus(className, message) {
@@ -1515,6 +1578,8 @@ async function checkProposalStatus() {
   const isNew = document.getElementById('s-new').checked;
   const issueNumber = Number(document.getElementById('s-proposal').value);
   if (!isNew || !issueNumber || issueNumber < 1) { hideProposalStatus(); return; }
+  proposalWorkspaceReady = false;
+  updateSubmitAvailability();
   showProposalStatus('loading', 'Checking proposal approval status…');
   try {
     const res = await apiFetch('/api/proposal-status?issue=' + issueNumber);
@@ -1526,16 +1591,24 @@ async function checkProposalStatus() {
     }
     if (data.approved) {
       let msg = 'Proposal <strong>#' + issueNumber + '</strong> is approved.';
-      if (data.preCatalog) msg += ' Pre-catalog stub is ready — you may submit your draft.';
       if (data.slug) {
         msg += ' Locked slug: <code>' + escapeHtml(data.slug) + '</code>.';
         document.getElementById('s-slug').value = data.slug;
         document.getElementById('s-slug').readOnly = true;
       }
-      showProposalStatus('approved', msg);
+      proposalWorkspaceReady = Boolean(data.workspaceReady);
+      if (proposalWorkspaceReady) {
+        msg += ' Planned workspace is ready — you may submit your draft.';
+        showProposalStatus('approved', msg);
+      } else {
+        msg += ' The Planned workspace is still being prepared. Refresh My Submissions shortly.';
+        showProposalStatus('pending', msg);
+      }
+      updateSubmitAvailability();
     } else {
       document.getElementById('s-slug').readOnly = false;
       showProposalStatus('pending', 'Proposal <strong>#' + issueNumber + '</strong> is not approved yet.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View issue</a>' : ''));
+      updateSubmitAvailability();
     }
   } catch (err) {
     showProposalStatus('error', escapeHtml(err.message));
@@ -1572,13 +1645,20 @@ function applyQueryParams() {
   if (tab === 'propose') switchTab('propose', false);
   else if (tab === 'submit') {
     switchTab('submit', false);
-    const isUpdate = params.get('mode') === 'update';
-    configureSubmitView(isUpdate ? 'update' : 'new');
+    const requestedMode = params.get('mode');
+    const mode = requestedMode === 'revise' ? 'revise' : requestedMode === 'update' ? 'update' : 'new';
+    const isUpdate = mode === 'update';
+    configureSubmitView(mode);
     if (isUpdate && ARTIFACT_CONFIG[params.get('artifact')]) {
       document.getElementById('s-artifact').value = params.get('artifact');
       updateArtifactUi({ clearFile: true });
     }
     if (params.get('slug')) document.getElementById('s-slug').value = params.get('slug');
+    if (mode === 'revise' && params.get('pr')) {
+      document.getElementById('s-pr').value = params.get('pr');
+      revisionLoadedForPr = null;
+      updateSubmitAvailability();
+    }
     if (params.get('proposal')) {
       setProposalValue(params.get('proposal'));
     }
@@ -1986,14 +2066,16 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   if (!currentUser) { showAlert('submit', 'error', 'Sign in with GitHub first.'); return; }
   const form = e.target;
   const btn = document.getElementById('s-submit-btn');
+  const submitMode = document.getElementById('s-mode').value;
+  const isRevision = submitMode === 'revise';
   const turnstileToken = getTurnstileToken(form);
   if (!turnstileToken) { showAlert('submit', 'error', 'Complete the Turnstile check, then submit again.'); return; }
-  const submitIsNew = document.getElementById('s-new').checked;
+  const submitIsNew = submitMode === 'new';
   if (submitIsNew && !Number(document.getElementById('s-proposal').value)) {
     showAlert('submit', 'error', 'Select an approved proposal or enter its issue number.');
     return;
   }
-  const artifactType = submitIsNew ? 'study' : selectedArtifactType();
+  const artifactType = submitIsNew || isRevision ? 'study' : selectedArtifactType();
   const fileInput = document.getElementById('s-file');
   const selectedFile = fileInput.files && fileInput.files[0];
   const targetFileName = document.getElementById('s-target').value;
@@ -2020,7 +2102,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   }
   btn.disabled = true;
   btn.textContent = 'Submitting…';
-  const isNew = document.getElementById('s-new').checked;
+  const isNew = submitIsNew;
   const payload = {
     slug: document.getElementById('s-slug').value.trim(),
     author: document.getElementById('s-author').value.trim(),
@@ -2038,8 +2120,9 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     }
   }
   if (isNew) payload.proposalIssue = Number(document.getElementById('s-proposal').value);
+  if (isRevision) payload.prNumber = Number(document.getElementById('s-pr').value);
   try {
-    const res = await apiFetch('/api/submit', {
+    const res = await apiFetch(isRevision ? '/api/revise' : '/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
@@ -2050,9 +2133,17 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     clearDraft();
     setEditorMode('write');
     await goToDashboard(true);
-    showAlert('dashboard', 'success', 'Pull request opened.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : ''));
+    showAlert(
+      'dashboard',
+      'success',
+      (isRevision ? 'Draft pull request updated.' : 'Pull request opened.') +
+      (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : '')
+    );
     form.reset();
+    proposalWorkspaceReady = false;
+    revisionLoadedForPr = null;
     uploadedPresentation = null;
+    configureSubmitView('new');
     updateArtifactUi({ clearFile: true });
     toggleProposalField();
     hideProposalStatus();
