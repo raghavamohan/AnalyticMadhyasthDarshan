@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 4, 2026, 5:31 AM IST
 **Status:** Released
 **The question:** What is the nature of time (*kaal*)? How does Madhyasth Darshan relate timeless Omnipresence (*satta*) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?
 
@@ -280,9 +280,9 @@ Key terms from §§1–3 are collected here for quick reference. Each term is al
 
 Verse and section numbers follow standard numbering and apply to any faithful edition (e.g. Swami Gambhirananda's or Swami Madhavananda's translations, Advaita Ashrama).
 
-- **MU** — [*Mandukya Upanishad*](../References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: *Om* encompassing and transcending the three times (v. 1) (§2.1–2.2).
-- **BG** — [*Bhagavad Gita*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf), Shankara's commentary (Swami Gambhirananda). Cited: Krishna as world-destroying Time (11.32) (§2.1).
-- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). English translation by Swami Madhavananda. Cited: changeless Self outside temporal becoming (v. 393); liberation without birth or death (v. 574) (§2.1).
+- **MU** — [*Mandukya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf). Cited: *Om* encompassing and transcending the three times (v. 1) (§2.1–2.2).
+- **BG** — [*Bhagavad Gita*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf), Shankara's commentary (Swami Gambhirananda). Cited: Krishna as world-destroying Time (11.32) (§2.1).
+- **VC** — [*Vivekachudamani*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (attributed to Shankara). English translation by Swami Madhavananda. Cited: changeless Self outside temporal becoming (v. 393); liberation without birth or death (v. 574) (§2.1).
 
 ### Related studies in this collection
 

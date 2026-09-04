@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 4, 2026, 5:31 AM IST
 **Status:** Draft
 **The question:** What is a family in Madhyasth Darshan, why is it the first place where values become livable, and how are its relationships recognised and their values fulfilled?
 
@@ -428,7 +428,7 @@ MVD defines prosperity both as the lack of the sentiment of lacking (p. 72) and 
 
 ### Comparative Philosophy and Social Science
 
-- **BG** — [*Bhagavad Gita with the Commentary of Shankaracharya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: *grihastha ashrama* as empirical field vs *sannyasa* for ultimate knowledge.
+- **BG** — [*Bhagavad Gita with the Commentary of Shankaracharya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: *grihastha ashrama* as empirical field vs *sannyasa* for ultimate knowledge.
 - **Confucius** — *The Analects* and *The Great Learning*. Cited for filial piety (*xiao*), brotherly deference (*ti*), and the Five Relationships (*wu lun*).
 - **Care Ethics** — Noddings, N. *Caring: A Relational Approach to Ethics and Moral Education*. University of California Press, 1984. Cited for relational empathy and particular domestic care vs abstract rule ethics.
 - **Economics / Capabilities** — Becker, G. S. *A Treatise on the Family*. Harvard University Press, 1981; Sen, A. *Development as Freedom*. Oxford University Press, 1999. Cited for household utility maximization vs wise family determination of need and capability expansion.

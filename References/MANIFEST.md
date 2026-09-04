@@ -74,15 +74,15 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **KD-Karm-Darshan-English** | [Madhyasth-Darshan/KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal); full-book working translation (front matter + ch. 1–3) |
 | **MSM-Manav-Sanchetnavadi-Manovigyan-English** | [Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/](Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/README.md) | (setup only — no English translation yet) |
 | **Nagraj 2010 Sakshatkar** | [Madhyasth-Darshan/Nagraj-Recorded-Sessions/](Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md) — [transcript + translation](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf) · [raw ASR](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) present; recording **external** ([NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)) | Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session (internal). **Not yet cited by any released study** — oral, machine-transcribed; see folder README before citing |
-| **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
-| **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, The-Ontology-of-Coexistence, Aesthetics (Gambhirananda 2-vol. set; TU at p. 237) |
+| **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
+| **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, The-Ontology-of-Coexistence, Aesthetics (Gambhirananda 2-vol. set; TU at p. 237) |
 | **KU** | same as TU | Why-Humans (Katha at p. 97) |
-| **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans, Nature-Of-Time |
-| **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
-| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics, Knowledge-Knower, Nature-Of-Time |
-| **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
-| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals, The-Ontology-of-Coexistence, Aesthetics, Knowledge-Knower, Nature-Of-Time |
-| **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
+| **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans, Nature-Of-Time |
+| **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
+| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics, Knowledge-Knower, Nature-Of-Time |
+| **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
+| **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals, The-Ontology-of-Coexistence, Aesthetics, Knowledge-Knower, Nature-Of-Time |
+| **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
 | **AV** | [SEP entry](https://plato.stanford.edu/entries/shankara/) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | The-Ontology-of-Coexistence, Why-Humans |
@@ -135,7 +135,7 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | Category | Stored locally | External only |
 |----------|----------------|---------------|
 | Madhyasth Darshan (MVD, SB, JV, AVD, JVD, KD, MSM) | 7 PDFs + 1 spreadsheet + KD working translation + MSM translation workspace | 0 |
-| Advaita Vedanta (9 tags) | 9 PDFs | 0 |
+| Advaita Vedanta (9 tags) | 8 R2 PDFs | 0 |
 | Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
 | Science and moral science | 14 (open-access papers) | 24 |
 | Modern philosophy and cognitive science | 19 | 4 |

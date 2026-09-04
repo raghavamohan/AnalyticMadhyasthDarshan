@@ -4,8 +4,8 @@
       "kind": "reference-pdf",
       "repo_path": "References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf",
       "rights": {
-        "notes": "",
-        "status": "review-required"
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
       },
       "source": {
         "bytes": 2116638,
@@ -17,22 +17,22 @@
           "http://michaelsudduth.com/wp-content/uploads/2013/01/Srimad-Bhagavad-Gita-Shankara-Bhashya-English.pdf"
         ]
       },
-      "state": "git-retained",
+      "state": "r2-published",
       "tags": [
         "BG"
       ],
       "target": {
         "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf",
-        "r2_key": null,
-        "storage": "git-retained-rights-review"
+        "r2_key": "References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf",
+        "storage": "r2-public"
       }
     },
     {
       "kind": "reference-pdf",
       "repo_path": "References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf",
       "rights": {
-        "notes": "",
-        "status": "review-required"
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
       },
       "source": {
         "bytes": 55435091,
@@ -44,22 +44,22 @@
           "https://estudantedavedanta.net/Brahma_Sutra_Swami_Gambhirananda.pdf"
         ]
       },
-      "state": "git-retained",
+      "state": "r2-published",
       "tags": [
         "BSB"
       ],
       "target": {
         "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf",
-        "r2_key": null,
-        "storage": "git-retained-rights-review"
+        "r2_key": "References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf",
+        "storage": "r2-public"
       }
     },
     {
       "kind": "reference-pdf",
       "repo_path": "References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf",
       "rights": {
-        "notes": "",
-        "status": "review-required"
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
       },
       "source": {
         "bytes": 44932614,
@@ -72,22 +72,22 @@
           "https://archive.org/download/in.ernet.dli.2015.20823/in.ernet.dli.2015.20823.pdf"
         ]
       },
-      "state": "git-retained",
+      "state": "r2-published",
       "tags": [
         "BU"
       ],
       "target": {
         "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf",
-        "r2_key": null,
-        "storage": "git-retained-rights-review"
+        "r2_key": "References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf",
+        "storage": "r2-public"
       }
     },
     {
       "kind": "reference-pdf",
       "repo_path": "References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf",
       "rights": {
-        "notes": "",
-        "status": "review-required"
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
       },
       "source": {
         "bytes": 35483604,
@@ -99,22 +99,22 @@
           "https://archive.theaum.org/books/advaita/chandogya-upanishad-swami-gambhirananda-rk.pdf"
         ]
       },
-      "state": "git-retained",
+      "state": "r2-published",
       "tags": [
         "CU"
       ],
       "target": {
         "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf",
-        "r2_key": null,
-        "storage": "git-retained-rights-review"
+        "r2_key": "References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf",
+        "storage": "r2-public"
       }
     },
     {
       "kind": "reference-pdf",
       "repo_path": "References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf",
       "rights": {
-        "notes": "",
-        "status": "review-required"
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
       },
       "source": {
         "bytes": 2961790,
@@ -126,22 +126,22 @@
           "https://vivekananda.net/PDFBooks/Others/DrgDrsyaViveka1931.pdf"
         ]
       },
-      "state": "git-retained",
+      "state": "r2-published",
       "tags": [
         "DDV"
       ],
       "target": {
         "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf",
-        "r2_key": null,
-        "storage": "git-retained-rights-review"
+        "r2_key": "References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf",
+        "storage": "r2-public"
       }
     },
     {
       "kind": "reference-pdf",
       "repo_path": "References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf",
       "rights": {
-        "notes": "Also covers KU in the same volume.",
-        "status": "review-required"
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
       },
       "source": {
         "bytes": 12562405,
@@ -154,23 +154,23 @@
           "https://archive.org/download/eight-upanishads-with-the-commentary-of-s-swami-gambhirananda/Eight%20Upanishads%2C%20With%20the%20Commentary%20of%20S%20-%20Swami%20Gambhirananda.pdf"
         ]
       },
-      "state": "git-retained",
+      "state": "r2-published",
       "tags": [
         "KU",
         "TU"
       ],
       "target": {
         "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf",
-        "r2_key": null,
-        "storage": "git-retained-rights-review"
+        "r2_key": "References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf",
+        "storage": "r2-public"
       }
     },
     {
       "kind": "reference-pdf",
       "repo_path": "References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf",
       "rights": {
-        "notes": "",
-        "status": "review-required"
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
       },
       "source": {
         "bytes": 8453698,
@@ -182,22 +182,22 @@
           "https://tomdas.com/wp-content/uploads/2023/09/mandukya-upanishad-with-shankaracharya-commentary-and-karika-of-gaudapada-english-trans.-by-swami-gambhirananda-advaita-ashrama-calcutta_text.pdf"
         ]
       },
-      "state": "git-retained",
+      "state": "r2-published",
       "tags": [
         "MU"
       ],
       "target": {
         "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf",
-        "r2_key": null,
-        "storage": "git-retained-rights-review"
+        "r2_key": "References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf",
+        "storage": "r2-public"
       }
     },
     {
       "kind": "reference-pdf",
       "repo_path": "References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf",
       "rights": {
-        "notes": "",
-        "status": "review-required"
+        "notes": "Existing site publication; R2 storage migration approved by the site owner.",
+        "status": "existing-site-publication-approved"
       },
       "source": {
         "bytes": 178823,
@@ -209,14 +209,14 @@
           "https://www.vivekananda.net/PDFBooks/Vivekashudamani.pdf"
         ]
       },
-      "state": "git-retained",
+      "state": "r2-published",
       "tags": [
         "VC"
       ],
       "target": {
         "public_url": "https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf",
-        "r2_key": null,
-        "storage": "git-retained-rights-review"
+        "r2_key": "References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf",
+        "storage": "r2-public"
       }
     },
     {
