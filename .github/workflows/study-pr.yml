@@ -22,6 +22,7 @@ on:
       - labeled
 
 permissions:
+  actions: write
   contents: write
   pull-requests: write
   # Rename handling patches the linked proposal issue's slug and title.
@@ -73,7 +74,18 @@ jobs:
         run: python Scripts/_ci_study_pr.py --base-ref origin/${{ github.event.pull_request.base.ref }}
 
       - name: Commit regenerated artifacts
+        id: commit_artifacts
         uses: raghavamohan/AnalyticMadhyasthDarshan/.github/actions/commit-artifacts@master
         with:
           paths: Studies References Applications
           message: "ci: regenerate study artifacts"
+
+      # Pushes authenticated with GITHUB_TOKEN do not emit a new pull_request
+      # workflow run. Explicit dispatch is the supported exception, and makes
+      # the required `verify` check report on the regenerated head commit.
+      - name: Verify regenerated PR head
+        if: steps.commit_artifacts.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+        run: gh workflow run studies-index-check.yml --ref "$HEAD_REF"
