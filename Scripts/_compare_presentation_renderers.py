@@ -6,7 +6,7 @@ import argparse
 import json
 from pathlib import Path
 
-import fitz
+import pymupdf as fitz
 from PIL import Image, ImageChops, ImageEnhance, ImageStat
 
 from _common import BASE, configure_utf8_stdio, write_text_lf

@@ -20,7 +20,7 @@ from _pdf_to_md import convert_pdf_to_markdown
 
 
 def test_empty_pdf_fails() -> None:
-    import fitz
+    import pymupdf as fitz
 
     with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as handle:
         temp_path = Path(handle.name)

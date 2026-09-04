@@ -7,7 +7,7 @@ import re
 from collections import Counter
 from pathlib import Path
 
-import fitz
+import pymupdf as fitz
 from pptx import Presentation
 
 from _common import BASE, configure_utf8_stdio

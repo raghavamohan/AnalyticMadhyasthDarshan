@@ -9,7 +9,7 @@ import shutil
 import tempfile
 from pathlib import Path
 
-import fitz
+import pymupdf as fitz
 
 from _build_deck_notes_pdf import build as build_notes_pdf
 from _check_deck_layout import check_deck
