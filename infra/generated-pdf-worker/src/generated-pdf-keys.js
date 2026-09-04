@@ -37,7 +37,6 @@ export const GENERATED_PDF_KEYS = [
   "Studies/The-Ontology-of-Coexistence/Coexistence-in-Comparison-MD-vs-Advaita-Philosophy-Science.pdf",
   "Studies/The-Ontology-of-Coexistence/Madhyasth-Darshan-Ontology-Conceptual-Map.pdf",
   "Studies/The-Ontology-of-Coexistence/Presenters-Companion-Ontology-of-Existence.pdf",
-  "Studies/The-Ontology-of-Coexistence/Research-Note-Karm-Darshan-Ontological-Summary.pdf",
   "Studies/The-Ontology-of-Coexistence/Research-Note-Physics-Of-Satta-Unit-Interaction.pdf",
   "Studies/The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.pdf",
   "Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf",
