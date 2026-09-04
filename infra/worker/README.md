@@ -1,6 +1,6 @@
 # Submissions worker (`amd-submissions`)
 
-Cloudflare Worker that backs the [Web Submission Portal](../../Studies/submit.html). Contributors **sign in with GitHub** to propose studies, submit drafts, update content, and change Draft/Released status. The default portal view is **My Submissions** — a unified dashboard of proposals, pull requests, catalog status, and CI checks.
+Cloudflare Worker that backs the [Web Submission Portal](../../Studies/submit.html). Contributors **sign in with GitHub** to propose studies, submit drafts, update content, and change Draft/Released status. The default portal view is **My Submissions** — one workspace card per submitted study, grouping its proposal, pull requests, catalog and CI status, and mapped study/note/presentation files.
 
 Reading studies on the public site does **not** require GitHub.
 
