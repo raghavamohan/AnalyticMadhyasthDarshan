@@ -24,6 +24,7 @@ from _publish_reference_artifacts import (
     _object_matches_manifest,
     _source_path as reference_source_path,
 )
+from _presentation_pipeline import load_manifest
 from _r2_s3 import R2S3Client, load_r2_config
 from _reference_artifacts import artifact_local_path
 
@@ -71,14 +72,24 @@ class InventoryTests(unittest.TestCase):
     def test_inventory_covers_current_and_future_generated_pdfs(self) -> None:
         specs = generated_pdf_specs()
         self.assertEqual(inventory_errors(specs), [])
-        self.assertEqual(len(specs), 46)
+        self.assertTrue(any(spec.kind == "markdown" for spec in specs))
         self.assertFalse(any(
             spec.key == "Studies/Chitta-Brain-And-Memory/Chitta-Brain-And-Memory.pdf"
             for spec in specs
         ))
-        self.assertEqual(sum(spec.kind == "markdown" for spec in specs), 32)
-        self.assertEqual(sum(spec.kind == "presentation-slides" for spec in specs), 7)
-        self.assertEqual(sum(spec.kind == "presentation-notes" for spec in specs), 7)
+        deck_ids = {deck.id for deck in load_manifest().decks}
+        slide_ids = {
+            spec.presentation_id
+            for spec in specs
+            if spec.kind == "presentation-slides"
+        }
+        note_ids = {
+            spec.presentation_id
+            for spec in specs
+            if spec.kind == "presentation-notes"
+        }
+        self.assertEqual(slide_ids, deck_ids)
+        self.assertEqual(note_ids, deck_ids)
         self.assertEqual(
             __import__("subprocess").run(
                 ["git", "ls-files", "--", "Studies/**/*.pdf", "Applications/**/*.pdf"],
