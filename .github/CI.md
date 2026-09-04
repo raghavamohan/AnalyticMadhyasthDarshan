@@ -199,6 +199,10 @@ Before the labelled study pipeline completes, it regenerates
 `Studies/companion-artifacts.json` from the catalog and repository files. This keeps
 My Submissions' study-to-note/deck selector synchronized for additions, removals,
 renames, and status changes without deriving inventory from historical issues or PRs.
+When that regeneration creates a commit, the study workflow explicitly dispatches
+the Studies index workflow on the new head. Pushes made with `GITHUB_TOKEN` do not
+emit another pull-request event, so the dispatch is what makes the required
+`verify` check cover the commit that will actually merge.
 
 PRs created through My Submissions carry `Portal-GitHub: @login` in their body and
 skip this job: the labelled `study-pr` workflow already regenerates and verifies
@@ -390,7 +394,7 @@ run. Run them with `--all`.
 
 | Gap | Consequence |
 |-----|-------------|
-| Non-PDF `--live` endpoint checks | Other site/infra suites keep production checks behind explicit `--live` flags. Generated PDF delivery is the exception: every protected-branch publication audits all 46 public URLs. |
+| Non-PDF `--live` endpoint checks | Other site/infra suites keep production checks behind explicit `--live` flags. Generated PDF delivery is the exception: every protected-branch publication audits every public URL in the current inventory. |
 | Other `infra/` Cloudflare Workers | Generated-PDF Worker contract tests and production deployment are covered; other Workers still lack a shared build/lint/type-check/deploy gate. |
 | Any lint / formatter | No ruff, flake8, mypy, eslint or markdownlint |
 
