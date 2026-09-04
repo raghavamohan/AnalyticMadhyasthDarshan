@@ -41,6 +41,8 @@ const CATALOG_CACHE_KEY = 'https://amd-submissions.internal/catalog-slug-map';
 const APPLIED_SLUGS_CACHE_KEY = 'https://amd-submissions.internal/applied-slugs';
 const PROPOSAL_REGISTRY_PATH = 'Studies/proposal-registry.json';
 const PROPOSAL_REGISTRY_CACHE_KEY = 'https://amd-submissions.internal/proposal-registry';
+const COMPANION_ARTIFACTS_PATH = 'Studies/companion-artifacts.json';
+const COMPANION_ARTIFACTS_CACHE_KEY = 'https://amd-submissions.internal/companion-artifacts';
 const CHECK_POOL_SIZE = 5;
 const RESOURCE_METADATA_URL =
   'https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource';
@@ -182,6 +184,27 @@ async function fetchCatalogSlugMap(env, stats) {
   return map;
 }
 
+async function fetchCompanionArtifacts(env, stats = null) {
+  const cache = caches.default;
+  const cacheRequest = new Request(COMPANION_ARTIFACTS_CACHE_KEY);
+  const cached = await cache.match(cacheRequest);
+  if (cached) return cached.json();
+
+  const registry = JSON.parse(await githubRawFile(COMPANION_ARTIFACTS_PATH, env, stats));
+  if (registry.schemaVersion !== 1 || !Array.isArray(registry.studies)) {
+    throw new Error('Companion artifact registry has an unsupported format.');
+  }
+  await cache.put(
+    cacheRequest,
+    new Response(JSON.stringify(registry), { headers: { 'Cache-Control': 'max-age=60' } })
+  );
+  return registry;
+}
+
+function companionStudy(registry, slug) {
+  return (registry.studies || []).find((study) => study.slug === slug) || null;
+}
+
 // Set of slugs registered in the applied catalog. Used to resolve the study's
 // markdown path: applied studies live under Applications/, not Studies/.
 async function fetchAppliedSlugSet(env, stats) {
@@ -215,6 +238,178 @@ async function fetchAppliedSlugSet(env, stats) {
 function studyMdPath(slug, appliedSlugs) {
   const base = appliedSlugs && appliedSlugs.has(slug) ? 'Applications' : 'Studies';
   return `${base}/${slug}/${slug}.md`;
+}
+
+const MAX_MARKDOWN_BYTES = 2 * 1024 * 1024;
+const MAX_PRESENTATION_BYTES = 10 * 1024 * 1024;
+const MAX_COMPANION_FILENAME_LEN = 120;
+const SUBMISSION_ARTIFACT_TYPES = new Set(['study', 'note', 'presentation']);
+
+function validationError(message) {
+  const error = new Error(message);
+  error.status = 400;
+  return error;
+}
+
+function normalizeMarkdownContent(content) {
+  const normalized = String(content || '').replace(/\r\n?/g, '\n');
+  return normalized.endsWith('\n') ? normalized : normalized + '\n';
+}
+
+function validateCompanionFilename(artifactType, fileName) {
+  const name = String(fileName || '').trim();
+  if (!name || name.length > MAX_COMPANION_FILENAME_LEN || name.includes('/') || name.includes('\\')) {
+    throw validationError(`Use a filename of ${MAX_COMPANION_FILENAME_LEN} characters or fewer without folders.`);
+  }
+  if (artifactType === 'note' &&
+      !/^(?:Technical|Research)-Note-[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.md$/.test(name)) {
+    throw validationError(
+      'Technical and research note filenames must look like Technical-Note-Topic.md or Research-Note-Topic.md.'
+    );
+  }
+  if (artifactType === 'presentation' &&
+      !/^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.pptx$/i.test(name)) {
+    throw validationError('Presentation filenames must end in .pptx and contain only letters, numbers, and hyphens.');
+  }
+  return name;
+}
+
+function validateBase64Payload(encoded) {
+  const value = String(encoded || '');
+  if (!value || value.length % 4 !== 0 || !/^[A-Za-z0-9+/]+={0,2}$/.test(value)) {
+    throw validationError('The presentation upload is not valid base64 data.');
+  }
+  const padding = value.endsWith('==') ? 2 : value.endsWith('=') ? 1 : 0;
+  const byteLength = (value.length / 4) * 3 - padding;
+  if (byteLength > MAX_PRESENTATION_BYTES) {
+    throw validationError('The presentation is larger than the 10 MB upload limit.');
+  }
+  try {
+    if (!atob(value.slice(0, 8)).startsWith('PK')) {
+      throw validationError('The uploaded file does not appear to be a valid .pptx presentation.');
+    }
+  } catch (error) {
+    if (error.status) throw error;
+    throw validationError('The presentation upload is not valid base64 data.');
+  }
+  return value;
+}
+
+function buildSubmissionArtifact(data, slug, appliedSlugs, istTime) {
+  const artifactType = String(data.artifactType || 'study').trim().toLowerCase();
+  if (!SUBMISSION_ARTIFACT_TYPES.has(artifactType)) {
+    throw validationError('Choose study Markdown, a technical or research note, or a presentation.');
+  }
+  if (data.isNew && artifactType !== 'study') {
+    throw validationError('A new approved proposal must first be submitted as study Markdown.');
+  }
+
+  const root = appliedSlugs && appliedSlugs.has(slug) ? 'Applications' : 'Studies';
+  if (artifactType === 'presentation') {
+    const fileName = validateCompanionFilename(artifactType, data.fileName);
+    return {
+      artifactType,
+      fileName,
+      filePath: `${root}/${slug}/${fileName}`,
+      encodedContent: validateBase64Payload(data.contentBase64),
+      summary: `Uploaded presentation \`${fileName}\` via My Submissions.`,
+    };
+  }
+
+  let content = normalizeMarkdownContent(data.content);
+  if (!content.trim()) {
+    throw validationError('The Markdown file is empty.');
+  }
+
+  if (artifactType === 'study') {
+    content = applyStudyMetadata(content, String(data.author || '').trim(), istTime, slug);
+    if (new TextEncoder().encode(content).byteLength > MAX_MARKDOWN_BYTES) {
+      throw validationError('The Markdown file is larger than the 2 MB upload limit.');
+    }
+    return {
+      artifactType,
+      fileName: `${slug}.md`,
+      filePath: `${root}/${slug}/${slug}.md`,
+      encodedContent: btoa(unescape(encodeURIComponent(content))),
+      summary: 'Updated the canonical study Markdown via My Submissions.',
+    };
+  }
+
+  const fileName = validateCompanionFilename(artifactType, data.fileName);
+  if (new TextEncoder().encode(content).byteLength > MAX_MARKDOWN_BYTES) {
+    throw validationError('The Markdown file is larger than the 2 MB upload limit.');
+  }
+  return {
+    artifactType,
+    fileName,
+    filePath: `${root}/${slug}/${fileName}`,
+    encodedContent: btoa(unescape(encodeURIComponent(content))),
+    summary: `Uploaded companion note \`${fileName}\` via My Submissions.`,
+  };
+}
+
+function presentationManifestEntry(filePath, fileName, manifest) {
+  const existing = (manifest.decks || []).find(
+    (deck) => String(deck.source || '').toLowerCase() === filePath.toLowerCase()
+  );
+  if (existing) return null;
+
+  const directory = filePath.slice(0, filePath.lastIndexOf('/'));
+  const stem = fileName.replace(/\.pptx$/i, '');
+  const slug = directory.slice(directory.lastIndexOf('/') + 1);
+  const preferredOutputStem = stem === slug ? `${stem}-presentation` : stem;
+  const usedOutputs = new Set(
+    (manifest.decks || []).flatMap((deck) => [deck.slidesPdf, deck.notesPdf])
+      .map((path) => String(path || '').toLowerCase())
+  );
+  let outputStem = preferredOutputStem;
+  let outputSuffix = 2;
+  while (usedOutputs.has(`${directory}/${outputStem}.pdf`.toLowerCase()) ||
+         usedOutputs.has(`${directory}/${outputStem}-notes.pdf`.toLowerCase())) {
+    outputStem = `${preferredOutputStem}-${outputSuffix}`;
+    outputSuffix += 1;
+  }
+  const usedIds = new Set((manifest.decks || []).map((deck) => deck.id));
+  let id = stem.toLowerCase();
+  if (usedIds.has(id)) id = `${slug}-${stem}`.toLowerCase();
+  let uniqueId = id;
+  let suffix = 2;
+  while (usedIds.has(uniqueId)) {
+    uniqueId = `${id}-${suffix}`;
+    suffix += 1;
+  }
+  return {
+    id: uniqueId,
+    source: filePath,
+    slidesPdf: `${directory}/${outputStem}.pdf`,
+    notesPdf: `${directory}/${outputStem}-notes.pdf`,
+    requiredFonts: ['Calibri', 'Cambria'],
+  };
+}
+
+async function ensurePresentationManifested(artifact, branchName, env) {
+  const manifestPath = 'Scripts/presentation-pipeline.json';
+  const fileData = await githubRequest(`/contents/${manifestPath}?ref=${branchName}`, 'GET', null, env);
+  let manifest;
+  try {
+    manifest = JSON.parse(decodeBase64Content(fileData.content));
+  } catch (error) {
+    throw new Error('Could not read the presentation pipeline manifest.');
+  }
+  if (!Array.isArray(manifest.decks)) {
+    throw new Error('The presentation pipeline manifest has no decks list.');
+  }
+  const entry = presentationManifestEntry(artifact.filePath, artifact.fileName, manifest);
+  if (!entry) return false;
+  manifest.decks.push(entry);
+  const content = JSON.stringify(manifest, null, 2) + '\n';
+  await githubRequest(`/contents/${manifestPath}`, 'PUT', {
+    message: `Register ${artifact.fileName} in presentation pipeline`,
+    content: btoa(unescape(encodeURIComponent(content))),
+    branch: branchName,
+    sha: fileData.sha,
+  }, env);
+  return true;
 }
 
 async function runPool(items, limit, worker) {
@@ -1353,6 +1548,27 @@ router.get('/api/proposal-status', async (request, env) => {
   }
 });
 
+router.get('/api/study-artifacts', async (request, env) => {
+  try {
+    const url = new URL(request.url);
+    const slug = (url.searchParams.get('slug') || '').trim();
+    if (slug && !/^[A-Za-z0-9-]+$/.test(slug)) {
+      return jsonResponse(request, env, { success: false, error: 'Invalid slug.' }, 400);
+    }
+    const registry = await fetchCompanionArtifacts(env, { githubRequests: 0 });
+    if (!slug) {
+      return jsonResponse(request, env, { success: true, ...registry });
+    }
+    const study = companionStudy(registry, slug);
+    if (!study) {
+      return jsonResponse(request, env, { success: false, error: `No editable study found for "${slug}".` }, 404);
+    }
+    return jsonResponse(request, env, { success: true, study });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
+
 router.get('/api/study-source', async (request, env) => {
   try {
     const url = new URL(request.url);
@@ -1360,14 +1576,30 @@ router.get('/api/study-source', async (request, env) => {
     if (!/^[A-Za-z0-9-]+$/.test(slug)) {
       return jsonResponse(request, env, { success: false, error: 'Invalid slug.' }, 400);
     }
-    const appliedSlugs = await fetchAppliedSlugSet(env, { githubRequests: 0 });
+    const artifactType = (url.searchParams.get('artifactType') || 'study').trim().toLowerCase();
+    const fileName = (url.searchParams.get('fileName') || '').trim();
+    let filePath;
+    if (artifactType === 'study') {
+      const appliedSlugs = await fetchAppliedSlugSet(env, { githubRequests: 0 });
+      filePath = studyMdPath(slug, appliedSlugs);
+    } else if (artifactType === 'note') {
+      validateCompanionFilename('note', fileName);
+      const registry = await fetchCompanionArtifacts(env, { githubRequests: 0 });
+      const study = companionStudy(registry, slug);
+      if (!study || !Array.isArray(study.notes) || !study.notes.includes(fileName)) {
+        return jsonResponse(request, env, { success: false, error: `No registered note found for "${slug}".` }, 404);
+      }
+      filePath = `${study.root}/${slug}/${fileName}`;
+    } else {
+      return jsonResponse(request, env, { success: false, error: 'Only study and note Markdown can be loaded.' }, 400);
+    }
     let content;
     try {
-      content = await githubRawFile(studyMdPath(slug, appliedSlugs), env);
+      content = await githubRawFile(filePath, env);
     } catch (e) {
-      return jsonResponse(request, env, { success: false, error: `No published markdown found for "${slug}".` }, 404);
+      return jsonResponse(request, env, { success: false, error: `No published Markdown found for "${slug}".` }, 404);
     }
-    return jsonResponse(request, env, { success: true, slug, content });
+    return jsonResponse(request, env, { success: true, slug, artifactType, fileName: fileName || `${slug}.md`, content });
   } catch (err) {
     return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
   }
@@ -1379,10 +1611,23 @@ router.post('/api/submit', async (request, env) => {
     const data = await request.json();
     await verifyTurnstile(data.turnstileToken, env, request);
 
-    const { slug, author, isNew, proposalIssue } = data;
-    let { content } = data;
+    const slug = String(data.slug || '').trim();
+    const author = String(data.author || '').trim();
+    const isNew = data.isNew === true;
+    const proposalIssue = data.proposalIssue;
+    if (!/^[A-Za-z0-9-]+$/.test(slug) || slug.length > MAX_SLUG_LEN) {
+      throw validationError(`Study slug must use letters, numbers, and hyphens and be ${MAX_SLUG_LEN} characters or fewer.`);
+    }
+    if (!author) {
+      throw validationError('Author name is required.');
+    }
 
     const stats = { githubRequests: 0 };
+    const istTime = getISTDateString();
+    let appliedSlugs = new Set();
+    let artifact = isNew
+      ? buildSubmissionArtifact({ ...data, isNew }, slug, appliedSlugs, istTime)
+      : null;
     let proposal = null;
     let proposalRegistry = { proposals: [] };
     if (isNew) {
@@ -1397,6 +1642,21 @@ router.post('/api/submit', async (request, env) => {
       assertProposalSlugMatch(proposal, slug, proposalRegistry);
     }
 
+    // Updates resolve through the durable companion registry rather than a
+    // contributor's historical issue/PR list. The same row determines whether
+    // files belong under Studies/ or Applications/.
+    if (!isNew) {
+      const registry = await fetchCompanionArtifacts(env, stats);
+      const mappedStudy = companionStudy(registry, slug);
+      if (!mappedStudy) {
+        throw validationError(`No editable study found for "${slug}".`);
+      }
+      appliedSlugs = new Set(
+        registry.studies.filter((study) => study.root === 'Applications').map((study) => study.slug)
+      );
+      artifact = buildSubmissionArtifact({ ...data, isNew }, slug, appliedSlugs, istTime);
+    }
+
     const prSearch = await githubSearch(
       `repo:${REPO} is:pr is:open label:new-study,study-update,status-change`,
       env,
@@ -1407,14 +1667,10 @@ router.post('/api/submit', async (request, env) => {
     assertNoOpenStudyPr(slug, openStudyPrs);
     assertNoOpenStatusChangePr(slug, buildOpenStatusChangeIndex(prSearch.items));
 
-    const istTime = getISTDateString();
-    content = applyStudyMetadata(content, author, istTime, slug);
-
     // Updates to an existing applied study must target Applications/<slug>/.
     // Brand-new studies proposed via the portal are always created under Studies/.
-    const appliedSlugs = isNew ? new Set() : await fetchAppliedSlugSet(env, stats);
     const branchName = `submission-${slug}-${Date.now()}`;
-    const filePath = studyMdPath(slug, appliedSlugs);
+    const filePath = artifact.filePath;
     const base = defaultBranch(env);
 
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env);
@@ -1434,19 +1690,25 @@ router.post('/api/submit', async (request, env) => {
         // File doesn't exist, which is fine for new studies
       }
 
-      const contentEncoded = btoa(unescape(encodeURIComponent(content)));
-
       await githubRequest(`/contents/${filePath}`, 'PUT', {
-        message: `Update ${slug} via Web Portal`,
-        content: contentEncoded,
+        message: `${artifact.artifactType === 'study' ? 'Update' : 'Upload'} ${artifact.fileName} via Web Portal`,
+        content: artifact.encodedContent,
         branch: branchName,
         sha: fileSha,
       }, env);
+      const presentationRegistered = artifact.artifactType === 'presentation'
+        ? await ensurePresentationManifested(artifact, branchName, env)
+        : false;
 
       const prTitle = isNew ? `Add study: ${slug}` : `Update study: ${slug}`;
       let prBody = `Submitted via Web Portal by ${author}.\nPortal-GitHub: @${session.login}\n\nSlug: ${slug}`;
       if (isNew) {
         prBody = `Proposal issue: #${proposalIssue}\nSlug: ${slug}\nTags: MVD, SB, JV\nPortal-GitHub: @${session.login}\n\nSubmitted via Web Portal by ${author}.`;
+      } else {
+        const registrationSummary = presentationRegistered
+          ? '\nRegistered the new deck in the presentation build pipeline.'
+          : '';
+        prBody = `Study slug: ${slug}\nPortal-GitHub: @${session.login}\n\n### Summary of changes\n\n${artifact.summary}${registrationSummary}\n\nSubmitted via Web Portal by ${author}.`;
       }
 
       const pr = await githubRequest('/pulls', 'POST', {
@@ -1461,7 +1723,13 @@ router.post('/api/submit', async (request, env) => {
         labels: [label],
       }, env);
 
-      return jsonResponse(request, env, { success: true, url: pr.html_url, number: pr.number });
+      return jsonResponse(request, env, {
+        success: true,
+        url: pr.html_url,
+        number: pr.number,
+        artifactType: artifact.artifactType,
+        filePath,
+      });
     } catch (innerErr) {
       await deleteBranchQuietly(branchName, env);
       throw innerErr;

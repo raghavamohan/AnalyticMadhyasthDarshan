@@ -81,7 +81,15 @@ The portal opens one **new-study** pull request at a time per slug. If a draft P
 
 ### Update an existing study or change status
 
-From **My Submissions**, use **Update a study** to open a study-update pull request. Enter the slug and click **Load current content** to pull the published markdown into the editor, then revise and submit.
+From **My Submissions**, use **Update existing study files** to open a study-update pull request. Choose a registered study; the portal shows its complete mapped list of technical/research notes and presentations, independent of your historical proposal issues or pull requests. Then choose what you are uploading:
+
+- **Study Markdown (`.md`)** — choose a UTF-8 file, click **Load current content**, or work directly in the editor.
+- **Technical or research note (`.md`)** — select an existing mapped note to load and edit it, or add a file named `Technical-Note-Topic.md` or `Research-Note-Topic.md`.
+- **Study presentation (`.pptx`)** — select the mapped deck to replace and upload the PowerPoint file directly (up to 10 MB), or add a new one. New deck filenames are registered in the presentation build pipeline automatically; every slide should include speaker notes so its CI checks can pass.
+
+Enter the study slug so the portal places the file in the matching `Studies/<Slug>/` or `Applications/<Slug>/` directory. Companion-file uploads use a `study-update` pull request and do not change the canonical study's `**Edited on:**` timestamp.
+
+The durable inventory lives in `Studies/companion-artifacts.json`. It is generated from the catalog and repository files; after adding, removing, or renaming a note or presentation locally, run `python Scripts/_companion_artifacts.py`. Study PR CI performs the same synchronization before committing generated artifacts.
 
 To change **Draft** ↔ **Released**, use **Change release status** on the same page, or click **Release study** / **Revert to draft** on a merged row. The portal opens a `status-change` pull request; CI runs `_set_study_status.py` on the branch.
 
