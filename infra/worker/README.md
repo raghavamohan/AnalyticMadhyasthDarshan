@@ -150,7 +150,7 @@ Contributors manage their address and opt-out from the notification bar on **My 
 
 > **GitHub Actions must reach `/api/notify`.** The runner uses a datacenter IP; without the WAF skip below, Super Bot Fight Mode returns `403 "Just a moment…"` and email is never sent (the workflow may still show `success`, with `Notify request failed (403)` in the logs).
 >
-> **Pro (current):** Super Bot Fight Mode is on; WAF skip `amd_skip_sbfm_portal_notify` exempts `/api/notify`, and `amd_skip_sbfm_webmcp` exempts the studies catalog and `/webmcp.js` so in-browser agent scans can register tools. Verify with `python Scripts/_cloudflare_performance.py --check-edge-security`. Re-apply with `--apply-portal-edge-security` if a skip rule was removed.
+> **Pro (current):** Search crawlers and user-directed agents are allowed, AI-training crawlers are blocked, and definitely automated unknown traffic receives a managed challenge. WAF skip `amd_skip_sbfm_portal_notify` exempts only `/api/notify`; machine-readable public content does not bypass SBFM, so the training block still applies there. Verify with `python Scripts/_cloudflare_performance.py --check-edge-security`. Re-apply with `--apply-portal-edge-security` if policy or the notify skip drifts.
 >
 > **Free plan fallback:** turn Bot Fight Mode off (Security → Bots) — the worker still enforces `X-Notify-Secret`, Turnstile on writes, and signed sessions.
 >
@@ -179,7 +179,7 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 
 | Control | Rule / setting | Script ref |
 |---------|----------------|------------|
-| Super Bot Fight Mode | `managed_challenge` on definitely automated; AI bots blocked; WAF skip on catalog/`webmcp.js`/`/mcp`/`/api/studies` so agent scanners can run | `--apply-portal-edge-security` |
+| Granular AI bot policy | Search and user-directed agents allowed; training blocked; managed `robots.txt` synchronized; `managed_challenge` on definitely automated unknown traffic; verified bots allowed | `--apply-portal-edge-security` |
 | Notify SBFM skip | `amd_skip_sbfm_portal_notify` → `http_request_sbfm` skip for `/api/notify` only | `--apply-portal-edge-security` |
 | Probe-path block | `amd_block_common_probes` (`/wp-*`, `/.env`, `/.git`, …) | `--apply-edge-security` |
 | API rate limit | `amd_rl_edge_api` — 40 req / 10 s per IP (portal `api.*` + apex discussion routes); plus leaked-credential rule (Pro max **2** rate-limit rules) | `--apply-discussions-rate-limits` |
@@ -193,7 +193,7 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 
 1. **HSTS preload list** — the HSTS header now includes `preload` (stable since July 2026). Submitting `analyticmadhyasthdarshan.org` to the [HSTS preload list](https://hstspreload.org/) is still optional and hard to undo. Do that only if you want Chrome/Firefox/Safari to hard-code HTTPS for this domain and every subdomain.
 2. **Manual smoke tests** — automated checks cover TLS/HSTS, portal page load, GitHub OAuth start (`302` to GitHub), and discussion page load. Still do a signed-in pass: portal GitHub OAuth through submit, and a discussion magic-link request plus email verify. Optional [SSL Labs](https://www.ssllabs.com/ssltest/) check (TLS 1.2+ only, HSTS present).
-3. **Optional: `content_bots_protection`** — can enable in Super Bot Fight Mode after confirming Google/Bing indexing in Search Console (verified bots remain allowed). Not enabled by default. `crawler_protection` is already on.
+3. **Bot-policy monitoring** — review AI Crawl Control and Search Console after policy changes. Keep Search and Agent allowed, Training blocked, managed `robots.txt` synchronized, `content_bots_protection` disabled, and `crawler_protection` enabled unless observed traffic justifies a narrower exception.
 4. **Rate-limit tuning** — if users behind a shared office IP hit `amd_rl_edge_api`, raise `requests_per_period` in `edge_api_rate_limit_rules_spec()` (e.g. 50–60) and re-run `--apply-discussions-rate-limits`.
 
 Items **not** planned: SSL Full (Strict) on GitHub Pages origin; separate per-route rate limits beyond Pro’s two-rule cap (worker-side limits cover magic-link abuse).
