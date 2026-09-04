@@ -48,6 +48,15 @@ Author-hosted copies kept for quote verification.
 | **Haidt 2001** | Haidt, J. "The Emotional Dog and Its Rational Tail: A Social Intuitionist Approach to Moral Judgment." *Psychological Review*, 108(4), 814?834. | https://pages.stern.nyu.edu/~jhaidt/moraljudgment.html |
 | **Tomasello and Vaish 2013** | Tomasello, M., and Vaish, A. "Origins of Human Cooperation and Morality." *Annual Review of Psychology*, 64, 231?255. | https://www.annualreviews.org/content/journals/10.1146/annurev-psych-113011-143812 |
 
+## Income and well-being — external only
+
+These articles are cited through their publisher links in Axiology Value Theory; no local mirror has been added in this revision.
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **Killingsworth 2021** | Killingsworth, M. A. "Experienced well-being rises with income, even above $75,000 per year." *PNAS*, 118(4), e2016976118. | https://doi.org/10.1073/pnas.2016976118 |
+| **Killingsworth, Kahneman, and Mellers 2023** | Killingsworth, M. A., Kahneman, D., and Mellers, B. "Income and emotional well-being: A conflict resolved." *PNAS*, 120(10), e2208661120. | https://doi.org/10.1073/pnas.2208661120 |
+
 ## Science ? books and edited volumes (external only)
 
 | Tag | Full reference | Original location |
