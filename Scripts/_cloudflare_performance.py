@@ -2,7 +2,7 @@
 """Cloudflare performance setup for analyticmadhyasthdarshan.org (GitHub Pages + proxy).
 
 Applies zone settings, cache rules, the root-to-catalog redirect, and portal edge
-security (Super Bot Fight Mode + WAF skip for GitHub Actions notify) via API when
+security (granular AI bot policy + WAF skip for notify) via API when
 CLOUDFLARE_API_TOKEN is set (repo-root `.env`, `.env.local`, or the process environment).
 Baseline RUM metrics: infra/cloudflare-rum-baseline.json
 """
@@ -25,6 +25,9 @@ BASELINE_PATH = BASE / "infra" / "cloudflare-rum-baseline.json"
 SITE_HOST = "analyticmadhyasthdarshan.org"
 API_HOST = f"api.{SITE_HOST}"
 PORTAL_NOTIFY_URL = f"https://{API_HOST}/api/notify"
+ROBOTS_URL = f"https://{SITE_HOST}/robots.txt"
+AGENT_CARD_URL = f"https://{SITE_HOST}/.well-known/agent-card.json"
+START_HERE_API_URL = f"https://{SITE_HOST}/api/start-here"
 ROOT_URL = f"https://{SITE_HOST}/"
 CATALOG_PATH = "/Studies/index.html"
 CATALOG_URL = f"https://{SITE_HOST}{CATALOG_PATH}"
@@ -35,7 +38,7 @@ WAF_CUSTOM_PHASE = "http_request_firewall_custom"
 RATE_LIMIT_PHASE = "http_ratelimit"
 RESPONSE_HEADERS_PHASE = "http_response_headers_transform"
 NOTIFY_SKIP_REF = "amd_skip_sbfm_portal_notify"
-WEBMCP_SKIP_REF = "amd_skip_sbfm_webmcp"
+RETIRED_WEBMCP_SKIP_REF = "amd_skip_sbfm_webmcp"
 PROBE_BLOCK_REF = "amd_block_common_probes"
 SECURITY_HEADERS_REF = "amd_security_headers_static"
 HOMEPAGE_LINK_HEADERS_REF = "amd_homepage_link_headers"
@@ -48,7 +51,12 @@ WEB_BOT_AUTH_HEADERS_REF = "amd_web_bot_auth_content_type"
 AUTH_MD_HEADERS_REF = "amd_auth_md_content_type"
 OAUTH_METADATA_HEADERS_REF = "amd_oauth_metadata_content_type"
 EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
-WAF_CUSTOM_MANAGED_REFS = (PROBE_BLOCK_REF, NOTIFY_SKIP_REF, WEBMCP_SKIP_REF)
+# Keep retired refs owned until apply removes them from the live ruleset.
+WAF_CUSTOM_MANAGED_REFS = (
+    PROBE_BLOCK_REF,
+    NOTIFY_SKIP_REF,
+    RETIRED_WEBMCP_SKIP_REF,
+)
 EDGE_API_RATE_LIMIT_REFS = (EDGE_API_RATE_LIMIT_REF,)
 HSTS_MAX_AGE_SEC = 31536000
 # Enforcing CSP for static pages. Allow Turnstile, in-browser Mermaid (jsDelivr),
@@ -68,29 +76,6 @@ CSP = (
 )
 NOTIFY_SKIP_EXPRESSION = (
     f'(http.host eq "{API_HOST}" and starts_with(http.request.uri.path, "/api/notify"))'
-)
-WEBMCP_SKIP_EXPRESSION = (
-    f'(http.host eq "{SITE_HOST}" and ('
-    'http.request.uri.path eq "/" or '
-    'http.request.uri.path eq "/index.html" or '
-    'http.request.uri.path eq "/Studies" or '
-    'http.request.uri.path eq "/Studies/" or '
-    'http.request.uri.path eq "/Studies/index.html" or '
-    'http.request.uri.path eq "/webmcp.js" or '
-    'http.request.uri.path eq "/api-docs.html" or '
-    'http.request.uri.path eq "/mcp" or '
-    'http.request.uri.path eq "/mcp/" or '
-    'starts_with(http.request.uri.path, "/api/studies") or '
-    'starts_with(http.request.uri.path, "/api/glossary") or '
-    'http.request.uri.path eq "/api/start-here" or '
-    'starts_with(http.request.uri.path, "/api/cite") or '
-    'http.request.uri.path eq "/Studies/catalog-topical.json" or '
-    'http.request.uri.path eq "/Studies/catalog-formal.json" or '
-    'http.request.uri.path eq "/Studies/catalog-applied.json" or '
-    'http.request.uri.path eq "/Studies/catalog-all.json" or '
-    'http.request.uri.path eq "/Studies/feed.json" or '
-    'http.request.uri.path eq "/Studies/glossary.json" or '
-    'http.request.uri.path eq "/Studies/start-here.json"))'
 )
 PROBE_BLOCK_EXPRESSION = (
     f'(http.host in {{"{SITE_HOST}" "{API_HOST}"}}) '
@@ -575,43 +560,25 @@ def _notify_skip_rule_is_correct(rule: dict) -> bool:
     return "http_request_sbfm" in phases
 
 
-def webmcp_skip_rule_body() -> dict:
-    return {
-        "ref": WEBMCP_SKIP_REF,
-        "expression": WEBMCP_SKIP_EXPRESSION,
-        "description": (
-            "Skip Super Bot Fight Mode for WebMCP catalog pages, MCP Streamable "
-            "HTTP at /mcp, and GET /api/studies, /api/glossary, /api/start-here, "
-            "and /api/cite so agent scanners can call the read tools without a "
-            "managed challenge."
-        ),
-        "action": "skip",
-        "enabled": True,
-        "action_parameters": {
-            "phases": ["http_request_sbfm"],
-        },
-    }
-
-
-def _webmcp_skip_rule_is_correct(rule: dict) -> bool:
-    if rule.get("action") != "skip":
-        return False
-    if rule.get("expression") != WEBMCP_SKIP_EXPRESSION:
-        return False
-    phases = rule.get("action_parameters", {}).get("phases", [])
-    return "http_request_sbfm" in phases
-
-
 def get_waf_custom_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
     return get_phase_entrypoint_ruleset(token, zone_id, WAF_CUSTOM_PHASE)
 
 
 def super_bot_fight_mode_spec() -> dict:
-    """Pro-plan Super Bot Fight Mode: challenge definitely automated traffic."""
+    """Agent-friendly bot policy: allow discovery, block model training."""
     return {
         "enable_js": True,
+        "ai_bots_protection": "disabled",
+        "ai_search": "disabled",
+        "ai_user": "disabled",
+        "ai_training": "block",
+        "bot_preference_sync_enabled": True,
+        "is_robots_txt_managed": True,
+        "content_bots_protection": "disabled",
+        "crawler_protection": "enabled",
         "sbfm_definitely_automated": "managed_challenge",
         "sbfm_verified_bots": "allow",
+        "sbfm_static_resource_protection": False,
     }
 
 
@@ -642,29 +609,28 @@ def apply_super_bot_fight_mode(token: str, zone_id: str | None) -> None:
     current = get_bot_management_config(token, zone)
     ok, _ = _bot_management_matches(current, expected)
     if ok:
-        print("Super Bot Fight Mode already configured.")
+        print("Agent-friendly bot policy already configured.")
         return
-    payload = {**expected, "fight_mode": False}
+    payload = dict(expected)
+    if current.get("fight_mode") is True:
+        payload["fight_mode"] = False
     _api_request("PUT", f"/zones/{zone}/bot_management", token, payload)
     print(
-        "Super Bot Fight Mode enabled "
-        f"(sbfm_definitely_automated={expected['sbfm_definitely_automated']!r})."
+        "Agent-friendly bot policy enabled "
+        "(search and user agents allowed, training blocked, "
+        f"definitely automated={expected['sbfm_definitely_automated']!r})."
     )
 
 
 def check_portal_edge_security(token: str, zone_id: str | None) -> tuple[bool, list[str]]:
-    """Verify SBFM and the /api/notify WAF skip rule."""
+    """Verify the granular bot policy and the /api/notify WAF skip rule."""
     zone = resolve_zone_id(token, zone_id)
     issues: list[str] = []
     ok = True
 
     ruleset = get_waf_custom_entrypoint_ruleset(token, zone)
-    skip_rule = None
-    if ruleset:
-        skip_rule = next(
-            (rule for rule in ruleset.get("rules", []) if rule.get("ref") == NOTIFY_SKIP_REF),
-            None,
-        )
+    rules = ruleset.get("rules", []) if ruleset else []
+    skip_rule = next((rule for rule in rules if rule.get("ref") == NOTIFY_SKIP_REF), None)
     if skip_rule is None:
         ok = False
         issues.append(f"Missing WAF skip rule ref {NOTIFY_SKIP_REF!r}.")
@@ -675,6 +641,11 @@ def check_portal_edge_security(token: str, zone_id: str | None) -> tuple[bool, l
         ok = False
         issues.append(
             f"WAF skip rule {NOTIFY_SKIP_REF!r} does not match expected expression/phases."
+        )
+    if any(rule.get("ref") == RETIRED_WEBMCP_SKIP_REF for rule in rules):
+        ok = False
+        issues.append(
+            "Legacy path-wide SBFM skip is still present and would bypass the training block."
         )
 
     expected = super_bot_fight_mode_spec()
@@ -694,7 +665,8 @@ def print_check_portal_edge_security(token: str, zone_id: str | None) -> bool:
         return False
     if ok:
         print(
-            f"  OK: Super Bot Fight Mode on with WAF skip for {PORTAL_NOTIFY_URL}."
+            "  OK: search/user agents allowed, training blocked, definitely "
+            f"automated challenged, with WAF skip for {PORTAL_NOTIFY_URL}."
         )
         return True
     for issue in issues:
@@ -742,8 +714,67 @@ def print_verify_notify_reachable() -> bool:
     return ok
 
 
+def _public_probe(url: str, user_agent: str) -> tuple[int, str, str]:
+    req = urllib.request.Request(
+        url,
+        headers={"User-Agent": user_agent, "Accept": "*/*"},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return (
+                resp.status,
+                resp.headers.get("Content-Type", ""),
+                resp.read().decode("utf-8", errors="replace"),
+            )
+    except urllib.error.HTTPError as exc:
+        return (
+            exc.code,
+            exc.headers.get("Content-Type", "") if exc.headers else "",
+            exc.read().decode("utf-8", errors="replace"),
+        )
+
+
+def verify_bot_policy_publication() -> tuple[bool, list[str]]:
+    issues: list[str] = []
+    try:
+        status, _content_type, body = _public_probe(ROBOTS_URL, "Policy-Audit/1.0")
+        compact = body.replace(" ", "").lower()
+        if status != 200:
+            issues.append(f"robots.txt returned HTTP {status}.")
+        if "content-signal:search=yes,ai-train=no,use=reference" not in compact:
+            issues.append("robots.txt is missing the expected Content-Signal policy.")
+        if "# training crawlers" not in body.lower() or "user-agent: gptbot" not in body.lower():
+            issues.append("robots.txt is missing the managed training-crawler directives.")
+
+        for url, user_agent, expected_type in (
+            (AGENT_CARD_URL, "ChatGPT-User", "json"),
+            (START_HERE_API_URL, "Codex-Agent/1.0", "json"),
+        ):
+            status, content_type, _body = _public_probe(url, user_agent)
+            if status != 200:
+                issues.append(f"{url} returned HTTP {status} for {user_agent}.")
+            elif expected_type not in content_type.lower():
+                issues.append(
+                    f"{url} returned Content-Type {content_type!r} for {user_agent}."
+                )
+    except urllib.error.URLError as exc:
+        issues.append(f"Bot-policy publication probe failed: {exc.reason}")
+    return not issues, issues
+
+
+def print_verify_bot_policy_publication() -> bool:
+    print("Bot-policy publication check:")
+    ok, issues = verify_bot_policy_publication()
+    if ok:
+        print("  OK: training directives published and agent read endpoints reachable.")
+        return True
+    for issue in issues:
+        print(f"  {issue}")
+    return False
+
+
 def apply_portal_edge_security(token: str, zone_id: str | None) -> None:
-    """WAF skip for /api/notify first, then enable Super Bot Fight Mode."""
+    """Install the notify skip, then apply the granular bot policy."""
     apply_waf_custom_security_rules(token, zone_id)
     apply_super_bot_fight_mode(token, zone_id)
 
@@ -848,8 +879,8 @@ def _probe_block_rule_is_correct(rule: dict) -> bool:
 
 
 def waf_custom_security_rules_spec() -> list[dict]:
-    """Custom WAF rules in evaluation order (block probes, then SBFM skips)."""
-    return [probe_block_rule_body(), notify_skip_rule_body(), webmcp_skip_rule_body()]
+    """Custom WAF rules in evaluation order (block probes, then notify skip)."""
+    return [probe_block_rule_body(), notify_skip_rule_body()]
 
 
 def _waf_custom_rule_is_correct(rule: dict, expected: dict) -> bool:
@@ -860,13 +891,11 @@ def _waf_custom_rule_is_correct(rule: dict, expected: dict) -> bool:
         return _probe_block_rule_is_correct(rule)
     if ref == NOTIFY_SKIP_REF:
         return _notify_skip_rule_is_correct(rule)
-    if ref == WEBMCP_SKIP_REF:
-        return _webmcp_skip_rule_is_correct(rule)
     return False
 
 
 def apply_waf_custom_security_rules(token: str, zone_id: str | None) -> None:
-    """Upsert probe-path block, portal notify SBFM skip, and WebMCP SBFM skip."""
+    """Upsert the probe-path block and the portal notify SBFM skip."""
     zone = resolve_zone_id(token, zone_id)
     print(f"Zone ID: {zone}")
     expected_rules = waf_custom_security_rules_spec()
@@ -897,9 +926,10 @@ def apply_waf_custom_security_rules(token: str, zone_id: str | None) -> None:
     ]
 
     if all(
-        ref in existing_by_ref and _waf_custom_rule_is_correct(existing_by_ref[ref], expected)
-        for ref, expected in zip(WAF_CUSTOM_MANAGED_REFS, expected_rules, strict=True)
-    ):
+        expected["ref"] in existing_by_ref
+        and _waf_custom_rule_is_correct(existing_by_ref[expected["ref"]], expected)
+        for expected in expected_rules
+    ) and RETIRED_WEBMCP_SKIP_REF not in existing_by_ref:
         print("WAF custom security rules already configured.")
         return
 
@@ -1495,6 +1525,10 @@ def check_waf_custom_security(token: str, zone_id: str | None) -> tuple[bool, li
             continue
         if not _waf_custom_rule_is_correct(rule, expected):
             issues.append(f"WAF custom rule {ref!r} does not match expected spec.")
+    if RETIRED_WEBMCP_SKIP_REF in existing_by_ref:
+        issues.append(
+            "Legacy path-wide SBFM skip is still present and would bypass the training block."
+        )
     return not issues, issues
 
 
@@ -1506,7 +1540,10 @@ def print_check_waf_custom_security(token: str, zone_id: str | None) -> bool:
         print(f"  ERROR: {exc}")
         return False
     if ok:
-        print("  OK: probe-path block, portal notify SBFM skip, and WebMCP SBFM skip configured.")
+        print(
+            "  OK: probe-path block and portal notify SBFM skip configured; "
+            "no public-content bypass."
+        )
         return True
     for issue in issues:
         print(f"  {issue}")
@@ -1530,6 +1567,7 @@ def print_check_edge_security(token: str, zone_id: str | None) -> bool:
         print_check_discussions_rate_limits(token, zone_id),
         print_check_security_headers(token, zone_id),
         print_verify_notify_reachable(),
+        print_verify_bot_policy_publication(),
     ]
     return all(checks)
 
@@ -2623,8 +2661,9 @@ Cloudflare dashboard steps for {SITE_HOST} (GitHub Pages origin, orange-cloud pr
 5. After deploy, verify the root redirect (this script runs the check by default):
    python Scripts/_cloudflare_performance.py --verify-only
 
-6. Portal edge security (Pro+): Super Bot Fight Mode with a WAF Skip for GitHub Actions
-   POST /api/notify (see infra/worker/README.md):
+6. Portal edge security (Pro+): allow search and user agents, block AI training,
+   challenge unknown definitely automated traffic, and install a WAF skip for
+   GitHub Actions POST /api/notify (see infra/worker/README.md):
    python Scripts/_cloudflare_performance.py --apply-portal-edge-security
    python Scripts/_cloudflare_performance.py --check-portal-edge-security
 
@@ -2706,14 +2745,13 @@ def main() -> int:
         "--apply-portal-edge-security",
         action="store_true",
         help=(
-            "Enable Super Bot Fight Mode and add a WAF Skip rule for "
-            "POST /api/notify (GitHub Actions email notify)."
+            "Apply the granular bot policy and the WAF Skip for POST /api/notify."
         ),
     )
     parser.add_argument(
         "--check-portal-edge-security",
         action="store_true",
-        help="Verify Super Bot Fight Mode and the portal notify WAF skip rule.",
+        help="Verify the granular bot policy and portal notify WAF skip rule.",
     )
     parser.add_argument(
         "--apply-security-baseline",

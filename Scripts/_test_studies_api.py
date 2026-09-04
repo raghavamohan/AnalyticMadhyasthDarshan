@@ -184,6 +184,55 @@ def check_start_here(rows: list[dict]) -> None:
     print("OK: Studies/start-here.json matches catalog slugs and the landing-page path.")
 
 
+def check_live_start_here(payload: dict) -> None:
+    """Verify the enriched API path without mistaking enrichment for drift."""
+    expected = load_json(STUDIES / "start-here.json")
+    if not isinstance(expected, dict):
+        fail("Studies/start-here.json must be an object")
+    for key in ("title", "intro"):
+        if payload.get(key) != expected.get(key):
+            fail(f"live GET /api/start-here has stale {key}")
+
+    actual_stages = payload.get("stages") or []
+    expected_stages = expected.get("stages") or []
+    if len(actual_stages) != len(expected_stages):
+        fail("live GET /api/start-here has a stale stage count")
+    for actual, source in zip(actual_stages, expected_stages, strict=True):
+        for key in ("number", "domain", "question", "reason", "blurb", "next"):
+            if actual.get(key) != source.get(key):
+                fail(
+                    "live GET /api/start-here differs from Studies/start-here.json "
+                    f"at stage {source.get('number')} field {key}"
+                )
+        if (actual.get("core") or {}).get("slug") != (source.get("core") or {}).get("slug"):
+            fail(f"live GET /api/start-here has a stale core at stage {source.get('number')}")
+        if (actual.get("core") or {}).get("role") != (source.get("core") or {}).get("role"):
+            fail(f"live GET /api/start-here has a stale core role at stage {source.get('number')}")
+        actual_related = [item.get("slug") for item in actual.get("related") or []]
+        source_related = [item.get("slug") for item in source.get("related") or []]
+        if actual_related != source_related:
+            fail(f"live GET /api/start-here has stale related studies at stage {source.get('number')}")
+
+    actual_parallel = payload.get("parallelTrack") or {}
+    expected_parallel = expected.get("parallelTrack") or {}
+    for key in ("label", "question", "reason"):
+        if actual_parallel.get(key) != expected_parallel.get(key):
+            fail(f"live GET /api/start-here has a stale parallelTrack {key}")
+    actual_parallel_slugs = [item.get("slug") for item in actual_parallel.get("studies") or []]
+    expected_parallel_slugs = [item.get("slug") for item in expected_parallel.get("studies") or []]
+    if actual_parallel_slugs != expected_parallel_slugs:
+        fail("live GET /api/start-here has stale parallel-track studies")
+
+    refs = [
+        *(stage.get("core") or {} for stage in actual_stages),
+        *(item for stage in actual_stages for item in stage.get("related") or []),
+        *(actual_parallel.get("studies") or []),
+    ]
+    for ref in refs:
+        if not all(ref.get(key) for key in ("slug", "title", "collection", "status")):
+            fail(f"live GET /api/start-here did not enrich study reference {ref.get('slug')!r}")
+
+
 def check_search(rows: list[dict]) -> None:
     ontology = [row for row in rows if matches_query(row, "ontology")]
     if not ontology:
@@ -319,9 +368,7 @@ def check_live() -> None:
     if status != 200:
         fail(f"GET /api/start-here returned HTTP {status}: {body[:300]}")
     path = json.loads(body)
-    expected_path = load_json(STUDIES / "start-here.json")
-    if path != expected_path:
-        fail("live GET /api/start-here does not match Studies/start-here.json")
+    check_live_start_here(path)
     cores = [stage.get("core", {}).get("slug") for stage in path.get("stages") or []]
     if "The-Ontology-of-Coexistence" not in cores:
         fail(f"GET /api/start-here missing ontology core: {body[:400]}")
