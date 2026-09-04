@@ -7,7 +7,7 @@ from pathlib import Path
 
 from _common import APPLICATIONS, BASE, STUDIES
 from _presentation_pipeline import load_manifest, manifest_errors, repo_relative
-from _study_catalog import StudyStatus, parse_status_md
+from _study_catalog import StudyStatus, get_study_row
 
 
 @dataclass(frozen=True)
@@ -24,12 +24,15 @@ def _publishable_markdown(path: Path) -> bool:
     if path.stem.startswith("Research-Template-"):
         return False
     # Companion notes are publishable without catalog status. Canonical study
-    # stubs are not: Ongoing/Planned rows have no public read/download link and
-    # _regenerate_pdf.py intentionally refuses to render them.
+    # documents follow the authoritative catalog status: Ongoing/Planned rows
+    # and uncataloged proposal stubs have no public read/download link.
     if path.stem != path.parent.name:
         return True
-    status = parse_status_md(path.read_text(encoding="utf-8"))
-    return status in (StudyStatus.DRAFT, StudyStatus.RELEASED)
+    located = get_study_row(path.stem)
+    if located is None:
+        return False
+    row, _table = located
+    return row.status in (StudyStatus.DRAFT, StudyStatus.RELEASED)
 
 
 def generated_pdf_specs() -> tuple[GeneratedPdfSpec, ...]:
