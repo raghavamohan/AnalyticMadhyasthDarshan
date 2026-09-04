@@ -1,6 +1,6 @@
 # Submissions worker (`amd-submissions`)
 
-Cloudflare Worker that backs the [Web Submission Portal](../../Studies/submit.html). Contributors **sign in with GitHub** to propose studies, submit drafts, update content, and change Draft/Released status. The default portal view is **My Submissions** — one workspace card per submitted study, grouping its proposal, pull requests, catalog and CI status, and mapped study/note/presentation files.
+Cloudflare Worker that backs the [Web Submission Portal](../../Studies/submit.html). Contributors **sign in with GitHub** to propose studies, submit drafts, update content, and change Draft/Released status. The default portal view is **My Submissions** — one workspace card per submitted study, grouping its proposal, pull requests, catalog and CI status, category, and mapped study/note/presentation files. The card list can be filtered by workflow state and by any assigned category.
 
 Reading studies on the public site does **not** require GitHub.
 
@@ -104,7 +104,7 @@ After deploy, confirm the OAuth app callback URL matches `https://api.analyticma
 | `GET /api/auth/callback` | — | OAuth callback; sets session cookie |
 | `GET /api/auth/me` | cookie | `{ loggedIn, login }` |
 | `POST /api/auth/logout` | cookie | Clear session |
-| `GET /api/me/submissions` | cookie | Unified dashboard: proposals (pending/preparing/ready/declined/retired), Planned/catalog status, PRs, CI, row actions |
+| `GET /api/me/submissions` | cookie | Unified dashboard: proposals (pending/preparing/ready/declined/retired), study categories, Planned/catalog status, PRs, CI, row actions |
 | `GET /api/me/notifications` | cookie | `{ configured, email, enabled }` notification preferences |
 | `POST /api/me/notifications` | cookie | Update notification `email` / `enabled` |
 | `POST /api/propose` | cookie + Turnstile | Create a `study-proposal` issue **as the signed-in user** |

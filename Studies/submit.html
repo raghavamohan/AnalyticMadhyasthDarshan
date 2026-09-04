@@ -96,6 +96,13 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .dashboard-intro{margin:4px 0 16px;}
 .dashboard-intro h2{font-size:20px;margin:0 0 3px;}
 .dashboard-intro p{font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--text-muted);margin:0;}
+.dashboard-filters{display:flex;flex-wrap:wrap;align-items:end;gap:10px 12px;margin:0 0 14px;padding:11px 12px;background:var(--bg);border:1px solid var(--border);border-radius:8px;font-family:var(--sans);}
+.dashboard-filters[hidden]{display:none;}
+.dashboard-filter-control{display:block;min-width:180px;margin:0;}
+.dashboard-filter-control span{display:block;font-size:11px;line-height:1.2;margin:0 0 5px;color:var(--text-muted);text-transform:uppercase;letter-spacing:.04em;}
+.dashboard-filter-control select{min-height:38px;padding:7px 10px;background:var(--surface);}
+.dashboard-filter-summary{font-size:12px;color:var(--text-muted);margin:0 0 8px auto;white-space:nowrap;}
+.dashboard-filter-clear{margin:0 0 1px;min-height:38px;}
 .submission-files{border-top:1px solid #efe9e1;margin-top:2px;padding:10px 0 0;}
 .submission-files summary{display:flex;align-items:center;gap:8px;cursor:pointer;color:var(--text);font-size:13px;font-weight:600;list-style:none;background:var(--accent-soft);border:1px solid var(--border);border-radius:7px;padding:9px 10px;}
 .submission-files summary::-webkit-details-marker{display:none;}
@@ -136,7 +143,7 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .dashboard-empty{color:var(--text-muted);font-family:var(--sans);font-size:14px;margin:8px 0 0;}
 .dashboard-truncated{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin:12px 0 0;}
 .hidden{display:none !important;}
-@media (max-width:600px){.page{padding:18px 14px 44px;}h1{font-size:28px;}.hero-row .auth-btn{font-size:13px;padding:7px 12px;}.submission-card-meta{grid-template-columns:1fr 1fr;}.artifact-summary-hint{display:none;}.artifact-row{grid-template-columns:38px minmax(0,1fr);}.artifact-actions{grid-column:2;justify-self:start;}}
+@media (max-width:600px){.page{padding:18px 14px 44px;}h1{font-size:28px;}.hero-row .auth-btn{font-size:13px;padding:7px 12px;}.dashboard-filter-control{flex:1 1 100%;}.dashboard-filter-summary{width:100%;margin:0;}.submission-card-meta{grid-template-columns:1fr 1fr;}.artifact-summary-hint{display:none;}.artifact-row{grid-template-columns:38px minmax(0,1fr);}.artifact-actions{grid-column:2;justify-self:start;}}
 .review-box{font-family:var(--sans);font-size:14px;line-height:1.55;border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin-bottom:20px;background:var(--accent-soft);}
 .review-box h3{font-size:15px;margin:0 0 10px;color:var(--text);}
 .review-box dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 14px;}
@@ -228,8 +235,21 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
           <h2>Your studies and proposals</h2>
           <p>Proposal, review status, and every editable file stay together by study.</p>
         </div>
+        <div class="dashboard-filters" id="dashboard-filters" hidden>
+          <label class="dashboard-filter-control" for="dashboard-state-filter">
+            <span>State</span>
+            <select id="dashboard-state-filter"><option value="">All states</option></select>
+          </label>
+          <label class="dashboard-filter-control" for="dashboard-category-filter">
+            <span>Category</span>
+            <select id="dashboard-category-filter"><option value="">All categories</option></select>
+          </label>
+          <button type="button" class="auth-btn dashboard-filter-clear" id="dashboard-filter-clear" hidden>Clear filters</button>
+          <p class="dashboard-filter-summary" id="dashboard-filter-summary" aria-live="polite"></p>
+        </div>
         <ul class="submission-grid" id="dashboard-cards" aria-label="Your submissions"></ul>
         <p class="dashboard-empty" id="dashboard-empty" hidden>No submissions yet. <a href="?tab=propose">Propose a new study</a>.</p>
+        <p class="dashboard-empty" id="dashboard-no-results" hidden>No submissions match these filters.</p>
         <p class="dashboard-truncated" id="dashboard-truncated" hidden>Showing recent items. Older activity remains available on <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pulls" target="_blank" rel="noopener">GitHub</a>.</p>
       </div>
     </div>
@@ -595,6 +615,19 @@ const STAGE_LABELS = {
   closed: 'Closed',
   'pr-closed': 'PR closed',
 };
+const DASHBOARD_STATE_ORDER = [
+  'pending',
+  'preparing',
+  'accepted',
+  'pr-open',
+  'changes_requested',
+  'merged',
+  'retired',
+  'declined',
+  'closed',
+  'pr-closed',
+];
+const UNCATEGORIZED_FILTER_VALUE = '__uncategorized__';
 
 function apiFetch(path, options = {}) {
   return fetch(API_BASE + path, {
@@ -924,6 +957,9 @@ function buildSubmissionFields(item) {
   if (item.catalogStatus === 'draft') catalogCell = '<span class="catalog-badge catalog-draft">Draft</span>';
   if (item.catalogStatus === 'released') catalogCell = '<span class="catalog-badge catalog-released">Released</span>';
 
+  const categories = submissionCategoryValues(item);
+  const categoryCell = categories.length ? escapeHtml(categories.join(', ')) : '—';
+
   let ciCell = '—';
   if (item.checks && item.checks.state) {
     const label = item.checks.state === 'success' ? 'Passed' : item.checks.state === 'failure' ? 'Failed' : 'Pending';
@@ -940,6 +976,7 @@ function buildSubmissionFields(item) {
     titleHtml,
     stageCell,
     catalogCell,
+    categoryCell,
     ciCell,
     prCell,
     filesHtml: renderSubmissionFiles(item),
@@ -948,18 +985,109 @@ function buildSubmissionFields(item) {
   };
 }
 
+function submissionCategoryValues(item) {
+  const source = Array.isArray(item.categories)
+    ? item.categories
+    : String(item.category || '').split(',');
+  return Array.from(new Set(source.map((value) => String(value).trim()).filter(Boolean)));
+}
+
+function replaceDashboardFilterOptions(select, options, allLabel) {
+  const selected = select.value;
+  select.innerHTML = '';
+  const allOption = document.createElement('option');
+  allOption.value = '';
+  allOption.textContent = allLabel;
+  select.appendChild(allOption);
+  options.forEach(({ value, label }) => {
+    const option = document.createElement('option');
+    option.value = value;
+    option.textContent = label;
+    select.appendChild(option);
+  });
+  select.value = options.some((option) => option.value === selected) ? selected : '';
+}
+
+function updateDashboardFilterOptions(submissions) {
+  const filtersEl = document.getElementById('dashboard-filters');
+  const stateSelect = document.getElementById('dashboard-state-filter');
+  const categorySelect = document.getElementById('dashboard-category-filter');
+  filtersEl.hidden = submissions.length === 0;
+
+  const states = Array.from(new Set(submissions.map((item) => item.stage).filter(Boolean)));
+  states.sort((left, right) => {
+    const leftIndex = DASHBOARD_STATE_ORDER.indexOf(left);
+    const rightIndex = DASHBOARD_STATE_ORDER.indexOf(right);
+    if (leftIndex === -1 && rightIndex === -1) return left.localeCompare(right);
+    if (leftIndex === -1) return 1;
+    if (rightIndex === -1) return -1;
+    return leftIndex - rightIndex;
+  });
+  replaceDashboardFilterOptions(
+    stateSelect,
+    states.map((state) => ({ value: state, label: STAGE_LABELS[state] || state })),
+    'All states'
+  );
+
+  const categorySet = new Set();
+  let hasUncategorized = false;
+  submissions.forEach((item) => {
+    const categories = submissionCategoryValues(item);
+    if (!categories.length) hasUncategorized = true;
+    categories.forEach((category) => categorySet.add(category));
+  });
+  const categoryOptions = Array.from(categorySet)
+    .sort((left, right) => left.localeCompare(right))
+    .map((category) => ({ value: category, label: category }));
+  if (hasUncategorized) {
+    categoryOptions.push({ value: UNCATEGORIZED_FILTER_VALUE, label: 'Uncategorized' });
+  }
+  replaceDashboardFilterOptions(categorySelect, categoryOptions, 'All categories');
+}
+
+function filterDashboardSubmissions(submissions) {
+  const selectedState = document.getElementById('dashboard-state-filter').value;
+  const selectedCategory = document.getElementById('dashboard-category-filter').value;
+  return submissions.filter((item) => {
+    if (selectedState && item.stage !== selectedState) return false;
+    if (!selectedCategory) return true;
+    const categories = submissionCategoryValues(item);
+    if (selectedCategory === UNCATEGORIZED_FILTER_VALUE) return categories.length === 0;
+    return categories.includes(selectedCategory);
+  });
+}
+
 function renderDashboardCards(submissions, truncated) {
   const list = document.getElementById('dashboard-cards');
   const emptyEl = document.getElementById('dashboard-empty');
+  const noResultsEl = document.getElementById('dashboard-no-results');
   const truncEl = document.getElementById('dashboard-truncated');
+  const filterSummary = document.getElementById('dashboard-filter-summary');
+  const clearButton = document.getElementById('dashboard-filter-clear');
+  const allSubmissions = Array.isArray(submissions) ? submissions : [];
+  updateDashboardFilterOptions(allSubmissions);
+  const filteredSubmissions = filterDashboardSubmissions(allSubmissions);
+  const hasActiveFilter = Boolean(
+    document.getElementById('dashboard-state-filter').value ||
+    document.getElementById('dashboard-category-filter').value
+  );
   list.innerHTML = '';
   truncEl.hidden = !truncated;
-  if (!submissions.length) {
+  emptyEl.hidden = true;
+  noResultsEl.hidden = true;
+  clearButton.hidden = !hasActiveFilter;
+  filterSummary.textContent = allSubmissions.length
+    ? 'Showing ' + filteredSubmissions.length + ' of ' + allSubmissions.length
+    : '';
+  if (!allSubmissions.length) {
     emptyEl.hidden = false;
     return;
   }
-  emptyEl.hidden = true;
-  submissions.forEach((item) => {
+  if (!filteredSubmissions.length) {
+    noResultsEl.hidden = false;
+    return;
+  }
+  filteredSubmissions.forEach((item) => {
     const fields = buildSubmissionFields(item);
     const li = document.createElement('li');
     li.className = 'submission-card ' + fields.accentClass;
@@ -968,6 +1096,7 @@ function renderDashboardCards(submissions, truncated) {
       '<dl class="submission-card-meta">' +
       '<div class="submission-meta-item"><dt>Workflow</dt><dd>' + fields.stageCell + '</dd></div>' +
       '<div class="submission-meta-item"><dt>Catalog</dt><dd>' + fields.catalogCell + '</dd></div>' +
+      '<div class="submission-meta-item"><dt>Category</dt><dd>' + fields.categoryCell + '</dd></div>' +
       '<div class="submission-meta-item"><dt>CI</dt><dd>' + fields.ciCell + '</dd></div>' +
       '<div class="submission-meta-item"><dt>Pull request</dt><dd>' + fields.prCell + '</dd></div>' +
       '</dl>' +
@@ -976,6 +1105,20 @@ function renderDashboardCards(submissions, truncated) {
     list.appendChild(li);
   });
 }
+
+['dashboard-state-filter', 'dashboard-category-filter'].forEach((id) => {
+  document.getElementById(id).addEventListener('change', () => {
+    if (!dashboardCache || !Array.isArray(dashboardCache.submissions)) return;
+    renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
+  });
+});
+
+document.getElementById('dashboard-filter-clear').addEventListener('click', () => {
+  document.getElementById('dashboard-state-filter').value = '';
+  document.getElementById('dashboard-category-filter').value = '';
+  if (!dashboardCache || !Array.isArray(dashboardCache.submissions)) return;
+  renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
+});
 
 async function inlineStatusChange(slug, target, buttonEl) {
   if (!currentUser) { showAlert('dashboard', 'error', 'Sign in with GitHub first.'); return; }

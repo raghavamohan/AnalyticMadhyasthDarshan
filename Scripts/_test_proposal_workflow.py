@@ -243,6 +243,17 @@ class ProposalPortalContractTests(unittest.TestCase):
         self.assertIn("retired: 'Retired'", self.portal)
         self.assertIn("if (data.closed)", self.portal)
 
+    def test_dashboard_can_filter_by_workflow_state_and_category(self) -> None:
+        self.assertIn("async function fetchCatalogMaps(", self.worker)
+        self.assertIn("categoryMap: new Map(", self.worker)
+        self.assertIn("function proposalCategories(", self.worker)
+        self.assertGreaterEqual(self.worker.count("categories: proposalCategories("), 2)
+        self.assertIn('id="dashboard-state-filter"', self.portal)
+        self.assertIn('id="dashboard-category-filter"', self.portal)
+        self.assertIn("function filterDashboardSubmissions(", self.portal)
+        self.assertIn("categories.includes(selectedCategory)", self.portal)
+        self.assertIn("No submissions match these filters.", self.portal)
+
 
 if __name__ == "__main__":
     unittest.main()
