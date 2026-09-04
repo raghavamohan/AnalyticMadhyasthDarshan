@@ -16,7 +16,7 @@ permissions:
   contents: write
   issues: write
   pull-requests: write
-  actions: read
+  actions: write
 
 jobs:
   comment:
@@ -138,13 +138,19 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: python Scripts/_bootstrap_proposal_study.py --issue "$ISSUE_NUMBER" --force
 
+      # Pre-catalog proposal stubs are not publishable PDFs, so this should be a
+      # no-op. Keep the allowlist synchronized here as defense in depth if the
+      # inventory rules change later.
+      - name: Synchronize generated PDF Worker allowlist
+        run: python Scripts/_publish_generated_pdf_worker.py --sync-keys
+
       # Pushes a side branch; nothing reaches master until the merge below, so
       # `pushed` is what tells the next steps whether there is anything to land.
       - name: Commit bootstrap artifacts to a branch
         id: commit
         uses: ./.github/actions/commit-artifacts
         with:
-          paths: Studies
+          paths: Studies infra/generated-pdf-worker/src/generated-pdf-keys.js
           branch: ci/bootstrap-proposal-${{ github.event.issue.number || inputs.issue }}
           message: "ci: bootstrap pre-catalog proposal study (issue #${{ github.event.issue.number || inputs.issue }})"
 
@@ -175,12 +181,10 @@ jobs:
           echo "Cool-down before master merge..."
           sleep 60
 
-      # A pull request opened with GITHUB_TOKEN does not trigger workflows, so no
-      # checks run on it -- the same coverage the direct push had, and the reason
-      # the required `verify` check does not block this merge. Merged with
-      # --merge, never --squash: a squash would carry the regen commit's
-      # [skip ci] onto master and suppress the post-merge index check.
-      - name: Open and merge the bootstrap pull request
+      # A pull request opened with GITHUB_TOKEN does not trigger pull_request
+      # workflows. Open it first, then dispatch the required verification on its
+      # exact head branch and wait for success before merging.
+      - name: Open the bootstrap pull request
         if: steps.commit.outputs.pushed == 'true'
         env:
           GH_TOKEN: ${{ github.token }}
@@ -190,6 +194,40 @@ jobs:
           gh pr create --base master --head "$BRANCH" \
             --title "ci: bootstrap pre-catalog study for proposal #$ISSUE_NUMBER" \
             --body "Automated pre-catalog stub for #$ISSUE_NUMBER. The study appears on the public index as Planned, without a public read/download link, until the first draft pull request merges."
+
+      - name: Verify the bootstrap branch
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ci/bootstrap-proposal-${{ github.event.issue.number || inputs.issue }}
+        run: |
+          set -euo pipefail
+          head_sha="$(git rev-parse HEAD)"
+          gh workflow run studies-index-check.yml --ref "$BRANCH"
+          run_id=""
+          for attempt in $(seq 1 30); do
+            run_id="$(gh run list --workflow=studies-index-check.yml --branch="$BRANCH" --commit="$head_sha" --event=workflow_dispatch --limit=1 --json databaseId --jq '.[0].databaseId // empty')"
+            if [ -n "$run_id" ]; then
+              break
+            fi
+            echo "Waiting for the verification run to appear ($attempt/30)..."
+            sleep 2
+          done
+          if [ -z "$run_id" ]; then
+            echo "Verification run did not appear for $BRANCH at $head_sha." >&2
+            exit 1
+          fi
+          gh run watch "$run_id" --exit-status
+
+      # Merge with --merge, never --squash: a squash would carry the artifact
+      # commit's [skip ci] onto master and suppress post-merge workflows.
+      - name: Merge the verified bootstrap pull request
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BRANCH: ci/bootstrap-proposal-${{ github.event.issue.number || inputs.issue }}
+        run: |
+          set -euo pipefail
           gh pr merge "$BRANCH" --merge --delete-branch
 
       - name: Report when there was nothing to bootstrap
