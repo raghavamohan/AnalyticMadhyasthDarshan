@@ -51,6 +51,11 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
 
         pdf_job = workflow.split("\n  pdfs:\n", 1)[1].split("\n  presentations:\n", 1)[0]
         self.assertEqual(pdf_job.count("uses: ./.github/actions/setup-study-env"), 1)
+        self.assertIn("github.event_name != 'pull_request'", pdf_job)
+        self.assertIn(
+            "!contains(github.event.pull_request.body, 'Portal-GitHub: @')",
+            pdf_job,
+        )
 
         deploy_job = workflow.split("\n  publish-and-deploy:\n", 1)[1]
         self.assertIn("needs: [pdfs, presentations]", deploy_job)
