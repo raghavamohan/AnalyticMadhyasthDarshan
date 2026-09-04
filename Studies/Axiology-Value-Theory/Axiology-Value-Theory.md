@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 4, 2026, 5:31 AM IST
 **Status:** Released
 **The question:** What is a value, where does value reside, how is value recognised and fulfilled, and what makes one evaluation correct and another mistaken? How does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western value theory, and the natural and social sciences?
 
@@ -808,11 +808,11 @@ The constancy asserted at JV, p. 137 is read here as constancy of the object's o
 
 ### Advaita Vedanta (primary texts)
 
-- **BU** — [*Brihadaranyaka Upanishad*](../References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). English translation by Swami Madhavananda. Cited: the Maitreyi teaching that all dearness is for the sake of the Self (2.4.5); hearing, reflection, and contemplation (2.4.5).
-- **TU** — [*Taittiriya Upanishad*](../References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: the sheaths and the innermost *ananda* (2.1–2.5).
-- **BG** — [*Bhagavad Gita with the Commentary of Shankaracharya*](../References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: prescribed action without attachment to fruit (3.8); *loka-sangraha* and action by the enlightened (3.20, 3.25–26); divine qualities (16.2–16.3).
-- **BSB** — Shankara, Adi. [*Brahma Sutra Bhashya*](../References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: liberation as eternally accomplished and obscured by ignorance; the *Adhyasa Bhashya* on superimposition.
-- **VC** — [*Vivekachudamani*](../References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (traditionally attributed to Shankara; authorship disputed). English translation by Swami Madhavananda. Cited as a later pedagogical witness: qualification and the fourfold discipline (vv. 17–20, 69, 82); Existence-Knowledge-Bliss (v. 152).
+- **BU** — [*Brihadaranyaka Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). English translation by Swami Madhavananda. Cited: the Maitreyi teaching that all dearness is for the sake of the Self (2.4.5); hearing, reflection, and contemplation (2.4.5).
+- **TU** — [*Taittiriya Upanishad*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: the sheaths and the innermost *ananda* (2.1–2.5).
+- **BG** — [*Bhagavad Gita with the Commentary of Shankaracharya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: prescribed action without attachment to fruit (3.8); *loka-sangraha* and action by the enlightened (3.20, 3.25–26); divine qualities (16.2–16.3).
+- **BSB** — Shankara, Adi. [*Brahma Sutra Bhashya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: liberation as eternally accomplished and obscured by ignorance; the *Adhyasa Bhashya* on superimposition.
+- **VC** — [*Vivekachudamani*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) (traditionally attributed to Shankara; authorship disputed). English translation by Swami Madhavananda. Cited as a later pedagogical witness: qualification and the fourfold discipline (vv. 17–20, 69, 82); Existence-Knowledge-Bliss (v. 152).
 
 ### Related studies in this collection
 

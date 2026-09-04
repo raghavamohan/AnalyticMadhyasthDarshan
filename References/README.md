@@ -18,7 +18,7 @@ PDFs and the two active translation sources remain in Git. See
 
 **What is stored outside Git**
 
-- Sixteen approved PDFs are served from the private `amd-reference-archive` R2 bucket
+- Twenty-four approved PDFs are served from the private `amd-reference-archive` R2 bucket
   through the allowlisted `amd-generated-pdfs` Worker.
 - Twelve original webpage snapshots are retained under the non-public
   `archive/original-html/` prefix.
@@ -42,7 +42,7 @@ References/
 ├── NOT-DOWNLOADED.md           External works with original URLs
 ├── r2-artifacts.json           Storage, provenance, rights, size, and SHA-256 manifest
 ├── Madhyasth-Darshan/          Markdown/mappings, active translation sources, workspaces
-├── Advaita-Vedanta/            Rights-review PDFs retained in Git
+├── Advaita-Vedanta/            R2 links for approved source PDFs
 ├── Comparative-Philosophy/     Cleaned Markdown plus rights-review PDFs
 ├── Science/                    R2 links and rights-review PDFs
 ├── Modern-Philosophy/          Cleaned Markdown, R2 links, and rights-review PDFs
@@ -67,7 +67,7 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | [Ethics-And-Morals-In-Human-Beings.pdf](../Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) | MVD, SB, JV; traditional religious ethics (SEP Theological Voluntarism, SEP Natural Law Ethics external; Matthew 22, Quran 16 external); Advaita (BG, VC); modern moral science/philosophy (Crockett 2013 R2, SEP Moral Psychology external; Curry et al. 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 external) |
 | [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV; AV, SV; ATR (external) |
 | [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | MVD, SB, JV |
-| [The-Epistemology-of-Coexistence.pdf](../Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) | MVD, SB, JV; Advaita (BG, BU, BSB, CU, DDV, MU, TU, VC local; VP external); modern science/philosophy (27 works, 8 local / 19 external) |
+| [The-Epistemology-of-Coexistence.pdf](../Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) | MVD, SB, JV; Advaita (BG, BU, BSB, CU, DDV, MU, TU, VC in R2; VP external); modern science/philosophy (27 works, 8 local / 19 external) |
 | [Nature-Of-Time.pdf](../Studies/Nature-Of-Time/Nature-Of-Time.pdf) | MVD, SB, JVD; Advaita (MU, BG, VC); Carroll 2010, Ashtekar-Singh 2011, McTaggart 1908; external (Rovelli 2018) |
 | [The-Ontology-of-Coexistence.pdf](../Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | MVD, SB, JV; Bhattacharya; Advaita (CU, TU, VC); modern science/philosophy (Chalmers 1995, Nagel 1974, Strawson 2006, Frankish 2016, Limanowski and Blankenburg 2013, Whitehead 1929, Russell 1921, Mach 1914, Friston 2010, Carroll 2010, Guth 2007, Ashtekar and Singh 2011); external (Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995) |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV; Bhattacharya; Advaita (BU, TU, MU, CU, KU, BG, BSB, VC, DDV); Science (12 works, 3 local / 9 external) |
@@ -99,15 +99,15 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 
 | Tag | File | Notes |
 |-----|------|-------|
-| **BU** | [BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Swami Madhavananda translation |
-| **TU** | [Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Gambhirananda, *Eight Upanishads* (Advaita Ashrama; [2-vol. text PDF on Archive.org](https://archive.org/details/eight-upanishads-with-the-commentary-of-s-swami-gambhirananda)). Vol. I: Isa, Kena, Katha, Taittiriya; Vol. II: Aitareya, Mundaka, Mandukya, Prasna — both volumes in one file (719 pp.). **KU** begins at p. 97; **TU** at p. 237 |
-| **KU** | [Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | same as TU |
-| **MU** | [MU-Mandukya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | With Gaudapada Karika; Swami Gambhirananda |
-| **CU** | [CU-Chandogya-Upanishad-Gambhirananda.pdf](Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Swami Gambhirananda translation |
-| **BG** | [BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Shankara commentary; Swami Gambhirananda |
-| **BSB** | [BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | *Adhyasa Bhashya* is the preamble |
-| **VC** | [VC-Vivekachudamani-Madhavananda.pdf](Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Swami Madhavananda translation |
-| **DDV** | [DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Swami Nikhilananda translation |
+| **BU** | [BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Swami Madhavananda translation |
+| **TU** | [Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Gambhirananda, *Eight Upanishads* (Advaita Ashrama; [2-vol. text PDF on Archive.org](https://archive.org/details/eight-upanishads-with-the-commentary-of-s-swami-gambhirananda)). Vol. I: Isa, Kena, Katha, Taittiriya; Vol. II: Aitareya, Mundaka, Mandukya, Prasna — both volumes in one file (719 pp.). **KU** begins at p. 97; **TU** at p. 237 |
+| **KU** | [Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | same as TU |
+| **MU** | [MU-Mandukya-Upanishad-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | With Gaudapada Karika; Swami Gambhirananda |
+| **CU** | [CU-Chandogya-Upanishad-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Swami Gambhirananda translation |
+| **BG** | [BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Shankara commentary; Swami Gambhirananda |
+| **BSB** | [BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | *Adhyasa Bhashya* is the preamble |
+| **VC** | [VC-Vivekachudamani-Madhavananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Swami Madhavananda translation |
+| **DDV** | [DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Swami Nikhilananda translation |
 
 ## Science (open-access papers)
 

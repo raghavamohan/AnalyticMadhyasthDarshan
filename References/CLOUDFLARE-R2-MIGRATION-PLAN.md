@@ -2,11 +2,13 @@
 
 **Updated:** September 4, 2026
 
-**Branch:** `codex/r2-reference-migration`, based on `master` at `5504624`
+**Branch:** `codex/move-advaita-pdfs-to-r2`, based on `master` at `fa2b7d6`
 
-**Current status:** The public cutover is implemented and live for every artifact
-whose redistribution status has been approved. The remaining large files stay in
-Git until their rights are resolved. Git history has not been rewritten.
+**Current status:** The public cutover is implemented and live for the original
+approved set. The eight Advaita Vedanta PDFs were subsequently approved by the site
+owner, uploaded, and verified in R2; their allowlist and Git removal are prepared on
+this branch. The remaining large files stay in Git until their rights are resolved.
+Git history has not been rewritten.
 
 ## Restart checkpoint
 
@@ -15,17 +17,17 @@ Git until their rights are resolved. Git history has not been rewritten.
 | R2 bucket | Private `amd-reference-archive` |
 | Delivery Worker | Existing `amd-generated-pdfs`, with a second R2 binding |
 | Public route | `analyticmadhyasthdarshan.org/References/*` |
-| Public R2 PDFs | 16 objects, 118.13 MiB |
+| Public R2 PDFs | 24 objects, 272.74 MiB |
 | Private original HTML | 12 objects, 1.76 MiB |
-| Removed from current Git tree | 27 uploaded payloads plus 1 generated HTML |
-| Retained for rights review | 23 PDFs, 183.55 MiB |
+| Removed from current Git tree | 35 uploaded payloads plus 1 generated HTML after this branch merges |
+| Retained for rights review | 15 PDFs, 28.94 MiB |
 | Retained active source PDFs | KD and MSM, 77.47 MiB |
 | External-only generated derivatives | 11 PDFs, 5.18 MiB |
 | Generated on demand | 1 transcript HTML, 0.15 MiB |
 | Manifest | `References/r2-artifacts.json`, 65 artifact records |
-| Public verification | All 16 objects passed HEAD, MIME, range, ETag, size, and SHA checks |
-| Fresh-clone proof | All 16 hydrated without credentials; full reference check passed |
-| Next action | Complete rights review for the 23 retained PDFs |
+| Public verification | All 24 objects passed S3 checks and the full canary delivery audit |
+| Fresh-clone proof | All 24 hydrated and checksum-verified without credentials |
+| Next action | Merge the Advaita tranche, then complete rights review for the 15 retained PDFs |
 
 No secret values are recorded in this repository. The current S3 credential was
 sufficient for create/probe/upload/verify work. The current Cloudflare API token
@@ -56,9 +58,10 @@ was sufficient to bind the bucket, deploy the Worker, and attach the route.
 
 ### Public in R2
 
-The 16 public objects comprise six owner-approved Madhyasth Darshan PDFs, the 2010
-Nagraj transcript PDF, openly licensed MD-TOPOS, Limanowski, Melloni, Tufft, and
-Crockett papers, and public-domain Mach, McTaggart, Russell, and Whitehead works.
+The 24 public objects comprise eight owner-approved Advaita Vedanta PDFs, six
+owner-approved Madhyasth Darshan PDFs, the 2010 Nagraj transcript PDF, openly licensed
+MD-TOPOS, Limanowski, Melloni, Tufft, and Crockett papers, and public-domain Mach,
+McTaggart, Russell, and Whitehead works.
 Their exact URLs, object keys, hashes, sizes, licenses, and publication state are in
 `r2-artifacts.json`.
 
@@ -71,9 +74,8 @@ is retained for review/build reproducibility; their generated PDFs are not serve
 
 ### Retained in Git pending review
 
-The following 23 PDFs are deliberately excluded from the R2 public allowlist:
+The following 15 PDFs are deliberately excluded from the R2 public allowlist:
 
-- Advaita Vedanta: BG, BSB, BU, CU, DDV, Eight Upanishads Vol. 1, MU, and VC.
 - Comparative philosophy: Bhattacharya and Vivekananda's *Practical Vedanta*.
 - Modern philosophy: Frankish and Hashemi.
 - Science: Arnold, Ashtekar–Singh, Baehni, Chalmers, Feynman, Friston, Guth,
@@ -95,7 +97,7 @@ remain in Git.
 
 Complete for the current boundary. `r2-artifacts.json` records all 65 artifacts and
 distinguishes public R2, private original, Git-retained, external-only, and generated
-states. Rights review remains intentionally open only for the 23 listed PDFs.
+states. Rights review remains intentionally open only for the 15 listed PDFs.
 
 ### Phase 2 — Resolver and credential-free hydration
 
@@ -130,8 +132,9 @@ legitimate corrections.
 
 ### Phase 5 — Upload and reconcile
 
-Complete. Twenty-eight R2 objects were uploaded and hash-verified: 16 public PDFs and
-12 private HTML originals. The manifest records their published state. Re-running the
+Complete through the Advaita tranche. Thirty-six R2 objects were uploaded and
+hash-verified: 24 public PDFs and 12 private HTML originals. The manifest records
+their published state. Re-running the
 publisher is idempotent.
 
 ### Phase 6 — Link cutover and regeneration
@@ -143,13 +146,18 @@ HTML rather than Markdown or PDF. External-only sources resolve to canonical pag
 
 ### Phase 7 — Remove uploaded payloads from the current Git tree
 
-Complete for approved artifacts. Twenty-seven uploaded payload files and one
-reproducible transcript HTML were removed. The parent commit and Git history remain a
-rollback source. A clean cache hydration followed by `_check_references.py` passed.
+Complete for the original approved artifacts; the Advaita tranche adds eight more
+uploaded payload files for removal. The parent commits and Git history remain rollback
+sources. A clean cache hydration followed by `_check_references.py` passed for all 24
+public R2 PDFs.
 
 ## Remaining phases
 
-### Phase 8 — Resolve the 23 retained PDFs
+### Phase 8 — Resolve retained PDFs
+
+In progress. The site owner confirmed redistribution rights for all eight Advaita
+Vedanta PDFs. They are recorded as approved, uploaded with their original checksums,
+and included in the Worker allowlist on this branch. Fifteen PDFs remain under review.
 
 For each artifact:
 
@@ -209,7 +217,8 @@ the Worker, and performs a public audit.
 ## Merge gate
 
 - Manifest and unit tests pass.
-- Public and canary delivery checks pass for all 16 R2 PDFs.
+- Canary delivery checks pass for all 24 R2 PDFs; production delivery is audited by
+  the protected-branch workflow after merge.
 - A clean cache can hydrate and pass the full reference checker without secrets.
 - No generated study HTML contains cross-study `.md`/`.pdf` navigation or a removed
   reference path.
