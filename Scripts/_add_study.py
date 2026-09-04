@@ -219,9 +219,6 @@ def add_study(
         if not study_category and status != StudyStatus.ONGOING:
             study_category = "General"
 
-    if status == StudyStatus.ONGOING and formal:
-        raise SystemExit("Ongoing placeholders are only supported in the Topical Studies catalog.")
-
     if dest_md.exists() and not force and not is_pdf_import and input_path.resolve() != dest_md.resolve():
         raise SystemExit(
             f"Study already exists: {dest_md}\nUse --force to refresh catalog entries."

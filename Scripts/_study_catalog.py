@@ -978,7 +978,7 @@ def get_study_row(slug: str) -> tuple[StudyRow, StudyTable] | None:
     return None
 
 
-def load_pre_catalog_proposals() -> list[dict]:
+def load_pre_catalog_proposals(table: StudyTable = StudyTable.TOPICAL) -> list[dict]:
     if not PROPOSAL_REGISTRY_PATH.is_file():
         return []
     data = json.loads(PROPOSAL_REGISTRY_PATH.read_text(encoding="utf-8"))
@@ -986,48 +986,53 @@ def load_pre_catalog_proposals() -> list[dict]:
         entry
         for entry in data.get("proposals", [])
         if entry.get("phase") == "pre-catalog"
-        and not entry.get("formal")
         and not entry.get("applied")
+        and bool(entry.get("formal")) == (table == StudyTable.FORMAL)
     ]
 
 
 def sync_pre_catalog_proposals_to_catalog(*, rebuild_index: bool = True) -> list[StudyRow]:
-    """Register approved pre-catalog proposals as Planned (ongoing) on the public index."""
-    pre_catalog = load_pre_catalog_proposals()
-    rows = load_catalog_rows(StudyTable.TOPICAL)
-    by_slug = {row.slug: row for row in rows}
-    pre_catalog_slugs = {entry["slug"] for entry in pre_catalog}
+    """Register approved topical and formal proposals as Planned on the public index."""
+    synchronized: dict[StudyTable, list[StudyRow]] = {}
+    for table in (StudyTable.TOPICAL, StudyTable.FORMAL):
+        pre_catalog = load_pre_catalog_proposals(table)
+        rows = load_catalog_rows(table)
+        by_slug = {row.slug: row for row in rows}
+        pre_catalog_slugs = {entry["slug"] for entry in pre_catalog}
 
-    for slug, row in list(by_slug.items()):
-        if row.status == StudyStatus.ONGOING and slug not in pre_catalog_slugs:
-            del by_slug[slug]
+        for slug, row in list(by_slug.items()):
+            if row.status == StudyStatus.ONGOING and slug not in pre_catalog_slugs:
+                del by_slug[slug]
 
-    for entry in pre_catalog:
-        slug = str(entry["slug"])
-        existing = by_slug.get(slug)
-        if existing and existing.status in (StudyStatus.DRAFT, StudyStatus.RELEASED):
-            continue
-        registry_title = str(entry.get("title") or "").strip() or None
-        html_href, pdf_href = proposal_stub_hrefs(slug)
-        by_slug[slug] = StudyRow(
-            slug=slug,
-            category=str(entry.get("category", "")),
-            description=str(entry.get("description", "")),
-            status=StudyStatus.ONGOING,
-            edited_at=None,
-            table=StudyTable.TOPICAL,
-            title=registry_title,
-            html_href=html_href,
-            pdf_href=pdf_href,
+        for entry in pre_catalog:
+            slug = str(entry["slug"])
+            existing = by_slug.get(slug)
+            if existing and existing.status in (StudyStatus.DRAFT, StudyStatus.RELEASED):
+                continue
+            registry_title = str(entry.get("title") or "").strip() or None
+            html_href, pdf_href = proposal_stub_hrefs(slug)
+            by_slug[slug] = StudyRow(
+                slug=slug,
+                category=str(entry.get("category", "")),
+                description=str(entry.get("description", "")),
+                status=StudyStatus.ONGOING,
+                edited_at=None,
+                table=table,
+                title=registry_title,
+                html_href=html_href,
+                pdf_href=pdf_href,
+            )
+
+        # The catalog file is the order source of truth. Dict insertion order
+        # keeps existing rows in place; newly approved proposals append in
+        # registry order without a second hard-coded slug list.
+        synchronized[table] = list(by_slug.values())
+        write_studies_catalog(
+            synchronized[table],
+            table,
+            rebuild_index=rebuild_index and table == StudyTable.FORMAL,
         )
-
-    # The catalog file is the order source of truth. Dict insertion order keeps
-    # existing rows in place; newly approved proposals append in registry order.
-    # This avoids a second hard-coded slug list that every rename/removal had to
-    # edit in lockstep with the catalog.
-    ordered = list(by_slug.values())
-    write_studies_catalog(ordered, StudyTable.TOPICAL, rebuild_index=rebuild_index)
-    return ordered
+    return synchronized[StudyTable.TOPICAL]
 
 
 def write_studies_catalog(
