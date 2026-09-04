@@ -195,10 +195,11 @@ Linux `pdfs` job: it installs the shared Python/Node/Chrome environment once, ru
 the Markdown and normalized-reference pipelines in sequence, checks manifest/link
 policy, and uploads separate short-lived Actions artifacts for inspection.
 Pull-request jobs do not receive R2 or Cloudflare credentials and cannot publish.
-Before the labelled study pipeline completes, it regenerates
-`Studies/companion-artifacts.json` from the catalog and repository files. This keeps
-My Submissions' study-to-note/deck selector synchronized for additions, removals,
-renames, and status changes without deriving inventory from historical issues or PRs.
+Before the labelled study pipeline completes, it regenerates both
+`Studies/companion-artifacts.json` and the generated-PDF Worker's explicit allowlist
+from the catalog and repository files. This keeps My Submissions' study-to-note/deck
+selector and the delivery boundary synchronized for additions, removals, renames,
+and status changes without deriving inventory from historical issues or PRs.
 When that regeneration creates a commit, the study workflow explicitly dispatches
 the Studies index workflow on the new head. Pushes made with `GITHUB_TOKEN` do not
 emit another pull-request event, so the dispatch is what makes the required

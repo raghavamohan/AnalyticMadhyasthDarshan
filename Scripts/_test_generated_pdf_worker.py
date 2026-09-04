@@ -6,7 +6,7 @@ import subprocess
 import unittest
 
 from _common import BASE
-from _publish_generated_pdf_worker import remote_coverage_errors
+from _publish_generated_pdf_worker import check_sources, remote_coverage_errors
 
 
 class FakeHeadClient:
@@ -18,6 +18,9 @@ class FakeHeadClient:
 
 
 class GeneratedPdfWorkerTests(unittest.TestCase):
+    def test_checked_in_allowlist_matches_generated_inventory(self) -> None:
+        self.assertEqual(check_sources(), [])
+
     def test_worker_http_contract(self) -> None:
         completed = subprocess.run(
             ["node", str(BASE / "Scripts" / "_test_generated_pdf_worker.mjs")],
