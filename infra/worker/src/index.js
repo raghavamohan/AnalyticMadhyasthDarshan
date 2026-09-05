@@ -1,5 +1,7 @@
+import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
 import { Router } from 'itty-router';
 import {
+  allowedOrigins,
   buildOAuthState,
   clearOAuthStateCookie,
   clearSessionCookie,
@@ -1548,32 +1550,32 @@ router.options('*', (request, env) => new Response(null, { headers: corsHeaders(
 
 router.get('/api/health', (request, env) => jsonResponse(request, env, { status: 'ok' }));
 
-router.get('/api/auth/github', (request, env) => {
-  if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.SESSION_SECRET) {
+router.get('/api/auth/github', async (request, env) => {
+  if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.SESSION_SECRET || !env.SESSIONS) {
     return jsonResponse(request, env, { success: false, error: 'GitHub sign-in is not configured.' }, 503);
   }
   const url = new URL(request.url);
   const returnTo = sanitizeReturnTo(url.searchParams.get('return_to'), env);
-  const stateValue = buildOAuthState(returnTo);
+  const stateValue = await buildOAuthState(returnTo, env);
   const headers = {
-    Location: githubAuthorizeUrl(env, request, returnTo),
-    'Set-Cookie': setOAuthStateCookie(stateValue, env),
+    Location: githubAuthorizeUrl(env, request, stateValue),
+    'Set-Cookie': setOAuthStateCookie(stateValue.cookie, env),
   };
   return redirectResponse(headers.Location, headers);
 });
 
 router.get('/api/auth/callback', async (request, env) => {
   try {
-    if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.SESSION_SECRET) {
+    if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.SESSION_SECRET || !env.SESSIONS) {
       throw new Error('GitHub sign-in is not configured.');
     }
     const url = new URL(request.url);
     const code = url.searchParams.get('code');
-    const oauthState = parseOAuthState(request);
+    const oauthState = await parseOAuthState(request, env);
     if (!code || !oauthState) {
       throw new Error('Invalid OAuth callback.');
     }
-    const accessToken = await exchangeGitHubCode(code, env, request);
+    const accessToken = await exchangeGitHubCode(code, env, request, oauthState.verifier);
     const user = await fetchGitHubUser(accessToken);
     const sessionToken = await createSession(env, {
       login: user.login,
@@ -2364,7 +2366,17 @@ router.post('/api/status-change', async (request, env) => {
 router.all('*', (request, env) => new Response('Not Found', { status: 404, headers: corsHeaders(request, env) }));
 
 export default {
-  fetch: (request, env, ctx) => router.fetch(request, env, ctx).catch((err) =>
-    new Response(err.message, { status: 500, headers: corsHeaders(request, env) })
-  ),
+  async fetch(request, env, ctx) {
+    let response = rejectUnsafeWrite(request, allowedOrigins(env), { machinePath: '/api/notify' });
+    if (!response) {
+      try {
+        response = await router.fetch(request, env, ctx);
+      } catch {
+        response = new Response(JSON.stringify({ error: 'Request failed. Please try again.' }), {
+          status: 500, headers: { 'Content-Type': 'application/json' },
+        });
+      }
+    }
+    return privateResponse(response, corsHeaders(request, env));
+  },
 };

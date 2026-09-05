@@ -7,7 +7,8 @@
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "db:migrate:local": "wrangler d1 migrations apply amd-discussions --local",
-    "db:migrate:remote": "wrangler d1 migrations apply amd-discussions --remote"
+    "db:migrate:remote": "wrangler d1 migrations apply amd-discussions --remote",
+    "test": "node ../../Scripts/_test_api_worker_routes.mjs"
   },
   "license": "ISC",
   "type": "module",

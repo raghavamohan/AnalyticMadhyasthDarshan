@@ -1,5 +1,7 @@
+import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
 import { Router } from 'itty-router';
 import {
+  allowedOrigins,
   clearSessionCookie,
   corsHeaders,
   createSession,
@@ -372,7 +374,17 @@ router.post('/api/discuss-auth/logout', async (request, env) => {
 router.all('*', (request, env) => new Response('Not Found', { status: 404, headers: corsHeaders(request, env) }));
 
 export default {
-  fetch: (request, env, ctx) => router.fetch(request, env, ctx).catch((err) =>
-    new Response(err.message, { status: 500, headers: corsHeaders(request, env) }),
-  ),
+  async fetch(request, env, ctx) {
+    let response = rejectUnsafeWrite(request, allowedOrigins(env), {});
+    if (!response) {
+      try {
+        response = await router.fetch(request, env, ctx);
+      } catch {
+        response = new Response(JSON.stringify({ error: 'Request failed. Please try again.' }), {
+          status: 500, headers: { 'Content-Type': 'application/json' },
+        });
+      }
+    }
+    return privateResponse(response, corsHeaders(request, env));
+  },
 };

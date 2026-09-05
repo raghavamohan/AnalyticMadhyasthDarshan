@@ -36,7 +36,8 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         self.assertTrue(all(spec.key.startswith(directory) for spec in selected))
 
     def test_shared_pipeline_change_selects_every_markdown_output(self) -> None:
-        self.assertEqual(select_specs(("Scripts/_html_to_pdf.js",), self.specs), self.specs)
+        for source in ("Scripts/_html_to_pdf.js", "Scripts/_safe_study_html.py", "Scripts/_pdf_resource_policy.cjs"):
+            self.assertEqual(select_specs((source,), self.specs), self.specs)
 
     def test_presentation_only_change_selects_no_markdown_output(self) -> None:
         selected = select_specs((

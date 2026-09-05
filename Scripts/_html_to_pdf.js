@@ -12,6 +12,7 @@ const {
 } = require('./_chrome');
 
 const puppeteer = require('puppeteer');
+const { allowedPdfResource } = require('./_pdf_resource_policy.cjs');
 
 const workspaceRoot = path.resolve(__dirname, '..');
 
@@ -145,7 +146,7 @@ async function renderMermaidDiagrams(page) {
     window.mermaid.initialize({
       startOnLoad: false,
       theme: 'neutral',
-      securityLevel: 'loose',
+      securityLevel: 'strict',
       flowchart: { htmlLabels: true, useMaxWidth: true },
     });
     await window.mermaid.run({ querySelector: '.mermaid' });
@@ -207,15 +208,30 @@ function buildFooterTemplate(editedOnDate) {
     process.exit(1);
   }
 
-  const browser = await puppeteer.launch(puppeteerLaunchOptions(executablePath));
+  const launchOptions = puppeteerLaunchOptions(executablePath);
+  // Chrome needs OS paths and locale, not CI or publishing credentials.
+  const browserEnv = Object.fromEntries(Object.entries(process.env).filter(([key]) =>
+    /^(PATH|SYSTEMROOT|WINDIR|TEMP|TMP|TMPDIR|HOME|USERPROFILE|APPDATA|LOCALAPPDATA|LANG|LC_[A-Z_]+|DISPLAY|XDG_RUNTIME_DIR)$/i.test(key)));
+  const browser = await puppeteer.launch({ ...launchOptions, env: browserEnv });
   // Pagination depends on Chrome's hyphenation dictionary, so a drifting
   // renderer would repaginate every study without changing a word. Fail before
   // anything is written.
   await assertPinnedChrome(browser);
   const page = await browser.newPage();
+  await page.setRequestInterception(true);
+  page.on('request', request => {
+    const allowed = allowedPdfResource(request.url(), request.resourceType(), inputPath,
+      path.join(workspaceRoot, 'Assets', 'KaTeX', 'fonts'));
+    if (allowed) request.continue();
+    else request.abort();
+  });
+  // Reader scripts and author event handlers are unnecessary while loading PDF
+  // input. Only the bundled, strict Mermaid renderer is enabled afterwards.
+  await page.setJavaScriptEnabled(false);
 
   await page.goto('file:///' + inputPath.replace(/\\/g, '/'), { waitUntil: 'load' });
 
+  await page.setJavaScriptEnabled(true);
   await renderMermaidDiagrams(page);
 
   // Only translation documents print the date in their footer, so only they need

@@ -306,7 +306,7 @@
     outline: 2px solid #13405c;
     outline-offset: 2px;
   }
-  h2[id] {
+  h2[id], h3[id], h4[id], main[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
   }
   .table-scroll {
@@ -558,7 +558,14 @@
      on screen is confined to @media screen. The bare rules and the @media
      print block above remain the print baseline and are left alone. */
   @media screen {
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) { color-scheme: dark; }
+    }
     body {
+      background: #fff;
+      overflow-wrap: anywhere;
       font-size: 17px;
       line-height: 1.62;
       max-width: 46rem;
@@ -590,15 +597,26 @@
       margin-top: 1.45em;
     }
     h4 { font-size: 1.0rem; }
+    /* Long inline formulae need their own scroll region, just like display
+       equations and tables; they must not widen the whole reading page. */
+    .katex { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+    .katex-display > .katex { display: block; overflow: visible; }
+
   }
   @media screen and (min-width: 760px) {
     .study-toc { max-width: 46rem; }
   }
 
   @media (max-width: 640px) {
+    .study-toolbar-row--primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .study-toolbar-actions {
+      grid-column: 1;
+      justify-self: stretch;
+      justify-content: space-between;
       gap: 5px;
     }
+    .study-toolbar-link, .study-theme-toggle { min-height: 44px; display: inline-flex; align-items: center; box-sizing: border-box; }
+    .study-toolbar-section { display: block; line-height: 44px; }
     .study-toolbar-feedback { font-size: 11px; }
     .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
@@ -706,11 +724,11 @@
   </div>
 </nav>
 <main id="main"><h1>Technical Note: MD-TOPOS and the State-Dynamic Model of Coexistence</h1>
-<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">AnalyticMadhyasthDarshan.org</a>)</p>
+<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org" rel="noopener noreferrer">AnalyticMadhyasthDarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 30, 2026, 2:52 AM IST</p>
-<p><strong>Status:</strong> Internal technical note; not a catalog entry. Prepared as a semantic extension note for <em><a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html">From Unit Activity to Human Orderliness</a></em>.</p>
-<p><strong>Scope.</strong> This note reviews Balmukund Meena&rsquo;s <em>Minimal Decidable Site for the Madhyasth-Darshan Classifying Topos via Single-Flag Morleyisation</em> (<strong>MD-TOPOS</strong>) to determine what role its categorical architecture can play in the State-Dynamic Model of Coexistence (<strong>SDM</strong>). MD-TOPOS is treated as a secondary formal proposal, not as a primary source for <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span>. Its construction is assessed against the typed distinctions and claim boundaries already present in the SDM.</p>
-<p>MD-TOPOS should not replace the SDM&rsquo;s ontology or its occurrence dynamics. Its defensible role is downstream: it can motivate a <strong>classifying semantics for explicitly selected fragments of the SDM</strong>, so that different models, translations, observation interfaces, and contexts can be compared without being mistaken for the primary theory. The present 26+1 predicate construction cannot be imported unchanged. Its single-sorted vocabulary erases distinctions on which the SDM depends, and several of its claims of conservativity, atomicity, and modal complement preservation require repair.</p>
+<p><strong>Status:</strong> Internal technical note; not a catalog entry. Prepared as a semantic extension note for <em><a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" rel="noopener noreferrer">From Unit Activity to Human Orderliness</a></em>.</p>
+<p><strong>Scope.</strong> This note reviews Balmukund Meena’s <em>Minimal Decidable Site for the Madhyasth-Darshan Classifying Topos via Single-Flag Morleyisation</em> (<strong>MD-TOPOS</strong>) to determine what role its categorical architecture can play in the State-Dynamic Model of Coexistence (<strong>SDM</strong>). MD-TOPOS is treated as a secondary formal proposal, not as a primary source for <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span>. Its construction is assessed against the typed distinctions and claim boundaries already present in the SDM.</p>
+<p>MD-TOPOS should not replace the SDM’s ontology or its occurrence dynamics. Its defensible role is downstream: it can motivate a <strong>classifying semantics for explicitly selected fragments of the SDM</strong>, so that different models, translations, observation interfaces, and contexts can be compared without being mistaken for the primary theory. The present 26+1 predicate construction cannot be imported unchanged. Its single-sorted vocabulary erases distinctions on which the SDM depends, and several of its claims of conservativity, atomicity, and modal complement preservation require repair.</p>
 <p>The proposed division of labour is:</p>
 <div class="mermaid">
 flowchart LR
@@ -807,14 +825,14 @@ flowchart LR
 <p>MD-TOPOS rightly resists the assumption that the entire philosophical theory must be Boolean merely because a software interface needs yes/no queries. The SDM can adopt that principle. A finite observation ledger may be made decidable for a specified model class while the underlying theory retains partial information, open questions, and context-sensitive evidence.</p>
 <p>Decidability must remain local and typed. A material closure ledger may ask whether a candidate whole is constituted, persists, or has disintegrated. A human trace ledger may ask whether a relationship was recognised, a value was fulfilled, or a later assessment contradicted an earlier judgement. These are different ledgers over different sorts and evidence conditions. Neither is a list of ontological atoms.</p>
 <h3 id="23-sites-make-coverage-and-translation-explicit" data-depth="2">2.3 Sites make coverage and translation explicit</h3>
-<p>A syntactic site forces the formaliser to declare which formulas and arrows generate the presentation and which families count as covers. That discipline would improve the SDM&rsquo;s next formal stage. It requires a coverage audit, a minimality audit, and explicit tracking of every definitional extension. It also makes countermodels useful: if a proposed axiom is not derivable, a model satisfying the earlier theory and violating the new axiom exposes the gap.</p>
+<p>A syntactic site forces the formaliser to declare which formulas and arrows generate the presentation and which families count as covers. That discipline would improve the SDM’s next formal stage. It requires a coverage audit, a minimality audit, and explicit tracking of every definitional extension. It also makes countermodels useful: if a proposed axiom is not derivable, a model satisfying the earlier theory and violating the new axiom exposes the gap.</p>
 <h3 id="24-context-change-may-be-represented-formally" data-depth="2">2.4 Context change may be represented formally</h3>
 <p>The SDM distinguishes ontological, structural, sentient, epistemic, and trace-level questions. Categorical semantics can represent some changes of context through reducts, expansions, slices, or subtoposes. This offers a disciplined way to compare what is visible in a material description, a body–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> association, a human conduct trace, or an organisational record.</p>
 <p>The value is conditional. A nucleus or modality must be constructed and its preservation properties proved. Naming five operators after faculties or values does not establish their mathematical behaviour or their philosophical adequacy.</p>
 <h2 id="3-why-the-published-261-construction-cannot-be-imported">3. Why the published 26+1 construction cannot be imported</h2>
 <h3 id="31-the-vocabulary-is-single-sorted-and-extensionally-flat" data-depth="2">3.1 The vocabulary is single-sorted and extensionally flat</h3>
 <p>MD-TOPOS uses one sort of “world-points” and 26 unary predicates grouped as six Walls, six Virtues, four Responsibilities, five Scales, and five nested Shells, together with the predicate <code>Rwalls</code>. This collapses distinctions among bearer, faculty, activity, quality, responsibility, association scale, institutional role, and observational status. The SDM cannot express its central relations in that form without losing their types.</p>
-<p>The primary texts support narrower claims than the flattened ledger suggests. They distinguish a unit&rsquo;s state and motion and its form, property, essential nature, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> (MVD, p. 47; SB, pp. 248–257). They distinguish a constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> from the body through which animal or human activity is expressed (JV, p. 59). These passages do not license the mutual exclusivity of virtues, responsibilities, scales, or faculties as unary states of one underlying point.</p>
+<p>The primary texts support narrower claims than the flattened ledger suggests. They distinguish a unit’s state and motion and its form, property, essential nature, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> (MVD, p. 47; SB, pp. 248–257). They distinguish a constitutionally complete <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> from the body through which animal or human activity is expressed (JV, p. 59). These passages do not license the mutual exclusivity of virtues, responsibilities, scales, or faculties as unary states of one underlying point.</p>
 <h3 id="32-the-claimed-morleyisation-changes-the-theory" data-depth="2">3.2 The claimed Morleyisation changes the theory</h3>
 <p>In the base theory, the Wall predicates cover every point, while Wall exclusivity is deliberately absent. The later theory adds <code>Rwalls</code> as a name for the Wall disjunction <strong>and</strong> adds pairwise Wall exclusivity as Axiom A2<em>. Naming an existing formula is a definitional extension; imposing a new exclusivity axiom is not. A model of the base theory in which two Wall predicates overlap has no expansion satisfying A2</em>. The forgetful functor from models of the later theory to models of the base theory therefore cannot be an equivalence on the axioms printed in the paper (MD-TOPOS §§3–5, Proposition 4.5).</p>
 <p>The syntactic rewrite also deletes the original Wall-cover axiom and later speaks of a resolved context satisfying <code>not Rwalls</code>. Under the original cover, <code>Rwalls</code> names a predicate true of every point, so its complement cannot describe an inhabited conservative subtheory. A repaired construction must decide which theory is intended and must not describe a strengthening or alteration as a definitional extension.</p>
@@ -822,7 +840,7 @@ flowchart LR
 <p>The paper calls the 26 geometric predicates plus <code>Rwalls</code> atoms of a finite Boolean ledger. Its own axioms, however, make the Shell predicates nested and allow predicates from different families to co-hold. Nested predicates are not disjoint atoms, and cross-family intersections create further cells. <code>Rwalls</code> is definitionally the union of the Wall predicates, so it is not an independent twenty-seventh atom.</p>
 <p>A usable ledger must be generated from the cells of a declared partition or from explicitly decidable propositions. Its size and minimality must be calculated after the relations among generators are imposed. The number of names in a signature does not determine the number of Boolean atoms.</p>
 <h3 id="34-modal-transparency-is-not-established-for-arbitrary-nuclei" data-depth="2">3.4 Modal Transparency is not established for arbitrary nuclei</h3>
-<p>The modal proof uses preservation of finite meets and disjoint coproducts to conclude preservation of complements. A Lawvere–Tierney nucleus preserves truth and finite meets, but an arbitrary nucleus need not preserve falsehood, joins, or complements. The proof&rsquo;s step from an empty intersection to an empty intersection after closure therefore needs additional hypotheses; so does the claim that the chosen operators preserve the proposed ledger algebra (MD-TOPOS §8).</p>
+<p>The modal proof uses preservation of finite meets and disjoint coproducts to conclude preservation of complements. A Lawvere–Tierney nucleus preserves truth and finite meets, but an arbitrary nucleus need not preserve falsehood, joins, or complements. The proof’s step from an empty intersection to an empty intersection after closure therefore needs additional hypotheses; so does the claim that the chosen operators preserve the proposed ledger algebra (MD-TOPOS §8).</p>
 <p>For the SDM, modalities should be deferred until each operator is defined on a typed semantic fragment and the needed preservation theorem is proved. If the application needs Boolean behaviour, that behaviour should be stated as a property of the selected ledger and operator, not attributed to all nuclei.</p>
 <h3 id="35-the-world-family-layer-is-an-added-structure" data-depth="2">3.5 The World-Family layer is an added structure</h3>
 <p>MD-TOPOS separately assumes ten disjoint tier flags and an election relation, then assigns social and knowledge roles to them. Later tier formulas are nested or dependent, so they do not automatically satisfy the earlier disjointness condition, and their inhabitation is not proved from the minimal site. More importantly, the institutional hierarchy is not derived from the 26+1 vocabulary.</p>
@@ -841,7 +859,7 @@ flowchart LR
 <tr>
 <td>Compare different formal implementations</td>
 <td>A classifying semantics for a stated fragment</td>
-<td>Does not prove the fragment&rsquo;s ontology or empirical truth</td>
+<td>Does not prove the fragment’s ontology or empirical truth</td>
 </tr>
 <tr>
 <td>Keep formal modules connected without flattening them</td>
@@ -860,7 +878,7 @@ flowchart LR
 </tr>
 </tbody>
 </table></div>
-<p>This places categorical semantics after the SDM&rsquo;s qualitative schema and before concrete software or simulation. It is a semantic extension of the model, not another appendix of process equations.</p>
+<p>This places categorical semantics after the SDM’s qualitative schema and before concrete software or simulation. It is a semantic extension of the model, not another appendix of process equations.</p>
 <h2 id="5-a-typed-semantic-signature-for-the-sdm">5. A typed semantic signature for the SDM</h2>
 <p>The first categorical reconstruction should be many-sorted. The exact signature remains a design task, but its minimum distinctions are already visible.</p>
 <div class="table-scroll"><table>
@@ -904,7 +922,7 @@ flowchart LR
 <p>Relations should include saturation, actual mutuality, containment, body–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> association, participation in an occurrence, recognition, fulfilment, candidate closure, event compatibility, consequence retention, and later verification. Functions or functional relations for form, result, accepted orientation, and order profile should be introduced only where their totality and uniqueness are justified.</p>
 <p>The full Appendix A schema is not automatically a coherent theory. It uses finite sets, partial functions, non-emptiness, uniqueness, acyclicity, temporal inequalities, undefinedness, and invariants. Some of these can be expressed geometrically after retyping; some require a regular, coherent, first-order, or external metalanguage; some should remain properties of a chosen implementation. The classifying object must therefore be built fragment by fragment rather than claimed for the whole schema at once.</p>
 <h2 id="6-recommended-first-formal-fragment">6. Recommended first formal fragment</h2>
-<p>The first pilot should be the material structural-closure fragment. It is small enough to expose the semantic method and central enough to test the SDM&rsquo;s distinction between a mixture, a closed containing activity, and later disintegration.</p>
+<p>The first pilot should be the material structural-closure fragment. It is small enough to expose the semantic method and central enough to test the SDM’s distinction between a mixture, a closed containing activity, and later disintegration.</p>
 <p>The fragment should type units, actual mutuality, occurrences, candidate wholes, containment, closure events, and positive outcome tags such as <code>Closed</code>, <code>Nonclosing</code>, and <code>Disintegrated</code>. It should represent <code>ConstructClosure</code> as an event whose guards are explicit. It should not encode failure merely as classical negation, assume that every candidate has a decided outcome, or treat closure as evidence for T1.</p>
 <p>Three model families would make the pilot substantive:</p>
 <ol>
@@ -955,7 +973,7 @@ flowchart LR
 <p>Each ledger requires a coverage statement, a disjointness or overlap statement, and a rule for unknown or unavailable information. A decidability proof must identify the model class in which it holds. Cross-ledger conjunctions remain possible without pretending that all entries are atoms of one partition.</p>
 <p>Context operators should be introduced only after the ledgers are stable. Candidate operators include restriction to a bounded situation, projection from a body–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> association to its bodily or sentient relatum, restriction of a trace to an access domain, and forgetting proposed operational annotations to recover the qualitative process theory. These maps have direct semantic meanings. Faculty names, value names, or World-Family tiers should not be used as modal operators until a corresponding construction is specified.</p>
 <h2 id="8-proof-obligations">8. Proof obligations</h2>
-<p>A credible SDM classifying-semantics programme should satisfy the following obligations before it inherits any of MD-TOPOS&rsquo;s stronger vocabulary.</p>
+<p>A credible SDM classifying-semantics programme should satisfy the following obligations before it inherits any of MD-TOPOS’s stronger vocabulary.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1002,7 +1020,7 @@ flowchart LR
 </tr>
 <tr>
 <td>Empirical modesty</td>
-<td>Classification of models is not presented as verification of the darshan&rsquo;s ontological claims</td>
+<td>Classification of models is not presented as verification of the darshan’s ontological claims</td>
 </tr>
 </tbody>
 </table></div>
@@ -1040,7 +1058,7 @@ flowchart LR
 <tr>
 <td>Single sort of world-points</td>
 <td>Reject</td>
-<td>Erases the SDM&rsquo;s bearer, relation, event, and evidence types</td>
+<td>Erases the SDM’s bearer, relation, event, and evidence types</td>
 </tr>
 <tr>
 <td>Fixed 26+1 inventory</td>
@@ -1069,33 +1087,47 @@ flowchart LR
 <p>The first implementation should construct a classifying semantics for the material structural-closure fragment and compare relational, graph/state, and contextual models. Observation ledgers should be derived from that typed theory. Body–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, human conduct, trace verification, and social order should be added as separate modules with their own evidence and logical requirements. This path retains the ambition of MD-TOPOS while avoiding its flattening of the darshan into 27 names and its unproved claims of conservative Boolean and modal structure.</p>
 <h2 id="editorial-notes">Editorial Notes</h2>
 <h3 id="relation-to-the-retired-first-principles-formulation">Relation to the retired first-principles formulation</h3>
-<p>An earlier internal note examined MD-TOPOS against <em>Coexistence From First Principles</em>. The present note does not carry that kernel forward. It replaces its symbols and generative assumptions with the SDM&rsquo;s current distinctions: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">S</mi></mrow><annotation encoding="application/x-tex">\mathbb S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">S</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="script">Q</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal Q_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathcal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, ontic units, actual mutuality, complete occurrences, structural events, body–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> associations, maintained relational orders, and later trace verification. The reusable conclusion is architectural: categorical semantics belongs downstream of a source-bounded typed process theory.</p>
+<p>An earlier internal note examined MD-TOPOS against <em>Coexistence From First Principles</em>. The present note does not carry that kernel forward. It replaces its symbols and generative assumptions with the SDM’s current distinctions: <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi mathvariant="double-struck">S</mi></mrow><annotation encoding="application/x-tex">\mathbb S</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6889em;"></span><span class="mord mathbb">S</span></span></span></span>, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi mathvariant="script">Q</mi><mi>n</mi></msub></mrow><annotation encoding="application/x-tex">\mathcal Q_n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathcal">Q</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.1514em;"><span style="top:-2.55em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">n</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span>, ontic units, actual mutuality, complete occurrences, structural events, body–<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> associations, maintained relational orders, and later trace verification. The reusable conclusion is architectural: categorical semantics belongs downstream of a source-bounded typed process theory.</p>
 <h3 id="mathematical-status-of-this-note">Mathematical status of this note</h3>
 <p>This is a design and audit note, not a construction of a classifying topos. It identifies candidate fragments and proof obligations. No equivalence, decidability theorem, nucleus, or modal preservation result is asserted for the SDM until the relevant theory, site, and model maps have been written and checked.</p>
 <h2 id="references">References</h2>
 <h3 id="paper-under-review">Paper under review</h3>
 <ul>
-<li><strong>MD-TOPOS</strong> — Meena, Balmukund. <a href="https://analyticmadhyasthdarshan.org/References/Applied-Studies/MD_TOPOS.pdf"><em>Minimal Decidable Site for the Madhyasth-Darshan Classifying Topos via Single-Flag Morleyisation</em></a>. Version of record, DOI 10.5281/zenodo.16786431. Reviewed: signature and 26+1 ledger (§2); base axioms, Morleyisation, and conservativity claim (§§3–5); site and comparison claim (§§6–7); modal transparency (§8); World-Family layer (§9 and appendices).</li>
+<li><strong>MD-TOPOS</strong> — Meena, Balmukund. <a href="https://analyticmadhyasthdarshan.org/References/Applied-Studies/MD_TOPOS.pdf" rel="noopener noreferrer"><em>Minimal Decidable Site for the Madhyasth-Darshan Classifying Topos via Single-Flag Morleyisation</em></a>. Version of record, DOI 10.5281/zenodo.16786431. Reviewed: signature and 26+1 ledger (§2); base axioms, Morleyisation, and conservativity claim (§§3–5); site and comparison claim (§§6–7); modal transparency (§8); World-Family layer (§9 and appendices).</li>
 </ul>
 <h3 id="state-dynamic-reconstruction">State-dynamic reconstruction</h3>
 <ul>
-<li><strong>SDM</strong> — <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"><em>From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence</em></a>. Used: process and claim boundaries (§12 and Appendices A–C); source-status audit (Editorial Notes).</li>
+<li><strong>SDM</strong> — <a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" rel="noopener noreferrer"><em>From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence</em></a>. Used: process and claim boundaries (§12 and Appendices A–C); source-status audit (Editorial Notes).</li>
 </ul>
 <h3 id="primary-madhyasth-darshan-texts">Primary Madhyasth Darshan texts</h3>
 <ul>
-<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: state and motion, <em>guna</em>, <em>svabhav</em>, and <em>dharma</em> as aspects of a unit and as evident in mutuality (p. 47; §3.1).</li>
-<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: units as state and motion and the inseparability of form, property, essential nature, and <em>dharma</em> from the bearer (pp. 248–257; §3.1).</li>
-<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: the human body as an evolved formation for evidencing understanding and the necessity of body–<em>jeevan</em> association for human activity (p. 59; §3.1).</li>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan — Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: state and motion, <em>guna</em>, <em>svabhav</em>, and <em>dharma</em> as aspects of a unit and as evident in mutuality (p. 47; §3.1).</li>
+<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf" rel="noopener noreferrer"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: units as state and motion and the inseparability of form, property, essential nature, and <em>dharma</em> from the bearer (pp. 248–257; §3.1).</li>
+<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf" rel="noopener noreferrer"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: the human body as an evolved formation for evidencing understanding and the necessity of body–<em>jeevan</em> association for human activity (p. 59; §3.1).</li>
 </ul></main>
 <script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-mermaid.initialize({
-  startOnLoad: true,
-  theme: prefersDark ? "dark" : "neutral",
-  securityLevel: "loose",
-  flowchart: { htmlLabels: true, useMaxWidth: true },
-});
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.17.2/dist/mermaid.esm.min.mjs";
+const system = window.matchMedia("(prefers-color-scheme: dark)");
+const diagrams = Array.from(document.querySelectorAll(".mermaid"), node => ({ node, source: node.textContent }));
+let queue = Promise.resolve();
+let generation = 0;
+const render = () => {
+  queue = queue.then(async () => {
+    const dark = document.documentElement.dataset.theme === "dark" || (!document.documentElement.dataset.theme && system.matches);
+    const theme = dark ? "dark" : "neutral";
+    mermaid.initialize({ startOnLoad: false, theme, securityLevel: "strict", flowchart: { htmlLabels: true, useMaxWidth: true } });
+    const run = ++generation;
+    for (const [index, { node, source }] of diagrams.entries()) {
+      // Keep the old figure in place until its replacement is ready.
+      const { svg } = await mermaid.render(`study-diagram-${run}-${index}`, source);
+      node.innerHTML = svg;
+      node.dataset.diagramTheme = theme;
+    }
+  }).catch(error => console.error("Study diagram could not render", error));
+};
+new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+system.addEventListener("change", render);
+render();
 </script>
 <script>
 (() => {
@@ -1155,7 +1187,7 @@ mermaid.initialize({
       prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
     }
 
-    if (idx < 0 || idx >= sections.length - 1) {
+    if (idx >= sections.length - 1) {
       setDisabled(next, true, "Next section \u2192");
     } else {
       next.classList.remove("is-disabled");
@@ -1176,6 +1208,9 @@ mermaid.initialize({
     const target = document.getElementById(id);
     if (!target) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    history.pushState(null, "", `#${encodeURIComponent(id)}`);
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   };
 
