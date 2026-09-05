@@ -31,7 +31,7 @@ def public_rows() -> list[dict]:
     ]
 
 
-def build_all(output_root: Path) -> None:
+def build_all(output_root: Path, *, verify_only: bool = False) -> None:
     manifest = load_manifest()
     errors = manifest_errors(manifest)
     if errors:
@@ -43,7 +43,9 @@ def build_all(output_root: Path) -> None:
     store = ReferenceStore()
     for row in rows:
         expected = artifact_root / row["repo_path"]
-        if row.get("kind") == "normalized-reference-pdf":
+        if verify_only:
+            pdf_path = expected
+        elif row.get("kind") == "normalized-reference-pdf":
             markdown_path = BASE / row["generation"]["source_markdown"]
             _, pdf_path = build(markdown_path, artifact_root / "References")
         else:
@@ -84,17 +86,19 @@ def build_all(output_root: Path) -> None:
                 )
         if pdf_path != expected:
             raise ValueError(f"generated PDF path differs from manifest: {pdf_path} != {expected}")
-    print(f"Staged and verified {len(rows)} public reference PDFs under {artifact_root}.")
+    print(f"{'Verified' if verify_only else 'Staged and verified'} {len(rows)} public reference PDFs under {artifact_root}.")
 
 
 def main() -> int:
     configure_utf8_stdio()
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--all", action="store_true", required=True)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--all", action="store_true")
+    mode.add_argument("--verify-only", action="store_true", help="Verify a restored complete build without rendering or downloading")
     parser.add_argument("--output-root", type=Path, required=True)
     args = parser.parse_args()
     try:
-        build_all(args.output_root)
+        build_all(args.output_root, verify_only=args.verify_only)
         return 0
     except (OSError, RuntimeError, ValueError) as exc:
         print(f"Reference PDF batch build failed: {exc}", file=sys.stderr)

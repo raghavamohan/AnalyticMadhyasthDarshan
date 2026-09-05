@@ -231,6 +231,8 @@ PPTX sources, reference HTML/Markdown/PDF sources and manifests, or the renderin
 publication toolchain. Root portal and catalog artifacts such as `Studies/submit.html`
 and `Studies/companion-artifacts.json` do not start publication. `publish-and-deploy`
 does not start until both build jobs complete successfully.
+Complete build trees can now come from verified caches, as described below;
+the publisher still receives the entire current inventory.
 It merges the verified artifact trees; publishes generated PDFs and approved
 references to their separate R2 buckets; checks R2 coverage; deploys the shared,
 allowlisted Worker; preserves the guarded `/Studies/*`, `/Applications/*`, and
@@ -248,6 +250,52 @@ bucket cleanup; manual dispatches never perform source-diff deletion.
 The workflow never commits generated PDFs. Approved immutable reference PDFs are
 ignored and served from R2; rights-review PDFs and the two active translation source
 PDFs remain Git-tracked until their manifest policy changes.
+
+#### Avoiding unchanged PDF builds
+
+The workflow trigger describes potential impact, not a changed PDF binary. PDFs
+are generated and ignored by Git, so an edit to the shared converter, sanitizer,
+fonts or Mermaid can require a rebuild with no study-text or tracked-PDF diff.
+For example, PR #396 changed `_convert_to_pdf.py`, `_html_to_pdf.js`, rendering
+security helpers and the Mermaid dependency; the Markdown PDF rebuild was required.
+R2 uploads already compare the generated SHA-256 with remote metadata and skip
+identical objects. Previously, every relevant merge still paid for full rendering
+before that comparison, including every presentation on Windows.
+
+`Scripts/_pdf_build_cache.py` now fingerprints three complete build families:
+Markdown, references and presentations. Keys contain source paths and bytes,
+transitive local Python helpers, renderer scripts/dependencies, fonts, manifests,
+the workflow/setup contract and the hosted runner image. Additions, removals and
+renames change keys. Commit IDs and wall-clock timestamps do not. Reader HTML
+contents and portal code do not invalidate PDF builds; Markdown keys include
+HTML/PDF target names because link rewriting uses their existence. Dependency
+coverage is deliberately conservative: e.g. a Python requirements change rebuilds
+all families, while a Node lockfile change leaves presentation reuse possible.
+
+On an exact cache hit, CI checks the family/input fingerprint and every archived
+file's checksum, refusing missing, extra, altered or linked files. Reference PDFs
+are checked again against their manifest without rendering/downloading, and
+presentations against their PPTX sources. Publication retains its complete-inventory
+PDF/provenance verification, R2 coverage, canary, route and public-delivery checks.
+Only a validated complete build on `master` can save a build cache; partial PR
+Markdown builds never populate it. PRs may read the complete reference cache.
+There are no prefix restore keys. See [GitHub cache scoping and exact matches](https://github.com/actions/cache/blob/main/README.md#cache-scopes).
+
+Missing or evicted caches run the ordinary builders. The first merge after this
+optimization must populate them. A hit on both Linux families skips Node/Chrome
+installation; a presentation hit skips LibreOffice installation and conversion.
+The jobs still validate and upload the complete artifact trees for publication.
+A manual `workflow_dispatch` always bypasses build-cache restoration and renders
+everything. If a cache fails integrity checks, remove that exact cache entry in
+Actions before a rebuild; caches are immutable and a successful manual run cannot
+overwrite a damaged entry with the same key.
+
+This optimization is by build family, not individual document: editing one study
+still rebuilds the Markdown family on `master`, while unchanged references and
+presentations can be reused. Worker deployment and full delivery audits remain
+unchanged. They also detect or repair external-state drift and should not be skipped
+solely because the source diff is empty. No PR-generated cache is promoted into a
+credentialed publication job.
 
 ### 2.6 Submission portal Worker — `submission-worker-deploy.yml`
 
