@@ -4,6 +4,8 @@ name: Generated PDF publish
 # publication. Protected-branch runs build the complete Markdown + presentation
 # inventory, publish only after all build jobs pass, refresh the Worker binding/routes,
 # and audit every public URL.
+# Complete verified build families are reused only on exact source/toolchain
+# fingerprints. Manual runs deliberately bypass the build caches.
 
 on:
   workflow_dispatch:
@@ -29,6 +31,7 @@ on:
       - "CNAME"
       - "requirements.txt"
       - "Scripts/_build_markdown_pdfs.py"
+      - "Scripts/_pdf_build_cache.py"
       - "Scripts/_build_reference_pdf.py"
       - "Scripts/_build_reference_pdfs.py"
       - "Scripts/_build_discussion_pages.py"
@@ -91,6 +94,7 @@ on:
       - "requirements.txt"
       - "Scripts/_build_deck_notes_pdf.py"
       - "Scripts/_build_markdown_pdfs.py"
+      - "Scripts/_pdf_build_cache.py"
       - "Scripts/_build_reference_pdf.py"
       - "Scripts/_build_reference_pdfs.py"
       - "Scripts/_build_presentations.py"
@@ -157,13 +161,53 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Fingerprint PDF build inputs
+        id: pdf-inputs
+        shell: bash
+        run: python Scripts/_pdf_build_cache.py --keys --github-output "$GITHUB_OUTPUT"
+
+      # Only complete protected-branch builds populate these caches. PR Markdown
+      # builds select a subset, so must never be stored as a complete inventory.
+      - name: Restore complete Markdown PDF build
+        if: github.event_name == 'push'
+        id: markdown-cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ runner.temp }}/generated-markdown-pdfs
+          key: pdf-markdown-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.markdown }}
+
+      - name: Restore complete reference PDF build
+        if: github.event_name != 'workflow_dispatch'
+        id: reference-cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ runner.temp }}/generated-reference-pdfs
+          key: pdf-references-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.references }}
+
+      - name: Verify restored Markdown build checksums
+        if: steps.markdown-cache.outputs.cache-hit == 'true'
+        run: >-
+          python Scripts/_pdf_build_cache.py --verify markdown
+          --root "$RUNNER_TEMP/generated-markdown-pdfs"
+          --fingerprint "${{ steps.pdf-inputs.outputs.markdown }}"
+
+      - name: Verify restored reference build checksums
+        if: steps.reference-cache.outputs.cache-hit == 'true'
+        run: >-
+          python Scripts/_pdf_build_cache.py --verify references
+          --root "$RUNNER_TEMP/generated-reference-pdfs"
+          --fingerprint "${{ steps.pdf-inputs.outputs.references }}"
+
       # Markdown and normalized-reference rendering use the same pinned
       # Python/Node/Chrome toolchain. Keep them in one job so npm ci and the
       # Puppeteer cache restore happen once per workflow run.
       - name: Set up PDF toolchain
         uses: ./.github/actions/setup-study-env
+        with:
+          node: ${{ (steps.markdown-cache.outputs.cache-hit != 'true' || steps.reference-cache.outputs.cache-hit != 'true') && 'true' || 'false' }}
 
       - name: Build and verify Markdown-derived PDFs
+        if: steps.markdown-cache.outputs.cache-hit != 'true'
         shell: bash
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -185,8 +229,15 @@ jobs:
           retention-days: 7
 
       - name: Build and verify normalized reference PDFs
+        if: steps.reference-cache.outputs.cache-hit != 'true'
         run: >-
           python Scripts/_build_reference_pdfs.py --all
+          --output-root "$RUNNER_TEMP/generated-reference-pdfs"
+
+      - name: Recheck restored reference PDFs against the manifest
+        if: steps.reference-cache.outputs.cache-hit == 'true'
+        run: >-
+          python Scripts/_build_reference_pdfs.py --verify-only
           --output-root "$RUNNER_TEMP/generated-reference-pdfs"
 
       - name: Verify reference manifest and Markdown delivery links
@@ -210,6 +261,34 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
+      - name: Seal complete verified Markdown build
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.markdown-cache.outputs.cache-hit != 'true'
+        run: >-
+          python Scripts/_pdf_build_cache.py --seal markdown
+          --root "$RUNNER_TEMP/generated-markdown-pdfs"
+          --fingerprint "${{ steps.pdf-inputs.outputs.markdown }}"
+
+      - name: Save complete verified Markdown build
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.markdown-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ runner.temp }}/generated-markdown-pdfs
+          key: pdf-markdown-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.markdown }}
+
+      - name: Seal complete verified reference build
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.reference-cache.outputs.cache-hit != 'true'
+        run: >-
+          python Scripts/_pdf_build_cache.py --seal references
+          --root "$RUNNER_TEMP/generated-reference-pdfs"
+          --fingerprint "${{ steps.pdf-inputs.outputs.references }}"
+
+      - name: Save complete verified reference build
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.reference-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ runner.temp }}/generated-reference-pdfs
+          key: pdf-references-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.references }}
+
   presentations:
     if: github.event_name != 'pull_request'
     runs-on: windows-2025
@@ -217,18 +296,41 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
+      - name: Fingerprint presentation build inputs
+        id: pdf-inputs
+        shell: pwsh
+        run: python Scripts/_pdf_build_cache.py --keys --github-output "$env:GITHUB_OUTPUT"
+
+      - name: Restore complete presentation PDF build
+        if: github.event_name != 'workflow_dispatch'
+        id: presentation-cache
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ runner.temp }}\generated-presentation-pdfs
+          key: pdf-presentations-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.presentations }}
+
+      - name: Verify restored presentation build checksums
+        if: steps.presentation-cache.outputs.cache-hit == 'true'
+        shell: pwsh
+        run: >-
+          python Scripts/_pdf_build_cache.py --verify presentations
+          --root "$env:RUNNER_TEMP\generated-presentation-pdfs"
+          --fingerprint "${{ steps.pdf-inputs.outputs.presentations }}"
+
       - name: Set up Python toolchain
         uses: ./.github/actions/setup-study-env
         with:
           node: 'false'
 
       - name: Restore pinned LibreOffice installer
+        if: steps.presentation-cache.outputs.cache-hit != 'true'
         uses: actions/cache@v6
         with:
           path: ${{ runner.temp }}\presentation-renderers
           key: presentation-renderer-${{ runner.os }}-${{ hashFiles('Scripts/presentation-pipeline.json') }}
 
       - name: Install exact LibreOffice production renderer
+        if: steps.presentation-cache.outputs.cache-hit != 'true'
         shell: pwsh
         run: >-
           ./Scripts/_install_presentation_renderer.ps1
@@ -236,6 +338,7 @@ jobs:
           -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
 
       - name: Require deck fonts
+        if: steps.presentation-cache.outputs.cache-hit != 'true'
         shell: pwsh
         run: |
           $missing = @(
@@ -249,10 +352,18 @@ jobs:
           }
 
       - name: Build and verify all presentation PDFs
+        if: steps.presentation-cache.outputs.cache-hit != 'true'
         shell: pwsh
         run: >-
           python Scripts/_build_presentations.py --all
           --profile libreoffice-production
+          --output-root "$env:RUNNER_TEMP\generated-presentation-pdfs"
+
+      - name: Recheck restored presentation PDFs against their sources
+        if: steps.presentation-cache.outputs.cache-hit == 'true'
+        shell: pwsh
+        run: >-
+          python Scripts/_verify_presentations.py
           --output-root "$env:RUNNER_TEMP\generated-presentation-pdfs"
 
       - name: Upload verified presentation PDFs
@@ -262,6 +373,21 @@ jobs:
           path: ${{ runner.temp }}\generated-presentation-pdfs
           if-no-files-found: error
           retention-days: 7
+
+      - name: Seal complete verified presentation build
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.presentation-cache.outputs.cache-hit != 'true'
+        shell: pwsh
+        run: >-
+          python Scripts/_pdf_build_cache.py --seal presentations
+          --root "$env:RUNNER_TEMP\generated-presentation-pdfs"
+          --fingerprint "${{ steps.pdf-inputs.outputs.presentations }}"
+
+      - name: Save complete verified presentation build
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.presentation-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ runner.temp }}\generated-presentation-pdfs
+          key: pdf-presentations-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.presentations }}
 
   publish-and-deploy:
     if: >-
