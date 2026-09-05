@@ -35,26 +35,26 @@ export async function findOrCreateUser(db, email, displayName) {
   return { id, email: normalizedEmail, displayName: displayName.trim() };
 }
 
+export async function hashMagicToken(token) {
+  const hash = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(token));
+  return Array.from(new Uint8Array(hash), b => b.toString(16).padStart(2, '0')).join('');
+}
+
 export async function storeMagicToken(db, { token, email, displayName, expiresAt }) {
   await db.prepare(
     'INSERT INTO magic_tokens (token, email, display_name, expires_at) VALUES (?, ?, ?, ?)',
-  ).bind(token, email.trim().toLowerCase(), displayName.trim(), expiresAt).run();
+  ).bind(await hashMagicToken(token), email.trim().toLowerCase(), displayName.trim(), expiresAt).run();
 }
 
 export async function consumeMagicToken(db, token) {
-  const row = await db.prepare(
-    'SELECT token, email, display_name, expires_at, used_at FROM magic_tokens WHERE token = ?',
-  ).bind(token).first();
-  if (!row) return null;
-  if (row.used_at) return null;
-  if (row.expires_at < nowMs()) return null;
-  await db.prepare(
-    'UPDATE magic_tokens SET used_at = ? WHERE token = ?',
-  ).bind(nowMs(), token).run();
-  return {
-    email: row.email,
-    displayName: row.display_name,
-  };
+  // One conditional write: only the winning request receives an identity.
+  // Old unhashed tokens intentionally expire at rollout; request a new link.
+  const row = await db.prepare(`
+    UPDATE magic_tokens SET used_at = ?
+    WHERE token = ? AND used_at IS NULL AND expires_at > ?
+    RETURNING email, display_name
+  `).bind(nowMs(), await hashMagicToken(token), nowMs()).first();
+  return row ? { email: row.email, displayName: row.display_name } : null;
 }
 
 export async function listComments(db, slug, { limit = 50, offset = 0 } = {}) {

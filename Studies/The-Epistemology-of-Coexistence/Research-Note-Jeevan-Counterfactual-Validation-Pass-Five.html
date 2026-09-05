@@ -305,7 +305,7 @@
     outline: 2px solid #13405c;
     outline-offset: 2px;
   }
-  h2[id] {
+  h2[id], h3[id], h4[id], main[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
   }
   .table-scroll {
@@ -557,7 +557,14 @@
      on screen is confined to @media screen. The bare rules and the @media
      print block above remain the print baseline and are left alone. */
   @media screen {
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) { color-scheme: dark; }
+    }
     body {
+      background: #fff;
+      overflow-wrap: anywhere;
       font-size: 17px;
       line-height: 1.62;
       max-width: 46rem;
@@ -589,15 +596,26 @@
       margin-top: 1.45em;
     }
     h4 { font-size: 1.0rem; }
+    /* Long inline formulae need their own scroll region, just like display
+       equations and tables; they must not widen the whole reading page. */
+    .katex { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+    .katex-display > .katex { display: block; overflow: visible; }
+
   }
   @media screen and (min-width: 760px) {
     .study-toc { max-width: 46rem; }
   }
 
   @media (max-width: 640px) {
+    .study-toolbar-row--primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .study-toolbar-actions {
+      grid-column: 1;
+      justify-self: stretch;
+      justify-content: space-between;
       gap: 5px;
     }
+    .study-toolbar-link, .study-theme-toggle { min-height: 44px; display: inline-flex; align-items: center; box-sizing: border-box; }
+    .study-toolbar-section { display: block; line-height: 44px; }
     .study-toolbar-feedback { font-size: 11px; }
     .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
@@ -705,10 +723,10 @@
   </div>
 </nav>
 <main id="main"><h1>Research Note: Pass-Five Counterfactual Validation of the <em>Jeevan</em> Social Model</h1>
-<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
+<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org" rel="noopener noreferrer">analyticmadhyasthdarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 16, 2026, 6:31 PM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Pass Five of the activity-to-sphere analysis.</p>
-<p><strong>Scope:</strong> This note stress-tests the family-like field and the five durable functions derived in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass Four</a>. It asks whether materially different arrangements can satisfy the same invariants, whether familiar arrangements can display false signs of fulfilment while failing them, and whether scarcity, disability, coercion, disagreement, migration, technological concentration, or ecological delay disclose a requirement outside the five-function basis. The cases are structured counterfactuals, not observations of actual communities. They test the coherence and discriminating power of the model; empirical validation remains a separate task.</p>
+<p><strong>Scope:</strong> This note stress-tests the family-like field and the five durable functions derived in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer">Pass Four</a>. It asks whether materially different arrangements can satisfy the same invariants, whether familiar arrangements can display false signs of fulfilment while failing them, and whether scarcity, disability, coercion, disagreement, migration, technological concentration, or ecological delay disclose a requirement outside the five-function basis. The cases are structured counterfactuals, not observations of actual communities. They test the coherence and discriminating power of the model; empirical validation remains a separate task.</p>
 <p>The validation narrows the social thesis without dissolving it. A durable shared-life field remains necessary, but biological kinship, co-residence, and one household form are neither sufficient nor uniquely necessary. The five functions remain a complete basis for classifying the continuity responsibilities exposed by the test cases, but exactly five organisations is not derived. Production and exchange may share an administration only when their purposes, records, affected-party rights, and correction paths remain distinguishable. Separate scientific, governing, ecological, or care organisations may be required as safeguards or specialised bearers without introducing a sixth human continuity object.</p>
 <p>Pass Five therefore supports a universal architecture of responsibilities and evidence, not a uniform institutional diagram. It also adds a stricter universality test: each person must have supported access to understanding, voice, bodily and material means, contribution, and correction. High aggregate performance by a competent minority does not satisfy the common capacity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>.</p>
 <p>Throughout this analysis, <strong>voice</strong> has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. A validation case therefore counts voice only when participation can affect deliberation, receive a reasoned response, and reach protection or correction where direct reciprocity fails.</p>
@@ -780,11 +798,11 @@ adverse case + non-substitutable continuity object outside U01-U05
 </code></pre>
 <p>The last result was a live possibility, not a result ruled out in advance. None of the nineteen specified cases disclosed such an object. This establishes closure only over the tested analytical cases. A surviving real-world counterexample would reopen the activity coding, sphere boundary, continuity channel, or bundle.</p>
 <h3 id="12-frozen-inputs-and-reproducible-artifacts" data-depth="2">1.2 Frozen inputs and reproducible artifacts</h3>
-<p>The <a href="../../Scripts/_validate_jeevan_pass_five.py">Pass-Five validation script</a> reads the Pass-Four restored coverage register and diagnostics, verifies the 122 members and the frozen B04 bundle, and computes how many activity members are exposed by each case&rsquo;s function set. It writes three deterministic artifacts:</p>
+<p>The <a href="../../Scripts/_validate_jeevan_pass_five.py" rel="noopener noreferrer">Pass-Five validation script</a> reads the Pass-Four restored coverage register and diagnostics, verifies the 122 members and the frozen B04 bundle, and computes how many activity members are exposed by each case’s function set. It writes three deterministic artifacts:</p>
 <ul>
-<li>the <a href="Research-Data-Jeevan-Pass-Five-Validation-Cases.csv">validation-case register</a>, with SHA-256 digest <code>C1A9445197E9B3A65E541D0DBB5D57C192E1972FD3B8342507EA542DA1354FC5</code>;</li>
-<li>the <a href="Research-Data-Jeevan-Pass-Five-Evidence-Protocol.csv">minimum-evidence protocol</a>, with SHA-256 digest <code>F30FB574ADD0E37A46D90DC23C63FB4356D02FBA97CB678F9DA372AA6D39078C</code>; and</li>
-<li>the <a href="Research-Data-Jeevan-Pass-Five-Validation-Summary.json">validation summary</a>, which records scope, counts, conclusions, and the limit of the analysis.</li>
+<li>the <a href="Research-Data-Jeevan-Pass-Five-Validation-Cases.csv" rel="noopener noreferrer">validation-case register</a>, with SHA-256 digest <code>C1A9445197E9B3A65E541D0DBB5D57C192E1972FD3B8342507EA542DA1354FC5</code>;</li>
+<li>the <a href="Research-Data-Jeevan-Pass-Five-Evidence-Protocol.csv" rel="noopener noreferrer">minimum-evidence protocol</a>, with SHA-256 digest <code>F30FB574ADD0E37A46D90DC23C63FB4356D02FBA97CB678F9DA372AA6D39078C</code>; and</li>
+<li>the <a href="Research-Data-Jeevan-Pass-Five-Validation-Summary.json" rel="noopener noreferrer">validation summary</a>, which records scope, counts, conclusions, and the limit of the analysis.</li>
 </ul>
 <p>The cases are declared arguments rather than machine-generated social findings. Automation preserves their schema, relates them to the frozen member register, detects input drift, and makes the result reproducible. It does not turn interpretive judgement into empirical measurement.</p>
 <h2 id="2-the-nineteen-validation-cases">2. The nineteen validation cases</h2>
@@ -851,7 +869,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 <td>BND-06</td>
 <td>Specialised care organisation</td>
 <td>No sixth function</td>
-<td>Care joins several functions according to the person&rsquo;s condition</td>
+<td>Care joins several functions according to the person’s condition</td>
 </tr>
 <tr>
 <td>ADV-01</td>
@@ -927,7 +945,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 <li>daily bodily care;</li>
 <li>participation in useful work;</li>
 <li>need assessment and dependable access to provision; and</li>
-<li>protection and appeal beyond the close group&rsquo;s own authority.</li>
+<li>protection and appeal beyond the close group’s own authority.</li>
 </ol>
 <p>FAM-01 shows that these conditions can be specified without kinship. FAM-03 shows that they can persist without continuous co-residence when commitments, records, care, provision, voice, and appeal remain portable. These are counterexamples to the stronger proposition that one genealogical or residential form is necessary. They are not counterexamples to the durable shared-life invariant.</p>
 <p>FAM-02 applies the reverse test. A biologically related household may provide food, shelter, work, and visible unity while obstructing learning, voice, care, and appeal. The family label is therefore not evidence of fulfilment. The model recognises as family-like whatever arrangement reliably carries the shared-life invariant and rejects as inadequate any named family that does not.</p>
@@ -1004,7 +1022,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 </tr>
 </tbody>
 </table></div>
-<p>The evaluator set changes by function but cannot be reduced to the institution&rsquo;s own report. Relevant combinations include the first person, counterpart, affected third party, embodied or material evidence, skilled peer, independent reviewer, and a proxy for remote or future consequence. Convergence among these standpoints is stronger than any isolated measure. Disagreement triggers inquiry and correction rather than automatic averaging.</p>
+<p>The evaluator set changes by function but cannot be reduced to the institution’s own report. Relevant combinations include the first person, counterpart, affected third party, embodied or material evidence, skilled peer, independent reviewer, and a proxy for remote or future consequence. Convergence among these standpoints is stronger than any isolated measure. Disagreement triggers inquiry and correction rather than automatic averaging.</p>
 <h2 id="7-what-survives-what-is-revised-and-what-is-rejected">7. What survives, what is revised, and what is rejected</h2>
 <h3 id="71-conclusions-that-survive-the-analytical-tests" data-depth="2">7.1 Conclusions that survive the analytical tests</h3>
 <ul>
@@ -1038,7 +1056,7 @@ adverse case + non-substitutable continuity object outside U01-U05
 <p>At the <strong>durable shared-life scale</strong>, every person needs continuing relations that integrate care, learning, value-fulfilment, bodily life, useful work, assessment of need, provision, and protection. This field may take different kin, non-kin, residential, or multi-local forms if the invariant remains observable.</p>
 <p>At the <strong>local cooperative scale</strong>, work, health support, skill, maintenance, exchange, conflict correction, records, and reserves need capable bearers close enough for affected persons to participate. Functional combination is possible, but evidence and appeal cannot be captive to the authority being evaluated.</p>
 <p>At the <strong>specialised and wider scale</strong>, advanced knowledge, uncommon care, mobility, major harm, distributed stock, technical concentration, and ecological delay require wider competence and independent review. The boundary of coordination follows the boundary of consequence.</p>
-<p>Across all scales, education develops each person&rsquo;s capability to understand and verify; justice protects reciprocal claims and correction; health preserves embodied capability and restraint; production transforms nature through useful and regenerative work; and exchange maintains transparent access and reserve across persons and time. Science disciplines inquiry within and across these functions. Governance coordinates their decision rights and accountability. Care sustains persons through dependency. Ecology extends material evidence across place and time.</p>
+<p>Across all scales, education develops each person’s capability to understand and verify; justice protects reciprocal claims and correction; health preserves embodied capability and restraint; production transforms nature through useful and regenerative work; and exchange maintains transparent access and reserve across persons and time. Science disciplines inquiry within and across these functions. Governance coordinates their decision rights and accountability. Care sustains persons through dependency. Ecology extends material evidence across place and time.</p>
 <p>This architecture is universal in availability and criterion, not uniform in administration. A proposed family, school, workplace, market, clinic, research body, cooperative, or governing arrangement belongs to the acceptable equivalence class only when it supplies the relevant lifecycle, evidence, person-level access, and correction conditions.</p>
 <h2 id="9-limits-and-empirical-handoff">9. Limits and empirical handoff</h2>
 <p>Pass Five completes the planned counterfactual and adverse-case analysis. It does not complete empirical validation. The nineteen cases were designed from known vulnerabilities in the model and therefore cannot estimate how often arrangements succeed, how safeguards interact under real pressure, or what thresholds distinguish nominal from effective access.</p>
@@ -1048,16 +1066,16 @@ adverse case + non-substitutable continuity object outside U01-U05
 <h2 id="references">References</h2>
 <h3 id="related-research-notes-and-artifacts">Related research notes and artifacts</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the refined five-pass sequence and initial counterexample rules.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the activity-member requirements from which later spheres and functions were derived.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the anonymous stable cores, bridges, residuals, and interfaces.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the five continuity channels, family-like field, and comparative bundle result placed under test here.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the central social thesis refined by the Pass-Five result.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the reusable activity analysis and validation schema.</li>
-<li><a href="Research-Data-Jeevan-Pass-Five-Validation-Cases.csv"><em>Pass-Five Validation Cases</em></a> - the complete case specifications, observables, results, and revision routes.</li>
-<li><a href="Research-Data-Jeevan-Pass-Five-Evidence-Protocol.csv"><em>Pass-Five Evidence Protocol</em></a> - minimum observables, evaluator standpoints, false proxies, correction tests, and person-level tests for the five functions.</li>
-<li><a href="Research-Data-Jeevan-Pass-Five-Validation-Summary.json"><em>Pass-Five Validation Summary</em></a> - reproducible counts, scope limits, and conclusions.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.html"><em>A Proposed External Organisation from the Activity Architecture of Jeevan</em></a> - the organisational synthesis of all five passes, including the proposed structure, method issues, and next steps.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html" rel="noopener noreferrer"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the refined five-pass sequence and initial counterexample rules.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html" rel="noopener noreferrer"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the activity-member requirements from which later spheres and functions were derived.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the anonymous stable cores, bridges, residuals, and interfaces.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the five continuity channels, family-like field, and comparative bundle result placed under test here.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html" rel="noopener noreferrer"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the central social thesis refined by the Pass-Five result.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html" rel="noopener noreferrer"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the reusable activity analysis and validation schema.</li>
+<li><a href="Research-Data-Jeevan-Pass-Five-Validation-Cases.csv" rel="noopener noreferrer"><em>Pass-Five Validation Cases</em></a> - the complete case specifications, observables, results, and revision routes.</li>
+<li><a href="Research-Data-Jeevan-Pass-Five-Evidence-Protocol.csv" rel="noopener noreferrer"><em>Pass-Five Evidence Protocol</em></a> - minimum observables, evaluator standpoints, false proxies, correction tests, and person-level tests for the five functions.</li>
+<li><a href="Research-Data-Jeevan-Pass-Five-Validation-Summary.json" rel="noopener noreferrer"><em>Pass-Five Validation Summary</em></a> - reproducible counts, scope limits, and conclusions.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Proposed-External-Organisation-From-Jeevan-Architecture.html" rel="noopener noreferrer"><em>A Proposed External Organisation from the Activity Architecture of Jeevan</em></a> - the organisational synthesis of all five passes, including the proposed structure, method issues, and next steps.</li>
 </ul></main>
 <script>
 (() => {
@@ -1117,7 +1135,7 @@ adverse case + non-substitutable continuity object outside U01-U05
       prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
     }
 
-    if (idx < 0 || idx >= sections.length - 1) {
+    if (idx >= sections.length - 1) {
       setDisabled(next, true, "Next section \u2192");
     } else {
       next.classList.remove("is-disabled");
@@ -1138,6 +1156,9 @@ adverse case + non-substitutable continuity object outside U01-U05
     const target = document.getElementById(id);
     if (!target) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    history.pushState(null, "", `#${encodeURIComponent(id)}`);
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   };
 

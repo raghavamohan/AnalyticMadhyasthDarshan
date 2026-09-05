@@ -25,6 +25,9 @@ on:
   pull_request:
     paths:
       - "Scripts/_convert_to_pdf.py"
+      - "Scripts/_safe_study_html.py"
+      - "Scripts/_verify_study_svgs.py"
+      - "Scripts/_pdf_resource_policy.cjs"
       - "Scripts/_html_to_pdf.js"
       - "Scripts/_pdf_metadata.py"
       - "Scripts/_regenerate_pdf.py"

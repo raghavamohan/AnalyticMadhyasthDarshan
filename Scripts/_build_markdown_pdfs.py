@@ -23,6 +23,8 @@ SHARED_PIPELINE_PATHS = frozenset({
     "Scripts/_chrome.js",
     "Scripts/_common.py",
     "Scripts/_convert_to_pdf.py",
+    "Scripts/_safe_study_html.py",
+    "Scripts/_pdf_resource_policy.cjs",
     "Scripts/_generated_pdf_inventory.py",
     "Scripts/_glossary_tooltips.py",
     "Scripts/_html_to_pdf.js",

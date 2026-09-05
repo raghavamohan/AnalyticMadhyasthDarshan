@@ -305,7 +305,7 @@
     outline: 2px solid #13405c;
     outline-offset: 2px;
   }
-  h2[id] {
+  h2[id], h3[id], h4[id], main[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
   }
   .table-scroll {
@@ -557,7 +557,14 @@
      on screen is confined to @media screen. The bare rules and the @media
      print block above remain the print baseline and are left alone. */
   @media screen {
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) { color-scheme: dark; }
+    }
     body {
+      background: #fff;
+      overflow-wrap: anywhere;
       font-size: 17px;
       line-height: 1.62;
       max-width: 46rem;
@@ -589,15 +596,26 @@
       margin-top: 1.45em;
     }
     h4 { font-size: 1.0rem; }
+    /* Long inline formulae need their own scroll region, just like display
+       equations and tables; they must not widen the whole reading page. */
+    .katex { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+    .katex-display > .katex { display: block; overflow: visible; }
+
   }
   @media screen and (min-width: 760px) {
     .study-toc { max-width: 46rem; }
   }
 
   @media (max-width: 640px) {
+    .study-toolbar-row--primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .study-toolbar-actions {
+      grid-column: 1;
+      justify-self: stretch;
+      justify-content: space-between;
       gap: 5px;
     }
+    .study-toolbar-link, .study-theme-toggle { min-height: 44px; display: inline-flex; align-items: center; box-sizing: border-box; }
+    .study-toolbar-section { display: block; line-height: 44px; }
     .study-toolbar-feedback { font-size: 11px; }
     .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
@@ -705,10 +723,10 @@
   </div>
 </nav>
 <main id="main"><h1>Research Note: Pass-Three Derivation of <em>Jeevan</em> Activity Spheres</h1>
-<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
+<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org" rel="noopener noreferrer">analyticmadhyasthdarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 16, 2026, 6:31 PM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Pass Three of the activity-to-sphere analysis.</p>
-<p><strong>Scope:</strong> This note implements the institution-neutral clustering prescribed by the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html">Pass-Two lifecycle register</a>. It exports one frozen sixteen-position vector for each of the 122 <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> members, replaces names, faculties, pair positions, role terms, family vocabulary, and institution vocabulary with anonymous structural tokens, and compares coarse, middle, and fine partitions under three treatments of unresolved fields. Only after the blind partitions are fixed does it restore the source labels and interpret recurring fields as candidate spheres, bridges, or residuals. It does not itself decide which spheres require durable organisation or test the family and five-function proposal; those questions are completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass-Four durable-function analysis</a>.</p>
+<p><strong>Scope:</strong> This note implements the institution-neutral clustering prescribed by the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html" rel="noopener noreferrer">Pass-Two lifecycle register</a>. It exports one frozen sixteen-position vector for each of the 122 <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> members, replaces names, faculties, pair positions, role terms, family vocabulary, and institution vocabulary with anonymous structural tokens, and compares coarse, middle, and fine partitions under three treatments of unresolved fields. Only after the blind partitions are fixed does it restore the source labels and interpret recurring fields as candidate spheres, bridges, or residuals. It does not itself decide which spheres require durable organisation or test the family and five-function proposal; those questions are completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer">Pass-Four durable-function analysis</a>.</p>
 <p>The result is a constrained sphere architecture rather than an institutional blueprint. Three broad domains are stable at coarse resolution. At the selected middle resolution, four clusters remain stable under both sensitivity tests, two operate primarily as cross-domain bridges, and two are produced by unresolved or weakly specified records and cannot yet be treated as spheres. The four stable cores concern realised orientation and congruent agency, developmental care under unequal capability, reciprocal recognition and justice, and bodily-material conduciveness. Their number does not imply four institutions: a sphere is a recurring field of fulfilment and evidence, while an institution is one possible durable arrangement for maintaining one or several spheres.</p>
 <p>Throughout this analysis, <strong>voice</strong> has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. In the sphere model, voice is therefore evidence-bearing participation in a relationship or shared decision, not a synonym for speech.</p>
 <details class="study-toc study-toc--with-key" id="study-contents">
@@ -799,7 +817,7 @@
 <p>Similarity is the equal-weight mean of sixteen field-wise Jaccard scores. Within each position, the shared-token count is divided by the union-token count. The sixteen position scores are then averaged. Equal field weight prevents a long evidence paragraph from outweighing a short but decisive entry-form, topology, provenance, or universality field.</p>
 <h3 id="22-anonymisation-and-leakage-control" data-depth="2">2.2 Anonymisation and leakage control</h3>
 <p>The source-order members become <code>X001</code> through <code>X122</code>. The anonymous matrix contains neither source ID nor member name. It excludes faculty labels and source-embedded terms for family relations, teaching roles, social institutions, governance, exchange, and production. Their structural implications remain available only through neutral features such as direct or durable counterpart, guided learning, material provision, affected-party voice, public review, and intergenerational transmission.</p>
-<p>The frozen anonymous matrix is <a href="Research-Data-Jeevan-Pass-Three-Anonymous-Matrix.csv">available as CSV</a>. Its SHA-256 digest is <code>D00CC76E386F4DC15A84CDD85EF78575725E148E4454A2018C6A6845E27BFD89</code>. The restored mapping is kept separately in <a href="Research-Data-Jeevan-Pass-Three-Restored-Memberships.csv">the membership register</a>, and the complete numerical diagnostics are in <a href="Research-Data-Jeevan-Pass-Three-Diagnostics.json">the diagnostics file</a>. The <a href="../../Scripts/_analyze_jeevan_pass_three.py">analysis script</a> regenerates all three artifacts deterministically from the Pass-Two note and fails if prohibited vocabulary leaks into the anonymous matrix.</p>
+<p>The frozen anonymous matrix is <a href="Research-Data-Jeevan-Pass-Three-Anonymous-Matrix.csv" rel="noopener noreferrer">available as CSV</a>. Its SHA-256 digest is <code>D00CC76E386F4DC15A84CDD85EF78575725E148E4454A2018C6A6845E27BFD89</code>. The restored mapping is kept separately in <a href="Research-Data-Jeevan-Pass-Three-Restored-Memberships.csv" rel="noopener noreferrer">the membership register</a>, and the complete numerical diagnostics are in <a href="Research-Data-Jeevan-Pass-Three-Diagnostics.json" rel="noopener noreferrer">the diagnostics file</a>. The <a href="../../Scripts/_analyze_jeevan_pass_three.py" rel="noopener noreferrer">analysis script</a> regenerates all three artifacts deterministically from the Pass-Two note and fails if prohibited vocabulary leaks into the anonymous matrix.</p>
 <h3 id="23-three-treatments-of-unresolved-fields" data-depth="2">2.3 Three treatments of unresolved fields</h3>
 <p>Thirty-four members contain an explicit open feature in their normalized location or risk row. This count is wider than the twelve classes in the Pass-Two residual register because one class can affect both members of a pair or several repeated slots. The three required treatments are:</p>
 <ol>
@@ -820,43 +838,43 @@
 <thead>
 <tr>
 <th>Resolution</th>
-<th style="text-align: right;">Selected count</th>
-<th style="text-align: right;">Silhouette</th>
-<th style="text-align: right;">ARI after dropping open indicators</th>
-<th style="text-align: right;">ARI after residual holdout</th>
-<th style="text-align: right;">Composite</th>
+<th style="text-align:right">Selected count</th>
+<th style="text-align:right">Silhouette</th>
+<th style="text-align:right">ARI after dropping open indicators</th>
+<th style="text-align:right">ARI after residual holdout</th>
+<th style="text-align:right">Composite</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Coarse</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.133</td>
-<td style="text-align: right;">0.751</td>
-<td style="text-align: right;">0.921</td>
-<td style="text-align: right;">0.449</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">0.133</td>
+<td style="text-align:right">0.751</td>
+<td style="text-align:right">0.921</td>
+<td style="text-align:right">0.449</td>
 </tr>
 <tr>
 <td>Middle</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">0.127</td>
-<td style="text-align: right;">0.694</td>
-<td style="text-align: right;">0.910</td>
-<td style="text-align: right;">0.431</td>
+<td style="text-align:right">8</td>
+<td style="text-align:right">0.127</td>
+<td style="text-align:right">0.694</td>
+<td style="text-align:right">0.910</td>
+<td style="text-align:right">0.431</td>
 </tr>
 <tr>
 <td>Fine</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">0.116</td>
-<td style="text-align: right;">0.660</td>
-<td style="text-align: right;">0.790</td>
-<td style="text-align: right;">0.390</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">0.116</td>
+<td style="text-align:right">0.660</td>
+<td style="text-align:right">0.790</td>
+<td style="text-align:right">0.390</td>
 </tr>
 </tbody>
 </table></div>
 <p>The low silhouette values are substantively important. The records do not form sharply separated natural kinds. Their lifecycle requirements overlap because one activity can depend on several fields of embodiment, relationship, evidence, correction, and continuity. Stability under perturbation is stronger than geometrical separation. Pass Three therefore treats the hard partition as a way to identify cores and then restores overlap rather than claiming eight exclusive compartments.</p>
 <h3 id="32-overlapping-membership" data-depth="2">3.2 Overlapping membership</h3>
-<p>For each member, its average similarity to every cluster is calculated. Secondary membership is retained when the score is at least <code>0.20</code>, at least eighty-six per cent of the member&rsquo;s best score, and no more than <code>0.06</code> below that best score. Fifty-three of the 122 members satisfy the overlap rule at middle resolution. Overlap is therefore a primary result, not an exception to be forced back into one category.</p>
+<p>For each member, its average similarity to every cluster is calculated. Secondary membership is retained when the score is at least <code>0.20</code>, at least eighty-six per cent of the member’s best score, and no more than <code>0.06</code> below that best score. Fifty-three of the 122 members satisfy the overlap rule at middle resolution. Overlap is therefore a primary result, not an exception to be forced back into one category.</p>
 <p>A cluster is treated as a stable middle core only when its best-match Jaccard is at least <code>0.75</code> in both sensitivity comparisons and the mean member-neighbour stability is at least <code>0.70</code>. This threshold is declared before interpreting names. A cluster below the threshold may remain a bridge or residual, but its boundary cannot support an institutional inference.</p>
 <h2 id="4-blind-structural-result">4. Blind structural result</h2>
 <h3 id="41-three-stable-coarse-domains" data-depth="2">4.1 Three stable coarse domains</h3>
@@ -865,32 +883,32 @@
 <thead>
 <tr>
 <th>Blind ID</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Drop-open Jaccard</th>
-<th style="text-align: right;">Holdout Jaccard</th>
+<th style="text-align:right">Members</th>
+<th style="text-align:right">Drop-open Jaccard</th>
+<th style="text-align:right">Holdout Jaccard</th>
 <th>Dominant anonymous signature</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>C01</td>
-<td style="text-align: right;">60</td>
-<td style="text-align: right;">0.88</td>
-<td style="text-align: right;">0.98</td>
+<td style="text-align:right">60</td>
+<td style="text-align:right">0.88</td>
+<td style="text-align:right">0.98</td>
 <td>Sentient-inward locus joined to embodied expression, direct and collective evidence, inquiry, agency, and transmission</td>
 </tr>
 <tr>
 <td>C02</td>
-<td style="text-align: right;">36</td>
-<td style="text-align: right;">0.78</td>
-<td style="text-align: right;">0.86</td>
+<td style="text-align:right">36</td>
+<td style="text-align:right">0.78</td>
+<td style="text-align:right">0.86</td>
 <td>Embodied and material locus joined to capability, making, provision, sensory consequence, maintenance, and wider material continuity</td>
 </tr>
 <tr>
 <td>C03</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">0.80</td>
-<td style="text-align: right;">0.92</td>
+<td style="text-align:right">26</td>
+<td style="text-align:right">0.80</td>
+<td style="text-align:right">0.92</td>
 <td>Direct and durable counterparts joined to reciprocal fulfilment, care, protection, affected-party evidence, and intergenerational continuity</td>
 </tr>
 </tbody>
@@ -902,76 +920,76 @@
 <thead>
 <tr>
 <th>Blind ID</th>
-<th style="text-align: right;">Members</th>
-<th style="text-align: right;">Stable members</th>
-<th style="text-align: right;">Drop-open Jaccard</th>
-<th style="text-align: right;">Holdout Jaccard</th>
+<th style="text-align:right">Members</th>
+<th style="text-align:right">Stable members</th>
+<th style="text-align:right">Drop-open Jaccard</th>
+<th style="text-align:right">Holdout Jaccard</th>
 <th>Blind status and signature</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>M01</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: right;">44</td>
-<td style="text-align: right;">0.80</td>
-<td style="text-align: right;">0.95</td>
+<td style="text-align:right">46</td>
+<td style="text-align:right">44</td>
+<td style="text-align:right">0.80</td>
+<td style="text-align:right">0.95</td>
 <td>Stable core: inward orientation, embodied agency, direct and collective evidence, correction, and transmissible congruence</td>
 </tr>
 <tr>
 <td>M02</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.33</td>
-<td style="text-align: right;">0.00</td>
+<td style="text-align:right">9</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.33</td>
+<td style="text-align:right">0.00</td>
 <td>Residual: open criterion or entry grammar joined to discrimination and public or material evidence</td>
 </tr>
 <tr>
 <td>M03</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.17</td>
-<td style="text-align: right;">0.67</td>
+<td style="text-align:right">14</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.17</td>
+<td style="text-align:right">0.67</td>
 <td>Bridge: material provision, making, capability, participation, tools, maintenance, and multiple affected fields</td>
 </tr>
 <tr>
 <td>M04</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">0.79</td>
-<td style="text-align: right;">0.86</td>
+<td style="text-align:right">16</td>
+<td style="text-align:right">15</td>
+<td style="text-align:right">0.79</td>
+<td style="text-align:right">0.86</td>
 <td>Stable core: constitutive direct or durable relation, unequal capability, care, protection, and intergenerational transmission</td>
 </tr>
 <tr>
 <td>M05</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: right;">0.04</td>
-<td style="text-align: right;">0.00</td>
+<td style="text-align:right">2</td>
+<td style="text-align:right">0</td>
+<td style="text-align:right">0.04</td>
+<td style="text-align:right">0.00</td>
 <td>Residual: affective reception or esteem with unresolved criterion</td>
 </tr>
 <tr>
 <td>M06</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">8, plus 2 moderate</td>
-<td style="text-align: right;">0.80</td>
-<td style="text-align: right;">1.00</td>
+<td style="text-align:right">10</td>
+<td style="text-align:right">8, plus 2 moderate</td>
+<td style="text-align:right">0.80</td>
+<td style="text-align:right">1.00</td>
 <td>Stable core: reciprocal relation, counterpart evaluation, justice, repair, and relational continuity</td>
 </tr>
 <tr>
 <td>M07</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0, plus 2 moderate</td>
-<td style="text-align: right;">0.67</td>
-<td style="text-align: right;">0.67</td>
+<td style="text-align:right">3</td>
+<td style="text-align:right">0, plus 2 moderate</td>
+<td style="text-align:right">0.67</td>
+<td style="text-align:right">0.67</td>
 <td>Bridge: sustained protection, fulfilment, and continuity across agency, relation, and material capability</td>
 </tr>
 <tr>
 <td>M08</td>
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">0.79</td>
-<td style="text-align: right;">0.92</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">22</td>
+<td style="text-align:right">0.79</td>
+<td style="text-align:right">0.92</td>
 <td>Stable core: bodily health, sensory-material consequence, measurement, care, correction, and continued capability</td>
 </tr>
 </tbody>
@@ -987,13 +1005,13 @@
 <p>Its recurrent invariants are free inquiry, freedom from status substitution, intelligible expression, access to relevant consequences, distinction between error in criterion and error in performance, and correction through renewed inquiry joined to changed conduct or repair. Continuity requires recollection, records, demonstration, repeated congruence, and learner verification without treating transmission as transfer of realisation.</p>
 <p>M01 is a stable activity sphere, but it is not yet “education,” “science,” or “governance.” Those arrangements may maintain parts of the sphere, while no one of them exhausts realised orientation, personal agency, public evidence, and correction.</p>
 <h3 id="52-developmental-care-and-asymmetric-responsibility-m04" data-depth="2">5.2 Developmental care and asymmetric responsibility - M04</h3>
-<p>M04 contains sixteen members centred on care, help, protection, developmental roles, and responsibility across unequal capability: <em>vatsalya</em>, <em>daya</em>, <em>krupa</em>, <em>karuna</em>, <em>kshama</em>, <em>veerta</em>, <em>mamta</em>, <em>samman</em>, <em>putra-putri</em>, <em>sathi</em>, <em>sankoch</em>, <em>guru</em>, <em>shishya</em>, <em>pati-patni</em>, <em>mata</em>, and <em>pita</em>. The grouping is not produced by family vocabulary, because those terms were hidden. Its blind signature is a constitutive direct or durable counterpart, dependence or developmental asymmetry, care and protection, evidence in the other&rsquo;s growing capability, and continuity beyond one episode.</p>
-<p>The invariant is not permanent hierarchy. A correct asymmetric relation must remain oriented toward the other&rsquo;s capability and agency, preserve voice, distinguish help from control, and provide protection or appeal where proximity conceals harm. Competence, succession, respite, material support, and intergenerational transmission recur because the endpoint exceeds unaided episodic action.</p>
+<p>M04 contains sixteen members centred on care, help, protection, developmental roles, and responsibility across unequal capability: <em>vatsalya</em>, <em>daya</em>, <em>krupa</em>, <em>karuna</em>, <em>kshama</em>, <em>veerta</em>, <em>mamta</em>, <em>samman</em>, <em>putra-putri</em>, <em>sathi</em>, <em>sankoch</em>, <em>guru</em>, <em>shishya</em>, <em>pati-patni</em>, <em>mata</em>, and <em>pita</em>. The grouping is not produced by family vocabulary, because those terms were hidden. Its blind signature is a constitutive direct or durable counterpart, dependence or developmental asymmetry, care and protection, evidence in the other’s growing capability, and continuity beyond one episode.</p>
+<p>The invariant is not permanent hierarchy. A correct asymmetric relation must remain oriented toward the other’s capability and agency, preserve voice, distinguish help from control, and provide protection or appeal where proximity conceals harm. Competence, succession, respite, material support, and intergenerational transmission recur because the endpoint exceeds unaided episodic action.</p>
 <p>This sphere is compatible with family-like and teaching relations after labels are restored, but it does not derive one household composition, fixed gender role, authority structure, or schooling system.</p>
 <h3 id="53-reciprocal-recognition-and-justice-m06" data-depth="2">5.3 Reciprocal recognition and justice - M06</h3>
-<p>M06 contains <em>dhairya</em>, <em>kritagyata</em>, <em>vishwas</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction.">nyaya</button></span></em>, <em>bhav</em>, <em>sneha</em>, <em>anurag</em>, <em>kartavya</em>, <em>bhai-mitra</em>, and <em>bahan</em>. Its members require a counterpart who can evaluate whether recognition, expectation, responsibility, value-fulfilment, consent, and repair are actually present. The relation cannot be evidenced solely from the bearer&rsquo;s intention.</p>
+<p>M06 contains <em>dhairya</em>, <em>kritagyata</em>, <em>vishwas</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="nyaya" data-definition="Justice — recognising relationships, fulfilling and evaluating their values, and attaining mutual satisfaction.">nyaya</button></span></em>, <em>bhav</em>, <em>sneha</em>, <em>anurag</em>, <em>kartavya</em>, <em>bhai-mitra</em>, and <em>bahan</em>. Its members require a counterpart who can evaluate whether recognition, expectation, responsibility, value-fulfilment, consent, and repair are actually present. The relation cannot be evidenced solely from the bearer’s intention.</p>
 <p>The recurrent invariants are reciprocal recognition, truthful expectation, mutual evidence, protected participation in deliberation and decisions, repair after contradiction, and continuity of value-fulfilment through changing circumstances. This protected participation is the operational meaning of voice. Where power defeats direct reciprocity, appeal and independent protection become necessary. Gratitude, trust, affection, duty, and justice cluster together not as a list of sentiments but because their correctness becomes available through shared conduct and counterpart evaluation.</p>
-<p>This sphere is distinct from developmental care because the endpoint is reciprocal fulfilment rather than the capable party&rsquo;s responsibility for another&rsquo;s development. The two overlap in seven members because real relationships can contain both reciprocity and temporary asymmetry.</p>
+<p>This sphere is distinct from developmental care because the endpoint is reciprocal fulfilment rather than the capable party’s responsibility for another’s development. The two overlap in seven members because real relationships can contain both reciprocity and temporary asymmetry.</p>
 <h3 id="54-bodily-health-and-material-sensory-conduciveness-m08" data-depth="2">5.4 Bodily health and material-sensory conduciveness - M08</h3>
 <p>M08 contains twenty-two members concerned with bodily usefulness, health, sensory discrimination, physical qualities, breathing, and repeated <em>poshan</em> criteria. It includes <em>hita</em>, <em>svasthya</em>, <em>priya</em>, <em>ruchi</em>, <em>mridu-kathor</em>, <em>sheet-ushna</em>, the taste and smell positions, <em>shvasan-nihshvasan</em>, <em>suroop-kuroop</em>, and the corresponding nourishment assessments. All twenty-two members retain stable neighbourhoods, and the cluster survives the holdout of unresolved records with Jaccard <code>0.92</code>. The repeated <em>poshan</em> slots therefore do not manufacture the core, although their exact documentary status remains open.</p>
 <p>The stable field joins body-object contact, discrimination, bodily response, health criterion, material access, skilled evaluation, treatment or accommodation, safe use, maintenance, and ecological consequence. First-person experience remains indispensable, while health competence, measurement, caregiver observation, and delayed material effects provide non-substitutable evidence.</p>
@@ -1100,35 +1118,49 @@ flowchart TB
 <li>two residual groupings that cannot yet support a sphere claim; and</li>
 <li>cross-cutting interfaces of inquiry, protected participation, embodiment and means, continuity, and ecological consequence.</li>
 </ul>
-<p>The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass-Four durable-function analysis</a> has now completed this handoff. It translates every anonymous lifecycle vector into durability tests, unnamed continuity channels, cross-cutting safeguards, and arrangement scales before restoring social labels. The result contains 185 channel memberships across all 122 members. Five non-substitutable continuity objects align after restoration with education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve. Among five tested bundles, the five-function basis alone obtains full coverage without forced combination or unsupported splitting while preserving independent correction. This establishes sufficiency and practical minimality at the selected grain, not five organisations or numerical uniqueness.</p>
+<p>The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer">Pass-Four durable-function analysis</a> has now completed this handoff. It translates every anonymous lifecycle vector into durability tests, unnamed continuity channels, cross-cutting safeguards, and arrangement scales before restoring social labels. The result contains 185 channel memberships across all 122 members. Five non-substitutable continuity objects align after restoration with education-<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>, justice-security, health-restraint, production-work, and exchange-reserve. Among five tested bundles, the five-function basis alone obtains full coverage without forced combination or unsupported splitting while preserving independent correction. This establishes sufficiency and practical minimality at the selected grain, not five organisations or numerical uniqueness.</p>
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
-<li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one <em>bal/shakti</em> assignments whose documentary positions are restored only after blind clustering (pp. 91-94; §§1, 7).</li>
-<li><strong>MVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the constitutional activity count and definitions underlying the Pass-One anatomy and Pass-Two lifecycle records (pp. 323, 327-348; §§1-9). The feature engineering, clustering, stability criteria, and sphere interpretation in this note are analytical constructions, not direct textual claims.</li>
+<li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf" rel="noopener noreferrer"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one <em>bal/shakti</em> assignments whose documentary positions are restored only after blind clustering (pp. 91-94; §§1, 7).</li>
+<li><strong>MVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the constitutional activity count and definitions underlying the Pass-One anatomy and Pass-Two lifecycle records (pp. 323, 327-348; §§1-9). The feature engineering, clustering, stability criteria, and sphere interpretation in this note are analytical constructions, not direct textual claims.</li>
 </ul>
 <h3 id="related-research-notes-and-artifacts">Related research notes and artifacts</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - the bilingual source inventory and documentary variants.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source and anatomy records for the 106 non-pilot members.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the sixteen pilot records and the multi-pass protocol.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the normalized lifecycle matrix and frozen feature order used here.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the provenance, lifecycle, clustering, institution-comparison, and validation schema.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the completed durability tests, five continuity channels, family-like field, and comparative institutional bundles.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the social hypothesis withheld from this clustering input and subsequently tested in Pass Four.</li>
-<li><a href="Research-Data-Jeevan-Pass-Three-Anonymous-Matrix.csv">Anonymous feature matrix</a> - the frozen sixteen-position vectors for <code>X001</code>-<code>X122</code>.</li>
-<li><a href="Research-Data-Jeevan-Pass-Three-Restored-Memberships.csv">Restored membership register</a> - source names and positions restored after partition formation, including primary, overlapping, and sensitivity assignments.</li>
-<li><a href="Research-Data-Jeevan-Pass-Three-Diagnostics.json">Diagnostics</a> - resolution scores, cluster signatures, stability comparisons, overlap interfaces, and post-restoration tests.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html" rel="noopener noreferrer"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - the bilingual source inventory and documentary variants.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html" rel="noopener noreferrer"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source and anatomy records for the 106 non-pilot members.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html" rel="noopener noreferrer"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the sixteen pilot records and the multi-pass protocol.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html" rel="noopener noreferrer"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a> - the normalized lifecycle matrix and frozen feature order used here.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html" rel="noopener noreferrer"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the provenance, lifecycle, clustering, institution-comparison, and validation schema.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the completed durability tests, five continuity channels, family-like field, and comparative institutional bundles.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html" rel="noopener noreferrer"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the social hypothesis withheld from this clustering input and subsequently tested in Pass Four.</li>
+<li><a href="Research-Data-Jeevan-Pass-Three-Anonymous-Matrix.csv" rel="noopener noreferrer">Anonymous feature matrix</a> - the frozen sixteen-position vectors for <code>X001</code>-<code>X122</code>.</li>
+<li><a href="Research-Data-Jeevan-Pass-Three-Restored-Memberships.csv" rel="noopener noreferrer">Restored membership register</a> - source names and positions restored after partition formation, including primary, overlapping, and sensitivity assignments.</li>
+<li><a href="Research-Data-Jeevan-Pass-Three-Diagnostics.json" rel="noopener noreferrer">Diagnostics</a> - resolution scores, cluster signatures, stability comparisons, overlap interfaces, and post-restoration tests.</li>
 </ul></main>
 <script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-mermaid.initialize({
-  startOnLoad: true,
-  theme: prefersDark ? "dark" : "neutral",
-  securityLevel: "loose",
-  flowchart: { htmlLabels: true, useMaxWidth: true },
-});
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.esm.min.mjs";
+const system = window.matchMedia("(prefers-color-scheme: dark)");
+const diagrams = Array.from(document.querySelectorAll(".mermaid"), node => ({ node, source: node.textContent }));
+let queue = Promise.resolve();
+let generation = 0;
+const render = () => {
+  queue = queue.then(async () => {
+    const dark = document.documentElement.dataset.theme === "dark" || (!document.documentElement.dataset.theme && system.matches);
+    const theme = dark ? "dark" : "neutral";
+    mermaid.initialize({ startOnLoad: false, theme, securityLevel: "strict", flowchart: { htmlLabels: true, useMaxWidth: true } });
+    const run = ++generation;
+    for (const [index, { node, source }] of diagrams.entries()) {
+      // Keep the old figure in place until its replacement is ready.
+      const { svg } = await mermaid.render(`study-diagram-${run}-${index}`, source);
+      node.innerHTML = svg;
+      node.dataset.diagramTheme = theme;
+    }
+  }).catch(error => console.error("Study diagram could not render", error));
+};
+new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+system.addEventListener("change", render);
+render();
 </script>
 <script>
 (() => {
@@ -1188,7 +1220,7 @@ mermaid.initialize({
       prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
     }
 
-    if (idx < 0 || idx >= sections.length - 1) {
+    if (idx >= sections.length - 1) {
       setDisabled(next, true, "Next section \u2192");
     } else {
       next.classList.remove("is-disabled");
@@ -1209,6 +1241,9 @@ mermaid.initialize({
     const target = document.getElementById(id);
     if (!target) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    history.pushState(null, "", `#${encodeURIComponent(id)}`);
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   };
 

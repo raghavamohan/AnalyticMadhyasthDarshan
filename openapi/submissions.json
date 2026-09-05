@@ -3,7 +3,7 @@
   "info": {
     "title": "Analytic Madhyasth Darshan submission portal API",
     "version": "1.1.0",
-    "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token."
+    "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token. Browser POST requests also require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store. The machine-only /api/notify endpoint uses its separate secret and JSON without browser cookies or Origin."
   },
   "servers": [
     {

@@ -305,7 +305,7 @@
     outline: 2px solid #13405c;
     outline-offset: 2px;
   }
-  h2[id] {
+  h2[id], h3[id], h4[id], main[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
   }
   .table-scroll {
@@ -557,7 +557,14 @@
      on screen is confined to @media screen. The bare rules and the @media
      print block above remain the print baseline and are left alone. */
   @media screen {
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) { color-scheme: dark; }
+    }
     body {
+      background: #fff;
+      overflow-wrap: anywhere;
       font-size: 17px;
       line-height: 1.62;
       max-width: 46rem;
@@ -589,15 +596,26 @@
       margin-top: 1.45em;
     }
     h4 { font-size: 1.0rem; }
+    /* Long inline formulae need their own scroll region, just like display
+       equations and tables; they must not widen the whole reading page. */
+    .katex { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+    .katex-display > .katex { display: block; overflow: visible; }
+
   }
   @media screen and (min-width: 760px) {
     .study-toc { max-width: 46rem; }
   }
 
   @media (max-width: 640px) {
+    .study-toolbar-row--primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .study-toolbar-actions {
+      grid-column: 1;
+      justify-self: stretch;
+      justify-content: space-between;
       gap: 5px;
     }
+    .study-toolbar-link, .study-theme-toggle { min-height: 44px; display: inline-flex; align-items: center; box-sizing: border-box; }
+    .study-toolbar-section { display: block; line-height: 44px; }
     .study-toolbar-feedback { font-size: 11px; }
     .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
@@ -756,16 +774,16 @@
   <span class="study-reading-key-link">Blue underline</span>: link
 </p>
 <h2 id="based-on-madhyasth-darshan-so-that-organisations-sustain-and-members-are-not-instrumentalised">Based on Madhyasth Darshan — so that organisations sustain and members are not instrumentalised</h2>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> September 4, 2026, 4:01 AM IST</p>
 <p><strong>The question:</strong> must organisations be built on fear or accumulation, or is there a basis on which they sustain <em>and</em> their members are not used as instruments?</p>
-<p>This study takes the near-universal history of human organisation — grouping for safety, sustenance, protection, shared belief, and finally wealth and power — and asks whether every such basis reduces to <strong>fear</strong> and <strong>accumulation</strong>, and whether that reduction explains two recurring failures together: members treated as instruments, and organisations that dissolve once the founding fear passes or the accumulation stalls. Against that pattern it sets Madhyasth Darshan&rsquo;s alternative — organisation around <strong>understood coexistence</strong>: shared cause, goal, and programme; values fulfilled in relationships; prosperity through right-use rather than accumulation; and understanding transmitted to every member through education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span>. The design is argued to be coherent but is untested at civilisational scale, and its deepest premises are asserted rather than demonstrated (§10).</p>
-<p>This is an <strong>applied</strong> study: it instantiates the general assembly template of coexistence in the concrete case of human organisations. The ontological account — units, saturation, orders, relationships, values, composition, and transmission — is developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> and in the primary Madhyasth Darshan texts (MVD, SB, JV). This paper does not re-derive those foundations; it applies them and cites them where they carry the argument.</p>
+<p>This study takes the near-universal history of human organisation — grouping for safety, sustenance, protection, shared belief, and finally wealth and power — and asks whether every such basis reduces to <strong>fear</strong> and <strong>accumulation</strong>, and whether that reduction explains two recurring failures together: members treated as instruments, and organisations that dissolve once the founding fear passes or the accumulation stalls. Against that pattern it sets Madhyasth Darshan’s alternative — organisation around <strong>understood coexistence</strong>: shared cause, goal, and programme; values fulfilled in relationships; prosperity through right-use rather than accumulation; and understanding transmitted to every member through education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span>. The design is argued to be coherent but is untested at civilisational scale, and its deepest premises are asserted rather than demonstrated (§10).</p>
+<p>This is an <strong>applied</strong> study: it instantiates the general assembly template of coexistence in the concrete case of human organisations. The ontological account — units, saturation, orders, relationships, values, composition, and transmission — is developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> and in the primary Madhyasth Darshan texts (MVD, SB, JV). This paper does not re-derive those foundations; it applies them and cites them where they carry the argument.</p>
 <h2 id="standpoint-and-scope">Standpoint and scope</h2>
 <p>These studies are written from the standpoint of a <strong>scientist and technologist</strong> — someone trained to graduate-level <strong>physics and mathematics</strong>, at home with formal models and with the empirical study of institutions. Organisational questions are approached the way a modelling problem is approached: what an organisation is <em>organised around</em> is treated as a structural variable with predictable consequences, not a matter of exhortation.</p>
-<p>From that background a matter-first picture of the human being is hard to avoid, and with it a matter-first picture of organisations — as incentive systems that align self-interested agents. Modern social science is powerful on mechanism, measurement, and prediction; yet whether members are being <em>used</em>, and why some institutions outlast their founders while others fracture, remain contested. The standpoint here does not treat those questions as settled by incentive-alignment alone, nor does it treat the darshan&rsquo;s deeper premises — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, awakening, existence-as-coexistence — as proven.</p>
+<p>From that background a matter-first picture of the human being is hard to avoid, and with it a matter-first picture of organisations — as incentive systems that align self-interested agents. Modern social science is powerful on mechanism, measurement, and prediction; yet whether members are being <em>used</em>, and why some institutions outlast their founders while others fracture, remain contested. The standpoint here does not treat those questions as settled by incentive-alignment alone, nor does it treat the darshan’s deeper premises — <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, awakening, existence-as-coexistence — as proven.</p>
 <p>The method reads the primary <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> texts, states what the darshan itself holds about organisation, and compares it in parallel with <strong>modern organisational and social forms</strong>, with <strong>Advaita Vedanta</strong> (the nearest Indian non-dual rival, §11), and with the ordinary economics of profit and incentive. Physics and mathematics are <strong>one leg</strong> of the modelling habit brought to the problem, not the whole of the comparison, which is social and philosophical as much as formal.</p>
-<p>The aim is rigorous comparative understanding — testing the design&rsquo;s internal consistency, its fit with what is known about why organisations succeed or fail, and the real limits of its untested claims — not persuasion or devotional endorsement. Like the other studies in this series, it states the argument in clear, checkable prose grounded in the primary texts; deeper ontological exposition is in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> and is not required to follow the argument here.</p>
+<p>The aim is rigorous comparative understanding — testing the design’s internal consistency, its fit with what is known about why organisations succeed or fail, and the real limits of its untested claims — not persuasion or devotional endorsement. Like the other studies in this series, it states the argument in clear, checkable prose grounded in the primary texts; deeper ontological exposition is in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> and is not required to follow the argument here.</p>
 <h2 id="glossary-of-key-terms">Glossary of key terms</h2>
 <div class="table-scroll"><table>
 <thead>
@@ -781,7 +799,7 @@
 </tr>
 <tr>
 <td><strong>Coexistence (sah-astitva)</strong></td>
-<td>Existence as units submerged in all-pervading space — distinct, energised, related; the darshan&rsquo;s account of reality itself.</td>
+<td>Existence as units submerged in all-pervading space — distinct, energised, related; the darshan’s account of reality itself.</td>
 </tr>
 <tr>
 <td><strong>Resolution (samadhan)</strong></td>
@@ -813,7 +831,7 @@
 </tr>
 <tr>
 <td><strong>Instrumentalised</strong></td>
-<td>Treated as a means — net-extracted-from — rather than as an end (this paper&rsquo;s term, not the texts&rsquo;).</td>
+<td>Treated as a means — net-extracted-from — rather than as an end (this paper’s term, not the texts’).</td>
 </tr>
 </tbody>
 </table></div>
@@ -821,7 +839,7 @@
 <p>Reviewing history, humans have organised in a near-universal sequence — around <strong>safety</strong>, <strong>sustenance</strong>, <strong>protection</strong>, <strong>shared belief</strong>, and finally <strong>wealth and power</strong>. §2 traces this sequence in the sources.</p>
 <p>The question of this paper: is this the only way to form human organisations? Any better answer must meet two design objectives together:</p>
 <ol>
-<li><strong>Objective 1 — members are not instrumentalised.</strong> People in the organisation are happy and do not feel &ldquo;used&rdquo; by the system.</li>
+<li><strong>Objective 1 — members are not instrumentalised.</strong> People in the organisation are happy and do not feel “used” by the system.</li>
 <li><strong>Objective 2 — the organisation sustains.</strong> It remains orderly and alive over long periods, across generations.</li>
 </ol>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> answers <strong>No, this is not the only way</strong> — and claims the two objectives are met together or not at all.</p>
@@ -837,18 +855,18 @@ flowchart TD
     E --> I["Transmitted to all members via education-sanskar"]
 </div>
 <h2 id="2-the-historic-pattern-and-its-common-root">2. The historic pattern and its common root</h2>
-<p>SB&rsquo;s <em>History of Humans</em> as well as JV, tell the story of how humans organized themselves as a sequence of ages — each stage formed to answer a felt lack, each stage leaving that lack unresolved.</p>
-<p>In the jungle and stone ages, fear of nature and wild animals drove the first groupings. Forest, food, and shelter became the first wealth. Humans then submitted to monarchs. SB records that &ldquo;The submission age was accepted based on assurances of &hellip; comfort by the monarch&rdquo; (SB, Ch. 2); JV adds that the promise was never kept:</p>
+<p>SB’s <em>History of Humans</em> as well as JV, tell the story of how humans organized themselves as a sequence of ages — each stage formed to answer a felt lack, each stage leaving that lack unresolved.</p>
+<p>In the jungle and stone ages, fear of nature and wild animals drove the first groupings. Forest, food, and shelter became the first wealth. Humans then submitted to monarchs. SB records that “The submission age was accepted based on assurances of … comfort by the monarch” (SB, Ch. 2); JV adds that the promise was never kept:</p>
 <blockquote>
-<p><strong>&ldquo;The promise was that the king would ensure the security of life and property, but that hasn&rsquo;t happened until now. Life and property remain insecure; peace and harmony are further still.&rdquo;</strong>
+<p><strong>“The promise was that the king would ensure the security of life and property, but that hasn’t happened until now. Life and property remain insecure; peace and harmony are further still.”</strong>
 - JV</p>
 </blockquote>
-<p>Theocratic states and idealism came next. JV recounts that idealism imposed &ldquo;dos and don&rsquo;ts, labelling non-believers as sinners and subjecting them to harassment, as documented in history&rdquo; (JV, Ch. 1). Materialism followed — which &ldquo;in practice, became caught in the cycle of accumulation&rdquo; (SB, Ch. 2) — and power-centric rule built on monopoly.</p>
-<p>The darshan&rsquo;s central diagnostic claim is that all five bases reduce to two intertwined roots — <strong>fear</strong> and <strong>accumulation</strong>:</p>
+<p>Theocratic states and idealism came next. JV recounts that idealism imposed “dos and don’ts, labelling non-believers as sinners and subjecting them to harassment, as documented in history” (JV, Ch. 1). Materialism followed — which “in practice, became caught in the cycle of accumulation” (SB, Ch. 2) — and power-centric rule built on monopoly.</p>
+<p>The darshan’s central diagnostic claim is that all five bases reduce to two intertwined roots — <strong>fear</strong> and <strong>accumulation</strong>:</p>
 <blockquote>
-<p><strong>&ldquo;Only three causes are observed for all the fear in humans: (1) Fear of natural events (2) Fear of animals (3) Fear of inhumaneness in humans.&rdquo;</strong>
+<p><strong>“Only three causes are observed for all the fear in humans: (1) Fear of natural events (2) Fear of animals (3) Fear of inhumaneness in humans.”</strong>
 - MVD, Ch. 5</p>
-<p><strong>&ldquo;The lust for accumulation does not lead to satisfaction, because there is no end to accumulation.&rdquo;</strong>
+<p><strong>“The lust for accumulation does not lead to satisfaction, because there is no end to accumulation.”</strong>
 - MVD, Ch. 12</p>
 </blockquote>
 <p>The mapping is direct. Organising for safety and under monarchs is organising around <strong>fear</strong> — of nature, of animals, of other humans and groups. Organising for food, shelter, and wealth is organising around <strong>accumulation</strong>. Organising around shared belief trades on both: fear of sin, death, or damnation on one side, and accumulation of merit or salvation on the other. The power-centric economy, finally, is accumulation guarded by force — that is, by fear.</p>
@@ -856,22 +874,22 @@ flowchart TD
 <h2 id="3-why-such-organisations-instrumentalise-their-members">3. Why such organisations instrumentalise their members</h2>
 <p>If an organisation is held together by fear and accumulation, its members are inevitably treated as <strong>means</strong> — instruments for producing safety or wealth for someone else. The darshan defines this with unusual precision:</p>
 <blockquote>
-<p><strong>&ldquo;Nurturing (poshan): Unit + Conducive unit.&rdquo;</strong>
+<p><strong>“Nurturing (poshan): Unit + Conducive unit.”</strong>
 - MVD, Ch. 3</p>
-<p><strong>&ldquo;Exploitation (shoshan): Unit - Conducive unit.&rdquo;</strong>
+<p><strong>“Exploitation (shoshan): Unit - Conducive unit.”</strong>
 - MVD, Ch. 3</p>
 </blockquote>
 <p>Exploitation <strong>subtracts</strong> from the other; nurturing <strong>adds</strong>. And:</p>
 <blockquote>
-<p><strong>&ldquo;To disregard sentiments (values) in a relationship is indeed exploitation of that relationship.&rdquo;</strong>
+<p><strong>“To disregard sentiments (values) in a relationship is indeed exploitation of that relationship.”</strong>
 - MVD, Ch. 16</p>
-<p><strong>&ldquo;No human wants their own exploitation.&rdquo;</strong>
+<p><strong>“No human wants their own exploitation.”</strong>
 - MVD, Ch. 16</p>
 </blockquote>
-<p>In the template of coexistence these are not loose metaphors. Every unit stands in <strong>relationships</strong> — mutualities whose expectations are <em>predetermined</em> toward completeness — and in looser <strong>contacts</strong>, whose expectations are <em>voluntary</em> (MVD, Ch. 4; MVD, pp. 61–62). Formally an organisation is mostly a <strong>contact</strong>: people join and leave by choice. But it is built out of, and imposes demands on, real <strong>relationships</strong>, and the value (<em>mulya</em>) owed in any relationship is its <strong>essentiality</strong> — what the parties reciprocate and mutually recognise (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §1.6). To <em>disregard</em> that value is, by the definition above, exploitation. This is exactly why a purely voluntary, contractual contact can still instrumentalise its members: consenting to join does not license disregard of the relationship-values the contact carries.</p>
-<p>Profit-bound organisations must extract more from members than they return, because profit is defined as that very imbalance — &ldquo;Getting higher value in exchange for lower value itself is profit&rdquo; (MVD, Ch. 4) — and &ldquo;No one is happy from earning obtained through exploitation&rdquo; (MVD, Ch. 13). The political form of instrumentalisation is rule itself:</p>
+<p>In the template of coexistence these are not loose metaphors. Every unit stands in <strong>relationships</strong> — mutualities whose expectations are <em>predetermined</em> toward completeness — and in looser <strong>contacts</strong>, whose expectations are <em>voluntary</em> (MVD, Ch. 4; MVD, pp. 61–62). Formally an organisation is mostly a <strong>contact</strong>: people join and leave by choice. But it is built out of, and imposes demands on, real <strong>relationships</strong>, and the value (<em>mulya</em>) owed in any relationship is its <strong>essentiality</strong> — what the parties reciprocate and mutually recognise (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §1.6). To <em>disregard</em> that value is, by the definition above, exploitation. This is exactly why a purely voluntary, contractual contact can still instrumentalise its members: consenting to join does not license disregard of the relationship-values the contact carries.</p>
+<p>Profit-bound organisations must extract more from members than they return, because profit is defined as that very imbalance — “Getting higher value in exchange for lower value itself is profit” (MVD, Ch. 4) — and “No one is happy from earning obtained through exploitation” (MVD, Ch. 13). The political form of instrumentalisation is rule itself:</p>
 <blockquote>
-<p><strong>&ldquo;A thinker is invariably a sustainer of orderliness, whereas a ruler is invariably an exploiter of orderliness.&rdquo;</strong>
+<p><strong>“A thinker is invariably a sustainer of orderliness, whereas a ruler is invariably an exploiter of orderliness.”</strong>
 - MVD, Ch. 15</p>
 </blockquote>
 <p>The sense of being instrumentalised is not a complaint about a particular boss or regime. It is the <strong>predictable signature of any organisation whose organising principle is fear or accumulation</strong>, because such a principle requires some members to be net-extracted-from so that others (or the system) can be net-secured. This is the failure of Objective 1.</p>
@@ -879,49 +897,49 @@ flowchart TD
 <p>Fear-and-accumulation is not merely unkind; it is <em>structurally fragile</em>. This is the failure of Objective 2.</p>
 <p>Fear-based collectivity is animal-order, and dissolves when the fear passes:</p>
 <blockquote>
-<p><strong>&ldquo;The semblance of collectivity among animals is generally observed only in situations of fear. Under no circumstances is such collectivity observed in activities of study, production, or the maintenance of orderliness.&rdquo;</strong>
+<p><strong>“The semblance of collectivity among animals is generally observed only in situations of fear. Under no circumstances is such collectivity observed in activities of study, production, or the maintenance of orderliness.”</strong>
 - MVD, Ch. 4</p>
-<p><strong>&ldquo;A person may remain restrained by the fear of livelihood for some time, but eventually, they shed that fear. The end of slavery in history exemplifies this. &hellip; neither fear nor temptation can be the basis of orderliness, as they are unacceptable to humans.&rdquo;</strong>
+<p><strong>“A person may remain restrained by the fear of livelihood for some time, but eventually, they shed that fear. The end of slavery in history exemplifies this. … neither fear nor temptation can be the basis of orderliness, as they are unacceptable to humans.”</strong>
 - JV</p>
 </blockquote>
-<p>Accumulation breeds suspicion, and suspicion breeds conflict: &ldquo;War has always been driven by suspicion, mistrust, apprehension, coercion, bribery&rdquo; (SB, Ch. 6); &ldquo;Profit and loss constitute a relentless cycle that not only fails to secure humans but also destroys everything in its path&rdquo; (JV).</p>
+<p>Accumulation breeds suspicion, and suspicion breeds conflict: “War has always been driven by suspicion, mistrust, apprehension, coercion, bribery” (SB, Ch. 6); “Profit and loss constitute a relentless cycle that not only fails to secure humans but also destroys everything in its path” (JV).</p>
 <p>The sustainability claim is stated decisively:</p>
 <blockquote>
-<p><strong>&ldquo;Resolution is the very foundation of sustainability.&rdquo;</strong>
+<p><strong>“Resolution is the very foundation of sustainability.”</strong>
 - SB, Ch. 4</p>
-<p><strong>&ldquo;There is no sustainment of sociality without the tradition of coexistence.&rdquo;</strong>
+<p><strong>“There is no sustainment of sociality without the tradition of coexistence.”</strong>
 - MVD, Ch. 4</p>
 </blockquote>
 <p>An organisation does not last because it accumulates the most resources or commands the most force. It lasts because it produces <strong>resolution</strong> (members understand why and how they live and work together) and lives a <strong>tradition of coexistence</strong> (members complement rather than extract from each other). Resources and security are outputs of such an order, not its foundation.</p>
-<p>This fragility is not only a moral observation but a structural one built into the template of coexistence. Every assembly — molecule, body, or organisation — <strong>persists in its natural state</strong> while its relationships are being fulfilled, and <strong>declines in its excited state</strong> when they are not (SB, p. 14; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §1.8). What is special about human organisations is that they sit at the <strong>knowledge order</strong> — the one tier where recognition and fulfilment are not automatic but must be <em>achieved</em> through understanding, evaluation, and choice, and therefore the one tier of nature that can actually fail (JV, p. 47; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §1.8). A molecule cannot mis-evaluate its bonds; an organisation can. Fear and accumulation are two ways of holding an assembly together <em>without</em> fulfilling the relationships inside it — that is, of pinning it in a permanently excited state. Such an organisation lasts only as long as the external pressure that holds it does.</p>
+<p>This fragility is not only a moral observation but a structural one built into the template of coexistence. Every assembly — molecule, body, or organisation — <strong>persists in its natural state</strong> while its relationships are being fulfilled, and <strong>declines in its excited state</strong> when they are not (SB, p. 14; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §1.8). What is special about human organisations is that they sit at the <strong>knowledge order</strong> — the one tier where recognition and fulfilment are not automatic but must be <em>achieved</em> through understanding, evaluation, and choice, and therefore the one tier of nature that can actually fail (JV, p. 47; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §1.8). A molecule cannot mis-evaluate its bonds; an organisation can. Fear and accumulation are two ways of holding an assembly together <em>without</em> fulfilling the relationships inside it — that is, of pinning it in a permanently excited state. Such an organisation lasts only as long as the external pressure that holds it does.</p>
 <h2 id="5-the-alternative-basis-coexistence">5. The alternative basis: coexistence</h2>
 <h3 id="51-coexistence-as-the-binding-principle" data-depth="2">5.1 Coexistence as the binding principle</h3>
 <blockquote>
-<p><strong>&ldquo;Resolution Centred Materialism is coexistence only.&rdquo;</strong>
+<p><strong>“Resolution Centred Materialism is coexistence only.”</strong>
 - SB, Ch. 7</p>
-<p><strong>&ldquo;For an organisation, commonness of cause and goal is necessary. For its sustainment, commonness of the program is also necessary.&rdquo;</strong>
+<p><strong>“For an organisation, commonness of cause and goal is necessary. For its sustainment, commonness of the program is also necessary.”</strong>
 - MVD, Ch. 4</p>
 </blockquote>
-<p>A durable organisation thus needs a <strong>shared cause</strong> (why we exist), <strong>shared goal</strong> (what we are for), and <strong>shared programme</strong> (how we live it daily) — the very condition the texts state for deliberate, knowledge-order assemblies (MVD, p. 55). The binding is not contract or command but duty and dedication: &ldquo;The fulfilment of sociality is through duty and dedication &hellip; Otherwise, its decline occurs&rdquo; (MVD, Ch. 4). The glue is <strong>trust</strong>:</p>
+<p>A durable organisation thus needs a <strong>shared cause</strong> (why we exist), <strong>shared goal</strong> (what we are for), and <strong>shared programme</strong> (how we live it daily) — the very condition the texts state for deliberate, knowledge-order assemblies (MVD, p. 55). The binding is not contract or command but duty and dedication: “The fulfilment of sociality is through duty and dedication … Otherwise, its decline occurs” (MVD, Ch. 4). The glue is <strong>trust</strong>:</p>
 <blockquote>
-<p><strong>&ldquo;Trust is the act of fulfilling the inherent expectation of values in mutuality.&rdquo;</strong>
+<p><strong>“Trust is the act of fulfilling the inherent expectation of values in mutuality.”</strong>
 - MVD, Ch. 4</p>
 </blockquote>
 <p>And the positive formula:</p>
 <blockquote>
-<p><strong>&ldquo;The foundational basis of sociality in awakened humans is living in resolution, prosperity, fearlessness, and coexistence.&rdquo;</strong>
+<p><strong>“The foundational basis of sociality in awakened humans is living in resolution, prosperity, fearlessness, and coexistence.”</strong>
 - MVD, Ch. 4</p>
-<p><strong>&ldquo;Coexistence means living with complementarity. Fearlessness is trust in the present. Prosperity is producing in excess of our family&rsquo;s needs. Resolution is living with justice.&rdquo;</strong>
+<p><strong>“Coexistence means living with complementarity. Fearlessness is trust in the present. Prosperity is producing in excess of our family’s needs. Resolution is living with justice.”</strong>
 - JV</p>
 </blockquote>
-<p>These four — resolution, prosperity, fearlessness, coexistence — are not this paper&rsquo;s shorthand but the darshan&rsquo;s stated <strong>human goal</strong>, what awakened sociality <em>evidences</em> when the relational cycle closes, distinguished throughout from what coexistence merely provisions (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §1.13).</p>
+<p>These four — resolution, prosperity, fearlessness, coexistence — are not this paper’s shorthand but the darshan’s stated <strong>human goal</strong>, what awakened sociality <em>evidences</em> when the relational cycle closes, distinguished throughout from what coexistence merely provisions (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §1.13).</p>
 <p>Note the precision of the term this paper turns on: the basis is not coexistence as sentiment, slogan, or mere peaceableness, but <strong>understood coexistence</strong> — coexistence that each member has studied and verified for themselves. §6 unpacks what this understanding consists of and how it is reached.</p>
 <h3 id="52-organisational-design-ten-tier-governance-and-two-policies" data-depth="2">5.2 Organisational design: ten-tier governance and two policies</h3>
-<p>The same principle scales from individual to family to society to nation to undivided world: &ldquo;a family is an integral part of the undivided society, while an individual is an integral part of a family&rdquo; (MVD, Ch. 14). It is implemented as <strong>family-based self-organising orderliness</strong> — ten-tier self-governance from family assembly up to world family assembly (MVD, Ch. 4).</p>
-<p>How that scaling works is precise in the template. Units glue into a larger unit only when they are genuinely <strong>complementary</strong> and the result is a <strong>compound</strong> — a new unit with its own conduct — not a mere <strong>mixture</strong> in which each part keeps its own conduct unchanged (MVD, p. 42; SB, pp. 75–76). A set of individuals bound only by contract or fear is a mixture; a family or team that shares cause, goal, and programme is a compound. And the gluing succeeds only where the parts <strong>agree on what they share</strong> — the same members and the same values, without contradictory demands placed on them (<a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html"><em>How Undivided Society Is Established</em></a> §5). Where two units place contradictory expectations on a shared person, the larger unit is forced to collapse. This is the structural reason the small unit must be oriented toward the larger whole rather than toward sectarian self-interest.</p>
+<p>The same principle scales from individual to family to society to nation to undivided world: “a family is an integral part of the undivided society, while an individual is an integral part of a family” (MVD, Ch. 14). It is implemented as <strong>family-based self-organising orderliness</strong> — ten-tier self-governance from family assembly up to world family assembly (MVD, Ch. 4).</p>
+<p>How that scaling works is precise in the template. Units glue into a larger unit only when they are genuinely <strong>complementary</strong> and the result is a <strong>compound</strong> — a new unit with its own conduct — not a mere <strong>mixture</strong> in which each part keeps its own conduct unchanged (MVD, p. 42; SB, pp. 75–76). A set of individuals bound only by contract or fear is a mixture; a family or team that shares cause, goal, and programme is a compound. And the gluing succeeds only where the parts <strong>agree on what they share</strong> — the same members and the same values, without contradictory demands placed on them (<a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html" rel="noopener noreferrer"><em>How Undivided Society Is Established</em></a> §5). Where two units place contradictory expectations on a shared person, the larger unit is forced to collapse. This is the structural reason the small unit must be oriented toward the larger whole rather than toward sectarian self-interest.</p>
 <p>SB specifies the working machinery at the local tier: the village council nominates <strong>five self-governance working committees</strong>, each with defined roles:</p>
 <blockquote>
-<p><strong>&ldquo;There will be five such committees: 1. Education-Sanskar Committee 2. Justice-Security Committee 3. Health-Restraint Committee 4. Production-Work Committee 5. Exchange-Reserve Committee. Each committee will have clearly defined roles and responsibilities.&rdquo;</strong>
+<p><strong>“There will be five such committees: 1. Education-Sanskar Committee 2. Justice-Security Committee 3. Health-Restraint Committee 4. Production-Work Committee 5. Exchange-Reserve Committee. Each committee will have clearly defined roles and responsibilities.”</strong>
 - SB, Ch. 8</p>
 </blockquote>
 <p>The five names are the four-fold goal made administrative: education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span> transmits understanding (§6); justice-security holds relationships and protection together; health-restraint covers the body and self-regulation; production-work delivers prosperity; exchange-reserve circulates goods without the profit-motive.</p>
@@ -933,23 +951,23 @@ flowchart TD
 <p>Each person desires both utilisation and protection; the darshan requires them to be <strong>integrated</strong> at every level from family to nation. They address different aspects of the same assets — not competing programmes.</p>
 <p>Morality-versus-power — in its familiar form, religion-versus-state — is usually treated as an inherent rivalry. The darshan treats the rivalry as a <strong>symptom, not a definition</strong>: failure occurs when the two orders stop complementing each other and begin exploiting or interfering with each other and with the public:</p>
 <blockquote>
-<p><strong>&ldquo;When these two orders start exploiting or interfering with each other &hellip; societal imbalance arises.&rdquo;</strong>
+<p><strong>“When these two orders start exploiting or interfering with each other … societal imbalance arises.”</strong>
 - MVD, Ch. 4</p>
 </blockquote>
 <p>JV and SB name the present form of this split — moral authority lodged in religion, protection lodged in state, neither delivering orderliness. SB traces how <strong>religion-based politics</strong> and <strong>economics-based politics</strong> each anticipated complementarity between religion and state, or between economics and state, yet failed to secure orderliness in practice (SB, Ch. 2; synthesis).</p>
 <p>JV adds that struggle-centred rule yields nothing apart from problems and suffering:</p>
 <blockquote>
-<p><strong>&ldquo;Whatever revolts, rebellions, exploitations, and wars that humans have committed until now, these all were contrary to the principles of coexistence.&rdquo;</strong>
+<p><strong>“Whatever revolts, rebellions, exploitations, and wars that humans have committed until now, these all were contrary to the principles of coexistence.”</strong>
 - JV, Ch. 1</p>
 </blockquote>
 <p>Rule without understanding repeats the exploitation logic already seen in §3 — the ruler exploits orderliness; only the thinker sustains it.</p>
 <h3 id="53-how-coexistence-answers-both-design-objectives" data-depth="2">5.3 How coexistence answers both design objectives</h3>
 <p>Both design objectives of §1 are answered by the same move:</p>
 <ol>
-<li><em>Objective 1 — members not instrumentalised:</em> the organisation must add to the member, not subtract (<code>Unit + Conducive unit</code>); fulfil the values owed in each relationship; and hold to justice above mere legality. Justice here is not one value among values but the <strong>closure of the whole relational cycle</strong> — &ldquo;recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction&rdquo; (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §1.12.1; MVD, p. 311) — so that &ldquo;Humane behaviour in mutuality itself is justice&rdquo; (MVD, Ch. 1). Instrumentalisation is precisely this cycle left open: values unfulfilled or mis-evaluated, mutual satisfaction never reached. A member can therefore be treated entirely legally and still be exploited, because legality is not the closure of that cycle.</li>
-<li><em>Objective 2 — sustainment:</em> shared cause-goal-programme; resolution as foundation; prosperity through right-use rather than accumulation — &ldquo;Material prosperity is accomplished only by adhering to the policy of &lsquo;more production than the needs&rsquo;&rdquo; (MVD, Ch. 5), with &ldquo;earning for expenditure&rdquo; as non-accumulation (MVD, Ch. 10) and a <strong>cyclical economics</strong> (JV); and transmission across generations through <strong>education-sanskar</strong> — &ldquo;This is how understanding flows in tradition. Ignorance cannot flow in tradition&rdquo; (JV).</li>
+<li><em>Objective 1 — members not instrumentalised:</em> the organisation must add to the member, not subtract (<code>Unit + Conducive unit</code>); fulfil the values owed in each relationship; and hold to justice above mere legality. Justice here is not one value among values but the <strong>closure of the whole relational cycle</strong> — “recognising relationships, fulfilling values, evaluating, and achieving mutual satisfaction” (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §1.12.1; MVD, p. 311) — so that “Humane behaviour in mutuality itself is justice” (MVD, Ch. 1). Instrumentalisation is precisely this cycle left open: values unfulfilled or mis-evaluated, mutual satisfaction never reached. A member can therefore be treated entirely legally and still be exploited, because legality is not the closure of that cycle.</li>
+<li><em>Objective 2 — sustainment:</em> shared cause-goal-programme; resolution as foundation; prosperity through right-use rather than accumulation — “Material prosperity is accomplished only by adhering to the policy of ‘more production than the needs’” (MVD, Ch. 5), with “earning for expenditure” as non-accumulation (MVD, Ch. 10) and a <strong>cyclical economics</strong> (JV); and transmission across generations through <strong>education-sanskar</strong> — “This is how understanding flows in tradition. Ignorance cannot flow in tradition” (JV).</li>
 </ol>
-<p>The two objectives are not in tension. Extraction-based systems must trade member welfare against growth; a coexistence-based system avoids the trade-off because the member&rsquo;s flourishing <em>is</em> the organisation&rsquo;s strength.</p>
+<p>The two objectives are not in tension. Extraction-based systems must trade member welfare against growth; a coexistence-based system avoids the trade-off because the member’s flourishing <em>is</em> the organisation’s strength.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -992,40 +1010,40 @@ flowchart TD
 </tbody>
 </table></div>
 <h2 id="6-what-it-takes-to-understand-coexistence">6. What it takes to understand coexistence</h2>
-<p>Everything above rests on the load-bearing phrase introduced in §5.1: organisations founded on <strong>understood coexistence</strong>. This is not a figure of speech. In the darshan, &ldquo;understanding coexistence&rdquo; names a definite cognitive achievement with definite content, a definite method, and definite tests — and it is deliberately contrasted with belief, sentiment, agreement, and mystical experience.</p>
+<p>Everything above rests on the load-bearing phrase introduced in §5.1: organisations founded on <strong>understood coexistence</strong>. This is not a figure of speech. In the darshan, “understanding coexistence” names a definite cognitive achievement with definite content, a definite method, and definite tests — and it is deliberately contrasted with belief, sentiment, agreement, and mystical experience.</p>
 <h3 id="61-what-is-to-be-understood" data-depth="2">6.1 What is to be understood</h3>
-<p>Coexistence here is not tolerance, compromise, or &ldquo;getting along.&rdquo; It is a claim about the structure of reality: existence is units <strong>submerged in</strong> all-pervading space — distinct, energised, and related — and the four natural orders (material, bio, animal, and knowledge order) are mutually complementary (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §§1.1, 1.5). To understand coexistence is to know the darshan&rsquo;s three inseparable areas of complete knowledge (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §1.13):</p>
+<p>Coexistence here is not tolerance, compromise, or “getting along.” It is a claim about the structure of reality: existence is units <strong>submerged in</strong> all-pervading space — distinct, energised, and related — and the four natural orders (material, bio, animal, and knowledge order) are mutually complementary (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §§1.1, 1.5). To understand coexistence is to know the darshan’s three inseparable areas of complete knowledge (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §1.13):</p>
 <ol>
 <li><strong>Existence</strong> — reality as coexistence; the complementarity of all orders</li>
 <li><strong><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">Jeevan</button></span></strong> — the conscious self, distinct from the body, that desires happiness and is satisfied only by understanding</li>
 <li><strong>Humane conduct</strong> — the values, character, and ethics that follow for a being who lives among other such beings</li>
 </ol>
-<p>This is why &ldquo;shared belief&rdquo; cannot substitute for it. A belief locates the bond in an object of faith; understanding locates it in a recognisable structure of reality that each member can examine. The first divides humankind into sects; the second cannot, because what is understood is the same for everyone — &ldquo;Humankind is united in the right and divided in the wrong&rdquo; (MVD, Ch. 16).</p>
+<p>This is why “shared belief” cannot substitute for it. A belief locates the bond in an object of faith; understanding locates it in a recognisable structure of reality that each member can examine. The first divides humankind into sects; the second cannot, because what is understood is the same for everyone — “Humankind is united in the right and divided in the wrong” (MVD, Ch. 16).</p>
 <h3 id="62-how-it-is-reached-study-not-belief-or-command" data-depth="2">6.2 How it is reached: study, not belief or command</h3>
 <p>The darshan insists this understanding is <em>teachable</em> — open to examination, not reserved for the initiated or granted by grace:</p>
 <blockquote>
-<p><strong>&ldquo;According to the idealistic scriptures and the mystery-based God-centric contemplation knowledge and tradition, the knowledge is unmanifest and ineffable. According to Madhyasth Darshan, the knowledge is manifest, effable, and understandable through studying, and its evidence becomes accessible to all through behaviour.&rdquo;</strong>
+<p><strong>“According to the idealistic scriptures and the mystery-based God-centric contemplation knowledge and tradition, the knowledge is unmanifest and ineffable. According to Madhyasth Darshan, the knowledge is manifest, effable, and understandable through studying, and its evidence becomes accessible to all through behaviour.”</strong>
 - MVD, <em>The Alternative</em></p>
-<p><strong>&ldquo;The alternative path is - perform study, attain mastery, then evidence it in living.&rdquo;</strong>
+<p><strong>“The alternative path is - perform study, attain mastery, then evidence it in living.”</strong>
 - JV, Ch. 1</p>
 </blockquote>
-<p>The method is a sequence: <strong>study</strong> (adhyayan — sustained engagement with the proposal, guided by someone who already lives it), <strong>contemplation</strong> (turning the proposal over against one&rsquo;s own observation and natural acceptance), <strong>understanding</strong> (the point where every <em>why</em> and <em>how</em> is answered — which is what the darshan means by <em>resolution</em>), and finally <strong>evidence in living</strong> (pramaan — the understanding showing up as justice, trust, and right-use in actual relationships). In the ontology&rsquo;s terms this is the knowledge-order cycle <strong>knowing → believing → recognising → fulfilling</strong>: what a member unfolds (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan-udghatan" data-definition="Unfolding of knowledge — realisation in coexistence becoming expressible as wisdom and science through awakened jeevan.">gyan udghatan</button></span></em>) is not a private conviction but the relationships already built into coexistence, brought into lived conduct (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §§1.11, 1.13). The teaching is offered as a <em>proposal</em> to be verified, never as a command to be obeyed: each person checks it against what is naturally acceptable to them and validates it in their own living.</p>
+<p>The method is a sequence: <strong>study</strong> (adhyayan — sustained engagement with the proposal, guided by someone who already lives it), <strong>contemplation</strong> (turning the proposal over against one’s own observation and natural acceptance), <strong>understanding</strong> (the point where every <em>why</em> and <em>how</em> is answered — which is what the darshan means by <em>resolution</em>), and finally <strong>evidence in living</strong> (pramaan — the understanding showing up as justice, trust, and right-use in actual relationships). In the ontology’s terms this is the knowledge-order cycle <strong>knowing → believing → recognising → fulfilling</strong>: what a member unfolds (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gyan-udghatan" data-definition="Unfolding of knowledge — realisation in coexistence becoming expressible as wisdom and science through awakened jeevan.">gyan udghatan</button></span></em>) is not a private conviction but the relationships already built into coexistence, brought into lived conduct (<a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §§1.11, 1.13). The teaching is offered as a <em>proposal</em> to be verified, never as a command to be obeyed: each person checks it against what is naturally acceptable to them and validates it in their own living.</p>
 <h3 id="63-how-one-knows-it-has-been-understood" data-depth="2">6.3 How one knows it has been understood</h3>
 <p>Three tests separate understanding from its substitutes:</p>
 <ol>
-<li><strong>Resolution, not residue.</strong> Belief survives unanswered questions; understanding does not begin until they are answered. If &ldquo;why coexistence?&rdquo; still needs authority, fear, or incentive to back it, it has not been understood.</li>
-<li><strong>Communicability.</strong> What is understood can be made understandable to another. Mystery, by the darshan&rsquo;s definition, cannot — which is why it transmits as allegiance instead of knowledge.</li>
-<li><strong>Evidence in behaviour.</strong> The decisive test is conduct: fulfilment of values in relationships, right-use of resources, production beyond need. An understanding that changes nothing in behaviour is, on this view, not yet understanding. This is the template&rsquo;s <strong>self-evidencing closure</strong>: realisation counts as complete knowledge only when it is evidenced in conduct and made transmissible, never as private conviction alone (MVD, p. 12; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §1.11).</li>
+<li><strong>Resolution, not residue.</strong> Belief survives unanswered questions; understanding does not begin until they are answered. If “why coexistence?” still needs authority, fear, or incentive to back it, it has not been understood.</li>
+<li><strong>Communicability.</strong> What is understood can be made understandable to another. Mystery, by the darshan’s definition, cannot — which is why it transmits as allegiance instead of knowledge.</li>
+<li><strong>Evidence in behaviour.</strong> The decisive test is conduct: fulfilment of values in relationships, right-use of resources, production beyond need. An understanding that changes nothing in behaviour is, on this view, not yet understanding. This is the template’s <strong>self-evidencing closure</strong>: realisation counts as complete knowledge only when it is evidenced in conduct and made transmissible, never as private conviction alone (MVD, p. 12; <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §1.11).</li>
 </ol>
 <h3 id="64-why-every-member-must-understand-and-what-this-means-for-organisations" data-depth="2">6.4 Why every member must understand — and what this means for organisations</h3>
-<p>This is the organisational crux. In belief-based and command-based organisations, the &ldquo;understanding&rdquo; is held centrally — by the priesthood, the founder, the ideology, the management — and members participate by trust in authority. The darshan&rsquo;s design forbids this delegation: resolution must live in <strong>each member</strong>, because trust is &ldquo;fulfilling the inherent expectation of values in mutuality&rdquo; (MVD, Ch. 4), and mutuality cannot be outsourced.</p>
+<p>This is the organisational crux. In belief-based and command-based organisations, the “understanding” is held centrally — by the priesthood, the founder, the ideology, the management — and members participate by trust in authority. The darshan’s design forbids this delegation: resolution must live in <strong>each member</strong>, because trust is “fulfilling the inherent expectation of values in mutuality” (MVD, Ch. 4), and mutuality cannot be outsourced.</p>
 <p>Hence two structural consequences already met above:</p>
 <ul>
-<li><strong>Education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span> is the central institution</strong>, not an auxiliary one: &ldquo;Education-sanskar is the only source of enlightenment and definitive understanding&rdquo; (SB, Ch. 4). An organisation of understood coexistence is, before anything else, a teaching-and-learning organisation — &ldquo;This is how understanding flows in tradition. Ignorance cannot flow in tradition&rdquo; (JV).</li>
-<li><strong>The family is the first site of verification.</strong> Relationships in the family are where values are first recognised, fulfilled, and evaluated — which is why the darshan&rsquo;s self-organising orderliness is <em>family-based</em> rather than individual-based or state-based.</li>
+<li><strong>Education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span> is the central institution</strong>, not an auxiliary one: “Education-sanskar is the only source of enlightenment and definitive understanding” (SB, Ch. 4). An organisation of understood coexistence is, before anything else, a teaching-and-learning organisation — “This is how understanding flows in tradition. Ignorance cannot flow in tradition” (JV).</li>
+<li><strong>The family is the first site of verification.</strong> Relationships in the family are where values are first recognised, fulfilled, and evaluated — which is why the darshan’s self-organising orderliness is <em>family-based</em> rather than individual-based or state-based.</li>
 </ul>
-<p>This also explains the failure modes catalogued earlier. Organisations decay precisely at the point where understanding stops being transmitted and is replaced by its cheaper substitutes — belief in the founder, fear of the rule, or incentive of the pay-off. The darshan&rsquo;s claim is that no organisational structure can compensate for that substitution, and no structure is needed where it has not occurred.</p>
-<p>The template states this sharply. At the material, biological, and animal orders an assembly transmits its method of composition automatically — by constitution, seed, or lineage — but at the knowledge order the only available carrier is <strong>education-sanskar</strong>, and it carries understanding alone (JV, pp. 48–49). Because human assembly is the one tier where the relational cycle can fail, a human organisation is &ldquo;built and sustained only by an unbroken transmission of understanding&rdquo; (JV, p. 47). That is why a coexistence-based organisation is not merely an organisation that happens to run a school; it is one whose survival mechanism <em>is</em> the school.</p>
+<p>This also explains the failure modes catalogued earlier. Organisations decay precisely at the point where understanding stops being transmitted and is replaced by its cheaper substitutes — belief in the founder, fear of the rule, or incentive of the pay-off. The darshan’s claim is that no organisational structure can compensate for that substitution, and no structure is needed where it has not occurred.</p>
+<p>The template states this sharply. At the material, biological, and animal orders an assembly transmits its method of composition automatically — by constitution, seed, or lineage — but at the knowledge order the only available carrier is <strong>education-sanskar</strong>, and it carries understanding alone (JV, pp. 48–49). Because human assembly is the one tier where the relational cycle can fail, a human organisation is “built and sustained only by an unbroken transmission of understanding” (JV, p. 47). That is why a coexistence-based organisation is not merely an organisation that happens to run a school; it is one whose survival mechanism <em>is</em> the school.</p>
 <h2 id="7-modern-organisational-forms-in-brief">7. Modern organisational forms in brief</h2>
 <p>The darshan predates these modern forms and does not name them; this section applies its criteria to them. Modern forms line up on a spectrum by what binds members, from extraction toward coexistence:</p>
 <div class="table-scroll"><table>
@@ -1033,7 +1051,7 @@ flowchart TD
 <tr>
 <th>Modern form</th>
 <th>Organised around</th>
-<th>Darshan&rsquo;s reading</th>
+<th>Darshan’s reading</th>
 </tr>
 </thead>
 <tbody>
@@ -1050,12 +1068,12 @@ flowchart TD
 <tr>
 <td>Liberal democracy; stakeholder/ESG firm</td>
 <td>Consent, rights; multi-stakeholder value</td>
-<td>Better form, same basis — consent regulates exploitation but legality is not justice; &ldquo;a nexus of votes and money&rdquo; (MVD, Preface)</td>
+<td>Better form, same basis — consent regulates exploitation but legality is not justice; “a nexus of votes and money” (MVD, Preface)</td>
 </tr>
 <tr>
 <td>Cooperatives; self-management (Teal)</td>
 <td>Shared ownership; distributed authority</td>
-<td>Strong echo of self-organising orderliness and &ldquo;values and evaluation&rdquo; over &ldquo;fear and temptation&rdquo; (JV); but bounded to one firm, market-embedded, no transmission mechanism</td>
+<td>Strong echo of self-organising orderliness and “values and evaluation” over “fear and temptation” (JV); but bounded to one firm, market-embedded, no transmission mechanism</td>
 </tr>
 <tr>
 <td>Commons (Ostrom); peer production; mission orgs; intentional communities</td>
@@ -1064,7 +1082,7 @@ flowchart TD
 </tr>
 </tbody>
 </table></div>
-<p>The best modern forms independently arrive at several darshan principles. What even they stop short of supplying together: <strong>a universal (non-sectarian) goal</strong> oriented to undivided society (<a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html"><em>How Undivided Society Is Established</em></a>); <strong>resolution as understood coexistence</strong> rather than shared interest or belief; <strong>the four-fold goal</strong> (resolution, prosperity, fearlessness, coexistence) as a set; <strong>a transmission mechanism</strong> (education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span>) independent of founder or funding (<a href="https://analyticmadhyasthdarshan.org/Studies/Education-And-Sanskar/Education-And-Sanskar.html"><em>Education and Sanskar</em></a>); and <strong>an integrated cyclical economy of right-use</strong> rather than accumulation merely constrained by rules (<a href="https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.html"><em>Prosperity, Economics, and Right Use</em></a>).</p>
+<p>The best modern forms independently arrive at several darshan principles. What even they stop short of supplying together: <strong>a universal (non-sectarian) goal</strong> oriented to undivided society (<a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html" rel="noopener noreferrer"><em>How Undivided Society Is Established</em></a>); <strong>resolution as understood coexistence</strong> rather than shared interest or belief; <strong>the four-fold goal</strong> (resolution, prosperity, fearlessness, coexistence) as a set; <strong>a transmission mechanism</strong> (education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span>) independent of founder or funding (<a href="https://analyticmadhyasthdarshan.org/Studies/Education-And-Sanskar/Education-And-Sanskar.html" rel="noopener noreferrer"><em>Education and Sanskar</em></a>); and <strong>an integrated cyclical economy of right-use</strong> rather than accumulation merely constrained by rules (<a href="https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.html" rel="noopener noreferrer"><em>Prosperity, Economics, and Right Use</em></a>).</p>
 <h2 id="8-practical-principles">8. Practical principles</h2>
 <p>An organisation that wants to sustain and not instrumentalise its people should:</p>
 <ol>
@@ -1080,12 +1098,12 @@ flowchart TD
 <li><strong>Orient the small unit toward the larger whole</strong> — family/team toward society and undivided society, not sectarian self-interest (§5.2).</li>
 </ol>
 <h2 id="9-from-here-to-there-the-transition-path">9. From here to there: the transition path</h2>
-<p>The darshan describes an end-state, not a reform programme for existing institutions. The texts do not prescribe how a fear- or accumulation-based organisation converts itself. But the darshan&rsquo;s own logic implies a definite ordering, and it is worth making explicit. <em>(This section is inference from the texts&rsquo; method, not quotation.)</em></p>
+<p>The darshan describes an end-state, not a reform programme for existing institutions. The texts do not prescribe how a fear- or accumulation-based organisation converts itself. But the darshan’s own logic implies a definite ordering, and it is worth making explicit. <em>(This section is inference from the texts’ method, not quotation.)</em></p>
 <ol>
 <li><strong>Understanding precedes structure.</strong> Since no organisational structure can compensate for the absence of understanding (§6.4), transition cannot begin with restructuring — new charters, new incentives, new org-charts on the old basis reproduce the old basis. It begins with members studying and verifying the proposal.</li>
 <li><strong>Start at the scale where verification is possible.</strong> The family — or the smallest working team — is the first site where values can actually be recognised, fulfilled, and evaluated (§6.4). Larger tiers federate what already works; they cannot conjure it.</li>
-<li><strong>Education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span> before governance reform.</strong> The first committee is the teaching one (§5.2). A transmission mechanism that does not depend on the founder must exist before the founder&rsquo;s understanding can outlive them.</li>
-<li><strong>Evidence attracts; command does not.</strong> The method is study → mastery → evidence in living (JV, §6.2). An organisation demonstrating resolution, prosperity, and fearlessness recruits by being visibly worth joining — the darshan&rsquo;s answer to &ldquo;how does this spread?&rdquo; is demonstration, not conquest or decree.</li>
+<li><strong>Education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span> before governance reform.</strong> The first committee is the teaching one (§5.2). A transmission mechanism that does not depend on the founder must exist before the founder’s understanding can outlive them.</li>
+<li><strong>Evidence attracts; command does not.</strong> The method is study → mastery → evidence in living (JV, §6.2). An organisation demonstrating resolution, prosperity, and fearlessness recruits by being visibly worth joining — the darshan’s answer to “how does this spread?” is demonstration, not conquest or decree.</li>
 </ol>
 <p>The implied sequence — understand, live it small, teach it, federate — also explains why the darshan is unimpressed by reforms that begin at the top: they change who holds the structure, not what the structure is organised around.</p>
 <h2 id="10-limits-and-open-questions">10. Limits and open questions</h2>
@@ -1093,15 +1111,15 @@ flowchart TD
 <p>There are however following questionable points in the claims made by the <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span>:</p>
 <ul>
 <li><em>Fear has legitimate uses.</em> Grouping against genuine threats is sometimes necessary. The defensible version of the claim is that threat-avoidance cannot be the <em>foundational organising principle</em>, not that safety-driven cooperation is wrong.</li>
-<li><em>Accumulation versus prudent reserve.</em> &ldquo;Earning for expenditure&rdquo; and &ldquo;production more than needs&rdquo; partly anticipate the need for reserves, but the boundary between healthy surplus and harmful hoarding is left to judgement.</li>
-<li><em>No theory of bad-faith actors.</em> The design assumes members who understand or are willing to study. The texts name a Justice-Security committee (SB, Ch. 8) but give no procedure for the member who persistently exploits, dissents, or refuses to participate — no account of adjudication, sanction, exit, or expulsion. Institutional justice and statutory order are deferred to the planned <a href="https://analyticmadhyasthdarshan.org/Studies/Governance-Justice-And-Undivided-Society/Governance-Justice-And-Undivided-Society.html"><em>Governance, Justice, and Undivided Society</em></a> study, but for an organisational design this remains the largest practical gap: every real organisation eventually meets the person its theory says should not exist.</li>
+<li><em>Accumulation versus prudent reserve.</em> “Earning for expenditure” and “production more than needs” partly anticipate the need for reserves, but the boundary between healthy surplus and harmful hoarding is left to judgement.</li>
+<li><em>No theory of bad-faith actors.</em> The design assumes members who understand or are willing to study. The texts name a Justice-Security committee (SB, Ch. 8) but give no procedure for the member who persistently exploits, dissents, or refuses to participate — no account of adjudication, sanction, exit, or expulsion. Institutional justice and statutory order are deferred to the planned <a href="https://analyticmadhyasthdarshan.org/Studies/Governance-Justice-And-Undivided-Society/Governance-Justice-And-Undivided-Society.html" rel="noopener noreferrer"><em>Governance, Justice, and Undivided Society</em></a> study, but for an organisational design this remains the largest practical gap: every real organisation eventually meets the person its theory says should not exist.</li>
 <li><em>Dependence on the ontology.</em> The deepest premises — <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span>, awakening, existence-as-coexistence — are asserted, not empirically demonstrated. A secular designer can adopt nearly the whole practical programme on organisational grounds alone while remaining agnostic about the metaphysics; a strength for adoption, a weakness for anyone seeking a proven first principle.</li>
 </ul>
 <h2 id="11-comparison-with-advaita-vedanta">11. Comparison with Advaita Vedanta</h2>
-<p>A natural question for an Indian reader: does <strong>Advaita Vedanta</strong>, the oldest non-dual tradition, already offer a basis for building a prosperous society? The two are close relatives — Shri A. Nagraj came through the Vedic/Vedantic stream, and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> defines itself partly against Advaita&rsquo;s formula &ldquo;<em>Brahma <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence.">satya</button></span>, jagat <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Illusion (dependent appearance in Advaita) — neither independently absolute nor sheer non-being; empirically operative, but sublated by knowledge of Brahman.">mithya</button></span></em>&rdquo; (MVD, <em>The Alternative</em>). The full metaphysical comparison — <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Brahman — in Advaita, the non-dual ultimate reality, identical with Atman and described as existence, consciousness, and bliss.">Brahman</button></span> and <em>mithya</em>, the two truths, and where the traditions&rsquo; categories do and do not map — is developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> §2 and §5.7; here the question is narrowly organisational, measured against this paper&rsquo;s two design objectives. <em>(Beyond the three primary sources this draws on Shankara (AV), Vivekananda&rsquo;s &ldquo;Practical Vedanta&rdquo; (SV), and Rambachan (ATR); readings are marked interpretation where they exceed the texts.)</em></p>
-<p>Advaita is not socially empty. If <em>tat tvam asi</em> — the self of every being is Brahman — then there is ontologically no &ldquo;Other&rdquo; to exploit, arguably a stronger anti-exploitation premise than any rights theory; <em>nishkama karma</em> and <em>lokasamgraha</em> give a reason to serve rather than accumulate; and modern readings (Vivekananda&rsquo;s &ldquo;potential divinity&rdquo; of every being, Rambachan&rsquo;s &ldquo;not-two is not one&rdquo;) built activism against caste and ecological harm, sustained by real institutions such as the Ramakrishna Mission. On the darshan&rsquo;s own spectrum (§7), Advaita-inspired organisations belong with the closest, non-extractive forms.</p>
-<p>Measured against the two objectives, though, classical Advaita falls short in identifiable ways. Its goal is <em>individual moksha</em>, not organisational: community, family, and production belong to the world the renunciant turns from, so an organisation is at best instrumental to liberation, never the locus of value. &ldquo;<em>Jagat mithya</em>&rdquo; undercuts prosperity — a philosophy cannot found a prosperous society on a premise that devalues the domain in which prosperity occurs; even sympathetic reformers concede pre-reform Vedanta became &ldquo;a philosophy of escape&rdquo; (SV). The two-truths doctrine let perfect equality at the absolute level coexist with caste hierarchy at the empirical level for over a millennium — <em>interpretation:</em> a unity that does not bind conduct fails the darshan&rsquo;s test that understanding become <strong>evidence in behaviour</strong>. Transmission ran through guru-shishya lineage and monastic qualification (<em>adhikara</em>) for a renunciant minority — the opposite of an education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span> meant to reach <strong>all</strong> through ordinary families. And Advaita specifies no economy, governance, or family order — no counterpart to &ldquo;commonness of cause and goal &hellip; and of the program&rdquo; (MVD, Ch. 4).</p>
-<p>The decisive divergence is metaphysical and has direct organisational consequences. Advaita resolves plurality <em>upward</em> into one reality without a second: relationships, like the related persons, are ultimately appearance. Madhyasth Darshan refuses this move — existence is units <em>submerged in</em> all-pervading space, distinct and related. Plurality is real, therefore <strong>relationships are real</strong>, therefore the values inherent in them (trust, respect, justice) are real and their fulfilment or violation is real. That is what makes &ldquo;exploitation = disregarding values in a relationship&rdquo; a usable organisational test rather than a provisional truth awaiting dissolution.</p>
+<p>A natural question for an Indian reader: does <strong>Advaita Vedanta</strong>, the oldest non-dual tradition, already offer a basis for building a prosperous society? The two are close relatives — Shri A. Nagraj came through the Vedic/Vedantic stream, and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> defines itself partly against Advaita’s formula “<em>Brahma <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence.">satya</button></span>, jagat <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mithya" data-definition="Illusion (dependent appearance in Advaita) — neither independently absolute nor sheer non-being; empirically operative, but sublated by knowledge of Brahman.">mithya</button></span></em>” (MVD, <em>The Alternative</em>). The full metaphysical comparison — <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="brahman" data-definition="Brahman — in Advaita, the non-dual ultimate reality, identical with Atman and described as existence, consciousness, and bliss.">Brahman</button></span> and <em>mithya</em>, the two truths, and where the traditions’ categories do and do not map — is developed in <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> §2 and §5.7; here the question is narrowly organisational, measured against this paper’s two design objectives. <em>(Beyond the three primary sources this draws on Shankara (AV), Vivekananda’s “Practical Vedanta” (SV), and Rambachan (ATR); readings are marked interpretation where they exceed the texts.)</em></p>
+<p>Advaita is not socially empty. If <em>tat tvam asi</em> — the self of every being is Brahman — then there is ontologically no “Other” to exploit, arguably a stronger anti-exploitation premise than any rights theory; <em>nishkama karma</em> and <em>lokasamgraha</em> give a reason to serve rather than accumulate; and modern readings (Vivekananda’s “potential divinity” of every being, Rambachan’s “not-two is not one”) built activism against caste and ecological harm, sustained by real institutions such as the Ramakrishna Mission. On the darshan’s own spectrum (§7), Advaita-inspired organisations belong with the closest, non-extractive forms.</p>
+<p>Measured against the two objectives, though, classical Advaita falls short in identifiable ways. Its goal is <em>individual moksha</em>, not organisational: community, family, and production belong to the world the renunciant turns from, so an organisation is at best instrumental to liberation, never the locus of value. “<em>Jagat mithya</em>” undercuts prosperity — a philosophy cannot found a prosperous society on a premise that devalues the domain in which prosperity occurs; even sympathetic reformers concede pre-reform Vedanta became “a philosophy of escape” (SV). The two-truths doctrine let perfect equality at the absolute level coexist with caste hierarchy at the empirical level for over a millennium — <em>interpretation:</em> a unity that does not bind conduct fails the darshan’s test that understanding become <strong>evidence in behaviour</strong>. Transmission ran through guru-shishya lineage and monastic qualification (<em>adhikara</em>) for a renunciant minority — the opposite of an education-<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span> meant to reach <strong>all</strong> through ordinary families. And Advaita specifies no economy, governance, or family order — no counterpart to “commonness of cause and goal … and of the program” (MVD, Ch. 4).</p>
+<p>The decisive divergence is metaphysical and has direct organisational consequences. Advaita resolves plurality <em>upward</em> into one reality without a second: relationships, like the related persons, are ultimately appearance. Madhyasth Darshan refuses this move — existence is units <em>submerged in</em> all-pervading space, distinct and related. Plurality is real, therefore <strong>relationships are real</strong>, therefore the values inherent in them (trust, respect, justice) are real and their fulfilment or violation is real. That is what makes “exploitation = disregarding values in a relationship” a usable organisational test rather than a provisional truth awaiting dissolution.</p>
 <div class="table-scroll"><table>
 <thead>
 <tr>
@@ -1123,7 +1141,7 @@ flowchart TD
 </tr>
 <tr>
 <td>Basis against exploitation</td>
-<td>No &ldquo;Other&rdquo; exists (ontological unity)</td>
+<td>No “Other” exists (ontological unity)</td>
 <td>Values in real relationships; nurturing vs extraction</td>
 </tr>
 <tr>
@@ -1148,7 +1166,7 @@ flowchart TD
 </tr>
 </tbody>
 </table></div>
-<p>Advaita supplies the strongest possible <strong>premise</strong> for human unity — there is finally no Other — but not the <strong>programme</strong> for human organisation; its strongest social readings (SV, ATR) are modern efforts to extract from non-duality what Madhyasth Darshan builds in from the start: a real world, real relationships, a defined economy, and a transmission mechanism for all. The darshan keeps Advaita&rsquo;s insistence on human dignity and the unity of existence while replacing &ldquo;one without a second&rdquo; with &ldquo;coexistence,&rdquo; so that unity can bind conduct and production rather than dissolve them. This comparison is between Advaita&rsquo;s <em>historical record</em> and the darshan&rsquo;s <em>design principles</em>: the latter has not been tested at civilisational scale, so the claim is about coherence and completeness of design, not a proven track record.</p>
+<p>Advaita supplies the strongest possible <strong>premise</strong> for human unity — there is finally no Other — but not the <strong>programme</strong> for human organisation; its strongest social readings (SV, ATR) are modern efforts to extract from non-duality what Madhyasth Darshan builds in from the start: a real world, real relationships, a defined economy, and a transmission mechanism for all. The darshan keeps Advaita’s insistence on human dignity and the unity of existence while replacing “one without a second” with “coexistence,” so that unity can bind conduct and production rather than dissolve them. This comparison is between Advaita’s <em>historical record</em> and the darshan’s <em>design principles</em>: the latter has not been tested at civilisational scale, so the claim is about coherence and completeness of design, not a proven track record.</p>
 <h2 id="12-conclusion">12. Conclusion</h2>
 <p>Humans do not <em>have</em> to organise around fear, food, protection, belief, or accumulation. Those are the bases history happened to use, and they are precisely why organisations exploit their members and eventually decay. The durable, non-exploitative basis is organisation around understood coexistence — shared cause, goal, and programme; fulfilment of values in relationships; right-use rather than accumulation; and a tradition that transmits this understanding across generations.</p>
 <blockquote>
@@ -1159,34 +1177,48 @@ flowchart TD
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</h3>
 <ul>
-<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan – Co-existentialism, Part 1: Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
-<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad / Resolution Centred Materialism</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
-<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
+<li><strong>MVD</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan – Co-existentialism, Part 1: Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
+<li><strong>SB</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf" rel="noopener noreferrer"><em>Samadhanatmak Bhautikvad / Resolution Centred Materialism</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
+<li><strong>JV</strong> — Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf" rel="noopener noreferrer"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited by chapter.</li>
 </ul>
 <h3 id="advaita-vedanta-comparison">Advaita Vedanta comparison</h3>
 <ul>
-<li><strong>AV</strong> — <a href="https://plato.stanford.edu/entries/shankara/"><em>Śaṅkara</em>, Stanford Encyclopedia of Philosophy</a>. Shankara&rsquo;s classical position as summarised in the SEP entry.</li>
-<li><strong>SV</strong> — Swami Vivekananda. <a href="https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf"><em>Practical Vedanta</em></a> (Complete Works). Cited for the social reading of non-duality and the Ramakrishna tradition.</li>
-<li><strong>ATR</strong> — Rambachan, A. <a href="https://sunypress.edu/Books/A/A-Hindu-theology-of-liberation2"><em>A Hindu Theology of Liberation: Not-Two Is Not One</em></a>. SUNY Press, 2015.</li>
+<li><strong>AV</strong> — <a href="https://plato.stanford.edu/entries/shankara/" rel="noopener noreferrer"><em>Śaṅkara</em>, Stanford Encyclopedia of Philosophy</a>. Shankara’s classical position as summarised in the SEP entry.</li>
+<li><strong>SV</strong> — Swami Vivekananda. <a href="https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf" rel="noopener noreferrer"><em>Practical Vedanta</em></a> (Complete Works). Cited for the social reading of non-duality and the Ramakrishna tradition.</li>
+<li><strong>ATR</strong> — Rambachan, A. <a href="https://sunypress.edu/Books/A/A-Hindu-theology-of-liberation2" rel="noopener noreferrer"><em>A Hindu Theology of Liberation: Not-Two Is Not One</em></a>. SUNY Press, 2015.</li>
 </ul>
 <h3 id="related-studies-in-this-collection">Related studies in this collection</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a> — the ontological base: units, saturation, the four orders, regulation and law, the justice cycle, and societal fulfilment outcomes. Cited: §§1.1, 1.5–1.8, 1.11–1.13; and §2, §5.7 for the Advaita comparison.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html"><em>How Undivided Society Is Established</em></a> — the consolidated social-establishment account: ten-tier family orderliness and the five orderliness dimensions.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/Education-And-Sanskar/Education-And-Sanskar.html"><em>Education and Sanskar</em></a> — the transmission mechanism (education-sanskar) treated in full.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.html"><em>Prosperity, Economics, and Right Use</em></a> — the cyclical economy of right-use rather than accumulation.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html"><em>Ethics and Morals in Human Beings</em></a> — justice, dharma, and truth as the humane refuge for conduct.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/Governance-Justice-And-Undivided-Society/Governance-Justice-And-Undivided-Society.html"><em>Governance, Justice, and Undivided Society</em></a> — institutional self-governance, statutory order, and adjudication.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a> — the ontological base: units, saturation, the four orders, regulation and law, the justice cycle, and societal fulfilment outcomes. Cited: §§1.1, 1.5–1.8, 1.11–1.13; and §2, §5.7 for the Advaita comparison.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html" rel="noopener noreferrer"><em>How Undivided Society Is Established</em></a> — the consolidated social-establishment account: ten-tier family orderliness and the five orderliness dimensions.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Education-And-Sanskar/Education-And-Sanskar.html" rel="noopener noreferrer"><em>Education and Sanskar</em></a> — the transmission mechanism (education-sanskar) treated in full.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.html" rel="noopener noreferrer"><em>Prosperity, Economics, and Right Use</em></a> — the cyclical economy of right-use rather than accumulation.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html" rel="noopener noreferrer"><em>Ethics and Morals in Human Beings</em></a> — justice, dharma, and truth as the humane refuge for conduct.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/Governance-Justice-And-Undivided-Society/Governance-Justice-And-Undivided-Society.html" rel="noopener noreferrer"><em>Governance, Justice, and Undivided Society</em></a> — institutional self-governance, statutory order, and adjudication.</li>
 </ul></main>
 <script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-mermaid.initialize({
-  startOnLoad: true,
-  theme: prefersDark ? "dark" : "neutral",
-  securityLevel: "loose",
-  flowchart: { htmlLabels: true, useMaxWidth: true },
-});
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@11.15.0/dist/mermaid.esm.min.mjs";
+const system = window.matchMedia("(prefers-color-scheme: dark)");
+const diagrams = Array.from(document.querySelectorAll(".mermaid"), node => ({ node, source: node.textContent }));
+let queue = Promise.resolve();
+let generation = 0;
+const render = () => {
+  queue = queue.then(async () => {
+    const dark = document.documentElement.dataset.theme === "dark" || (!document.documentElement.dataset.theme && system.matches);
+    const theme = dark ? "dark" : "neutral";
+    mermaid.initialize({ startOnLoad: false, theme, securityLevel: "strict", flowchart: { htmlLabels: true, useMaxWidth: true } });
+    const run = ++generation;
+    for (const [index, { node, source }] of diagrams.entries()) {
+      // Keep the old figure in place until its replacement is ready.
+      const { svg } = await mermaid.render(`study-diagram-${run}-${index}`, source);
+      node.innerHTML = svg;
+      node.dataset.diagramTheme = theme;
+    }
+  }).catch(error => console.error("Study diagram could not render", error));
+};
+new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+system.addEventListener("change", render);
+render();
 </script>
 <script>
 (() => {
@@ -1246,7 +1278,7 @@ mermaid.initialize({
       prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
     }
 
-    if (idx < 0 || idx >= sections.length - 1) {
+    if (idx >= sections.length - 1) {
       setDisabled(next, true, "Next section \u2192");
     } else {
       next.classList.remove("is-disabled");
@@ -1267,6 +1299,9 @@ mermaid.initialize({
     const target = document.getElementById(id);
     if (!target) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    history.pushState(null, "", `#${encodeURIComponent(id)}`);
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   };
 
