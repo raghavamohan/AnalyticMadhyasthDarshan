@@ -19,6 +19,13 @@
   },
   "decks": [
     {
+      "id": "axiology",
+      "source": "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pptx",
+      "slidesPdf": "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf",
+      "notesPdf": "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
       "id": "state-dynamic-model",
       "source": "Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pptx",
       "slidesPdf": "Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf",
