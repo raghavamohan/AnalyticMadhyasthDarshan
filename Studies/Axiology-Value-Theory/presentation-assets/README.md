@@ -2,9 +2,13 @@
 
 The editable source is `../Axiology-Value-Theory-Madhyasth-Darshan.pptx`.
 Its notes pane contains the presenter script and the source locators for every slide.
-The 35-slide deck continues Start Here at stage four, Value, and leads into Living.
-Slides 33–35 provide optional terminology and reading references. Allow about
-60–75 minutes with discussion, adjusting the pace to the audience.
+The 46-slide deck continues Start Here at stage four, Value, and leads into Living.
+The main sequence includes saturation and unit activity, effort–motion–result,
+chetana and chaitanya, the five faculties, six evaluative perspectives, dedication
+between value classes, continuing evaluation, sixfold knowledge, humane conduct,
+and the three dimensions of evidence.
+Slides 44–46 provide optional terminology and reading references. Allow about
+90–105 minutes with discussion, adjusting the pace to the audience.
 
 Regenerate the slides and presenter notes PDFs from the repository root:
 

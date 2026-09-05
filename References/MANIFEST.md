@@ -50,6 +50,7 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-05.
 | | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
 | [Axiology-Value-Theory.pdf](../Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf) | MVD, SB, JV, AVD, KD | present |
+| | MAD (Manav Abhyas Darshan, Hindi native reader) | external |
 | | BU, TU, BG, BSB, VC; Crockett 2013 | present |
 | | SEP Natural Law Ethics | external |
 | | Killingsworth 2021; Killingsworth, Kahneman, and Mellers 2023 | external |
@@ -68,6 +69,7 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) · [`.md` analysis extract](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md) | all Studies papers above |
 | **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md` analysis extract](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | all Studies papers above |
 | **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md` analysis extract](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | all Studies papers above |
+| **MAD** | [Manav Abhyas Darshan — Hindi reader](https://db.madhyasth.org/books/read/144/) (external) | Axiology-Value-Theory; displayed reader pp. 30, 34, 43, 45, 51 |
 | **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | The-Ontology-of-Coexistence; Axiology-Value-Theory; Family-Relationships-And-Values; A-State-Dynamic-Model-Of-Coexistence; Research-Note-Jeevan-Architecture (internal) |
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | terminology glossary; Phase 4 MVD/SB refresh (see MD-Mapping-Sources/) |
