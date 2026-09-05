@@ -113,6 +113,14 @@ Published studies need no credential. Portal and discussion writes use the
 session cookie from the flows above, not `Authorization: Bearer`. Server-to-server
 `POST /api/notify` uses a shared secret and is not a public client.
 
+Browser POST requests must include a trusted `Origin` and
+`Content-Type: application/json`, including bodyless actions such as logout.
+The production browser origin is `https://analyticmadhyasthdarshan.org`; local
+preview origins must be explicitly configured. API responses are private and
+must not be cached. OAuth callbacks validate signed, expiring state and use
+S256 PKCE; session cookies contain an opaque identifier rather than a GitHub
+access token. Email sign-in links are single-use and expire after 15 minutes.
+
 Authorization Server metadata still advertises `bearer_methods_supported: ["header"]`
 and a verified-email registration method so agents can discover this policy
 through the Auth.md / RFC 9728 path. The advertised `register_uri` and

@@ -5,8 +5,6 @@ const OAUTH_STATE_MAX_AGE_SEC = 600;
 
 const DEFAULT_ALLOWED_ORIGINS = [
   'https://analyticmadhyasthdarshan.org',
-  'http://localhost:8787',
-  'http://127.0.0.1:8787',
 ];
 
 export function allowedOrigins(env) {
@@ -90,7 +88,7 @@ async function verifySession(token, secret) {
   }
   if (diff !== 0) return null;
   const payload = JSON.parse(new TextDecoder().decode(base64UrlDecode(body)));
-  if (!payload.exp || payload.exp < Math.floor(Date.now() / 1000)) return null;
+  if (!Number.isFinite(payload.exp) || payload.exp <= Math.floor(Date.now() / 1000)) return null;
   return payload;
 }
 
@@ -133,20 +131,16 @@ export function clearOAuthStateCookie(env) {
 
 export async function createSession(env, { login, userId, accessToken }) {
   const exp = Math.floor(Date.now() / 1000) + SESSION_MAX_AGE_SEC;
-  if (env.SESSIONS) {
-    // Store the GitHub access token server-side; the cookie only carries an
-    // opaque, signed session id so the token never leaves the worker.
-    const sid = crypto.randomUUID();
-    await env.SESSIONS.put(
-      `sess:${sid}`,
-      JSON.stringify({ login, userId, accessToken, exp }),
-      { expirationTtl: SESSION_MAX_AGE_SEC },
-    );
-    return signSession({ sid, exp }, env.SESSION_SECRET);
-  }
-  // Fallback when no KV namespace is bound (local dev/preview): embed the
-  // payload in the signed cookie, preserving the previous behaviour.
-  return signSession({ login, userId, accessToken, exp }, env.SESSION_SECRET);
+  if (!env.SESSIONS || !env.SESSION_SECRET) throw new Error('Server-side session storage is not configured.');
+  // Store the GitHub access token server-side; the cookie only carries an
+  // opaque, signed session id so the token never leaves the worker.
+  const sid = crypto.randomUUID();
+  await env.SESSIONS.put(
+    `sess:${sid}`,
+    JSON.stringify({ login, userId, accessToken, exp }),
+    { expirationTtl: SESSION_MAX_AGE_SEC },
+  );
+  return signSession({ sid, exp }, env.SESSION_SECRET);
 }
 
 export async function getSession(request, env) {
@@ -178,8 +172,8 @@ export async function getSession(request, env) {
       return null;
     }
   }
-  // Legacy cookie with an inline payload (issued before KV-backed sessions).
-  return payload;
+  // Retire legacy readable cookies containing GitHub bearer tokens.
+  return null;
 }
 
 export async function destroySession(request, env) {
@@ -197,22 +191,31 @@ export async function destroySession(request, env) {
   }
 }
 
-export function parseOAuthState(request) {
-  const cookies = parseCookies(request);
-  const raw = cookies[OAUTH_STATE_COOKIE];
-  if (!raw) return null;
+export async function parseOAuthState(request, env) {
+  const raw = parseCookies(request)[OAUTH_STATE_COOKIE];
+  const returned = new URL(request.url).searchParams.get('state');
+  if (!raw || !returned || !env.SESSION_SECRET) return null;
   try {
-    return JSON.parse(decodeURIComponent(raw));
+    const state = await verifySession(raw, env.SESSION_SECRET);
+    if (state?.purpose !== 'oauth' || state.nonce !== returned
+        || typeof state.verifier !== 'string' || state.verifier.length !== 43) return null;
+    return state;
   } catch {
     return null;
   }
 }
 
-export function buildOAuthState(returnTo) {
-  return encodeURIComponent(JSON.stringify({
-    nonce: crypto.randomUUID(),
-    returnTo: returnTo || 'https://analyticmadhyasthdarshan.org/Studies/submit.html',
-  }));
+export async function buildOAuthState(returnTo, env) {
+  const nonce = base64UrlEncode(crypto.getRandomValues(new Uint8Array(32)));
+  const verifier = base64UrlEncode(crypto.getRandomValues(new Uint8Array(32)));
+  const challenge = base64UrlEncode(new Uint8Array(await crypto.subtle.digest(
+    'SHA-256', textEncoder().encode(verifier),
+  )));
+  const cookie = await signSession({
+    purpose: 'oauth', nonce, verifier, returnTo,
+    exp: Math.floor(Date.now() / 1000) + OAUTH_STATE_MAX_AGE_SEC,
+  }, env.SESSION_SECRET);
+  return { nonce, challenge, cookie };
 }
 
 export function workerOrigin(request) {
@@ -220,18 +223,20 @@ export function workerOrigin(request) {
   return `${url.protocol}//${url.host}`;
 }
 
-export function githubAuthorizeUrl(env, request, returnTo) {
+export function githubAuthorizeUrl(env, request, state) {
   const origin = workerOrigin(request);
   const params = new URLSearchParams({
     client_id: env.GITHUB_CLIENT_ID,
     redirect_uri: `${origin}/api/auth/callback`,
     scope: 'read:user user:email public_repo',
-    state: 'via-cookie',
+    state: state.nonce,
+    code_challenge: state.challenge,
+    code_challenge_method: 'S256',
   });
   return `https://github.com/login/oauth/authorize?${params}`;
 }
 
-export async function exchangeGitHubCode(code, env, request) {
+export async function exchangeGitHubCode(code, env, request, verifier) {
   const origin = workerOrigin(request);
   const response = await fetch('https://github.com/login/oauth/access_token', {
     method: 'POST',
@@ -243,12 +248,13 @@ export async function exchangeGitHubCode(code, env, request) {
       client_id: env.GITHUB_CLIENT_ID,
       client_secret: env.GITHUB_CLIENT_SECRET,
       code,
+      code_verifier: verifier,
       redirect_uri: `${origin}/api/auth/callback`,
     }),
   });
   const data = await response.json();
-  if (data.error) {
-    throw new Error(data.error_description || data.error);
+  if (!response.ok || data.error || !data.access_token) {
+    throw new Error('GitHub authorization failed. Please sign in again.');
   }
   return data.access_token;
 }

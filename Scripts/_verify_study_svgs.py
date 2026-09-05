@@ -49,8 +49,43 @@ def verify_svg_file(path: Path) -> list[str]:
     if "\ufffd" in text:
         errors.append(f"{path}: contains U+FFFD replacement characters")
 
+    # Figures must remain static even when their public URL is opened directly.
+    # Reject active SVG, foreign namespaces, and external CSS/resource loading.
+    allowed_tags = {
+        "svg", "g", "defs", "title", "desc", "style", "path", "rect", "circle",
+        "ellipse", "line", "polyline", "polygon", "text", "tspan", "textPath",
+        "marker", "clipPath", "mask", "pattern", "linearGradient", "radialGradient",
+        "stop", "use", "symbol", "filter", "feDropShadow", "feGaussianBlur",
+        "feOffset", "feMerge", "feMergeNode", "feBlend", "feColorMatrix",
+        "feComposite", "feFlood",
+    }
+    def unsafe_css(value: str) -> bool:
+        value = re.sub(r"/\*.*?\*/", "", value, flags=re.S)
+        if "\\" in value or re.search(r"@import|expression\s*\(|-moz-binding", value, re.I):
+            return True
+        return any(not url.strip(" \t\r\n\"'").startswith("#")
+                   for url in re.findall(r"url\s*\((.*?)\)", value, re.I | re.S))
+
+    if re.search(r"<!DOCTYPE|<!ENTITY|<\?xml-stylesheet", text, re.I):
+        errors.append(f"{path}: SVG declarations or external stylesheets are not allowed")
     try:
-        ET.fromstring(text)
+        root = ET.fromstring(text)
+        if root.tag not in ("svg", "{http://www.w3.org/2000/svg}svg"):
+            errors.append(f"{path}: root must be an SVG element")
+        for element in root.iter():
+            tag = element.tag.rsplit("}", 1)[-1]
+            if tag not in allowed_tags or (element.tag.startswith("{") and not element.tag.startswith("{http://www.w3.org/2000/svg}")):
+                errors.append(f"{path}: active or unsupported SVG element {tag}")
+            for key, value in element.attrib.items():
+                attr = key.rsplit("}", 1)[-1].lower()
+                if attr.startswith("on") or attr in {"base", "src"}:
+                    errors.append(f"{path}: unsafe SVG attribute {attr}")
+                if attr == "href" and not value.strip().startswith("#"):
+                    errors.append(f"{path}: SVG references must be local fragments")
+                if unsafe_css(value):
+                    errors.append(f"{path}: external or executable SVG style")
+            if tag == "style" and unsafe_css("".join(element.itertext())):
+                errors.append(f"{path}: external or executable SVG stylesheet")
     except ET.ParseError as exc:
         errors.append(f"{path}: malformed SVG/XML ({exc})")
 

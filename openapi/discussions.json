@@ -3,7 +3,7 @@
   "info": {
     "title": "Analytic Madhyasth Darshan discussions API",
     "version": "1.0.0",
-    "description": "Per-study discussion boards on https://analyticmadhyasthdarshan.org. Readers sign in with an email magic link (no GitHub account required) to post comments. Structured corrections still use GitHub Issues."
+    "description": "Per-study discussion boards on https://analyticmadhyasthdarshan.org. Readers sign in with an email magic link (no GitHub account required) to post comments. Structured corrections still use GitHub Issues. All POST requests require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store, including comment permissions. Magic links are single-use and expire after 15 minutes."
   },
   "servers": [
     {

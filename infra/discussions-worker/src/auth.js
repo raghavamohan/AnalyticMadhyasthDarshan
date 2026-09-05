@@ -3,10 +3,6 @@ const SESSION_MAX_AGE_SEC = 30 * 24 * 60 * 60;
 
 const DEFAULT_ALLOWED_ORIGINS = [
   'https://analyticmadhyasthdarshan.org',
-  'http://localhost:8788',
-  'http://127.0.0.1:8788',
-  'http://localhost:8787',
-  'http://127.0.0.1:8787',
 ];
 
 export function allowedOrigins(env) {
@@ -90,7 +86,7 @@ async function verifySession(token, secret) {
   }
   if (diff !== 0) return null;
   const payload = JSON.parse(new TextDecoder().decode(base64UrlDecode(body)));
-  if (!payload.exp || payload.exp < Math.floor(Date.now() / 1000)) return null;
+  if (!Number.isFinite(payload.exp) || payload.exp <= Math.floor(Date.now() / 1000)) return null;
   return payload;
 }
 

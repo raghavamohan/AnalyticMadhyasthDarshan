@@ -610,7 +610,22 @@
   };
 
   const isAvail = s => s.status === "draft" || s.status === "released";
-  const ts = s => s.updated ? Date.parse(s.updated) : -Infinity;
+  // Catalog timestamps have an explicit IST contract; do not delegate this
+  // human-readable format to the browser's locale-dependent Date.parse.
+  const catalogTimestamp = updated => {
+    const m = String(updated || "").match(/^([A-Za-z]{3}) (\d{1,2}), (\d{4}), (\d{1,2}):(\d{2}) (AM|PM) IST$/);
+    if (!m) return NaN;
+    const month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"].indexOf(m[1]);
+    const day = Number(m[2]), year = Number(m[3]), hour = Number(m[4]), minute = Number(m[5]);
+    if (month < 0 || day < 1 || hour < 1 || hour > 12 || minute > 59) return NaN;
+    const local = new Date(Date.UTC(year, month, day, hour % 12 + (m[6] === "PM" ? 12 : 0), minute));
+    if (local.getUTCMonth() !== month || local.getUTCDate() !== day) return NaN;
+    return local.getTime() - 330 * 60000;
+  };
+  const ts = s => {
+    const value = catalogTimestamp(s.updated);
+    return Number.isFinite(value) ? value : -Infinity;
+  };
   const DEFAULT_STATUS = "available";
   const state = { q: "", coll: "all", status: DEFAULT_STATUS, cat: "all", sort: "recent" };
 
@@ -766,7 +781,7 @@
 
   const pdfVersionQuery = updated => {
     if (!updated) return "";
-    const t = Date.parse(String(updated).replace(/\s+IST\s*$/i, " GMT+0530"));
+    const t = catalogTimestamp(updated);
     if (Number.isFinite(t)) return `?v=${t}`;
     const digits = String(updated).replace(/[^0-9]/g, "");
     return digits ? `?v=${digits}` : "";

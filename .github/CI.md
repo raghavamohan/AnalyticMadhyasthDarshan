@@ -18,7 +18,7 @@ for the pipeline itself.**
 | [PDF pipeline smoke](workflows/pdf-pipeline-smoke.yml) | `pull_request` path-filtered on the PDF pipeline; `workflow_dispatch` | `reproducible` | No |
 | [Presentation pipeline smoke](workflows/presentation-pipeline-smoke.yml) | `pull_request` path-filtered on presentation sources/tooling; `workflow_dispatch` | `libreoffice-production` | No |
 | [Generated PDF publish](workflows/generated-pdf-publish.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `pdfs`, `presentations`, `publish-and-deploy` | No Git writes; protected-branch runs publish to R2 and deploy/audit the delivery Worker |
-| [Submission portal Worker](workflows/submission-worker-deploy.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `worker` | No Git writes; PRs bundle only, protected-branch runs deploy `amd-submissions` |
+| [Submission portal Worker](workflows/submission-worker-deploy.yml) | path-filtered `pull_request`; relevant `push` to `master`; `workflow_dispatch` | `worker` | No Git writes; PRs test and bundle both APIs; protected-branch runs deploy both Workers |
 | [Proposal approved](workflows/proposal-approved.yml) | `issues: labeled` with `proposal-approved`; `workflow_dispatch` | `comment`, `bootstrap` | **Yes** — `bootstrap` opens and merges its own PR to `master` |
 | [Portal notifications](workflows/portal-notify.yml) | `issues: labeled`; `pull_request_target: closed` | `notify` | No |
 | [Pages deploy retry](workflows/pages-deploy-retry.yml) | `workflow_run` on *pages build and deployment* completing | `retry` | No (re-runs a run) |
@@ -38,7 +38,7 @@ Five jobs are gated by more than their trigger, which is the most common source 
 - **Generated PDF publish** builds affected Markdown PDFs on pull requests but
   receives no Cloudflare credentials there. Only a `master` push or manual run
   on `master` can start its presentation and R2 publication jobs.
-- **Submission portal Worker** bundles on matching pull requests without credentials;
+- **Submission portal Worker** tests and bundles both APIs on matching pull requests without credentials;
   deployment runs only from `master` or a manual dispatch on `master`.
 
 **Studies index is the only workflow that reports on every pull request**, and is
@@ -251,12 +251,17 @@ PDFs remain Git-tracked until their manifest policy changes.
 
 ### 2.6 Submission portal Worker — `submission-worker-deploy.yml`
 
-Changes to `infra/worker/` are bundled with Wrangler on pull requests without
-Cloudflare credentials. The matching protected-branch push installs the pinned
-worker dependencies and deploys `amd-submissions`, preserving its configured KV
-binding, custom domain, and separately managed Worker secrets. This keeps portal
-HTML and API changes reviewable in one PR without requiring a manual post-merge
-deployment.
+The separate `submission-worker-deploy.yml` now runs a two-directory matrix
+for `infra/worker` and `infra/discussions-worker`. Both run their API route
+security tests and bundle validation before protected-branch deployment.
+Changes to `infra/shared` also trigger this workflow. Neither worker needs a
+database migration for the Phase 1 security changes. The discovery-based test
+runner additionally runs `_test_portal_security.py` (including real concurrent
+SQLite magic-link consumption) and `_test_safe_study_html.py`.
+
+The Markdown PDF build selector and both PDF workflow path filters include
+`_safe_study_html.py` and `_pdf_resource_policy.cjs`, so changes to the security
+boundary cannot bypass generated-document verification.
 
 ### 2.7 Proposal approved — `proposal-approved.yml`
 

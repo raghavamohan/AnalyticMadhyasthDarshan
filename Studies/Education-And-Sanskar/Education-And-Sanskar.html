@@ -305,7 +305,7 @@
     outline: 2px solid #13405c;
     outline-offset: 2px;
   }
-  h2[id] {
+  h2[id], h3[id], h4[id], main[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
   }
   .table-scroll {
@@ -470,8 +470,9 @@
 
   /* Contents ---------------------------------------------------------------
      Studies run past 30,000 words, so the sequential previous/next pair is not
-     enough to move around one. Closed by default so it costs no height; the
-     script below opens it where there is room. */
+     enough to move around one. Closed by default so small screens never pay
+     for its height; a parser-blocking script inside the element opens it
+     where there is room, before the reading key is parsed. */
   .study-toc {
     max-width: 37rem;
     margin: 1.6em 0 2.2em;
@@ -556,7 +557,14 @@
      on screen is confined to @media screen. The bare rules and the @media
      print block above remain the print baseline and are left alone. */
   @media screen {
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) { color-scheme: dark; }
+    }
     body {
+      background: #fff;
+      overflow-wrap: anywhere;
       font-size: 17px;
       line-height: 1.62;
       max-width: 46rem;
@@ -588,15 +596,26 @@
       margin-top: 1.45em;
     }
     h4 { font-size: 1.0rem; }
+    /* Long inline formulae need their own scroll region, just like display
+       equations and tables; they must not widen the whole reading page. */
+    .katex { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+    .katex-display > .katex { display: block; overflow: visible; }
+
   }
   @media screen and (min-width: 760px) {
     .study-toc { max-width: 46rem; }
   }
 
   @media (max-width: 640px) {
+    .study-toolbar-row--primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .study-toolbar-actions {
+      grid-column: 1;
+      justify-self: stretch;
+      justify-content: space-between;
       gap: 5px;
     }
+    .study-toolbar-link, .study-theme-toggle { min-height: 44px; display: inline-flex; align-items: center; box-sizing: border-box; }
+    .study-toolbar-section { display: block; line-height: 44px; }
     .study-toolbar-feedback { font-size: 11px; }
     .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
@@ -704,7 +723,7 @@
   </div>
 </nav>
 <main id="main"><h1>Education and Sanskar</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 30, 2026, 11:32 AM IST</p>
 <p>How understanding is formed and carried forward: education, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span>, study, awakening, and transmission across generations</p>
 <p class="study-reading-key" aria-label="Reading key">
@@ -717,7 +736,7 @@
 <blockquote>
 <p>This directory holds an <strong>approved study proposal</strong> (pre-catalog). It is not listed on
 the public studies index until a maintainer merges your first <strong>draft</strong> pull request.
-Submit the full study via <a href="https://analyticmadhyasthdarshan.org/Studies/submit.html">My Submissions</a>.</p>
+Submit the full study via <a href="https://analyticmadhyasthdarshan.org/Studies/submit.html" rel="noopener noreferrer">My Submissions</a>.</p>
 </blockquote>
 <h2 id="references">References</h2>
 <ul>
@@ -781,7 +800,7 @@ Submit the full study via <a href="https://analyticmadhyasthdarshan.org/Studies/
       prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
     }
 
-    if (idx < 0 || idx >= sections.length - 1) {
+    if (idx >= sections.length - 1) {
       setDisabled(next, true, "Next section \u2192");
     } else {
       next.classList.remove("is-disabled");
@@ -802,6 +821,9 @@ Submit the full study via <a href="https://analyticmadhyasthdarshan.org/Studies/
     const target = document.getElementById(id);
     if (!target) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    history.pushState(null, "", `#${encodeURIComponent(id)}`);
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   };
 
@@ -926,16 +948,6 @@ Submit the full study via <a href="https://analyticmadhyasthdarshan.org/Studies/
   });
   system.addEventListener("change", paint);
   paint();
-})();
-</script>
-<script>
-(() => {
-  const toc = document.getElementById("study-contents");
-  if (!toc) return;
-  // Open where there is room to show it without pushing the study off screen.
-  if (window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
 })();
 </script>
 

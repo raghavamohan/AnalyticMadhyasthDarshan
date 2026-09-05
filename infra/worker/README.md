@@ -55,7 +55,8 @@ When prompted, enter `master` (the repository default today).
 
 OAuth scope requested: `read:user user:email public_repo` (proposals are filed as issues on the contributor's account; `user:email` lets the portal offer optional email notifications).
 
-For local `wrangler dev`, add a second callback URL on the OAuth app, e.g. `http://localhost:8787/api/auth/callback`, and set:
+For local `wrangler dev`, use a separate development OAuth App with callback
+`http://localhost:8787/api/auth/callback`, and set:
 
 ```powershell
 npx wrangler secret put ALLOWED_ORIGINS
@@ -96,6 +97,28 @@ The portal reads this URL from the `API_BASE` constant in [`Studies/submit.html`
 After deploy, confirm the OAuth app callback URL matches `https://api.analyticmadhyasthdarshan.org/api/auth/callback` (or your worker origin).
 
 ## API
+
+### Request and authentication security
+
+Browser POST requests must send an exact allowed `Origin` and
+`Content-Type: application/json`, including logout. Local origins are opt-in via
+`ALLOWED_ORIGINS`; production does not implicitly trust every localhost server.
+The server-to-server `/api/notify` route instead requires `X-Notify-Secret` and
+JSON, with neither browser cookies nor an Origin header.
+
+All API responses, including redirects, errors and personalized discussion
+permissions, use `Cache-Control: private, no-store`. OAuth uses a signed,
+ten-minute state cookie, an exact callback-state comparison, and S256 PKCE.
+GitHub's one-use authorization code is exchanged with the matching verifier.
+`SESSIONS` KV is required in preview and production: no GitHub access token is
+placed in a browser cookie. Legacy inline-token cookies require signing in
+again. Logout deletes the KV session; KV propagation can delay revocation at
+another location, so this is not a globally instantaneous revocation guarantee.
+
+Run `npm test` for real route tests and `python Scripts/_test_portal_security.py`
+from the repository root for the shared security contracts. The Worker workflow
+now checks and deploys both API Workers when either or their shared guard changes.
+
 
 | Route | Auth | Purpose |
 |-------|------|---------|
