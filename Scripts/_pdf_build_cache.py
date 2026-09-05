@@ -59,7 +59,7 @@ def script_dependencies(root: Path, names: tuple[str, ...]) -> set[str]:
             elif isinstance(node, ast.Constant) and isinstance(node.value, str):
                 # Subprocess helpers are often not imported as Python modules.
                 candidate = node.value.replace("\\", "/").split("/")[-1]
-                if candidate.startswith("_") and Path(candidate).suffix in {".py", ".js", ".cjs"}:
+                if candidate.startswith("_") and Path(candidate).suffix in {".py", ".js", ".cjs", ".mjs"}:
                     pending.append(candidate)
     return found
 
@@ -81,7 +81,7 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
                 selected.add(name)
             # JS require/import dependencies and renderer utilities are small;
             # include them all rather than maintain an incomplete JS parser.
-            if name.startswith("Scripts/") and suffix in {".js", ".cjs"}:
+            if name.startswith("Scripts/") and suffix in {".js", ".cjs", ".mjs"}:
                 selected.add(name)
             if family == "markdown":
                 if name.startswith(("Studies/", "Applications/")) and suffix in (
