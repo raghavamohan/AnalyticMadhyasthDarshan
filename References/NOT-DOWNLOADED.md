@@ -8,6 +8,7 @@ Works cited in `Studies/` that are **not** copied into `References/`. Each paper
 
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
+| **MAD** | Nagraj, A. *Manav Abhyas Darshan* (Hindi). Native reader, 222-page version; page-specific links in Axiology-Value-Theory. External reader retained because a usable canonical PDF mirror was not available during review. | https://db.madhyasth.org/books/read/144/ |
 | **Paribhasha** | Nagraj, A. *Paribhasha Samhita* (Hindi, ed. 2008). English selection of definitions. | https://www.madhyasth.org/browse-texts/browse-topics/definitions |
 
 ## Madhyasth Darshan ? recorded sessions (recordings external; transcripts stored locally)
