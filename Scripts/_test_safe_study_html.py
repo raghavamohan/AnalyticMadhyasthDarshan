@@ -28,7 +28,8 @@ class SafeStudyHtmlTests(unittest.TestCase):
         with tempfile.TemporaryDirectory(dir=BASE) as directory:
             md = Path(directory) / "study.md"
             md.write_bytes(b'# Study\n\nLet $x_1$ be a value.\n\n| A | B |\n| --- | --- |\n| a | b |\n\n```mermaid\ngraph TD\n A --> B\n```\n')
-            with patch("_convert_to_pdf.render_latex_math", side_effect=lambda value: value) as render:
+            with patch("_convert_to_pdf.render_latex_math", side_effect=lambda value: value) as render, patch("_convert_to_pdf._load_katex_css", return_value=""):
+                # This suite runs without npm; PDF jobs verify the real fonts.
                 result = convert_to_html(md, include_web_chrome=True).read_text(encoding="utf-8")
             self.assertIn("$x_1$", render.call_args.args[0])
             self.assertIn('class="mermaid"', result)
