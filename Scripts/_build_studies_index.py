@@ -1557,13 +1557,14 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <div class="path-panel-head"><span class="path-number">4</span><span class="path-domain">Value</span></div>
         <h3>What makes value and relationship definite?</h3>
         <div class="path-core-layout">
-          <div class="path-core" data-study-slug="Axiology-Value-Theory">
+          <div class="path-core" data-study-slug="Axiology-Value-Theory" data-presentation-pdf="Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html" title="Read the study">Axiology: Value Theory</a></p>
             <p class="path-study-blurb">This study asks what a value is, whether it is conferred by preference or already present in participation, and how evaluation can be correct or mistaken in relationship and conduct.</p>
             <div class="path-core-actions">
               <a class="path-action" data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html">Read the study</a>
               <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">Discuss this stage</a>
+              <a class="path-slides" data-study-slides href="Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a>
             </div>
             <details class="path-related">
               <summary>3 related studies</summary>
