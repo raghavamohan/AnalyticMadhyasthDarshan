@@ -305,7 +305,7 @@
     outline: 2px solid #13405c;
     outline-offset: 2px;
   }
-  h2[id] {
+  h2[id], h3[id], h4[id], main[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
   }
   .table-scroll {
@@ -557,7 +557,14 @@
      on screen is confined to @media screen. The bare rules and the @media
      print block above remain the print baseline and are left alone. */
   @media screen {
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) { color-scheme: dark; }
+    }
     body {
+      background: #fff;
+      overflow-wrap: anywhere;
       font-size: 17px;
       line-height: 1.62;
       max-width: 46rem;
@@ -589,15 +596,26 @@
       margin-top: 1.45em;
     }
     h4 { font-size: 1.0rem; }
+    /* Long inline formulae need their own scroll region, just like display
+       equations and tables; they must not widen the whole reading page. */
+    .katex { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+    .katex-display > .katex { display: block; overflow: visible; }
+
   }
   @media screen and (min-width: 760px) {
     .study-toc { max-width: 46rem; }
   }
 
   @media (max-width: 640px) {
+    .study-toolbar-row--primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .study-toolbar-actions {
+      grid-column: 1;
+      justify-self: stretch;
+      justify-content: space-between;
       gap: 5px;
     }
+    .study-toolbar-link, .study-theme-toggle { min-height: 44px; display: inline-flex; align-items: center; box-sizing: border-box; }
+    .study-toolbar-section { display: block; line-height: 44px; }
     .study-toolbar-feedback { font-size: 11px; }
     .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
@@ -705,10 +723,10 @@
   </div>
 </nav>
 <main id="main"><h1>Research Note: Pass-Two Lifecycle and Evidence Coding of All 122 <em>Jeevan</em> Members</h1>
-<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org">analyticmadhyasthdarshan.org</a>)</p>
+<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org" rel="noopener noreferrer">analyticmadhyasthdarshan.org</a>)</p>
 <p><strong>Edited on:</strong> August 16, 2026, 6:31 PM IST</p>
 <p><strong>Status:</strong> Internal research note (not a catalog entry). Pass Two of the activity-to-sphere analysis.</p>
-<p><strong>Scope:</strong> This register completes the normalization gate and Pass-Two coding for all 122 <em>bal/shakti</em> column assignments. It takes the source anatomy established in the sixteen <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html">pilot records</a> and the 106-member <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html">Pass-One register</a>, separates internal dependencies from external requirements, and records the lifecycle conditions under which each member can be developed, rightly oriented, expressed, evidenced, evaluated, corrected, sustained, and transmitted. It does not cluster the records into spheres and does not assign family or institutional functions.</p>
+<p><strong>Scope:</strong> This register completes the normalization gate and Pass-Two coding for all 122 <em>bal/shakti</em> column assignments. It takes the source anatomy established in the sixteen <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html" rel="noopener noreferrer">pilot records</a> and the 106-member <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html" rel="noopener noreferrer">Pass-One register</a>, separates internal dependencies from external requirements, and records the lifecycle conditions under which each member can be developed, rightly oriented, expressed, evidenced, evaluated, corrected, sustained, and transmitted. It does not cluster the records into spheres and does not assign family or institutional functions.</p>
 <p>The constitutional activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> is not created by an environment. Pass Two therefore never treats an external condition as the cause of realisation or as an additional power of <em>jeevan</em>. It asks instead what is necessary or supportive for receptivity, embodied or relational expression, valid evidence, correction, and continuity. Where a source slot names a role, relationship, property, body process, criterion, or result, the lifecycle follows that entry form rather than redescribing it as a private mental operation.</p>
 <details class="study-toc study-toc--with-key" id="study-contents">
   <summary class="study-toc-summary">
@@ -1270,7 +1288,7 @@
 </tr>
 <tr>
 <td>Expression and consequence</td>
-<td>Kindness, grace, and compassion require responsive action suited to the other&rsquo;s condition and wider effects</td>
+<td>Kindness, grace, and compassion require responsive action suited to the other’s condition and wider effects</td>
 <td>Help, work, and use of nature must increase capability without domination, exclusion, or displaced harm</td>
 </tr>
 <tr>
@@ -1307,7 +1325,7 @@
 <tbody>
 <tr>
 <td>Normalized location</td>
-<td>Locus: person in a sustained care relation; operation: nurturing and protection toward comprehensive resolution; consequence and evidence: dependent person&rsquo;s capability; <strong>D/R/B/T</strong>, sometimes <strong>C/E</strong> (<strong>D/I</strong>)</td>
+<td>Locus: person in a sustained care relation; operation: nurturing and protection toward comprehensive resolution; consequence and evidence: dependent person’s capability; <strong>D/R/B/T</strong>, sometimes <strong>C/E</strong> (<strong>D/I</strong>)</td>
 <td>Locus: <em>chitta</em> and embodied conduct; operation: congruence of behaviour, norm, thought, and realisation; consequence and evidence: conduct across fields; <strong>J/B/D/R/C/E/T</strong> (<strong>D/I</strong>)</td>
 </tr>
 <tr>
@@ -1317,7 +1335,7 @@
 </tr>
 <tr>
 <td>Development and orientation</td>
-<td>Care competence, knowledge of development, protected voice, and responsibility are necessary; the other&rsquo;s resolution governs</td>
+<td>Care competence, knowledge of development, protected voice, and responsibility are necessary; the other’s resolution governs</td>
 <td>Honest self-observation, exposure to varied roles, and freedom to acknowledge contradiction support development</td>
 </tr>
 <tr>
@@ -1422,7 +1440,7 @@
 </tr>
 <tr>
 <td>Development and orientation</td>
-<td>Object access, proposal, questioning, practice, and correction by consequence are strongly supportive; the object&rsquo;s actual being and purpose govern</td>
+<td>Object access, proposal, questioning, practice, and correction by consequence are strongly supportive; the object’s actual being and purpose govern</td>
 <td>Study across truth levels, comparison of claims, and freedom from dogma support refinement; truth rather than cleverness governs</td>
 </tr>
 <tr>
@@ -1569,7 +1587,7 @@
 <tr>
 <td>Normalized location</td>
 <td>Locus: <em>vritti</em>; operation: resolved thought without opposition between desire and thought; consequence: inner coordination; evidence: non-contradictory selection; <strong>J</strong>, then <strong>B/D</strong> in evidence (<strong>D/I</strong>)</td>
-<td>Locus: person in relation; operation: non-interference and assistance according to another&rsquo;s receptivity; consequence and evidence: the other&rsquo;s development and agency; <strong>D/R/B/T</strong>, sometimes <strong>C</strong> (<strong>D/I</strong>)</td>
+<td>Locus: person in relation; operation: non-interference and assistance according to another’s receptivity; consequence and evidence: the other’s development and agency; <strong>D/R/B/T</strong>, sometimes <strong>C</strong> (<strong>D/I</strong>)</td>
 </tr>
 <tr>
 <td>Internal dependency</td>
@@ -1584,7 +1602,7 @@
 <tr>
 <td>Expression and consequence</td>
 <td>Peace affects speech, behaviour, work, and the ability to face disagreement without inward opposition</td>
-<td>Assistance must preserve the other&rsquo;s inquiry, safety, and agency rather than impose formation</td>
+<td>Assistance must preserve the other’s inquiry, safety, and agency rather than impose formation</td>
 </tr>
 <tr>
 <td>Evidence and evaluator</td>
@@ -1620,18 +1638,18 @@
 <tbody>
 <tr>
 <td>Normalized location</td>
-<td>Locus: competent person in relation; operation: establishing receptivity and ability appropriate to content; consequence and evidence: another&rsquo;s awakening-capability; <strong>D/R/B/T</strong>, sometimes <strong>C</strong> (<strong>D/I</strong>)</td>
+<td>Locus: competent person in relation; operation: establishing receptivity and ability appropriate to content; consequence and evidence: another’s awakening-capability; <strong>D/R/B/T</strong>, sometimes <strong>C</strong> (<strong>D/I</strong>)</td>
 <td>Locus: helper in relation; operation: inspiring and helping acquisition of ability and receptivity; consequence and evidence: active development of the other; <strong>D/R/B/T</strong>, sometimes <strong>C</strong> (<strong>D/I</strong>)</td>
 </tr>
 <tr>
 <td>Internal dependency</td>
-<td>Depends on understood content, recognition of the other&rsquo;s state, deliberative proportionality, and selected skill</td>
-<td>Depends on the same understanding plus <em>mun</em>&rsquo;s motivating expression and feedback from the other</td>
+<td>Depends on understood content, recognition of the other’s state, deliberative proportionality, and selected skill</td>
+<td>Depends on the same understanding plus <em>mun</em>’s motivating expression and feedback from the other</td>
 </tr>
 <tr>
 <td>Development and orientation</td>
 <td>Content mastery, pedagogy, observation of receptivity, and freedom from favour are necessary</td>
-<td>Motivational, practical, and relational competence are necessary; the other&rsquo;s awakening rather than helper identity governs</td>
+<td>Motivational, practical, and relational competence are necessary; the other’s awakening rather than helper identity governs</td>
 </tr>
 <tr>
 <td>Expression and consequence</td>
@@ -1673,7 +1691,7 @@
 <tr>
 <td>Normalized location</td>
 <td>Locus: <em>vritti</em>; operation: ending attachment to decline and dedication to awakening; consequence: self-corrected orientation; evidence: reduced fear, waste, and delusion; <strong>J/B/D/E</strong> (<strong>D/I</strong>)</td>
-<td>Locus: helper in relation; operation: remaining unaffected by another&rsquo;s decline while assisting awakening; consequence and evidence: steady just help; <strong>D/R/B/C/T</strong> (<strong>D/I</strong>)</td>
+<td>Locus: helper in relation; operation: remaining unaffected by another’s decline while assisting awakening; consequence and evidence: steady just help; <strong>D/R/B/C/T</strong> (<strong>D/I</strong>)</td>
 </tr>
 <tr>
 <td>Internal dependency</td>
@@ -1683,12 +1701,12 @@
 <tr>
 <td>Development and orientation</td>
 <td>Honest feedback, recognition of decline patterns, and alternatives for humane action are supportive; awakening governs</td>
-<td>Experience with conflict, boundaries, protection, and restoration is necessary or supportive; another&rsquo;s awakening governs</td>
+<td>Experience with conflict, boundaries, protection, and restoration is necessary or supportive; another’s awakening governs</td>
 </tr>
 <tr>
 <td>Expression and consequence</td>
 <td>Release becomes visible in use, consumption, relationship, risk, and willingness to change</td>
-<td>Assistance must neither absorb the other&rsquo;s decline nor abandon persons affected by harmful conduct</td>
+<td>Assistance must neither absorb the other’s decline nor abandon persons affected by harmful conduct</td>
 </tr>
 <tr>
 <td>Evidence and evaluator</td>
@@ -1782,7 +1800,7 @@
 <tr>
 <td>Internal dependency</td>
 <td>Depends on memory and recognition of contribution, truth-sensitive deliberation, and <em>mun</em> for expression</td>
-<td>Depends on understood humaneness, deliberative restraint, and <em>mun</em>&rsquo;s selected speech and action</td>
+<td>Depends on understood humaneness, deliberative restraint, and <em>mun</em>’s selected speech and action</td>
 </tr>
 <tr>
 <td>Development and orientation</td>
@@ -1791,7 +1809,7 @@
 </tr>
 <tr>
 <td>Expression and consequence</td>
-<td>Acknowledgement may include speech, credit, reciprocal help, and refusal to appropriate another&rsquo;s work</td>
+<td>Acknowledgement may include speech, credit, reciprocal help, and refusal to appropriate another’s work</td>
 <td>Civility appears in tone, timing, use of power, and treatment of persons while preserving truth and dissent</td>
 </tr>
 <tr>
@@ -1834,7 +1852,7 @@
 <tr>
 <td>Internal dependency</td>
 <td>Depends on <em>buddhi/chitta</em> for judging worthiness and <em>mun</em> for selective emulation; source does not supply the criterion</td>
-<td>Depends on understood purpose, resolved thought, and <em>mun</em>&rsquo;s uncontrived expression</td>
+<td>Depends on understood purpose, resolved thought, and <em>mun</em>’s uncontrived expression</td>
 </tr>
 <tr>
 <td>Development and orientation</td>
@@ -1885,7 +1903,7 @@
 </tr>
 <tr>
 <td>Internal dependency</td>
-<td>Depends on relationship recognition, understood values, deliberative evaluation, and <em>mun</em>&rsquo;s selected fulfilment</td>
+<td>Depends on relationship recognition, understood values, deliberative evaluation, and <em>mun</em>’s selected fulfilment</td>
 <td>Depends on shared purpose, <em>chitta</em> planning, <em>vritti</em> role judgement, and <em>mun/body</em> for cooperative performance</td>
 </tr>
 <tr>
@@ -1953,7 +1971,7 @@
 <tr>
 <td>Evidence and evaluator</td>
 <td>Appropriate first-person, relational, empirical, and historical evaluators test claims according to their object</td>
-<td>Bearer, knowledgeable peers, the unit&rsquo;s observed continuity, and affected persons test the claimed innateness</td>
+<td>Bearer, knowledgeable peers, the unit’s observed continuity, and affected persons test the claimed innateness</td>
 </tr>
 <tr>
 <td>Correction</td>
@@ -1995,7 +2013,7 @@
 <tr>
 <td>Development and orientation</td>
 <td>Relationship literacy, opportunities to fulfil values, and protected dialogue are necessary or strongly supportive; mutual satisfaction governs</td>
-<td>Exposure to others&rsquo; conditions, material consequences, and disciplined response develops sensitivity; justice, <em>dharma</em>, and truth govern</td>
+<td>Exposure to others’ conditions, material consequences, and disciplined response develops sensitivity; justice, <em>dharma</em>, and truth govern</td>
 </tr>
 <tr>
 <td>Expression and consequence</td>
@@ -2165,7 +2183,7 @@
 </tr>
 <tr>
 <td>Correction</td>
-<td>Stop excessive force or paternalism, repair intervention harm, revise strategy, and restore the affected person&rsquo;s agency</td>
+<td>Stop excessive force or paternalism, repair intervention harm, revise strategy, and restore the affected person’s agency</td>
 <td>Correct rigidity, factional loyalty, delay, or endurance for its own sake; reopen evidence and reasons</td>
 </tr>
 <tr>
@@ -2280,7 +2298,7 @@
 <tr>
 <td>External classification and risk</td>
 <td><code>EVID; N-EVD; U-H; I</code>, <code>CORR; N-COR; U-H; I</code>; risk: caste, rank, stereotype, nominal class, or superficial form mistaken for actual kind; pair rationale remains <strong>O</strong></td>
-<td><code>EVID; N-EVD; U-H; I</code>, <code>SUST; S-CON; U-H; I</code>; risk: schedule, impatience, short observation, or clock value mistaken for the process&rsquo;s relevant duration; pair rationale remains <strong>O</strong></td>
+<td><code>EVID; N-EVD; U-H; I</code>, <code>SUST; S-CON; U-H; I</code>; risk: schedule, impatience, short observation, or clock value mistaken for the process’s relevant duration; pair rationale remains <strong>O</strong></td>
 </tr>
 </tbody>
 </table></div>
@@ -2401,8 +2419,8 @@
 <tbody>
 <tr>
 <td>Normalized location</td>
-<td>Locus: person in close relationship; operation: affinity expressed as nurturing and protection; consequence and evidence: another&rsquo;s capability and continuity; <strong>D/R/B/T</strong>, sometimes <strong>C/E</strong> (<strong>D/I</strong>)</td>
-<td>Locus: capable person in relation; operation: joyful offering of body, mind, and material means according to another&rsquo;s need; consequence and evidence: awakening, health, and prosperity; <strong>B/D/R/C/E/T</strong> (<strong>D/I</strong>)</td>
+<td>Locus: person in close relationship; operation: affinity expressed as nurturing and protection; consequence and evidence: another’s capability and continuity; <strong>D/R/B/T</strong>, sometimes <strong>C/E</strong> (<strong>D/I</strong>)</td>
+<td>Locus: capable person in relation; operation: joyful offering of body, mind, and material means according to another’s need; consequence and evidence: awakening, health, and prosperity; <strong>B/D/R/C/E/T</strong> (<strong>D/I</strong>)</td>
 </tr>
 <tr>
 <td>Internal dependency</td>
@@ -2412,7 +2430,7 @@
 <tr>
 <td>Development and orientation</td>
 <td>Care knowledge, truthful relationship, feedback, and respect for agency are necessary or strongly supportive</td>
-<td>Need assessment, productive competence, boundaries, and right-use knowledge develop generosity; the other&rsquo;s capability governs</td>
+<td>Need assessment, productive competence, boundaries, and right-use knowledge develop generosity; the other’s capability governs</td>
 </tr>
 <tr>
 <td>Expression and consequence</td>
@@ -2453,7 +2471,7 @@
 <tbody>
 <tr>
 <td>Normalized location</td>
-<td>Locus: person in relation; operation: balanced recognition of another&rsquo;s personality, talent, excellence, and clarity; consequence and evidence: acknowledged person and shared conduct; <strong>D/R/C/T</strong> (<strong>D/I</strong>)</td>
+<td>Locus: person in relation; operation: balanced recognition of another’s personality, talent, excellence, and clarity; consequence and evidence: acknowledged person and shared conduct; <strong>D/R/C/T</strong> (<strong>D/I</strong>)</td>
 <td>Locus: <em>mun</em> expressed in communication; operation: presenting accepted conception, realisation, memory, and articulation without alteration; consequence and evidence: recipient understanding; <strong>J/B/D/C/T</strong> (<strong>D/I/O</strong>)</td>
 </tr>
 <tr>
@@ -2463,7 +2481,7 @@
 </tr>
 <tr>
 <td>Development and orientation</td>
-<td>Opportunities to know another&rsquo;s actual capability, challenge bias, and give proportionate credit are supportive</td>
+<td>Opportunities to know another’s actual capability, challenge bias, and give proportionate credit are supportive</td>
 <td>Dialogue, recall, paraphrase, and correction by hearers develop faithful presentation; accepted truth governs</td>
 </tr>
 <tr>
@@ -2510,7 +2528,7 @@
 </tr>
 <tr>
 <td>Internal dependency</td>
-<td>Depends on recognition of relationship and justice, <em>vritti</em> evaluation, and <em>mun</em>&rsquo;s willing selection</td>
+<td>Depends on recognition of relationship and justice, <em>vritti</em> evaluation, and <em>mun</em>’s willing selection</td>
 <td>Depends on definite conception and remembrance, inward resolve, <em>vritti</em> assessment, and <em>mun/body</em> for endeavour</td>
 </tr>
 <tr>
@@ -2667,7 +2685,7 @@
 <tr>
 <td>Internal dependency</td>
 <td>Depends on understood purpose, deliberative role judgement, <em>chitta</em> planning, and <em>mun/body</em> for competent contribution</td>
-<td>Depends on relationship recognition, understood values, and <em>mun</em>&rsquo;s selected value-bearing conduct</td>
+<td>Depends on relationship recognition, understood values, and <em>mun</em>’s selected value-bearing conduct</td>
 </tr>
 <tr>
 <td>Development and orientation</td>
@@ -2770,8 +2788,8 @@
 </tr>
 <tr>
 <td>Internal dependency</td>
-<td>Depends on <em>mun</em>&rsquo;s purpose, <em>vritti</em> assessment, and sensory or practical evidence from the body</td>
-<td>Depends on the <em>jeevan-body</em> relation, <em>mun</em>&rsquo;s direction, and <em>vritti</em>&rsquo;s interpretation of bodily evidence</td>
+<td>Depends on <em>mun</em>’s purpose, <em>vritti</em> assessment, and sensory or practical evidence from the body</td>
+<td>Depends on the <em>jeevan-body</em> relation, <em>mun</em>’s direction, and <em>vritti</em>’s interpretation of bodily evidence</td>
 </tr>
 <tr>
 <td>Development and orientation</td>
@@ -2785,7 +2803,7 @@
 </tr>
 <tr>
 <td>Evidence and evaluator</td>
-<td>The person&rsquo;s report, bodily response, skilled observation, and task consequence jointly evaluate usefulness</td>
+<td>The person’s report, bodily response, skilled observation, and task consequence jointly evaluate usefulness</td>
 <td>The person is indispensable; caregivers and skilled practitioners contribute observation and intervention without replacing agency</td>
 </tr>
 <tr>
@@ -2884,7 +2902,7 @@
 </tr>
 <tr>
 <td>Expression and consequence</td>
-<td>Articulation uses language, gesture, work, or performance and changes others&rsquo; access and motivation</td>
+<td>Articulation uses language, gesture, work, or performance and changes others’ access and motivation</td>
 <td>Joy appears in movement, smile, communication, or work without denying grief, conflict, or risk</td>
 </tr>
 <tr>
@@ -2895,7 +2913,7 @@
 <tr>
 <td>Correction</td>
 <td>Correct exaggeration, concealment, stimulation, or uplift rhetoric that suppresses difficulty</td>
-<td>Correct forced cheer, amusement without purpose, mood display, or joy that excludes another&rsquo;s condition</td>
+<td>Correct forced cheer, amusement without purpose, mood display, or joy that excludes another’s condition</td>
 </tr>
 <tr>
 <td>Continuity and transmission</td>
@@ -2921,12 +2939,12 @@
 <tbody>
 <tr>
 <td>Normalized location</td>
-<td>Locus: person in conduct; operation: civil, authentic indication of awakening across contexts; consequence and evidence: others&rsquo; experience of character; <strong>J/B/D/R/C/T</strong> (<strong>D/I</strong>)</td>
+<td>Locus: person in conduct; operation: civil, authentic indication of awakening across contexts; consequence and evidence: others’ experience of character; <strong>J/B/D/R/C/T</strong> (<strong>D/I</strong>)</td>
 <td>Locus: person in communicative relation; operation: civil presentation of disagreement or non-acceptance; consequence and evidence: counterpart understanding and protected dissent; <strong>J/B/D/C/T</strong> (<strong>D/I</strong>)</td>
 </tr>
 <tr>
 <td>Internal dependency</td>
-<td>Depends on authenticity, understood awakening, <em>vritti</em> judgement, and <em>mun</em>&rsquo;s selected manner</td>
+<td>Depends on authenticity, understood awakening, <em>vritti</em> judgement, and <em>mun</em>’s selected manner</td>
 <td>Depends on clear judgement, civil orientation, and <em>mun/body</em> for direct yet proportionate expression</td>
 </tr>
 <tr>
@@ -3082,7 +3100,7 @@
 </tr>
 <tr>
 <td>Internal dependency</td>
-<td>Depends on relationship recognition, justice-sensitive evaluation, and <em>mun</em>&rsquo;s value-bearing selection</td>
+<td>Depends on relationship recognition, justice-sensitive evaluation, and <em>mun</em>’s value-bearing selection</td>
 <td>Depends on resolution, understanding of order, productive participation, and coordination across faculties</td>
 </tr>
 <tr>
@@ -3134,7 +3152,7 @@
 </tr>
 <tr>
 <td>Internal dependency</td>
-<td>Depends on relationship recognition, justice-sensitive evaluation, and <em>mun</em>&rsquo;s value-bearing selection</td>
+<td>Depends on relationship recognition, justice-sensitive evaluation, and <em>mun</em>’s value-bearing selection</td>
 <td>Depends on understood prosperity, resolution, planning, consequence analysis, and embodied productive selection</td>
 </tr>
 <tr>
@@ -3187,7 +3205,7 @@
 <tr>
 <td>Internal dependency</td>
 <td>Depends on inward realisation and conception, <em>vritti</em> fidelity, <em>chitta</em> articulation, and <em>mun</em> selection</td>
-<td>Depends on accepted criteria from inward faculties, <em>chitta</em> planning, <em>vritti</em> assessment, and <em>mun</em>&rsquo;s volitional readiness</td>
+<td>Depends on accepted criteria from inward faculties, <em>chitta</em> planning, <em>vritti</em> assessment, and <em>mun</em>’s volitional readiness</td>
 </tr>
 <tr>
 <td>Development and orientation</td>
@@ -3342,7 +3360,7 @@
 </tr>
 <tr>
 <td>Internal dependency</td>
-<td>Depends on relationship recognition, justice, understood values, and <em>mun</em>&rsquo;s reciprocal selection; local values and endpoint remain open</td>
+<td>Depends on relationship recognition, justice, understood values, and <em>mun</em>’s reciprocal selection; local values and endpoint remain open</td>
 <td>Depends on inquiry, resolve, truth-sensitive deliberation, planning, and embodied skill across work and behaviour</td>
 </tr>
 <tr>
@@ -3399,18 +3417,18 @@
 </tr>
 <tr>
 <td>Development and orientation</td>
-<td>Care, health, education, protection, productive, and relational competence are necessary or strongly supportive; child&rsquo;s capability and awakening govern</td>
+<td>Care, health, education, protection, productive, and relational competence are necessary or strongly supportive; child’s capability and awakening govern</td>
 <td>Knowledge of the receiving unit, material properties, timing, dose, and agency develops appropriate nurturing</td>
 </tr>
 <tr>
 <td>Expression and consequence</td>
-<td>Role requires time, bodily and material means, shared care, protection, provision, teaching, and respect for the child&rsquo;s agency</td>
+<td>Role requires time, bodily and material means, shared care, protection, provision, teaching, and respect for the child’s agency</td>
 <td>Nurturing requires access to conducive food, shelter, care, relationship, or material support and affects wider workload and ecology</td>
 </tr>
 <tr>
 <td>Evidence and evaluator</td>
 <td>Child experience and development are primary; caregiver, other parent, skilled peers, and later capability add evidence</td>
-<td>Receiving person&rsquo;s response, bodily or relational outcome, caregivers, and affected systems evaluate conduciveness</td>
+<td>Receiving person’s response, bodily or relational outcome, caregivers, and affected systems evaluate conduciveness</td>
 </tr>
 <tr>
 <td>Correction</td>
@@ -3451,7 +3469,7 @@
 </tr>
 <tr>
 <td>Development and orientation</td>
-<td>Care, safety, education, productive, and relational competence are necessary or supportive; child&rsquo;s capability and awakening govern</td>
+<td>Care, safety, education, productive, and relational competence are necessary or supportive; child’s capability and awakening govern</td>
 <td>Risk knowledge, listening, prevention, rights, and non-dominating intervention develop protection; valid activity governs</td>
 </tr>
 <tr>
@@ -4005,7 +4023,7 @@
 <h2 id="6-findings-across-the-122-member-lifecycle-matrix">6. Findings across the 122-member lifecycle matrix</h2>
 <h3 id="61-internal-constitution-and-external-dependence-occupy-different-logical-levels" data-depth="2">6.1 Internal constitution and external dependence occupy different logical levels</h3>
 <p>The records consistently distinguish constitutional orientation from embodied availability. Realisation, enlightenment, contemplation, deliberation, and selection form internal dependencies at <strong>U-J</strong>. No family, teacher, procedure, material resource, or institution is coded as necessary for their constitutional presence. External conditions become structurally relevant when an inward member must be developed through receptivity, expressed through the body, evidenced before another standpoint, corrected after contradiction, or maintained across persons and time.</p>
-<p>This distinction prevents two opposite errors. The first is environmental creationism: treating education, relationship, or organisation as if it supplied an activity absent from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. The second is inward isolationism: treating a private claim of realisation or understanding as complete evidence even where the member&rsquo;s definition concerns authenticity, relationship, work, care, production, communication, or continuity.</p>
+<p>This distinction prevents two opposite errors. The first is environmental creationism: treating education, relationship, or organisation as if it supplied an activity absent from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. The second is inward isolationism: treating a private claim of realisation or understanding as complete evidence even where the member’s definition concerns authenticity, relationship, work, care, production, communication, or continuity.</p>
 <h3 id="62-entry-form-changes-the-lifecycle-question" data-depth="2">6.2 Entry form changes the lifecycle question</h3>
 <p>The normalized matrix contains five recurrent entry-form families without reducing every record to one of them.</p>
 <ul>
@@ -4018,7 +4036,7 @@
 <p>The residual entries remain visible rather than being forced into these families. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence.">Satya</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>, <em>jati</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="Time — duration of an activity.">kaal</button></span></em>, repeated <em>poshan</em>, and the closing visible-form response retain their disputed activity grammar.</p>
 <h3 id="63-evidence-is-standpoint-dependent-and-normally-convergent" data-depth="2">6.3 Evidence is standpoint-dependent and normally convergent</h3>
 <p>No single evaluator covers all evidence fields. The bearer has privileged access to resolution, intention, felt contradiction, sensory contact, pain, and bodily experience. A relational counterpart has access to expectation, value-fulfilment, consent, satisfaction, domination, and repair. Skilled peers can assess competence, causal explanation, measurement, treatment, design, or technical consequence. Users, workers, dependants, and affected publics can disclose burdens hidden from the immediate bearer. Material, ecological, and future evidence can contradict present satisfaction or output.</p>
-<p>Pass Two therefore treats convergence as stronger than substitution. A public body cannot declare another person&rsquo;s inward resolution, while first-person conviction cannot settle a claim about justice, safe work, health, useful production, or ecological regeneration. Apparent disagreement first triggers a standpoint audit: which evidence is directly available to each evaluator, what is being claimed, and whether the conflict concerns criterion, observation, means, role, or consequence.</p>
+<p>Pass Two therefore treats convergence as stronger than substitution. A public body cannot declare another person’s inward resolution, while first-person conviction cannot settle a claim about justice, safe work, health, useful production, or ecological regeneration. Apparent disagreement first triggers a standpoint audit: which evidence is directly available to each evaluator, what is being claimed, and whether the conflict concerns criterion, observation, means, role, or consequence.</p>
 <h3 id="64-correction-must-match-the-failure-mechanism" data-depth="2">6.4 Correction must match the failure mechanism</h3>
 <p>The matrix discloses several irreducible correction paths:</p>
 <ul>
@@ -4061,97 +4079,97 @@
 <div class="table-scroll"><table>
 <thead>
 <tr>
-<th style="text-align: right;">Position</th>
+<th style="text-align:right">Position</th>
 <th>Feature</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: right;">1</td>
+<td style="text-align:right">1</td>
 <td>Entry-form family and residual flag</td>
 </tr>
 <tr>
-<td style="text-align: right;">2</td>
+<td style="text-align:right">2</td>
 <td>Ontological locus</td>
 </tr>
 <tr>
-<td style="text-align: right;">3</td>
+<td style="text-align:right">3</td>
 <td>Operation field</td>
 </tr>
 <tr>
-<td style="text-align: right;">4</td>
+<td style="text-align:right">4</td>
 <td>Consequence field</td>
 </tr>
 <tr>
-<td style="text-align: right;">5</td>
+<td style="text-align:right">5</td>
 <td>Evidence field and evaluator standpoints</td>
 </tr>
 <tr>
-<td style="text-align: right;">6</td>
+<td style="text-align:right">6</td>
 <td>Constitutive counterpart and participation topology</td>
 </tr>
 <tr>
-<td style="text-align: right;">7</td>
+<td style="text-align:right">7</td>
 <td>Internal dependencies</td>
 </tr>
 <tr>
-<td style="text-align: right;">8</td>
+<td style="text-align:right">8</td>
 <td>Endpoint and governing criterion provenance</td>
 </tr>
 <tr>
-<td style="text-align: right;">9</td>
+<td style="text-align:right">9</td>
 <td>Development and orientation requirements</td>
 </tr>
 <tr>
-<td style="text-align: right;">10</td>
+<td style="text-align:right">10</td>
 <td>Expression requirements</td>
 </tr>
 <tr>
-<td style="text-align: right;">11</td>
+<td style="text-align:right">11</td>
 <td>Evidence requirements</td>
 </tr>
 <tr>
-<td style="text-align: right;">12</td>
+<td style="text-align:right">12</td>
 <td>Correction and protection paths</td>
 </tr>
 <tr>
-<td style="text-align: right;">13</td>
+<td style="text-align:right">13</td>
 <td>Sustaining and transmission requirements</td>
 </tr>
 <tr>
-<td style="text-align: right;">14</td>
+<td style="text-align:right">14</td>
 <td>External relation types and strength-scope codes</td>
 </tr>
 <tr>
-<td style="text-align: right;">15</td>
+<td style="text-align:right">15</td>
 <td>Universality levels</td>
 </tr>
 <tr>
-<td style="text-align: right;">16</td>
+<td style="text-align:right">16</td>
 <td>False-positive class and unresolved fields</td>
 </tr>
 </tbody>
 </table></div>
 <p>Before clustering, replace member names, faculties, pair numbers, source-embedded role terms, and all family or institutional vocabulary with anonymous IDs. Do not use the pilot sphere atlas as starting centroids. Permit overlap and residual membership, compare coarse, middle, and fine granularities, and test stability under the alternate treatments in §7. Names and source structure may be restored only after the blind cluster result is recorded.</p>
-<p>This handoff is completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html">Pass-Three Activity-Sphere Derivation</a>. The blind analysis selects three coarse domains, eight middle clusters, and fourteen fine clusters. Four middle clusters remain stable under both residual treatments, two operate as boundary-sensitive bridges, and two remain residual groupings. The subsequent <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html">Pass-Four durable-function analysis</a> tests every member for durable responsibility and compares five alternative bundles. It derives five continuity channels covering all 122 members and finds the five-function basis sufficient and practically minimal at the selected grain without claiming five organisations or numerical uniqueness.</p>
+<p>This handoff is completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer">Pass-Three Activity-Sphere Derivation</a>. The blind analysis selects three coarse domains, eight middle clusters, and fourteen fine clusters. Four middle clusters remain stable under both residual treatments, two operate as boundary-sensitive bridges, and two remain residual groupings. The subsequent <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer">Pass-Four durable-function analysis</a> tests every member for durable responsibility and compares five alternative bundles. It derives five continuity channels covering all 122 members and finds the five-function basis sufficient and practically minimal at the selected grain without claiming five organisations or numerical uniqueness.</p>
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
-<li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one <em>bal/shakti</em> assignments used to preserve documentary position for all 122 member records (pp. 91-94; §§1-5).</li>
-<li><strong>MVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the constitutional activity count and the detailed definitions governing entry form, bearer, object, counterpart, endpoint, criterion, and residual status (pp. 323, 327-348; §§1-5); the lifecycle requirements in this register are structural inferences from that anatomy rather than direct quotations.</li>
+<li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf" rel="noopener noreferrer"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one <em>bal/shakti</em> assignments used to preserve documentary position for all 122 member records (pp. 91-94; §§1-5).</li>
+<li><strong>MVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the constitutional activity count and the detailed definitions governing entry form, bearer, object, counterpart, endpoint, criterion, and residual status (pp. 323, 327-348; §§1-5); the lifecycle requirements in this register are structural inferences from that anatomy rather than direct quotations.</li>
 </ul>
 <h3 id="related-research-notes">Related research notes</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - the bilingual source inventory and documentary variants.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source and anatomy records for the 106 non-pilot members and the normalization gate.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the sixteen pilot records and refined pass sequence.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the field provenance, lifecycle, universality, clustering, and validation schema.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html"><em>Jeevan Architecture</em></a> - the five faculties, ten generic activities, 122 detailed positions, embodiment, and restfulness.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html"><em>A Functional Model of Jeevan</em></a> - orientation, expression, consequence, evaluation, correction, and lasting change.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the completed anonymous clustering and sphere architecture derived from this register.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the completed durability and institutional-bundle analysis built from this register and Pass Three.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the provisional social thesis to be tested only after bottom-up clustering and validation.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the completed anonymous feature matrix, multi-resolution partitions, residual sensitivity tests, stable cores, bridges, and restored comparison.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html" rel="noopener noreferrer"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - the bilingual source inventory and documentary variants.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html" rel="noopener noreferrer"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source and anatomy records for the 106 non-pilot members and the normalization gate.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html" rel="noopener noreferrer"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the sixteen pilot records and refined pass sequence.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html" rel="noopener noreferrer"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the field provenance, lifecycle, universality, clustering, and validation schema.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html" rel="noopener noreferrer"><em>Jeevan Architecture</em></a> - the five faculties, ten generic activities, 122 detailed positions, embodiment, and restfulness.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html" rel="noopener noreferrer"><em>A Functional Model of Jeevan</em></a> - orientation, expression, consequence, evaluation, correction, and lasting change.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the completed anonymous clustering and sphere architecture derived from this register.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the completed durability and institutional-bundle analysis built from this register and Pass Three.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html" rel="noopener noreferrer"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the provisional social thesis to be tested only after bottom-up clustering and validation.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the completed anonymous feature matrix, multi-resolution partitions, residual sensitivity tests, stable cores, bridges, and restored comparison.</li>
 </ul></main>
 <script>
 (() => {
@@ -4211,7 +4229,7 @@
       prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
     }
 
-    if (idx < 0 || idx >= sections.length - 1) {
+    if (idx >= sections.length - 1) {
       setDisabled(next, true, "Next section \u2192");
     } else {
       next.classList.remove("is-disabled");
@@ -4232,6 +4250,9 @@
     const target = document.getElementById(id);
     if (!target) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    history.pushState(null, "", `#${encodeURIComponent(id)}`);
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   };
 

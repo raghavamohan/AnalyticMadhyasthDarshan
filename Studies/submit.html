@@ -633,7 +633,7 @@ function apiFetch(path, options = {}) {
   return fetch(API_BASE + path, {
     credentials: 'include',
     ...options,
-    headers: { ...(options.headers || {}) },
+    headers: { ...(options.method && options.method !== 'GET' ? { 'Content-Type': 'application/json' } : {}), ...(options.headers || {}) },
   });
 }
 

@@ -305,7 +305,7 @@
     outline: 2px solid #13405c;
     outline-offset: 2px;
   }
-  h2[id] {
+  h2[id], h3[id], h4[id], main[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
   }
   .table-scroll {
@@ -557,7 +557,14 @@
      on screen is confined to @media screen. The bare rules and the @media
      print block above remain the print baseline and are left alone. */
   @media screen {
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) { color-scheme: dark; }
+    }
     body {
+      background: #fff;
+      overflow-wrap: anywhere;
       font-size: 17px;
       line-height: 1.62;
       max-width: 46rem;
@@ -589,15 +596,26 @@
       margin-top: 1.45em;
     }
     h4 { font-size: 1.0rem; }
+    /* Long inline formulae need their own scroll region, just like display
+       equations and tables; they must not widen the whole reading page. */
+    .katex { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+    .katex-display > .katex { display: block; overflow: visible; }
+
   }
   @media screen and (min-width: 760px) {
     .study-toc { max-width: 46rem; }
   }
 
   @media (max-width: 640px) {
+    .study-toolbar-row--primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .study-toolbar-actions {
+      grid-column: 1;
+      justify-self: stretch;
+      justify-content: space-between;
       gap: 5px;
     }
+    .study-toolbar-link, .study-theme-toggle { min-height: 44px; display: inline-flex; align-items: center; box-sizing: border-box; }
+    .study-toolbar-section { display: block; line-height: 44px; }
     .study-toolbar-feedback { font-size: 11px; }
     .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
@@ -705,7 +723,7 @@
   </div>
 </nav>
 <main id="main"><h1>Technical Note: Four Aspects of the Active Unit - Rūpa, Guṇa, Svabhāva, and Dharma</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan">AnalyticMadhyasthDarshan.org</a> - a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy.</p>
+<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">AnalyticMadhyasthDarshan.org</a> - a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy.</p>
 <p><strong>Edited on:</strong> August 29, 2026, 5:38 PM IST</p>
 <p><strong>Status:</strong> Internal technical note; not a catalog entry and not part of the released text of <em>The Ontology of Coexistence</em>.</p>
 <p><strong>Scope:</strong> This note clarifies four inseparable aspects attributed to every unit (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="Unit — a bounded, countable entity in nature; units may be insentient or sentient.">ikai</button></span></em>) in Madhyasth Darshan: form (<em>rūpa</em>), property or relative power (<em>guṇa</em>), essential nature (<em>svabhāva</em>), and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>. Its immediate question is whether <em>guṇa</em> should be understood as a static quality or as operative power, and how it differs from the other three aspects. Process-language is used as an analytical aid, not as a claim that the primary texts adopt a modern school of process philosophy.</p>
@@ -767,12 +785,12 @@
 </p>
 <h2 id="1-the-question-and-central-thesis">1. The question and central thesis</h2>
 <p>The ordinary English word “property” can suggest a static predicate: an item on a list that describes what a thing is while leaving the thing itself inactive. That suggestion is misleading here. The same primary texts that define <em>guṇa</em> describe units as continuously active, identify power with motion, and present effort, motion, and result as inseparable in every activity. Yet replacing the unit with an unbounded stream of events would be equally misleading. The unit remains a definite bearer with configuration, constitution, and continuity.</p>
-<p>The four terms also appear to overlap. If <em>guṇa</em> is the unit&rsquo;s power, why is <em>svabhāva</em> separately fundamental? If <em>svabhāva</em> is essential nature, what further work remains for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>? If all four are dynamic, what distinguishes <em>rūpa</em> from the effects of activity?</p>
+<p>The four terms also appear to overlap. If <em>guṇa</em> is the unit’s power, why is <em>svabhāva</em> separately fundamental? If <em>svabhāva</em> is essential nature, what further work remains for <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>? If all four are dynamic, what distinguishes <em>rūpa</em> from the effects of activity?</p>
 <p>The central thesis of this note is:</p>
 <blockquote>
 <p>Every <em>ikai</em> is a bounded, active bearer. <em>Rūpa</em> names its determinate configuration; <em>guṇa</em> its relative power in operation; <em>svabhāva</em> the order-specific characteristic conduct through which that power acquires functional significance; and <em>dharma</em> the order-specific innateness the unit bears. These are four co-present aspects of one unit, not four components or successive stages.</p>
 </blockquote>
-<p>All four are grounded in the unit, but they become evident differently. <em>Rūpa</em> is relationally encountered, <em>guṇa</em> relationally actualised, <em>svabhāva</em> relationally disclosed as characteristic conduct, and <em>dharma</em> evidenced through the unit&rsquo;s order-specific continuity and fulfilment. Relation reveals or actualises these aspects; it does not arbitrarily create them.</p>
+<p>All four are grounded in the unit, but they become evident differently. <em>Rūpa</em> is relationally encountered, <em>guṇa</em> relationally actualised, <em>svabhāva</em> relationally disclosed as characteristic conduct, and <em>dharma</em> evidenced through the unit’s order-specific continuity and fulfilment. Relation reveals or actualises these aspects; it does not arbitrarily create them.</p>
 <h2 id="2-textual-basis-and-interpretive-status">2. Textual basis and interpretive status</h2>
 <h3 id="21-the-unit-as-an-active-bearer" data-depth="2">2.1 The unit as an active bearer</h3>
 <p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> treats a unit as both state and motion. Force (<em>bal</em>) is identified on the side of state and power (<em>śakti</em>) on the side of motion, while state and motion remain inseparable. Every activity is correspondingly presented as the inseparable presence of effort, motion, and result (<em>śram-gati-pariṇām</em>). These are not three chronological moments. They distinguish the active tendency present, its motion, and the determinate condition attained or maintained within one activity (SB, pp. 58-62, 248-252).</p>
@@ -838,9 +856,9 @@
 </table></div>
 <h2 id="3-four-distinctions-within-one-active-unit">3. Four distinctions within one active unit</h2>
 <h3 id="31-rūpa-determinate-configuration" data-depth="2">3.1 <em>Rūpa</em>: determinate configuration</h3>
-<p><em>Rūpa</em> names the configuration by which the unit is one definite unit: shape, volume, density, and the boundary-framework associated with its constitution and motion-path. It is not an “absolute effect” opposed to the relative effect of <em>guṇa</em>. Form and effect answer different questions. Form answers what configuration is present; property answers how the unit&rsquo;s power operates (MVD, pp. 42, 50-51; SB, pp. 249-250).</p>
+<p><em>Rūpa</em> names the configuration by which the unit is one definite unit: shape, volume, density, and the boundary-framework associated with its constitution and motion-path. It is not an “absolute effect” opposed to the relative effect of <em>guṇa</em>. Form and effect answer different questions. Form answers what configuration is present; property answers how the unit’s power operates (MVD, pp. 42, 50-51; SB, pp. 249-250).</p>
 <p>Form is real without being eternally fixed. A developing atom can change in form as its constitution changes. A compound can form and disintegrate. The persistence of a unit therefore does not require one immutable visible shape, but it does require determinacy: there must be some bounded configuration through which this unit is distinguished from another.</p>
-<p>Form is also relationally encountered. A unit&rsquo;s form may be reflected or imaged to another unit, and dimensions are measured comparatively. Reflection does not create the form. It is the manner in which an already configured unit becomes present across mutuality. <em>Rūpa</em> is therefore objectively unit-grounded and relationally encountered.</p>
+<p>Form is also relationally encountered. A unit’s form may be reflected or imaged to another unit, and dimensions are measured comparatively. Reflection does not create the form. It is the manner in which an already configured unit becomes present across mutuality. <em>Rūpa</em> is therefore objectively unit-grounded and relationally encountered.</p>
 <h3 id="32-guṇa-relative-power-in-operation" data-depth="2">3.2 <em>Guṇa</em>: relative power in operation</h3>
 <p>The primary definition calls <em>guṇa</em> relative power (<em>sāpekṣa śakti</em>) and associates it with the effect evident when more than one entity comes together. The force-bearing unit is <em>guṇī</em> and its operative power is <em>guṇa</em>. Bearer and power are inseparable, but they are not identical descriptions: one names the unit, the other what its motion can do in mutuality (MVD, p. 47; SB, pp. 248-252, 256-257).</p>
 <p>This is the correct sense in which <em>guṇa</em> is process-like. It is not a process floating free of a bearer, and it is not merely a static label. It is a unit-grounded power whose definite influence becomes actual in relation. A unit can possess a power without every possible effect being presently expressed; the actual effect depends on the other unit, distance, configuration, and the mutuality in which they meet.</p>
@@ -874,8 +892,8 @@
 <p>“Regenerative” is too narrow as a general translation of <em>sam</em>, because <em>sṛjan</em> need not restore a former state. “Generative” is safer. <em>Madhyastha</em> does not mean inactivity or an average between extremes. It is active regulation through which generative and degenerative movements remain balanced and a definite organisation is sustained (MVD, pp. 26, 50-51).</p>
 <p>These modes are not moral categories. Formation and dissolution both participate in material and biological cycles. The triad identifies directional efficacy before the order-specific significance of that efficacy has been determined.</p>
 <h3 id="33-svabhāva-order-specific-characteristic-conduct" data-depth="2">3.3 <em>Svabhāva</em>: order-specific characteristic conduct</h3>
-<p>The primary definition places two formulations together: essentiality or fundamental character (<em>maulikata</em>) is <em>svabhāva</em>, and the usefulness (<em>upayogitā</em>) of properties is <em>svabhāva</em> (MVD, p. 47). “Usefulness” here cannot mean whatever pleases a human observer, nor can it mean moral benefit, because the order-wise account includes devitalising, cruel, and inhumane conduct. It is better understood as <strong>functional significance</strong>: what the unit&rsquo;s powers amount to as characteristic conduct within its order.</p>
-<p>This gives <em>svabhāva</em> a purposive direction without imposing an external designer or observer-selected purpose. The direction is internal to the order and the unit&rsquo;s participation in definite conduct. A power has an effect; <em>svabhāva</em> identifies the characteristic kind of conduct expressed through that effect.</p>
+<p>The primary definition places two formulations together: essentiality or fundamental character (<em>maulikata</em>) is <em>svabhāva</em>, and the usefulness (<em>upayogitā</em>) of properties is <em>svabhāva</em> (MVD, p. 47). “Usefulness” here cannot mean whatever pleases a human observer, nor can it mean moral benefit, because the order-wise account includes devitalising, cruel, and inhumane conduct. It is better understood as <strong>functional significance</strong>: what the unit’s powers amount to as characteristic conduct within its order.</p>
+<p>This gives <em>svabhāva</em> a purposive direction without imposing an external designer or observer-selected purpose. The direction is internal to the order and the unit’s participation in definite conduct. A power has an effect; <em>svabhāva</em> identifies the characteristic kind of conduct expressed through that effect.</p>
 <p><em>Svabhāva</em> is therefore not merely a second classification of <em>guṇa</em>. The generic modes <em>sam-viṣam-madhyastha</em> recur across the orders, while the classifications of essential nature change with the order. Material essential nature concerns integration and disintegration; pranic essential nature vitalising and devitalising conduct; animal essential nature cruel and uncruel conduct; and knowledge-order essential nature the humane conducts of fortitude, courage, generosity, kindness, grace, and compassion (MVD, pp. 50-51, 58; SB, p. 180).</p>
 <p>At the material level the distinction can appear thin because generative and degenerative power closely track integration and disintegration. It becomes clearer in higher orders. A generative effect alone does not tell whether a biological composition nourishes or debilitates, whether animal conduct causes or avoids suffering, or whether human conduct manifests humane or inhumane essential nature. Those are order-specific determinations of what the operation means as conduct.</p>
 <p>The texts identify conduct as the activity through which essentiality is expressed and also identify conduct with <em>svabhāva</em> (MVD, p. 77). Essential nature is thus unit-grounded as fundamental character but disclosed in definite conduct. Recognition does not invent it; relation is where it becomes evident.</p>
@@ -1008,15 +1026,15 @@
 <h2 id="references">References</h2>
 <h3 id="madhyasth-darshan-primary-texts">Madhyasth Darshan primary texts</h3>
 <ul>
-<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf"><em>Madhyasth Darshan - Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: mediative regulation (p. 26; §3.2); atomic constitution, mixture, and compound (p. 42; §§2.2, 3.1, 6); definitions of the four aspects (p. 47; §§2.2, 3); form and the <em>sam-viṣam-madhyastha</em> distinction (pp. 50-51; §§2.2, 3.1-3.4); inhumane essential nature (p. 58; §3.3); humane and inhumane perspectives (p. 67; §8.3); conduct as expression of essentiality (p. 77; §§2.2, 3.3, 8.5); order-specific <em>dharma</em> (p. 115; §§2.2, 3.4); behaviour, thought, and realisation (p. 137; §8.3); the sequence from knowledge through law to justice, <em>dharma</em>, and truth (p. 174; §8.3).</li>
-<li><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: effort-motion-result and state-motion (pp. 58-62; §§2.1, 3.4, 4, 7, 8.5); composition is not development (pp. 75-76; §§2.2, 6); order-specific <em>dharma</em> and the body-<em>jeevan</em> distinction (pp. 179-180; §§2.2, 3.3-3.4); force, power, form, reflection, influence, recognition, and evaluation (pp. 248-252; §§2.1-2.2, 3.1-3.2); bearer and property (pp. 256-257; §§2.2, 3.2); order of constituents in a composition (p. 260; §§2.2, 6).</li>
-<li><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: peepal-tree illustration of the four aspects and definite conduct in the first three orders (p. 113; §5); justice on the basis of relationships, <em>dharma</em> on the basis of orderliness, and truth on the basis of existence (p. 120; §8.3).</li>
+<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan - Co-existentialism</em></a>. English translation by Rakesh Gupta. Cited: mediative regulation (p. 26; §3.2); atomic constitution, mixture, and compound (p. 42; §§2.2, 3.1, 6); definitions of the four aspects (p. 47; §§2.2, 3); form and the <em>sam-viṣam-madhyastha</em> distinction (pp. 50-51; §§2.2, 3.1-3.4); inhumane essential nature (p. 58; §3.3); humane and inhumane perspectives (p. 67; §8.3); conduct as expression of essentiality (p. 77; §§2.2, 3.3, 8.5); order-specific <em>dharma</em> (p. 115; §§2.2, 3.4); behaviour, thought, and realisation (p. 137; §8.3); the sequence from knowledge through law to justice, <em>dharma</em>, and truth (p. 174; §8.3).</li>
+<li><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf" rel="noopener noreferrer"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: effort-motion-result and state-motion (pp. 58-62; §§2.1, 3.4, 4, 7, 8.5); composition is not development (pp. 75-76; §§2.2, 6); order-specific <em>dharma</em> and the body-<em>jeevan</em> distinction (pp. 179-180; §§2.2, 3.3-3.4); force, power, form, reflection, influence, recognition, and evaluation (pp. 248-252; §§2.1-2.2, 3.1-3.2); bearer and property (pp. 256-257; §§2.2, 3.2); order of constituents in a composition (p. 260; §§2.2, 6).</li>
+<li><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf" rel="noopener noreferrer"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: peepal-tree illustration of the four aspects and definite conduct in the first three orders (p. 113; §5); justice on the basis of relationships, <em>dharma</em> on the basis of orderliness, and truth on the basis of existence (p. 120; §8.3).</li>
 </ul>
 <h3 id="related-studies">Related studies</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"><em>The Ontology of Coexistence</em></a>, especially §1.3 on definite insentient mutuality and §1.10 on composition and assemblies.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"><em>From Unit Activity to Human Orderliness</em></a>, especially §§2–5 on effort–motion–result, the four aspects, and compositional closure, and §8.3 and §11.1 on evaluation and justice as mutual satisfaction.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"><em>The Epistemology of Coexistence</em></a>, especially §1.4 on the six perspectives and on <em>niyam-niyantran-santulan</em> with <em>nyāya-dharma-satya</em>.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a>, especially §1.3 on definite insentient mutuality and §1.10 on composition and assemblies.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" rel="noopener noreferrer"><em>From Unit Activity to Human Orderliness</em></a>, especially §§2–5 on effort–motion–result, the four aspects, and compositional closure, and §8.3 and §11.1 on evaluation and justice as mutual satisfaction.</li>
+<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html" rel="noopener noreferrer"><em>The Epistemology of Coexistence</em></a>, especially §1.4 on the six perspectives and on <em>niyam-niyantran-santulan</em> with <em>nyāya-dharma-satya</em>.</li>
 </ul></main>
 <script>
 (() => {
@@ -1076,7 +1094,7 @@
       prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
     }
 
-    if (idx < 0 || idx >= sections.length - 1) {
+    if (idx >= sections.length - 1) {
       setDisabled(next, true, "Next section \u2192");
     } else {
       next.classList.remove("is-disabled");
@@ -1097,6 +1115,9 @@
     const target = document.getElementById(id);
     if (!target) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    history.pushState(null, "", `#${encodeURIComponent(id)}`);
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   };
 

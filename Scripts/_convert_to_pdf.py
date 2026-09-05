@@ -8,6 +8,10 @@ from pathlib import Path
 from urllib.parse import quote, unquote, urlparse
 
 import markdown
+from bs4 import BeautifulSoup
+
+from _safe_study_html import sanitize_author_html
+from _verify_study_svgs import verify_study_svgs, verify_svg_file
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION
 from _common import (
@@ -19,6 +23,7 @@ from _common import (
     is_linkable_reference_file,
     site_base_url,
     study_md,
+    write_text_lf,
 )
 from _glossary_tooltips import apply_glossary_tooltips, load_glossary, wrap_tables_for_scroll
 from _reference_artifacts import public_delivery_url
@@ -40,7 +45,7 @@ _INLINE_MATH_CAPTURE = re.compile(
     r"(?<!\\)\$(?!\$)((?:\\.|[^$\\])+?)(?<!\\)\$(?!\$)",
 )
 _DISPLAY_MATH_CAPTURE = re.compile(r"\$\$([\s\S]+?)\$\$")
-_MATH_PLACEHOLDER = "\x00MATH_{idx}\x00"
+_MATH_PLACEHOLDER = "\ue000MATH_{idx}\ue001"
 _CODE_FENCE = re.compile(r"^```[\s\S]*?^```[^\n]*$", re.MULTILINE)
 _INLINE_CODE = re.compile(r"(`+)(?:(?!\1).)+?\1")
 _CODE_PLACEHOLDER = "\x00CODE_{idx}\x00"
@@ -100,7 +105,7 @@ def restore_latex_math(html_body: str, segments: list[str]) -> str:
     def repl(match: re.Match[str]) -> str:
         return segments[int(match.group(1))]
 
-    return re.sub(r"\x00MATH_(\d+)\x00", repl, html_body)
+    return re.sub(r"\ue000MATH_(\d+)\ue001", repl, html_body)
 
 
 def _load_katex_css() -> str:
@@ -588,7 +593,7 @@ def _study_section_nav_js() -> str:
       prev.textContent = `\\u2190 ${sectionLabel(sections[idx - 1])}`;
     }
 
-    if (idx < 0 || idx >= sections.length - 1) {
+    if (idx >= sections.length - 1) {
       setDisabled(next, true, "Next section \\u2192");
     } else {
       next.classList.remove("is-disabled");
@@ -609,6 +614,9 @@ def _study_section_nav_js() -> str:
     const target = document.getElementById(id);
     if (!target) return;
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    history.pushState(null, "", `#${encodeURIComponent(id)}`);
+    target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
     target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   };
 
@@ -722,17 +730,34 @@ def _term_tip_js() -> str:
 def _mermaid_loader_html(html_body: str) -> str:
     if 'class="mermaid"' not in html_body:
         return ""
+    version = json.loads((SCRIPTS_DIR / "package.json").read_text(encoding="utf-8"))["dependencies"]["mermaid"]
+    if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", version):
+        raise ValueError("Pin Mermaid to an exact version shared by browser and PDF rendering")
     return """<script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-mermaid.initialize({
-  startOnLoad: true,
-  theme: prefersDark ? "dark" : "neutral",
-  securityLevel: "loose",
-  flowchart: { htmlLabels: true, useMaxWidth: true },
-});
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@__VERSION__/dist/mermaid.esm.min.mjs";
+const system = window.matchMedia("(prefers-color-scheme: dark)");
+const diagrams = Array.from(document.querySelectorAll(".mermaid"), node => ({ node, source: node.textContent }));
+let queue = Promise.resolve();
+let generation = 0;
+const render = () => {
+  queue = queue.then(async () => {
+    const dark = document.documentElement.dataset.theme === "dark" || (!document.documentElement.dataset.theme && system.matches);
+    const theme = dark ? "dark" : "neutral";
+    mermaid.initialize({ startOnLoad: false, theme, securityLevel: "strict", flowchart: { htmlLabels: true, useMaxWidth: true } });
+    const run = ++generation;
+    for (const [index, { node, source }] of diagrams.entries()) {
+      // Keep the old figure in place until its replacement is ready.
+      const { svg } = await mermaid.render(`study-diagram-${run}-${index}`, source);
+      node.innerHTML = svg;
+      node.dataset.diagramTheme = theme;
+    }
+  }).catch(error => console.error("Study diagram could not render", error));
+};
+new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+system.addEventListener("change", render);
+render();
 </script>
-"""
+""".replace("__VERSION__", version)
 
 
 _STUDY_DARK_DECLARATIONS = """
@@ -990,7 +1015,7 @@ def _study_seo_head_html(
     }
     if date_modified_iso:
         schema["dateModified"] = date_modified_iso
-    schema_json = json.dumps(schema, ensure_ascii=False, separators=(",", ":"))
+    schema_json = json.dumps(schema, ensure_ascii=False, separators=(",", ":")).replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026")
     return f"""{og_bits}
 <script type="application/ld+json">
 {schema_json}
@@ -1004,6 +1029,7 @@ def convert_to_html(
     include_web_chrome: bool = False,
 ) -> Path:
     output_path = input_path.with_suffix(".html")
+    verify_study_svgs(input_path)
     md_text_raw = input_path.read_text(encoding="utf-8")
     md_text = strip_status_for_pdf(md_text_raw) if STATUS_MD_RE.search(md_text_raw) else md_text_raw
 
@@ -1020,6 +1046,14 @@ def convert_to_html(
         md_for_html,
         extensions=["tables", "fenced_code", "smarty"],
     )
+    html_body = sanitize_author_html(html_body)
+    # Raw <img> authoring must pass the same SVG gate as Markdown images.
+    for image in BeautifulSoup(html_body, "html.parser").find_all("img", src=True):
+        source = urlparse(image["src"])
+        if not source.scheme and not source.netloc and source.path.lower().endswith(".svg"):
+            errors = verify_svg_file((input_path.parent / unquote(source.path)).resolve())
+            if errors:
+                raise ValueError("Unsafe study figure: " + "; ".join(errors))
     html_body = re.sub(
         r'<p>\[blank p[.\-]\s*([^\]]+)\]</p>',
         r'<div class="blank-page"><span class="blank-page-label">[p. \1]</span></div>',
@@ -1148,7 +1182,7 @@ def convert_to_html(
     outline: 2px solid #13405c;
     outline-offset: 2px;
   }
-  h2[id] {
+  h2[id], h3[id], h4[id], main[id] {
     scroll-margin-top: calc(var(--study-toolbar-height, 88px) + 10px);
   }
   .table-scroll {
@@ -1400,7 +1434,14 @@ def convert_to_html(
      on screen is confined to @media screen. The bare rules and the @media
      print block above remain the print baseline and are left alone. */
   @media screen {
+    html { color-scheme: light; }
+    html[data-theme="dark"] { color-scheme: dark; }
+    @media (prefers-color-scheme: dark) {
+      html:not([data-theme="light"]) { color-scheme: dark; }
+    }
     body {
+      background: #fff;
+      overflow-wrap: anywhere;
       font-size: 17px;
       line-height: 1.62;
       max-width: 46rem;
@@ -1432,15 +1473,26 @@ def convert_to_html(
       margin-top: 1.45em;
     }
     h4 { font-size: 1.0rem; }
+    /* Long inline formulae need their own scroll region, just like display
+       equations and tables; they must not widen the whole reading page. */
+    .katex { display: inline-block; max-width: 100%; overflow-x: auto; vertical-align: middle; }
+    .katex-display > .katex { display: block; overflow: visible; }
+
   }
   @media screen and (min-width: 760px) {
     .study-toc { max-width: 46rem; }
   }
 
   @media (max-width: 640px) {
+    .study-toolbar-row--primary { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .study-toolbar-actions {
+      grid-column: 1;
+      justify-self: stretch;
+      justify-content: space-between;
       gap: 5px;
     }
+    .study-toolbar-link, .study-theme-toggle { min-height: 44px; display: inline-flex; align-items: center; box-sizing: border-box; }
+    .study-toolbar-section { display: block; line-height: 44px; }
     .study-toolbar-feedback { font-size: 11px; }
     .study-toolbar-section { font-size: 11px; }
     .study-toc-nav { max-height: 52vh; }
@@ -1728,7 +1780,7 @@ def convert_to_html(
 </body>
 </html>"""
 
-    output_path.write_bytes(full_html.encode("utf-8"))
+    write_text_lf(output_path, full_html)
     return output_path
 
 

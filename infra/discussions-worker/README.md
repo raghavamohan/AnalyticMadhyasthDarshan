@@ -66,6 +66,21 @@ Magic-link responses then include `verifyUrl` in JSON (never enable in productio
 
 ## Deploy
 
+The `submission-worker-deploy.yml` matrix bundle-checks and tests both API
+Workers on PRs and deploys them after merge to `master`. The commands below
+remain available for an intentional manual deployment. No new D1 migration is
+needed for the Phase 1 magic-link change: the existing token column now stores
+SHA-256 digests, and consumption uses one conditional `UPDATE ... RETURNING`.
+Links issued before the change are intentionally invalidated; request a new
+link. The change does not remove existing comments or user identities.
+
+POST requests require a trusted Origin and JSON content type. Add local preview
+origins explicitly with `ALLOWED_ORIGINS`. Responses are private/no-store,
+including comment lists whose permissions depend on the signed-in reader.
+Existing discussion sessions remain signed cookies; per-session server-side
+revocation and additional abuse quotas remain follow-up work in the
+[website plan](../../docs/website-improvement-plan.md).
+
 ```powershell
 npx wrangler deploy
 ```
