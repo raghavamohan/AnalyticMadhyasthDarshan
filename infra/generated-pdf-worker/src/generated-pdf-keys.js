@@ -6,6 +6,8 @@ export const GENERATED_PDF_KEYS = [
   "Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-MD-TOPOS-And-The-State-Dynamic-Model.pdf",
   "Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Wolfram-Computational-Universe-And-EMR.pdf",
   "Studies/Aesthetics/Aesthetics.pdf",
+  "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan-notes.pdf",
+  "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
   "Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf",
   "Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf",
