@@ -1,3 +1,4 @@
+import { operationId, operationPaths, digestPayload, claimOperation, finishOperation, receiptResponse } from './operations.js';
 import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
 import { Router } from 'itty-router';
 import {
@@ -106,13 +107,21 @@ async function githubRequest(path, method, body, env, userToken = null, stats = 
       'User-Agent': 'Cloudflare-Worker-Submission-Portal',
     },
   };
+  if (method !== 'GET' && env.beforeGitHubWrite) await env.beforeGitHubWrite();
+  if (body && env.operationId) {
+    body = {...body};
+    if (typeof body.body === 'string') body.body += '\n\nPortal-Operation: ' + env.operationId;
+    if (typeof body.message === 'string') body.message += ' [portal:' + env.operationId + ']';
+  }
   if (body) {
     options.body = JSON.stringify(body);
   }
   const response = await fetch(url, options);
   if (!response.ok) {
     const text = await response.text();
-    throw new Error(`GitHub API Error (${response.status}): ${text}`);
+    const error = new Error(`GitHub API Error (${response.status}): ${text}`);
+    error.status = response.status === 409 ? 409 : response.status === 404 ? 404 : 502;
+    throw error;
   }
   if (response.status === 204) {
     return null;
@@ -769,7 +778,9 @@ async function fetchPrReviewState(prNumber, env, userToken, stats) {
     }
   }
   if ([...latestByReviewer.values()].some((review) => review.state === 'CHANGES_REQUESTED')) {
-    return 'changes_requested';
+    return {state:'changes_requested', feedback:[...latestByReviewer.values()]
+      .filter(review => review.state === 'CHANGES_REQUESTED').slice(0,5)
+      .map(review => ({reviewer:review.user?.login || 'Reviewer', body:String(review.body || '').slice(0,3000), url:review.html_url}))};
   }
   return null;
 }
@@ -1038,23 +1049,20 @@ async function aggregateCheckRuns(sha, env, stats) {
     null,
     stats
   );
-  const runs = (data.check_runs || []).filter((run) =>
-    /study\s*pr/i.test(run.name || '') || /study-pr/i.test(run.name || '')
-  );
-  const relevant = runs.length ? runs : data.check_runs || [];
-  if (!relevant.length) {
-    return { state: 'pending', summary: null };
+  // Keep the latest attempt of each named check; an old failed rerun must not
+  // mask its replacement. Include every current check, not only study-pr.
+  const latest = new Map();
+  for (const run of data.check_runs || []) {
+    const key = `${run.app?.id || ''}:${run.name}`;
+    if (!latest.has(key) || Number(run.id) > Number(latest.get(key).id)) latest.set(key, run);
   }
-  if (relevant.some((run) => run.status !== 'completed')) {
-    return { state: 'pending', summary: relevant[0]?.name || 'CI' };
-  }
-  if (relevant.some((run) => run.conclusion === 'failure' || run.conclusion === 'cancelled' || run.conclusion === 'timed_out')) {
-    return { state: 'failure', summary: relevant.find((run) => run.conclusion === 'failure')?.name || relevant[0]?.name };
-  }
-  if (relevant.every((run) => run.conclusion === 'success' || run.conclusion === 'skipped' || run.conclusion === 'neutral')) {
-    return { state: 'success', summary: relevant[0]?.name || 'CI' };
-  }
-  return { state: 'pending', summary: relevant[0]?.name || 'CI' };
+  const relevant = [...latest.values()];
+  const failures = relevant.filter(run => ['failure','cancelled','timed_out','action_required','startup_failure','stale'].includes(run.conclusion));
+  const details = failures.slice(0,8).map(run => ({name:run.name, conclusion:run.conclusion,
+    title:String(run.output?.title || '').slice(0,300), summary:String(run.output?.summary || '').slice(0,2000), url:run.html_url || run.details_url}));
+  const state = failures.length ? 'failure' : !relevant.length || data.total_count > 100 || relevant.some(run => run.status !== 'completed') ? 'pending'
+    : relevant.every(run => ['success','skipped','neutral'].includes(run.conclusion)) ? 'success' : 'pending';
+  return {state, summary:failures[0]?.name || relevant[0]?.name || null, details};
 }
 
 function portalUrl(params) {
@@ -1475,7 +1483,8 @@ async function buildDashboard(session, env) {
     const full = prDetailsCache.get(num);
     const summary = summarizePullRequest(full);
     const reviewState = await fetchPrReviewState(num, env, userToken, stats);
-    if (reviewState === 'changes_requested') {
+    if (reviewState?.state === 'changes_requested') {
+      row.feedback = reviewState.feedback;
       summary.changesRequested = true;
       if (row.stage === 'pr-open') {
         row.stage = 'changes_requested';
@@ -1508,6 +1517,7 @@ async function buildDashboard(session, env) {
       state: summary.state,
       url: `${row.pullRequest.url}/checks`,
       summary: summary.summary,
+      details: summary.details,
     };
   });
 
@@ -1877,17 +1887,25 @@ router.get('/api/study-source', async (request, env) => {
     } else {
       return jsonResponse(request, env, { success: false, error: 'Only study and note Markdown can be loaded.' }, 400);
     }
-    let content;
+    let content, sourceSha;
     try {
-      content = await githubRawFile(filePath, env);
+      const file = await githubRequest(`/contents/${filePath}?ref=${encodeURIComponent(defaultBranch(env))}`, 'GET', null, env);
+      content = decodeBase64Content(file.content); sourceSha = file.sha;
     } catch (e) {
       return jsonResponse(request, env, { success: false, error: `No published Markdown found for "${slug}".` }, 404);
     }
-    return jsonResponse(request, env, { success: true, slug, artifactType, fileName: fileName || `${slug}.md`, content });
+    return jsonResponse(request, env, { success: true, slug, artifactType, fileName: fileName || `${slug}.md`, content, sourceSha });
   } catch (err) {
     return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
   }
 });
+
+function assertSourceVersion(expected, actual) {
+  if (!/^[a-f0-9]{40,64}$/.test(expected || '') || expected !== actual) {
+    const error = new Error('The source changed, or no source version was loaded. Download your draft backup, load the current source, compare your changes and submit again.');
+    error.status = 409; throw error;
+  }
+}
 
 function revisionTarget(pr, session) {
   if (!pr || pr.state !== 'open') {
@@ -1942,6 +1960,7 @@ router.get('/api/revision-source', async (request, env) => {
       pullRequestUrl: pr.html_url,
       slug: target.slug,
       content: decodeBase64Content(fileData.content),
+      sourceSha: fileData.sha,
     });
   } catch (err) {
     return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
@@ -1974,6 +1993,7 @@ router.post('/api/revise', async (request, env) => {
       null,
       env
     );
+    assertSourceVersion(data.sourceSha, fileData.sha);
     await githubRequest(`/contents/${target.filePath}`, 'PUT', {
       message: `Revise ${target.slug} via My Submissions`,
       content: artifact.encodedContent,
@@ -2058,13 +2078,19 @@ router.post('/api/submit', async (request, env) => {
 
     // Updates to an existing applied study must target Applications/<slug>/.
     // Brand-new studies proposed via the portal are always created under Studies/.
-    const branchName = `submission-${slug}-${Date.now()}`;
+    const branchName = `submission-${slug}-${env.operationId || crypto.randomUUID()}`;
     const filePath = artifact.filePath;
     const base = defaultBranch(env);
 
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env);
     const baseSha = baseRef.object.sha;
 
+    if (!isNew && artifact.artifactType !== 'presentation') {
+      let sourceFile;
+      try { sourceFile = await githubRequest(`/contents/${filePath}?ref=${baseSha}`, 'GET', null, env); }
+      catch (error) { if (error.status !== 404) throw error; }
+      if (sourceFile) assertSourceVersion(data.sourceSha, sourceFile.sha);
+    }
     await githubRequest('/git/refs', 'POST', {
       ref: `refs/heads/${branchName}`,
       sha: baseSha,
@@ -2120,7 +2146,7 @@ router.post('/api/submit', async (request, env) => {
         filePath,
       });
     } catch (innerErr) {
-      await deleteBranchQuietly(branchName, env);
+      // Keep the branch for receipt reconciliation or maintainer recovery.
       throw innerErr;
     }
   } catch (err) {
@@ -2363,17 +2389,84 @@ router.post('/api/status-change', async (request, env) => {
   }
 });
 
+router.get('/api/operation', forwardContributionOperation);
+
 router.all('*', (request, env) => new Response('Not Found', { status: 404, headers: corsHeaders(request, env) }));
+
+// One object per GitHub account serializes contribution attempts across tabs
+// and regions. Only small receipts/hashes are persisted, never drafts or tokens.
+export class ContributorOperations {
+  constructor(state, env) { this.state = state; this.env = env; }
+  async fetch(request) {
+    const session = requireSession(await getSession(request, this.env));
+    const url = new URL(request.url);
+    if (request.method === 'GET') {
+      const id = url.searchParams.get('id');
+      if (!operationId(id)) return Response.json({error:'Invalid submission receipt.'}, {status:400});
+      const receipt = await this.state.storage.get('op:' + id);
+      if (!receipt) return Response.json({success:false, notStarted:true, error:'This receipt has not arrived. Retry only with this same receipt, because the original request may still be in transit.'});
+      if (receipt.response) return Response.json({...receipt.response, completed:true});
+      // Reconcile external success after the connection or worker was interrupted.
+      // Never interpret a negative search (which can lag GitHub) as permission to resend.
+      if (receipt.phase === 'writing' || receipt.phase === 'uncertain') {
+        const marker = `Portal-Operation: ${id}`;
+        const found = await githubSearch(`repo:${REPO} "${id}" in:body`, this.env, session.accessToken);
+        const item = found.items.find(item => String(item.body || '').split('\n').some(line => line.trim() === marker));
+        if (item) {
+          const response = Response.json({success:true, url:item.html_url, number:item.number, issueNumber:item.pull_request ? undefined : item.number,
+            warning:issueLabels(item).includes(receipt.label) ? undefined : 'The GitHub item exists, but a maintainer should check its workflow label before review.'});
+          return finishOperation(this.state.storage, receipt, response, false);
+        }
+        if (receipt.path === '/api/revise' && receipt.prNumber) {
+          const pr = await githubRequest(`/pulls/${receipt.prNumber}`, 'GET', null, this.env, session.accessToken);
+          const commits = await githubRequest(`/commits?sha=${pr.head.sha}&per_page=100`, 'GET', null, this.env);
+          if (commits.some(commit => String(commit.commit?.message || '').includes(`[portal:${id}]`)))
+            return finishOperation(this.state.storage, receipt, Response.json({success:true, url:pr.html_url, number:pr.number}), false);
+        }
+      }
+      return Response.json({success:false, uncertain:true, operationId:id,
+        error:'The result is not confirmed yet. Check again shortly. If this persists, ask a maintainer to inspect this receipt on GitHub; a second copy has not been sent.' + (receipt.slug ? ` Recovery branch: submission-${receipt.slug}-${id}.` : '')});
+    }
+    const raw = await request.clone().text();
+    if (raw.length > 18000000) return Response.json({error:'Submission exceeds 18 MB.'}, {status:413});
+    const data = JSON.parse(raw);
+    if (!operationId(data.operationId)) return Response.json({success:false, error:'A submission receipt is required. Refresh the portal and try again.'}, {status:400});
+    const fingerprint = await digestPayload(url.pathname, data);
+    const claim = await claimOperation(this.state.storage, data.operationId, fingerprint, url.pathname);
+    if (claim.response) return claim.response;
+    const receipt = {...claim.receipt, prNumber:data.prNumber || null, slug:String(data.slug || '').slice(0,60), label:url.pathname === '/api/propose' ? 'study-proposal' : data.isNew ? 'new-study' : 'study-update'};
+    let wrote = false;
+    const env = {...this.env, operationId:data.operationId, beforeGitHubWrite:async () => {
+      if (!wrote) {
+        await this.state.storage.put('op:' + receipt.id, {...receipt, phase:'writing'});
+        wrote = true;
+      }
+    }};
+    let response;
+    try { response = await router.fetch(request, env); }
+    catch (_) { response = Response.json({success:false, error:'The submission did not complete.'}, {status:500}); }
+    return finishOperation(this.state.storage, receipt, response, wrote);
+  }
+}
+
+async function forwardContributionOperation(request, env) {
+  const session = requireSession(await getSession(request, env));
+  if (!env.CONTRIBUTOR_OPERATIONS) return jsonResponse(request, env, {success:false, error:'Submission recovery is temporarily unavailable. Your browser draft is safe; try again later.'},503);
+  const object = env.CONTRIBUTOR_OPERATIONS.get(env.CONTRIBUTOR_OPERATIONS.idFromName(String(session.userId || session.login.toLowerCase())));
+  return object.fetch(request);
+}
 
 export default {
   async fetch(request, env, ctx) {
     let response = rejectUnsafeWrite(request, allowedOrigins(env), { machinePath: '/api/notify' });
     if (!response) {
       try {
-        response = await router.fetch(request, env, ctx);
-      } catch {
-        response = new Response(JSON.stringify({ error: 'Request failed. Please try again.' }), {
-          status: 500, headers: { 'Content-Type': 'application/json' },
+        const path = new URL(request.url).pathname;
+        if (request.method === 'POST' && operationPaths.has(path)) response = await forwardContributionOperation(request, env);
+        else response = await router.fetch(request, env, ctx);
+      } catch (error) {
+        response = new Response(JSON.stringify({ error: error.status === 401 ? error.message : 'Request failed. Check the saved submission result before retrying a contribution.' }), {
+          status: error.status || 500, headers: { 'Content-Type': 'application/json' },
         });
       }
     }
