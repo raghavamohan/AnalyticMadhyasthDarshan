@@ -290,21 +290,52 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     margin-left: auto;
   }
 
-  .page-nav-submit {
+  .nav-tool { position: relative; display: flex; }
+
+  .page-nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 40px;
     font-family: var(--sans);
     font-size: 13px;
     font-weight: 600;
     color: var(--accent);
     text-decoration: none;
     white-space: nowrap;
-    padding: 5px 12px;
+    padding: 5px 8px;
     border: 1px solid transparent;
     border-radius: 999px;
   }
-  .page-nav-submit:hover {
+  .page-nav-link:hover {
     background: var(--accent-soft);
     border-color: #a5c4d9;
   }
+  .page-nav-link svg { width: 18px; height: 18px; flex: 0 0 auto; }
+  .page-nav-link:focus-visible, .page-nav-tools .theme-toggle:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  .nav-tooltip {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    z-index: 1;
+    width: 240px;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 13px;
+    line-height: 1.5;
+    visibility: hidden;
+  }
+  .nav-tooltip::before { content: ""; position: absolute; top: -8px; left: 0; right: 0; height: 8px; }
+  .nav-tool:not(.tooltip-dismissed):hover .nav-tooltip,
+  .nav-tool:not(.tooltip-dismissed):focus-within .nav-tooltip { visibility: visible; }
 
   .page-nav-label {
     margin: 0;
@@ -434,11 +465,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     margin: 0 0 5px;
     padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
-  }
-  .browse-heading p {
-    margin: 0;
-    color: var(--text-muted);
-    font-size: 15px;
   }
   .toolbar {
     display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 12px;
@@ -1154,7 +1180,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   .contribute-paths {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
     gap: 16px;
     margin: 16px 0 4px;
     align-items: stretch;
@@ -1266,7 +1292,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   [data-theme="dark"] .contribute-path--feedback h3 { color: var(--warm); }
   [data-theme="dark"] .contribute-path--study h3 { color: var(--accent); }
   [data-theme="dark"] .theme-toggle { background: #1e1b18; }
-  [data-theme="dark"] .page-nav-submit:hover { background: var(--accent-soft); border-color: #3d6278; }
+  [data-theme="dark"] .page-nav-link:hover { background: var(--accent-soft); border-color: #3d6278; }
   [data-theme="dark"] .skip-link { color: #1a1815; }
   [data-theme="dark"] .search-clear { color: #aca194; }
   [data-theme="dark"] .field {
@@ -1317,7 +1343,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       height: 0;
     }
     .toc { flex-wrap: wrap; flex: 1 1 100%; min-width: 0; }
-    .page-nav-tools { margin-left: auto; }
+    .page-nav-tools { position: relative; margin-left: auto; }
+    .nav-tool { position: static; }
+    .nav-tooltip { left: 0; right: 0; width: auto; }
     .section { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     .catalog-group { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
     .browse-heading { scroll-margin-top: calc(var(--page-nav-offset, 56px) + 12px); }
@@ -1327,6 +1355,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
 
   @media (max-width: 600px) {
+    .toc { gap: 4px; }
+    .toc a { padding: 6px 9px; font-size: 12px; }
+    .page-nav-tools { width: 100%; justify-content: space-between; gap: 4px; }
+    .page-nav-search .nav-link-label { display: none; }
+    .page-nav-tools .theme-toggle { min-width: 36px; min-height: 40px; padding: 5px 8px; }
+    #theme-toggle-label { display: none; }
     .page { padding: calc(var(--page-nav-offset, 56px) + 18px) 14px 44px; }
     .hero { padding: 0; }
     .section-card { padding: 18px 16px; }
@@ -1395,7 +1429,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <p class="scope" id="hero-scope"><!-- @hero-scope@ --></p>
 </header>
 
-<nav class="page-nav" aria-label="On this page">
+<nav class="page-nav" aria-label="Study navigation">
   <div class="page-nav-inner">
     <ul class="toc" id="toc">
       <li><a href="#start-here">Start here</a></li>
@@ -1405,7 +1439,18 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li><a href="#about">About</a></li>
     </ul>
     <div class="page-nav-tools">
-      <a class="page-nav-submit" href="submit.html">My Submissions</a>
+      <div class="nav-tool">
+        <a class="page-nav-link page-nav-search" href="search.html" aria-label="Search" aria-describedby="nav-search-tip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span class="nav-link-label">Search</span></a>
+        <span class="nav-tooltip" role="tooltip" id="nav-search-tip">Find words and phrases inside studies and companion notes.</span>
+      </div>
+      <div class="nav-tool">
+        <a class="page-nav-link" href="notebook.html" aria-describedby="nav-notes-tip">My Notes</a>
+        <span class="nav-tooltip" role="tooltip" id="nav-notes-tip">Open your highlights, notes and offline studies saved in this browser.</span>
+      </div>
+      <div class="nav-tool">
+        <a class="page-nav-link page-nav-submit" href="submit.html" aria-describedby="nav-submit-tip">My Submissions</a>
+        <span class="nav-tooltip" role="tooltip" id="nav-submit-tip">Use GitHub sign-in to propose studies, submit drafts and follow reviews.</span>
+      </div>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
         <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">&#9789;</span>
         <span id="theme-toggle-label">Dark</span>
@@ -1629,9 +1674,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   <div class="browse-heading" id="browse-studies">
     <h2>Browse all studies</h2>
-    <p>Search the complete collection by topic, status, or type. Released studies are stable versions, drafts are available for review, and in-progress studies are open for discussion and development.</p>
-    <p><a href="search.html">Find words and phrases inside studies and companion notes →</a></p>
-    <p><a href="notebook.html">My notes &amp; saved studies →</a> <span class="muted">Private to this browser.</span></p>
   </div>
 
   <div class="toolbar" role="search">
@@ -2459,6 +2501,22 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 })();
 
 (() => {
+  const navTools = Array.from(document.querySelectorAll(".nav-tool"));
+  navTools.forEach(tool => {
+    tool.addEventListener("pointerenter", () => tool.classList.remove("tooltip-dismissed"));
+    tool.addEventListener("focusin", () => tool.classList.remove("tooltip-dismissed"));
+    tool.addEventListener("pointerleave", () => {
+      if (!tool.contains(document.activeElement)) tool.classList.remove("tooltip-dismissed");
+    });
+    tool.addEventListener("focusout", event => {
+      if (!tool.contains(event.relatedTarget)) tool.classList.remove("tooltip-dismissed");
+    });
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") navTools.forEach(tool => {
+      if (tool.matches(":hover, :focus-within")) tool.classList.add("tooltip-dismissed");
+    });
+  });
   const tocLinks = Array.from(document.querySelectorAll("#toc a"));
   const mainSpyIds = ["start-here", "browse-studies", "approach", "contribute", "about"];
   let lockActiveUntil = 0;
