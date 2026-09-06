@@ -360,6 +360,23 @@ database migration for the Phase 1 security changes. The discovery-based test
 runner additionally runs `_test_portal_security.py` (including real concurrent
 SQLite magic-link consumption) and `_test_safe_study_html.py`.
 
+Phase 4 adds `_test_contributor.py`, bringing the enforced total to 41 suites.
+It checks draft/receipt contracts, preview structure and content-derived asset
+versions. API route fixtures also verify stale-source rejection and receipt
+replay without another GitHub write. The submission Worker now includes the
+`contributor-receipts-v1` migration and `CONTRIBUTOR_OPERATIONS` SQLite-backed
+Durable Object binding. The existing protected-branch Wrangler deployment
+provisions it; PRs only test and bundle. The submission matrix entry also runs
+the idempotent security-header synchronizer after deployment so the preview
+frame and embedded fonts are permitted by the live CSP. The existing Cloudflare
+token needs the response-transform permissions documented for that tool.
+There is no new secret. See
+[`docs/contributor-reliability.md`](../docs/contributor-reliability.md) for
+deployment sequencing and conservative recovery of uncertain GitHub writes.
+Portal-only assets live under `Studies/portal/`; they do not change the PDF
+renderer or require PDF regeneration. Run
+`python Scripts/_build_contributor_assets.py` after changing those assets.
+
 The Markdown PDF build selector and both PDF workflow path filters include
 `_safe_study_html.py` and `_pdf_resource_policy.cjs`, so changes to the security
 boundary cannot bypass generated-document verification.

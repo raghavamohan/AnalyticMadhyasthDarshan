@@ -184,6 +184,8 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 @media (prefers-color-scheme:dark){html:not([data-theme="light"]){--bg:#1a1815;--surface:#26231e;--text:#e6dfd6;--text-muted:#aca194;--accent:#5ba3d3;--accent-soft:#233e52;--accent-hover:#7ebbed;--warm:#d5a477;--warm-soft:#423020;--border:#423b33;}html:not([data-theme="light"]) h1,html:not([data-theme="light"]) h2,html:not([data-theme="light"]) label{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-title{color:#f5f1ec;}html:not([data-theme="light"]) .submission-card-actions,html:not([data-theme="light"]) .submission-files{border-top-color:var(--border);}html:not([data-theme="light"]) input[type="text"],html:not([data-theme="light"]) input[type="file"],html:not([data-theme="light"]) select,html:not([data-theme="light"]) textarea,html:not([data-theme="light"]) input[type="number"]{background:#1e1b18;color:var(--text);}html:not([data-theme="light"]) button.submit-btn,html:not([data-theme="light"]) .action-btn.primary{color:#1a1815;}html:not([data-theme="light"]) .alert.success,html:not([data-theme="light"]) .proposal-status.approved,html:not([data-theme="light"]) .stage-merged,html:not([data-theme="light"]) .catalog-released,html:not([data-theme="light"]) .ci-success{background:#133a20;color:#81c995;border-color:#1b5e33;}html:not([data-theme="light"]) .alert.error,html:not([data-theme="light"]) .proposal-status.error,html:not([data-theme="light"]) .ci-failure{background:#471815;color:#f28b82;border-color:#712b26;}html:not([data-theme="light"]) .step-strip .step.done{background:#133a20;color:#81c995;}html:not([data-theme="light"]) .md-preview{background:#1e1b18;}html:not([data-theme="light"]) .md-preview h1,html:not([data-theme="light"]) .md-preview h2,html:not([data-theme="light"]) .md-preview h3{color:#f5f1ec;}html:not([data-theme="light"]) .fmt-checklist{background:#1e1b18;}}
 @media (prefers-color-scheme:dark){html:not([data-theme="light"]) .action-btn.danger{color:#f28b82;border-color:#712b26;background:#351b18;}html:not([data-theme="light"]) .action-btn.danger:hover{background:#471815;}}
 </style>
+<link rel="stylesheet" href="portal/contributor.css?v=3408cf66f34bf9f7">
+<script src="portal/drafts.js?v=f24389c7c24bcd02"></script>
 </head>
 <body>
 <div class="page">
@@ -222,7 +224,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
       <div id="dashboard-alert" class="alert"></div>
 
       <div id="dashboard-signed-out">
-        <p class="signed-out-lead">Sign in to propose a study, submit a draft, and follow it through review. A free GitHub account is how we track your proposal, pull request, and review history, and how you receive updates. Reading studies never requires an account.</p>
+        <p class="signed-out-lead">Sign in to propose a study, submit a draft, and follow it through review. A free GitHub account tracks your proposals and review history. This is separate from the email sign-in used for study discussions. Reading studies never requires an account.</p>
         <ol class="signed-out-steps">
           <li>Propose a study and wait for maintainer approval.</li>
           <li>Prepare the study from the provided template and submit the draft.</li>
@@ -269,7 +271,22 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 
       <div id="propose-alert" class="alert"></div>
 
-      <form id="propose-form">
+      <div class="draft-tools">
+  <p id="propose-draft-status" role="status" aria-live="polite">Sign in to recover your browser drafts.</p>
+  <div class="draft-buttons">
+    <button type="button" class="auth-btn" id="propose-save-now">Save now</button>
+    <button type="button" class="auth-btn" id="propose-download-draft">Download draft backup</button>
+  </div>
+  <details><summary>Recovery options</summary><div class="draft-buttons">
+    <button type="button" class="auth-btn" id="propose-recover-draft">Recover saved draft</button>
+    <button type="button" class="auth-btn" id="propose-recover-previous">Recover earlier copy</button>
+  </div></details>
+  <p id="propose-operation-status" role="status" aria-live="polite"></p>
+  <button type="button" class="auth-btn" id="propose-check-result" hidden>Check submission result</button>
+</div>
+      <input type="hidden" id="p-draft-id" value="new">
+<button type="button" class="auth-btn" id="p-new-draft">Start another proposal</button>
+<form id="propose-form">
         <div class="form-group">
           <label for="p-title">Proposed title *</label>
           <div class="help-text">Human-readable title. The file slug is derived from this.</div>
@@ -333,11 +350,23 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 
         <div id="propose-review" class="review-box" role="region" aria-label="Review your proposal" hidden></div>
 
+        <p class="help-text">Your proposal and GitHub username will be public. Maintainers review scope before preparing a study workspace; response times vary.</p>
         <button type="submit" class="submit-btn" id="p-submit-btn">Review proposal</button>
       </form>
     </div>
   </section>
 
+  <details id="browser-drafts" hidden>
+    <summary>Saved contributor drafts on this browser</summary>
+    <p>Drafts are saved for each GitHub account, study and file. They are not uploaded until you submit. Anyone using this browser profile can access them; download backups before clearing storage or using another device.</p>
+    <div class="draft-buttons">
+      <button type="button" class="auth-btn" id="saved-drafts-refresh">Refresh saved drafts</button>
+      <label class="auth-btn">Restore a draft backup <input type="file" id="draft-import" accept=".json,application/json"></label>
+      <button type="button" class="auth-btn" id="clear-account-drafts">Remove this account’s browser drafts</button>
+      <button type="button" class="auth-btn" id="recover-legacy-draft" hidden>Recover an older unassigned draft</button>
+    </div>
+    <ul id="saved-draft-list" aria-live="polite"></ul>
+  </details>
   <!-- Draft / Update Form -->
   <section id="submit-tab" class="tab-content">
     <p class="subview-back"><a href="submit.html">&larr; Back to My Submissions</a></p>
@@ -353,6 +382,19 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
       <div id="submit-alert" class="alert"></div>
       <div id="proposal-status" class="proposal-status" role="status" aria-live="polite"></div>
 
+      <div class="draft-tools">
+  <p id="submit-draft-status" role="status" aria-live="polite">Sign in to recover your browser drafts.</p>
+  <div class="draft-buttons">
+    <button type="button" class="auth-btn" id="submit-save-now">Save now</button>
+    <button type="button" class="auth-btn" id="submit-download-draft">Download draft backup</button>
+  </div>
+  <details><summary>Recovery options</summary><div class="draft-buttons">
+    <button type="button" class="auth-btn" id="submit-recover-draft">Recover saved draft</button>
+    <button type="button" class="auth-btn" id="submit-recover-previous">Recover earlier copy</button>
+  </div></details>
+  <p id="submit-operation-status" role="status" aria-live="polite"></p>
+  <button type="button" class="auth-btn" id="submit-check-result" hidden>Check submission result</button>
+</div>
       <form id="submit-form">
         <div class="form-group" id="s-artifact-group" hidden>
           <label for="s-artifact">What are you uploading? *</label>
@@ -431,13 +473,20 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
             <button type="button" class="editor-tab" id="s-tab-preview" role="tab" aria-selected="false" aria-controls="s-preview">Preview</button>
           </div>
           <textarea id="s-content" rows="15" required placeholder="# Title&#10;&#10;Your content here..."></textarea>
-          <div id="s-preview" class="md-preview hidden" role="tabpanel" aria-label="Markdown preview"></div>
+          <div id="s-preview" class="md-preview hidden" role="tabpanel" aria-labelledby="s-tab-preview" tabindex="0">
+            <p class="help-text">Preview checks headings, tables, equations and Mermaid diagrams. Images are listed without downloading them. Publication also applies study metadata, glossary links and PDF pagination; review the CI artifacts before approval.</p>
+            <p id="s-preview-status" role="status"></p>
+            <iframe id="s-preview-frame" title="Study Markdown preview" sandbox="allow-scripts"></iframe>
+          </div>
+          <button type="button" class="auth-btn" id="s-compare">Compare with loaded source</button>
+          <div id="s-diff" class="source-diff" role="region" aria-label="Source comparison" hidden></div>
         </div>
 
         <div class="form-group turnstile-wrap">
           <div id="submit-turnstile" class="cf-turnstile" data-sitekey="0x4AAAAAADoBfrNV5lPeJQWO" data-action="turnstile-spin-v1" data-refresh-expired="auto"></div>
         </div>
 
+        <p class="help-text">Submitting creates a public GitHub pull request. Maintainers review it before publication. Review time varies; My Submissions shows who acts next. Email preferences are on the dashboard.</p>
         <button type="submit" class="submit-btn" id="s-submit-btn">Submit draft</button>
       </form>
     </div>
@@ -455,6 +504,7 @@ const LOGIN_PENDING_KEY = 'amd-login-pending';
 const DASHBOARD_CACHE_MS = 30000;
 
 let currentUser = null;
+let contributionBusy = false;
 let dashboardCache = null;
 let dashboardCacheAt = 0;
 let uploadedPresentation = null;
@@ -610,7 +660,7 @@ const STAGE_LABELS = {
   declined: 'Declined',
   'pr-open': 'Awaiting approval',
   'changes_requested': 'Changes requested',
-  merged: 'Published',
+  merged: 'Merged',
   retired: 'Retired',
   closed: 'Closed',
   'pr-closed': 'PR closed',
@@ -629,15 +679,29 @@ const DASHBOARD_STATE_ORDER = [
 ];
 const UNCATEGORIZED_FILTER_VALUE = '__uncategorized__';
 
-function apiFetch(path, options = {}) {
-  return fetch(API_BASE + path, {
-    credentials: 'include',
-    ...options,
-    headers: { ...(options.method && options.method !== 'GET' ? { 'Content-Type': 'application/json' } : {}), ...(options.headers || {}) },
-  });
+async function apiFetch(path, options = {}) {
+  const read = !options.method || options.method === 'GET';
+  for (let attempt = 0; attempt < (read ? 2 : 1); attempt++) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), read ? 15000 : 90000);
+    try {
+      const response = await fetch(API_BASE + path, {credentials:'include', ...options, signal:controller.signal,
+        headers:{...(!read ? {'Content-Type':'application/json'} : {}), ...(options.headers || {})}});
+      if (read && attempt === 0 && [502,503,504].includes(response.status)) { await new Promise(r => setTimeout(r,700)); continue; }
+      return response;
+    } catch (error) {
+      if (!read || attempt) throw new Error(read ? 'Could not connect. Check your connection and retry.' : 'The connection ended before confirmation. Your draft and receipt are saved; choose Check submission result.');
+      await new Promise(r => setTimeout(r,700));
+    } finally { clearTimeout(timeout); }
+  }
+}
+function safeGitHubUrl(value) {
+  try { const url = new URL(value); if (url.origin === 'https://github.com' && url.pathname.startsWith('/raghavamohan/AnalyticMadhyasthDarshan/')) return url.href; } catch (_) {}
+  return 'https://github.com/raghavamohan/AnalyticMadhyasthDarshan';
 }
 
-function startGitHubLogin() {
+async function startGitHubLogin() {
+  await contributor.flush();
   try { sessionStorage.setItem(LOGIN_PENDING_KEY, '1'); } catch (e) { /* ignore */ }
   window.location.href = API_BASE + '/api/auth/github?return_to=' + encodeURIComponent(window.location.href);
 }
@@ -701,11 +765,21 @@ function updateAuthUi(loggedIn) {
   updateSubmitAvailability();
 }
 
+let authRequest = 0;
 async function refreshAuthState() {
+  const requestId = ++authRequest;
   try {
     const res = await apiFetch('/api/auth/me');
     const data = await res.json();
+    if (requestId !== authRequest) return;
+    if (!res.ok) throw new Error('Could not check sign-in. Refresh to try again.');
+    if (currentUser?.login !== data.login) {
+      dashboardCache = null; dashboardCacheAt = 0; dashboardRequest++; proposalOptionsLoaded = false;
+      document.getElementById('dashboard-cards').replaceChildren();
+      notifyPrefs = {configured:false,email:null,enabled:false}; document.getElementById('notify-bar').hidden = true;
+    }
     currentUser = data.loggedIn ? data : null;
+    await contributor.auth(currentUser);
     const userEl = document.getElementById('auth-user');
     if (currentUser) {
       try { sessionStorage.removeItem(LOGIN_PENDING_KEY); } catch (e) { /* ignore */ }
@@ -735,14 +809,26 @@ async function refreshAuthState() {
       const mode = document.getElementById('s-mode').value;
       if (mode === 'new') ensureProposalOptions();
       if (mode === 'revise') loadRevisionSource();
+      if (mode === 'update' && !document.getElementById('s-content').value) {
+        if (selectedArtifactType() === 'study') loadStudySource({silent:true});
+        const target = document.getElementById('s-target').value;
+        if (selectedArtifactType() === 'note' && target && target !== '__new__') loadStudySource({artifactType:'note',fileName:target,silent:true});
+      }
     }
   } catch (err) {
+    if (requestId !== authRequest) return;
+    currentUser = null; dashboardCache = null;
+    document.getElementById('auth-user').textContent = 'Could not check sign-in. Refresh to try again; download any unsaved work before leaving.';
     updateAuthUi(false);
   }
 }
 
 async function logout() {
-  await apiFetch('/api/auth/logout', { method: 'POST' });
+  try { await contributor.flush(); }
+  catch (_) { if (!confirm('Some work could not be saved. Download its backup before leaving, or choose OK to sign out and discard the unsaved text.')) return; }
+  const response = await apiFetch('/api/auth/logout', { method: 'POST' });
+  if (!response.ok) { showAlert('dashboard','error','Sign-out did not complete. Please retry.'); return; }
+  await contributor.auth(null, {discardUnsaved:true});
   currentUser = null;
   dashboardCache = null;
   document.getElementById('notify-bar').hidden = true;
@@ -764,19 +850,23 @@ function renderNotifyBar() {
 
 async function loadNotifyPrefs() {
   if (!currentUser) return;
+  const identity = currentUser.login;
   try {
     const res = await apiFetch('/api/me/notifications');
     const data = await res.json();
+    if (currentUser?.login !== identity) return;
     if (res.ok && data.success) {
       notifyPrefs = { configured: Boolean(data.configured), email: data.email || null, enabled: Boolean(data.enabled) };
     }
   } catch (e) {
+    if (currentUser?.login !== identity) return;
     notifyPrefs = { configured: false, email: null, enabled: false };
   }
   renderNotifyBar();
 }
 
 async function saveNotifyPrefs(update) {
+  const identity = currentUser?.login;
   try {
     const res = await apiFetch('/api/me/notifications', {
       method: 'POST',
@@ -784,11 +874,13 @@ async function saveNotifyPrefs(update) {
       body: JSON.stringify(update),
     });
     const data = await res.json();
+    if (currentUser?.login !== identity) return;
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not save notification settings.');
     notifyPrefs.email = data.email || null;
     notifyPrefs.enabled = Boolean(data.enabled);
     renderNotifyBar();
   } catch (err) {
+    if (currentUser?.login !== identity) return;
     renderNotifyBar();
     showAlert('dashboard', 'error', escapeHtml(err.message));
   }
@@ -1095,11 +1187,12 @@ function renderDashboardCards(submissions, truncated) {
       '<div class="submission-card-title">' + fields.titleHtml + '</div>' +
       '<dl class="submission-card-meta">' +
       '<div class="submission-meta-item"><dt>Workflow</dt><dd>' + fields.stageCell + '</dd></div>' +
-      '<div class="submission-meta-item"><dt>Catalog</dt><dd>' + fields.catalogCell + '</dd></div>' +
+      '<div class="submission-meta-item"><dt>Publication</dt><dd>' + fields.catalogCell + '</dd></div>' +
       '<div class="submission-meta-item"><dt>Category</dt><dd>' + fields.categoryCell + '</dd></div>' +
       '<div class="submission-meta-item"><dt>CI</dt><dd>' + fields.ciCell + '</dd></div>' +
       '<div class="submission-meta-item"><dt>Pull request</dt><dd>' + fields.prCell + '</dd></div>' +
       '</dl>' +
+      renderContributorFeedback(item) +
       fields.filesHtml +
       '<div class="submission-card-actions">' + fields.actionsHtml + '</div>';
     list.appendChild(li);
@@ -1215,6 +1308,7 @@ function showDashboardSkeleton() {
   }
 }
 
+let dashboardRequest = 0;
 async function loadDashboard(options = {}) {
   if (!currentUser) return;
   const force = Boolean(options.force);
@@ -1226,12 +1320,14 @@ async function loadDashboard(options = {}) {
     return;
   }
 
-  showDashboardSkeleton();
+  const requestId = ++dashboardRequest, account = currentUser.login;
+  if (!dashboardCache) showDashboardSkeleton();
   document.getElementById('dashboard-empty').hidden = true;
   try {
     const res = await apiFetch('/api/me/submissions');
     const data = await res.json();
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not load submissions');
+    if (requestId !== dashboardRequest || currentUser?.login !== account) return;
     dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
     dashboardCacheAt = Date.now();
     proposalOptionsLoaded = true;
@@ -1239,7 +1335,9 @@ async function loadDashboard(options = {}) {
     renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
     scheduleCiPoll(dashboardCache.submissions);
   } catch (err) {
-    showAlert('dashboard', 'error', err.message);
+    if (requestId !== dashboardRequest || currentUser?.login !== account) return;
+    document.querySelectorAll('.skeleton-card').forEach(card => card.remove());
+    showAlert('dashboard', 'error', escapeHtml(err.message) + ' Use Refresh submissions to retry.');
   }
 }
 
@@ -1297,7 +1395,7 @@ function updateSubmitAvailability() {
   if (!btn) return;
   const mode = document.getElementById('s-mode').value;
   const revisionReady = mode !== 'revise' || revisionLoadedForPr === document.getElementById('s-pr').value;
-  btn.disabled = !currentUser || (mode === 'new' && !proposalWorkspaceReady) || !revisionReady;
+  btn.disabled = contributionBusy || !currentUser || (mode === 'new' && !proposalWorkspaceReady) || !revisionReady;
 }
 
 function selectedArtifactType() {
@@ -1336,7 +1434,8 @@ function updateArtifactUi(opts = {}) {
   document.getElementById('s-editor-guide').hidden = artifactType !== 'study';
   document.getElementById('s-format-checklist').hidden = artifactType !== 'study';
   content.required = !isPresentation;
-  document.getElementById('s-load-source').hidden = isNew || isRevision || artifactType !== 'study';
+  document.getElementById('s-load-source').hidden = isNew || artifactType !== 'study';
+  document.getElementById('s-load-source').textContent = isRevision ? 'Load latest pull-request source' : 'Load current content';
   document.getElementById('s-artifact-help').textContent = artifactType === 'study'
     ? 'Updates the canonical study and refreshes its Edited on timestamp.'
     : 'Adds or replaces a companion file without changing the canonical study timestamp.';
@@ -1385,7 +1484,6 @@ function validArtifactFilename(artifactType, fileName) {
 async function handleArtifactFile(file) {
   const artifactType = selectedArtifactType();
   const targetFileName = document.getElementById('s-target').value;
-  uploadedPresentation = null;
   if (!file) {
     setFileStatus('');
     return;
@@ -1404,7 +1502,12 @@ async function handleArtifactFile(file) {
     throw new Error(`The selected file is larger than ${maxBytes / (1024 * 1024)} MB.`);
   }
 
+  const ticket = contributor.ticket();
+  await contributor.checkpoint();
   const buffer = await file.arrayBuffer();
+  if (!contributor.matches(ticket)) return;
+  if (!await contributor.prepareFile(file.name)) return;
+  contributor.fileName = file.name;
   if (artifactType === 'presentation') {
     const bytes = new Uint8Array(buffer);
     if (bytes.length < 4 || bytes[0] !== 0x50 || bytes[1] !== 0x4b) {
@@ -1414,6 +1517,7 @@ async function handleArtifactFile(file) {
     const destination = targetFileName && targetFileName !== '__new__' ? targetFileName : file.name;
     uploadedPresentation = { fileName: destination, contentBase64: arrayBufferToBase64(buffer), size: file.size };
     const replacement = destination !== file.name ? `; will replace ${destination}` : '';
+    scheduleDraftSave();
     setFileStatus(`Ready: ${file.name} (${Math.ceil(file.size / 1024).toLocaleString()} KB${replacement}).`, 'ready');
     return;
   }
@@ -1448,6 +1552,8 @@ async function loadStudySource(opts = {}) {
       !window.confirm('Replace the editor content with the published Markdown for "' + sourceLabel + '"?')) {
     return false;
   }
+  const ticket = contributor.ticket();
+  await contributor.checkpoint();
   showStatus('Loading current content…');
   try {
     const params = new URLSearchParams({ slug, artifactType });
@@ -1455,30 +1561,47 @@ async function loadStudySource(opts = {}) {
     const res = await apiFetch('/api/study-source?' + params.toString());
     const data = await res.json();
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not load the current Markdown.');
+    if (!contributor.matches(ticket)) return false;
+    contributor.source(data);
     ta.value = data.content;
     setEditorMode('write');
     scheduleDraftSave();
     showStatus('Loaded "' + sourceLabel + '". Edit it or upload a replacement file, then submit.');
     return true;
   } catch (err) {
+    if (!contributor.matches(ticket)) return false;
     if (!opts.silent) showStatus(err.message);
     else statusEl.style.display = 'none';
     return false;
   }
 }
 
-async function loadRevisionSource() {
+async function loadRevisionSource(opts = {}) {
   const prNumber = document.getElementById('s-pr').value;
-  if (!prNumber || revisionLoadedForPr === prNumber || !currentUser) return false;
+  if (!prNumber || (!opts.replace && revisionLoadedForPr === prNumber) || !currentUser) return false;
+  if (opts.replace && document.getElementById('s-content').value && !confirm('Load the latest pull-request source? Your current draft is kept as an earlier recovery copy.')) return false;
+  await contributor.checkpoint();
   const statusEl = document.getElementById('s-load-source-status');
   statusEl.style.display = 'block';
   statusEl.textContent = 'Loading the draft from pull request #' + prNumber + '…';
   updateSubmitAvailability();
+  const ticket = contributor.ticket();
   try {
     const res = await apiFetch('/api/revision-source?pr=' + encodeURIComponent(prNumber));
     const data = await res.json();
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not load the pull-request draft.');
+    if (!contributor.matches(ticket)) return false;
     document.getElementById('s-slug').value = data.slug;
+    if (!await contributor.change()) return false;
+    if (!opts.replace && document.getElementById('s-content').value) {
+      revisionLoadedForPr = String(data.prNumber);
+      statusEl.textContent = contributor.sourceSha === data.sourceSha
+        ? 'Recovered your revision draft. Submitting updates this same pull request.'
+        : 'This pull request changed since your draft was saved. Download your draft backup, then load and compare the latest source before submitting.';
+      updateSubmitAvailability();
+      return true;
+    }
+    contributor.source(data);
     document.getElementById('s-slug').readOnly = true;
     document.getElementById('s-content').value = data.content;
     revisionLoadedForPr = String(data.prNumber);
@@ -1488,6 +1611,7 @@ async function loadRevisionSource() {
     updateSubmitAvailability();
     return true;
   } catch (err) {
+    if (!contributor.matches(ticket)) return false;
     statusEl.textContent = err.message;
     updateSubmitAvailability();
     return false;
@@ -1666,6 +1790,7 @@ function fillProposalOptions(proposals) {
 
 async function ensureProposalOptions(force) {
   if (!currentUser) return;
+  const identity = currentUser.login;
   if (proposalOptionsLoaded && !force) {
     fillProposalOptions(approvedProposalsFromCache());
     return;
@@ -1675,7 +1800,8 @@ async function ensureProposalOptions(force) {
       const res = await apiFetch('/api/me/submissions');
       const data = await res.json();
       if (res.ok && data.success) {
-        dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
+        if (currentUser?.login !== identity) return;
+    dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
         dashboardCacheAt = Date.now();
       }
     }
@@ -1719,6 +1845,7 @@ function showProposalStatus(className, message) {
 let proposalStatusTimer = null;
 
 async function checkProposalStatus() {
+  const identity = currentUser?.login;
   const isNew = document.getElementById('s-new').checked;
   const issueNumber = Number(document.getElementById('s-proposal').value);
   if (!isNew || !issueNumber || issueNumber < 1) { hideProposalStatus(); return; }
@@ -1728,6 +1855,7 @@ async function checkProposalStatus() {
   try {
     const res = await apiFetch('/api/proposal-status?issue=' + issueNumber);
     const data = await res.json();
+    if (currentUser?.login !== identity || document.getElementById('s-mode').value !== 'new' || Number(document.getElementById('s-proposal').value) !== issueNumber) return;
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not check proposal status');
     if (data.declined) {
       showProposalStatus('error', 'Proposal <strong>#' + issueNumber + '</strong> was declined. Review maintainer comments on the issue.');
@@ -1747,7 +1875,11 @@ async function checkProposalStatus() {
       let msg = 'Proposal <strong>#' + issueNumber + '</strong> is approved.';
       if (data.slug) {
         msg += ' Locked slug: <code>' + escapeHtml(data.slug) + '</code>.';
-        document.getElementById('s-slug').value = data.slug;
+        if (document.getElementById('s-slug').value !== data.slug) {
+          document.getElementById('s-slug').value = data.slug;
+          if (!await contributor.change()) return;
+        }
+        contributor.setProposal(issueNumber);
         document.getElementById('s-slug').readOnly = true;
       }
       proposalWorkspaceReady = Boolean(data.workspaceReady);
@@ -1765,6 +1897,7 @@ async function checkProposalStatus() {
       updateSubmitAvailability();
     }
   } catch (err) {
+    if (currentUser?.login !== identity || Number(document.getElementById('s-proposal').value) !== issueNumber) return;
     showProposalStatus('error', escapeHtml(err.message));
   }
 }
@@ -1790,7 +1923,7 @@ function applyQueryParams() {
   if (authError) {
     authErrorShown = true;
     try { sessionStorage.removeItem(LOGIN_PENDING_KEY); } catch (e) { /* ignore */ }
-    document.getElementById('auth-user').innerHTML = '<span style="color:#d93025;">Sign-in failed: ' + escapeHtml(decodeURIComponent(authError)) + '</span>';
+    document.getElementById('auth-user').innerHTML = '<span style="color:#d93025;">Sign-in failed: ' + escapeHtml(authError) + '</span>';
     const url = new URL(window.location.href);
     url.searchParams.delete('auth_error');
     history.replaceState(null, '', url.pathname + url.search);
@@ -1827,13 +1960,14 @@ function applyQueryParams() {
       }).catch(() => { /* status is shown beside the study slug */ });
     }
     if (isUpdate && selectedArtifactType() === 'study' && params.get('slug') && !document.getElementById('s-content').value.trim()) {
-      loadStudySource({ silent: true });
+      // Load after the account's browser draft has been recovered.
     }
   } else {
     switchTab('dashboard', false);
   }
 
-  const stored = sessionStorage.getItem(PROPOSAL_STORAGE_KEY);
+  let stored = '';
+  try { stored = sessionStorage.getItem(PROPOSAL_STORAGE_KEY) || ''; } catch (_) {}
   if (stored && !document.getElementById('s-proposal').value) {
     setProposalValue(stored);
   }
@@ -1847,39 +1981,21 @@ document.getElementById('dashboard-refresh-btn').addEventListener('click', () =>
 document.getElementById('p-title').addEventListener('input', updateSlugPreview);
 document.getElementById('s-proposal').addEventListener('input', scheduleProposalStatusCheck);
 document.getElementById('s-proposal').addEventListener('change', scheduleProposalStatusCheck);
-document.getElementById('s-load-source').addEventListener('click', () => loadStudySource());
-document.getElementById('s-artifact').addEventListener('change', () => updateArtifactUi({ clearFile: true }));
-document.getElementById('s-slug').addEventListener('input', () => {
-  document.getElementById('s-target').value = '';
-  document.getElementById('s-file').value = '';
-  uploadedPresentation = null;
-  setFileStatus('');
+document.getElementById('s-load-source').addEventListener('click', () => document.getElementById('s-mode').value === 'revise' ? loadRevisionSource({replace:true}) : loadStudySource());
+document.getElementById('s-artifact').addEventListener('change', async () => { await contributor.change(); updateArtifactUi(); });
+document.getElementById('s-slug').addEventListener('change', async () => {
+  if (!await contributor.change()) return;
   refreshMappedArtifactControls();
+  if (selectedArtifactType() === 'study' && document.getElementById('s-mode').value === 'update' && !document.getElementById('s-content').value) loadStudySource({silent:true});
 });
-document.getElementById('s-target').addEventListener('change', async (event) => {
-  const target = event.target.value;
-  const artifactType = selectedArtifactType();
-  document.getElementById('s-file').value = '';
-  uploadedPresentation = null;
-  setFileStatus('');
+document.getElementById('s-target').addEventListener('change', async () => {
+  if (!await contributor.change()) return;
+  const target = document.getElementById('s-target').value;
   updateArtifactUi();
-  if (!target) return;
-  if (target === '__new__') {
-    document.getElementById('s-file-label').textContent = ARTIFACT_CONFIG[artifactType].fileLabel;
-    document.getElementById('s-file-help').textContent = ARTIFACT_CONFIG[artifactType].fileHelp;
-    return;
-  }
-  if (artifactType === 'note') {
-    document.getElementById('s-file-label').textContent = 'Upload replacement Markdown (optional)';
-    document.getElementById('s-file-help').textContent =
-      `“${target}” is loaded below. Edit it directly or choose any UTF-8 .md file as its replacement.`;
-    const loaded = await loadStudySource({ artifactType: 'note', fileName: target });
-    if (!loaded) event.target.value = '';
-  } else if (artifactType === 'presentation') {
-    document.getElementById('s-file-help').textContent =
-      `Choose a .pptx file to replace “${target}”. Its local filename does not need to match.`;
-  }
+  if (target && target !== '__new__' && selectedArtifactType() === 'note' && !document.getElementById('s-content').value)
+    loadStudySource({artifactType:'note', fileName:target});
 });
+
 document.getElementById('s-file').addEventListener('change', async (event) => {
   try {
     await handleArtifactFile(event.target.files && event.target.files[0]);
@@ -1908,66 +2024,24 @@ if (proposalSelect) proposalSelect.addEventListener('change', () => {
   }
 });
 
-function renderInlineMd(text) {
-  let t = String(text == null ? '' : text)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-  const codes = [];
-  t = t.replace(/`([^`]+)`/g, (m, c) => { codes.push(c); return '\u0000C' + (codes.length - 1) + '\u0000'; });
-  t = t.replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g, (m, l, u) => '<a href="' + u + '" target="_blank" rel="noopener nofollow">' + l + '</a>');
-  t = t.replace(/(^|[\s(])(https?:\/\/[^\s<]+)/g, (m, p, u) => p + '<a href="' + u + '" target="_blank" rel="noopener nofollow">' + u + '</a>');
-  t = t.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
-  t = t.replace(/(^|[^*])\*([^*\n]+)\*(?!\*)/g, '$1<em>$2</em>');
-  t = t.replace(/\u0000C(\d+)\u0000/g, (m, i) => '<code>' + codes[Number(i)] + '</code>');
-  return t;
+let previewRequest = 0;
+function renderMarkdownPreview() {
+  const frame = document.getElementById('s-preview-frame');
+  const status = document.getElementById('s-preview-status');
+  const id = ++previewRequest;
+  const send = () => frame.contentWindow.postMessage({type:'preview', id, content:document.getElementById('s-content').value}, '*');
+  status.textContent = 'Rendering preview…';
+  setTimeout(() => {
+    if (previewRequest === id && status.textContent === 'Rendering preview…') status.textContent = 'Preview did not finish loading. Check your connection and reopen Preview; your source remains in the editor.';
+  }, 12000);
+  if (!frame.getAttribute('src')) { frame.onload = send; frame.src = 'portal/preview.html?v=c51fa0d004f7c3cb'; }
+  else send();
 }
-
-function renderMarkdownPreview(md) {
-  const lines = String(md || '').replace(/\r\n/g, '\n').split('\n');
-  const out = [];
-  let i = 0;
-  let listType = null;
-  const closeList = () => { if (listType) { out.push('</' + listType + '>'); listType = null; } };
-  while (i < lines.length) {
-    const line = lines[i];
-    if (/^```/.test(line)) {
-      closeList();
-      const buf = [];
-      i++;
-      while (i < lines.length && !/^```/.test(lines[i])) { buf.push(lines[i]); i++; }
-      i++;
-      const escaped = buf.join('\n').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      out.push('<pre><code>' + escaped + '</code></pre>');
-      continue;
-    }
-    if (/^\s*$/.test(line)) { closeList(); i++; continue; }
-    let m;
-    if ((m = line.match(/^(#{1,6})\s+(.*)$/))) {
-      closeList();
-      const level = m[1].length;
-      out.push('<h' + level + '>' + renderInlineMd(m[2]) + '</h' + level + '>');
-      i++; continue;
-    }
-    if (/^\s*(---|\*\*\*|___)\s*$/.test(line)) { closeList(); out.push('<hr>'); i++; continue; }
-    if ((m = line.match(/^\s*>\s?(.*)$/))) { closeList(); out.push('<blockquote>' + renderInlineMd(m[1]) + '</blockquote>'); i++; continue; }
-    if ((m = line.match(/^\s*[-*+]\s+(.*)$/))) {
-      if (listType !== 'ul') { closeList(); out.push('<ul>'); listType = 'ul'; }
-      out.push('<li>' + renderInlineMd(m[1]) + '</li>'); i++; continue;
-    }
-    if ((m = line.match(/^\s*\d+\.\s+(.*)$/))) {
-      if (listType !== 'ol') { closeList(); out.push('<ol>'); listType = 'ol'; }
-      out.push('<li>' + renderInlineMd(m[1]) + '</li>'); i++; continue;
-    }
-    closeList();
-    const para = [line];
-    i++;
-    while (i < lines.length && !/^\s*$/.test(lines[i]) && !/^(#{1,6})\s/.test(lines[i]) && !/^```/.test(lines[i]) && !/^\s*[-*+]\s/.test(lines[i]) && !/^\s*\d+\.\s/.test(lines[i]) && !/^\s*>/.test(lines[i])) {
-      para.push(lines[i]); i++;
-    }
-    out.push('<p>' + renderInlineMd(para.join('\n')) + '</p>');
-  }
-  closeList();
-  return out.join('\n');
-}
+addEventListener('message', event => {
+  const frame = document.getElementById('s-preview-frame');
+  if (event.source !== frame.contentWindow || event.data?.type !== 'preview-result' || event.data.id !== previewRequest) return;
+  document.getElementById('s-preview-status').textContent = String(event.data.message || '').slice(0,1000);
+});
 
 function draftContentWarnings(content) {
   const text = String(content || '');
@@ -1994,7 +2068,7 @@ function setEditorMode(mode) {
   previewTab.setAttribute('aria-selected', preview ? 'true' : 'false');
   ta.classList.toggle('hidden', preview);
   pv.classList.toggle('hidden', !preview);
-  if (preview) pv.innerHTML = renderMarkdownPreview(ta.value);
+  if (preview) renderMarkdownPreview();
 }
 document.getElementById('s-tab-write').addEventListener('click', () => setEditorMode('write'));
 document.getElementById('s-tab-preview').addEventListener('click', () => setEditorMode('preview'));
@@ -2036,111 +2110,25 @@ Unsettled points, stated directly.
 **TAG** &mdash; Author, [Title](https://example.org/source). Cited: pages used.
 `;
 
-document.getElementById('s-insert-template').addEventListener('click', () => {
+document.getElementById('s-insert-template').addEventListener('click', async () => {
   const ta = document.getElementById('s-content');
   if (ta.value.trim() && !window.confirm('Replace the current content with the house-style template?')) return;
+  await contributor.checkpoint();
   ta.value = STUDY_TEMPLATE;
   setEditorMode('write');
   ta.focus();
   scheduleDraftSave();
 });
 
-const AUTHOR_NAME_KEY = 'amd-author-name';
-
 function applyAuthorDefault() {
-  const authorEl = document.getElementById('s-author');
-  if (!authorEl) return;
-  let saved = '';
-  try { saved = localStorage.getItem(AUTHOR_NAME_KEY) || ''; } catch (e) { /* ignore */ }
-  if (saved) authorEl.placeholder = saved;
-  else if (currentUser) authorEl.placeholder = currentUser.login;
-  if (!authorEl.value && saved) authorEl.value = saved;
-}
-
-(function bindAuthorPersist() {
-  const authorEl = document.getElementById('s-author');
-  if (!authorEl) return;
-  authorEl.addEventListener('input', () => {
-    try {
-      const v = authorEl.value.trim();
-      if (v) localStorage.setItem(AUTHOR_NAME_KEY, v);
-    } catch (e) { /* ignore */ }
-  });
-})();
-
-const DRAFT_KEY = 'amd-submit-draft';
-let draftTimer = null;
-function saveDraft() {
-  try {
-    const draft = {
-      slug: document.getElementById('s-slug').value,
-      author: document.getElementById('s-author').value,
-      content: document.getElementById('s-content').value,
-      isNew: document.getElementById('s-new').checked,
-    };
-    if (!draft.slug && !draft.content && !draft.author) {
-      localStorage.removeItem(DRAFT_KEY);
-      return;
-    }
-    localStorage.setItem(DRAFT_KEY, JSON.stringify(draft));
-  } catch (e) { /* ignore storage errors */ }
-}
-function scheduleDraftSave() { clearTimeout(draftTimer); draftTimer = setTimeout(saveDraft, 400); }
-function restoreDraft() {
-  let draft = null;
-  try { draft = JSON.parse(localStorage.getItem(DRAFT_KEY) || 'null'); } catch (e) { draft = null; }
-  if (!draft) return;
-  const content = document.getElementById('s-content');
-  const slug = document.getElementById('s-slug');
   const author = document.getElementById('s-author');
-  if (content && !content.value && draft.content) content.value = draft.content;
-  if (slug && !slug.value && draft.slug) slug.value = draft.slug;
-  if (author && !author.value && draft.author) author.value = draft.author;
+  author.placeholder = currentUser?.login || 'Your published author name';
 }
-function clearDraft() { try { localStorage.removeItem(DRAFT_KEY); } catch (e) { /* ignore */ } }
-['s-content', 's-slug', 's-author'].forEach((id) => {
-  const el = document.getElementById(id);
-  if (el) el.addEventListener('input', scheduleDraftSave);
-});
-
-const PROPOSE_DRAFT_KEY = 'amd-propose-draft';
-let proposeDraftTimer = null;
-function saveProposeDraft() {
-  try {
-    const d = {
-      title: document.getElementById('p-title').value,
-      category: document.getElementById('p-category').value,
-      desc: document.getElementById('p-desc').value,
-      summary: document.getElementById('p-summary').value,
-      fam: document.getElementById('p-fam').value,
-      formal: document.getElementById('p-formal').checked,
-    };
-    if (!d.title && !d.desc && !d.summary) { localStorage.removeItem(PROPOSE_DRAFT_KEY); return; }
-    localStorage.setItem(PROPOSE_DRAFT_KEY, JSON.stringify(d));
-  } catch (e) { /* ignore */ }
-}
-function scheduleProposeDraftSave() { clearTimeout(proposeDraftTimer); proposeDraftTimer = setTimeout(saveProposeDraft, 400); }
-function restoreProposeDraft() {
-  let d = null;
-  try { d = JSON.parse(localStorage.getItem(PROPOSE_DRAFT_KEY) || 'null'); } catch (e) { d = null; }
-  if (!d) return;
-  const setIfEmpty = (id, value) => { const el = document.getElementById(id); if (el && !el.value && value) el.value = value; };
-  setIfEmpty('p-title', d.title);
-  setIfEmpty('p-category', d.category);
-  setIfEmpty('p-desc', d.desc);
-  setIfEmpty('p-summary', d.summary);
-  if (d.fam) document.getElementById('p-fam').value = d.fam;
-  if (d.formal) document.getElementById('p-formal').checked = true;
-}
-function clearProposeDraft() { try { localStorage.removeItem(PROPOSE_DRAFT_KEY); } catch (e) { /* ignore */ } }
-['p-title', 'p-desc', 'p-summary'].forEach((id) => {
-  const el = document.getElementById(id);
-  if (el) el.addEventListener('input', scheduleProposeDraftSave);
-});
-['p-category', 'p-fam', 'p-formal'].forEach((id) => {
-  const el = document.getElementById(id);
-  if (el) el.addEventListener('change', scheduleProposeDraftSave);
-});
+function scheduleDraftSave() { contributor.schedule('submit'); }
+function scheduleProposeDraftSave() { contributor.schedule('propose'); }
+['s-content','s-author'].forEach(id => document.getElementById(id).addEventListener('input',scheduleDraftSave));
+['p-title','p-desc','p-summary'].forEach(id => document.getElementById(id).addEventListener('input',scheduleProposeDraftSave));
+['p-category','p-fam','p-formal'].forEach(id => document.getElementById(id).addEventListener('change',scheduleProposeDraftSave));
 
 let ciPollTimer = null;
 function hasPendingCi(submissions) {
@@ -2148,7 +2136,7 @@ function hasPendingCi(submissions) {
 }
 function scheduleCiPoll(submissions) {
   clearTimeout(ciPollTimer);
-  if (!hasPendingCi(submissions)) return;
+  if (!hasPendingCi(submissions) || document.hidden) return;
   if (!document.getElementById('dashboard-tab').classList.contains('active')) return;
   ciPollTimer = setTimeout(() => {
     if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
@@ -2157,17 +2145,16 @@ function scheduleCiPoll(submissions) {
   }, 20000);
 }
 
-toggleProposalField();
-applyQueryParams();
-loadCompanionRegistry().catch(() => { /* status is shown beside the study slug */ });
-restoreDraft();
-restoreProposeDraft();
-applyAuthorDefault();
-updateSlugPreview();
-refreshAuthState();
+function setContributionBusy(value) {
+  contributionBusy = value;
+  for (const control of document.querySelectorAll('#submit-form input, #submit-form select, #submit-form textarea, #submit-form button, #propose-form input, #propose-form select, #propose-form textarea, #propose-form button, #browser-drafts button, #draft-import, #p-new-draft')) control.disabled = value || !currentUser;
+  document.getElementById('auth-action-btn').disabled = value;
+  updateSubmitAvailability();
+}
 
 document.getElementById('propose-form').addEventListener('submit', async (e) => {
   e.preventDefault();
+  if (contributionBusy) return;
   if (!currentUser) { showAlert('propose', 'error', 'Sign in with GitHub first.'); return; }
   const form = e.target;
   const btn = document.getElementById('p-submit-btn');
@@ -2179,13 +2166,14 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
   }
   const turnstileToken = getTurnstileToken(form);
   if (!turnstileToken) { showAlert('propose', 'error', 'Complete the Turnstile check.'); return; }
+  setContributionBusy(true);
   btn.disabled = true;
   btn.textContent = 'Submitting…';
   try {
     const res = await apiFetch('/api/propose', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+      body: JSON.stringify(await contributor.begin('propose', '/api/propose', {
         title: document.getElementById('p-title').value,
         category: document.getElementById('p-category').value,
         description: document.getElementById('p-desc').value,
@@ -2193,23 +2181,24 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
         familiarity: document.getElementById('p-fam').value,
         formal: document.getElementById('p-formal').checked,
         turnstileToken,
-      }),
+      })),
     });
     const data = await res.json();
+    await contributor.complete('propose', data, !data.uncertain && res.status < 500);
     if (!res.ok) throw new Error(data.error || 'Unknown error');
     if (data.issueNumber) sessionStorage.setItem(PROPOSAL_STORAGE_KEY, String(data.issueNumber));
     dashboardCache = null;
-    clearProposeDraft();
+    // Keep the submitted proposal as a browser recovery copy.
     resetProposeConfirm();
     await goToDashboard(true);
     showAlert('dashboard', 'success', 'Proposal submitted.' + (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : ''));
-    form.reset();
     updateSlugPreview();
     resetTurnstile(form);
   } catch (err) {
     showAlert('propose', 'error', escapeHtml(err.message));
     resetTurnstile(form);
   } finally {
+    setContributionBusy(false);
     btn.disabled = false;
     btn.textContent = proposeConfirmed ? 'Confirm and submit' : 'Review proposal';
   }
@@ -2217,6 +2206,7 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
 
 document.getElementById('submit-form').addEventListener('submit', async (e) => {
   e.preventDefault();
+  if (contributionBusy) return;
   if (!currentUser) { showAlert('submit', 'error', 'Sign in with GitHub first.'); return; }
   const form = e.target;
   const btn = document.getElementById('s-submit-btn');
@@ -2237,7 +2227,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     showAlert('submit', 'error', 'Select an existing companion file or choose “Add new”.');
     return;
   }
-  if (artifactType === 'note' && targetFileName === '__new__' && !selectedFile) {
+  if (artifactType === 'note' && targetFileName === '__new__' && !selectedFile && !contributor.fileName) {
     showAlert('submit', 'error', 'Choose the technical or research note .md file to upload.');
     return;
   }
@@ -2254,6 +2244,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   )) {
     return;
   }
+  setContributionBusy(true);
   btn.disabled = true;
   btn.textContent = 'Submitting…';
   const isNew = submitIsNew;
@@ -2270,7 +2261,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   } else {
     payload.content = document.getElementById('s-content').value;
     if (artifactType === 'note') {
-      payload.fileName = targetFileName === '__new__' ? selectedFile.name : targetFileName;
+      payload.fileName = targetFileName === '__new__' ? (selectedFile?.name || contributor.fileName) : targetFileName;
     }
   }
   if (isNew) payload.proposalIssue = Number(document.getElementById('s-proposal').value);
@@ -2279,12 +2270,12 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     const res = await apiFetch(isRevision ? '/api/revise' : '/api/submit', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(await contributor.begin('submit', isRevision ? '/api/revise' : '/api/submit', payload)),
     });
     const data = await res.json();
+    await contributor.complete('submit', data, !data.uncertain && res.status < 500);
     if (!res.ok) throw new Error(data.error || 'Unknown error');
     dashboardCache = null;
-    clearDraft();
     setEditorMode('write');
     await goToDashboard(true);
     showAlert(
@@ -2293,24 +2284,31 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
       (isRevision ? 'Draft pull request updated.' : 'Pull request opened.') +
       (data.url ? ' <a href="' + data.url + '" target="_blank">View on GitHub</a>' : '')
     );
-    form.reset();
-    proposalWorkspaceReady = false;
-    revisionLoadedForPr = null;
-    uploadedPresentation = null;
-    configureSubmitView('new');
-    updateArtifactUi({ clearFile: true });
-    toggleProposalField();
-    hideProposalStatus();
     resetTurnstile(form);
   } catch (err) {
     showAlert('submit', 'error', escapeHtml(err.message));
     resetTurnstile(form);
   } finally {
+    setContributionBusy(false);
     btn.disabled = false;
     updateArtifactUi();
   }
 });
 
+</script>
+<script src="portal/contributor.js?v=70adbee8f81364ee"></script>
+<script>
+(async () => {
+  toggleProposalField();
+  const params = new URLSearchParams(location.search);
+  const draft = params.get('draft');
+  if (draft && /^[a-zA-Z0-9-]{1,80}$/.test(draft)) document.getElementById('p-draft-id').value = draft;
+  applyQueryParams();
+  updateAuthUi(false);
+  await loadCompanionRegistry().catch(() => {});
+  updateSlugPreview();
+  await refreshAuthState();
+})();
 </script>
 <script>
 (() => {
