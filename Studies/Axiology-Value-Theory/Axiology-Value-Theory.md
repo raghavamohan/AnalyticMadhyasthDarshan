@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 6, 2026, 8:08 AM IST
+**Edited on:** September 6, 2026, 8:15 AM IST
 **Status:** Released
 **The question:** How does value belong to a unit as activity in coexistence, and how is it understood, established, and fulfilled in human living? What forms does value take, what endures or changes with time, and in what senses can values be compared? How does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western value theory, and the natural and social sciences?
 
@@ -39,7 +39,7 @@ The unit's activeness is grounded in its saturation in Omnipresence, *satta*: th
 
 The four orders differ in their characteristic participation. The material order manifests integration and disintegration; the pranic order adds growth and vitalising or devitalising conduct. Animal living joins body and *jeevan*, with the hope to live; the knowledge order brings the human possibility of understanding and the purpose of happiness. Formation and dissolution both participate in natural orderliness. The significance of an effect must therefore be understood through the order and mutuality involved. Reciprocal participation in insentient units and reflective human evaluation have their respective places in this account (SB, pp. 179–182, 249).
 
-Human essential nature is expressed as fortitude, courage, generosity, kindness, grace, and compassion, as §1.3 will specify; human *dharma* is happiness. Human beings fulfil their value through orderliness in themselves and participation in wider orderliness. Knowing concerns understanding reality, while believing concerns accepting a meaning as a basis of activity; correct recognition depends on their accord ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf), §1.5). Human conduct can be inhumane, humane, or higher-humane as understanding develops, while happiness remains human *dharma* through both mistaken and resolved attempts to attain it (MVD, pp. 15, 97, 115, 125; SB, pp. 179–182, 249).
+Human essential nature is expressed in the human values of fortitude, courage, generosity, kindness, grace, and compassion; human *dharma* is happiness. Human beings fulfil their value through orderliness in themselves and participation in wider orderliness. Knowing concerns understanding reality, while believing concerns accepting a meaning as a basis of activity; correct recognition depends on their accord ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf), §1.5). Human conduct can be inhumane, humane, or higher-humane as understanding develops, while happiness remains human *dharma* through both mistaken and resolved attempts to attain it (MVD, pp. 15, 97, 115, 125; SB, pp. 179–182, 249).
 
 Essentiality is already present in the active unit. Human understanding can become established, and labour can establish a useful configuration of material. The former concerns the knower's acceptance and conduct; the latter concerns what the configured material can fulfil. Both take place within an existence whose units already have essentiality (MVD, pp. 56, 83, 124–125; SB, p. 87).
 
@@ -269,9 +269,7 @@ Scanlon's buck-passing account explains the value of something through other pro
 
 ### 3.5 Pleasure, desire and objective goods
 
-Hedonistic theories make pleasure and the absence of pain central to welfare. Desire theories locate welfare in the fulfilment of desires, often with qualifications concerning information, rationality, or the scope of the person's concern. Objective-list theories hold that some things can benefit a person independently of current desire or pleasure, such as knowledge, achievement, or worthwhile relationships (Parfit 1984, Appendix I; SEP Well-Being).
-
-On virtue accounts grounded in flourishing, good character and its exercise partly constitute living well (SEP Well-Being).
+Hedonistic theories make pleasure and the absence of pain central to welfare. Desire theories locate welfare in the fulfilment of desires, often with qualifications concerning information, rationality, or the scope of the person's concern. Objective-list theories hold that some things can benefit a person independently of current desire or pleasure, such as knowledge, achievement, or worthwhile relationships (Parfit 1984, Appendix I; SEP Well-Being). On virtue accounts grounded in flourishing, good character and its exercise partly constitute living well (SEP Well-Being).
 
 Nozick's experience machine asks whether an entirely satisfying simulated experience would supply everything that matters in life. The thought experiment tests whether doing things, being a certain person, and contact with reality matter beyond experience. Its force depends on reflection about the case and the intuitions it elicits (Nozick 1974, pp. 42–45).
 
@@ -568,7 +566,7 @@ The structural account specifies what this fulfilment comprises. Happiness, peac
 
 The value classes connect these harmonies with human conduct, relationships, useful things, aesthetic addition, and symbolic valuation. Their ordering involves dedication, endurance, inclusion, and common or complete relationship value, each with its own domain. Evaluation must identify which value is at issue, what fulfilment it calls for, and in what sense time or comparison applies. The difference between the texts' constancy and temporality claims about usefulness remains a question for further collation and argument.
 
-Advaita locates dearness in the Self, identical with Brahman, while Madhyasth Darshan locates value in units' essentiality. Advaita, Western theories, and the sciences sharpen the questions of normative warrant, disputed authority, dependency, allocation, and public evidence. The darshan's contribution is a connected account of value's ground, its constitution in activity, and its fulfilment in living. Further work must show how its distinct ordering relations guide difficult decisions and how claims of established understanding are assessed through explanation, conduct, and sustained participation.
+Advaita locates dearness in the Self, identical with Brahman, while Madhyasth Darshan locates value in units' essentiality. Western theories distinguish grounds, welfare, and exchange; the scientific studies reviewed here test mechanisms and outcomes without supplying the darshan's classes of *mulya*. These comparisons sharpen the questions of normative warrant, disputed authority, dependency, allocation, and public evidence. The darshan's contribution is a connected account of value's ground, its constitution in activity, and its fulfilment in living. Further work must show how its distinct ordering relations guide difficult decisions and how claims of established understanding are assessed through explanation, conduct, and sustained participation.
 
 ## Appendix: Structural formalisation of value
 
