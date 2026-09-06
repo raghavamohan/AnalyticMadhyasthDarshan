@@ -40,6 +40,8 @@ class PdfBuildCacheTests(unittest.TestCase):
             "References/r2-artifacts.json": "{}",
             "References/Source.md": "reference source",
             "Assets/KaTeX/fonts/font.woff2": "font bytes",
+            "Assets/reader/reader.css": "@media screen { body { color: black; } }",
+            "Assets/reader/reader.js": "// browser reader",
             "infra/worker/src/index.js": "portal worker",
         })
         for name, value in fixtures.items():
@@ -71,6 +73,8 @@ class PdfBuildCacheTests(unittest.TestCase):
             "Scripts/_pdf_helper.mjs": {"markdown", "references"},
             "requirements.txt": set(FAMILIES),
             "Assets/KaTeX/fonts/font.woff2": set(FAMILIES),
+            "Assets/reader/reader.css": set(),
+            "Assets/reader/reader.js": set(),
             "Studies/A/A.html": set(),
             "Studies/submit.html": set(),
             "infra/worker/src/index.js": set(),
