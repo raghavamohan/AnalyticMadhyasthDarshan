@@ -1,0 +1,42 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Contributor transaction tests</title>
+<h1>Contributor draft transaction tests</h1><p>This fixture uses a temporary database. It never reads personal drafts.</p>
+<button id="run">Run draft checks</button><pre id="result" role="status">Ready</pre>
+<script src="drafts.js"></script>
+<script>
+document.getElementById('run').onclick = async () => {
+  const name='amd-draft-test-'+crypto.randomUUID(), C=AMDContributorDrafts;
+  let one,two,count=0;
+  const check=(value,message) => {if(!value)throw new Error(message);count++;};
+  const fails=async action => {let failed=false;try{await action();}catch(_){failed=true;}check(failed,'Expected rejected write');};
+  try {
+    one=await C.open(name);two=await C.open(name);
+    const ctx={account:'alice',kind:'submit',mode:'update',slug:'Study',artifact:'study',target:'',pr:''};
+    const first=await one.put(ctx,{content:'First draft'});
+    check((await two.get(ctx)).data.content==='First draft','Committed copy visible to second tab');
+    const update=await two.put(ctx,{content:'Revised draft'},first.revision,true);
+    check(update.previous.data.content==='First draft','Recovery checkpoint retains previous version');
+    await fails(() => one.put(ctx,{content:'Stale draft'},first.revision));
+    check((await one.get(ctx)).data.content==='Revised draft','Stale writer cannot overwrite');
+    await fails(() => one.remove(ctx,first.revision));
+    const concurrent=await Promise.allSettled([one.put(ctx,{content:'Writer one'},update.revision),two.put(ctx,{content:'Writer two'},update.revision)]);
+    check(concurrent.filter(r=>r.status==='fulfilled').length===1,'Exactly one simultaneous writer commits');
+    for(const separate of [{...ctx,account:'bob'},{...ctx,slug:'Other'},{...ctx,artifact:'note',target:'Research-Note-One.md'},{...ctx,mode:'revise',pr:'12'}])
+      await one.put(separate,{content:'Separate draft'});
+    check((await one.all('alice')).length===4,'Per-account draft index excludes another account');
+    check((await one.all('bob')).length===1,'Second account retains its draft');
+    check(!(await one.all('alice'))[0].data.content,'Draft listing does not load full document or attachment payloads');
+    const deck={fileName:'Teaching.pptx',contentBase64:'UEs=',size:2};
+    const deckCtx={...ctx,artifact:'presentation',target:'Teaching.pptx'};
+    await one.put(deckCtx,{presentation:deck});
+    check((await two.get(deckCtx)).data.presentation.contentBase64===deck.contentBase64,'Presentation bytes recover across connections');
+    const pending=await one.put({...ctx,slug:'Pending'},{content:'Draft',operation:{id:crypto.randomUUID(),path:'/api/submit'}});
+    await fails(() => two.clear('alice'));
+    check((await one.get(deckCtx))!==null,'Pending receipt makes account cleanup atomic');
+    await one.remove(pending.context,pending.revision);
+    await one.clear('alice');
+    check((await two.all('alice')).length===0 && (await two.all('bob')).length===1,'Cleanup touches only the selected account');
+    document.getElementById('result').textContent='PASS: '+count+' real IndexedDB isolation, race, checkpoint, binary recovery and cleanup checks.';
+  } catch(error) {document.getElementById('result').textContent='FAIL: '+error.stack;}
+  finally {one?.close();two?.close();indexedDB.deleteDatabase(name);document.getElementById('run').disabled=true;}
+};
+</script></html>
