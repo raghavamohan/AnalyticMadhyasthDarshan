@@ -61,6 +61,11 @@
   #reader-bookmark-list li { padding: 12px 0; border-top: 1px solid var(--reader-border); }
   #reader-bookmark-list .reader-bookmark-go { display: block; width: 100%; text-align: left; border: 0; padding: 4px 0; color: var(--reader-accent); font-weight: 600; overflow-wrap: anywhere; }
   .reader-bookmark-excerpt { font-size: 12px !important; color: var(--reader-muted); margin: 4px 0 8px !important; overflow-wrap: anywhere; }
+  .reader-bookmark-preview { padding: 12px; margin-bottom: 18px; border-left: 3px solid var(--reader-accent); background: var(--reader-active); border-radius: 4px; }
+  .reader-bookmark-preview .reader-helper { margin: 0 0 8px; }
+  .reader-bookmark-preview strong { display: block; font-size: 13px; line-height: 1.5; overflow-wrap: anywhere; }
+  .reader-bookmark-preview .reader-helper:last-child { margin: 10px 0 0; }
+  .reader-bookmark-location { font-size: 12px !important; font-weight: 600; margin: 4px 0 !important; overflow-wrap: anywhere; }
   .reader-bookmark-actions { display: flex; gap: 6px; }
   .reader-bookmark-actions button { font-size: 12px; }
   .reader-panel-footer { padding: 10px 16px 12px; border-top: 1px solid var(--reader-border); max-height: 32%; overflow-y: auto; }

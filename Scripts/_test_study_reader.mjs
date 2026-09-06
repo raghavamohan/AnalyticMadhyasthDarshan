@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
-const { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex } = require('../Assets/reader/reader.js');
+const { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex, passagePlace } = require('../Assets/reader/reader.js');
 
 assert.deepEqual(preferences({ fontSize: '900px', lineHeight: -1, width: 10000, sidebar: 'false' }),
   { fontSize: 18, lineHeight: 1.75, width: 68, sidebar: true });
@@ -48,6 +48,37 @@ assert.equal(resolvePlace(place, [{ ...exact, text: 'Different text reusing an o
 assert.equal(resolvePlace({ ...place, quote: 'short' }, [revised], [section]).item, section);
 assert.equal(resolvePlace(place, [], []), null);
 assert.equal(resolvePlace(null, [exact], [section]), null);
+
+// Bookmark labels and recovery use the nearest H2/H3/H4 without changing the
+// major-section identity used by existing bookmarks, notes and passage links.
+const subsection = { id: 'section-1-2', text: '1.2 A specific definition' };
+const detail = { id: 'section-1-2-1', text: '1.2.1 A finer distinction' };
+const paragraph = { ...exact, subheading: subsection.id };
+const subPlace = passagePlace(paragraph, [section, subsection], 0.25);
+assert.equal(subPlace.label, subsection.text);
+assert.equal(subPlace.heading, section.id);
+assert.equal(subPlace.subheading, subsection.id);
+assert.equal(subPlace.anchor, exact.id);
+assert.equal(subPlace.fraction, 0.25);
+assert.deepEqual(cursor(subPlace), subPlace);
+assert.equal(cursor({...subPlace, subheading: 'x'.repeat(500)}).subheading.length, 400);
+assert.equal(cursor({...place, subheading: {id: 'bad'}}).subheading, undefined);
+assert.deepEqual(cursor(place), place, 'Legacy stored places still load unchanged');
+assert.equal(passagePlace({...paragraph, subheading: detail.id}, [section, subsection, detail]).label, detail.text);
+assert.equal(passagePlace({...paragraph, subheading: section.id}, [section, subsection]).label, section.text);
+assert.equal(passagePlace({...paragraph, heading: '', subheading: ''}, [section]).label, 'Introduction');
+assert.equal(passagePlace(null, [section]), null);
+assert.deepEqual(resolvePlace(subPlace, [paragraph], [section, subsection]), {item: paragraph, fraction: 0.25, changed: false});
+const moved = {...paragraph, id: 'revised-paragraph'};
+const elsewhere = {...moved, id: 'same-quote-elsewhere', subheading: detail.id};
+assert.equal(resolvePlace(subPlace, [moved, elsewhere], [section, subsection, detail]).item, moved);
+assert.equal(resolvePlace(subPlace, [elsewhere], [section, subsection, detail]).item, subsection);
+assert.equal(resolvePlace(subPlace, [], [section, subsection]).item, subsection, 'Missing passage falls back to its subsection');
+assert.equal(resolvePlace(subPlace, [], [section]).item, section, 'Missing subsection can still recover the main section');
+assert.equal(resolvePlace(place, [paragraph], [section, subsection]).item, paragraph, 'Old bookmarks keep their exact passage');
+const subsectionHeading = {...subsection, heading: section.id, subheading: subsection.id};
+assert.equal(resolvePlace(passagePlace(subsectionHeading, [section, subsection]), [subsectionHeading], [section, subsection]).changed, false,
+  'Opening an existing subsection must not claim that its text changed');
 
 const offsets = [{ top: 100 }, { top: 300 }, { top: 450 }];
 assert.equal(lastBefore([], 100), -1);
