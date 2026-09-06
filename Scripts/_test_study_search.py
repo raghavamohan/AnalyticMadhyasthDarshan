@@ -31,10 +31,12 @@ class PassageTests(unittest.TestCase):
             cwd=BASE, input=json.dumps(samples), capture_output=True, text=True, check=True)
         self.assertEqual(json.loads(result.stdout), [passage_key(text) for text in samples])
         fragment = '<nav class="study-toc"><p>Contents</p></nav><h2 id="s">Section</h2><p>A <em>passage</em>.</p><ul><li>List<p>nested</p></li></ul><table><tr><td><p>Cell</p></td></tr></table><p>A <em>passage</em>.</p>'
+        fragment += '<p class="study-reading-key">Reader help</p>'
         soup = BeautifulSoup(annotate_passages(fragment), 'html.parser')
         passages = soup.select('[data-reader-passage]')
         self.assertEqual(len(passages), 5)
         self.assertIsNone(soup.select_one('.study-toc [id]'))
+        self.assertIsNone(soup.select_one('.study-reading-key[data-reader-passage]'))
         self.assertEqual(passages[0]['id'], 's')
         self.assertEqual(passages[-1]['id'], passages[1]['id'] + '-2')
         changed = BeautifulSoup(annotate_passages(fragment.replace('<p>A ', '<p>Unrelated.</p><p>A ', 1)), 'html.parser')
@@ -53,6 +55,7 @@ class PassageTests(unittest.TestCase):
                 ids = [p['id'] for p in data['passages']]
                 self.assertEqual(len(ids), len(set(ids)))
                 self.assertTrue(all(not p['text'].startswith(('Author:', 'Edited on:')) for p in data['passages']))
+                self.assertTrue(all('Dotted underline: definition' not in p['text'] for p in data['passages']))
 
 
 class InventoryTests(unittest.TestCase):
