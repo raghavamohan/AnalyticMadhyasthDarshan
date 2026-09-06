@@ -518,10 +518,10 @@ def _study_toolbar_html(md_path: Path, *, title: str) -> str:
     feedback_href = html_module.escape(_feedback_href(title), quote=True)
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <span class="reader-toolbar-start"><a class="study-toolbar-link study-toolbar-back" href="{catalog_href}" aria-label="Back to all studies">&larr; Studies</a>
-      <button type="button" id="reader-open" aria-controls="reader-tools" aria-expanded="false" hidden>Contents &amp; tools</button></span>
+    <span class="reader-toolbar-start"><a class="study-toolbar-link study-toolbar-back study-toolbar-control" href="{catalog_href}" aria-label="Back to all studies">&larr; Studies</a>
+      <button type="button" class="study-toolbar-control" id="reader-open" aria-controls="reader-tools" aria-expanded="false" title="Show contents and study tools" hidden>Contents &amp; tools <span class="reader-disclosure" aria-hidden="true">&#9662;</span></button></span>
     <details class="study-toolbar-more">
-      <summary>More <span aria-hidden="true">&#9662;</span></summary>
+      <summary class="study-toolbar-control">More <span class="reader-disclosure" aria-hidden="true">&#9662;</span></summary>
       <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="{discuss_href}">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download aria-label="Download PDF">PDF</a>

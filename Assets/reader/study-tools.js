@@ -203,7 +203,7 @@
         if (next || (!native?.isCollapsed && context.main.contains(native?.anchorNode))) {
           selection = next;
           if (!next) $('reader-selection-tools').hidden = true;
-          else if (showTools && !context.tools?.matches(':modal')) $('reader-selection-tools').hidden = false;
+          else if (showTools && !(context.tools?.open && !context.wide.matches)) $('reader-selection-tools').hidden = false;
           updateSpeechSelection();
         }
       }
