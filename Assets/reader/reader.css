@@ -15,8 +15,15 @@
   html[data-theme="sepia"] :is(blockquote,pre,code,th,tr:nth-child(even)) { background: #ece2ce; color: #3b3021; }
   html[data-theme="sepia"] :is(th,td) { border-color: #cbbc9e; }
   html[data-theme="sepia"] .term-tip-panel { color: #3b3021; background: #f4ead7; border-color: #cbbc9e; }
-  .study-toolbar { background: var(--reader-surface); border-color: var(--reader-border); padding: 4px 10px; gap: 0; line-height: 1.3; }
-  .study-toolbar-row--primary { grid-template-columns: minmax(0,1fr) auto; gap: 12px; }
+  html:root .study-toolbar { background: var(--reader-surface); border-color: var(--reader-border); padding: 4px 8px; gap: 0; line-height: 1.3; z-index: 60; }
+  html:root .study-toolbar .study-toolbar-link { color: var(--reader-accent); }
+  html:root .study-toolbar .is-disabled { color: var(--reader-muted); }
+  .study-toolbar-row--primary { grid-template-columns: minmax(0,1fr) auto; gap: 6px; }
+  .study-toolbar .study-toolbar-control { display: inline-flex; align-items: center; justify-content: center; gap: 5px; box-sizing: border-box; min-height: 32px; padding: 4px; border: 0; border-radius: 4px; background: transparent; color: var(--reader-accent); font: 600 13px/1.3 'Segoe UI',system-ui,sans-serif; white-space: nowrap; text-decoration: none; cursor: pointer; }
+  .study-toolbar .study-toolbar-control:hover { background: var(--reader-active); }
+  .study-toolbar-control[aria-expanded="true"], .study-toolbar-more[open] > summary { box-shadow: inset 0 -2px var(--reader-accent); }
+  .reader-disclosure { display: inline-block; font-size: 12px; line-height: 1; }
+  [aria-expanded="true"] > .reader-disclosure, .study-toolbar-more[open] > summary > .reader-disclosure { transform: rotate(180deg); }
   .study-toolbar-more { position: relative; justify-self: end; }
   .study-toolbar-more summary { list-style: none; display: flex; align-items: center; gap: 6px; min-height: 32px; cursor: pointer; color: var(--reader-accent); font-weight: 600; }
   .study-toolbar-more summary::-webkit-details-marker { display: none; }
@@ -25,16 +32,12 @@
   .study-toolbar-more .study-toolbar-actions > * { display: flex; align-items: center; min-height: 44px; padding: 0 12px; font-size: 13px; border: 0; border-radius: 4px; background: transparent; color: var(--reader-accent); text-decoration: none; }
   .study-toolbar-more .study-toolbar-actions > *:hover { background: var(--reader-active); }
   .study-toolbar :is(a,button,summary):focus-visible { outline: 2px solid var(--reader-accent); outline-offset: 2px; }
-  .reader-toolbar-start { display: flex; align-items: center; gap: 12px; }
-  .reader-toolbar-start button { color: var(--reader-accent); border: 1px solid var(--reader-border); border-radius: 6px; background: transparent; font: 600 12px 'Segoe UI',sans-serif; min-height: 32px; padding: 4px 8px; cursor: pointer; }
-  .reader-toolbar-start button[aria-expanded="true"] { background: var(--reader-active); border-color: var(--reader-accent); }
+  .reader-toolbar-start { display: flex; align-items: center; gap: 6px; min-width: 0; }
   .study-toolbar-row--sections { grid-template-columns: auto minmax(0,1fr) auto; gap: 8px; }
   #reader-current { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--reader-muted); text-align: center; font-size: 12px; }
   .study-toolbar-section { min-height: 28px; display: inline-flex; align-items: center; }
   @media (max-width: 640px), (pointer: coarse) {
-    .study-toolbar-row--primary { grid-template-columns: minmax(0,1fr) auto; gap: 8px; }
-    .reader-toolbar-start { gap: 8px; }
-    .reader-toolbar-start button, .study-toolbar-more summary, .study-toolbar-section { min-height: 44px; }
+    .study-toolbar .study-toolbar-control, .study-toolbar-section { min-height: 44px; }
     .study-toolbar-section { line-height: 1.3; min-width: 44px; }
   }
   .reader-chrome { font: 14px/1.5 'Segoe UI',system-ui,sans-serif; color: var(--reader-ink); }
@@ -47,11 +50,11 @@
   .reader-resume { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 14px; border: 1px solid var(--reader-border); background: var(--reader-surface); border-radius: 8px; margin: 0 0 22px; }
   .reader-resume > div { flex: 1 1 180px; min-width: 0; }
   #reader-resume-label { display: block; font-size: 12px; color: var(--reader-muted); }
-  #reader-tools { box-sizing: border-box; position: fixed; inset: 12px auto 12px 12px; margin: 0; padding: 0; width: min(390px,calc(100vw - 24px)); height: calc(100dvh - 24px); max-height: none; max-width: none; border: 1px solid var(--reader-border); border-radius: 12px; background: var(--reader-surface); color: var(--reader-ink); box-shadow: 0 12px 50px #0002; z-index: 50; overflow: hidden; }
+  #reader-tools { box-sizing: border-box; position: fixed; inset: calc(var(--reader-toolbar-bottom,110px) + 8px) auto 12px 12px; margin: 0; padding: 0; width: min(390px,calc(100vw - 24px)); height: calc(100dvh - var(--reader-toolbar-bottom,110px) - 20px); max-height: none; max-width: none; border: 1px solid var(--reader-border); border-radius: 12px; background: var(--reader-surface); color: var(--reader-ink); box-shadow: 0 12px 50px #0002; z-index: 50; overflow: hidden; }
   #reader-tools[open] { display: flex; flex-direction: column; }
   #reader-tools:not([open]) { display: none; }
-  #reader-tools::backdrop { background: #151a20a8; }
-  html[data-reader-modal] { overflow: hidden; }
+  #reader-tools-backdrop { position: fixed; inset: var(--reader-toolbar-bottom,110px) 0 0; background: #151a2066; z-index: 40; }
+  html[data-reader-overlay] { overflow: hidden; }
   .reader-panel-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 12px 8px 16px; }
   #reader-tools-title { font: 600 16px/1.3 'Segoe UI',sans-serif; border: 0; padding: 0; margin: 0; color: inherit; }
   #reader-close { font-size: 24px; padding: 0; width: 44px; flex-shrink: 0; border-color: transparent; }
@@ -143,5 +146,11 @@
     .reader-toolbar-start { width: 100%; }
     .study-toolbar-row--sections { gap: 5px; }
     #reader-current { font-size: 11px; }
+  }
+  @media (max-width: 1179px) and (max-height: 540px) {
+    #reader-tools { overflow-y: auto; overscroll-behavior: contain; }
+    #reader-tools > * { flex: none; }
+    #reader-tools .reader-tab-panel { overflow: visible; }
+    #reader-tools .reader-panel-footer { max-height: none; }
   }
 }

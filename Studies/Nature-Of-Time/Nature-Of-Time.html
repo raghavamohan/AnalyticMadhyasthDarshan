@@ -711,7 +711,7 @@
   }
 
 </style>
-<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=d8cb662c2c76f91d"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=ac678c1f8ee73f65"/>
 <link rel="stylesheet" media="screen" href="../../Assets/reader/search.css?v=c92940019b038782"/>
 <link rel="stylesheet" media="screen" href="../../Assets/reader/study-tools.css?v=353aff40197c9ee3"/>
 </head>
@@ -719,10 +719,10 @@
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <span class="reader-toolbar-start"><a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Nature-Of-Time" aria-label="Back to all studies">&larr; Studies</a>
-      <button type="button" id="reader-open" aria-controls="reader-tools" aria-expanded="false" hidden>Contents &amp; tools</button></span>
+    <span class="reader-toolbar-start"><a class="study-toolbar-link study-toolbar-back study-toolbar-control" href="../index.html#study-Nature-Of-Time" aria-label="Back to all studies">&larr; Studies</a>
+      <button type="button" class="study-toolbar-control" id="reader-open" aria-controls="reader-tools" aria-expanded="false" title="Show contents and study tools" hidden>Contents &amp; tools <span class="reader-disclosure" aria-hidden="true">&#9662;</span></button></span>
     <details class="study-toolbar-more">
-      <summary>More <span aria-hidden="true">&#9662;</span></summary>
+      <summary class="study-toolbar-control">More <span class="reader-disclosure" aria-hidden="true">&#9662;</span></summary>
       <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="Nature-Of-Time.pdf" download aria-label="Download PDF">PDF</a>
@@ -745,6 +745,7 @@
   <button type="button" id="reader-resume-go">Resume</button>
   <button type="button" id="reader-resume-dismiss">Start here</button>
 </section>
+<div id="reader-tools-backdrop" class="reader-chrome" aria-hidden="true" hidden></div>
 <dialog id="reader-tools" class="reader-chrome" aria-labelledby="reader-tools-title">
   <header class="reader-panel-header"><h2 id="reader-tools-title">Study tools</h2><button type="button" id="reader-close" aria-label="Close study tools">&#215;</button></header>
   <div class="reader-tabs" role="tablist" aria-label="Study tools">
@@ -1228,8 +1229,8 @@
 <script defer src="../../Assets/reader/reader-features.js?v=507b4490fab797a0"></script>
 <script defer src="../../Assets/reader/notes-core.js?v=cf0d5435124d9148"></script>
 <script defer src="../../Assets/reader/speech-core.js?v=009f08ae3f9cc3da"></script>
-<script defer src="../../Assets/reader/study-tools.js?v=34cd81d2ab9bd823" data-offline-client="../../Assets/reader/offline-client.js?v=99de458f3f336edb"></script>
-<script defer src="../../Assets/reader/reader.js?v=78c6abf48239dff5"></script><script>
+<script defer src="../../Assets/reader/study-tools.js?v=210896ceae97ce45" data-offline-client="../../Assets/reader/offline-client.js?v=99de458f3f336edb"></script>
+<script defer src="../../Assets/reader/reader.js?v=0b9bfaea7f9328e0"></script><script>
 (() => {
   let floatPanel = document.getElementById("term-tip-float");
   if (!floatPanel) {
