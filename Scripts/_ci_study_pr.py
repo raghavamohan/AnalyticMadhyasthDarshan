@@ -193,6 +193,8 @@ PDF_PIPELINE_PATHS = (
     "Scripts/_convert_to_pdf.py",
     "Scripts/_safe_study_html.py",
     "Scripts/_study_reader.py",
+    "Scripts/_study_passages.py",
+    "Scripts/_study_search.py",
     "Scripts/_pdf_resource_policy.cjs",
     "Scripts/_verify_study_svgs.py",
     "Scripts/_glossary_tooltips.py",

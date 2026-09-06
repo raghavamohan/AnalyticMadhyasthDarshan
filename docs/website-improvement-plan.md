@@ -23,7 +23,7 @@ This plan records a source review and sampled live browser checks, not a penetra
 
 ## Delivery phases
 
-Estimates are indicative engineering effort for one developer, subject to review and testing. Phase 1 has been implemented. Phase 2 is authorized and its implementation is recorded below; Phases 3–6 remain recommendations.
+Estimates are indicative engineering effort for one developer, subject to review and testing. Phases 1 and 2 have been implemented; Phase 2 merged in PR #400. Phase 3 is authorized and recorded below. Phases 4–6 remain recommendations.
 
 | Phase | Deliverables | Acceptance criteria | Estimate |
 | --- | --- | --- | --- |
@@ -125,7 +125,7 @@ Sanitizer implementation follows the [nh3 HTML5 sanitizer documentation](https:/
 
 ## Phase 2 implementation record
 
-Implemented on `codex/reader-essentials`, 6 September 2026. Production rollout requires PR review and merge.
+Implemented on `codex/reader-essentials`, 6 September 2026, and merged in PR #400.
 
 - **Contents beside the text:** a collapsible desktop panel follows the current heading and expands its section's subsections. Previous/Next and the current heading remain in the toolbar. The panel becomes a modal drawer on smaller screens, with keyboard tabs, Escape and focus restoration.
 - **Reading comfort:** five text sizes, three line spacings, three column widths, and device/light/sepia/dark colors. Preferences survive reload and apply across study readers. Changing the type size or opening the desktop panel keeps the same passage in view.
@@ -137,3 +137,19 @@ Implemented on `codex/reader-essentials`, 6 September 2026. Production rollout r
 Validation: 31 published Markdown PDFs rebuilt through the internal pipeline. Draft, Released and formal/math/diagram samples remained byte-identical to their pre-change PDFs. Automated checks cover preference and stored-data validation, passage recovery after edits, ambiguous matches, navigation boundaries, control wiring, print isolation, asset synchronization and cache behavior. Chromium browser checks cover desktop and 320/390-pixel layouts, the largest text setting, theme persistence, section links, browser Back, explicit resume, bookmark renaming, cross-tab changes, keyboard drawer operation, unavailable/full storage, unreadable-data recovery and hostile bookmark labels.
 
 Before calling this a complete accessibility or usability evaluation, test with screen-reader users and readers using Safari/Firefox and real mobile devices. Observe whether readers can resume and find an argument without assistance. Phase 3 should add passage search, citation previews and enlarged diagrams/tables; a vector database remains unnecessary for the reader essentials delivered here.
+
+## Phase 3 implementation record
+
+Implemented on `codex/reader-find-and-verify`, 6 September 2026. Publication awaits review and merge of this phase.
+
+- **Find an argument:** the reader's Find tab searches words or quoted phrases within the open document. Results include the section and a highlighted excerpt; Previous/Next move between matching passages. Modern browsers highlight the matching words without replacing the document's text or breaking definitions, citations and equations. A passage outline remains available when word highlighting is unsupported.
+- **Search the collection:** `Studies/search.html`, linked from Browse all studies and the reader, covers 13 published studies and 18 companion documents. Filter by document, study/note, status and language. All query words must occur in one passage. Latin diacritics are ignored; Hindi vowel signs and spelling are preserved. This is literal search, without inferred synonyms, translation or generated answers. Equation text is indexed once; raw Mermaid syntax is excluded.
+- **Load only when needed:** opening a reader downloads no collection index. Collection search first loads a roughly 12 KB manifest, then fetches separate indexes for selected documents with four concurrent requests. Successful indexes are reused during the visit. The complete corpus is about 3 MB of JSON, about 0.85 MB with gzip; these are local artifact measurements, not production transfer or latency guarantees. Results are shown in batches. Aborted searches cannot replace newer results, and partial failures identify unavailable documents and permit retry.
+- **Share a passage:** anchors exist in generated HTML before JavaScript and preserve Phase 2 bookmark IDs. Link & sources copies a canonical passage URL with its original section and source version. Unrelated edits leave the passage ID intact. Changed text produces a new ID; an obsolete link opens the original section with a notice when possible. This is recovery, not an archive of old versions.
+- **Check a citation:** recognized source codes and bibliography links open the actual bibliography entry beside the selected passage. Readers can search the study's references, copy a citation, or open the source in a new tab. The preview does not fetch or summarize a source PDF and does not infer PDF page numbers from printed citations. Ambiguous source codes are not assigned automatically. Clipboard failures offer selectable text.
+- **Read figures and tables:** Enlarge opens a modal viewer with zoom, Fit, 100% and scroll/swipe controls. Tables start at readable size, including on phones. Diagram IDs and internal references are isolated from the document. Closing the viewer restores the reading position and keyboard focus.
+- **Keep publication consistent:** all 46 existing readers were regenerated. The converter updates only the changed document's index; catalog writes remove obsolete/unpublished entries. Verification rejects stale source versions, missing indexes, duplicate/mismatched inventory and stale generated search pages. Indexes contain public documents only. No account, search API, vector database or new hosting service is required. Screen asset and search-index edits preserve PDF-cache reuse; shared renderer changes still run PDF checks.
+
+Validation includes all 31 published Markdown PDFs through the internal renderer, all 39 enforced script suites, the six additional reader-layout checks, reference integrity, catalog/search synchronization and agent-rule synchronization. Draft and Released text samples remain byte-identical to Phase 2. The 84-page formal study has a different PDF hash after adding diagram passage IDs, but every page's text and rendered pixels and the complete outline match the Phase 2 PDF; two repeat builds produce identical new bytes. Canonical study Markdown, scholarly timestamps and statuses are unchanged.
+
+Chromium checks cover desktop and 320/390-pixel layouts, quoted queries, filters and result pagination, matching-passage clearance below the toolbar, source metadata and copying, focus restoration, enlarged Mermaid/table rendering, and partial index failure/retry. Real-device, Firefox/Safari and screen-reader usability checks remain necessary before claiming comprehensive accessibility or field performance. The complete reference library and multilingual semantic retrieval remain future work. A vector index is still unnecessary for these literal find-and-verify tasks; evaluate the hybrid-search pilot described above only when conceptual retrieval becomes a demonstrated need.

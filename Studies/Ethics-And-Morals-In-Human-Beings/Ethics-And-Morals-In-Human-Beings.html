@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>Ethics and Morals in Human Beings</title>
+<meta name="amd-source-version" content="d8311de5d69918ee1d3e3967b38bc9b5ce9e0ed85260389023868d56fce8c3ae"/>
 <link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
@@ -710,7 +711,8 @@
   }
 
 </style>
-<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=a0e5215a2530d800"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=97e069fdb79e189c"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/search.css?v=c92940019b038782"/>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -742,12 +744,24 @@
   <header class="reader-panel-header"><h2 id="reader-tools-title">Study tools</h2><button type="button" id="reader-close" aria-label="Close study tools">&#215;</button></header>
   <div class="reader-tabs" role="tablist" aria-label="Study tools">
     <button type="button" role="tab" id="reader-tab-contents" aria-controls="reader-contents" aria-selected="true">Contents</button>
+    <button type="button" role="tab" id="reader-tab-search" aria-controls="reader-search" aria-selected="false" tabindex="-1">Find</button>
     <button type="button" role="tab" id="reader-tab-bookmarks" aria-controls="reader-bookmarks" aria-selected="false" tabindex="-1">Bookmarks</button>
     <button type="button" role="tab" id="reader-tab-display" aria-controls="reader-display" aria-selected="false" tabindex="-1">Display</button>
   </div>
   <section id="reader-contents" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-contents" tabindex="0">
-    <p class="reader-helper">Follow the argument, section by section.</p>
+    <button type="button" id="reader-passage-tools">Link &amp; sources for this passage</button>
+    <p class="reader-helper">Select text to choose a passage, or use the passage at the top of the page. Click a citation code to preview its source.</p>
     <nav id="reader-outline" aria-label="Study contents"></nav>
+  </section>
+  <section id="reader-search" class="reader-tab-panel study-search" role="tabpanel" aria-labelledby="reader-tab-search" tabindex="0" hidden>
+    <form id="reader-search-form" class="search-form"><label for="reader-search-query">Find in this document</label>
+      <div class="search-input-row"><input id="reader-search-query" type="search" maxlength="200" placeholder="Word or quoted phrase"/><button type="submit">Find</button></div>
+    </form>
+    <p class="reader-helper">All words must occur in a passage. Use quotes for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
+    <a id="reader-search-all" href="/Studies/search.html">Search all studies and notes →</a>
+    <p id="reader-search-status" class="search-status" role="status" aria-live="polite">Enter a word or phrase.</p>
+    <ol id="reader-search-results" class="search-results"></ol>
+    <button type="button" id="reader-search-more" hidden>Show more results</button>
   </section>
   <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
     <form id="reader-bookmark-form">
@@ -775,63 +789,79 @@
     <div id="reader-clear-confirm" hidden><p>Remove this study’s saved position and bookmarks?</p><button type="button" id="reader-clear-yes">Remove saved places</button><button type="button" id="reader-clear-no">Keep them</button></div>
   </footer>
 </dialog>
+<dialog id="reader-viewer" class="reader-chrome" aria-labelledby="reader-viewer-title">
+  <header class="reader-panel-header"><h2 id="reader-viewer-title">Passage tools</h2><button type="button" id="reader-viewer-close" aria-label="Close preview">&#215;</button></header>
+  <p id="reader-viewer-status" role="status" aria-live="polite"></p>
+  <div id="reader-source-view">
+    <p id="reader-passage-excerpt"></p><button type="button" id="reader-copy-passage">Copy passage link</button>
+    <label id="reader-copy-label" for="reader-copy-fallback" hidden>Copy this text</label><textarea id="reader-copy-fallback" rows="3" readonly hidden></textarea>
+    <div id="reader-source-detail" hidden><h3 id="reader-source-title"></h3><p id="reader-source-citation"></p><p id="reader-source-note" class="reader-helper"></p>
+      <a id="reader-source-open" target="_blank" rel="noopener noreferrer">Open source in a new tab ↗</a> <button type="button" id="reader-copy-citation">Copy citation</button>
+    </div>
+    <label for="reader-source-query">Find a reference in this study</label><input id="reader-source-query" type="search" placeholder="Source code, title or author"/>
+    <p id="reader-source-status" class="reader-helper"></p><ul id="reader-source-list"></ul>
+  </div>
+  <div id="reader-visual-view" hidden><div class="reader-zoom-controls"><button type="button" id="reader-zoom-out" aria-label="Zoom out">−</button><output id="reader-zoom-level" aria-live="polite">100%</output><button type="button" id="reader-zoom-in" aria-label="Zoom in">+</button><button type="button" id="reader-zoom-fit">Fit</button><button type="button" id="reader-zoom-reset">100%</button></div>
+    <p class="reader-helper">Scroll or swipe inside the viewer to see the whole figure or table.</p><div id="reader-visual-stage" tabindex="0" role="region" aria-label="Enlarged figure or table"><div id="reader-visual-canvas"><div id="reader-visual-content"></div></div></div>
+  </div>
+</dialog>
 <div id="reader-message" class="reader-chrome" role="status" aria-live="polite" hidden></div>
 <main id="main"><h1>Ethics and Morals in Human Beings</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">AnalyticMadhyasthDarshan.org</a> - a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
-<p><strong>Edited on:</strong> September 4, 2026, 5:31 AM IST</p>
-<p><strong>The question:</strong> What are ethics and morals in human beings? Are they divine commands, social conventions, evolutionary adaptations, rational principles, neural/emotional mechanisms, or evidence of correct understanding? How does <strong>Madhyasth Darshan</strong> answer these questions, and how does its answer compare with <strong>Advaita Vedanta</strong> and <strong>modern scientific approaches</strong>?</p>
-<p>This study argues that Madhyasth Darshan gives a distinctive answer: human ethics is not merely obedience to rules, calculation of consequences, inherited custom, or emotional intuition. It is the lived evidence of a human being who understands existence as coexistence, understands the self as <code>jeevan</code> in association with the body, and fulfils values in relationships through justice, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span>, truth, character, right-use, and purposeful participation in orderliness.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-776bd04442c16ef8"><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">AnalyticMadhyasthDarshan.org</a> - a group of people studying <span class="term-tip-wrap"><button class="term-tip" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation." data-term="darshan" type="button">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-85bf260729069147"><strong>Edited on:</strong> September 4, 2026, 5:31 AM IST</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-78369e55c2fb6099"><strong>The question:</strong> What are ethics and morals in human beings? Are they divine commands, social conventions, evolutionary adaptations, rational principles, neural/emotional mechanisms, or evidence of correct understanding? How does <strong>Madhyasth Darshan</strong> answer these questions, and how does its answer compare with <strong>Advaita Vedanta</strong> and <strong>modern scientific approaches</strong>?</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-5e1170e902131f67">This study argues that Madhyasth Darshan gives a distinctive answer: human ethics is not merely obedience to rules, calculation of consequences, inherited custom, or emotional intuition. It is the lived evidence of a human being who understands existence as coexistence, understands the self as <code>jeevan</code> in association with the body, and fulfils values in relationships through justice, <span class="term-tip-wrap"><button class="term-tip" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives." data-term="dharma" type="button">dharma</button></span>, truth, character, right-use, and purposeful participation in orderliness.</p>
 <details class="study-toc study-toc--with-key" id="study-contents">
-  <summary class="study-toc-summary">
-    <span class="study-toc-label">Contents</span>
-    <span class="study-toc-meta">11 sections &middot; 34 headings</span>
-  </summary>
-  <nav class="study-toc-nav" aria-label="Contents">
-    <ol class="study-toc-list">
-      <li class="study-toc-item study-toc-l1"><a href="#quick-glossary">Quick Glossary</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#1-the-central-thesis">1. The Central Thesis</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#2-ethics-and-morals-a-working-distinction">2. Ethics and Morals: A Working Distinction</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#3-the-madhyasth-darshan-answer">3. The Madhyasth Darshan Answer</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#31-ethics-is-part-of-humane-conduct">3.1 Ethics is part of humane conduct</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#32-the-ethical-hierarchy-pleasant-useful-profitable-just-dharmic-true">3.2 The ethical hierarchy: pleasant, useful, profitable, just, dharmic, true</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#33-justice-dharma-and-truth-are-not-optional-ideals">3.3 Justice, dharma, and truth are not optional ideals</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#34-values-are-fulfilled-in-relationship">3.4 Values are fulfilled in relationship</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#35-character-is-social-economic-and-bodily">3.5 Character is social, economic, and bodily</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#36-ethics-means-right-use-not-renunciation-of-material-life">3.6 Ethics means right-use, not renunciation of material life</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#37-moral-failure-is-delusion-not-merely-weakness">3.7 Moral failure is delusion, not merely weakness</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#38-ethics-must-be-evidenced-not-merely-believed">3.8 Ethics must be evidenced, not merely believed</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue">4. Traditional Religions: Ethics as Divine Command, Sacred Law, and Virtue</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge">5. Advaita Vedanta: Ethics as Preparation and Expression of Self-Knowledge</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#51-advaita-has-virtues-but-the-virtues-are-preparatory">5.1 Advaita has virtues, but the virtues are preparatory</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#52-where-advaita-differs-from-madhyasth-darshan">5.2 Where Advaita differs from Madhyasth Darshan</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#6-modern-scientific-approaches">6. Modern Scientific Approaches</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#61-moral-psychology-empirically-responsible-ethics">6.1 Moral psychology: empirically responsible ethics</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#62-intuition-and-emotion">6.2 Intuition and emotion</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#63-computational-neuroscience-and-decision-systems">6.3 Computational neuroscience and decision systems</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#64-morality-as-cooperation">6.4 Morality as cooperation</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#65-moral-foundations-and-plural-moral-grammars">6.5 Moral foundations and plural moral grammars</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#7-comparison">7. Comparison</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#8-critical-review">8. Critical review</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#81-madhyasth-darshan">8.1 Madhyasth Darshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#83-strengths-and-limits-of-traditional-religion">8.3 Strengths and limits of traditional religion</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#84-strengths-and-limits-of-advaita">8.4 Strengths and limits of Advaita</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#85-strengths-and-limits-of-science">8.5 Strengths and limits of science</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#9-final-answer">9. Final Answer</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#advaita-vedanta">Advaita Vedanta</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#traditional-religious-ethics">Traditional Religious Ethics</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#modern-science-and-philosophy">Modern Science and Philosophy</a></li>
-    </ol>
-  </nav>
+<summary class="study-toc-summary">
+<span class="study-toc-label">Contents</span>
+<span class="study-toc-meta">11 sections · 34 headings</span>
+</summary>
+<nav aria-label="Contents" class="study-toc-nav">
+<ol class="study-toc-list">
+<li class="study-toc-item study-toc-l1"><a href="#quick-glossary">Quick Glossary</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#1-the-central-thesis">1. The Central Thesis</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#2-ethics-and-morals-a-working-distinction">2. Ethics and Morals: A Working Distinction</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#3-the-madhyasth-darshan-answer">3. The Madhyasth Darshan Answer</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#31-ethics-is-part-of-humane-conduct">3.1 Ethics is part of humane conduct</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#32-the-ethical-hierarchy-pleasant-useful-profitable-just-dharmic-true">3.2 The ethical hierarchy: pleasant, useful, profitable, just, dharmic, true</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#33-justice-dharma-and-truth-are-not-optional-ideals">3.3 Justice, dharma, and truth are not optional ideals</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#34-values-are-fulfilled-in-relationship">3.4 Values are fulfilled in relationship</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#35-character-is-social-economic-and-bodily">3.5 Character is social, economic, and bodily</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#36-ethics-means-right-use-not-renunciation-of-material-life">3.6 Ethics means right-use, not renunciation of material life</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#37-moral-failure-is-delusion-not-merely-weakness">3.7 Moral failure is delusion, not merely weakness</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#38-ethics-must-be-evidenced-not-merely-believed">3.8 Ethics must be evidenced, not merely believed</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue">4. Traditional Religions: Ethics as Divine Command, Sacred Law, and Virtue</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge">5. Advaita Vedanta: Ethics as Preparation and Expression of Self-Knowledge</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#51-advaita-has-virtues-but-the-virtues-are-preparatory">5.1 Advaita has virtues, but the virtues are preparatory</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#52-where-advaita-differs-from-madhyasth-darshan">5.2 Where Advaita differs from Madhyasth Darshan</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#6-modern-scientific-approaches">6. Modern Scientific Approaches</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#61-moral-psychology-empirically-responsible-ethics">6.1 Moral psychology: empirically responsible ethics</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#62-intuition-and-emotion">6.2 Intuition and emotion</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#63-computational-neuroscience-and-decision-systems">6.3 Computational neuroscience and decision systems</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#64-morality-as-cooperation">6.4 Morality as cooperation</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#65-moral-foundations-and-plural-moral-grammars">6.5 Moral foundations and plural moral grammars</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#7-comparison">7. Comparison</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#8-critical-review">8. Critical review</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#81-madhyasth-darshan">8.1 Madhyasth Darshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#83-strengths-and-limits-of-traditional-religion">8.3 Strengths and limits of traditional religion</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#84-strengths-and-limits-of-advaita">8.4 Strengths and limits of Advaita</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#85-strengths-and-limits-of-science">8.5 Strengths and limits of science</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#9-final-answer">9. Final Answer</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#advaita-vedanta">Advaita Vedanta</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#traditional-religious-ethics">Traditional Religious Ethics</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#modern-science-and-philosophy">Modern Science and Philosophy</a></li>
+</ol>
+</nav>
 </details>
-<p class="study-reading-key" aria-label="Reading key">
-  <span class="study-reading-key-term">Dotted underline</span>: definition
-  <span aria-hidden="true">&middot;</span>
-  <span class="study-reading-key-link">Blue underline</span>: link
+<p aria-label="Reading key" class="study-reading-key">
+<span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">·</span>
+<span class="study-reading-key-link">Blue underline</span>: link
 </p>
-<h2 id="quick-glossary">Quick Glossary</h2>
-<div class="table-scroll"><table>
+<h2 data-reader-heading="quick-glossary" data-reader-passage="" id="quick-glossary">Quick Glossary</h2>
+<div class="table-scroll"><table data-reader-heading="quick-glossary" data-reader-passage="" id="reader-p-035e4962158bc9ee">
 <thead>
 <tr>
 <th>Term</th>
@@ -893,41 +923,41 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="1-the-central-thesis">1. The Central Thesis</h2>
-<p>The central problem is not simply “What rules should humans follow?” A more rigorous question is:</p>
-<pre><code class="language-text">What is the source, criterion, evidence, and failure mode of human rightness?
+<h2 data-reader-heading="1-the-central-thesis" data-reader-passage="" id="1-the-central-thesis">1. The Central Thesis</h2>
+<p data-reader-heading="1-the-central-thesis" data-reader-passage="" id="reader-p-64267cd2e44a3f76">The central problem is not simply “What rules should humans follow?” A more rigorous question is:</p>
+<pre data-reader-heading="1-the-central-thesis" data-reader-passage="" id="reader-p-1efbef49090ddc13"><code class="language-text">What is the source, criterion, evidence, and failure mode of human rightness?
 </code></pre>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> answers by joining ontology, anthropology, and conduct:</p>
+<p data-reader-heading="1-the-central-thesis" data-reader-passage="" id="reader-p-36887c7351d41175"><span class="term-tip-wrap"><button class="term-tip" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation." data-term="darshan" type="button">Madhyasth Darshan</button></span> answers by joining ontology, anthropology, and conduct:</p>
 <ol>
-<li><strong>Source:</strong> Ethics arises from existence as coexistence, not from arbitrary command or social invention.</li>
-<li><strong>Human locus:</strong> Only the human being, as a knowledge-order being with imagination and freedom of action, can understand and evidence ethics.</li>
-<li><strong>Criterion:</strong> Humane conduct is right when it fulfils values in relationships, protects humaneness through justice, disciplines thought through <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span>, and remains grounded in truth.</li>
-<li><strong>Evidence:</strong> Ethical understanding must become visible in behaviour, work, production, family, society, and coexistence with nature.</li>
-<li><strong>Failure mode:</strong> Immorality is not explained finally as sin, selfish genes, bad incentives, or irrationality alone. It is explained as delusion: wrong identification, wrong priority, wrong perspective, and failure to understand <code>jeevan</code>, existence, and humane conduct.</li>
+<li data-reader-heading="1-the-central-thesis" data-reader-passage="" id="reader-p-7366a017d63db16f"><strong>Source:</strong> Ethics arises from existence as coexistence, not from arbitrary command or social invention.</li>
+<li data-reader-heading="1-the-central-thesis" data-reader-passage="" id="reader-p-b61badf282cf8cf8"><strong>Human locus:</strong> Only the human being, as a knowledge-order being with imagination and freedom of action, can understand and evidence ethics.</li>
+<li data-reader-heading="1-the-central-thesis" data-reader-passage="" id="reader-p-6100966fda32d169"><strong>Criterion:</strong> Humane conduct is right when it fulfils values in relationships, protects humaneness through justice, disciplines thought through <span class="term-tip-wrap"><button class="term-tip" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives." data-term="dharma" type="button">dharma</button></span>, and remains grounded in truth.</li>
+<li data-reader-heading="1-the-central-thesis" data-reader-passage="" id="reader-p-2ea3b59a8f68e094"><strong>Evidence:</strong> Ethical understanding must become visible in behaviour, work, production, family, society, and coexistence with nature.</li>
+<li data-reader-heading="1-the-central-thesis" data-reader-passage="" id="reader-p-625151e442629272"><strong>Failure mode:</strong> Immorality is not explained finally as sin, selfish genes, bad incentives, or irrationality alone. It is explained as delusion: wrong identification, wrong priority, wrong perspective, and failure to understand <code>jeevan</code>, existence, and humane conduct.</li>
 </ol>
-<p>This makes Madhyasth Darshan neither a conventional moral code nor a secular moral psychology. It is a proposed science of humane living grounded in a metaphysics of coexistence.</p>
-<h2 id="2-ethics-and-morals-a-working-distinction">2. Ethics and Morals: A Working Distinction</h2>
-<p>Ordinary language often treats ethics and morals as synonyms. For analysis, a distinction helps.</p>
-<p><strong>Morals</strong> are the norms a person or community holds: do not lie, care for family, keep promises, respect elders, be faithful, do not steal, do not harm, help the weak, obey duty, follow purity rules, defend the group. Morals are usually taught through family, culture, religion, law, story, reward, punishment, shame, honour, and imitation.</p>
-<p><strong>Ethics</strong> asks whether those morals are justified, universalizable, coherent, livable, and grounded in the nature of the human being. Ethics asks:</p>
+<p data-reader-heading="1-the-central-thesis" data-reader-passage="" id="reader-p-2a59a06a3e82e24e">This makes Madhyasth Darshan neither a conventional moral code nor a secular moral psychology. It is a proposed science of humane living grounded in a metaphysics of coexistence.</p>
+<h2 data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="2-ethics-and-morals-a-working-distinction">2. Ethics and Morals: A Working Distinction</h2>
+<p data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-b1e9f8646091a2fe">Ordinary language often treats ethics and morals as synonyms. For analysis, a distinction helps.</p>
+<p data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-f1a85db254320356"><strong>Morals</strong> are the norms a person or community holds: do not lie, care for family, keep promises, respect elders, be faithful, do not steal, do not harm, help the weak, obey duty, follow purity rules, defend the group. Morals are usually taught through family, culture, religion, law, story, reward, punishment, shame, honour, and imitation.</p>
+<p data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-3746bb721fcc3bac"><strong>Ethics</strong> asks whether those morals are justified, universalizable, coherent, livable, and grounded in the nature of the human being. Ethics asks:</p>
 <ol>
-<li>Why should this rule be followed?</li>
-<li>What human need does it answer?</li>
-<li>What happens when rules conflict?</li>
-<li>Is the norm local custom or universal human requirement?</li>
-<li>What is the evidence that it leads to fulfilment rather than repression, domination, or hypocrisy?</li>
+<li data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-0a11a135ad19fb09">Why should this rule be followed?</li>
+<li data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-8117d268fd270a9e">What human need does it answer?</li>
+<li data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-631cd00589973a75">What happens when rules conflict?</li>
+<li data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-4d884ff48c02e45e">Is the norm local custom or universal human requirement?</li>
+<li data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-b2b285f5748e4faf">What is the evidence that it leads to fulfilment rather than repression, domination, or hypocrisy?</li>
 </ol>
-<p>This distinction matters because many societies have strong morals and weak ethics. They possess rules but cannot justify them universally. Conversely, modern institutions may have elaborate ethical theories but weak moral formation: people know arguments but do not embody trust, restraint, care, or justice.</p>
-<p><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> tries to bridge this split. It does not want ethics to remain theory, nor morals to remain inherited rule. It wants <strong>understood conduct</strong>.</p>
-<h2 id="3-the-madhyasth-darshan-answer">3. The Madhyasth Darshan Answer</h2>
-<h3 id="31-ethics-is-part-of-humane-conduct" data-depth="2">3.1 Ethics is part of humane conduct</h3>
-<p>The most direct <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> passage for the present topic appears in <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">Jeevan</button></span> Vidya: An Introduction</em>:</p>
+<p data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-47498a600cb357e8">This distinction matters because many societies have strong morals and weak ethics. They possess rules but cannot justify them universally. Conversely, modern institutions may have elaborate ethical theories but weak moral formation: people know arguments but do not embody trust, restraint, care, or justice.</p>
+<p data-reader-heading="2-ethics-and-morals-a-working-distinction" data-reader-passage="" id="reader-p-94f3ff6d79428bcb"><span class="term-tip-wrap"><button class="term-tip" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation." data-term="darshan" type="button">Madhyasth Darshan</button></span> tries to bridge this split. It does not want ethics to remain theory, nor morals to remain inherited rule. It wants <strong>understood conduct</strong>.</p>
+<h2 data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="3-the-madhyasth-darshan-answer">3. The Madhyasth Darshan Answer</h2>
+<h3 data-depth="2" data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="31-ethics-is-part-of-humane-conduct">3.1 Ethics is part of humane conduct</h3>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-50d9f856dc1b8e8a">The most direct <span class="term-tip-wrap"><button class="term-tip" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation." data-term="darshan" type="button">Madhyasth Darshan</button></span> passage for the present topic appears in <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">Jeevan</button></span> Vidya: An Introduction</em>:</p>
 <blockquote>
-<p><strong>“Humane conduct is universally consistent across all times and places. It combines values, character, and ethics. Character entails rightfully owned wealth, marital faithfulness, and kindness in actions and behaviour. Ethics involve the right-use and protection of body, mind, and wealth. Values are about evaluation and achieving mutual satisfaction in relationships.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-5d5daa459ee1283d"><strong>“Humane conduct is universally consistent across all times and places. It combines values, character, and ethics. Character entails rightfully owned wealth, marital faithfulness, and kindness in actions and behaviour. Ethics involve the right-use and protection of body, mind, and wealth. Values are about evaluation and achieving mutual satisfaction in relationships.”</strong><br/>
 - JV, p. 165</p>
 </blockquote>
-<p>This is a compressed definition. It does not define morality as rule-obedience, ritual purity, divine command, legal compliance, or social preference. It divides humane conduct into three inseparable dimensions:</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-566733639d1376b7">This is a compressed definition. It does not define morality as rule-obedience, ritual purity, divine command, legal compliance, or social preference. It divides humane conduct into three inseparable dimensions:</p>
+<div class="table-scroll"><table data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-b97e66f1ca11e543">
 <thead>
 <tr>
 <th>Dimension</th>
@@ -953,46 +983,46 @@
 </tr>
 </tbody>
 </table></div>
-<p>This definition is unusually concrete. It avoids two common extremes:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-17d99e7a1fca67a8">This definition is unusually concrete. It avoids two common extremes:</p>
 <ol>
-<li><strong>Spiritual abstraction:</strong> Ethics is not reduced to inner purity, detachment, or mystical realization.</li>
-<li><strong>Secular externalism:</strong> Ethics is not reduced to legal compliance, outcome calculation, or social coordination.</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-da307edde99b0565"><strong>Spiritual abstraction:</strong> Ethics is not reduced to inner purity, detachment, or mystical realization.</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-a58d8e686d4f7de4"><strong>Secular externalism:</strong> Ethics is not reduced to legal compliance, outcome calculation, or social coordination.</li>
 </ol>
-<p>The human being must evidence humane conduct in relationship, wealth, body, mind, speech, family, society, and nature.</p>
-<h3 id="32-the-ethical-hierarchy-pleasant-useful-profitable-just-dharmic-true" data-depth="2">3.2 The ethical hierarchy: pleasant, useful, profitable, just, dharmic, true</h3>
-<p>Madhyasth Darshan distinguishes lower and higher standpoints of evaluation:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-de69ce04dbfdbae4">The human being must evidence humane conduct in relationship, wealth, body, mind, speech, family, society, and nature.</p>
+<h3 data-depth="2" data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="32-the-ethical-hierarchy-pleasant-useful-profitable-just-dharmic-true">3.2 The ethical hierarchy: pleasant, useful, profitable, just, dharmic, true</h3>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-dcd375e53fd1baa1">Madhyasth Darshan distinguishes lower and higher standpoints of evaluation:</p>
 <blockquote>
-<p><strong>“All human behaviour is manifest in six perspectives: - (1) pleasant-unpleasant, (2) healthy-unhealthy, (3) profit-loss, (4) justice-injustice, (5) dharma-adharma, and (6) truth-untruth.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-1c2cc81ebdd881ec"><strong>“All human behaviour is manifest in six perspectives: - (1) pleasant-unpleasant, (2) healthy-unhealthy, (3) profit-loss, (4) justice-injustice, (5) dharma-adharma, and (6) truth-untruth.”</strong><br/>
 - MVD, p. 67</p>
-<p><strong>“The behaviour of humans with inhumane perspective is in the refuge of pleasant-unpleasant, healthy-unhealthy, and profit-loss. The behaviour of humans with humane perspective is in the refuge of justice-injustice, dharma-adharma, and truth-untruth.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-f3c4b188c191f4e2"><strong>“The behaviour of humans with inhumane perspective is in the refuge of pleasant-unpleasant, healthy-unhealthy, and profit-loss. The behaviour of humans with humane perspective is in the refuge of justice-injustice, dharma-adharma, and truth-untruth.”</strong><br/>
 - MVD, p. 67</p>
 </blockquote>
-<p>This is one of the strongest ethical claims in the darshan. It does not deny pleasure, health, or profit. It denies their sufficiency. A human being who lives only by liking, bodily benefit, and gain is not yet living as a fully human being.</p>
-<p>The ethical transition is:</p>
-<pre><code class="language-text">Pleasant/unpleasant -&gt; Justice/injustice
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-3f6b25b2a7c1e9d0">This is one of the strongest ethical claims in the darshan. It does not deny pleasure, health, or profit. It denies their sufficiency. A human being who lives only by liking, bodily benefit, and gain is not yet living as a fully human being.</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-c87a1f534777993d">The ethical transition is:</p>
+<pre data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-704dff1a0a5403d2"><code class="language-text">Pleasant/unpleasant -&gt; Justice/injustice
 Healthy/unhealthy   -&gt; Dharma/adharma
 Profit/loss         -&gt; Truth/untruth
 </code></pre>
-<p>Modern public life often remains trapped in the first three perspectives:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-c6cdceabf78d230d">Modern public life often remains trapped in the first three perspectives:</p>
 <ol>
-<li>consumer culture optimizes pleasant/unpleasant;</li>
-<li>biomedical culture optimizes healthy/unhealthy;</li>
-<li>market culture optimizes profit/loss.</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-8e07f69a0369a616">consumer culture optimizes pleasant/unpleasant;</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-b59e7991f7d3befb">biomedical culture optimizes healthy/unhealthy;</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-6d2f6b5bcfe3a8c7">market culture optimizes profit/loss.</li>
 </ol>
-<p>Madhyasth Darshan does not reject these domains, but subordinates them to justice, dharma, and truth. This is the basis of its critique of both consumer materialism and purely instrumental science.</p>
-<h3 id="33-justice-dharma-and-truth-are-not-optional-ideals" data-depth="2">3.3 Justice, dharma, and truth are not optional ideals</h3>
-<p>MVD states the human requirement directly:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-f4ee24b1344795c9">Madhyasth Darshan does not reject these domains, but subordinates them to justice, dharma, and truth. This is the basis of its critique of both consumer materialism and purely instrumental science.</p>
+<h3 data-depth="2" data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="33-justice-dharma-and-truth-are-not-optional-ideals">3.3 Justice, dharma, and truth are not optional ideals</h3>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-dbd412b980cd0621">MVD states the human requirement directly:</p>
 <blockquote>
-<p><strong>“The necessary behaviour for humans is to adhere to the laws of justice, and the necessary thought for humans is to adhere to the laws of dharma.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-04528a54e09f0c28"><strong>“The necessary behaviour for humans is to adhere to the laws of justice, and the necessary thought for humans is to adhere to the laws of dharma.”</strong><br/>
 - MVD, p. 67</p>
 </blockquote>
-<p>It later clarifies the internal relation:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-d6e796168b760918">It later clarifies the internal relation:</p>
 <blockquote>
-<p><strong>“The regulation of human behaviour takes place through justice, discipline in thoughts takes place through dharma, and realisation takes place only through truth.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-7238c051af3ef68f"><strong>“The regulation of human behaviour takes place through justice, discipline in thoughts takes place through dharma, and realisation takes place only through truth.”</strong><br/>
 - MVD, p. 137</p>
 </blockquote>
-<p>This gives a three-level structure:</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-19fa2b1088c85ca6">This gives a three-level structure:</p>
+<div class="table-scroll"><table data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-0e4b3676d3393520">
 <thead>
 <tr>
 <th>Level</th>
@@ -1018,89 +1048,89 @@ Profit/loss         -&gt; Truth/untruth
 </tr>
 </tbody>
 </table></div>
-<p>Madhyasth Darshan therefore does not treat ethics as only external conduct. Behaviour, thought, and realization must become aligned.</p>
-<h3 id="34-values-are-fulfilled-in-relationship" data-depth="2">3.4 Values are fulfilled in relationship</h3>
-<p>MVD defines sociality as value-fulfilment:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-74e86297fa12c1af">Madhyasth Darshan therefore does not treat ethics as only external conduct. Behaviour, thought, and realization must become aligned.</p>
+<h3 data-depth="2" data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="34-values-are-fulfilled-in-relationship">3.4 Values are fulfilled in relationship</h3>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-19cde5e1cb460113">MVD defines sociality as value-fulfilment:</p>
 <blockquote>
-<p><strong>“Sociality (samajikta): - Fulfilling the values inherent in relationships and contacts itself is sociality.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-91ecdea918e920e5"><strong>“Sociality (samajikta): - Fulfilling the values inherent in relationships and contacts itself is sociality.”</strong><br/>
 - MVD, p. 56</p>
 </blockquote>
-<p>This has major implications. The primary site of ethics is neither the isolated individual nor the state. It is the human being in relationship.</p>
-<p>In this sense, moral failure is not merely “breaking a rule.” It is failure to recognize and fulfil the value inherent in a relationship. Betrayal, exploitation, deceit, violence, hoarding, and humiliation are not wrong merely because a rule says so. They are wrong because they break mutuality, destroy trust, obstruct satisfaction, and contradict coexistence.</p>
-<p>This makes Madhyasth Darshan close to virtue ethics and care ethics in one respect: it takes character and relationship seriously. But it is not identical to either. It claims that relationship-values are grounded in the structure of coexistence, not only in cultivated virtue or affective care.</p>
-<h3 id="35-character-is-social-economic-and-bodily" data-depth="2">3.5 Character is social, economic, and bodily</h3>
-<p>The JV definition of character is concrete: rightfully owned wealth, marital faithfulness, and kindness in actions and behaviour. MVD expands this:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-a142f1876ec58b61">This has major implications. The primary site of ethics is neither the isolated individual nor the state. It is the human being in relationship.</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-a736714ff3fa42c1">In this sense, moral failure is not merely “breaking a rule.” It is failure to recognize and fulfil the value inherent in a relationship. Betrayal, exploitation, deceit, violence, hoarding, and humiliation are not wrong merely because a rule says so. They are wrong because they break mutuality, destroy trust, obstruct satisfaction, and contradict coexistence.</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-957055b20e088162">This makes Madhyasth Darshan close to virtue ethics and care ethics in one respect: it takes character and relationship seriously. But it is not identical to either. It claims that relationship-values are grounded in the structure of coexistence, not only in cultivated virtue or affective care.</p>
+<h3 data-depth="2" data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="35-character-is-social-economic-and-bodily">3.5 Character is social, economic, and bodily</h3>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-c11afd2c7d521d20">The JV definition of character is concrete: rightfully owned wealth, marital faithfulness, and kindness in actions and behaviour. MVD expands this:</p>
 <blockquote>
-<p><strong>“The behaviour devoid of ill-gotten wealth, adultery, and hurting others, and the dedication towards righteous wealth, marital faithfulness, and kindness in work and behaviour - is the entirety of just behaviour.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-6c79c6bd1d94db01"><strong>“The behaviour devoid of ill-gotten wealth, adultery, and hurting others, and the dedication towards righteous wealth, marital faithfulness, and kindness in work and behaviour - is the entirety of just behaviour.”</strong><br/>
 - MVD, p. 102</p>
 </blockquote>
-<p>This is not a random list. It identifies three recurring sites of disorder:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-d884c9a1639b466d">This is not a random list. It identifies three recurring sites of disorder:</p>
 <ol>
-<li><strong>Wealth:</strong> exploitation, theft, hoarding, corruption, unjust acquisition.</li>
-<li><strong>Sexual/family life:</strong> betrayal, objectification, instability, misuse of attraction.</li>
-<li><strong>Power over others:</strong> injury, cruelty, humiliation, domination.</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-e96641503a386d4c"><strong>Wealth:</strong> exploitation, theft, hoarding, corruption, unjust acquisition.</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-2a5cb91dee5e7daf"><strong>Sexual/family life:</strong> betrayal, objectification, instability, misuse of attraction.</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-8d97beff9e446a5d"><strong>Power over others:</strong> injury, cruelty, humiliation, domination.</li>
 </ol>
-<p>Madhyasth Darshan’s ethics is therefore not only about individual conscience. It is also about property, sexuality, family, work, and non-harm.</p>
-<h3 id="36-ethics-means-right-use-not-renunciation-of-material-life" data-depth="2">3.6 Ethics means right-use, not renunciation of material life</h3>
-<p>The darshan does not ask humans to reject body, wealth, production, or social organization. It asks for right-use:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-a262223c0a81c548">Madhyasth Darshan’s ethics is therefore not only about individual conscience. It is also about property, sexuality, family, work, and non-harm.</p>
+<h3 data-depth="2" data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="36-ethics-means-right-use-not-renunciation-of-material-life">3.6 Ethics means right-use, not renunciation of material life</h3>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-f9059f25ecd21cad">The darshan does not ask humans to reject body, wealth, production, or social organization. It asks for right-use:</p>
 <blockquote>
-<p><strong>“Sociality gives rise to needs; needs give rise to experimentation and production; experimentation and production give rise to creation of wealth; creation of wealth gives rise to use, right-use and purposeful-use; use, right-use and purposeful-use give rise to practicality; practicality gives rise to humaneness, and humaneness gives rise to sociality. Sociality is meaningful when it is towards undivided sociality.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-ea2141d32bc7492d"><strong>“Sociality gives rise to needs; needs give rise to experimentation and production; experimentation and production give rise to creation of wealth; creation of wealth gives rise to use, right-use and purposeful-use; use, right-use and purposeful-use give rise to practicality; practicality gives rise to humaneness, and humaneness gives rise to sociality. Sociality is meaningful when it is towards undivided sociality.”</strong><br/>
 - MVD, p. 56</p>
 </blockquote>
-<p>This is a full ethical economy:</p>
-<pre><code class="language-text">Sociality -&gt; Need -&gt; Experiment/Production -&gt; Wealth
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-5d707cb31716bed7">This is a full ethical economy:</p>
+<pre data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-f8084004d9a6bd22"><code class="language-text">Sociality -&gt; Need -&gt; Experiment/Production -&gt; Wealth
 -&gt; Use / Right-use / Purposeful-use
 -&gt; Practicality -&gt; Humaneness -&gt; Undivided sociality
 </code></pre>
-<p>Here wealth is neither demonized nor absolutized. It is ethically valid only when it becomes right-use and purposeful-use within humane sociality.</p>
-<p>This is one of Madhyasth Darshan’s strongest contributions to ethical theory. Many religious systems oscillate between wealth as temptation and wealth as charity. Many modern systems treat wealth as utility, preference satisfaction, growth, or distribution. Madhyasth Darshan asks whether wealth is being used to protect body, mind, relationship, family, society, and coexistence.</p>
-<h3 id="37-moral-failure-is-delusion-not-merely-weakness" data-depth="2">3.7 Moral failure is delusion, not merely weakness</h3>
-<p>MVD states:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-9f51e320085ccb46">Here wealth is neither demonized nor absolutized. It is ethically valid only when it becomes right-use and purposeful-use within humane sociality.</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-10285abbab28fcd9">This is one of Madhyasth Darshan’s strongest contributions to ethical theory. Many religious systems oscillate between wealth as temptation and wealth as charity. Many modern systems treat wealth as utility, preference satisfaction, growth, or distribution. Madhyasth Darshan asks whether wealth is being used to protect body, mind, relationship, family, society, and coexistence.</p>
+<h3 data-depth="2" data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="37-moral-failure-is-delusion-not-merely-weakness">3.7 Moral failure is delusion, not merely weakness</h3>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-49b2e5e2d191623c">MVD states:</p>
 <blockquote>
-<p><strong>“Humans who have realised the truth and embody thought and behaviour aligned with justice and dharma are awakened or developed. Those who have thought and behaviour aligned with justice &amp; dharma are half-developed. Those who have thought and behaviour aligned with justice are partially developed or progressive. Those who are attached to thoughts and behaviour of injustice are heading towards decline and are in the form of animalistic-human and demonic-human.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-1e0b82001607a49a"><strong>“Humans who have realised the truth and embody thought and behaviour aligned with justice and dharma are awakened or developed. Those who have thought and behaviour aligned with justice &amp; dharma are half-developed. Those who have thought and behaviour aligned with justice are partially developed or progressive. Those who are attached to thoughts and behaviour of injustice are heading towards decline and are in the form of animalistic-human and demonic-human.”</strong><br/>
 - MVD, p. 160</p>
 </blockquote>
-<p>This is a developmental moral anthropology. Humans are not all treated as equally awakened moral agents. Nor are they condemned as permanently sinful. They are seen along a continuum of awakening and decline.</p>
-<p>The key diagnostic claim is that disorder arises from wrong identification and wrong priority. SB states that complete understanding requires three areas:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-2540a3ee9faa9c16">This is a developmental moral anthropology. Humans are not all treated as equally awakened moral agents. Nor are they condemned as permanently sinful. They are seen along a continuum of awakening and decline.</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-0199b75c38a6c83e">The key diagnostic claim is that disorder arises from wrong identification and wrong priority. SB states that complete understanding requires three areas:</p>
 <blockquote>
-<p><strong>“The definitive understanding aligned with the human objective in existence encompasses: 1. Knowledge of jeevan 2. Knowledge of holistic view of existence 3. Knowledge of humane conduct”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-08d559d6295c7b56"><strong>“The definitive understanding aligned with the human objective in existence encompasses: 1. Knowledge of jeevan 2. Knowledge of holistic view of existence 3. Knowledge of humane conduct”</strong><br/>
 - SB, p. 116</p>
 </blockquote>
-<p>Without these, the human being confuses body-needs with <code>jeevan</code>-needs, sensory satisfaction with happiness, profit with fulfilment, and social success with human purpose. Morality becomes fragile because the self is misunderstood.</p>
-<h3 id="38-ethics-must-be-evidenced-not-merely-believed" data-depth="2">3.8 Ethics must be evidenced, not merely believed</h3>
-<p>Madhyasth Darshan repeatedly insists that understanding must become evidence in living. SB presents the human being as the seer in existence:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-0a6bad0c3dc85d58">Without these, the human being confuses body-needs with <code>jeevan</code>-needs, sensory satisfaction with happiness, profit with fulfilment, and social success with human purpose. Morality becomes fragile because the self is misunderstood.</p>
+<h3 data-depth="2" data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="38-ethics-must-be-evidenced-not-merely-believed">3.8 Ethics must be evidenced, not merely believed</h3>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-3ee1e97e69c655d6">Madhyasth Darshan repeatedly insists that understanding must become evidence in living. SB presents the human being as the seer in existence:</p>
 <blockquote>
-<p><strong>“The noteworthy points here are: 1. In coexistence, the human being is integrally and indivisibly present. 2. In existence, the human being is a seer (observer).”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-bd99a731f741311d"><strong>“The noteworthy points here are: 1. In coexistence, the human being is integrally and indivisibly present. 2. In existence, the human being is a seer (observer).”</strong><br/>
 - SB, p. 188</p>
 </blockquote>
-<p>And JV says:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-3504edb8d80a501c">And JV says:</p>
 <blockquote>
-<p><strong>“The goal of jeevan is happiness, and the human goal is resolution, prosperity, fearlessness, and coexistence. Ethics are essential for achieving these goals and give them purpose.”</strong><br>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-f2cc5ab4b5e33cfe"><strong>“The goal of jeevan is happiness, and the human goal is resolution, prosperity, fearlessness, and coexistence. Ethics are essential for achieving these goals and give them purpose.”</strong><br/>
 - JV, p. 165</p>
 </blockquote>
-<p>Thus the test of ethics is not only sincerity, scripture, emotion, or intention. The test is whether living produces:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-f74871b54fedb4af">Thus the test of ethics is not only sincerity, scripture, emotion, or intention. The test is whether living produces:</p>
 <ol>
-<li>resolution in understanding;</li>
-<li>prosperity without exploitation;</li>
-<li>fearlessness in relationships and society;</li>
-<li>coexistence with nature.</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-c6940e9195f4d93b">resolution in understanding;</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-403dc6f158fed7c5">prosperity without exploitation;</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-b1d97981335ce585">fearlessness in relationships and society;</li>
+<li data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-c68f918898ddd04a">coexistence with nature.</li>
 </ol>
-<p>This gives Madhyasth Darshan a practical criterion for judging moral systems. A system that produces obedience but not resolution, wealth but not prosperity, law but not trust, or spirituality but not humane conduct remains incomplete.</p>
-<h2 id="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue">4. Traditional Religions: Ethics as Divine Command, Sacred Law, and Virtue</h2>
-<p>Traditional religions usually answer the question of ethics and morals by locating right conduct within a sacred order. In Abrahamic traditions especially, morality is often framed through divine command, covenant, law, sin, obedience, repentance, compassion, justice, charity, and accountability before God.</p>
-<p>This is not one single theory. Religious ethics includes at least four strands:</p>
+<p data-reader-heading="3-the-madhyasth-darshan-answer" data-reader-passage="" id="reader-p-cbb517fd964d0665">This gives Madhyasth Darshan a practical criterion for judging moral systems. A system that produces obedience but not resolution, wealth but not prosperity, law but not trust, or spirituality but not humane conduct remains incomplete.</p>
+<h2 data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue">4. Traditional Religions: Ethics as Divine Command, Sacred Law, and Virtue</h2>
+<p data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-abe4384840a49340">Traditional religions usually answer the question of ethics and morals by locating right conduct within a sacred order. In Abrahamic traditions especially, morality is often framed through divine command, covenant, law, sin, obedience, repentance, compassion, justice, charity, and accountability before God.</p>
+<p data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-4eaa8d8106c26a69">This is not one single theory. Religious ethics includes at least four strands:</p>
 <ol>
-<li><strong>Divine command:</strong> an act is obligatory because God commands it, or because it participates in God’s will.</li>
-<li><strong>Sacred law:</strong> ethical life is guided by revealed commandments, prohibitions, duties, and disciplines.</li>
-<li><strong>Virtue and transformation:</strong> the person must cultivate humility, charity, mercy, truthfulness, chastity, self-restraint, and devotion.</li>
-<li><strong>Community order:</strong> morality is sustained through family, worship, ritual, law, authority, education, and shared identity.</li>
+<li data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-8809f812c15cd962"><strong>Divine command:</strong> an act is obligatory because God commands it, or because it participates in God’s will.</li>
+<li data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-83c9fb65478d15e5"><strong>Sacred law:</strong> ethical life is guided by revealed commandments, prohibitions, duties, and disciplines.</li>
+<li data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-8f1749c6cf2e658c"><strong>Virtue and transformation:</strong> the person must cultivate humility, charity, mercy, truthfulness, chastity, self-restraint, and devotion.</li>
+<li data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-637a45d11623581b"><strong>Community order:</strong> morality is sustained through family, worship, ritual, law, authority, education, and shared identity.</li>
 </ol>
-<p>In Judaism, Christianity, and Islam, one finds strong ethical themes: justice, care for the poor, sexual restraint, truthfulness, neighbour-love, mercy, charity, reverence, and judgment. Christianity famously compresses the law into love of God and neighbour (Matthew 22:37-40). Islam gives a compact ethical formula in Qur’an 16:90: justice, good conduct, giving to relatives, and the rejection of immorality, wrongdoing, and oppression. Jewish ethics similarly binds law, covenant, justice, compassion, and communal obligation.</p>
-<p>From Madhyasth Darshan’s standpoint, this religious approach has real strengths. It gives moral seriousness, intergenerational discipline, restraint against selfishness, community support, reverence, charity, and a sense that human conduct is answerable to something higher than private desire or market gain.</p>
-<p>Its limitation is that morality can remain <strong>authority-dependent</strong>. If the person obeys because scripture, priest, prophet, community, reward, punishment, heaven, hell, sin, or fear commands it, then conduct may be disciplined without being fully understood. Religious morality may also become sectarian: the ethical boundary can shrink from all humans to the saved, chosen, believing, pure, or obedient community.</p>
-<p>Madhyasth Darshan’s critique is therefore not that traditional religions lack morals. They often contain profound moral resources. The critique is that moral instruction must become <strong>universally studyable, understandable, and evidential in behaviour</strong>. A command may restrain wrongdoing, but Madhyasth Darshan asks whether the human being understands why justice, relationship-values, right-use, and coexistence are intrinsically necessary.</p>
-<p>The contrast can be stated simply:</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-7fa9420e060fc17a">In Judaism, Christianity, and Islam, one finds strong ethical themes: justice, care for the poor, sexual restraint, truthfulness, neighbour-love, mercy, charity, reverence, and judgment. Christianity famously compresses the law into love of God and neighbour (Matthew 22:37-40). Islam gives a compact ethical formula in Qur’an 16:90: justice, good conduct, giving to relatives, and the rejection of immorality, wrongdoing, and oppression. Jewish ethics similarly binds law, covenant, justice, compassion, and communal obligation.</p>
+<p data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-2b5bcd504afe5704">From Madhyasth Darshan’s standpoint, this religious approach has real strengths. It gives moral seriousness, intergenerational discipline, restraint against selfishness, community support, reverence, charity, and a sense that human conduct is answerable to something higher than private desire or market gain.</p>
+<p data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-c07de2b20e2855d6">Its limitation is that morality can remain <strong>authority-dependent</strong>. If the person obeys because scripture, priest, prophet, community, reward, punishment, heaven, hell, sin, or fear commands it, then conduct may be disciplined without being fully understood. Religious morality may also become sectarian: the ethical boundary can shrink from all humans to the saved, chosen, believing, pure, or obedient community.</p>
+<p data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-b9584b454302c7cb">Madhyasth Darshan’s critique is therefore not that traditional religions lack morals. They often contain profound moral resources. The critique is that moral instruction must become <strong>universally studyable, understandable, and evidential in behaviour</strong>. A command may restrain wrongdoing, but Madhyasth Darshan asks whether the human being understands why justice, relationship-values, right-use, and coexistence are intrinsically necessary.</p>
+<p data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-98246619348892c3">The contrast can be stated simply:</p>
+<div class="table-scroll"><table data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-f2cbc42a02071f82">
 <thead>
 <tr>
 <th>Traditional religious ethics</th>
@@ -1130,50 +1160,50 @@ Profit/loss         -&gt; Truth/untruth
 </tr>
 </tbody>
 </table></div>
-<p>Thus, Madhyasth Darshan does not merely reject religion. It relocates the source of ethics from <strong>commanded morality</strong> to <strong>understood orderliness</strong>. If religious virtues become understood as relationship-values and coexistence, they can converge with humane conduct. If they remain only obedience to authority, they remain incomplete.</p>
-<h2 id="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge">5. Advaita Vedanta: Ethics as Preparation and Expression of Self-Knowledge</h2>
-<p>Advaita Vedanta gives a very different foundation. Its final claim is not coexistence of real units, but non-duality of Atman and Brahman.</p>
-<p>The <em>Bhagavad Gita</em>, read through Shankara, teaches detached witness-consciousness:</p>
+<p data-reader-heading="4-traditional-religions-ethics-as-divine-command-sacred-law-and-virtue" data-reader-passage="" id="reader-p-202868adfc4835ab">Thus, Madhyasth Darshan does not merely reject religion. It relocates the source of ethics from <strong>commanded morality</strong> to <strong>understood orderliness</strong>. If religious virtues become understood as relationship-values and coexistence, they can converge with humane conduct. If they remain only obedience to authority, they remain incomplete.</p>
+<h2 data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge">5. Advaita Vedanta: Ethics as Preparation and Expression of Self-Knowledge</h2>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-a004b8f8e4d5162e">Advaita Vedanta gives a very different foundation. Its final claim is not coexistence of real units, but non-duality of Atman and Brahman.</p>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-6fe6995608c5e8f8">The <em>Bhagavad Gita</em>, read through Shankara, teaches detached witness-consciousness:</p>
 <blockquote>
-<p><strong>“Though seeing, hearing, touching, smelling, eating, walking, sleeping, breathing… he knows that in reality he does nothing at all.”</strong><br>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-c2f574c2e71a9086"><strong>“Though seeing, hearing, touching, smelling, eating, walking, sleeping, breathing… he knows that in reality he does nothing at all.”</strong><br/>
 - BG, 5.8–9</p>
 </blockquote>
-<p>Shankara’s <em>Vivekachudamani</em> states the discrimination between real and unreal:</p>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-87a9b05ddfd88235">Shankara’s <em>Vivekachudamani</em> states the discrimination between real and unreal:</p>
 <blockquote>
-<p><strong>“A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal.”</strong><br>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-1a92facd5de03e67"><strong>“A firm conviction of the mind to the effect that Brahman is real and the universe unreal, is designated as discrimination (Viveka) between the Real and the unreal.”</strong><br/>
 - VC, v. 20</p>
 </blockquote>
-<p>On the identity of <em>jiva</em> and Brahman:</p>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-476d5fa935892a29">On the identity of <em>jiva</em> and Brahman:</p>
 <blockquote>
-<p><strong>“The individual soul is itself and directly the Supreme Brahman, and nothing else.”</strong><br>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-757ccd8f831b42a9"><strong>“The individual soul is itself and directly the Supreme Brahman, and nothing else.”</strong><br/>
 - VC, v. 216</p>
 </blockquote>
-<p>In this framework, the deepest ethical problem is ignorance of one’s true Self. Attachment, desire, fear, and ego arise because the Self is confused with body, mind, senses, and action.</p>
-<h3 id="51-advaita-has-virtues-but-the-virtues-are-preparatory" data-depth="2">5.1 Advaita has virtues, but the virtues are preparatory</h3>
-<p>It would be inaccurate to say that Advaita has no ethics. The Bhagavad Gita, read through Shankara, lists divine qualities:</p>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-da2554f7eb58fa05">In this framework, the deepest ethical problem is ignorance of one’s true Self. Attachment, desire, fear, and ego arise because the Self is confused with body, mind, senses, and action.</p>
+<h3 data-depth="2" data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="51-advaita-has-virtues-but-the-virtues-are-preparatory">5.1 Advaita has virtues, but the virtues are preparatory</h3>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-7680121592cfc0a5">It would be inaccurate to say that Advaita has no ethics. The Bhagavad Gita, read through Shankara, lists divine qualities:</p>
 <blockquote>
-<p><strong>“Non-injury, truthfulness, absence of anger, renunciation, control of the internal organ, absence of vilification, kindness to creatures, non-covetousness, gentleness, modesty, freedom from restlessness”</strong><br>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-52d413fc3bf0b136"><strong>“Non-injury, truthfulness, absence of anger, renunciation, control of the internal organ, absence of vilification, kindness to creatures, non-covetousness, gentleness, modesty, freedom from restlessness”</strong><br/>
 - BG, 16.2, p. 640</p>
 </blockquote>
-<p>Shankara’s commentary expands these virtues:</p>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-b0cc5378261d06bc">Shankara’s commentary expands these virtues:</p>
 <blockquote>
-<p><strong>“Ahimsa, non-injury, abstaining from giving pain to creatures; satyam, truthfulness, speaking of things as they are, without unpleasantness and prevarication”</strong><br>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-e4c967ef5e057073"><strong>“Ahimsa, non-injury, abstaining from giving pain to creatures; satyam, truthfulness, speaking of things as they are, without unpleasantness and prevarication”</strong><br/>
 - BG, 16.2, p. 641</p>
 </blockquote>
-<p>Vivekachudamani lists the disciplines required of a seeker:</p>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-53bc68ad4241171f">Vivekachudamani lists the disciplines required of a seeker:</p>
 <blockquote>
-<p><strong>“The first step to Liberation is the extreme aversion to all perishable things, then follow calmness, self-control, forbearance, and the utter relinquishment of all work enjoined in the Scriptures.”</strong><br>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-5bf59348a80df6dc"><strong>“The first step to Liberation is the extreme aversion to all perishable things, then follow calmness, self-control, forbearance, and the utter relinquishment of all work enjoined in the Scriptures.”</strong><br/>
 - VC, v. 69, p. 6</p>
 </blockquote>
-<p>And:</p>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-87c934c585d47839">And:</p>
 <blockquote>
-<p><strong>“If indeed thou hast a craving for Liberation, shun sense-objects from a good distance as thou wouldst do poison, and always cultivate carefully the nectar-like virtues of contentment, compassion, forgiveness, straight-forwardness, calmness and self-control.”</strong><br>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-fa69186567aa65a9"><strong>“If indeed thou hast a craving for Liberation, shun sense-objects from a good distance as thou wouldst do poison, and always cultivate carefully the nectar-like virtues of contentment, compassion, forgiveness, straight-forwardness, calmness and self-control.”</strong><br/>
 - VC, v. 82, p. 7</p>
 </blockquote>
-<p>So Advaita contains a serious discipline of virtue: non-injury, truthfulness, self-control, detachment, compassion, forgiveness, calmness, and desire for liberation.</p>
-<h3 id="52-where-advaita-differs-from-madhyasth-darshan" data-depth="2">5.2 Where Advaita differs from Madhyasth Darshan</h3>
-<p>The difference is not “Advaita is immoral and Madhyasth Darshan is ethical.” The difference is the ground, aim, and scope of ethics.</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-bd0160f9955e56af">So Advaita contains a serious discipline of virtue: non-injury, truthfulness, self-control, detachment, compassion, forgiveness, calmness, and desire for liberation.</p>
+<h3 data-depth="2" data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="52-where-advaita-differs-from-madhyasth-darshan">5.2 Where Advaita differs from Madhyasth Darshan</h3>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-ea9f7b0d86e313c7">The difference is not “Advaita is immoral and Madhyasth Darshan is ethical.” The difference is the ground, aim, and scope of ethics.</p>
+<div class="table-scroll"><table data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-32663fb13f79e15f">
 <thead>
 <tr>
 <th>Question</th>
@@ -1209,40 +1239,40 @@ Profit/loss         -&gt; Truth/untruth
 </tr>
 </tbody>
 </table></div>
-<p>Advaita’s strength is its profound critique of ego, desire, and identification with body-mind. It can produce detachment, compassion, and self-mastery.</p>
-<p>Its vulnerability, from Madhyasth Darshan’s standpoint, is that it does not by itself give a complete programme for family, economy, production, right-use, education, justice, undivided society, and coexistence with nature. If the final truth is the witness Self and the world is <code>mithya</code>, worldly order may become ethically secondary. Madhyasth Darshan refuses this move. It says the world is real, relationships are real, units are real, and conduct is the evidence of understanding.</p>
-<h2 id="6-modern-scientific-approaches">6. Modern Scientific Approaches</h2>
-<p>Modern science usually treats morality descriptively: what moral judgment is, how it evolved, how it develops, what brain systems are involved, how cultures vary, and how cooperation is stabilized.</p>
-<p>This is different from Madhyasth Darshan and Advaita. Science does not normally claim to reveal the final purpose of human life. It explains mechanisms.</p>
-<h3 id="61-moral-psychology-empirically-responsible-ethics" data-depth="2">6.1 Moral psychology: empirically responsible ethics</h3>
-<p>The Stanford Encyclopedia entry on empirical moral psychology defines the field as interdisciplinary:</p>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-63fbd987cf361beb">Advaita’s strength is its profound critique of ego, desire, and identification with body-mind. It can produce detachment, compassion, and self-mastery.</p>
+<p data-reader-heading="5-advaita-vedanta-ethics-as-preparation-and-expression-of-self-knowledge" data-reader-passage="" id="reader-p-d813810d19c3dfa9">Its vulnerability, from Madhyasth Darshan’s standpoint, is that it does not by itself give a complete programme for family, economy, production, right-use, education, justice, undivided society, and coexistence with nature. If the final truth is the witness Self and the world is <code>mithya</code>, worldly order may become ethically secondary. Madhyasth Darshan refuses this move. It says the world is real, relationships are real, units are real, and conduct is the evidence of understanding.</p>
+<h2 data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="6-modern-scientific-approaches">6. Modern Scientific Approaches</h2>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-68c6402651ecf6b6">Modern science usually treats morality descriptively: what moral judgment is, how it evolved, how it develops, what brain systems are involved, how cultures vary, and how cooperation is stabilized.</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-9f3486f09012bc94">This is different from Madhyasth Darshan and Advaita. Science does not normally claim to reveal the final purpose of human life. It explains mechanisms.</p>
+<h3 data-depth="2" data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="61-moral-psychology-empirically-responsible-ethics">6.1 Moral psychology: empirically responsible ethics</h3>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-fd997da33d1cf175">The Stanford Encyclopedia entry on empirical moral psychology defines the field as interdisciplinary:</p>
 <blockquote>
-<p><strong>“Moral psychology investigates human functioning in moral contexts, and asks how these results may impact debate in ethical theory. This work is necessarily interdisciplinary, drawing on both the empirical resources of the human sciences and the conceptual resources of philosophical ethics.”</strong><br>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-8e0908fcf8a5860a"><strong>“Moral psychology investigates human functioning in moral contexts, and asks how these results may impact debate in ethical theory. This work is necessarily interdisciplinary, drawing on both the empirical resources of the human sciences and the conceptual resources of philosophical ethics.”</strong><br/>
 - SEP Moral Psychology</p>
 </blockquote>
-<p>This is important. Modern moral science does not simply replace philosophy. It tests the psychological assumptions hidden inside ethical theories.</p>
-<p>For example, if an ethical theory assumes that humans reason impartially, but experiments show that moral judgment is often intuitive, emotional, biased, tribal, or post-hoc, the theory must either revise its anthropology or explain how training can overcome these tendencies.</p>
-<h3 id="62-intuition-and-emotion" data-depth="2">6.2 Intuition and emotion</h3>
-<p>Haidt’s social intuitionist model argues that moral judgment is often produced by quick intuitive evaluation, with reasoning frequently serving social justification after the judgment. Greene and colleagues’ fMRI work similarly helped popularize the idea that emotion and controlled cognition both shape moral judgment, especially in sacrificial dilemmas.</p>
-<p>This line of work is useful because it punctures naive rationalism. Human beings often do not first reason from principle and then judge. They feel, react, identify, defend, and rationalize.</p>
-<p>From a Madhyasth Darshan standpoint, this is unsurprising but incomplete. It describes the unawakened or partially awakened functioning of human beings under sensory, emotional, social, and ideological influence. It does not decide what the human being is capable of after understanding. Empirical description of common moral psychology is not the same as a theory of fulfilled human conduct.</p>
-<h3 id="63-computational-neuroscience-and-decision-systems" data-depth="2">6.3 Computational neuroscience and decision systems</h3>
-<p>Crockett’s “Models of morality” connects moral judgment to decision systems:</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-075390707f0283fa">This is important. Modern moral science does not simply replace philosophy. It tests the psychological assumptions hidden inside ethical theories.</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-e31d3a8a393dc9ea">For example, if an ethical theory assumes that humans reason impartially, but experiments show that moral judgment is often intuitive, emotional, biased, tribal, or post-hoc, the theory must either revise its anthropology or explain how training can overcome these tendencies.</p>
+<h3 data-depth="2" data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="62-intuition-and-emotion">6.2 Intuition and emotion</h3>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-89ce25d6245bad14">Haidt’s social intuitionist model argues that moral judgment is often produced by quick intuitive evaluation, with reasoning frequently serving social justification after the judgment. Greene and colleagues’ fMRI work similarly helped popularize the idea that emotion and controlled cognition both shape moral judgment, especially in sacrificial dilemmas.</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-36afada82a4fb096">This line of work is useful because it punctures naive rationalism. Human beings often do not first reason from principle and then judge. They feel, react, identify, defend, and rationalize.</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-acd60b7b69866cf1">From a Madhyasth Darshan standpoint, this is unsurprising but incomplete. It describes the unawakened or partially awakened functioning of human beings under sensory, emotional, social, and ideological influence. It does not decide what the human being is capable of after understanding. Empirical description of common moral psychology is not the same as a theory of fulfilled human conduct.</p>
+<h3 data-depth="2" data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="63-computational-neuroscience-and-decision-systems">6.3 Computational neuroscience and decision systems</h3>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-4ad10d533c804a95">Crockett’s “Models of morality” connects moral judgment to decision systems:</p>
 <blockquote>
-<p><strong>“Moral dilemmas engender”</strong><br>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-3408317551b1057b"><strong>“Moral dilemmas engender”</strong><br/>
 - Crockett 2013, p. 1</p>
 </blockquote>
-<p>This approach helps explain why people may reject direct physical harm even when the outcome calculus favours it. Moral judgment may emerge from interactions between prospective reasoning, learned action-values, and Pavlovian aversions.</p>
-<p>Madhyasth Darshan can accept the usefulness of such mechanism-level accounts for body-brain-behaviour patterns. But it would reject the reduction of ethics to those mechanisms. It would say that neural and cognitive systems are instruments in human functioning; they do not by themselves define justice, dharma, truth, or the goal of human life.</p>
-<h3 id="64-morality-as-cooperation" data-depth="2">6.4 Morality as cooperation</h3>
-<p>Curry, Mullins, and Whitehouse propose a cooperative theory:</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-1e2bd8a990130673">This approach helps explain why people may reject direct physical harm even when the outcome calculus favours it. Moral judgment may emerge from interactions between prospective reasoning, learned action-values, and Pavlovian aversions.</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-e955c321e0b32447">Madhyasth Darshan can accept the usefulness of such mechanism-level accounts for body-brain-behaviour patterns. But it would reject the reduction of ethics to those mechanisms. It would say that neural and cognitive systems are instruments in human functioning; they do not by themselves define justice, dharma, truth, or the goal of human life.</p>
+<h3 data-depth="2" data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="64-morality-as-cooperation">6.4 Morality as cooperation</h3>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-01c094461c4550ee">Curry, Mullins, and Whitehouse propose a cooperative theory:</p>
 <blockquote>
-<p><strong>“The theory of ‘morality-as-cooperation’ argues that morality consists of a collection of biological and cultural solutions to the problems of cooperation recurrent in human social life.”</strong><br>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-135246d62eb3e9be"><strong>“The theory of ‘morality-as-cooperation’ argues that morality consists of a collection of biological and cultural solutions to the problems of cooperation recurrent in human social life.”</strong><br/>
 - Curry, Mullins, and Whitehouse 2019</p>
 </blockquote>
-<p>They identify recurring moral domains such as family values, group loyalty, reciprocity, bravery, respect, fairness, and property rights. This is one of the strongest scientific parallels to Madhyasth Darshan because both see morality as relational and social, not merely private.</p>
-<p>But the difference remains sharp:</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-c2e49d72a54e22d8">They identify recurring moral domains such as family values, group loyalty, reciprocity, bravery, respect, fairness, and property rights. This is one of the strongest scientific parallels to Madhyasth Darshan because both see morality as relational and social, not merely private.</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-16c888ce09d8c2e8">But the difference remains sharp:</p>
+<div class="table-scroll"><table data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-7bb4c58e3a3088ae">
 <thead>
 <tr>
 <th>Morality-as-cooperation</th>
@@ -1268,13 +1298,13 @@ Profit/loss         -&gt; Truth/untruth
 </tr>
 </tbody>
 </table></div>
-<p>The scientific approach is strong where it explains emergence, variation, and mechanism. It is weaker where it must justify ultimate normativity. If morality is a set of cooperative adaptations, why should a person remain just when exploitation pays and punishment is avoidable? Science can answer prudentially, socially, or evolutionarily, but it cannot easily produce an unconditional criterion of rightness.</p>
-<h3 id="65-moral-foundations-and-plural-moral-grammars" data-depth="2">6.5 Moral foundations and plural moral grammars</h3>
-<p>Moral Foundations Theory argues that human moral judgment is plural, not reducible to harm and fairness alone. It identifies domains such as care/harm, fairness/cheating, loyalty/betrayal, authority/subversion, and sanctity/degradation. This helps explain why cultures and political groups moralize different things.</p>
-<p>Madhyasth Darshan would likely accept the observation that humans moralize several domains. But it would challenge whether all such foundations are equally valid. Loyalty can become sectarianism. Authority can become domination. Sanctity can become purity obsession. Care can become attachment. Fairness can become calculation without relationship.</p>
-<p>For Madhyasth Darshan, the criterion is not “what humans commonly moralize.” The criterion is whether the moral response aligns with justice, dharma, truth, relationship-values, and coexistence.</p>
-<h2 id="7-comparison">7. Comparison</h2>
-<div class="table-scroll"><table>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-c3efec177cd75a95">The scientific approach is strong where it explains emergence, variation, and mechanism. It is weaker where it must justify ultimate normativity. If morality is a set of cooperative adaptations, why should a person remain just when exploitation pays and punishment is avoidable? Science can answer prudentially, socially, or evolutionarily, but it cannot easily produce an unconditional criterion of rightness.</p>
+<h3 data-depth="2" data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="65-moral-foundations-and-plural-moral-grammars">6.5 Moral foundations and plural moral grammars</h3>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-8711f59b230f1ce9">Moral Foundations Theory argues that human moral judgment is plural, not reducible to harm and fairness alone. It identifies domains such as care/harm, fairness/cheating, loyalty/betrayal, authority/subversion, and sanctity/degradation. This helps explain why cultures and political groups moralize different things.</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-21d0b81798218a4b">Madhyasth Darshan would likely accept the observation that humans moralize several domains. But it would challenge whether all such foundations are equally valid. Loyalty can become sectarianism. Authority can become domination. Sanctity can become purity obsession. Care can become attachment. Fairness can become calculation without relationship.</p>
+<p data-reader-heading="6-modern-scientific-approaches" data-reader-passage="" id="reader-p-cee0c89794c4f35f">For Madhyasth Darshan, the criterion is not “what humans commonly moralize.” The criterion is whether the moral response aligns with justice, dharma, truth, relationship-values, and coexistence.</p>
+<h2 data-reader-heading="7-comparison" data-reader-passage="" id="7-comparison">7. Comparison</h2>
+<div class="table-scroll"><table data-reader-heading="7-comparison" data-reader-passage="" id="reader-p-d6b10732811a667c">
 <thead>
 <tr>
 <th>Question</th>
@@ -1336,84 +1366,86 @@ Profit/loss         -&gt; Truth/untruth
 </tr>
 </tbody>
 </table></div>
-<h2 id="8-critical-review">8. Critical review</h2>
-<h3 id="81-madhyasth-darshan" data-depth="2">8.1 Madhyasth Darshan</h3>
-<p><strong>Strengths.</strong></p>
+<h2 data-reader-heading="8-critical-review" data-reader-passage="" id="8-critical-review">8. Critical review</h2>
+<h3 data-depth="2" data-reader-heading="8-critical-review" data-reader-passage="" id="81-madhyasth-darshan">8.1 Madhyasth Darshan</h3>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-8b4b94368516de92"><strong>Strengths.</strong></p>
 <ul>
-<li>It refuses to separate knowledge and conduct. A person who claims realization but cannot evidence justice, right-use, relationship-values, and social responsibility is not ethically complete.</li>
-<li>It integrates body, mind, wealth, sexuality, relationship, society, and nature. Many ethical theories focus on one domain: rights, consequences, virtue, duty, liberation, emotion, or cooperation. Madhyasth Darshan links all of them through humane conduct.</li>
-<li>It gives a concrete test of moral maturity. The move from pleasant/healthy/profitable to just/dharmic/true is a powerful diagnostic tool for individuals, families, markets, politics, education, and technology.</li>
-<li>It avoids both moral relativism and command morality. Moral rules are not merely local customs, but neither are they arbitrary commands. They are to be understood and evidenced.</li>
-<li>It treats wealth and production ethically without rejecting them. The sequence from need to production to right-use is more socially complete than renunciation-only spirituality and more humane than growth-only economics.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-260d53fc0feb4478">It refuses to separate knowledge and conduct. A person who claims realization but cannot evidence justice, right-use, relationship-values, and social responsibility is not ethically complete.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-2a5bac0daa1b820b">It integrates body, mind, wealth, sexuality, relationship, society, and nature. Many ethical theories focus on one domain: rights, consequences, virtue, duty, liberation, emotion, or cooperation. Madhyasth Darshan links all of them through humane conduct.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-0ae304c88f1e010e">It gives a concrete test of moral maturity. The move from pleasant/healthy/profitable to just/dharmic/true is a powerful diagnostic tool for individuals, families, markets, politics, education, and technology.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-279acc67c481ce65">It avoids both moral relativism and command morality. Moral rules are not merely local customs, but neither are they arbitrary commands. They are to be understood and evidenced.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-57d6d6e5b07ed923">It treats wealth and production ethically without rejecting them. The sequence from need to production to right-use is more socially complete than renunciation-only spirituality and more humane than growth-only economics.</li>
 </ul>
-<p><strong>Weaknesses.</strong></p>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-4a35bfb530a80f59"><strong>Weaknesses.</strong></p>
 <ul>
-<li>It depends on its ontology. The full argument relies on <code>jeevan</code>, coexistence, Omnipresence, awakening, and the human as knowledge-order. A secular scientist may accept the practical ethics while rejecting the metaphysics.</li>
-<li>Its universality requires public demonstration. The claim that humane conduct is universally consistent across all times and places is strong. It needs continued comparative work across cultures, institutions, and moral conflicts.</li>
-<li>It must clarify hard cases. Madhyasth Darshan gives strong principles, but applied ethics must still clarify cases where relationship-values appear to conflict: family duty versus public justice, compassion toward a wrongdoer versus truth, immediate bodily need versus ecological right-use, or local loyalty versus universal humaneness.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-e0d45f46f77c125a">It depends on its ontology. The full argument relies on <code>jeevan</code>, coexistence, Omnipresence, awakening, and the human as knowledge-order. A secular scientist may accept the practical ethics while rejecting the metaphysics.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-0b768b8a7e7653b8">Its universality requires public demonstration. The claim that humane conduct is universally consistent across all times and places is strong. It needs continued comparative work across cultures, institutions, and moral conflicts.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-799cf1fcf0c5d226">It must clarify hard cases. Madhyasth Darshan gives strong principles, but applied ethics must still clarify cases where relationship-values appear to conflict: family duty versus public justice, compassion toward a wrongdoer versus truth, immediate bodily need versus ecological right-use, or local loyalty versus universal humaneness.</li>
 </ul>
-<p>The key test is:</p>
-<pre><code class="language-text">Which action preserves truth, protects humaneness, fulfils the real relationship-value,
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-9ee4222037d4987e">The key test is:</p>
+<pre data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-52e36143398ca717"><code class="language-text">Which action preserves truth, protects humaneness, fulfils the real relationship-value,
 avoids exploitation, and remains compatible with coexistence?
 </code></pre>
-<p>This means family duty cannot justify hiding injustice; one should stand with the person as a human being, but not with their injustice. Public justice must outrank family partiality, while still avoiding revenge, humiliation, and cruelty. Likewise, ecological right-use cannot deny genuine bodily need, but immediate need cannot become a permanent excuse for exploitation. Emergency use may be justified; repeated extraction without restoration indicates disorder in production, distribution, or understanding.</p>
-<p>So the applied principle is crisp: <strong>justice requires relationship-aware truthfulness</strong>. It is neither cold legalism nor blind affection; neither ecological absolutism nor human convenience. It protects humaneness across person, family, society, and nature.</p>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-fb7a4c08f3d901ac">This means family duty cannot justify hiding injustice; one should stand with the person as a human being, but not with their injustice. Public justice must outrank family partiality, while still avoiding revenge, humiliation, and cruelty. Likewise, ecological right-use cannot deny genuine bodily need, but immediate need cannot become a permanent excuse for exploitation. Emergency use may be justified; repeated extraction without restoration indicates disorder in production, distribution, or understanding.</p>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-06096a5ff44ea3f3">So the applied principle is crisp: <strong>justice requires relationship-aware truthfulness</strong>. It is neither cold legalism nor blind affection; neither ecological absolutism nor human convenience. It protects humaneness across person, family, society, and nature.</p>
 <ul>
-<li>It risks moral idealism if social mechanisms are underdeveloped. Understanding is central, but institutions, incentives, trauma, inequality, and power also shape conduct. Madhyasth Darshan needs a robust account of how awakened education and social design handle these realities.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-86241e1c38bc9092">It risks moral idealism if social mechanisms are underdeveloped. Understanding is central, but institutions, incentives, trauma, inequality, and power also shape conduct. Madhyasth Darshan needs a robust account of how awakened education and social design handle these realities.</li>
 </ul>
-<h3 id="83-strengths-and-limits-of-traditional-religion" data-depth="2">8.3 Strengths and limits of traditional religion</h3>
-<p>Traditional religions are strong in moral formation. They train restraint, reverence, charity, repentance, family responsibility, compassion, and accountability. They also sustain moral life through ritual, memory, community, and intergenerational discipline.</p>
-<p>Their limitation, from Madhyasth Darshan’s standpoint, is that morality may remain tied to command, fear, guilt, reward, punishment, priestly authority, or sectarian identity. The question is not whether religious morals are valuable; many are. The question is whether the human being understands and evidences them as universal relationship-values and coexistence, rather than merely obeying them as external authority.</p>
-<h3 id="84-strengths-and-limits-of-advaita" data-depth="2">8.4 Strengths and limits of Advaita</h3>
-<p>Advaita’s strength is its radical diagnosis of ego, attachment, and body-identification. Its disciplines of non-injury, truthfulness, self-control, compassion, calmness, and detachment are ethically serious.</p>
-<p>Its limitation, for this paper’s question, is that ethics remains largely preparatory to liberation or an expression of knowledge, not a fully elaborated theory of production, family order, social economy, ecological right-use, and universal human organization. Madhyasth Darshan is more behaviourally and socially explicit.</p>
-<h3 id="85-strengths-and-limits-of-science" data-depth="2">8.5 Strengths and limits of science</h3>
-<p>Modern science is strongest in explaining:</p>
+<h3 data-depth="2" data-reader-heading="8-critical-review" data-reader-passage="" id="83-strengths-and-limits-of-traditional-religion">8.3 Strengths and limits of traditional religion</h3>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-922c2bf2cf620abc">Traditional religions are strong in moral formation. They train restraint, reverence, charity, repentance, family responsibility, compassion, and accountability. They also sustain moral life through ritual, memory, community, and intergenerational discipline.</p>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-04a9e5c0258c22fe">Their limitation, from Madhyasth Darshan’s standpoint, is that morality may remain tied to command, fear, guilt, reward, punishment, priestly authority, or sectarian identity. The question is not whether religious morals are valuable; many are. The question is whether the human being understands and evidences them as universal relationship-values and coexistence, rather than merely obeying them as external authority.</p>
+<h3 data-depth="2" data-reader-heading="8-critical-review" data-reader-passage="" id="84-strengths-and-limits-of-advaita">8.4 Strengths and limits of Advaita</h3>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-844ee4202a164adc">Advaita’s strength is its radical diagnosis of ego, attachment, and body-identification. Its disciplines of non-injury, truthfulness, self-control, compassion, calmness, and detachment are ethically serious.</p>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-a1dfa50b8952b125">Its limitation, for this paper’s question, is that ethics remains largely preparatory to liberation or an expression of knowledge, not a fully elaborated theory of production, family order, social economy, ecological right-use, and universal human organization. Madhyasth Darshan is more behaviourally and socially explicit.</p>
+<h3 data-depth="2" data-reader-heading="8-critical-review" data-reader-passage="" id="85-strengths-and-limits-of-science">8.5 Strengths and limits of science</h3>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-75df5c7a7d29f374">Modern science is strongest in explaining:</p>
 <ol>
-<li>how moral judgments arise;</li>
-<li>how intuitions and emotions shape reasoning;</li>
-<li>how cooperation evolved and varies;</li>
-<li>how moral learning and decision systems work;</li>
-<li>how culture and institutions shape norms.</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-51a180792cc347b5">how moral judgments arise;</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-d97b56c3f3563af5">how intuitions and emotions shape reasoning;</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-6ec753bcea7eb8ea">how cooperation evolved and varies;</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-7af0c3fc74c77c3c">how moral learning and decision systems work;</li>
+<li data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-a6c1c92a9cbb91fe">how culture and institutions shape norms.</li>
 </ol>
-<p>Its limitation is normativity. Science can show that humans value cooperation, punish cheaters, feel empathy, respond to harm, and form group norms. It cannot by itself prove that one ought to live for justice, truth, right-use, or universal coexistence. It can inform ethics, constrain ethics, and expose self-deception, but it does not replace the need for an account of human purpose.</p>
-<h2 id="9-final-answer">9. Final Answer</h2>
-<p>Madhyasth Darshan answers the question of ethics and morals by relocating it from rule to understanding.</p>
-<p>Morals, in ordinary human life, are inherited rules and norms. Ethics, in a deeper sense, is the examinable basis of right living. Madhyasth Darshan says that both become complete only as <strong>humane conduct</strong>, which includes values, character, and right-use. The human being is ethical when behaviour is regulated by justice, thought by dharma, realization by truth, wealth by right-use, sexuality by faithfulness, relationships by mutual satisfaction, and society by undivided coexistence.</p>
-<p>Compared with Advaita, Madhyasth Darshan is more world-affirming and socially explicit. Advaita aims at liberation through knowledge of the non-dual Self; its virtues purify and prepare the seeker. Madhyasth Darshan aims at awakening evidenced in conduct: resolution, prosperity, fearlessness, and coexistence.</p>
-<p>Compared with traditional religions, Madhyasth Darshan is less command-centred and less sectarian. Abrahamic and other religious traditions often give powerful moral formation through divine command, sacred law, virtue, repentance, charity, and community. Madhyasth Darshan asks that moral life become universally understandable and evidenced in behaviour, not dependent only on belief, fear, authority, or inherited identity.</p>
-<p>Compared with science, Madhyasth Darshan is more normative and ontological. Science explains moral judgment through evolution, cooperation, emotion, cognition, culture, and neural systems. Madhyasth Darshan asks what human beings are for, what fulfils them, and what conduct evidences correct understanding.</p>
-<p>Madhyasth Darshan offers a rigorous ethical anthropology in which morality is neither divine command, nor social convention, nor evolutionary strategy, nor private emotion. It is the evidence of understanding coexistence. Its practical strength lies in integrating values, character, ethics, wealth, family, society, and nature. Its philosophical vulnerability lies in the need to make its ontology of <code>jeevan</code>, awakening, and coexistence publicly examinable for those outside the darshan.</p>
-<h2 id="references">References</h2>
-<h3 id="madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</h3>
+<p data-reader-heading="8-critical-review" data-reader-passage="" id="reader-p-82e24a9d7dda13ab">Its limitation is normativity. Science can show that humans value cooperation, punish cheaters, feel empathy, respond to harm, and form group norms. It cannot by itself prove that one ought to live for justice, truth, right-use, or universal coexistence. It can inform ethics, constrain ethics, and expose self-deception, but it does not replace the need for an account of human purpose.</p>
+<h2 data-reader-heading="9-final-answer" data-reader-passage="" id="9-final-answer">9. Final Answer</h2>
+<p data-reader-heading="9-final-answer" data-reader-passage="" id="reader-p-2531bdafebd5a317">Madhyasth Darshan answers the question of ethics and morals by relocating it from rule to understanding.</p>
+<p data-reader-heading="9-final-answer" data-reader-passage="" id="reader-p-283c8f6a7ac77d68">Morals, in ordinary human life, are inherited rules and norms. Ethics, in a deeper sense, is the examinable basis of right living. Madhyasth Darshan says that both become complete only as <strong>humane conduct</strong>, which includes values, character, and right-use. The human being is ethical when behaviour is regulated by justice, thought by dharma, realization by truth, wealth by right-use, sexuality by faithfulness, relationships by mutual satisfaction, and society by undivided coexistence.</p>
+<p data-reader-heading="9-final-answer" data-reader-passage="" id="reader-p-94a4ff0c30902e24">Compared with Advaita, Madhyasth Darshan is more world-affirming and socially explicit. Advaita aims at liberation through knowledge of the non-dual Self; its virtues purify and prepare the seeker. Madhyasth Darshan aims at awakening evidenced in conduct: resolution, prosperity, fearlessness, and coexistence.</p>
+<p data-reader-heading="9-final-answer" data-reader-passage="" id="reader-p-3ca6d156063ecff8">Compared with traditional religions, Madhyasth Darshan is less command-centred and less sectarian. Abrahamic and other religious traditions often give powerful moral formation through divine command, sacred law, virtue, repentance, charity, and community. Madhyasth Darshan asks that moral life become universally understandable and evidenced in behaviour, not dependent only on belief, fear, authority, or inherited identity.</p>
+<p data-reader-heading="9-final-answer" data-reader-passage="" id="reader-p-9377e466728a393e">Compared with science, Madhyasth Darshan is more normative and ontological. Science explains moral judgment through evolution, cooperation, emotion, cognition, culture, and neural systems. Madhyasth Darshan asks what human beings are for, what fulfils them, and what conduct evidences correct understanding.</p>
+<p data-reader-heading="9-final-answer" data-reader-passage="" id="reader-p-1d5d1bc22e47d92c">Madhyasth Darshan offers a rigorous ethical anthropology in which morality is neither divine command, nor social convention, nor evolutionary strategy, nor private emotion. It is the evidence of understanding coexistence. Its practical strength lies in integrating values, character, ethics, wealth, family, society, and nature. Its philosophical vulnerability lies in the need to make its ontology of <code>jeevan</code>, awakening, and coexistence publicly examinable for those outside the darshan.</p>
+<h2 data-reader-heading="references" data-reader-passage="" id="references">References</h2>
+<h3 data-reader-heading="references" data-reader-passage="" id="madhyasth-darshan-primary-sources">Madhyasth Darshan (primary sources)</h3>
 <ul>
-<li><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan - Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: Sociality and right-use sequence (p. 56); six perspectives and necessary behaviour/thought (p. 67); justice, dharma, truth and just behaviour (p. 102); regulation of behaviour/thought/realization (p. 137); moral development and decline (p. 160).</li>
-<li><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf" rel="noopener noreferrer"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: threefold knowledge of <code>jeevan</code>, existence, and humane conduct (p. 116); human being as seer in coexistence (p. 188).</li>
-<li><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf" rel="noopener noreferrer"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: humane conduct as values, character, and ethics; ethics as right-use and protection of body, mind, and wealth; human goal (p. 165).</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-e1b9945d845d3fd3"><strong>MVD</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan - Co-existentialism</em>, Part 1: <em>Holistic View of Human Behaviour</em></a>. English translation by Rakesh Gupta. Cited: Sociality and right-use sequence (p. 56); six perspectives and necessary behaviour/thought (p. 67); justice, dharma, truth and just behaviour (p. 102); regulation of behaviour/thought/realization (p. 137); moral development and decline (p. 160).</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-7cec3aedc95eac07"><strong>SB</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf" rel="noopener noreferrer"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>. English translation by Rakesh Gupta. Cited: threefold knowledge of <code>jeevan</code>, existence, and humane conduct (p. 116); human being as seer in coexistence (p. 188).</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-6f6c4333e71a266f"><strong>JV</strong> - Nagraj, A. <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf" rel="noopener noreferrer"><em>Jeevan Vidya: An Introduction</em></a>. English translation by Rakesh Gupta. Cited: humane conduct as values, character, and ethics; ethics as right-use and protection of body, mind, and wealth; human goal (p. 165).</li>
 </ul>
-<h3 id="advaita-vedanta">Advaita Vedanta</h3>
+<h3 data-reader-heading="references" data-reader-passage="" id="advaita-vedanta">Advaita Vedanta</h3>
 <ul>
-<li><strong>BG</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf" rel="noopener noreferrer"><em>Bhagavad Gita with the Commentary of Shankaracharya</em></a>. English translation by Swami Gambhirananda. Cited: detached witness-consciousness (5.8–9); divine qualities, non-injury, truthfulness, absence of anger, renunciation, kindness, and purity (16.2-16.3, pp. 640-642).</li>
-<li><strong>VC</strong> - Shankaracharya, <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf" rel="noopener noreferrer"><em>Vivekachudamani</em></a>. English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); <em>jiva</em> as Brahman (v. 216); liberation disciplines and virtues (vv. 69, 82).</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-b34221ead289ed92"><strong>BG</strong> - <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf" rel="noopener noreferrer"><em>Bhagavad Gita with the Commentary of Shankaracharya</em></a>. English translation by Swami Gambhirananda. Cited: detached witness-consciousness (5.8–9); divine qualities, non-injury, truthfulness, absence of anger, renunciation, kindness, and purity (16.2-16.3, pp. 640-642).</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-e859f9ba1bf6fde0"><strong>VC</strong> - Shankaracharya, <a href="https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf" rel="noopener noreferrer"><em>Vivekachudamani</em></a>. English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); <em>jiva</em> as Brahman (v. 216); liberation disciplines and virtues (vv. 69, 82).</li>
 </ul>
-<h3 id="traditional-religious-ethics">Traditional Religious Ethics</h3>
+<h3 data-reader-heading="references" data-reader-passage="" id="traditional-religious-ethics">Traditional Religious Ethics</h3>
 <ul>
-<li><strong>SEP Theological Voluntarism</strong> - Murphy, Mark. <a href="https://plato.stanford.edu/entries/voluntarism-theological/" rel="noopener noreferrer">“Theological Voluntarism.”</a> <em>Stanford Encyclopedia of Philosophy</em>. Used for divine-command / theological-voluntarist framing.</li>
-<li><strong>SEP Natural Law Ethics</strong> - Murphy, Mark. <a href="https://plato.stanford.edu/entries/natural-law-ethics/" rel="noopener noreferrer">“The Natural Law Tradition in Ethics.”</a> <em>Stanford Encyclopedia of Philosophy</em>, Winter 2024 archived edition. Used for natural-law framing in religious ethics.</li>
-<li><strong>Matthew 22:37-40</strong> - <a href="https://www.christianity.com/bible/kjv/matthew/22-37-40" rel="noopener noreferrer">“Matthew 22:37-40, King James Version.”</a> Public-domain biblical passage cited as an example of Christian ethical compression into love of God and neighbour.</li>
-<li><strong>Quran 16:90</strong> - <a href="https://legacy.quran.com/16/90" rel="noopener noreferrer">“Surat An-Nahl 16:90.”</a> Cited as an example of Quranic ethical compression into justice, good conduct, kinship-giving, and rejection of oppression.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-01246b09e0044455"><strong>SEP Theological Voluntarism</strong> - Murphy, Mark. <a href="https://plato.stanford.edu/entries/voluntarism-theological/" rel="noopener noreferrer">“Theological Voluntarism.”</a> <em>Stanford Encyclopedia of Philosophy</em>. Used for divine-command / theological-voluntarist framing.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-be47a699f571a317"><strong>SEP Natural Law Ethics</strong> - Murphy, Mark. <a href="https://plato.stanford.edu/entries/natural-law-ethics/" rel="noopener noreferrer">“The Natural Law Tradition in Ethics.”</a> <em>Stanford Encyclopedia of Philosophy</em>, Winter 2024 archived edition. Used for natural-law framing in religious ethics.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-c9d4a6dbc0b5e8e5"><strong>Matthew 22:37-40</strong> - <a href="https://www.christianity.com/bible/kjv/matthew/22-37-40" rel="noopener noreferrer">“Matthew 22:37-40, King James Version.”</a> Public-domain biblical passage cited as an example of Christian ethical compression into love of God and neighbour.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-e5c19dfc94abcbd8"><strong>Quran 16:90</strong> - <a href="https://legacy.quran.com/16/90" rel="noopener noreferrer">“Surat An-Nahl 16:90.”</a> Cited as an example of Quranic ethical compression into justice, good conduct, kinship-giving, and rejection of oppression.</li>
 </ul>
-<h3 id="modern-science-and-philosophy">Modern Science and Philosophy</h3>
+<h3 data-reader-heading="references" data-reader-passage="" id="modern-science-and-philosophy">Modern Science and Philosophy</h3>
 <ul>
-<li><strong>Crockett 2013</strong> - Crockett, Molly J. <a href="https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf" rel="noopener noreferrer">“Models of morality.”</a> <em>Trends in Cognitive Sciences</em>, 17(8), 363-366. CC BY open-access article.</li>
-<li><strong>Curry, Mullins, and Whitehouse 2019</strong> - Curry, Oliver Scott, Daniel Austin Mullins, and Harvey Whitehouse. <a href="https://ora.ox.ac.uk/objects/uuid:8dd8d82d-3829-4857-bcf4-eebf196d11be" rel="noopener noreferrer">“Is It Good to Cooperate? Testing the Theory of Morality-as-Cooperation in 60 Societies.”</a> <em>Current Anthropology</em>, 60(1), 47-69. Linked externally; not stored locally because the PDF carries publisher rights/terms language.</li>
-<li><strong>Graham et al. 2013</strong> - Graham, Jesse, Jonathan Haidt, Sena Koleva, Matt Motyl, Ravi Iyer, Sean P. Wojcik, and Peter H. Ditto. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2184440" rel="noopener noreferrer">“Moral Foundations Theory: The Pragmatic Validity of Moral Pluralism.”</a> <em>Advances in Experimental Social Psychology</em>, 47, 55-130. Linked externally; publisher PDF not stored locally.</li>
-<li><strong>Greene et al. 2001</strong> - Greene, Joshua D., R. Brian Sommerville, Leigh E. Nystrom, John M. Darley, and Jonathan D. Cohen. <a href="https://www.science.org/doi/10.1126/science.1062872" rel="noopener noreferrer">“An fMRI Investigation of Emotional Engagement in Moral Judgment.”</a> <em>Science</em>, 293(5537), 2105-2108. Linked externally.</li>
-<li><strong>Haidt 2001</strong> - Haidt, Jonathan. <a href="https://pages.stern.nyu.edu/~jhaidt/moraljudgment.html" rel="noopener noreferrer">“The Emotional Dog and Its Rational Tail: A Social Intuitionist Approach to Moral Judgment.”</a> <em>Psychological Review</em>, 108(4), 814-834. Linked to author page; PDF not stored locally because redistribution status is not clean enough for this repository.</li>
-<li><strong>SEP Moral Psychology</strong> - Doris, John M., and Stephen Stich. <a href="https://plato.stanford.edu/entries/moral-psych-emp/" rel="noopener noreferrer">“Moral Psychology: Empirical Approaches.”</a> <em>Stanford Encyclopedia of Philosophy</em>, Winter 2025 archived edition.</li>
-<li><strong>Tomasello and Vaish 2013</strong> - Tomasello, Michael, and Amrisha Vaish. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-psych-113011-143812" rel="noopener noreferrer">“Origins of Human Cooperation and Morality.”</a> <em>Annual Review of Psychology</em>, 64, 231-255. Linked externally; publisher PDF not stored locally.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-3418202755ff1873"><strong>Crockett 2013</strong> - Crockett, Molly J. <a href="https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf" rel="noopener noreferrer">“Models of morality.”</a> <em>Trends in Cognitive Sciences</em>, 17(8), 363-366. CC BY open-access article.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-c9b0d4e00cb0547c"><strong>Curry, Mullins, and Whitehouse 2019</strong> - Curry, Oliver Scott, Daniel Austin Mullins, and Harvey Whitehouse. <a href="https://ora.ox.ac.uk/objects/uuid:8dd8d82d-3829-4857-bcf4-eebf196d11be" rel="noopener noreferrer">“Is It Good to Cooperate? Testing the Theory of Morality-as-Cooperation in 60 Societies.”</a> <em>Current Anthropology</em>, 60(1), 47-69. Linked externally; not stored locally because the PDF carries publisher rights/terms language.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-391419b2ae595c50"><strong>Graham et al. 2013</strong> - Graham, Jesse, Jonathan Haidt, Sena Koleva, Matt Motyl, Ravi Iyer, Sean P. Wojcik, and Peter H. Ditto. <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2184440" rel="noopener noreferrer">“Moral Foundations Theory: The Pragmatic Validity of Moral Pluralism.”</a> <em>Advances in Experimental Social Psychology</em>, 47, 55-130. Linked externally; publisher PDF not stored locally.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-fed481baaac3d868"><strong>Greene et al. 2001</strong> - Greene, Joshua D., R. Brian Sommerville, Leigh E. Nystrom, John M. Darley, and Jonathan D. Cohen. <a href="https://www.science.org/doi/10.1126/science.1062872" rel="noopener noreferrer">“An fMRI Investigation of Emotional Engagement in Moral Judgment.”</a> <em>Science</em>, 293(5537), 2105-2108. Linked externally.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-2f1ebfddddb1ed35"><strong>Haidt 2001</strong> - Haidt, Jonathan. <a href="https://pages.stern.nyu.edu/~jhaidt/moraljudgment.html" rel="noopener noreferrer">“The Emotional Dog and Its Rational Tail: A Social Intuitionist Approach to Moral Judgment.”</a> <em>Psychological Review</em>, 108(4), 814-834. Linked to author page; PDF not stored locally because redistribution status is not clean enough for this repository.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-968116fec21ee0b8"><strong>SEP Moral Psychology</strong> - Doris, John M., and Stephen Stich. <a href="https://plato.stanford.edu/entries/moral-psych-emp/" rel="noopener noreferrer">“Moral Psychology: Empirical Approaches.”</a> <em>Stanford Encyclopedia of Philosophy</em>, Winter 2025 archived edition.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-6503c66fc30296eb"><strong>Tomasello and Vaish 2013</strong> - Tomasello, Michael, and Amrisha Vaish. <a href="https://www.annualreviews.org/content/journals/10.1146/annurev-psych-113011-143812" rel="noopener noreferrer">“Origins of Human Cooperation and Morality.”</a> <em>Annual Review of Psychology</em>, 64, 231-255. Linked externally; publisher PDF not stored locally.</li>
 </ul></main>
-<script defer src="../../Assets/reader/reader.js?v=3d08bd1cb4f261ad"></script><script>
+<script defer src="../../Assets/reader/search.js?v=978601cd252a8f49"></script>
+<script defer src="../../Assets/reader/reader-features.js?v=507b4490fab797a0"></script>
+<script defer src="../../Assets/reader/reader.js?v=2baa7fc15a558564"></script><script>
 (() => {
   let floatPanel = document.getElementById("term-tip-float");
   if (!floatPanel) {

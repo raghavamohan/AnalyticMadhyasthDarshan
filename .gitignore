@@ -18,6 +18,7 @@ Scripts/_reference_cache/
 .tmp.driveupload/
 .tmp.drivedownload/
 *.html
+!Studies/search.html
 !References/**/*.html
 !Studies/index.html
 !Studies/submit.html

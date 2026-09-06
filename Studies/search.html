@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Search study passages</title><meta name="description" content="Find words and phrases across published studies and companion notes."/>
+<link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/search.html"/>
+<link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/Assets/Icons/akhand-samaj-favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/Assets/Icons/akhand-samaj-apple-touch-icon.png"/>
+<link rel="stylesheet" href="../Assets/reader/search.css?v=c92940019b038782"/>
+<script defer src="../Assets/reader/search.js?v=978601cd252a8f49"></script></head>
+<body class="search-page"><a class="search-back" href="index.html">← All studies</a>
+<main><h1>Find a passage</h1><p>Search the text of published studies and companion notes. Open a result at its passage, then use its sources to check the claim.</p>
+<section class="study-search" id="collection-search" data-manifest="search-data/manifest.json?v=893dcfd6fcb3ff10" aria-label="Search published documents">
+<form class="search-form"><label for="collection-query">Words or phrase</label><div class="search-input-row"><input id="collection-query" type="search" maxlength="200" placeholder='e.g. "duration of activity"' required/><button type="submit">Search</button></div>
+<p class="search-help">All words must occur in the same passage. Use quotation marks for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
+<div class="search-filters">
+<label>Document<select id="search-document"><option value="">All documents</option></select></label>
+<label>Type<select id="search-kind"><option value="">Studies and notes</option><option value="study">Studies</option><option value="companion">Companion notes</option></select></label>
+<label>Status<select id="search-status"><option value="">All statuses</option><option value="released">Released</option><option value="draft">Draft</option><option value="note">Companion notes</option></select></label>
+<label>Language<select id="search-language"><option value="">All languages</option></select></label>
+</div></form>
+<p class="search-status" role="status" aria-live="polite">Enter a word or phrase to begin.</p>
+<ol class="search-results"></ol><button type="button" class="search-more" hidden>Show more results</button>
+</section><p class="search-help">Search runs in your browser. The selected documents load when you search. Primary-source PDFs, private submissions and in-progress studies are outside this index.</p>
+<noscript><p>Enable JavaScript for passage search, or open a study and use your browser’s Find command.</p></noscript></main></body></html>

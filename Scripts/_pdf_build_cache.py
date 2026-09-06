@@ -69,9 +69,12 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
     for name in tracked:
         path = Path(name)
         suffix = path.suffix.lower()
-        # These two assets are linked as screen-only CSS and browser JS. PDF
+        # These assets are linked as screen-only CSS and browser JS. PDF
         # loading disables reader scripts; neither can affect printed output.
-        if name.startswith("Assets/") and name not in {"Assets/reader/reader.css", "Assets/reader/reader.js"}:
+        if name.startswith("Assets/") and name not in {
+            "Assets/reader/reader.css", "Assets/reader/reader.js", "Assets/reader/search.css",
+            "Assets/reader/search.js", "Assets/reader/reader-features.js",
+        }:
             selected.add(name)
         if family == "presentations":
             if name == "Scripts/presentation-pipeline.json" or (
@@ -86,7 +89,7 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
             if name.startswith("Scripts/") and suffix in {".js", ".cjs", ".mjs"}:
                 selected.add(name)
             if family == "markdown":
-                if name.startswith(("Studies/", "Applications/")) and suffix in (
+                if name.startswith(("Studies/", "Applications/")) and not name.startswith("Studies/search-data/") and suffix in (
                     {".md", ".json"} | IMAGE_SUFFIXES
                 ):
                     selected.add(name)
