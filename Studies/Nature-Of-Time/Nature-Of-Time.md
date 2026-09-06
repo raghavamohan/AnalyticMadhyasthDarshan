@@ -2,23 +2,11 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 5:31 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Released
 **The question:** What is the nature of time (*kaal*)? How does Madhyasth Darshan relate timeless Omnipresence (*satta*) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?
 
 This study develops the comparative treatment begun in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) (§1.4, §2.7, §4.3). That paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, timeless *satta*, numerical reckoning within existence — and defers past/present/future structure, JVD on "activity eternally present," Advaita *trikaal* language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study (Ontology §1.14).
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.
-
-From that background, a familiar picture of nature is hard to avoid: **consciousness appears as something the brain does** — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.
-
-The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from **physics and the natural sciences**, **Advaita Vedanta**, and **modern Western philosophy** (especially philosophy of time). Physics and mathematics are **one leg** of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.
-
-These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.
-
-Terms are defined in the essay where they first arise; a consolidated glossary keyed to §§1–3 appears in the Appendix.
 
 ## 1. The Madhyasth Darshan Answer
 

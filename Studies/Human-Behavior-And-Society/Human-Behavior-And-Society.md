@@ -2,22 +2,12 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Draft
 
 **The question:** How should humans behave and organise themselves? Can science alone, or religion alone, define correct ethical behaviour and the right form of society?
 
 This study examines behaviour, ethics, and social organisation in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **physics and the natural sciences**, **Advaita Vedanta**, and selected **religious and technocratic** approaches to human conduct and social order.
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.
-
-From that background, a familiar picture of nature is hard to avoid: **consciousness appears as something the brain does** — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.
-
-The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from **physics and the natural sciences**, **Advaita Vedanta**, and **modern Western philosophy** (especially moral science and social philosophy). Physics and mathematics are **one leg** of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.
-
-These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.
 
 ## Quick Glossary
 

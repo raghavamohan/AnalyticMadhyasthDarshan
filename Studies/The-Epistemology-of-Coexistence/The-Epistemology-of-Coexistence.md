@@ -2,23 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 5:31 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Released
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How are these concepts grounded in experience, and how does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western philosophy, and the natural sciences?
 
 This study examines knowledge, the knower, and the knowable in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **Advaita Vedanta** and **modern science and philosophy**.
 
 [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) supplies the ontological setting: Omnipresence, saturated units, the four orders, constitutional completeness, and the active structure of *jeevan*. The present study asks the specifically epistemological questions the primary texts develop: what knowledge is, what makes *jeevan* the knower, how coexistence becomes the known, and why understanding must become evident in action, relationship, evaluation, and humane tradition. [From Unit Activity to Human Orderliness](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) is used as an interpretive audit of these connections, not as a primary source and not as a source of notation for this paper.
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.
-
-From that background, a familiar picture of nature is hard to avoid: **consciousness appears as something the brain does** — an epiphenomenon, functional outcome, or emergent property of particular configurations of very large numbers of physical particles. Modern physics and cognitive science are powerful on mechanism, prediction, and public evidence; yet the hard problem of consciousness, the status of the self, and the reality of value remain fiercely contested. The standpoint taken here does not treat those gaps as settled in favour of matter-only reductionism.
-
-The work begins where that scientific picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with what we know from **physics and the natural sciences**, **Advaita Vedanta**, and **modern Western philosophy** (especially epistemology and philosophy of mind). Physics and mathematics are **one leg** of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.
-
-These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.
 
 ## 1. The Madhyasth Darshan Answer
 

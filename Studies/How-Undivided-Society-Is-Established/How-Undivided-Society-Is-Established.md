@@ -2,23 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 5:31 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Released
 **The question:** What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?
 
 Madhyasth Darshan does not use *akhand samaj*, undivided society, as a name for political uniformity, a world state, or the numerical enlargement of an existing community. It names humankind recognised as one field of relationships, living through mutually fulfilling conduct and participating in universal orderliness (*sarvabhaum vyavastha*). The claim is demanding: unity must be compatible with distinct persons and families, prosperity with non-accumulation, freedom with responsibility, and social continuity with understanding rather than coercion.
 
 This study asks what would make that claim more than an aspiration. It develops the Madhyasth Darshan account from coexistence, *jeevan*, relationship, justice, and awakening; compares that basis with science-only materialism, Advaita Vedanta, and religious authority within the diverse field called Hinduism; and follows establishment from the individual through family, institutions, and intergenerational tradition. The process reconstruction in [*From Unit Activity to Human Orderliness*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) informs the distinction between structural closure, body–*jeevan* association, and maintained relational order, but the present argument remains in ordinary philosophical prose.
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a scientist and technologist trained to graduate-level physics and mathematics. From that background, matter-first explanation is familiar and indispensable: physical and natural sciences provide powerful accounts of bodies, ecosystems, production, communication, and institutional effects. The hard problem of consciousness, the status of the self, and the reality of value nevertheless remain contested. This study does not treat materialism as proven merely because material explanation is methodologically successful.
-
-The method is to read the primary Madhyasth Darshan texts and first state the darshan's social argument in its own terms. That argument is then compared in parallel with physics and the natural sciences, Advaita Vedanta, modern Western philosophy where it bears on facts and values, and religious social authority. Physics and mathematics are one leg of the comparison, not the sole tribunal for questions of self, justice, value, or human purpose.
-
-The comparison is neither missionary nor dismissive. Science, Advaita, and Hindu traditions each preserve genuine achievements: public inquiry and causal knowledge; disciplined examination of self and attachment; moral formation, service, and durable communities. The narrower question is whether any one of them, taken by itself, supplies a universal and publicly examinable basis for humane conduct, material sufficiency, fulfilled relationships, non-sectarian social identity, and institutional continuity.
-
-The aim is rigorous comparative understanding rather than devotional endorsement. The prose therefore distinguishes what Madhyasth Darshan asserts, what can be reconstructed from its concepts, and what remains an open empirical or philosophical problem. Clear and checkable exposition comes first; formal mathematics may follow elsewhere, but this study does not require it.
 
 ## 1. What a universal social basis must explain
 

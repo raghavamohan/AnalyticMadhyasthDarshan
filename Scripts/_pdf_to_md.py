@@ -396,10 +396,6 @@ def _postprocess_markdown(md: str, report: ConversionReport) -> str:
             "- *(Review and add bibliography entries — link to `../References/` "
             "where available, or to the original publisher URL.)*\n"
         )
-    if not re.search(r"^##\s+Standpoint and scope\b", result, re.MULTILINE | re.IGNORECASE):
-        report.warnings.append(
-            "No '## Standpoint and scope' section detected; add manually for topical studies."
-        )
     return result + "\n"
 
 
