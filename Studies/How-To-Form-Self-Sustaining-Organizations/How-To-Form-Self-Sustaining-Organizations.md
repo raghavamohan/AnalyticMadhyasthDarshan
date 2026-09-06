@@ -3,23 +3,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 4:01 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Released
 **The question:** must organisations be built on fear or accumulation, or is there a basis on which they sustain *and* their members are not used as instruments?
 
 This study takes the near-universal history of human organisation — grouping for safety, sustenance, protection, shared belief, and finally wealth and power — and asks whether every such basis reduces to **fear** and **accumulation**, and whether that reduction explains two recurring failures together: members treated as instruments, and organisations that dissolve once the founding fear passes or the accumulation stalls. Against that pattern it sets Madhyasth Darshan's alternative — organisation around **understood coexistence**: shared cause, goal, and programme; values fulfilled in relationships; prosperity through right-use rather than accumulation; and understanding transmitted to every member through education-sanskar. The design is argued to be coherent but is untested at civilisational scale, and its deepest premises are asserted rather than demonstrated (§10).
 
 This is an **applied** study: it instantiates the general assembly template of coexistence in the concrete case of human organisations. The ontological account — units, saturation, orders, relationships, values, composition, and transmission — is developed in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) and in the primary Madhyasth Darshan texts (MVD, SB, JV). This paper does not re-derive those foundations; it applies them and cites them where they carry the argument.
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with formal models and with the empirical study of institutions. Organisational questions are approached the way a modelling problem is approached: what an organisation is *organised around* is treated as a structural variable with predictable consequences, not a matter of exhortation.
-
-From that background a matter-first picture of the human being is hard to avoid, and with it a matter-first picture of organisations — as incentive systems that align self-interested agents. Modern social science is powerful on mechanism, measurement, and prediction; yet whether members are being *used*, and why some institutions outlast their founders while others fracture, remain contested. The standpoint here does not treat those questions as settled by incentive-alignment alone, nor does it treat the darshan's deeper premises — *jeevan*, awakening, existence-as-coexistence — as proven.
-
-The method reads the primary Madhyasth Darshan texts, states what the darshan itself holds about organisation, and compares it in parallel with **modern organisational and social forms**, with **Advaita Vedanta** (the nearest Indian non-dual rival, §11), and with the ordinary economics of profit and incentive. Physics and mathematics are **one leg** of the modelling habit brought to the problem, not the whole of the comparison, which is social and philosophical as much as formal.
-
-The aim is rigorous comparative understanding — testing the design's internal consistency, its fit with what is known about why organisations succeed or fail, and the real limits of its untested claims — not persuasion or devotional endorsement. Like the other studies in this series, it states the argument in clear, checkable prose grounded in the primary texts; deeper ontological exposition is in [*The Ontology of Coexistence*](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) and is not required to follow the argument here.
 
 ## Glossary of key terms
 

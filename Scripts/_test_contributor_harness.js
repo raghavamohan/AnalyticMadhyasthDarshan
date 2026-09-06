@@ -3,7 +3,7 @@
   const realFetch = window.fetch.bind(window), realIDB = window.indexedDB;
   Object.defineProperty(window, 'indexedDB', {value:{open:(_,version) => { if(new URLSearchParams(location.search).get('storage') === 'blocked') throw new Error('Browser storage unavailable in this test. Download a backup before leaving.'); return realIDB.open('amd-contributor-fixture-v2',version); }}});
   const response = (data,status=200) => Promise.resolve(new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json'}}));
-  const study = '# Test study\n\n**Author:** Alice\n\n## Standpoint and scope\n\nA comparison of approaches.\n\n## Table\n\n| Tradition | Claim |\n| --- | --- |\n| MD | Coexistence |\n\n## Equation\n\n$E=mc^2$ and $$x=\\frac{a}{b}$$\n\n```mermaid\nflowchart LR\n  A[Question] --> B[Study]\n```\n\n## References\n\n[Source](https://example.org)\n';
+  const study = '# Test study\n\n**Author:** Alice\n\n## Introduction\n\nA comparison of approaches.\n\n## Table\n\n| Tradition | Claim |\n| --- | --- |\n| MD | Coexistence |\n\n## Equation\n\n$E=mc^2$ and $$x=\\frac{a}{b}$$\n\n```mermaid\nflowchart LR\n  A[Question] --> B[Study]\n```\n\n## References\n\n[Source](https://example.org)\n';
   const registry = {studies:[{slug:'Test-Study',root:'Studies',title:'Test study',notes:['Research-Note-Test.md'],presentations:['Test-Deck.pptx']},{slug:'Second-Study',root:'Applications',title:'Second study',notes:[],presentations:[]}]};
   let account = sessionStorage.getItem('fixture-account') || 'alice';
   window.fetch = async (input, options={}) => {

@@ -8,6 +8,7 @@ Run from the repository root:
 from __future__ import annotations
 
 import json
+import re
 import sys
 import urllib.error
 import urllib.request
@@ -347,8 +348,8 @@ def check_live() -> None:
     if detail.get("slug") != slug or not detail.get("outline"):
         fail(f"GET /api/studies/{slug} missing slug or outline: {body[:300]}")
     headings = [item.get("heading") for item in detail.get("outline") or []]
-    if "Standpoint and scope" not in headings:
-        fail(f"GET /api/studies/{slug} outline is missing Standpoint and scope")
+    if not any(re.match(r"1[. ]", heading or "") for heading in headings):
+        fail(f"GET /api/studies/{slug} outline is missing its first numbered section")
     print(f"OK: live GET /api/studies/{slug} returns a heading outline.")
 
     status, _headers, body = fetch_live(f"{SITE}/api/glossary?q=jeevan")

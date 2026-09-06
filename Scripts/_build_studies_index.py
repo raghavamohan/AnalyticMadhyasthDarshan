@@ -407,12 +407,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
 
   .section { scroll-margin-top: 64px; margin-bottom: 22px; }
-  .section.is-targeted {
+  :is(.section,.start-here,.browse-heading).is-targeted > h2 {
     animation: section-target-flash 1.6s ease-out forwards;
   }
   .catalog-group.is-targeted {
     animation: section-target-flash 1.6s ease-out forwards;
   }
+  #start-here [data-study-slug].is-targeted { animation: section-target-flash 1.6s ease-out forwards; }
 
   @keyframes section-target-flash {
     0% {
@@ -1743,6 +1744,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="section-card">
     <h3>Our approach</h3>
     <p>The project reads primary <strong>Madhyasth Darshan</strong> texts closely, reconstructs their claims as clearly as possible, and compares them with the natural sciences, Advaita Vedanta, and modern philosophy. The aim is rigorous comparative understanding: to test definitions, internal consistency, explanatory scope, and compatibility with evidence &mdash; not to persuade or offer devotional endorsement.</p>
+    <p>The founding studies draw on a scientist and technologist&rsquo;s training in graduate-level physics and mathematics. Matter-first explanations are a familiar starting point, but the success of scientific methods does not by itself settle the nature of consciousness, self, or value. Physics and mathematics are one leg of the comparison; each tradition is examined through its own concepts and arguments, with its claims open to criticism.</p>
+    <p>Textual warrant, logical coherence, first-person verification, evidence in conduct, and instrument-based confirmation are kept distinct. Agreement at one level does not establish a claim at another. Clear, checkable prose comes first; formal models are used where they help and do not by themselves prove the existence of what they represent. Individual studies state their particular questions, sources, assumptions, and limits where these bear on the argument.</p>
 
     <h3>What we keep separate</h3>
     <p class="section-intro" style="margin-bottom:4px;">Throughout, three things are held clearly apart:</p>
@@ -2286,6 +2289,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       document.querySelectorAll("#start-here .path-related").forEach(details => {
         details.open = false;
       });
+      syncStartHere(STUDIES);
     });
   });
 
@@ -2393,7 +2397,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
       own("[data-study-link]").forEach(studyLink => {
         if (hasReadLinks(study)) {
-          studyLink.href = studyHtmlHref(study);
+          const href = new URL(studyHtmlHref(study),location.href);
+          href.searchParams.set("from","start-here");
+          href.searchParams.set("stage",item.closest(".path-panel")?.dataset.stage || document.querySelector(".path-radio:checked")?.id.slice(-1) || "1");
+          studyLink.href = href.href;
           studyLink.title = "Read the study";
         } else {
           studyLink.href = studyDiscussionHref(study);
@@ -2420,6 +2427,27 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       }
     });
   };
+
+  const restoreStartHere = () => {
+    const match = /^#path-study-([^#]+)$/.exec(location.hash);
+    if (!match) return;
+    let slug;
+    try { slug = decodeURIComponent(match[1]); } catch (_) { return; }
+    const item = Array.from(document.querySelectorAll("#start-here [data-study-slug]")).find(el => el.dataset.studySlug === slug);
+    if (!item) return;
+    const stage = item.closest(".path-panel")?.dataset.stage || new URLSearchParams(location.search).get("stage") || "1";
+    const radio = /^[1-5]$/.test(stage) && document.getElementById("path-stage-" + stage);
+    if (radio) radio.checked = true;
+    const related = item.closest(".path-related");
+    if (related) related.open = true;
+    requestAnimationFrame(() => {
+      item.scrollIntoView({ behavior: "instant", block: "center" });
+      item.classList.add("is-targeted");
+      setTimeout(() => item.classList.remove("is-targeted"),1600);
+    });
+  };
+  restoreStartHere();
+  window.addEventListener("hashchange",restoreStartHere);
 
   // Support returning from a study's HTML page to the exact card it was opened
   // from (via a `#study-<slug>` hash on the "All studies" link) instead of always

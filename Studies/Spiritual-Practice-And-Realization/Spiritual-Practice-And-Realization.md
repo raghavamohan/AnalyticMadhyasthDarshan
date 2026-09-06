@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 6, 2026, 5:42 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Draft
 **The question:** What is realisation, what practice leads to it, and how would anyone know it had occurred? How does Madhyasth Darshan's answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
@@ -11,16 +11,6 @@ This study examines *anubhav* — realisation — and the practice Madhyasth Dar
 The relevance of modern philosophy is worth stating in advance, because the natural assumption is that spiritual practice lies outside its range. It does not. Ancient philosophy was itself organised around spiritual exercises, as Hadot's work established; the epistemology of religious experience is a developed field; the perennialist–constructivist dispute is exactly the question of whether contemplative states have content independent of the tradition that trains them; L. A. Paul's account of transformative experience formalises the problem of appraising a state one has not undergone; and contemplative science has produced both suggestive findings and a serious methodological reckoning. Each bears directly on claims the darshan makes.
 
 [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.6 states the transmission and evidence conditions in outline and §§7.1–7.5 records the resulting evidential problems; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13 sets out realisation in coexistence as an activity of *jeevan*. This study takes the practice itself as its subject: what is done, what is claimed to result, and what would count as knowing that it had.
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.
-
-From that background, a familiar picture of contemplative practice is hard to avoid: **it looks like the cultivation of unusual brain states** whose content is supplied by the tradition doing the training, valuable perhaps for wellbeing but epistemically inert. Neuroscience and psychology are powerful on mechanism and measurement; yet whether any such state can put someone in contact with how things are, and how a first-person report could ever be cross-checked, remain unresolved. The standpoint taken here does not treat those questions as settled in favour of the view that practice yields experience but never knowledge.
-
-The work begins where that picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. This paper reads the primary texts carefully, states what follows from the darshan itself, and compares it in parallel with **Advaita Vedanta**, **modern Western philosophy** (the epistemology of religious experience, philosophy as a way of life, and transformative experience), and **the natural sciences** (contemplative neuroscience and its methodological critique). Physics and mathematics are **one leg** of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.
-
-These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.
 
 ## 1. The Madhyasth Darshan Answer
 

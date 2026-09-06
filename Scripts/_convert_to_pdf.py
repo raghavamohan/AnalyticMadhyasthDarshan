@@ -499,7 +499,7 @@ def insert_study_reading_key(html_body: str) -> str:
 
 def _feedback_href(title: str) -> str:
     issue_title = quote(f"Study feedback: {title}")
-    return f"{FEEDBACK_ISSUES_URL}?template=study-feedback.yml&title={issue_title}"
+    return f"{FEEDBACK_ISSUES_URL}?template=study-feedback.yml&title={issue_title}&study={quote(title)}"
 
 
 def _study_toolbar_html(md_path: Path, *, title: str) -> str:
@@ -512,22 +512,26 @@ def _study_toolbar_html(md_path: Path, *, title: str) -> str:
             catalog_href = "../index.html"
     except ValueError:
         catalog_href = "../index.html"
-    catalog_href = f"{catalog_href}#study-{quote(stem)}"
+    catalog_href = f"{catalog_href}#study-{quote(md_path.parent.name)}"
     pdf_href = f"{stem}.pdf"
     discuss_href = f"discussion.html?dv={DISCUSS_ASSET_VERSION}" if DISCUSS_ASSET_VERSION else "discussion.html"
-    feedback_href = _feedback_href(title)
+    feedback_href = html_module.escape(_feedback_href(title), quote=True)
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
     <span class="reader-toolbar-start"><a class="study-toolbar-link study-toolbar-back" href="{catalog_href}" aria-label="Back to all studies">&larr; Studies</a>
       <button type="button" id="reader-open" aria-controls="reader-tools" aria-expanded="false" hidden>Contents &amp; tools</button></span>
-    <span class="study-toolbar-actions">
+    <details class="study-toolbar-more">
+      <summary>More <span aria-hidden="true">&#9662;</span></summary>
+      <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="{discuss_href}">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download aria-label="Download PDF">PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="{feedback_href}" aria-label="Suggest a correction">Suggest edit</a>
       <button type="button" class="study-theme-toggle" id="study-theme-toggle" aria-label="Switch color theme">
         <span class="study-theme-toggle-label">Dark</span>
       </button>
-    </span>
+        <a class="study-toolbar-link" href="{catalog_href.split('#')[0]}#approach">Our approach</a>
+      </span>
+    </details>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>

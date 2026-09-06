@@ -5,16 +5,34 @@ import re
 import subprocess
 import tempfile
 import unittest
+from urllib.parse import parse_qs, urlparse
 from pathlib import Path
 
 from bs4 import BeautifulSoup
 
 from _common import BASE
-from _convert_to_pdf import convert_to_html
+from _convert_to_pdf import convert_to_html, _study_toolbar_html
 from _study_reader import reader_assets
 
 
 class StudyReaderTests(unittest.TestCase):
+    def test_feedback_prefills_and_companion_returns_to_parent_study(self):
+        source = BASE / 'Studies/Nature-Of-Time/Research-Note-Time.md'
+        title = 'Time: "duration" & change / काल'
+        soup = BeautifulSoup(_study_toolbar_html(source,title=title),'html.parser')
+        self.assertEqual(soup.select_one('.study-toolbar-back')['href'],'../index.html#study-Nature-Of-Time')
+        fields = parse_qs(urlparse(soup.select_one('.study-toolbar-feedback')['href']).query)
+        self.assertEqual(fields['study'],[title])
+        self.assertEqual(fields['title'],['Study feedback: '+title])
+        self.assertEqual(fields['template'],['study-feedback.yml'])
+        self.assertEqual(len(soup.select('.study-toolbar-feedback')),1)
+        import yaml
+        form = yaml.safe_load((BASE / '.github/ISSUE_TEMPLATE/study-feedback.yml').read_text(encoding='utf-8'))
+        inputs = {item['id']: item for item in form['body'] if 'id' in item}
+        self.assertEqual(inputs['study']['type'],'input')
+        self.assertEqual(inputs['location']['type'],'input')
+        self.assertTrue(inputs['description']['validations']['required'])
+
     def test_reader_data_and_recovery(self):
         result = subprocess.run(["node", str(BASE / "Scripts/_test_study_reader.mjs")], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
