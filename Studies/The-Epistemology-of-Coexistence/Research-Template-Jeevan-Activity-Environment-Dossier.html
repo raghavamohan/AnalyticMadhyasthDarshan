@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>Template: *Jeevan* Activity-to-Sphere Dossier</title>
+<meta name="amd-source-version" content="2d24f135ef8fb00582542d48b4f25ab4a2a34fe27b17aa5c3cdebd97c36f6481"/>
 <link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
@@ -710,7 +711,8 @@
   }
 
 </style>
-<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=a0e5215a2530d800"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=97e069fdb79e189c"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/search.css?v=c92940019b038782"/>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -742,12 +744,24 @@
   <header class="reader-panel-header"><h2 id="reader-tools-title">Study tools</h2><button type="button" id="reader-close" aria-label="Close study tools">&#215;</button></header>
   <div class="reader-tabs" role="tablist" aria-label="Study tools">
     <button type="button" role="tab" id="reader-tab-contents" aria-controls="reader-contents" aria-selected="true">Contents</button>
+    <button type="button" role="tab" id="reader-tab-search" aria-controls="reader-search" aria-selected="false" tabindex="-1">Find</button>
     <button type="button" role="tab" id="reader-tab-bookmarks" aria-controls="reader-bookmarks" aria-selected="false" tabindex="-1">Bookmarks</button>
     <button type="button" role="tab" id="reader-tab-display" aria-controls="reader-display" aria-selected="false" tabindex="-1">Display</button>
   </div>
   <section id="reader-contents" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-contents" tabindex="0">
-    <p class="reader-helper">Follow the argument, section by section.</p>
+    <button type="button" id="reader-passage-tools">Link &amp; sources for this passage</button>
+    <p class="reader-helper">Select text to choose a passage, or use the passage at the top of the page. Click a citation code to preview its source.</p>
     <nav id="reader-outline" aria-label="Study contents"></nav>
+  </section>
+  <section id="reader-search" class="reader-tab-panel study-search" role="tabpanel" aria-labelledby="reader-tab-search" tabindex="0" hidden>
+    <form id="reader-search-form" class="search-form"><label for="reader-search-query">Find in this document</label>
+      <div class="search-input-row"><input id="reader-search-query" type="search" maxlength="200" placeholder="Word or quoted phrase"/><button type="submit">Find</button></div>
+    </form>
+    <p class="reader-helper">All words must occur in a passage. Use quotes for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
+    <a id="reader-search-all" href="/Studies/search.html">Search all studies and notes →</a>
+    <p id="reader-search-status" class="search-status" role="status" aria-live="polite">Enter a word or phrase.</p>
+    <ol id="reader-search-results" class="search-results"></ol>
+    <button type="button" id="reader-search-more" hidden>Show more results</button>
   </section>
   <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
     <form id="reader-bookmark-form">
@@ -775,78 +789,94 @@
     <div id="reader-clear-confirm" hidden><p>Remove this study’s saved position and bookmarks?</p><button type="button" id="reader-clear-yes">Remove saved places</button><button type="button" id="reader-clear-no">Keep them</button></div>
   </footer>
 </dialog>
+<dialog id="reader-viewer" class="reader-chrome" aria-labelledby="reader-viewer-title">
+  <header class="reader-panel-header"><h2 id="reader-viewer-title">Passage tools</h2><button type="button" id="reader-viewer-close" aria-label="Close preview">&#215;</button></header>
+  <p id="reader-viewer-status" role="status" aria-live="polite"></p>
+  <div id="reader-source-view">
+    <p id="reader-passage-excerpt"></p><button type="button" id="reader-copy-passage">Copy passage link</button>
+    <label id="reader-copy-label" for="reader-copy-fallback" hidden>Copy this text</label><textarea id="reader-copy-fallback" rows="3" readonly hidden></textarea>
+    <div id="reader-source-detail" hidden><h3 id="reader-source-title"></h3><p id="reader-source-citation"></p><p id="reader-source-note" class="reader-helper"></p>
+      <a id="reader-source-open" target="_blank" rel="noopener noreferrer">Open source in a new tab ↗</a> <button type="button" id="reader-copy-citation">Copy citation</button>
+    </div>
+    <label for="reader-source-query">Find a reference in this study</label><input id="reader-source-query" type="search" placeholder="Source code, title or author"/>
+    <p id="reader-source-status" class="reader-helper"></p><ul id="reader-source-list"></ul>
+  </div>
+  <div id="reader-visual-view" hidden><div class="reader-zoom-controls"><button type="button" id="reader-zoom-out" aria-label="Zoom out">−</button><output id="reader-zoom-level" aria-live="polite">100%</output><button type="button" id="reader-zoom-in" aria-label="Zoom in">+</button><button type="button" id="reader-zoom-fit">Fit</button><button type="button" id="reader-zoom-reset">100%</button></div>
+    <p class="reader-helper">Scroll or swipe inside the viewer to see the whole figure or table.</p><div id="reader-visual-stage" tabindex="0" role="region" aria-label="Enlarged figure or table"><div id="reader-visual-canvas"><div id="reader-visual-content"></div></div></div>
+  </div>
+</dialog>
 <div id="reader-message" class="reader-chrome" role="status" aria-live="polite" hidden></div>
 <main id="main"><h1>Template: <em>Jeevan</em> Activity-to-Sphere Dossier</h1>
-<p><strong>Purpose:</strong> Use this template once for each of the sixty-one AVD <em>bal/shakti</em> positions, while completing one independent record for each of the 122 column assignments. A record normally concerns an activity-member, but it may instead preserve a disputed slot where MVD supplies an object, quality, correlate, or shared criterion rather than an independently named operation. The method must not settle that documentary question in advance. Its first task is to derive the fields in which the assigned content can develop, be performed, become evident, be evaluated and corrected, remain available, and be transmitted. Only after these fields have been derived should they be clustered into spheres and compared with family or any proposed institutional system.</p>
-<p><strong>Methodological boundary:</strong> The environment does not create or activate a constitutional activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. It can support or obstruct receptivity, right orientation, embodied performance, public evidence, correction, continuity, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span></em>. Institution names must not be used as input categories. Follow the chain:</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-d876edfe8b06d9c6"><strong>Purpose:</strong> Use this template once for each of the sixty-one AVD <em>bal/shakti</em> positions, while completing one independent record for each of the 122 column assignments. A record normally concerns an activity-member, but it may instead preserve a disputed slot where MVD supplies an object, quality, correlate, or shared criterion rather than an independently named operation. The method must not settle that documentary question in advance. Its first task is to derive the fields in which the assigned content can develop, be performed, become evident, be evaluated and corrected, remain available, and be transmitted. Only after these fields have been derived should they be clustered into spheres and compared with family or any proposed institutional system.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-787f929f9af8fd31"><strong>Methodological boundary:</strong> The environment does not create or activate a constitutional activity of <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em>. It can support or obstruct receptivity, right orientation, embodied performance, public evidence, correction, continuity, and <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition." data-term="sanskar" type="button">sanskar</button></span></em>. Institution names must not be used as input categories. Follow the chain:</p>
 <blockquote>
-<p>activity member -&gt; bearer and object -&gt; participant topology -&gt; endpoint of fulfilment -&gt; lifecycle conditions -&gt; evidence and correction -&gt; micro-sphere -&gt; cross-activity sphere -&gt; possible institutional form</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-99ca1ac4fc3eecb6">activity member -&gt; bearer and object -&gt; participant topology -&gt; endpoint of fulfilment -&gt; lifecycle conditions -&gt; evidence and correction -&gt; micro-sphere -&gt; cross-activity sphere -&gt; possible institutional form</p>
 </blockquote>
-<p>Use this template with <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html" rel="noopener noreferrer"><em>The Sixty-One Activity Pairs of Jeevan</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html" rel="noopener noreferrer"><em>Jeevan Architecture</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html" rel="noopener noreferrer"><em>A Functional Model of Jeevan</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html" rel="noopener noreferrer"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a>, and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.html" rel="noopener noreferrer"><em>Pass-Five Counterfactual Validation of the Jeevan Social Model</em></a>. <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html" rel="noopener noreferrer"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> supplied the social hypothesis tested only after the institution-neutral coding and clustering were frozen.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-ffacbdf4c26f1d0a">Use this template with <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html" rel="noopener noreferrer"><em>The Sixty-One Activity Pairs of Jeevan</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html" rel="noopener noreferrer"><em>Jeevan Architecture</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html" rel="noopener noreferrer"><em>A Functional Model of Jeevan</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.html" rel="noopener noreferrer"><em>Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a>, <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a>, and <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.html" rel="noopener noreferrer"><em>Pass-Five Counterfactual Validation of the Jeevan Social Model</em></a>. <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html" rel="noopener noreferrer"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> supplied the social hypothesis tested only after the institution-neutral coding and clustering were frozen.</p>
 <details class="study-toc study-toc--with-key" id="study-contents">
-  <summary class="study-toc-summary">
-    <span class="study-toc-label">Contents</span>
-    <span class="study-toc-meta">16 sections &middot; 46 headings</span>
-  </summary>
-  <nav class="study-toc-nav" aria-label="Contents">
-    <ol class="study-toc-list">
-      <li class="study-toc-item study-toc-l1"><a href="#coding-conventions">Coding conventions</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#evidential-status">Evidential status</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#type-of-external-relation">Type of external relation</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#strength-and-lifecycle-scope-of-an-external-requirement">Strength and lifecycle scope of an external requirement</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#level-of-universality">Level of universality</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#participation-topology">Participation topology</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#dossier-identity">Dossier identity</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#1-source-record">1. Source record</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#11-tabulated-assignment">1.1 Tabulated assignment</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#12-definitions-and-documentary-limits">1.2 Definitions and documentary limits</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#2-pair-semantics">2. Pair semantics</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#21-working-classification">2.1 Working classification</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#22-relation-between-the-members">2.2 Relation between the members</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#23-why-the-members-remain-separate-analytic-units">2.3 Why the members remain separate analytic units</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#3-activity-member-record-a-bal-member">3. Activity-member record A - bal member</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#31-activity-anatomy">3.1 Activity anatomy</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#32-dependencies-within-jeevan">3.2 Dependencies within jeevan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#33-participation-topology">3.3 Participation topology</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#34-lifecycle-conditions">3.4 Lifecycle conditions</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#35-evidence-profile">3.5 Evidence profile</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#36-micro-sphere-statement">3.6 Micro-sphere statement</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#4-activity-member-record-b-shakti-member">4. Activity-member record B - shakti member</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#41-activity-anatomy">4.1 Activity anatomy</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#42-dependencies-within-jeevan">4.2 Dependencies within jeevan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#43-participation-topology">4.3 Participation topology</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#44-lifecycle-conditions">4.4 Lifecycle conditions</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#45-evidence-profile">4.5 Evidence profile</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#46-micro-sphere-statement">4.6 Micro-sphere statement</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#5-complete-functioning-and-pair-interface-test">5. Complete-functioning and pair-interface test</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#6-bottom-up-sphere-derivation">6. Bottom-up sphere derivation</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#61-candidate-recurring-field">6.1 Candidate recurring field</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#62-relational-and-structural-invariants">6.2 Relational and structural invariants</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#63-variable-arrangements">6.3 Variable arrangements</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#64-arrangements-ruled-out-or-constrained">6.4 Arrangements ruled out or constrained</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#65-structured-feature-vector-for-clustering">6.5 Structured feature vector for clustering</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#7-scale-and-interfaces">7. Scale and interfaces</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#8-claim-ledger">8. Claim ledger</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#9-counterexample-and-residual-tests">9. Counterexample and residual tests</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#10-dossier-conclusion">10. Dossier conclusion</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#101-narrow-derivation">10.1 Narrow derivation</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#102-sphere-implication">10.2 Sphere implication</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#103-unresolved-questions">10.3 Unresolved questions</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#11-master-matrix-records">11. Master-matrix records</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#12-later-institution-test-completed-for-the-master-register-in-pass-four">12. Later institution test - completed for the master register in Pass Four</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#13-validation-pass-completed-for-the-master-register-in-pass-five">13. Validation pass - completed for the master register in Pass Five</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#completion-checklist">Completion checklist</a></li>
-    </ol>
-  </nav>
+<summary class="study-toc-summary">
+<span class="study-toc-label">Contents</span>
+<span class="study-toc-meta">16 sections · 46 headings</span>
+</summary>
+<nav aria-label="Contents" class="study-toc-nav">
+<ol class="study-toc-list">
+<li class="study-toc-item study-toc-l1"><a href="#coding-conventions">Coding conventions</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#evidential-status">Evidential status</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#type-of-external-relation">Type of external relation</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#strength-and-lifecycle-scope-of-an-external-requirement">Strength and lifecycle scope of an external requirement</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#level-of-universality">Level of universality</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#participation-topology">Participation topology</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#dossier-identity">Dossier identity</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#1-source-record">1. Source record</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#11-tabulated-assignment">1.1 Tabulated assignment</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#12-definitions-and-documentary-limits">1.2 Definitions and documentary limits</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#2-pair-semantics">2. Pair semantics</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#21-working-classification">2.1 Working classification</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#22-relation-between-the-members">2.2 Relation between the members</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#23-why-the-members-remain-separate-analytic-units">2.3 Why the members remain separate analytic units</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#3-activity-member-record-a-bal-member">3. Activity-member record A - bal member</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#31-activity-anatomy">3.1 Activity anatomy</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#32-dependencies-within-jeevan">3.2 Dependencies within jeevan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#33-participation-topology">3.3 Participation topology</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#34-lifecycle-conditions">3.4 Lifecycle conditions</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#35-evidence-profile">3.5 Evidence profile</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#36-micro-sphere-statement">3.6 Micro-sphere statement</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#4-activity-member-record-b-shakti-member">4. Activity-member record B - shakti member</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#41-activity-anatomy">4.1 Activity anatomy</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#42-dependencies-within-jeevan">4.2 Dependencies within jeevan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#43-participation-topology">4.3 Participation topology</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#44-lifecycle-conditions">4.4 Lifecycle conditions</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#45-evidence-profile">4.5 Evidence profile</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#46-micro-sphere-statement">4.6 Micro-sphere statement</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#5-complete-functioning-and-pair-interface-test">5. Complete-functioning and pair-interface test</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#6-bottom-up-sphere-derivation">6. Bottom-up sphere derivation</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#61-candidate-recurring-field">6.1 Candidate recurring field</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#62-relational-and-structural-invariants">6.2 Relational and structural invariants</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#63-variable-arrangements">6.3 Variable arrangements</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#64-arrangements-ruled-out-or-constrained">6.4 Arrangements ruled out or constrained</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#65-structured-feature-vector-for-clustering">6.5 Structured feature vector for clustering</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#7-scale-and-interfaces">7. Scale and interfaces</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#8-claim-ledger">8. Claim ledger</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#9-counterexample-and-residual-tests">9. Counterexample and residual tests</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#10-dossier-conclusion">10. Dossier conclusion</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#101-narrow-derivation">10.1 Narrow derivation</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#102-sphere-implication">10.2 Sphere implication</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#103-unresolved-questions">10.3 Unresolved questions</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#11-master-matrix-records">11. Master-matrix records</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#12-later-institution-test-completed-for-the-master-register-in-pass-four">12. Later institution test - completed for the master register in Pass Four</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#13-validation-pass-completed-for-the-master-register-in-pass-five">13. Validation pass - completed for the master register in Pass Five</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#completion-checklist">Completion checklist</a></li>
+</ol>
+</nav>
 </details>
-<p class="study-reading-key" aria-label="Reading key">
-  <span class="study-reading-key-term">Dotted underline</span>: definition
-  <span aria-hidden="true">&middot;</span>
-  <span class="study-reading-key-link">Blue underline</span>: link
+<p aria-label="Reading key" class="study-reading-key" data-reader-heading="" data-reader-passage="" id="reader-p-2d479c97e6bf2881">
+<span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">·</span>
+<span class="study-reading-key-link">Blue underline</span>: link
 </p>
-<h2 id="coding-conventions">Coding conventions</h2>
-<h3 id="evidential-status">Evidential status</h3>
-<div class="table-scroll"><table>
+<h2 data-reader-heading="coding-conventions" data-reader-passage="" id="coding-conventions">Coding conventions</h2>
+<h3 data-reader-heading="coding-conventions" data-reader-passage="" id="evidential-status">Evidential status</h3>
+<div class="table-scroll"><table data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-6d3d20c0a6183032">
 <thead>
 <tr>
 <th>Code</th>
@@ -872,9 +902,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>Apply these codes to every derived field, not only to the pair relation or the final claim. In particular, the bearer, object, counterpart, endpoint, criterion, required condition, evaluator, and universality claim each need their own status. A directly stated term does not make every interpretation of that term direct.</p>
-<h3 id="type-of-external-relation">Type of external relation</h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-8cc6fdf9232ef123">Apply these codes to every derived field, not only to the pair relation or the final claim. In particular, the bearer, object, counterpart, endpoint, criterion, required condition, evaluator, and universality claim each need their own status. A directly stated term does not make every interpretation of that term direct.</p>
+<h3 data-reader-heading="coding-conventions" data-reader-passage="" id="type-of-external-relation">Type of external relation</h3>
+<div class="table-scroll"><table data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-2172e79d948f5853">
 <thead>
 <tr>
 <th>Code</th>
@@ -912,9 +942,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>One condition may have more than one relation type. Explain each code instead of treating the code as the argument.</p>
-<h3 id="strength-and-lifecycle-scope-of-an-external-requirement">Strength and lifecycle scope of an external requirement</h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-adfe477a4c631448">One condition may have more than one relation type. Explain each code instead of treating the code as the argument.</p>
+<h3 data-reader-heading="coding-conventions" data-reader-passage="" id="strength-and-lifecycle-scope-of-an-external-requirement">Strength and lifecycle scope of an external requirement</h3>
+<div class="table-scroll"><table data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-3bb9288d64a1c16f">
 <thead>
 <tr>
 <th>Code</th>
@@ -944,8 +974,8 @@
 </tr>
 </tbody>
 </table></div>
-<p>Attach strength to the precise lifecycle claim rather than to the activity in general:</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-1ba3aca6a2bd7c12">Attach strength to the precise lifecycle claim rather than to the activity in general:</p>
+<div class="table-scroll"><table data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-85ca91fc0eac2f74">
 <thead>
 <tr>
 <th>Scope code</th>
@@ -975,9 +1005,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>Write combined codes such as <strong>N-EVD</strong>, <strong>S-CON</strong>, or <strong>C-EXP</strong>. This prevents a condition necessary for public evidence from being overstated as necessary for the inward occurrence of an activity.</p>
-<h3 id="level-of-universality">Level of universality</h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-8ee5be06ef7e97e6">Write combined codes such as <strong>N-EVD</strong>, <strong>S-CON</strong>, or <strong>C-EXP</strong>. This prevents a condition necessary for public evidence from being overstated as necessary for the inward occurrence of an activity.</p>
+<h3 data-reader-heading="coding-conventions" data-reader-passage="" id="level-of-universality">Level of universality</h3>
+<div class="table-scroll"><table data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-3ff43b7576a4f9c7">
 <thead>
 <tr>
 <th>Code</th>
@@ -999,10 +1029,10 @@
 </tr>
 </tbody>
 </table></div>
-<p>The strongest defensible result is normally an invariant at <strong>U-J</strong> or <strong>U-H</strong>, together with an equivalence class of <strong>V-C</strong> arrangements that could satisfy it. Do not infer one unique institution where several arrangements remain compatible with the invariant.</p>
-<h3 id="participation-topology">Participation topology</h3>
-<p>Mark every topology that the activity actually requires. These are descriptive categories, not social institutions.</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-5e6db7f203eb7ff2">The strongest defensible result is normally an invariant at <strong>U-J</strong> or <strong>U-H</strong>, together with an equivalence class of <strong>V-C</strong> arrangements that could satisfy it. Do not infer one unique institution where several arrangements remain compatible with the invariant.</p>
+<h3 data-reader-heading="coding-conventions" data-reader-passage="" id="participation-topology">Participation topology</h3>
+<p data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-c9ba18bdb6c65009">Mark every topology that the activity actually requires. These are descriptive categories, not social institutions.</p>
+<div class="table-scroll"><table data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-ae1b0ea60d1135f0">
 <thead>
 <tr>
 <th>Code</th>
@@ -1040,9 +1070,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>Codes are indexing aids, not conclusions. Explain every <strong>N</strong>, every disputed status, and every topology that is constitutive rather than merely helpful.</p>
-<h2 id="dossier-identity">Dossier identity</h2>
-<div class="table-scroll"><table>
+<p data-reader-heading="coding-conventions" data-reader-passage="" id="reader-p-9ff3030fe72cb331">Codes are indexing aids, not conclusions. Explain every <strong>N</strong>, every disputed status, and every topology that is constitutive rather than merely helpful.</p>
+<h2 data-reader-heading="dossier-identity" data-reader-passage="" id="dossier-identity">Dossier identity</h2>
+<div class="table-scroll"><table data-reader-heading="dossier-identity" data-reader-passage="" id="reader-p-501c8b021a077974">
 <thead>
 <tr>
 <th>Field</th>
@@ -1092,10 +1122,10 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="1-source-record">1. Source record</h2>
-<h3 id="11-tabulated-assignment" data-depth="2">1.1 Tabulated assignment</h3>
-<p>Record the source-given left and right assignments. Do not infer the assignment from whether an English gloss sounds static or dynamic.</p>
-<div class="table-scroll"><table>
+<h2 data-reader-heading="1-source-record" data-reader-passage="" id="1-source-record">1. Source record</h2>
+<h3 data-depth="2" data-reader-heading="1-source-record" data-reader-passage="" id="11-tabulated-assignment">1.1 Tabulated assignment</h3>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-db4af4b748e28ead">Record the source-given left and right assignments. Do not infer the assignment from whether an English gloss sounds static or dynamic.</p>
+<div class="table-scroll"><table data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-960f261860dfce78">
 <thead>
 <tr>
 <th>Source field</th>
@@ -1126,35 +1156,35 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="12-definitions-and-documentary-limits" data-depth="2">1.2 Definitions and documentary limits</h3>
-<p><strong>Bal member - source-grounded paraphrase:</strong></p>
-<p><code>[Paraphrase only what the definition establishes.]</code></p>
-<p><strong>Shakti member - source-grounded paraphrase:</strong></p>
-<p><code>[Paraphrase only what the definition establishes.]</code></p>
-<p><strong>Material wording or translation variants:</strong></p>
-<p><code>[Record variants without silently harmonising them. Write "none identified" where applicable.]</code></p>
-<p><strong>Documentary uncertainties:</strong></p>
-<p><code>[Missing definition, divergent name, unclear syntax, absent pair relation, or none identified.]</code></p>
-<p><strong>Source-embedded social vocabulary:</strong></p>
-<p><code>[Record any directly named relation, role, family form, social function, or order - for example teacher, parent, family, production, education-sanskar, or universal order. Mark it D as a textual commitment, but do not count it as an independent bottom-up discovery.]</code></p>
-<h2 id="2-pair-semantics">2. Pair semantics</h2>
-<h3 id="21-working-classification" data-depth="2">2.1 Working classification</h3>
-<p>Mark every applicable family. More than one may apply.</p>
+<h3 data-depth="2" data-reader-heading="1-source-record" data-reader-passage="" id="12-definitions-and-documentary-limits">1.2 Definitions and documentary limits</h3>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-74a9ad5524837b89"><strong>Bal member - source-grounded paraphrase:</strong></p>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-db4bf7a02b3cf0aa"><code>[Paraphrase only what the definition establishes.]</code></p>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-1c543298e1bff906"><strong>Shakti member - source-grounded paraphrase:</strong></p>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-db4bf7a02b3cf0aa-2"><code>[Paraphrase only what the definition establishes.]</code></p>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-781204355be59693"><strong>Material wording or translation variants:</strong></p>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-1707ec14abbec4b2"><code>[Record variants without silently harmonising them. Write "none identified" where applicable.]</code></p>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-22f6cf2dff9dc1af"><strong>Documentary uncertainties:</strong></p>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-0c3c761c0749f106"><code>[Missing definition, divergent name, unclear syntax, absent pair relation, or none identified.]</code></p>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-01498cbf8643820f"><strong>Source-embedded social vocabulary:</strong></p>
+<p data-reader-heading="1-source-record" data-reader-passage="" id="reader-p-bf24afdbff5a8f09"><code>[Record any directly named relation, role, family form, social function, or order - for example teacher, parent, family, production, education-sanskar, or universal order. Mark it D as a textual commitment, but do not count it as an independent bottom-up discovery.]</code></p>
+<h2 data-reader-heading="2-pair-semantics" data-reader-passage="" id="2-pair-semantics">2. Pair semantics</h2>
+<h3 data-depth="2" data-reader-heading="2-pair-semantics" data-reader-passage="" id="21-working-classification">2.1 Working classification</h3>
+<p data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-e40e75423c2c6642">Mark every applicable family. More than one may apply.</p>
 <ul>
-<li>[ ] Accepted condition and readiness for projection</li>
-<li>[ ] Held condition and outward evidence</li>
-<li>[ ] Relationship and value, responsibility, inquiry, or progress</li>
-<li>[ ] Act and object</li>
-<li>[ ] Sensory quality and bodily correlate</li>
-<li>[ ] Evaluation and confirmation or transmission</li>
-<li>[ ] Other: <code>[describe]</code></li>
-<li>[ ] Residual or presently unclassified</li>
+<li data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-bedd64e180757507">[ ] Accepted condition and readiness for projection</li>
+<li data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-03955b80f93179d4">[ ] Held condition and outward evidence</li>
+<li data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-18fc6be1a49939c1">[ ] Relationship and value, responsibility, inquiry, or progress</li>
+<li data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-579cd10af61f9e20">[ ] Act and object</li>
+<li data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-de3f1553194c4ec1">[ ] Sensory quality and bodily correlate</li>
+<li data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-9db181e1602d038d">[ ] Evaluation and confirmation or transmission</li>
+<li data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-c54aaf258f92a639">[ ] Other: <code>[describe]</code></li>
+<li data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-65c4fc52b2f7b728">[ ] Residual or presently unclassified</li>
 </ul>
-<h3 id="22-relation-between-the-members" data-depth="2">2.2 Relation between the members</h3>
-<p><code>[State the narrowest defensible relation. If the text only establishes the paired position, say so. Do not assume that the shakti member is the outward performance of the bal member.]</code></p>
-<p><strong>Evidential status:</strong> <code>[D / I / H / O]</code></p>
-<h3 id="23-why-the-members-remain-separate-analytic-units" data-depth="2">2.3 Why the members remain separate analytic units</h3>
-<div class="table-scroll"><table>
+<h3 data-depth="2" data-reader-heading="2-pair-semantics" data-reader-passage="" id="22-relation-between-the-members">2.2 Relation between the members</h3>
+<p data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-c03f06046e238578"><code>[State the narrowest defensible relation. If the text only establishes the paired position, say so. Do not assume that the shakti member is the outward performance of the bal member.]</code></p>
+<p data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-90867e349d4c4b66"><strong>Evidential status:</strong> <code>[D / I / H / O]</code></p>
+<h3 data-depth="2" data-reader-heading="2-pair-semantics" data-reader-passage="" id="23-why-the-members-remain-separate-analytic-units">2.3 Why the members remain separate analytic units</h3>
+<div class="table-scroll"><table data-reader-heading="2-pair-semantics" data-reader-passage="" id="reader-p-2472cde78da0ce1f">
 <thead>
 <tr>
 <th>Question</th>
@@ -1180,9 +1210,9 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="3-activity-member-record-a-bal-member">3. Activity-member record A - <em>bal</em> member</h2>
-<h3 id="31-activity-anatomy" data-depth="2">3.1 Activity anatomy</h3>
-<div class="table-scroll"><table>
+<h2 data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="3-activity-member-record-a-bal-member">3. Activity-member record A - <em>bal</em> member</h2>
+<h3 data-depth="2" data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="31-activity-anatomy">3.1 Activity anatomy</h3>
+<div class="table-scroll"><table data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-545e7485323b346f">
 <thead>
 <tr>
 <th>Field</th>
@@ -1244,8 +1274,8 @@
 </tr>
 </tbody>
 </table></div>
-<p><strong>Field-level provenance ledger:</strong></p>
-<div class="table-scroll"><table>
+<p data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-780f7171a9088129"><strong>Field-level provenance ledger:</strong></p>
+<div class="table-scroll"><table data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-5331c21df98e2f87">
 <thead>
 <tr>
 <th>Field</th>
@@ -1287,8 +1317,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="32-dependencies-within-jeevan" data-depth="2">3.2 Dependencies within <em>jeevan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-depth="2" data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="32-dependencies-within-jeevan">3.2 Dependencies within <em>jeevan</em></h3>
+<div class="table-scroll"><table data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-5b6e7dd86631ba78">
 <thead>
 <tr>
 <th>Dependency</th>
@@ -1319,8 +1349,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="33-participation-topology" data-depth="2">3.3 Participation topology</h3>
-<div class="table-scroll"><table>
+<h3 data-depth="2" data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="33-participation-topology">3.3 Participation topology</h3>
+<div class="table-scroll"><table data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-2b79ab9fbd974db1">
 <thead>
 <tr>
 <th>Topology</th>
@@ -1374,10 +1404,10 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="34-lifecycle-conditions" data-depth="2">3.4 Lifecycle conditions</h3>
-<p>Do not ask merely where the activity is located. Ask what is needed for its entire effective life.</p>
-<p>First select the path appropriate to the entry form. The common stages below remain a checklist, but they must not convert an object, property, body state, role, or result into a private mental operation.</p>
-<div class="table-scroll"><table>
+<h3 data-depth="2" data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="34-lifecycle-conditions">3.4 Lifecycle conditions</h3>
+<p data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-f7327e8df84f1741">Do not ask merely where the activity is located. Ask what is needed for its entire effective life.</p>
+<p data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-69cce760785961fc">First select the path appropriate to the entry form. The common stages below remain a checklist, but they must not convert an object, property, body state, role, or result into a private mental operation.</p>
+<div class="table-scroll"><table data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-58859d7c566e13ce">
 <thead>
 <tr>
 <th>Entry form</th>
@@ -1407,8 +1437,8 @@
 </tr>
 </tbody>
 </table></div>
-<p>Use one compact classification of the form <code>{relation type}; {strength-scope}; {universality}; {status}</code>, for example <code>EVID; N-EVD; U-H; I</code>.</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-9bbd68a1392a2825">Use one compact classification of the form <code>{relation type}; {strength-scope}; {universality}; {status}</code>, for example <code>EVID; N-EVD; U-H; I</code>.</p>
+<div class="table-scroll"><table data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-25937a169dbace86">
 <thead>
 <tr>
 <th>Stage</th>
@@ -1468,8 +1498,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="35-evidence-profile" data-depth="2">3.5 Evidence profile</h3>
-<div class="table-scroll"><table>
+<h3 data-depth="2" data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="35-evidence-profile">3.5 Evidence profile</h3>
+<div class="table-scroll"><table data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-2557e142fd56dd74">
 <thead>
 <tr>
 <th>Evidence field</th>
@@ -1519,29 +1549,29 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="36-micro-sphere-statement" data-depth="2">3.6 Micro-sphere statement</h3>
-<p>Complete this sentence without naming a family form or institution:</p>
+<h3 data-depth="2" data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="36-micro-sphere-statement">3.6 Micro-sphere statement</h3>
+<p data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-9953593ecd70a1d8">Complete this sentence without naming a family form or institution:</p>
 <blockquote>
-<p>For <code>[activity]</code> to function effectively, <code>[bearer and participants]</code> must be able to <code>[performance]</code> in relation to <code>[object or counterpart]</code>, under the criterion of <code>[criterion]</code>, with results evaluated through <code>[evidence]</code> and sustained or transmitted through <code>[conditions]</code>.</p>
+<p data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-f2ad34e2066188ba">For <code>[activity]</code> to function effectively, <code>[bearer and participants]</code> must be able to <code>[performance]</code> in relation to <code>[object or counterpart]</code>, under the criterion of <code>[criterion]</code>, with results evaluated through <code>[evidence]</code> and sustained or transmitted through <code>[conditions]</code>.</p>
 </blockquote>
-<p><strong>Provisional sphere tags:</strong> <code>[two to five content-first tags, such as realised evidence, direct relationship, material sufficiency, bodily conduciveness, public correction, transmission]</code></p>
-<h2 id="4-activity-member-record-b-shakti-member">4. Activity-member record B - <em>shakti</em> member</h2>
-<p>Repeat §§3.1-3.6 independently for the <em>shakti</em> member. Do not fill the record by reversing or extending the <em>bal</em> analysis.</p>
-<h3 id="41-activity-anatomy" data-depth="2">4.1 Activity anatomy</h3>
-<p><code>[Repeat the §3.1 table.]</code></p>
-<h3 id="42-dependencies-within-jeevan" data-depth="2">4.2 Dependencies within <em>jeevan</em></h3>
-<p><code>[Repeat the §3.2 table.]</code></p>
-<h3 id="43-participation-topology" data-depth="2">4.3 Participation topology</h3>
-<p><code>[Repeat the §3.3 table.]</code></p>
-<h3 id="44-lifecycle-conditions" data-depth="2">4.4 Lifecycle conditions</h3>
-<p><code>[Repeat the §3.4 table.]</code></p>
-<h3 id="45-evidence-profile" data-depth="2">4.5 Evidence profile</h3>
-<p><code>[Repeat the §3.5 table.]</code></p>
-<h3 id="46-micro-sphere-statement" data-depth="2">4.6 Micro-sphere statement</h3>
-<p><code>[Complete the §3.6 statement and assign provisional content-first sphere tags.]</code></p>
-<h2 id="5-complete-functioning-and-pair-interface-test">5. Complete-functioning and pair-interface test</h2>
-<p>Assess both members without treating the rows as a mechanical sequence.</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="3-activity-member-record-a-bal-member" data-reader-passage="" id="reader-p-a748702c3b078734"><strong>Provisional sphere tags:</strong> <code>[two to five content-first tags, such as realised evidence, direct relationship, material sufficiency, bodily conduciveness, public correction, transmission]</code></p>
+<h2 data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="4-activity-member-record-b-shakti-member">4. Activity-member record B - <em>shakti</em> member</h2>
+<p data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="reader-p-894c48294c555105">Repeat §§3.1-3.6 independently for the <em>shakti</em> member. Do not fill the record by reversing or extending the <em>bal</em> analysis.</p>
+<h3 data-depth="2" data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="41-activity-anatomy">4.1 Activity anatomy</h3>
+<p data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="reader-p-f9195a963d41699a"><code>[Repeat the §3.1 table.]</code></p>
+<h3 data-depth="2" data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="42-dependencies-within-jeevan">4.2 Dependencies within <em>jeevan</em></h3>
+<p data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="reader-p-6e865bb7eaa8aca5"><code>[Repeat the §3.2 table.]</code></p>
+<h3 data-depth="2" data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="43-participation-topology">4.3 Participation topology</h3>
+<p data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="reader-p-a3402af4a2f60a50"><code>[Repeat the §3.3 table.]</code></p>
+<h3 data-depth="2" data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="44-lifecycle-conditions">4.4 Lifecycle conditions</h3>
+<p data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="reader-p-8fa300e5394c86cb"><code>[Repeat the §3.4 table.]</code></p>
+<h3 data-depth="2" data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="45-evidence-profile">4.5 Evidence profile</h3>
+<p data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="reader-p-d41fff9af18847f6"><code>[Repeat the §3.5 table.]</code></p>
+<h3 data-depth="2" data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="46-micro-sphere-statement">4.6 Micro-sphere statement</h3>
+<p data-reader-heading="4-activity-member-record-b-shakti-member" data-reader-passage="" id="reader-p-bbb2968827eb5448"><code>[Complete the §3.6 statement and assign provisional content-first sphere tags.]</code></p>
+<h2 data-reader-heading="5-complete-functioning-and-pair-interface-test" data-reader-passage="" id="5-complete-functioning-and-pair-interface-test">5. Complete-functioning and pair-interface test</h2>
+<p data-reader-heading="5-complete-functioning-and-pair-interface-test" data-reader-passage="" id="reader-p-7a7d05a4b5986a8e">Assess both members without treating the rows as a mechanical sequence.</p>
+<div class="table-scroll"><table data-reader-heading="5-complete-functioning-and-pair-interface-test" data-reader-passage="" id="reader-p-6390a4e81b1aa3f4">
 <thead>
 <tr>
 <th>Test</th>
@@ -1595,12 +1625,12 @@
 </tr>
 </tbody>
 </table></div>
-<p><strong>Most important enabling condition:</strong> <code>[answer]</code></p>
-<p><strong>Most important obstruction:</strong> <code>[answer]</code></p>
-<p><strong>Interface between the two derived micro-spheres:</strong> <code>[dependency, feedback loop, shared evidence, or no established interface]</code></p>
-<h2 id="6-bottom-up-sphere-derivation">6. Bottom-up sphere derivation</h2>
-<h3 id="61-candidate-recurring-field" data-depth="2">6.1 Candidate recurring field</h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="5-complete-functioning-and-pair-interface-test" data-reader-passage="" id="reader-p-5ab3fcbf5c511e4b"><strong>Most important enabling condition:</strong> <code>[answer]</code></p>
+<p data-reader-heading="5-complete-functioning-and-pair-interface-test" data-reader-passage="" id="reader-p-f36e5d38d076d3a2"><strong>Most important obstruction:</strong> <code>[answer]</code></p>
+<p data-reader-heading="5-complete-functioning-and-pair-interface-test" data-reader-passage="" id="reader-p-b9ebb13ab0c6bc32"><strong>Interface between the two derived micro-spheres:</strong> <code>[dependency, feedback loop, shared evidence, or no established interface]</code></p>
+<h2 data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="6-bottom-up-sphere-derivation">6. Bottom-up sphere derivation</h2>
+<h3 data-depth="2" data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="61-candidate-recurring-field">6.1 Candidate recurring field</h3>
+<div class="table-scroll"><table data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="reader-p-689983606cdfdba0">
 <thead>
 <tr>
 <th>Question</th>
@@ -1638,18 +1668,18 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="62-relational-and-structural-invariants" data-depth="2">6.2 Relational and structural invariants</h3>
-<p><code>[State only what appears necessary: for example, direct reciprocal recognition, durable care, free inquiry, visible consequence, assured access to material means, independent correction, ecological regeneration, or intergenerational continuity.]</code></p>
-<h3 id="63-variable-arrangements" data-depth="2">6.3 Variable arrangements</h3>
-<p><code>[List substantially different personal, relational, household, organisational, technological, or public arrangements that could satisfy the invariants.]</code></p>
-<h3 id="64-arrangements-ruled-out-or-constrained" data-depth="2">6.4 Arrangements ruled out or constrained</h3>
-<p><code>[Identify arrangements that systematically obstruct the activity and state the mechanism. Do not reject a form merely because it differs from a preferred model.]</code></p>
-<h3 id="65-structured-feature-vector-for-clustering" data-depth="2">6.5 Structured feature vector for clustering</h3>
-<p>Before comparing cases, freeze a common feature vector for all 122 records:</p>
-<p><code>[entry form; ontological locus; object; constitutive counterpart; performance participants; affected field; evidence field; endpoint; criterion; topology; relation types; strength-scope codes; evaluator standpoints; correction path; universality levels]</code></p>
-<p>Cluster from this vector after replacing activity names, faculties, pair labels, sphere names, and institution terms with anonymous IDs. Permit overlapping membership and residual cases. Repeat clustering at coarse, middle, and fine granularities, then test whether assignments remain stable when uncertain fields or provisional weights change. The eight-pilot atlas is a hypothesis to compare with the result, not a seed that later members must enter. Overlay names, faculties, pair positions, and source-embedded social vocabulary only after the blind structure is recorded.</p>
-<h2 id="7-scale-and-interfaces">7. Scale and interfaces</h2>
-<div class="table-scroll"><table>
+<h3 data-depth="2" data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="62-relational-and-structural-invariants">6.2 Relational and structural invariants</h3>
+<p data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="reader-p-261fa4b85c387374"><code>[State only what appears necessary: for example, direct reciprocal recognition, durable care, free inquiry, visible consequence, assured access to material means, independent correction, ecological regeneration, or intergenerational continuity.]</code></p>
+<h3 data-depth="2" data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="63-variable-arrangements">6.3 Variable arrangements</h3>
+<p data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="reader-p-2b92727449dd826e"><code>[List substantially different personal, relational, household, organisational, technological, or public arrangements that could satisfy the invariants.]</code></p>
+<h3 data-depth="2" data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="64-arrangements-ruled-out-or-constrained">6.4 Arrangements ruled out or constrained</h3>
+<p data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="reader-p-b5d7306a5b1e8b1c"><code>[Identify arrangements that systematically obstruct the activity and state the mechanism. Do not reject a form merely because it differs from a preferred model.]</code></p>
+<h3 data-depth="2" data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="65-structured-feature-vector-for-clustering">6.5 Structured feature vector for clustering</h3>
+<p data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="reader-p-2245cdd2da94d71a">Before comparing cases, freeze a common feature vector for all 122 records:</p>
+<p data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="reader-p-d99f3035f8574fef"><code>[entry form; ontological locus; object; constitutive counterpart; performance participants; affected field; evidence field; endpoint; criterion; topology; relation types; strength-scope codes; evaluator standpoints; correction path; universality levels]</code></p>
+<p data-reader-heading="6-bottom-up-sphere-derivation" data-reader-passage="" id="reader-p-cff4413ed21c7742">Cluster from this vector after replacing activity names, faculties, pair labels, sphere names, and institution terms with anonymous IDs. Permit overlapping membership and residual cases. Repeat clustering at coarse, middle, and fine granularities, then test whether assignments remain stable when uncertain fields or provisional weights change. The eight-pilot atlas is a hypothesis to compare with the result, not a seed that later members must enter. Overlay names, faculties, pair positions, and source-embedded social vocabulary only after the blind structure is recorded.</p>
+<h2 data-reader-heading="7-scale-and-interfaces" data-reader-passage="" id="7-scale-and-interfaces">7. Scale and interfaces</h2>
+<div class="table-scroll"><table data-reader-heading="7-scale-and-interfaces" data-reader-passage="" id="reader-p-73ec0c48b00ca514">
 <thead>
 <tr>
 <th>Scale</th>
@@ -1690,10 +1720,10 @@
 </tr>
 </tbody>
 </table></div>
-<p><strong>Interfaces with other activity-members:</strong></p>
-<p><code>[Identify activities whose requirements, outputs, or evidence directly interact with this member or pair.]</code></p>
-<h2 id="8-claim-ledger">8. Claim ledger</h2>
-<div class="table-scroll"><table>
+<p data-reader-heading="7-scale-and-interfaces" data-reader-passage="" id="reader-p-6e02a829b7689e25"><strong>Interfaces with other activity-members:</strong></p>
+<p data-reader-heading="7-scale-and-interfaces" data-reader-passage="" id="reader-p-2a9be5aab3a8d47a"><code>[Identify activities whose requirements, outputs, or evidence directly interact with this member or pair.]</code></p>
+<h2 data-reader-heading="8-claim-ledger" data-reader-passage="" id="8-claim-ledger">8. Claim ledger</h2>
+<div class="table-scroll"><table data-reader-heading="8-claim-ledger" data-reader-passage="" id="reader-p-3224856bb84f3115">
 <thead>
 <tr>
 <th>Claim</th>
@@ -1723,31 +1753,31 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="9-counterexample-and-residual-tests">9. Counterexample and residual tests</h2>
+<h2 data-reader-heading="9-counterexample-and-residual-tests" data-reader-passage="" id="9-counterexample-and-residual-tests">9. Counterexample and residual tests</h2>
 <ol>
-<li><strong>Environment without awakening:</strong> Could every proposed condition exist while the activity remains wrongly oriented? <code>[answer]</code></li>
-<li><strong>Awakening under adverse conditions:</strong> Could the activity operate correctly despite absence of a proposed arrangement? <code>[answer]</code></li>
-<li><strong>Alternative topology:</strong> Could the endpoint be fulfilled with fewer or different participants than coded? <code>[answer]</code></li>
-<li><strong>Alternative arrangement:</strong> Could a substantially different social or material form support the same sphere? <code>[answer]</code></li>
-<li><strong>False evidence:</strong> Could compliance, prosperity, efficiency, reputation, output, or reported satisfaction imitate fulfilment? <code>[answer]</code></li>
-<li><strong>Third-party consequence:</strong> Could immediate participants appear fulfilled while harming other persons, nature, or future generations? <code>[answer]</code></li>
-<li><strong>Sphere residual:</strong> Does a necessary lifecycle condition fall outside the provisional sphere or require an interface with another sphere? <code>[answer]</code></li>
-<li><strong>Universality:</strong> Does the invariant arise from the common activity architecture, or from a particular culture, technology, or historical situation? <code>[answer]</code></li>
+<li data-reader-heading="9-counterexample-and-residual-tests" data-reader-passage="" id="reader-p-36e69dcefb1ee640"><strong>Environment without awakening:</strong> Could every proposed condition exist while the activity remains wrongly oriented? <code>[answer]</code></li>
+<li data-reader-heading="9-counterexample-and-residual-tests" data-reader-passage="" id="reader-p-f29534928d587670"><strong>Awakening under adverse conditions:</strong> Could the activity operate correctly despite absence of a proposed arrangement? <code>[answer]</code></li>
+<li data-reader-heading="9-counterexample-and-residual-tests" data-reader-passage="" id="reader-p-606db7b6d286cd62"><strong>Alternative topology:</strong> Could the endpoint be fulfilled with fewer or different participants than coded? <code>[answer]</code></li>
+<li data-reader-heading="9-counterexample-and-residual-tests" data-reader-passage="" id="reader-p-2d4b880d37d2757d"><strong>Alternative arrangement:</strong> Could a substantially different social or material form support the same sphere? <code>[answer]</code></li>
+<li data-reader-heading="9-counterexample-and-residual-tests" data-reader-passage="" id="reader-p-6454aec3cdd741bf"><strong>False evidence:</strong> Could compliance, prosperity, efficiency, reputation, output, or reported satisfaction imitate fulfilment? <code>[answer]</code></li>
+<li data-reader-heading="9-counterexample-and-residual-tests" data-reader-passage="" id="reader-p-810c6d8e7d7d31d6"><strong>Third-party consequence:</strong> Could immediate participants appear fulfilled while harming other persons, nature, or future generations? <code>[answer]</code></li>
+<li data-reader-heading="9-counterexample-and-residual-tests" data-reader-passage="" id="reader-p-e5407e66545db198"><strong>Sphere residual:</strong> Does a necessary lifecycle condition fall outside the provisional sphere or require an interface with another sphere? <code>[answer]</code></li>
+<li data-reader-heading="9-counterexample-and-residual-tests" data-reader-passage="" id="reader-p-afe5a68f3608b7c5"><strong>Universality:</strong> Does the invariant arise from the common activity architecture, or from a particular culture, technology, or historical situation? <code>[answer]</code></li>
 </ol>
-<h2 id="10-dossier-conclusion">10. Dossier conclusion</h2>
-<h3 id="101-narrow-derivation" data-depth="2">10.1 Narrow derivation</h3>
-<p><code>[State what conditions follow most strongly from the activity-members and why.]</code></p>
-<h3 id="102-sphere-implication" data-depth="2">10.2 Sphere implication</h3>
-<p><code>[Name the provisional micro-sphere or spheres, their invariants, and what remains variable. Do not assign an institution yet.]</code></p>
-<h3 id="103-unresolved-questions" data-depth="2">10.3 Unresolved questions</h3>
+<h2 data-reader-heading="10-dossier-conclusion" data-reader-passage="" id="10-dossier-conclusion">10. Dossier conclusion</h2>
+<h3 data-depth="2" data-reader-heading="10-dossier-conclusion" data-reader-passage="" id="101-narrow-derivation">10.1 Narrow derivation</h3>
+<p data-reader-heading="10-dossier-conclusion" data-reader-passage="" id="reader-p-090de406e6bb3a3a"><code>[State what conditions follow most strongly from the activity-members and why.]</code></p>
+<h3 data-depth="2" data-reader-heading="10-dossier-conclusion" data-reader-passage="" id="102-sphere-implication">10.2 Sphere implication</h3>
+<p data-reader-heading="10-dossier-conclusion" data-reader-passage="" id="reader-p-a9202026e4556f88"><code>[Name the provisional micro-sphere or spheres, their invariants, and what remains variable. Do not assign an institution yet.]</code></p>
+<h3 data-depth="2" data-reader-heading="10-dossier-conclusion" data-reader-passage="" id="103-unresolved-questions">10.3 Unresolved questions</h3>
 <ul>
-<li><code>[question]</code></li>
-<li><code>[question]</code></li>
-<li><code>[question]</code></li>
+<li data-reader-heading="10-dossier-conclusion" data-reader-passage="" id="reader-p-e699496cb3b4a30c"><code>[question]</code></li>
+<li data-reader-heading="10-dossier-conclusion" data-reader-passage="" id="reader-p-e699496cb3b4a30c-2"><code>[question]</code></li>
+<li data-reader-heading="10-dossier-conclusion" data-reader-passage="" id="reader-p-e699496cb3b4a30c-3"><code>[question]</code></li>
 </ul>
-<h2 id="11-master-matrix-records">11. Master-matrix records</h2>
-<p>Copy one record for each member into the 122-member matrix. A vertical record is preferred over a very wide table so the generated PDF remains legible.</p>
-<div class="table-scroll"><table>
+<h2 data-reader-heading="11-master-matrix-records" data-reader-passage="" id="11-master-matrix-records">11. Master-matrix records</h2>
+<p data-reader-heading="11-master-matrix-records" data-reader-passage="" id="reader-p-0b1655f9b4ae8db9">Copy one record for each member into the 122-member matrix. A vertical record is preferred over a very wide table so the generated PDF remains legible.</p>
+<div class="table-scroll"><table data-reader-heading="11-master-matrix-records" data-reader-passage="" id="reader-p-052e0b6209d199ce">
 <thead>
 <tr>
 <th>Field</th>
@@ -1833,9 +1863,9 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="12-later-institution-test-completed-for-the-master-register-in-pass-four">12. Later institution test - completed for the master register in Pass Four</h2>
-<p>The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer">Pass-Four durable-function analysis</a> completes this section for the 122-member master register. It derives five unnamed continuity channels, tests five alternative bundles, and restores the proposed function names only after the anonymous requirement file is frozen. When applying this template to a revised member coding or a new domain, answer the questions below afresh; do not inherit the five-function result as a premise.</p>
-<div class="table-scroll"><table>
+<h2 data-reader-heading="12-later-institution-test-completed-for-the-master-register-in-pass-four" data-reader-passage="" id="12-later-institution-test-completed-for-the-master-register-in-pass-four">12. Later institution test - completed for the master register in Pass Four</h2>
+<p data-reader-heading="12-later-institution-test-completed-for-the-master-register-in-pass-four" data-reader-passage="" id="reader-p-02adacab0d3909c9">The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer">Pass-Four durable-function analysis</a> completes this section for the 122-member master register. It derives five unnamed continuity channels, tests five alternative bundles, and restores the proposed function names only after the anonymous requirement file is frozen. When applying this template to a revised member coding or a new domain, answer the questions below afresh; do not inherit the five-function result as a premise.</p>
+<div class="table-scroll"><table data-reader-heading="12-later-institution-test-completed-for-the-master-register-in-pass-four" data-reader-passage="" id="reader-p-7f18668295dae572">
 <thead>
 <tr>
 <th>Question</th>
@@ -1877,44 +1907,46 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="13-validation-pass-completed-for-the-master-register-in-pass-five">13. Validation pass - completed for the master register in Pass Five</h2>
-<p>The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.html" rel="noopener noreferrer">Pass-Five counterfactual validation</a> completes this section for the 122-member master register through eighteen family-equivalence, function-boundary, adverse, universal-access, and false-positive cases. It also supplies a five-function evidence protocol. When applying this template to a revised coding or concrete arrangement, repeat the tests rather than inheriting those analytical outcomes.</p>
-<p>Test the derived invariants and proposed arrangements against alternatives and adverse cases:</p>
+<h2 data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="13-validation-pass-completed-for-the-master-register-in-pass-five">13. Validation pass - completed for the master register in Pass Five</h2>
+<p data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="reader-p-608dd30bc231ea11">The <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Counterfactual-Validation-Pass-Five.html" rel="noopener noreferrer">Pass-Five counterfactual validation</a> completes this section for the 122-member master register through eighteen family-equivalence, function-boundary, adverse, universal-access, and false-positive cases. It also supplies a five-function evidence protocol. When applying this template to a revised coding or concrete arrangement, repeat the tests rather than inheriting those analytical outcomes.</p>
+<p data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="reader-p-70b5c5d1ec62c9c7">Test the derived invariants and proposed arrangements against alternatives and adverse cases:</p>
 <ol>
-<li>Can a materially different household, organisational, legal, or technological arrangement satisfy the same invariant?</li>
-<li>Does the model still work under scarcity, coercion, dependency, disagreement, disability, ecological delay, and concentrated technical power?</li>
-<li>Can compliant behaviour or short-term output create a false positive while the activity remains distorted?</li>
-<li>Can immediate participants report fulfilment while costs are displaced to third parties, nature, or future generations?</li>
-<li>Does an independent evaluator retain access to evidence and a practical route to correction?</li>
-<li>Do surviving counterexamples require revision of the feature coding, sphere boundary, invariant, or institutional bundle?</li>
+<li data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="reader-p-b495c72eb20c1d1a">Can a materially different household, organisational, legal, or technological arrangement satisfy the same invariant?</li>
+<li data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="reader-p-9692bddf84f9f2f7">Does the model still work under scarcity, coercion, dependency, disagreement, disability, ecological delay, and concentrated technical power?</li>
+<li data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="reader-p-c06a402a2e826a94">Can compliant behaviour or short-term output create a false positive while the activity remains distorted?</li>
+<li data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="reader-p-e8782da95d090b81">Can immediate participants report fulfilment while costs are displaced to third parties, nature, or future generations?</li>
+<li data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="reader-p-e4475c7d623defc3">Does an independent evaluator retain access to evidence and a practical route to correction?</li>
+<li data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="reader-p-d91c633cb06af5ee">Do surviving counterexamples require revision of the feature coding, sphere boundary, invariant, or institutional bundle?</li>
 </ol>
-<p>The validated conclusion should distinguish what is derived from what is merely compatible. The architecture of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> may derive universal functional and relational invariants without uniquely deriving one concrete society.</p>
-<h2 id="completion-checklist">Completion checklist</h2>
+<p data-reader-heading="13-validation-pass-completed-for-the-master-register-in-pass-five" data-reader-passage="" id="reader-p-b3a8b038daaec8e8">The validated conclusion should distinguish what is derived from what is merely compatible. The architecture of <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em> may derive universal functional and relational invariants without uniquely deriving one concrete society.</p>
+<h2 data-reader-heading="completion-checklist" data-reader-passage="" id="completion-checklist">Completion checklist</h2>
 <ul>
-<li>[ ] Both source definitions were checked against the primary-text locations.</li>
-<li>[ ] Translation variants and documentary uncertainties were recorded.</li>
-<li>[ ] Each member’s entry form and bearer were identified before assigning functional meaning.</li>
-<li>[ ] Ontological locus, operation field, consequence field, and evidence field were kept separate.</li>
-<li>[ ] Every endpoint, criterion, evaluator, requirement, and universality claim has its own D/I/H/O status.</li>
-<li>[ ] Source-embedded social vocabulary was tagged as textual input rather than bottom-up discovery.</li>
-<li>[ ] The two members were analysed separately; the pair relation was not assumed from the English glosses.</li>
-<li>[ ] The object, counterpart, endpoint, governing criterion, and false positive were recorded for each member.</li>
-<li>[ ] Participation topology was derived from the activity rather than from an assumed household or institution.</li>
-<li>[ ] Development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission were all considered.</li>
-<li>[ ] External conditions were classified by relation type, lifecycle scope, strength, and universality level.</li>
-<li>[ ] The lifecycle path matched the entry form instead of treating every slot as a mental operation.</li>
-<li>[ ] First-person, relational, bodily, material, collective, ecological, and long-horizon evidence were considered where relevant.</li>
-<li>[ ] Each member has an institution-neutral micro-sphere statement.</li>
-<li>[ ] Similarity with other members was based on recurring configurations, endpoints, criteria, and lifecycle conditions.</li>
-<li>[ ] Clustering used anonymized feature vectors, allowed overlap and residuals, and was tested at more than one granularity.</li>
-<li>[ ] Alternative arrangements, false positives, third-party effects, residuals, and universality were tested.</li>
-<li>[ ] No family form, institution, or set of five functions was used as a premise.</li>
-<li>[ ] Institution mapping was deferred until after bottom-up clustering.</li>
-<li>[ ] More than one institutional bundling was compared where plausible; sufficiency, minimality, and uniqueness were not conflated.</li>
-<li>[ ] Adverse-case and counterfactual validation was completed before treating an institutional model as established.</li>
-<li>[ ] Two master-matrix records were completed.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-f11a918a3e92fd72">[ ] Both source definitions were checked against the primary-text locations.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-b7bc4bee8f2b132c">[ ] Translation variants and documentary uncertainties were recorded.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-037fa12d72f430f9">[ ] Each member’s entry form and bearer were identified before assigning functional meaning.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-88c0c657b8e10ae1">[ ] Ontological locus, operation field, consequence field, and evidence field were kept separate.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-02941d04ed5a2064">[ ] Every endpoint, criterion, evaluator, requirement, and universality claim has its own D/I/H/O status.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-6457364d42e7697b">[ ] Source-embedded social vocabulary was tagged as textual input rather than bottom-up discovery.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-7dc810799de29c85">[ ] The two members were analysed separately; the pair relation was not assumed from the English glosses.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-ed79f112afe3d11e">[ ] The object, counterpart, endpoint, governing criterion, and false positive were recorded for each member.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-ccf82020ffe9e35c">[ ] Participation topology was derived from the activity rather than from an assumed household or institution.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-895132624678ac2c">[ ] Development, orientation, performance, consequence visibility, evaluation, correction, sustaining, and transmission were all considered.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-f57385ef729c37fb">[ ] External conditions were classified by relation type, lifecycle scope, strength, and universality level.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-85b53302dc3c7032">[ ] The lifecycle path matched the entry form instead of treating every slot as a mental operation.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-e0fa048622d21aee">[ ] First-person, relational, bodily, material, collective, ecological, and long-horizon evidence were considered where relevant.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-a02ad8ffe5c8f71b">[ ] Each member has an institution-neutral micro-sphere statement.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-1cc0805bd7b4276b">[ ] Similarity with other members was based on recurring configurations, endpoints, criteria, and lifecycle conditions.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-7a24c00de8ec72d5">[ ] Clustering used anonymized feature vectors, allowed overlap and residuals, and was tested at more than one granularity.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-72d0e30b5cafa85f">[ ] Alternative arrangements, false positives, third-party effects, residuals, and universality were tested.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-734d826a298a29c8">[ ] No family form, institution, or set of five functions was used as a premise.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-2eaa78f554eaa027">[ ] Institution mapping was deferred until after bottom-up clustering.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-3122881f164ea01d">[ ] More than one institutional bundling was compared where plausible; sufficiency, minimality, and uniqueness were not conflated.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-16e043776aab1383">[ ] Adverse-case and counterfactual validation was completed before treating an institutional model as established.</li>
+<li data-reader-heading="completion-checklist" data-reader-passage="" id="reader-p-b0e8cd8a74a0c766">[ ] Two master-matrix records were completed.</li>
 </ul></main>
-<script defer src="../../Assets/reader/reader.js?v=3d08bd1cb4f261ad"></script><script>
+<script defer src="../../Assets/reader/search.js?v=978601cd252a8f49"></script>
+<script defer src="../../Assets/reader/reader-features.js?v=edb1d33ae1e81f91"></script>
+<script defer src="../../Assets/reader/reader.js?v=2baa7fc15a558564"></script><script>
 (() => {
   let floatPanel = document.getElementById("term-tip-float");
   if (!floatPanel) {

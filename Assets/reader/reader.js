@@ -463,5 +463,7 @@
   }
   $('reader-resume-go').addEventListener('click',() => go(savedPosition));
   $('reader-resume-dismiss').addEventListener('click',() => { startTracking(); measure(); persistPosition(); });
+  window.AMDReaderFeatures?.({ main,passages,headings,tools,wide,capture,go,measure,scheduleMeasure,
+    closePanel,openPanel,selectTab,message,cleanText });
   requestAnimationFrame(() => { measure(); if (location.hash) followHash(); });
 })();

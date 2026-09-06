@@ -1630,6 +1630,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="browse-heading" id="browse-studies">
     <h2>Browse all studies</h2>
     <p>Search the complete collection by topic, status, or type. Released studies are stable versions, drafts are available for review, and in-progress studies are open for discussion and development.</p>
+    <p><a href="search.html">Find words and phrases inside studies and companion notes →</a></p>
   </div>
 
   <div class="toolbar" role="search">

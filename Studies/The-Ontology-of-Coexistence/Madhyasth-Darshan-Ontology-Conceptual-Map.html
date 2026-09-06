@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>Madhyasth Darshan Ontology: A Core Conceptual Map and Primary-Text Guide</title>
+<meta name="amd-source-version" content="77433adb56c197c47ef1c35158f5fa78019fe2e5a87d9f53066399ca427b0fba"/>
 <link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
@@ -710,7 +711,8 @@
   }
 
 </style>
-<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=a0e5215a2530d800"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=97e069fdb79e189c"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/search.css?v=c92940019b038782"/>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -742,12 +744,24 @@
   <header class="reader-panel-header"><h2 id="reader-tools-title">Study tools</h2><button type="button" id="reader-close" aria-label="Close study tools">&#215;</button></header>
   <div class="reader-tabs" role="tablist" aria-label="Study tools">
     <button type="button" role="tab" id="reader-tab-contents" aria-controls="reader-contents" aria-selected="true">Contents</button>
+    <button type="button" role="tab" id="reader-tab-search" aria-controls="reader-search" aria-selected="false" tabindex="-1">Find</button>
     <button type="button" role="tab" id="reader-tab-bookmarks" aria-controls="reader-bookmarks" aria-selected="false" tabindex="-1">Bookmarks</button>
     <button type="button" role="tab" id="reader-tab-display" aria-controls="reader-display" aria-selected="false" tabindex="-1">Display</button>
   </div>
   <section id="reader-contents" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-contents" tabindex="0">
-    <p class="reader-helper">Follow the argument, section by section.</p>
+    <button type="button" id="reader-passage-tools">Link &amp; sources for this passage</button>
+    <p class="reader-helper">Select text to choose a passage, or use the passage at the top of the page. Click a citation code to preview its source.</p>
     <nav id="reader-outline" aria-label="Study contents"></nav>
+  </section>
+  <section id="reader-search" class="reader-tab-panel study-search" role="tabpanel" aria-labelledby="reader-tab-search" tabindex="0" hidden>
+    <form id="reader-search-form" class="search-form"><label for="reader-search-query">Find in this document</label>
+      <div class="search-input-row"><input id="reader-search-query" type="search" maxlength="200" placeholder="Word or quoted phrase"/><button type="submit">Find</button></div>
+    </form>
+    <p class="reader-helper">All words must occur in a passage. Use quotes for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
+    <a id="reader-search-all" href="/Studies/search.html">Search all studies and notes →</a>
+    <p id="reader-search-status" class="search-status" role="status" aria-live="polite">Enter a word or phrase.</p>
+    <ol id="reader-search-results" class="search-results"></ol>
+    <button type="button" id="reader-search-more" hidden>Show more results</button>
   </section>
   <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
     <form id="reader-bookmark-form">
@@ -775,99 +789,115 @@
     <div id="reader-clear-confirm" hidden><p>Remove this study’s saved position and bookmarks?</p><button type="button" id="reader-clear-yes">Remove saved places</button><button type="button" id="reader-clear-no">Keep them</button></div>
   </footer>
 </dialog>
+<dialog id="reader-viewer" class="reader-chrome" aria-labelledby="reader-viewer-title">
+  <header class="reader-panel-header"><h2 id="reader-viewer-title">Passage tools</h2><button type="button" id="reader-viewer-close" aria-label="Close preview">&#215;</button></header>
+  <p id="reader-viewer-status" role="status" aria-live="polite"></p>
+  <div id="reader-source-view">
+    <p id="reader-passage-excerpt"></p><button type="button" id="reader-copy-passage">Copy passage link</button>
+    <label id="reader-copy-label" for="reader-copy-fallback" hidden>Copy this text</label><textarea id="reader-copy-fallback" rows="3" readonly hidden></textarea>
+    <div id="reader-source-detail" hidden><h3 id="reader-source-title"></h3><p id="reader-source-citation"></p><p id="reader-source-note" class="reader-helper"></p>
+      <a id="reader-source-open" target="_blank" rel="noopener noreferrer">Open source in a new tab ↗</a> <button type="button" id="reader-copy-citation">Copy citation</button>
+    </div>
+    <label for="reader-source-query">Find a reference in this study</label><input id="reader-source-query" type="search" placeholder="Source code, title or author"/>
+    <p id="reader-source-status" class="reader-helper"></p><ul id="reader-source-list"></ul>
+  </div>
+  <div id="reader-visual-view" hidden><div class="reader-zoom-controls"><button type="button" id="reader-zoom-out" aria-label="Zoom out">−</button><output id="reader-zoom-level" aria-live="polite">100%</output><button type="button" id="reader-zoom-in" aria-label="Zoom in">+</button><button type="button" id="reader-zoom-fit">Fit</button><button type="button" id="reader-zoom-reset">100%</button></div>
+    <p class="reader-helper">Scroll or swipe inside the viewer to see the whole figure or table.</p><div id="reader-visual-stage" tabindex="0" role="region" aria-label="Enlarged figure or table"><div id="reader-visual-canvas"><div id="reader-visual-content"></div></div></div>
+  </div>
+</dialog>
 <div id="reader-message" class="reader-chrome" role="status" aria-live="polite" hidden></div>
 <main id="main"><h1>Madhyasth Darshan Ontology: A Core Conceptual Map and Primary-Text Guide</h1>
-<p>This study aid presents the core ontological architecture of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> as a single map. It is intended for repeated study: first follow the large structure in the figure, then use the numbered reading guide to locate each concept in the primary texts. The figure follows the shortest path from coexistence to humane fulfilment; a final classification key explicitly maps the value families, karma, progressions, planes, human types, evaluative perspectives, social dimensions, and evidence standards that would overload one diagram.</p>
-<p>The map distinguishes two lines that are easily conflated. <strong>Compositional progression</strong> produces molecules, cells, bodies, and environments. <strong>Development in the atom</strong> reaches constitutional completeness as <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> and continues, in the human joint form, toward activity completeness and conduct completeness. A body does not become <em>jeevan</em> merely by becoming biologically complex.</p>
-<p><img alt="Madhyasth Darshan ontology: coexistence as Omnipresence and units joined through saturation; the four orders of nature; compositional progression and development in the atom; constitutional, activity, and conduct completeness; and the relation of ontology to humane fulfilment" src="1-madhyasth-darshan-ontology.svg"></p>
-<p>Section numbers printed in the figure point to the corresponding sections of <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a>.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-c17a32cbf0e4da97">This study aid presents the core ontological architecture of <span class="term-tip-wrap"><button class="term-tip" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation." data-term="darshan" type="button">Madhyasth Darshan</button></span> as a single map. It is intended for repeated study: first follow the large structure in the figure, then use the numbered reading guide to locate each concept in the primary texts. The figure follows the shortest path from coexistence to humane fulfilment; a final classification key explicitly maps the value families, karma, progressions, planes, human types, evaluative perspectives, social dimensions, and evidence standards that would overload one diagram.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-5bbbed5bc812a00b">The map distinguishes two lines that are easily conflated. <strong>Compositional progression</strong> produces molecules, cells, bodies, and environments. <strong>Development in the atom</strong> reaches constitutional completeness as <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em> and continues, in the human joint form, toward activity completeness and conduct completeness. A body does not become <em>jeevan</em> merely by becoming biologically complex.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-ce1f13084a3291ca"><img alt="Madhyasth Darshan ontology: coexistence as Omnipresence and units joined through saturation; the four orders of nature; compositional progression and development in the atom; constitutional, activity, and conduct completeness; and the relation of ontology to humane fulfilment" src="1-madhyasth-darshan-ontology.svg"/></p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-e2c61d358e4a103b">Section numbers printed in the figure point to the corresponding sections of <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a>.</p>
 <details class="study-toc study-toc--with-key" id="study-contents">
-  <summary class="study-toc-summary">
-    <span class="study-toc-label">Contents</span>
-    <span class="study-toc-meta">24 sections &middot; 30 headings</span>
-  </summary>
-  <nav class="study-toc-nav" aria-label="Contents">
-    <ol class="study-toc-list">
-      <li class="study-toc-item study-toc-l1"><a href="#how-to-read-the-map">How to read the map</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#primary-text-guide-to-the-concepts">Primary-text guide to the concepts</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#1-existence-as-coexistence">1. Existence as coexistence</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#2-omnipresence-satta-vyapak">2. Omnipresence (satta / vyapak)</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#3-units-ikai-and-their-four-aspects-in-mutuality">3. Units (ikai) and their four aspects in mutuality</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#4-saturation-sampriktata">4. Saturation (sampriktata)</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#5-recognition-fulfilment-and-complementarity">5. Recognition, fulfilment, and complementarity</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#6-effortmotionresult-shramgatiparinam">6. Effort–motion–result (shram–gati–parinam)</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#7-the-four-orders-of-nature">7. The four orders of nature</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#8-compositional-progression">8. Compositional progression</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#9-development-in-the-atom">9. Development in the atom</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#10-constitutional-completeness-t1">10. Constitutional completeness (T1)</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#11-jeevan-and-the-bodyjeevan-joint-form">11. Jeevan and the body–jeevan joint form</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#12-the-five-faculties-and-ten-activities-of-jeevan">12. The five faculties and ten activities of jeevan</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#13-activity-completeness-t2">13. Activity completeness (T2)</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#14-conduct-completeness-t3">14. Conduct completeness (T3)</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#15-orders-and-developmental-planes">15. Orders and developmental planes</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#16-regulation-law-justice-and-orderliness">16. Regulation, law, justice, and orderliness</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#17-knowledge-knower-known-and-realisation">17. Knowledge, knower, known, and realisation</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#18-perpetual-world-and-persistence-of-jeevan">18. Perpetual world and persistence of jeevan</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#19-happiness-bliss-and-human-fulfilment">19. Happiness, bliss, and human fulfilment</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#classification-key-for-the-full-ontology">Classification key for the full ontology</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#units-relations-composition-and-activity">Units, relations, composition, and activity</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#five-value-families-and-six-individual-value-types">Five value families and six individual value types</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#four-progressions-four-planes-and-five-human-types">Four progressions, four planes, and five human types</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#six-evaluative-perspectives-and-the-dual-role-of-justice">Six evaluative perspectives and the dual role of justice</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#four-human-goals-and-five-social-dimensions">Four human goals and five social dimensions</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#method-and-evidence">Method and evidence</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#suggested-reading-paths">Suggested reading paths</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#primary-texts">Primary texts</a></li>
-    </ol>
-  </nav>
-</details>
-<p class="study-reading-key" aria-label="Reading key">
-  <span class="study-reading-key-term">Dotted underline</span>: definition
-  <span aria-hidden="true">&middot;</span>
-  <span class="study-reading-key-link">Blue underline</span>: link
-</p>
-<h2 id="how-to-read-the-map">How to read the map</h2>
-<p>Read the figure from its ontological ground toward its lived evidence:</p>
-<ol>
-<li><strong>Existence is coexistence.</strong> Formless Omnipresence (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satta" data-definition="Omnipotence — the eternally present, omnipresent reality: formless, motionless absolute energy in which every unit is saturated and through which regulation is manifest.">satta</button></span></em>) and countless formful units (<em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="ikai" data-definition="Unit — a bounded, countable entity in nature; units may be insentient or sentient.">ikai</button></span></em>) are eternally and inseparably present.</li>
-<li><strong>Saturation is the bond.</strong> Units do not first exist independently and later enter Omnipresence; every unit is submerged, soaked, and surrounded in it.</li>
-<li><strong>Activity belongs to units in mutuality.</strong> Omnipresence is actionless and non-transforming. Saturation ontologically entails energy-fullness, forcefulness, recognition, regulation, and activity as effort–motion–result; the texts do not supply a separate physical mechanism for this entailment. This is <em>kriyā</em>, or activity, throughout nature — not <em>karma</em>, or human action. Units are definite bearers, while form is reflected, relative properties become effective, essential nature is recognised as usefulness, and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> is evidenced through order-specific participation.</li>
-<li><strong>Nature has four orders.</strong> Material and pranic orders are insentient. Animal and knowledge orders are joint expressions of an insentient body and sentient <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>.</li>
-<li><strong>Development has two lines.</strong> Compositional progression supplies bodies and environments but does not produce T1, T2, or T3. Development in a constitution-oriented atom supplies constitutionally complete <em>jeevan</em> at T1; awakening within the human joint form proceeds through T2 and T3.</li>
-<li><strong>The first completeness is constitutional.</strong> At <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gathanpurnata" data-definition="Constitutional completeness — the stage at which an atom completes its constitution and becomes a jeevan-atom.">gathanpurnata</button></span></em> (T1), the atom’s particle constitution closes and it becomes the sentient unit called <em>jeevan</em>.</li>
-<li><strong>The next two completions concern awakening.</strong> Activity completeness (T2) is realisation and resolution; conduct completeness (T3) is their continuity as authentic conduct and living proof.</li>
-<li><strong>Ontology culminates in participation.</strong> Understanding is evidenced through resolution, prosperity, fearlessness, coexistence, undivided society, and universal orderliness.</li>
+<summary class="study-toc-summary">
+<span class="study-toc-label">Contents</span>
+<span class="study-toc-meta">24 sections · 30 headings</span>
+</summary>
+<nav aria-label="Contents" class="study-toc-nav">
+<ol class="study-toc-list">
+<li class="study-toc-item study-toc-l1"><a href="#how-to-read-the-map">How to read the map</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#primary-text-guide-to-the-concepts">Primary-text guide to the concepts</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#1-existence-as-coexistence">1. Existence as coexistence</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#2-omnipresence-satta-vyapak">2. Omnipresence (satta / vyapak)</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#3-units-ikai-and-their-four-aspects-in-mutuality">3. Units (ikai) and their four aspects in mutuality</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#4-saturation-sampriktata">4. Saturation (sampriktata)</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#5-recognition-fulfilment-and-complementarity">5. Recognition, fulfilment, and complementarity</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#6-effortmotionresult-shramgatiparinam">6. Effort–motion–result (shram–gati–parinam)</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#7-the-four-orders-of-nature">7. The four orders of nature</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#8-compositional-progression">8. Compositional progression</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#9-development-in-the-atom">9. Development in the atom</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#10-constitutional-completeness-t1">10. Constitutional completeness (T1)</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#11-jeevan-and-the-bodyjeevan-joint-form">11. Jeevan and the body–jeevan joint form</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#12-the-five-faculties-and-ten-activities-of-jeevan">12. The five faculties and ten activities of jeevan</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#13-activity-completeness-t2">13. Activity completeness (T2)</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#14-conduct-completeness-t3">14. Conduct completeness (T3)</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#15-orders-and-developmental-planes">15. Orders and developmental planes</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#16-regulation-law-justice-and-orderliness">16. Regulation, law, justice, and orderliness</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#17-knowledge-knower-known-and-realisation">17. Knowledge, knower, known, and realisation</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#18-perpetual-world-and-persistence-of-jeevan">18. Perpetual world and persistence of jeevan</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#19-happiness-bliss-and-human-fulfilment">19. Happiness, bliss, and human fulfilment</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#classification-key-for-the-full-ontology">Classification key for the full ontology</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#units-relations-composition-and-activity">Units, relations, composition, and activity</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#five-value-families-and-six-individual-value-types">Five value families and six individual value types</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#four-progressions-four-planes-and-five-human-types">Four progressions, four planes, and five human types</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#six-evaluative-perspectives-and-the-dual-role-of-justice">Six evaluative perspectives and the dual role of justice</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#four-human-goals-and-five-social-dimensions">Four human goals and five social dimensions</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#method-and-evidence">Method and evidence</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#suggested-reading-paths">Suggested reading paths</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#primary-texts">Primary texts</a></li>
 </ol>
-<h2 id="primary-text-guide-to-the-concepts">Primary-text guide to the concepts</h2>
-<p>Page numbers below refer to the printed page numbers represented in the local Markdown transcriptions and corresponding PDFs. KD is a working English rendering; its Part 3 subsection and printed-page range are supplied together.</p>
-<h3 id="1-existence-as-coexistence" data-depth="1">1. Existence as coexistence</h3>
-<p><strong>Concept.</strong> Existence is the eternal coexistence of Omnipresence and nature. Insentient and sentient units are inseparably present in the pervasive ground; neither pole is produced from the other.</p>
-<p><strong>Primary pointers.</strong> SB, pp. 48–49; MVD, pp. 11, 32–34; JV, p. 18.</p>
-<p><strong>Read for.</strong> The two-pole ontology, the claim that existence is eternally manifest as coexistence, and the inseparability of consciousness/matter terminology in the English translation without treating Omnipresence as a personal mind.</p>
-<h3 id="2-omnipresence-satta-vyapak" data-depth="1">2. Omnipresence (<em>satta</em> / <em>vyapak</em>)</h3>
-<p><strong>Concept.</strong> Omnipresence is formless, all-pervasive, non-transforming, immeasurable, and actionless. The translations also call it Omnipotence, Uniform Energy, Space, Knowledge, Consciousness, Eternity, God, and Absolute Energy. Knowing as an activity belongs to <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, not to Omnipresence as a universal cognising subject.</p>
-<p><strong>Primary pointers.</strong> SB, pp. 48–50, 57, 68–70; MVD, pp. 26, 32–34, 40.</p>
-<p><strong>Read for.</strong> State-completeness, actionlessness, permeation, the absence of an external ruler, and Omnipresence as sustaining condition rather than an efficient agent performing transformations.</p>
-<h3 id="3-units-ikai-and-their-four-aspects-in-mutuality" data-depth="1">3. Units (<em>ikai</em>) and their four aspects in mutuality</h3>
-<p><strong>Concept.</strong> Units are bounded, countable, formful realities. Every unit has form (<em>roop</em>), properties (<em>guna</em>), essential nature (<em>svabhav</em>), and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>, but these do not form a static inventory of observable values. Form is the unit’s real boundary and configuration and is reflected in mutual facing. <em>Guna</em> is relative power, effective when units come together. <em>Svabhav</em> is the essentiality or usefulness of that effect in an order and context. <em>Dharma</em> is the unit’s inseparable innateness and fulfilment. Each unit remains an identifiable bearer and a whole with its environment while participating in overall orderliness. The peepal-tree example in the main study follows all four aspects through one pranic composition and distinguishes growth as <em>dharma</em> from seed-conformance as its mode of conduct.</p>
-<p><strong>Primary pointers.</strong> SB, pp. 13–15, 48, 50–54, 248–252; MVD, pp. 11, 47, 50–51, 112; KD §3.1 and §§3.9–3.10, printed pp. 54–102.</p>
-<p><strong>Read for.</strong> Boundary and unitness; bearer and inseparable capacity; reflection and relative effect in definite mutuality; usefulness and value; natural and excited states; and the atom as the root quantity of physical, chemical, and <em>jeevan</em> activity.</p>
-<h3 id="4-saturation-sampriktata" data-depth="1">4. Saturation (<em>sampriktata</em>)</h3>
-<p><strong>Concept.</strong> Saturation names the inseparable presence of every unit in Omnipresence: submerged, soaked, and surrounded. It is not a temporal event, a transfer of substance, or an intervention performed by Omnipresence. <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> treats energy-fullness, forcefulness, recognition, and regulation as ontological entailments of saturated unithood; the primary texts do not supply a separate physical mechanism for that entailment.</p>
-<p><strong>Primary pointers.</strong> SB, pp. 48–50, 57, 61–62, 69; MVD, pp. 32–33, 40; JV, p. 18.</p>
-<p><strong>Read for.</strong> Energy-fullness and forcefulness in units; recognition and complementarity; the mutual manifestation of energy and basic impulsion; and coexistence itself as the complete content of knowledge.</p>
-<h3 id="5-recognition-fulfilment-and-complementarity" data-depth="1">5. Recognition, fulfilment, and complementarity</h3>
-<p><strong>Concept.</strong> Units recognise and fulfil according to their constitution and order. In insentient nature, reflection, effect, recognition, and fulfilment are definite according to the participating units and conditions. Animal <em>jeevan</em> expresses hope-bound selection through a species-conformant bodily medium. Human evaluation can become mistaken only when deluded <em>jeevan</em> identifies itself with the body; the underlying mutuality does not thereby become indefinite. Complementarity becomes value in relationship.</p>
-<p><strong>Primary pointers.</strong> SB, pp. 49–54, 57, 59, 61–62, 80–81, 123; MVD, pp. 61–62; JV, pp. 43, 67, 69.</p>
-<p><strong>Read for.</strong> Definite recognition among particles and atoms, seed- and species-conformant fulfilment, capacity–ability–receptivity, relationship versus contact, and the statement that nothing exists in isolation.</p>
-<h3 id="6-effortmotionresult-shramgatiparinam" data-depth="1">6. Effort–motion–result (<em>shram–gati–parinam</em>)</h3>
-<p><strong>Concept.</strong> Every activity bears effort, motion, and result inseparably. These are joint aspects of one activity, not three independent events. Force is recognised in state and power in motion.</p>
-<p><strong>Primary pointers.</strong> SB, pp. 53, 58, 62, 69, 71; MVD, pp. 40, 104; KD §§3.11–3.12, printed pp. 102–118.</p>
-<p><strong>Read for.</strong> The universal structure of activity, force–power as state–motion, projection–reflection in sentient activity, and the mapping of result, effort, and motion to the three completeness goals.</p>
-<h3 id="7-the-four-orders-of-nature" data-depth="1">7. The four orders of nature</h3>
-<p><strong>Concept.</strong> Nature is organised as material, pranic or bio, animal, and knowledge or human orders. Their dharmas are cumulatively stated as existence, growth, hope to live, and happiness. Their essential natures name order-definite relational expressions, not context-free scalar properties.</p>
-<p><strong>Primary pointers.</strong> SB, p. 179; MVD, p. 115; JV, p. 44.</p>
-<div class="table-scroll"><table>
+</nav>
+</details>
+<p aria-label="Reading key" class="study-reading-key" data-reader-heading="" data-reader-passage="" id="reader-p-2d479c97e6bf2881">
+<span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">·</span>
+<span class="study-reading-key-link">Blue underline</span>: link
+</p>
+<h2 data-reader-heading="how-to-read-the-map" data-reader-passage="" id="how-to-read-the-map">How to read the map</h2>
+<p data-reader-heading="how-to-read-the-map" data-reader-passage="" id="reader-p-214e2956237e6f38">Read the figure from its ontological ground toward its lived evidence:</p>
+<ol>
+<li data-reader-heading="how-to-read-the-map" data-reader-passage="" id="reader-p-8e4b5d2e64776188"><strong>Existence is coexistence.</strong> Formless Omnipresence (<em><span class="term-tip-wrap"><button class="term-tip" data-definition="Omnipotence — the eternally present, omnipresent reality: formless, motionless absolute energy in which every unit is saturated and through which regulation is manifest." data-term="satta" type="button">satta</button></span></em>) and countless formful units (<em><span class="term-tip-wrap"><button class="term-tip" data-definition="Unit — a bounded, countable entity in nature; units may be insentient or sentient." data-term="ikai" type="button">ikai</button></span></em>) are eternally and inseparably present.</li>
+<li data-reader-heading="how-to-read-the-map" data-reader-passage="" id="reader-p-414351d2f3bd0a18"><strong>Saturation is the bond.</strong> Units do not first exist independently and later enter Omnipresence; every unit is submerged, soaked, and surrounded in it.</li>
+<li data-reader-heading="how-to-read-the-map" data-reader-passage="" id="reader-p-058a8f6bb7b8098f"><strong>Activity belongs to units in mutuality.</strong> Omnipresence is actionless and non-transforming. Saturation ontologically entails energy-fullness, forcefulness, recognition, regulation, and activity as effort–motion–result; the texts do not supply a separate physical mechanism for this entailment. This is <em>kriyā</em>, or activity, throughout nature — not <em>karma</em>, or human action. Units are definite bearers, while form is reflected, relative properties become effective, essential nature is recognised as usefulness, and <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives." data-term="dharma" type="button">dharma</button></span></em> is evidenced through order-specific participation.</li>
+<li data-reader-heading="how-to-read-the-map" data-reader-passage="" id="reader-p-7e80d856924e099a"><strong>Nature has four orders.</strong> Material and pranic orders are insentient. Animal and knowledge orders are joint expressions of an insentient body and sentient <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em>.</li>
+<li data-reader-heading="how-to-read-the-map" data-reader-passage="" id="reader-p-0fbb3e12b5992582"><strong>Development has two lines.</strong> Compositional progression supplies bodies and environments but does not produce T1, T2, or T3. Development in a constitution-oriented atom supplies constitutionally complete <em>jeevan</em> at T1; awakening within the human joint form proceeds through T2 and T3.</li>
+<li data-reader-heading="how-to-read-the-map" data-reader-passage="" id="reader-p-6afb8d8c1373414e"><strong>The first completeness is constitutional.</strong> At <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Constitutional completeness — the stage at which an atom completes its constitution and becomes a jeevan-atom." data-term="gathanpurnata" type="button">gathanpurnata</button></span></em> (T1), the atom’s particle constitution closes and it becomes the sentient unit called <em>jeevan</em>.</li>
+<li data-reader-heading="how-to-read-the-map" data-reader-passage="" id="reader-p-d08b33c3e265a153"><strong>The next two completions concern awakening.</strong> Activity completeness (T2) is realisation and resolution; conduct completeness (T3) is their continuity as authentic conduct and living proof.</li>
+<li data-reader-heading="how-to-read-the-map" data-reader-passage="" id="reader-p-61fda53c75a001e4"><strong>Ontology culminates in participation.</strong> Understanding is evidenced through resolution, prosperity, fearlessness, coexistence, undivided society, and universal orderliness.</li>
+</ol>
+<h2 data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="primary-text-guide-to-the-concepts">Primary-text guide to the concepts</h2>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-d0b5d897a9a1e35f">Page numbers below refer to the printed page numbers represented in the local Markdown transcriptions and corresponding PDFs. KD is a working English rendering; its Part 3 subsection and printed-page range are supplied together.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="1-existence-as-coexistence">1. Existence as coexistence</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-91581bf24ecadb2e"><strong>Concept.</strong> Existence is the eternal coexistence of Omnipresence and nature. Insentient and sentient units are inseparably present in the pervasive ground; neither pole is produced from the other.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-92148dd0df841b8e"><strong>Primary pointers.</strong> SB, pp. 48–49; MVD, pp. 11, 32–34; JV, p. 18.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-41d26c42bc1af820"><strong>Read for.</strong> The two-pole ontology, the claim that existence is eternally manifest as coexistence, and the inseparability of consciousness/matter terminology in the English translation without treating Omnipresence as a personal mind.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="2-omnipresence-satta-vyapak">2. Omnipresence (<em>satta</em> / <em>vyapak</em>)</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-4610d5005606e572"><strong>Concept.</strong> Omnipresence is formless, all-pervasive, non-transforming, immeasurable, and actionless. The translations also call it Omnipotence, Uniform Energy, Space, Knowledge, Consciousness, Eternity, God, and Absolute Energy. Knowing as an activity belongs to <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em>, not to Omnipresence as a universal cognising subject.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-74c56b44f1aaed86"><strong>Primary pointers.</strong> SB, pp. 48–50, 57, 68–70; MVD, pp. 26, 32–34, 40.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-e62a44d4df9c9bca"><strong>Read for.</strong> State-completeness, actionlessness, permeation, the absence of an external ruler, and Omnipresence as sustaining condition rather than an efficient agent performing transformations.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="3-units-ikai-and-their-four-aspects-in-mutuality">3. Units (<em>ikai</em>) and their four aspects in mutuality</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-b89abbb99ad09959"><strong>Concept.</strong> Units are bounded, countable, formful realities. Every unit has form (<em>roop</em>), properties (<em>guna</em>), essential nature (<em>svabhav</em>), and <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives." data-term="dharma" type="button">dharma</button></span></em>, but these do not form a static inventory of observable values. Form is the unit’s real boundary and configuration and is reflected in mutual facing. <em>Guna</em> is relative power, effective when units come together. <em>Svabhav</em> is the essentiality or usefulness of that effect in an order and context. <em>Dharma</em> is the unit’s inseparable innateness and fulfilment. Each unit remains an identifiable bearer and a whole with its environment while participating in overall orderliness. The peepal-tree example in the main study follows all four aspects through one pranic composition and distinguishes growth as <em>dharma</em> from seed-conformance as its mode of conduct.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-a2ed67ce85e19950"><strong>Primary pointers.</strong> SB, pp. 13–15, 48, 50–54, 248–252; MVD, pp. 11, 47, 50–51, 112; KD §3.1 and §§3.9–3.10, printed pp. 54–102.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-970def8fb2a8cd35"><strong>Read for.</strong> Boundary and unitness; bearer and inseparable capacity; reflection and relative effect in definite mutuality; usefulness and value; natural and excited states; and the atom as the root quantity of physical, chemical, and <em>jeevan</em> activity.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="4-saturation-sampriktata">4. Saturation (<em>sampriktata</em>)</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-e1133bc011a7f2a2"><strong>Concept.</strong> Saturation names the inseparable presence of every unit in Omnipresence: submerged, soaked, and surrounded. It is not a temporal event, a transfer of substance, or an intervention performed by Omnipresence. <span class="term-tip-wrap"><button class="term-tip" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation." data-term="darshan" type="button">Madhyasth Darshan</button></span> treats energy-fullness, forcefulness, recognition, and regulation as ontological entailments of saturated unithood; the primary texts do not supply a separate physical mechanism for that entailment.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-a7dbfd4894feef28"><strong>Primary pointers.</strong> SB, pp. 48–50, 57, 61–62, 69; MVD, pp. 32–33, 40; JV, p. 18.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-67ac7e5b4a59eed3"><strong>Read for.</strong> Energy-fullness and forcefulness in units; recognition and complementarity; the mutual manifestation of energy and basic impulsion; and coexistence itself as the complete content of knowledge.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="5-recognition-fulfilment-and-complementarity">5. Recognition, fulfilment, and complementarity</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-3e3cde5dcb454de7"><strong>Concept.</strong> Units recognise and fulfil according to their constitution and order. In insentient nature, reflection, effect, recognition, and fulfilment are definite according to the participating units and conditions. Animal <em>jeevan</em> expresses hope-bound selection through a species-conformant bodily medium. Human evaluation can become mistaken only when deluded <em>jeevan</em> identifies itself with the body; the underlying mutuality does not thereby become indefinite. Complementarity becomes value in relationship.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-ae2fb664350975aa"><strong>Primary pointers.</strong> SB, pp. 49–54, 57, 59, 61–62, 80–81, 123; MVD, pp. 61–62; JV, pp. 43, 67, 69.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-25634afb8e4836e7"><strong>Read for.</strong> Definite recognition among particles and atoms, seed- and species-conformant fulfilment, capacity–ability–receptivity, relationship versus contact, and the statement that nothing exists in isolation.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="6-effortmotionresult-shramgatiparinam">6. Effort–motion–result (<em>shram–gati–parinam</em>)</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-0ba8d8d84b1f9362"><strong>Concept.</strong> Every activity bears effort, motion, and result inseparably. These are joint aspects of one activity, not three independent events. Force is recognised in state and power in motion.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-d5a88d527346b144"><strong>Primary pointers.</strong> SB, pp. 53, 58, 62, 69, 71; MVD, pp. 40, 104; KD §§3.11–3.12, printed pp. 102–118.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-b0de79a1def4a74f"><strong>Read for.</strong> The universal structure of activity, force–power as state–motion, projection–reflection in sentient activity, and the mapping of result, effort, and motion to the three completeness goals.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="7-the-four-orders-of-nature">7. The four orders of nature</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-90d9baffc812efcb"><strong>Concept.</strong> Nature is organised as material, pranic or bio, animal, and knowledge or human orders. Their dharmas are cumulatively stated as existence, growth, hope to live, and happiness. Their essential natures name order-definite relational expressions, not context-free scalar properties.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-062860ba3015ad2a"><strong>Primary pointers.</strong> SB, p. 179; MVD, p. 115; JV, p. 44.</p>
+<div class="table-scroll"><table data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-99e05b4b6be0510b">
 <thead>
 <tr>
 <th>Order</th>
@@ -903,27 +933,27 @@
 </tr>
 </tbody>
 </table></div>
-<p>Integration–disintegration occurs among material constituents; vitalising–devitalising is recognised relative to bodily nourishment and protection; cruelty means suffering caused to another; humane essential nature is evidenced through relationship and conduct. The relational context makes each expression definite rather than subjective.</p>
-<h3 id="8-compositional-progression" data-depth="1">8. Compositional progression</h3>
-<p><strong>Concept.</strong> Atoms combine into molecules and larger physicochemical compositions. Chemical grandeur makes biological cells and bodies possible. This line supplies bodies and environments but does not itself produce <em>jeevan</em> or awakening.</p>
-<p><strong>Primary pointers.</strong> KD §§3.1–3.2, printed pp. 54–60; MVD, pp. 8, 42, 92–93; SB, pp. 76–78; JV, pp. 48, 67, 82.</p>
-<p><strong>Read for.</strong> Atomic and molecular composition, mixtures and compounds, biological composition, transmission of composition method through seed and lineage, and the return of decomposed biological forms to material constituents.</p>
-<h3 id="9-development-in-the-atom" data-depth="1">9. Development in the atom</h3>
-<p><strong>Concept.</strong> Constitution-oriented atoms are described as hungry, undigested or overfull, and satisfied. Absorption and displacement continue until a developing atomic constitution reaches completeness. This is distinct from the growth of a molecule, organism, or brain.</p>
-<p><strong>Primary pointers.</strong> KD §§3.2–3.3, printed pp. 58–68; MVD, pp. 8, 91; SB, pp. 55, 58–60, 71, 114.</p>
-<p><strong>Read for.</strong> The distinction between compositional development and development in the atom, hungry–undigested complementarity, particle closure, and the transition to constitutional completeness.</p>
-<h3 id="10-constitutional-completeness-t1" data-depth="1">10. Constitutional completeness (T1)</h3>
-<p><strong>Concept.</strong> At <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="gathanpurnata" data-definition="Constitutional completeness — the stage at which an atom completes its constitution and becomes a jeevan-atom.">gathanpurnata</button></span></em>, the atom’s particle constitution closes. It is freed from molecular- and weight-bondage and becomes hope-bound sentient <em>jeevan</em>. Particle increase and decrease cease, while qualitative activity continues.</p>
-<p><strong>Primary pointers.</strong> MVD, p. 91; SB, pp. 52, 55, 59, 80–81, 92, 114; KD §3.3, printed pp. 60–68.</p>
-<p><strong>Read for.</strong> The MD criterion for the sentient threshold, the immortality of result, hope-power and taste-recognition, and why <em>jeevan</em> is not identified with biological composition.</p>
-<h3 id="11-jeevan-and-the-bodyjeevan-joint-form" data-depth="1">11. <em>Jeevan</em> and the body–<em>jeevan</em> joint form</h3>
-<p><strong>Concept.</strong> <em>Jeevan</em> is the constitutionally complete sentient atom and the knower. The body is a pranic composition and the medium through which <em>jeevan</em> is expressed in animal and human orders. Animal bodies constrain expression to hope-bound species-conformance. The fully enriched human nervous system provides for complete understanding, but does not guarantee it; human delusion begins when <em>jeevan</em> identifies itself with the body.</p>
-<p><strong>Primary pointers.</strong> MVD, pp. 13, 78, 115; JV, pp. 54, 59, 79, 92–93; KD §3.16, printed pp. 136–145.</p>
-<p><strong>Read for.</strong> The distinction between body and <em>jeevan</em>, the human as their combined form, the body’s sensory and neural provision, freedom of action and imagination, and the error of taking the body to be the self.</p>
-<h3 id="12-the-five-faculties-and-ten-activities-of-jeevan" data-depth="1">12. The five faculties and ten activities of <em>jeevan</em></h3>
-<p><strong>Concept.</strong> Atma is the nucleus; <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="buddhi" data-definition="Buddhi — intellect; jeevan’s faculty of enlightenment and resolve, inspired by atma.">buddhi</button></span>, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="chitta" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi.">chitta</button></span>, <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="vritti" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta.">vritti</button></span>, and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="mun" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body.">mun</button></span> are associated with successive orbits. Each faculty has an outward projection and an inward reflection activity. All ten activities belong to and continuously operate in <em>jeevan</em>; “four and a half” names their restricted effective organisation and bodily evidence in deluded human living, not absent faculties.</p>
-<p><strong>Primary pointers.</strong> MVD, pp. 13, 77–78, 99–101, 126, 277–279, 328–348; JV, pp. 73–74, 92, 138; AVD, pp. 91–94; KD §§3.6, 3.11–3.12, printed pp. 70–118.</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-7694d356210aea84">Integration–disintegration occurs among material constituents; vitalising–devitalising is recognised relative to bodily nourishment and protection; cruelty means suffering caused to another; humane essential nature is evidenced through relationship and conduct. The relational context makes each expression definite rather than subjective.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="8-compositional-progression">8. Compositional progression</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-084cfddc61eb3f76"><strong>Concept.</strong> Atoms combine into molecules and larger physicochemical compositions. Chemical grandeur makes biological cells and bodies possible. This line supplies bodies and environments but does not itself produce <em>jeevan</em> or awakening.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-2ec476e43bb5addc"><strong>Primary pointers.</strong> KD §§3.1–3.2, printed pp. 54–60; MVD, pp. 8, 42, 92–93; SB, pp. 76–78; JV, pp. 48, 67, 82.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-a0d27619be15b0b7"><strong>Read for.</strong> Atomic and molecular composition, mixtures and compounds, biological composition, transmission of composition method through seed and lineage, and the return of decomposed biological forms to material constituents.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="9-development-in-the-atom">9. Development in the atom</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-bbafbd0b151284fd"><strong>Concept.</strong> Constitution-oriented atoms are described as hungry, undigested or overfull, and satisfied. Absorption and displacement continue until a developing atomic constitution reaches completeness. This is distinct from the growth of a molecule, organism, or brain.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-cdb9dd711e6f1ef7"><strong>Primary pointers.</strong> KD §§3.2–3.3, printed pp. 58–68; MVD, pp. 8, 91; SB, pp. 55, 58–60, 71, 114.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-8ae3aeff077f43cd"><strong>Read for.</strong> The distinction between compositional development and development in the atom, hungry–undigested complementarity, particle closure, and the transition to constitutional completeness.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="10-constitutional-completeness-t1">10. Constitutional completeness (T1)</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-5117c041d65f8815"><strong>Concept.</strong> At <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Constitutional completeness — the stage at which an atom completes its constitution and becomes a jeevan-atom." data-term="gathanpurnata" type="button">gathanpurnata</button></span></em>, the atom’s particle constitution closes. It is freed from molecular- and weight-bondage and becomes hope-bound sentient <em>jeevan</em>. Particle increase and decrease cease, while qualitative activity continues.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-6cd31b8915422cb7"><strong>Primary pointers.</strong> MVD, p. 91; SB, pp. 52, 55, 59, 80–81, 92, 114; KD §3.3, printed pp. 60–68.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-316d28b2b80fb9e2"><strong>Read for.</strong> The MD criterion for the sentient threshold, the immortality of result, hope-power and taste-recognition, and why <em>jeevan</em> is not identified with biological composition.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="11-jeevan-and-the-bodyjeevan-joint-form">11. <em>Jeevan</em> and the body–<em>jeevan</em> joint form</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-708613bf66d8131d"><strong>Concept.</strong> <em>Jeevan</em> is the constitutionally complete sentient atom and the knower. The body is a pranic composition and the medium through which <em>jeevan</em> is expressed in animal and human orders. Animal bodies constrain expression to hope-bound species-conformance. The fully enriched human nervous system provides for complete understanding, but does not guarantee it; human delusion begins when <em>jeevan</em> identifies itself with the body.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-51c5e09dd9c6e3b1"><strong>Primary pointers.</strong> MVD, pp. 13, 78, 115; JV, pp. 54, 59, 79, 92–93; KD §3.16, printed pp. 136–145.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-c6b8a2b98fdbf91d"><strong>Read for.</strong> The distinction between body and <em>jeevan</em>, the human as their combined form, the body’s sensory and neural provision, freedom of action and imagination, and the error of taking the body to be the self.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="12-the-five-faculties-and-ten-activities-of-jeevan">12. The five faculties and ten activities of <em>jeevan</em></h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-95610858bfb32350"><strong>Concept.</strong> Atma is the nucleus; <span class="term-tip-wrap"><button class="term-tip" data-definition="Buddhi — intellect; jeevan’s faculty of enlightenment and resolve, inspired by atma." data-term="buddhi" type="button">buddhi</button></span>, <span class="term-tip-wrap"><button class="term-tip" data-definition="Chitta — the reflective mind; jeevan’s faculty of contemplation and desire, inspired by buddhi." data-term="chitta" type="button">chitta</button></span>, <span class="term-tip-wrap"><button class="term-tip" data-definition="Vritti — the decisive mind or disposition; jeevan’s faculty of comparison and thought, inspired by chitta." data-term="vritti" type="button">vritti</button></span>, and <span class="term-tip-wrap"><button class="term-tip" data-definition="Mun — the anticipating mind in jeevan; its activities include tasting and selection according to hope, and it guides the body." data-term="mun" type="button">mun</button></span> are associated with successive orbits. Each faculty has an outward projection and an inward reflection activity. All ten activities belong to and continuously operate in <em>jeevan</em>; “four and a half” names their restricted effective organisation and bodily evidence in deluded human living, not absent faculties.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-aa98d29238a76b24"><strong>Primary pointers.</strong> MVD, pp. 13, 77–78, 99–101, 126, 277–279, 328–348; JV, pp. 73–74, 92, 138; AVD, pp. 91–94; KD §§3.6, 3.11–3.12, printed pp. 70–118.</p>
+<div class="table-scroll"><table data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-4d67b963cf4a23df">
 <thead>
 <tr>
 <th>Faculty</th>
@@ -959,40 +989,40 @@
 </tr>
 </tbody>
 </table></div>
-<p>The ten are enumerated in finer grain as named positions at each faculty, whose two members are again what the faculty bears in state and what carries it outward. The named values of the concept-19 families belong to that enumeration rather than standing beside it.</p>
-<p><strong>Read for.</strong> The orbital account, force and power, projection and reflection, the distinction between inherent activity and effective bodily evidence, four-and-a-half activities in deluded human living, the finer-grained positions at which named values are borne, and the regulation of the faculties from atma in awakening.</p>
-<h3 id="13-activity-completeness-t2" data-depth="1">13. Activity completeness (T2)</h3>
-<p><strong>Concept.</strong> Activity completeness is restfulness of effort. Restfulness means freedom from delusion, not cessation of activity. <em>Jeevan</em> realises coexistence and becomes established as seer while remaining doer and enjoyer.</p>
-<p><strong>Primary pointers.</strong> SB, pp. 51, 58, 71, 81; MVD, pp. 77, 88, 101; KD §§3.6, 3.12, and 3.18, printed pp. 70–88, 110–118, and 151–153.</p>
-<p><strong>Read for.</strong> Absence of delusion, realisation and resolution, the study–reflection circuit, seer–doer–enjoyer, and the internal settlement of the search for happiness.</p>
-<h3 id="14-conduct-completeness-t3" data-depth="1">14. Conduct completeness (T3)</h3>
-<p><strong>Concept.</strong> Conduct completeness is the destination of motion. Realisation becomes continuous as humane work, behaviour, relationship-fulfilment, justice, participation in orderliness, and living proof in tradition.</p>
-<p><strong>Primary pointers.</strong> MVD, pp. 80, 160–163; SB, pp. 137–138, 159; KD §§3.12 and 3.18, printed pp. 110–118 and 151–153.</p>
-<p><strong>Read for.</strong> Projection as evidence, authenticity, mutual satisfaction, conduct as proof of understanding, and continuity through an awakened human tradition.</p>
-<h3 id="15-orders-and-developmental-planes" data-depth="1">15. Orders and developmental planes</h3>
-<p><strong>Concept.</strong> An order identifies what kind of manifestation a unit participates in; a plane identifies the developmental standing reached. The four planes are physicochemical, delusional, deific, and divine or complete.</p>
-<p><strong>Primary pointers.</strong> SB, p. 52; MVD, pp. 49–50, 160.</p>
-<p><strong>Read for.</strong> Why the knowledge order spans more than one plane; why animal bodily limitation and human body-identification must not be treated as the same mechanism even where both stand before awakening; and how activity and conduct completeness define the deific and divine planes.</p>
-<h3 id="16-regulation-law-justice-and-orderliness" data-depth="1">16. Regulation, law, justice, and orderliness</h3>
-<p><strong>Concept.</strong> Omnipresence does not command. Regulation is evident in saturated units through mediative organisation and order-specific conformance. Law is universal definite regulation; justice is the human completion of relationship through recognition, value-fulfilment, evaluation, and mutual satisfaction.</p>
-<p><strong>Primary pointers.</strong> MVD, pp. 15, 26–27, 67, 137, 161–162, 311; SB, pp. 57, 62–63, 69.</p>
-<p><strong>Read for.</strong> The mediative nucleus, result-, seed-, species-, and <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="sanskar" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition.">sanskar</button></span>-conformance, the six human evaluative perspectives, the distinction between law and statutory command, and the law–justice–dharma–truth chain.</p>
-<h3 id="17-knowledge-knower-known-and-realisation" data-depth="1">17. Knowledge, knower, known, and realisation</h3>
-<p><strong>Concept.</strong> <em>Jeevan</em> is the knower and seer. Existence as coexistence is the known and seen. Knowledge comprises the holistic view of coexistence, knowledge of <em>jeevan</em>, and knowledge of humane conduct. Their coherence in awakening does not erase these distinct roles.</p>
-<p><strong>Primary pointers.</strong> SB, p. 81; MVD, pp. 14–15, 115, 126, 286–287; KD §§3.17–3.18, printed pp. 145–153.</p>
-<p><strong>Read for.</strong> The distinction of knowledge, knower, and known; seer, seen, and seeing; realisation in coexistence; authenticity; and knowledge made meaningful through participation.</p>
-<h3 id="18-perpetual-world-and-persistence-of-jeevan" data-depth="1">18. Perpetual world and persistence of <em>jeevan</em></h3>
-<p><strong>Concept.</strong> Omnipresence and units do not arise from non-being or pass into non-being. Configurations change while existence remains. <em>Jeevan</em>’s individual persistence is additionally grounded in constitutional completeness, not merely in generic quantity conservation.</p>
-<p><strong>Primary pointers.</strong> MVD, pp. 13, 91; JV, pp. 20, 54; SB, pp. 55, 57, 59, 114.</p>
-<p><strong>Read for.</strong> “Brahma is truth, the world is perpetual,” non-annihilation, particle closure, freedom from molecular and weight bondage, continuation after bodily death, and reassociation with another body.</p>
-<h3 id="19-happiness-bliss-and-human-fulfilment" data-depth="1">19. Happiness, bliss, and human fulfilment</h3>
-<p><strong>Concept.</strong> Happiness, peace, contentment, and bliss name harmony among the faculties of <em>jeevan</em>, each borne as a named activity by the outer faculty of its pair — happiness at <em>mun</em>, peace at <em>vritti</em>, contentment at <em>chitta</em>, bliss at <em>buddhi</em>. In living, they correspond to resolution, prosperity, fearlessness, and coexistence.</p>
-<p><strong>Primary pointers.</strong> MVD, pp. 77, 100–101, 160–163, 328–346; JV, pp. 61, 138.</p>
-<p><strong>Read for.</strong> Mun–vritti, vritti–chitta, chitta–buddhi, and buddhi–atma harmony; the four stages of happiness; and their public evidence in person, family, society, and universal orderliness.</p>
-<h2 id="classification-key-for-the-full-ontology">Classification key for the full ontology</h2>
-<p>The figure and numbered guide show the core dependency structure. The following compact keys make the remaining classifications explicit without forcing them into the central diagram.</p>
-<h3 id="units-relations-composition-and-activity">Units, relations, composition, and activity</h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-771574fccadac0d0">The ten are enumerated in finer grain as named positions at each faculty, whose two members are again what the faculty bears in state and what carries it outward. The named values of the concept-19 families belong to that enumeration rather than standing beside it.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-8c6329e8f80156ae"><strong>Read for.</strong> The orbital account, force and power, projection and reflection, the distinction between inherent activity and effective bodily evidence, four-and-a-half activities in deluded human living, the finer-grained positions at which named values are borne, and the regulation of the faculties from atma in awakening.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="13-activity-completeness-t2">13. Activity completeness (T2)</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-af6542026746eb18"><strong>Concept.</strong> Activity completeness is restfulness of effort. Restfulness means freedom from delusion, not cessation of activity. <em>Jeevan</em> realises coexistence and becomes established as seer while remaining doer and enjoyer.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-ecfa8982dede92ee"><strong>Primary pointers.</strong> SB, pp. 51, 58, 71, 81; MVD, pp. 77, 88, 101; KD §§3.6, 3.12, and 3.18, printed pp. 70–88, 110–118, and 151–153.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-260012d2ac4a1b3c"><strong>Read for.</strong> Absence of delusion, realisation and resolution, the study–reflection circuit, seer–doer–enjoyer, and the internal settlement of the search for happiness.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="14-conduct-completeness-t3">14. Conduct completeness (T3)</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-a62969bbd987c1a3"><strong>Concept.</strong> Conduct completeness is the destination of motion. Realisation becomes continuous as humane work, behaviour, relationship-fulfilment, justice, participation in orderliness, and living proof in tradition.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-c9af334e9355e59a"><strong>Primary pointers.</strong> MVD, pp. 80, 160–163; SB, pp. 137–138, 159; KD §§3.12 and 3.18, printed pp. 110–118 and 151–153.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-21513f575a206daf"><strong>Read for.</strong> Projection as evidence, authenticity, mutual satisfaction, conduct as proof of understanding, and continuity through an awakened human tradition.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="15-orders-and-developmental-planes">15. Orders and developmental planes</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-54afb4e1fc468631"><strong>Concept.</strong> An order identifies what kind of manifestation a unit participates in; a plane identifies the developmental standing reached. The four planes are physicochemical, delusional, deific, and divine or complete.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-cdba8cae025f9892"><strong>Primary pointers.</strong> SB, p. 52; MVD, pp. 49–50, 160.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-2b7c85ab6a6965a5"><strong>Read for.</strong> Why the knowledge order spans more than one plane; why animal bodily limitation and human body-identification must not be treated as the same mechanism even where both stand before awakening; and how activity and conduct completeness define the deific and divine planes.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="16-regulation-law-justice-and-orderliness">16. Regulation, law, justice, and orderliness</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-0bc86afa74a75790"><strong>Concept.</strong> Omnipresence does not command. Regulation is evident in saturated units through mediative organisation and order-specific conformance. Law is universal definite regulation; justice is the human completion of relationship through recognition, value-fulfilment, evaluation, and mutual satisfaction.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-236140e7dd8d13af"><strong>Primary pointers.</strong> MVD, pp. 15, 26–27, 67, 137, 161–162, 311; SB, pp. 57, 62–63, 69.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-ab4c694c02746fe6"><strong>Read for.</strong> The mediative nucleus, result-, seed-, species-, and <span class="term-tip-wrap"><button class="term-tip" data-definition="Sanskar — accepted qualitative establishments; in education–sanskar, the establishment and transmission of understanding through human tradition." data-term="sanskar" type="button">sanskar</button></span>-conformance, the six human evaluative perspectives, the distinction between law and statutory command, and the law–justice–dharma–truth chain.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="17-knowledge-knower-known-and-realisation">17. Knowledge, knower, known, and realisation</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-ae50d651c2f9b78b"><strong>Concept.</strong> <em>Jeevan</em> is the knower and seer. Existence as coexistence is the known and seen. Knowledge comprises the holistic view of coexistence, knowledge of <em>jeevan</em>, and knowledge of humane conduct. Their coherence in awakening does not erase these distinct roles.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-6f5509181abf78a2"><strong>Primary pointers.</strong> SB, p. 81; MVD, pp. 14–15, 115, 126, 286–287; KD §§3.17–3.18, printed pp. 145–153.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-c88fe1c862501384"><strong>Read for.</strong> The distinction of knowledge, knower, and known; seer, seen, and seeing; realisation in coexistence; authenticity; and knowledge made meaningful through participation.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="18-perpetual-world-and-persistence-of-jeevan">18. Perpetual world and persistence of <em>jeevan</em></h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-a934214c19a78e22"><strong>Concept.</strong> Omnipresence and units do not arise from non-being or pass into non-being. Configurations change while existence remains. <em>Jeevan</em>’s individual persistence is additionally grounded in constitutional completeness, not merely in generic quantity conservation.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-188c8085513dc1a3"><strong>Primary pointers.</strong> MVD, pp. 13, 91; JV, pp. 20, 54; SB, pp. 55, 57, 59, 114.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-2f54aaf7c8e51a39"><strong>Read for.</strong> “Brahma is truth, the world is perpetual,” non-annihilation, particle closure, freedom from molecular and weight bondage, continuation after bodily death, and reassociation with another body.</p>
+<h3 data-depth="1" data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="19-happiness-bliss-and-human-fulfilment">19. Happiness, bliss, and human fulfilment</h3>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-24b29a1e12d160bc"><strong>Concept.</strong> Happiness, peace, contentment, and bliss name harmony among the faculties of <em>jeevan</em>, each borne as a named activity by the outer faculty of its pair — happiness at <em>mun</em>, peace at <em>vritti</em>, contentment at <em>chitta</em>, bliss at <em>buddhi</em>. In living, they correspond to resolution, prosperity, fearlessness, and coexistence.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-c385e80681a19780"><strong>Primary pointers.</strong> MVD, pp. 77, 100–101, 160–163, 328–346; JV, pp. 61, 138.</p>
+<p data-reader-heading="primary-text-guide-to-the-concepts" data-reader-passage="" id="reader-p-4367c7ca5b948c8a"><strong>Read for.</strong> Mun–vritti, vritti–chitta, chitta–buddhi, and buddhi–atma harmony; the four stages of happiness; and their public evidence in person, family, society, and universal orderliness.</p>
+<h2 data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="classification-key-for-the-full-ontology">Classification key for the full ontology</h2>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-207dea5afc35eb8e">The figure and numbered guide show the core dependency structure. The following compact keys make the remaining classifications explicit without forcing them into the central diagram.</p>
+<h3 data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="units-relations-composition-and-activity">Units, relations, composition, and activity</h3>
+<div class="table-scroll"><table data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-3757c68c92f687f4">
 <thead>
 <tr>
 <th>Distinction</th>
@@ -1033,10 +1063,10 @@
 </tr>
 </tbody>
 </table></div>
-<p>When a composite form disintegrates, that organisation ends while its constituent realities persist in other relations. This is why conservation must not be expressed as the permanence of every composite unit.</p>
-<h3 id="five-value-families-and-six-individual-value-types">Five value families and six individual value types</h3>
-<p>MVD presents five value families. Its object-value family contains two distinguishable values—utility and art—so separating them yields six individual value types.</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-1f5e8ef2041cf0ec">When a composite form disintegrates, that organisation ends while its constituent realities persist in other relations. This is why conservation must not be expressed as the permanence of every composite unit.</p>
+<h3 data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="five-value-families-and-six-individual-value-types">Five value families and six individual value types</h3>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-d78da4d5f1803d07">MVD presents five value families. Its object-value family contains two distinguishable values—utility and art—so separating them yields six individual value types.</p>
+<div class="table-scroll"><table data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-d5d7f8703482dbf8">
 <thead>
 <tr>
 <th>Value family</th>
@@ -1066,10 +1096,10 @@
 </tr>
 </tbody>
 </table></div>
-<p>Object value is spread in units. The named values of the other four families are activities borne by <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>’s faculties, defined in the same appendix of the primary texts that defines its activities (MVD, pp. 328–348; AVD, pp. 91–94; §§1.4, 1.7). Relationship supplies the recognised mutuality, value identifies what fulfils it, evaluation checks the fulfilment, and mutual satisfaction completes justice (§§1.4, 1.12).</p>
-<h3 id="four-progressions-four-planes-and-five-human-types">Four progressions, four planes, and five human types</h3>
-<p>These classifications answer different questions and must not be collapsed into one ladder.</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-54e0dcb4dcca5222">Object value is spread in units. The named values of the other four families are activities borne by <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em>’s faculties, defined in the same appendix of the primary texts that defines its activities (MVD, pp. 328–348; AVD, pp. 91–94; §§1.4, 1.7). Relationship supplies the recognised mutuality, value identifies what fulfils it, evaluation checks the fulfilment, and mutual satisfaction completes justice (§§1.4, 1.12).</p>
+<h3 data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="four-progressions-four-planes-and-five-human-types">Four progressions, four planes, and five human types</h3>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-90eacd4033c395fe">These classifications answer different questions and must not be collapsed into one ladder.</p>
+<div class="table-scroll"><table data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-d86aa31511886197">
 <thead>
 <tr>
 <th>Progression</th>
@@ -1095,7 +1125,7 @@
 </tr>
 </tbody>
 </table></div>
-<div class="table-scroll"><table>
+<div class="table-scroll"><table data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-1a36374eaceca06c">
 <thead>
 <tr>
 <th>Plane</th>
@@ -1121,8 +1151,8 @@
 </tr>
 </tbody>
 </table></div>
-<p>The five human types classify consciousness and conduct, not biological species or permanent social classes:</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-bb433d866ace2cd8">The five human types classify consciousness and conduct, not biological species or permanent social classes:</p>
+<div class="table-scroll"><table data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-e859e0560e90dffe">
 <thead>
 <tr>
 <th>Human type</th>
@@ -1152,9 +1182,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>An animal’s hope-bound species-conformant expression is a limitation of its bodily medium, not the specifically human error of body-identification (§1.9).</p>
-<h3 id="six-evaluative-perspectives-and-the-dual-role-of-justice">Six evaluative perspectives and the dual role of justice</h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-b0261124a4626952">An animal’s hope-bound species-conformant expression is a limitation of its bodily medium, not the specifically human error of body-identification (§1.9).</p>
+<h3 data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="six-evaluative-perspectives-and-the-dual-role-of-justice">Six evaluative perspectives and the dual role of justice</h3>
+<div class="table-scroll"><table data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-649171d180977c1f">
 <thead>
 <tr>
 <th>Perspective</th>
@@ -1188,9 +1218,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>The first three perspectives remain valid in their proper domains but cannot serve as the final standpoint for humane conduct. Justice is both the perspective that evaluates behaviour and the completed relational activity of recognition, value-fulfilment, evaluation, and mutual satisfaction. The law–justice–<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span>–truth chain widens the field of evaluation rather than transforming one entity literally into another (§1.12).</p>
-<h3 id="four-human-goals-and-five-social-dimensions">Four human goals and five social dimensions</h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-2580785649974ac4">The first three perspectives remain valid in their proper domains but cannot serve as the final standpoint for humane conduct. Justice is both the perspective that evaluates behaviour and the completed relational activity of recognition, value-fulfilment, evaluation, and mutual satisfaction. The law–justice–<span class="term-tip-wrap"><button class="term-tip" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives." data-term="dharma" type="button">dharma</button></span>–truth chain widens the field of evaluation rather than transforming one entity literally into another (§1.12).</p>
+<h3 data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="four-human-goals-and-five-social-dimensions">Four human goals and five social dimensions</h3>
+<div class="table-scroll"><table data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-8a270ab7f97afa41">
 <thead>
 <tr>
 <th>Human goal</th>
@@ -1216,7 +1246,7 @@
 </tr>
 </tbody>
 </table></div>
-<div class="table-scroll"><table>
+<div class="table-scroll"><table data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-32444dc411ae1bb0">
 <thead>
 <tr>
 <th>Social dimension</th>
@@ -1246,9 +1276,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>The four goals describe widening evidence in person, family, society, and coexistence. The five dimensions are the public structures that make this evidence continuous as humane tradition (§1.15).</p>
-<h3 id="method-and-evidence">Method and evidence</h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-c6fc0c24034c0912">The four goals describe widening evidence in person, family, society, and coexistence. The five dimensions are the public structures that make this evidence continuous as humane tradition (§1.15).</p>
+<h3 data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="method-and-evidence">Method and evidence</h3>
+<div class="table-scroll"><table data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-b56c075d17033ed5">
 <thead>
 <tr>
 <th>Mode</th>
@@ -1282,21 +1312,23 @@
 </tr>
 </tbody>
 </table></div>
-<p>The primary-text account does not provide an accepted measurement procedure for constitutional completeness, the <em>jeevan</em>–body interface, or post-death reassociation. Conduct-evidence therefore does not by itself convert every ontological claim into a contemporary scientific measurement (§1.16).</p>
-<h2 id="suggested-reading-paths">Suggested reading paths</h2>
-<p>For a first pass through the ontology, read concepts <strong>1 → 4 → 7 → 8–10 → 11–14 → 17–19</strong>. This gives the shortest route from coexistence to awakened conduct.</p>
-<p>For the distinction between body and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>, read <strong>7 → 8–12 → 18</strong>.</p>
-<p>For regulation, value, and social order, read <strong>3–6 → 16–17 → 19</strong>.</p>
-<p>For a detailed critical and comparative treatment, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a>.</p>
-<h2 id="primary-texts">Primary texts</h2>
+<p data-reader-heading="classification-key-for-the-full-ontology" data-reader-passage="" id="reader-p-cc5f83b0836ae4e2">The primary-text account does not provide an accepted measurement procedure for constitutional completeness, the <em>jeevan</em>–body interface, or post-death reassociation. Conduct-evidence therefore does not by itself convert every ontological claim into a contemporary scientific measurement (§1.16).</p>
+<h2 data-reader-heading="suggested-reading-paths" data-reader-passage="" id="suggested-reading-paths">Suggested reading paths</h2>
+<p data-reader-heading="suggested-reading-paths" data-reader-passage="" id="reader-p-88c836916427cdd3">For a first pass through the ontology, read concepts <strong>1 → 4 → 7 → 8–10 → 11–14 → 17–19</strong>. This gives the shortest route from coexistence to awakened conduct.</p>
+<p data-reader-heading="suggested-reading-paths" data-reader-passage="" id="reader-p-2b346fe40407fbc2">For the distinction between body and <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em>, read <strong>7 → 8–12 → 18</strong>.</p>
+<p data-reader-heading="suggested-reading-paths" data-reader-passage="" id="reader-p-fa0687ea56c70310">For regulation, value, and social order, read <strong>3–6 → 16–17 → 19</strong>.</p>
+<p data-reader-heading="suggested-reading-paths" data-reader-passage="" id="reader-p-a6b6fe83b146b469">For a detailed critical and comparative treatment, see <a href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" rel="noopener noreferrer"><em>The Ontology of Coexistence</em></a>.</p>
+<h2 data-reader-heading="primary-texts" data-reader-passage="" id="primary-texts">Primary texts</h2>
 <ul>
-<li><strong>MVD</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan — Co-existentialism</em></a>, English translation by Rakesh Gupta.</li>
-<li><strong>SB</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf" rel="noopener noreferrer"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>, English translation by Rakesh Gupta.</li>
-<li><strong>JV</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf" rel="noopener noreferrer"><em>Jeevan Vidya: An Introduction</em></a>, English translation by Rakesh Gupta.</li>
-<li><strong>KD</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf" rel="noopener noreferrer"><em>Manav Karm Darshan — Working English Rendering</em></a>. Use the Part 3 subsection and printed-page pointers above; this is a working rendering rather than a published English translation.</li>
-<li><strong>AVD</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf" rel="noopener noreferrer"><em>Adhyatmvad</em> (<em>Realisation Centred Spiritualism</em>)</a>, English translation by Sanjeev Chopra — work in progress. Pointed to only for the tabulated enumeration of the conducts of awakened <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>; definitional content is taken from MVD.</li>
+<li data-reader-heading="primary-texts" data-reader-passage="" id="reader-p-48e2de2ed9463582"><strong>MVD</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan — Co-existentialism</em></a>, English translation by Rakesh Gupta.</li>
+<li data-reader-heading="primary-texts" data-reader-passage="" id="reader-p-794a26bcea9f198e"><strong>SB</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf" rel="noopener noreferrer"><em>Samadhanatmak Bhautikvad</em> (<em>Resolution Centred Materialism</em>)</a>, English translation by Rakesh Gupta.</li>
+<li data-reader-heading="primary-texts" data-reader-passage="" id="reader-p-8ffcf44ccc061fee"><strong>JV</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf" rel="noopener noreferrer"><em>Jeevan Vidya: An Introduction</em></a>, English translation by Rakesh Gupta.</li>
+<li data-reader-heading="primary-texts" data-reader-passage="" id="reader-p-4d08461c55190564"><strong>KD</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf" rel="noopener noreferrer"><em>Manav Karm Darshan — Working English Rendering</em></a>. Use the Part 3 subsection and printed-page pointers above; this is a working rendering rather than a published English translation.</li>
+<li data-reader-heading="primary-texts" data-reader-passage="" id="reader-p-8aca80938bb49c21"><strong>AVD</strong> — A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf" rel="noopener noreferrer"><em>Adhyatmvad</em> (<em>Realisation Centred Spiritualism</em>)</a>, English translation by Sanjeev Chopra — work in progress. Pointed to only for the tabulated enumeration of the conducts of awakened <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em>; definitional content is taken from MVD.</li>
 </ul></main>
-<script defer src="../../Assets/reader/reader.js?v=3d08bd1cb4f261ad"></script><script>
+<script defer src="../../Assets/reader/search.js?v=978601cd252a8f49"></script>
+<script defer src="../../Assets/reader/reader-features.js?v=edb1d33ae1e81f91"></script>
+<script defer src="../../Assets/reader/reader.js?v=2baa7fc15a558564"></script><script>
 (() => {
   let floatPanel = document.getElementById("term-tip-float");
   if (!floatPanel) {

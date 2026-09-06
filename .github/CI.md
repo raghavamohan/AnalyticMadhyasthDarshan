@@ -140,11 +140,27 @@ suite is now enforced the moment it lands.
 
 `_test_study_reader.py` runs the reader's Node data/recovery tests and checks that
 every tracked study/companion reader references the current shared CSS/JS hashes.
-After changing `Assets/reader/reader.css`, `Assets/reader/reader.js` or
+After changing any shared asset under `Assets/reader/` or
 `Scripts/_study_reader.py`, regenerate the readers with `_convert_to_pdf.py` and
 run this suite. The controls are outside study content and hidden in print; CSS
 is linked with `media="screen"`. Markup-helper changes also trigger PDF smoke and
 build-selection checks.
+
+Phase 3 adds `_study_passages.py` for build-time anchors and `_study_search.py`
+for one static index per public Markdown document. The converter updates that
+document's index; catalog writes reconcile removals, renames and publication
+status. Only tracked Markdown under a published catalog study enters search;
+ongoing studies, templates, private submissions and reference PDFs are excluded.
+The generated HTML supplies sanitized passage boundaries and readable math;
+HTML and PDF copies are never indexed as additional documents.
+
+`_verify_studies_index.py` also verifies passage inventories, source versions,
+index content, manifest checksums and the generated `Studies/search.html` page.
+After rebuilding readers, `python Scripts/_study_search.py --rebuild` rebuilds
+all indexes; without the flag it only verifies. Run `_test_study_search.py` for
+Unicode/phrase matching, URL validation, bookmark-compatible IDs, incremental
+updates and unpublishing/rename regressions. New sources must be staged before
+indexing because the public inventory deliberately uses Git's tracked paths.
 
 Among what it covers: `_test_commit_artifacts` exercises the only part of CI that
 writes to a branch — both workflows using that action need a label to fire, and
@@ -276,8 +292,9 @@ Markdown, references and presentations. Keys contain source paths and bytes,
 transitive local Python helpers, renderer scripts/dependencies, fonts, manifests,
 the workflow/setup contract and the hosted runner image. Additions, removals and
 renames change keys. Commit IDs and wall-clock timestamps do not. Reader HTML
-contents, the two screen-only `Assets/reader/reader.css` and `reader.js` assets,
-and portal code do not invalidate PDF builds; Markdown keys include
+contents, the five screen-only reader/search assets (`reader.css`, `reader.js`,
+`search.css`, `search.js`, `reader-features.js`), generated `Studies/search-data/`
+JSON, and portal code do not invalidate PDF builds; Markdown keys include
 HTML/PDF target names because link rewriting uses their existence. Dependency
 coverage is deliberately conservative: e.g. a Python requirements change rebuilds
 all families, while a Node lockfile change leaves presentation reuse possible.

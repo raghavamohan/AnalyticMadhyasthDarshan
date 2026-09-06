@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>Death Continuity and Rebirth</title>
+<meta name="amd-source-version" content="751cc06f176fdcc10f99ed582b2178ca24b646d642507d63e9a53cfc4ff1763a"/>
 <link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
@@ -710,7 +711,8 @@
   }
 
 </style>
-<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=a0e5215a2530d800"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=97e069fdb79e189c"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/search.css?v=c92940019b038782"/>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -742,12 +744,24 @@
   <header class="reader-panel-header"><h2 id="reader-tools-title">Study tools</h2><button type="button" id="reader-close" aria-label="Close study tools">&#215;</button></header>
   <div class="reader-tabs" role="tablist" aria-label="Study tools">
     <button type="button" role="tab" id="reader-tab-contents" aria-controls="reader-contents" aria-selected="true">Contents</button>
+    <button type="button" role="tab" id="reader-tab-search" aria-controls="reader-search" aria-selected="false" tabindex="-1">Find</button>
     <button type="button" role="tab" id="reader-tab-bookmarks" aria-controls="reader-bookmarks" aria-selected="false" tabindex="-1">Bookmarks</button>
     <button type="button" role="tab" id="reader-tab-display" aria-controls="reader-display" aria-selected="false" tabindex="-1">Display</button>
   </div>
   <section id="reader-contents" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-contents" tabindex="0">
-    <p class="reader-helper">Follow the argument, section by section.</p>
+    <button type="button" id="reader-passage-tools">Link &amp; sources for this passage</button>
+    <p class="reader-helper">Select text to choose a passage, or use the passage at the top of the page. Click a citation code to preview its source.</p>
     <nav id="reader-outline" aria-label="Study contents"></nav>
+  </section>
+  <section id="reader-search" class="reader-tab-panel study-search" role="tabpanel" aria-labelledby="reader-tab-search" tabindex="0" hidden>
+    <form id="reader-search-form" class="search-form"><label for="reader-search-query">Find in this document</label>
+      <div class="search-input-row"><input id="reader-search-query" type="search" maxlength="200" placeholder="Word or quoted phrase"/><button type="submit">Find</button></div>
+    </form>
+    <p class="reader-helper">All words must occur in a passage. Use quotes for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
+    <a id="reader-search-all" href="/Studies/search.html">Search all studies and notes →</a>
+    <p id="reader-search-status" class="search-status" role="status" aria-live="polite">Enter a word or phrase.</p>
+    <ol id="reader-search-results" class="search-results"></ol>
+    <button type="button" id="reader-search-more" hidden>Show more results</button>
   </section>
   <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
     <form id="reader-bookmark-form">
@@ -775,28 +789,46 @@
     <div id="reader-clear-confirm" hidden><p>Remove this study’s saved position and bookmarks?</p><button type="button" id="reader-clear-yes">Remove saved places</button><button type="button" id="reader-clear-no">Keep them</button></div>
   </footer>
 </dialog>
+<dialog id="reader-viewer" class="reader-chrome" aria-labelledby="reader-viewer-title">
+  <header class="reader-panel-header"><h2 id="reader-viewer-title">Passage tools</h2><button type="button" id="reader-viewer-close" aria-label="Close preview">&#215;</button></header>
+  <p id="reader-viewer-status" role="status" aria-live="polite"></p>
+  <div id="reader-source-view">
+    <p id="reader-passage-excerpt"></p><button type="button" id="reader-copy-passage">Copy passage link</button>
+    <label id="reader-copy-label" for="reader-copy-fallback" hidden>Copy this text</label><textarea id="reader-copy-fallback" rows="3" readonly hidden></textarea>
+    <div id="reader-source-detail" hidden><h3 id="reader-source-title"></h3><p id="reader-source-citation"></p><p id="reader-source-note" class="reader-helper"></p>
+      <a id="reader-source-open" target="_blank" rel="noopener noreferrer">Open source in a new tab ↗</a> <button type="button" id="reader-copy-citation">Copy citation</button>
+    </div>
+    <label for="reader-source-query">Find a reference in this study</label><input id="reader-source-query" type="search" placeholder="Source code, title or author"/>
+    <p id="reader-source-status" class="reader-helper"></p><ul id="reader-source-list"></ul>
+  </div>
+  <div id="reader-visual-view" hidden><div class="reader-zoom-controls"><button type="button" id="reader-zoom-out" aria-label="Zoom out">−</button><output id="reader-zoom-level" aria-live="polite">100%</output><button type="button" id="reader-zoom-in" aria-label="Zoom in">+</button><button type="button" id="reader-zoom-fit">Fit</button><button type="button" id="reader-zoom-reset">100%</button></div>
+    <p class="reader-helper">Scroll or swipe inside the viewer to see the whole figure or table.</p><div id="reader-visual-stage" tabindex="0" role="region" aria-label="Enlarged figure or table"><div id="reader-visual-canvas"><div id="reader-visual-content"></div></div></div>
+  </div>
+</dialog>
 <div id="reader-message" class="reader-chrome" role="status" aria-live="polite" hidden></div>
 <main id="main"><h1>Death Continuity and Rebirth</h1>
-<p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
-<p><strong>Edited on:</strong> June 30, 2026, 11:33 AM IST</p>
-<p>What happens at death in Madhyasth Darshan: the continuity of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span> beyond the body and its re-embodiment, compared with Advaita Vedanta’s rebirth and the physicalist view that death ends the self</p>
-<p class="study-reading-key" aria-label="Reading key">
-  <span class="study-reading-key-term">Dotted underline</span>: definition
-  <span aria-hidden="true">&middot;</span>
-  <span class="study-reading-key-link">Blue underline</span>: link
+<p data-reader-heading="" data-reader-passage="" id="reader-p-b6e82be98054d751"><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button class="term-tip" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation." data-term="darshan" type="button">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-bab4b8d4dd2dc44c"><strong>Edited on:</strong> June 30, 2026, 11:33 AM IST</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-92c905fe02f929aa">What happens at death in Madhyasth Darshan: the continuity of <span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span> beyond the body and its re-embodiment, compared with Advaita Vedanta’s rebirth and the physicalist view that death ends the self</p>
+<p aria-label="Reading key" class="study-reading-key" data-reader-heading="" data-reader-passage="" id="reader-p-2d479c97e6bf2881">
+<span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">·</span>
+<span class="study-reading-key-link">Blue underline</span>: link
 </p>
-<h2 id="study-proposal">Study proposal</h2>
-<p>What happens at death in <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span>: the continuity of <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span> beyond the body and its re-embodiment, compared with Advaita Vedanta’s rebirth and the physicalist view that death ends the self</p>
+<h2 data-reader-heading="study-proposal" data-reader-passage="" id="study-proposal">Study proposal</h2>
+<p data-reader-heading="study-proposal" data-reader-passage="" id="reader-p-e192fbb2b328a190">What happens at death in <span class="term-tip-wrap"><button class="term-tip" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation." data-term="darshan" type="button">Madhyasth Darshan</button></span>: the continuity of <span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span> beyond the body and its re-embodiment, compared with Advaita Vedanta’s rebirth and the physicalist view that death ends the self</p>
 <blockquote>
-<p>This directory holds an <strong>approved study proposal</strong> (pre-catalog). It is not listed on
+<p data-reader-heading="study-proposal" data-reader-passage="" id="reader-p-0b7f111a5101b460">This directory holds an <strong>approved study proposal</strong> (pre-catalog). It is not listed on
 the public studies index until a maintainer merges your first <strong>draft</strong> pull request.
 Submit the full study via <a href="https://analyticmadhyasthdarshan.org/Studies/submit.html" rel="noopener noreferrer">My Submissions</a>.</p>
 </blockquote>
-<h2 id="references">References</h2>
+<h2 data-reader-heading="references" data-reader-passage="" id="references">References</h2>
 <ul>
-<li><em>(Add references when you submit the full draft — link to files under <code>../References/</code> where available.)</em></li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-2475c3ddaa4c341b"><em>(Add references when you submit the full draft — link to files under <code>../References/</code> where available.)</em></li>
 </ul></main>
-<script defer src="../../Assets/reader/reader.js?v=3d08bd1cb4f261ad"></script><script>
+<script defer src="../../Assets/reader/search.js?v=978601cd252a8f49"></script>
+<script defer src="../../Assets/reader/reader-features.js?v=edb1d33ae1e81f91"></script>
+<script defer src="../../Assets/reader/reader.js?v=2baa7fc15a558564"></script><script>
 (() => {
   let floatPanel = document.getElementById("term-tip-float");
   if (!floatPanel) {

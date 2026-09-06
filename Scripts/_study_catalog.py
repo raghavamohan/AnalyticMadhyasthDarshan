@@ -1085,6 +1085,10 @@ def write_studies_catalog(
 
     write_sitemap()
 
+    from _study_search import write_search_catalog
+
+    write_search_catalog()
+
 
 STUDY_FEEDBACK_TEMPLATE_PATH = BASE / ".github" / "ISSUE_TEMPLATE" / "study-feedback.yml"
 

@@ -14,7 +14,10 @@ def reader_assets(source: Path) -> tuple[str, str]:
         version = hashlib.sha256((ASSETS / name).read_bytes()).hexdigest()[:16]
         return f"{prefix}/{name}?v={version}"
     return (
-        f'<link rel="stylesheet" media="screen" href="{url("reader.css")}"/>',
+        f'<link rel="stylesheet" media="screen" href="{url("reader.css")}"/>\n'
+        f'<link rel="stylesheet" media="screen" href="{url("search.css")}"/>',
+        f'<script defer src="{url("search.js")}"></script>\n'
+        f'<script defer src="{url("reader-features.js")}"></script>\n'
         f'<script defer src="{url("reader.js")}"></script>',
     )
 
@@ -44,12 +47,24 @@ def reader_controls() -> str:
   <header class="reader-panel-header"><h2 id="reader-tools-title">Study tools</h2><button type="button" id="reader-close" aria-label="Close study tools">&#215;</button></header>
   <div class="reader-tabs" role="tablist" aria-label="Study tools">
     <button type="button" role="tab" id="reader-tab-contents" aria-controls="reader-contents" aria-selected="true">Contents</button>
+    <button type="button" role="tab" id="reader-tab-search" aria-controls="reader-search" aria-selected="false" tabindex="-1">Find</button>
     <button type="button" role="tab" id="reader-tab-bookmarks" aria-controls="reader-bookmarks" aria-selected="false" tabindex="-1">Bookmarks</button>
     <button type="button" role="tab" id="reader-tab-display" aria-controls="reader-display" aria-selected="false" tabindex="-1">Display</button>
   </div>
   <section id="reader-contents" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-contents" tabindex="0">
-    <p class="reader-helper">Follow the argument, section by section.</p>
+    <button type="button" id="reader-passage-tools">Link &amp; sources for this passage</button>
+    <p class="reader-helper">Select text to choose a passage, or use the passage at the top of the page. Click a citation code to preview its source.</p>
     <nav id="reader-outline" aria-label="Study contents"></nav>
+  </section>
+  <section id="reader-search" class="reader-tab-panel study-search" role="tabpanel" aria-labelledby="reader-tab-search" tabindex="0" hidden>
+    <form id="reader-search-form" class="search-form"><label for="reader-search-query">Find in this document</label>
+      <div class="search-input-row"><input id="reader-search-query" type="search" maxlength="200" placeholder="Word or quoted phrase"/><button type="submit">Find</button></div>
+    </form>
+    <p class="reader-helper">All words must occur in a passage. Use quotes for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
+    <a id="reader-search-all" href="/Studies/search.html">Search all studies and notes →</a>
+    <p id="reader-search-status" class="search-status" role="status" aria-live="polite">Enter a word or phrase.</p>
+    <ol id="reader-search-results" class="search-results"></ol>
+    <button type="button" id="reader-search-more" hidden>Show more results</button>
   </section>
   <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
     <form id="reader-bookmark-form">
@@ -76,6 +91,22 @@ def reader_controls() -> str:
     <button type="button" id="reader-clear-data">Clear saved places for this study</button>
     <div id="reader-clear-confirm" hidden><p>Remove this study’s saved position and bookmarks?</p><button type="button" id="reader-clear-yes">Remove saved places</button><button type="button" id="reader-clear-no">Keep them</button></div>
   </footer>
+</dialog>
+<dialog id="reader-viewer" class="reader-chrome" aria-labelledby="reader-viewer-title">
+  <header class="reader-panel-header"><h2 id="reader-viewer-title">Passage tools</h2><button type="button" id="reader-viewer-close" aria-label="Close preview">&#215;</button></header>
+  <p id="reader-viewer-status" role="status" aria-live="polite"></p>
+  <div id="reader-source-view">
+    <p id="reader-passage-excerpt"></p><button type="button" id="reader-copy-passage">Copy passage link</button>
+    <label id="reader-copy-label" for="reader-copy-fallback" hidden>Copy this text</label><textarea id="reader-copy-fallback" rows="3" readonly hidden></textarea>
+    <div id="reader-source-detail" hidden><h3 id="reader-source-title"></h3><p id="reader-source-citation"></p><p id="reader-source-note" class="reader-helper"></p>
+      <a id="reader-source-open" target="_blank" rel="noopener noreferrer">Open source in a new tab ↗</a> <button type="button" id="reader-copy-citation">Copy citation</button>
+    </div>
+    <label for="reader-source-query">Find a reference in this study</label><input id="reader-source-query" type="search" placeholder="Source code, title or author"/>
+    <p id="reader-source-status" class="reader-helper"></p><ul id="reader-source-list"></ul>
+  </div>
+  <div id="reader-visual-view" hidden><div class="reader-zoom-controls"><button type="button" id="reader-zoom-out" aria-label="Zoom out">−</button><output id="reader-zoom-level" aria-live="polite">100%</output><button type="button" id="reader-zoom-in" aria-label="Zoom in">+</button><button type="button" id="reader-zoom-fit">Fit</button><button type="button" id="reader-zoom-reset">100%</button></div>
+    <p class="reader-helper">Scroll or swipe inside the viewer to see the whole figure or table.</p><div id="reader-visual-stage" tabindex="0" role="region" aria-label="Enlarged figure or table"><div id="reader-visual-canvas"><div id="reader-visual-content"></div></div></div>
+  </div>
 </dialog>
 <div id="reader-message" class="reader-chrome" role="status" aria-live="polite" hidden></div>
 """

@@ -17,6 +17,7 @@ from _build_studies_index import (  # noqa: E402
 )
 from _build_discussion_pages import verify_discussion_pages  # noqa: E402
 from _build_sitemap import verify_sitemap_sync  # noqa: E402
+from _study_search import verify_search  # noqa: E402
 from _study_catalog import (  # noqa: E402
     verify_all_catalog_sync,
     verify_derived_catalogs_sync,
@@ -43,6 +44,7 @@ def collect_index_errors(*, shell: bool = True, catalog: bool = True) -> list[st
         errors.extend(verify_discussion_pages())
         errors.extend(verify_sitemap_sync())
         errors.extend(verify_derived_catalogs_sync())
+        errors.extend(verify_search())
     return errors
 
 

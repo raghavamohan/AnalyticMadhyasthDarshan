@@ -4,6 +4,8 @@ An open and growing collection of comparative studies of **Madhyasth Darshan** (
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
+[Find words and phrases inside studies and companion notes →](https://analyticmadhyasthdarshan.org/Studies/search.html)
+
 **Want to contribute?** See [How to contribute](#how-to-contribute) — [discuss or improve a study](#discuss-or-improve-a-study) or [write or substantially revise one](#write-or-substantially-revise-a-study).
 
 **On this page**
