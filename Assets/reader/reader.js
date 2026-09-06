@@ -25,7 +25,8 @@
     if (!raw || typeof raw !== 'object' || typeof raw.anchor !== 'string' || !raw.anchor
         || raw.anchor.length > 400 || !Number.isFinite(raw.fraction)) return null;
     return { anchor: raw.anchor, heading: bounded(raw.heading,400), quote: bounded(raw.quote,160),
-      label: bounded(raw.label,200), fraction: Math.max(0,Math.min(1,raw.fraction)) };
+      label: bounded(raw.label,200), fraction: Math.max(0,Math.min(1,raw.fraction)),
+      ...(typeof raw.subheading === 'string' && raw.subheading ? { subheading: bounded(raw.subheading,400) } : {}) };
   }
   function state(raw) {
     if (!raw || raw.version !== 1 || !Array.isArray(raw.bookmarks)) throw new Error('Unrecognized reading data');
@@ -45,9 +46,10 @@
     if (exact) return { item: exact, fraction: place.fraction, changed: false };
     // Only an unambiguous excerpt in its original section can recover a changed
     // paragraph. Otherwise open the saved heading and tell the reader why.
-    const matching = place.quote.length >= 24 ? passages.filter(item => item.heading === place.heading && item.text.includes(place.quote)) : [];
+    const matching = place.quote.length >= 24 ? passages.filter(item => item.heading === place.heading
+      && (!place.subheading || item.subheading === place.subheading) && item.text.includes(place.quote)) : [];
     if (matching.length === 1) return { item: matching[0], fraction: 0, changed: true };
-    const section = headings.find(item => item.id === place.heading);
+    const section = headings.find(item => item.id === place.subheading) || headings.find(item => item.id === place.heading);
     return section ? { item: section, fraction: 0, changed: true } : null;
   }
   function lastBefore(items, y) {
@@ -64,7 +66,14 @@
     // so Next cannot keep selecting the heading we just opened.
     return lastBefore(items,y + 2);
   }
-  const Core = { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex };
+  function passagePlace(item, headings, fraction = 0) {
+    if (!item) return null;
+    const subheading = item.subheading || item.heading;
+    return { anchor: item.id, heading: item.heading, subheading, quote: item.text.slice(0,160),
+      label: headings.find(h => h.id === subheading)?.text || 'Introduction',
+      fraction: Math.max(0,Math.min(1,fraction)) };
+  }
+  const Core = { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex, passagePlace };
   if (typeof module !== 'undefined' && module.exports) module.exports = Core;
   if (typeof document === 'undefined') return;
 
@@ -77,6 +86,7 @@
   const emptyState = () => ({ version: 1, position: null, bookmarks: [] });
   let model = emptyState(), prefs = preferences(null), corrupt = false, storageAvailable = true;
   let messageTimer, saveTimer, geometryTimer, pendingPlace = null, frame = 0, editId = null, tracking = false;
+  let clickedPassage = null, clickedScrollY = 0, previewPlace = null;
   function message(text, permanent = false) {
     clearTimeout(messageTimer);
     $('reader-message').textContent = text;
@@ -154,18 +164,28 @@
   });
   system.addEventListener('change',paintTheme);
 
-  const headingNodes = [...main.querySelectorAll('h2[id],h3[id],h4[id]')];
+  const headingNodes = [...main.querySelectorAll('h2,h3,h4')];
   let section = '';
   const headings = headingNodes.map(node => {
+    // Some deeper headings have no generated anchor. Give those a stable reader
+    // anchor so their passages can be labelled and recovered at the same depth.
+    if (!node.id) {
+      const base = passageKey('heading\n' + section + '\n' + node.textContent).replace('reader-p-','reader-h-');
+      let id = base, count = 1;
+      while (document.getElementById(id)) id = base + '-' + (++count);
+      node.id = id;
+    }
     if (node.tagName === 'H2') section = node.id;
-    return { id: node.id, node, text: cleanText(node.textContent), heading: section, top: 0 };
+    return { id: node.id, node, text: cleanText(node.textContent), heading: section, subheading: node.id, top: 0 };
   });
   const sections = headings.filter(item => item.node.tagName === 'H2');
   const passages = [], counts = new Map();
   section = '';
+  let subheading = '';
   for (const node of main.querySelectorAll('h2[id],h3[id],h4[id],p,li,table,pre,.mermaid')) {
     if (node.closest('.study-toc,.study-reading-key') || node.parentElement.closest('li,table,pre,.mermaid')) continue;
     if (node.tagName === 'H2') section = node.id;
+    if (/^H[234]$/.test(node.tagName)) subheading = node.id;
     const text = cleanText(node.dataset.readerSource || node.textContent) || cleanText(node.querySelector('img')?.getAttribute('alt'));
     if (!text) continue;
     if (!node.id) {
@@ -176,17 +196,21 @@
       node.id = id;
     }
     node.dataset.readerPassage = '';
-    passages.push({ id: node.id, node, text, heading: section, top: 0, height: 0 });
+    // Keep the major heading in the stable passage ID and legacy storage contract.
+    passages.push({ id: node.id, node, text, heading: section, subheading, top: 0, height: 0 });
   }
   const toolbar = document.querySelector('.study-toolbar');
   const marker = () => toolbar.offsetHeight + 12;
   function capture() {
     const y = scrollY + marker(), item = passages[Math.max(0,readingIndex(passages,y))];
-    if (!item) return null;
-    return { anchor: item.id, heading: item.heading, quote: item.text.slice(0,160),
-      label: headings.find(h => h.id === item.heading)?.text || 'Introduction',
-      fraction: Math.max(0,Math.min(1,(y - item.top) / Math.max(1,item.height))) };
+    return passagePlace(item,headings,item ? (y - item.top) / Math.max(1,item.height) : 0);
   }
+  main.addEventListener('click',event => {
+    const node = event.target.closest('[data-reader-passage]');
+    clickedPassage = passages.find(item => item.node === node) || null;
+    clickedScrollY = scrollY;
+    updateBookmarkPreview();
+  });
   function measure() {
     root.style.setProperty('--study-toolbar-height',toolbar.offsetHeight + 'px');
     for (const item of [...headings,...passages]) {
@@ -199,9 +223,11 @@
     if (place) pendingPlace = place;
     clearTimeout(geometryTimer);
     geometryTimer = setTimeout(() => {
+      geometryTimer = null;
       const restore = pendingPlace; pendingPlace = null;
       measure();
-      if (restore) go(restore,{ focus: false, history: false, announce: false });
+      if (restore) go(restore,{ focus: false, history: false, announce: false, preserveBookmarkTarget: true });
+      if (clickedPassage) clickedScrollY = scrollY;
     },50);
   }
   function startTracking() {
@@ -212,16 +238,18 @@
     if (tracking) { const place = capture(); if (place) updateState(data => { data.position = place; }); }
   }
   function go(place, options = {}) {
-    const { focus = true, history: useHistory = true, announce = true } = options;
+    const { focus = true, history: useHistory = true, announce = true, preserveBookmarkTarget = false } = options;
     const found = resolvePlace(place,passages,headings);
     if (!found) { if (announce) message('This passage is no longer available. Choose a section from Contents.'); return false; }
+    if (!preserveBookmarkTarget) clickedPassage = null;
     const target = found.item.node;
     if (useHistory) { startTracking(); history.pushState(null,'','#' + encodeURIComponent(found.item.id)); }
-    clearTimeout(geometryTimer); pendingPlace = null;
+    clearTimeout(geometryTimer); geometryTimer = null; pendingPlace = null;
     // Refresh after the resume banner or drawer changes the layout.
     measure();
     scrollTo({ top: Math.max(0,target.getBoundingClientRect().top + scrollY + found.fraction * target.getBoundingClientRect().height - marker()), behavior: 'instant' });
     if (focus) { target.tabIndex = -1; target.focus({ preventScroll: true }); }
+    if (clickedPassage) clickedScrollY = scrollY;
     updatePosition();
     if (useHistory) persistPosition();
     if (announce && found.changed) message('The text has changed. Opened the closest saved passage or section.');
@@ -230,7 +258,7 @@
   function visitHeading(item) {
     if (!item) return;
     if (!wide.matches) closePanel(false,false);
-    go({ anchor:item.id, heading:item.id, fraction:0, quote:'', label:item.text });
+    go(passagePlace(item,headings));
   }
   const outlineLinks = new Map(), groups = new Map();
   let currentGroup = null, activeId = '', activeSection = '', currentIndex = -2, sectionIndex = -2;
@@ -294,6 +322,7 @@
         if (rect.top < bounds.top || rect.bottom > bounds.bottom) panel.scrollTop += rect.top - bounds.top - 20;
       }
     }
+    updateBookmarkPreview();
   }
   $('study-section-prev').addEventListener('click',event => {
     event.preventDefault(); const i = readingIndex(sections,scrollY + marker()); if (i > 0) visitHeading(sections[i - 1]);
@@ -302,6 +331,9 @@
     event.preventDefault(); visitHeading(sections[readingIndex(sections,scrollY + marker()) + 1]);
   });
   window.addEventListener('scroll',() => {
+    // Opening the sidebar can shift the page before its layout is restored.
+    // That movement must not discard the passage the reader just chose.
+    if (clickedPassage && !geometryTimer && Math.abs(scrollY - clickedScrollY) > 2) clickedPassage = null;
     if (!frame) frame = requestAnimationFrame(() => { frame = 0; updatePosition(); });
     clearTimeout(saveTimer); saveTimer = setTimeout(persistPosition,700);
   },{ passive: true });
@@ -311,6 +343,8 @@
         || !['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(event.key)
         || (event.key === ' ' && event.target.closest?.('button')))) return;
     pendingPlace = null;
+    clickedPassage = null;
+    updateBookmarkPreview();
     startTracking();
   },{ passive: true });
   window.addEventListener('pagehide',persistPosition);
@@ -327,6 +361,7 @@
       $(tab.getAttribute('aria-controls')).hidden = !chosen;
       if (chosen && focus) tab.focus();
     }
+    if (name === 'bookmarks') { updateBookmarkPreview(); $('reader-bookmarks').scrollTop = 0; }
   }
   const tabs = [...tools.querySelectorAll('[role="tab"]')];
   for (const [index,tab] of tabs.entries()) {
@@ -350,6 +385,7 @@
     if (user) {
       if (wide.matches) { prefs.sidebar = true; savePreferences(); }
       tools.querySelector('[role="tab"][aria-selected="true"]').focus();
+      if (!$('reader-bookmarks').hidden && !editId) $('reader-bookmarks').scrollTop = 0;
     }
     scheduleMeasure(wide.matches && scrollY > 0 ? place : null);
   }
@@ -379,10 +415,35 @@
     applyPreferences(); savePreferences(); setTheme('system'); scheduleMeasure(place);
   });
 
+  const bookmarkForm = $('reader-bookmark-form');
+  const bookmarkPreview = document.createElement('div'); bookmarkPreview.className = 'reader-bookmark-preview';
+  const previewContext = document.createElement('p'); previewContext.className = 'reader-helper';
+  const previewSection = document.createElement('strong'); previewSection.id = 'reader-bookmark-section';
+  previewSection.setAttribute('role','status'); previewSection.setAttribute('aria-live','polite');
+  const previewQuote = document.createElement('p'); previewQuote.id = 'reader-bookmark-quote'; previewQuote.className = 'reader-bookmark-excerpt';
+  const previewHint = document.createElement('p'); previewHint.className = 'reader-helper';
+  previewHint.textContent = 'Click a passage to choose it. Scroll to follow your reading position.';
+  bookmarkPreview.append(previewContext,previewSection,previewQuote,previewHint); bookmarkForm.prepend(bookmarkPreview);
+  bookmarkForm.querySelector('label').textContent = 'Name (optional)';
+  bookmarkForm.querySelector('[type="submit"]').setAttribute('aria-describedby','reader-bookmark-section reader-bookmark-quote');
+  function updateBookmarkPreview() {
+    previewPlace = editId ? model.bookmarks.find(mark => mark.id === editId)?.place
+      : clickedPassage ? passagePlace(clickedPassage,headings) : capture();
+    const label = previewPlace?.label || 'Introduction', excerpt = previewPlace?.quote || '';
+    const quote = excerpt === label ? 'At this heading' : excerpt + (excerpt.length === 160 ? '…' : '');
+    const context = editId ? 'Saved place' : clickedPassage ? 'Will bookmark · Clicked passage' : 'Will bookmark · Reading position';
+    // Avoid repeated live-region announcements while scrolling within a passage.
+    if (previewContext.textContent !== context) previewContext.textContent = context;
+    if (previewSection.textContent !== label) previewSection.textContent = label;
+    if (previewQuote.textContent !== quote) previewQuote.textContent = quote;
+    previewHint.hidden = Boolean(editId);
+    if (!editId && $('reader-bookmark-name').placeholder !== label) $('reader-bookmark-name').placeholder = label;
+  }
   function resetForm() {
     editId = null; $('reader-bookmark-name').value = '';
     $('reader-bookmark-form').querySelector('[type="submit"]').textContent = 'Bookmark this place';
     $('reader-cancel-rename').hidden = true;
+    updateBookmarkPreview();
   }
   const cancelRename = document.createElement('button'); cancelRename.type = 'button';
   cancelRename.id = 'reader-cancel-rename'; cancelRename.textContent = 'Cancel rename'; cancelRename.hidden = true;
@@ -395,6 +456,9 @@
       visit.type = 'button'; visit.className = 'reader-bookmark-go'; visit.textContent = mark.name;
       visit.addEventListener('click',() => { if (!wide.matches) closePanel(false,false); go(mark.place); });
       const quote = document.createElement('p'); quote.className = 'reader-bookmark-excerpt'; quote.textContent = mark.place.quote;
+      quote.hidden = mark.place.quote === mark.place.label;
+      const location = document.createElement('p'); location.className = 'reader-bookmark-location'; location.textContent = mark.place.label;
+      location.hidden = mark.name === mark.place.label;
       const actions = document.createElement('div'); actions.className = 'reader-bookmark-actions';
       for (const action of ['Rename','Remove']) {
         const button = document.createElement('button'); button.type = 'button'; button.textContent = action;
@@ -404,6 +468,7 @@
             editId = mark.id; $('reader-bookmark-name').value = mark.name;
             $('reader-bookmark-form').querySelector('[type="submit"]').textContent = 'Save name';
             cancelRename.hidden = false; $('reader-bookmark-name').focus();
+            updateBookmarkPreview();
           } else {
             const saved = updateState(data => { data.bookmarks = data.bookmarks.filter(item => item.id !== mark.id); });
             if (editId === mark.id) resetForm(); renderBookmarks();
@@ -412,12 +477,14 @@
           }
         }); actions.append(button);
       }
-      row.append(visit,quote,actions); list.append(row);
+      row.append(visit,location,quote,actions); list.append(row);
     }
   }
   $('reader-bookmark-form').addEventListener('submit',event => {
-    event.preventDefault(); const place = capture(); if (!place) return;
-    const name = cleanText($('reader-bookmark-name').value).slice(0,80) || place.label;
+    // Save exactly the place displayed above this button, including when the
+    // mobile drawer covers the document or this form is renaming a saved place.
+    event.preventDefault(); const place = previewPlace; if (!place) return;
+    const name = (cleanText($('reader-bookmark-name').value) || place.label).slice(0,80);
     let limited = false;
     const saved = updateState(data => {
       if (editId) { const mark = data.bookmarks.find(item => item.id === editId); if (mark) mark.name = name; }
@@ -425,7 +492,8 @@
       else data.bookmarks.push({ id: crypto.randomUUID(),name,place });
     });
     if (limited) { message('This study has 100 bookmarks. Remove one before adding another.'); return; }
-    resetForm(); renderBookmarks(); message(saved ? 'Bookmark saved in this browser.' : 'Bookmark kept for this visit; browser storage is unavailable.');
+    const renamed = Boolean(editId);
+    resetForm(); renderBookmarks(); message(saved ? (renamed ? 'Bookmark renamed.' : 'Bookmarked: ' + place.label) : 'Bookmark kept for this visit; browser storage is unavailable.');
   });
   $('reader-clear-data').addEventListener('click',() => { $('reader-clear-confirm').hidden = false; $('reader-clear-no').focus(); });
   $('reader-clear-no').addEventListener('click',() => { $('reader-clear-confirm').hidden = true; $('reader-clear-data').focus(); });
