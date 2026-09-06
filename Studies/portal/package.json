@@ -1,0 +1,6 @@
+{
+  "name": "amd-contributor-preview",
+  "private": true,
+  "description": "Pinned browser preview vendor sources; independent of the PDF toolchain",
+  "dependencies": { "markdown-it": "14.3.0" }
+}

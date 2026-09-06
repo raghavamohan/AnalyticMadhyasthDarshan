@@ -1,0 +1,26 @@
+[
+  {
+    "file": "markdown-it.min.js",
+    "package": "markdown-it",
+    "version": "14.3.0",
+    "sha256": "70fe17bd06c7fa819f03a1ed10957904318103624198845dc893b309bf495e28"
+  },
+  {
+    "file": "katex.min.js",
+    "package": "katex",
+    "version": "0.16.47",
+    "sha256": "a29d2961d3146de5949d78ac7c1a9d93ae54955bad22a6db4fbe836e88e8bf48"
+  },
+  {
+    "file": "katex.min.css",
+    "package": "katex",
+    "version": "0.16.47",
+    "sha256": "27b21e66792aab2773f933db6f58825a149596ca27034248396c2029cdc51a4a"
+  },
+  {
+    "file": "purify.min.js",
+    "package": "dompurify",
+    "version": "3.4.14",
+    "sha256": "c2f26ea4fc0d88141c9aa430eb515ac86fce59418ceebd85fa475b87a8d6c3e6"
+  }
+]

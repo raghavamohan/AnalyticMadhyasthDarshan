@@ -136,6 +136,7 @@ now checks and deploys both API Workers when either or their shared guard change
 | `GET /api/study-source?slug=Slug` | — | Current published study Markdown, or a registered note when `artifactType=note&fileName=...` |
 | `GET /api/revision-source?pr=N` | cookie | Load the signed-in contributor's open first-draft PR Markdown for an in-place revision |
 | `POST /api/revise` | cookie + Turnstile | Commit revised Markdown to the same owned first-draft PR branch and rerun CI |
+| `GET /api/operation?id=UUID` | cookie | Recover an account-scoped submission receipt without repeating its GitHub write |
 | `POST /api/delete-artifact` | yes | Opens a reviewable `study-update` PR to delete one mapped note/presentation or the complete owned study |
 | `POST /api/submit` | cookie + Turnstile | Branch, commit study Markdown, a technical/research-note `.md`, or a presentation `.pptx` to the study directory, then open a PR; enforces file/type limits, locked slugs for new studies, and one open PR per slug |
 | `POST /api/status-change` | cookie + Turnstile | Open a `status-change` PR (body: `Study slug:` / `Target status:` for CI) |
@@ -150,7 +151,18 @@ GitHub history. Closing the issue is a portal-state action, not a repository
 deletion; any surviving Planned directory, catalog row, or registry entry must
 still be removed through the study-removal workflow.
 
-When review requests changes on a portal-created `new-study` PR, My Submissions offers **Revise draft**. `GET /api/revision-source` loads the Markdown from that PR's head branch, and `POST /api/revise` writes the revision back to the same branch. Both routes require the portal submitter marker, an open PR, the `new-study` label, and a same-repository head branch.
+When review requests changes on a portal-created `new-study` PR, My Submissions offers **Revise draft**. `GET /api/revision-source` loads the Markdown and `sourceSha` from that PR's head branch, and `POST /api/revise` requires that version before writing back to the same branch. Both routes require the portal submitter marker, an open PR, the `new-study` label, and a same-repository head branch.
+
+Proposals, submissions and revisions also require a UUIDv4 `operationId`, saved
+by the browser before sending. `CONTRIBUTOR_OPERATIONS` provides atomic,
+account-scoped receipts through a SQLite-backed Durable Object. Its included
+`contributor-receipts-v1` Wrangler migration is applied by the normal deployment;
+no new secret is needed. A missing binding stops content writes with 503. Keep
+the same receipt after a lost response and use `/api/operation` to check it;
+never create another ID merely because a GitHub search is empty. Existing
+Markdown updates also require the `sourceSha` returned by source loading.
+See [Contributor reliability](../../docs/contributor-reliability.md) for browser
+storage, source conflicts, recovery limits and deployment sequencing.
 
 `/api/delete-artifact` accepts only studies shown in the signed-in contributor's dashboard and only note/presentation filenames present in the durable artifact registry. It deletes a single mapped companion source on the PR branch, unregisters a deleted deck from the presentation pipeline, and removes a note's generated HTML reader when present. Whole-study requests add a short-lived marker that study PR CI recognizes and fulfills through `Scripts/_remove_study.py`, keeping catalogs, proposal metadata, References, and presentation registrations synchronized. No deletion reaches the published branch until a maintainer merges the PR.
 

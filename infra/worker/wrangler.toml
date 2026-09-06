@@ -48,3 +48,12 @@ id = "4a9b039c2247477cbce962632e0d6335"
 # npx wrangler secret put RESEND_API_KEY
 # npx wrangler secret put NOTIFY_SECRET   # shared with the portal-notify.yml workflow (PORTAL_NOTIFY_SECRET)
 # EMAIL_FROM defaults to submissions@analyticmadhyasthdarshan.org; override as a var if needed.
+
+# Atomic contribution receipts, provisioned by the protected-branch deployment.
+[[durable_objects.bindings]]
+name = "CONTRIBUTOR_OPERATIONS"
+class_name = "ContributorOperations"
+
+[[migrations]]
+tag = "contributor-receipts-v1"
+new_sqlite_classes = ["ContributorOperations"]
