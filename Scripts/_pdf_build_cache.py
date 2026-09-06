@@ -74,6 +74,12 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
         if name.startswith("Assets/") and name not in {
             "Assets/reader/reader.css", "Assets/reader/reader.js", "Assets/reader/search.css",
             "Assets/reader/search.js", "Assets/reader/reader-features.js",
+            "Assets/reader/notes-core.js", "Assets/reader/study-tools.js", "Assets/reader/study-tools.css",
+            "Assets/reader/offline-client.js", "Assets/reader/offline-policy.js",
+            "Assets/Mermaid/mermaid.min.js", "Assets/Mermaid/LICENSE", "Assets/Mermaid/vendor.json", "Assets/Mermaid/.gitattributes",
+            "Assets/reader/notes-core.js", "Assets/reader/study-tools.js", "Assets/reader/study-tools.css",
+            "Assets/reader/offline-client.js", "Assets/reader/offline-policy.js",
+            "Assets/Mermaid/mermaid.min.js", "Assets/Mermaid/LICENSE", "Assets/Mermaid/vendor.json",
         }:
             selected.add(name)
         if family == "presentations":
@@ -89,7 +95,7 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
             if name.startswith("Scripts/") and suffix in {".js", ".cjs", ".mjs"}:
                 selected.add(name)
             if family == "markdown":
-                if name.startswith(("Studies/", "Applications/")) and not name.startswith("Studies/search-data/") and suffix in (
+                if name.startswith(("Studies/", "Applications/")) and not name.startswith("Studies/search-data/") and name != "Studies/offline-manifest.json" and suffix in (
                     {".md", ".json"} | IMAGE_SUFFIXES
                 ):
                     selected.add(name)

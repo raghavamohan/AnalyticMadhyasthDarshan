@@ -60,6 +60,8 @@ class PassageTests(unittest.TestCase):
 
 class InventoryTests(unittest.TestCase):
     def setUp(self):
+        offline = patch("_build_reader_offline.write_offline_catalog")
+        offline.start(); self.addCleanup(offline.stop)
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
         self.root = Path(temp.name)
