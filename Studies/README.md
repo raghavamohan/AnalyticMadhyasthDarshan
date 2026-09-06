@@ -6,6 +6,8 @@ Browse the published collection at **[analyticmadhyasthdarshan.org](https://anal
 
 [Find words and phrases inside studies and companion notes →](https://analyticmadhyasthdarshan.org/Studies/search.html)
 
+[My notes & saved studies →](https://analyticmadhyasthdarshan.org/Studies/notebook.html) Private to this browser.
+
 **Want to contribute?** See [How to contribute](#how-to-contribute) — [discuss or improve a study](#discuss-or-improve-a-study) or [write or substantially revise one](#write-or-substantially-revise-a-study).
 
 **On this page**

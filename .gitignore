@@ -19,6 +19,8 @@ Scripts/_reference_cache/
 .tmp.drivedownload/
 *.html
 !Studies/search.html
+!Studies/notebook.html
+!Scripts/_test_study_notes_browser.html
 !References/**/*.html
 !Studies/index.html
 !Studies/submit.html

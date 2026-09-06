@@ -1631,6 +1631,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <h2>Browse all studies</h2>
     <p>Search the complete collection by topic, status, or type. Released studies are stable versions, drafts are available for review, and in-progress studies are open for discussion and development.</p>
     <p><a href="search.html">Find words and phrases inside studies and companion notes →</a></p>
+    <p><a href="notebook.html">My notes &amp; saved studies →</a> <span class="muted">Private to this browser.</span></p>
   </div>
 
   <div class="toolbar" role="search">

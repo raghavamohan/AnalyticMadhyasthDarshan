@@ -1,0 +1,2 @@
+# Preserve upstream template literals and collapse the vendored bundle in reviews.
+mermaid.min.js -whitespace linguist-vendored=true
