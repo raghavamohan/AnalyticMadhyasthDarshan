@@ -197,11 +197,14 @@
       // Speech and native selection must work even while IndexedDB is opening.
       const updateSpeechSelection = setupSpeech(context,() => selection,domRange,candidates);
       let selectionTimer;
-      function captureSelectionNow() {
+      function captureSelectionNow(showTools = true) {
         clearTimeout(selectionTimer);
         const next = snapshot(), native = window.getSelection();
         if (next || (!native?.isCollapsed && context.main.contains(native?.anchorNode))) {
-          selection = next; $('reader-selection-tools').hidden = !next; updateSpeechSelection();
+          selection = next;
+          if (!next) $('reader-selection-tools').hidden = true;
+          else if (showTools && !context.tools?.matches(':modal')) $('reader-selection-tools').hidden = false;
+          updateSpeechSelection();
         }
       }
       const captureSelection = () => { clearTimeout(selectionTimer); selectionTimer = setTimeout(captureSelectionNow,100); };
@@ -212,7 +215,7 @@
       context.main.addEventListener('pointerdown',clearSelection);
       // Opening the mobile dialog moves focus and may collapse the DOM range.
       // Freeze it before the toolbar's click handler or pointer default action.
-      const preserveSelection = event => { if (event.target.closest('.reader-chrome,.study-toolbar')) captureSelectionNow(); };
+      const preserveSelection = event => { if (event.target.closest('.reader-chrome,.study-toolbar')) captureSelectionNow(false); };
       document.addEventListener('pointerdown',preserveSelection,true);
       document.addEventListener('click',preserveSelection,true);
       $('selection-dismiss').addEventListener('click',clearSelection);
