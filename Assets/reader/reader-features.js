@@ -30,7 +30,7 @@
     window.addEventListener('scroll',() => { if (getSelection()?.isCollapsed) selected = null; },{passive:true});
 
     // One result is a passage. Text-range highlights leave citation/Math/DOM intact.
-    let results = [], active = -1, shown = 0, queryTerms = [];
+    let results = [], active = -1, shown = 0, queryTerms = [], activeQuery = '';
     const input = $('reader-search-query'), resultList = $('reader-search-results');
     const searchable = passages.filter(p => !p.node.matches('.mermaid') && !p.text.startsWith('Author:') && !p.text.startsWith('Edited on:'))
       .map(p => ({...p,text:S.readableText(p.node) || p.text}));
@@ -68,12 +68,14 @@
       const found = results[index]; if (!found) return;
       active = index; bar.hidden = false;
       if (!wide.matches) closePanel(false,false);
-      paintHit(found.passage); go(placeFor(found.passage)); resultPosition();
+      paintHit(found.passage); go(placeFor(found.passage));
+      history.replaceState(null,'',S.passageURL(location.pathname,found.passage,activeQuery,version,location.origin));
+      resultPosition();
     }
     function moreResults() {
       for (let index = shown; index < Math.min(shown + 15,results.length); index++) {
         const {passage,hits} = results[index], li = document.createElement('li'), link = document.createElement('a'), snippet = document.createElement('p');
-        link.href = '#' + passage.id; link.dataset.result = String(index);
+        link.href = S.passageURL(location.pathname,passage,activeQuery,version,location.origin); link.dataset.result = String(index);
         link.textContent = headings.find(h => h.id === passage.heading)?.text || 'Introduction';
         link.addEventListener('click',event => { if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return; event.preventDefault(); visit(index); });
         S.markText(snippet,S.excerpt(passage.text,hits),queryTerms); li.append(link,snippet); resultList.append(li);
@@ -81,10 +83,16 @@
       shown = Math.min(shown + 15,results.length); $('reader-search-more').hidden = shown >= results.length;
       resultPosition();
     }
-    function find() {
+    function find(remember = true) {
       const place = capture();
       try { queryTerms = S.terms(input.value); }
       catch (error) { $('reader-search-status').textContent = error.message; return; }
+      activeQuery = input.value;
+      if (remember) {
+        const url = new URL(location.href);
+        if (activeQuery.trim()) url.searchParams.set('find',activeQuery); else url.searchParams.delete('find');
+        history.replaceState(null,'',url);
+      }
       results = S.search(searchable,queryTerms); active = -1; shown = 0; resultList.replaceChildren(); paintHit(null);
       bar.hidden = !results.length;
       $('reader-search-status').textContent = queryTerms.length ? `${results.length} matching passages.` + (!results.length ? ' Try fewer words or a different spelling.' : '') : 'Enter a word or phrase.';
@@ -258,14 +266,18 @@
       holder.insertAdjacentElement('afterend',button);
     }
     measure();
-    const params = new URLSearchParams(location.search), query = params.get('find');
-    if (query) {
-      input.value = query.slice(0,200); find();
+    function followSearchLink() {
+      const query = (new URLSearchParams(location.search).get('find') || '').slice(0,200);
+      if (query !== activeQuery) { input.value = query; find(false); }
       let anchor; try { anchor = decodeURIComponent(location.hash.slice(1)); } catch (_) { anchor = ''; }
       active = results.findIndex(result => result.passage.id === anchor);
-      if (active >= 0) paintHit(results[active].passage);
+      paintHit(active >= 0 ? results[active].passage : null);
       resultPosition();
     }
+    followSearchLink();
+    window.addEventListener('popstate',followSearchLink);
+    window.addEventListener('hashchange',followSearchLink);
+    const params = new URLSearchParams(location.search);
     if (params.get('pv') && !version.startsWith(params.get('pv'))) message('This study has changed since the link was created. Check the passage and its sources.');
     if (location.hash.startsWith('#reader-p-')) {
       let id; try { id = decodeURIComponent(location.hash.slice(1)); } catch (_) { id = ''; }
