@@ -4,9 +4,7 @@ An open and growing collection of comparative studies of **Madhyasth Darshan** (
 
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
-[Find words and phrases inside studies and companion notes →](https://analyticmadhyasthdarshan.org/Studies/search.html)
-
-[My notes & saved studies →](https://analyticmadhyasthdarshan.org/Studies/notebook.html) Private to this browser.
+[Search](https://analyticmadhyasthdarshan.org/Studies/search.html "Find words and phrases inside studies and companion notes") · [My Notes](https://analyticmadhyasthdarshan.org/Studies/notebook.html "Highlights, notes and offline studies saved in this browser") · [My Submissions](https://analyticmadhyasthdarshan.org/Studies/submit.html "Propose studies, submit drafts and follow reviews with GitHub")
 
 **Want to contribute?** See [How to contribute](#how-to-contribute) — [discuss or improve a study](#discuss-or-improve-a-study) or [write or substantially revise one](#write-or-substantially-revise-a-study).
 
