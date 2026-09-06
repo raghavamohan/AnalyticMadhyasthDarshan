@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 6, 2026, 7:55 AM IST
+**Edited on:** September 6, 2026, 8:08 AM IST
 **Status:** Released
 **The question:** How does value belong to a unit as activity in coexistence, and how is it understood, established, and fulfilled in human living? What forms does value take, what endures or changes with time, and in what senses can values be compared? How does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western value theory, and the natural and social sciences?
 
@@ -200,7 +200,7 @@ Advaita Vedanta relates the dearness of persons and goods to the Self, *Atman*, 
 
 ### 2.1 The Self, dearness and fullness
 
-> **“…but for one's own sake that it is loved. The Self, my dear Maitreyī, should be realised…”**
+> **“It is not for the sake of all, my dear, that all is loved, but for one's own sake that it is loved. The Self, my dear Maitreyī, should be realised…”**
 > — BU, 2.4.5
 
 The Self is primary in dearness; husband, wife, children, and wealth are dear for its sake. Inquiry into this dearness leads beyond the limited individual with whom one ordinarily identifies to knowledge of the Self (BU, 2.4.5 with Shankara's commentary).
@@ -241,7 +241,7 @@ Evaluation thus asks both whether finite goods serve legitimate empirical purpos
 
 ## 3. Modern Western Philosophy on Value
 
-Modern Western value theory contains competing accounts of what is good, what bears value, and how value is known. Metaethics examines the status of normative judgments; welfare theory examines what makes life go well for a person; practical philosophy examines reasons, duties, and conflicts. These inquiries overlap without yielding a single Western doctrine (SEP Value Theory).
+Modern Western value theory contains competing accounts of what is good, what bears value, and how value is known. The discussion moves from grounds and warranted judgment to well-being, value ordering, economic goods, and relationships. Metaethics examines the status of normative judgments; welfare theory examines what makes life go well for a person; practical philosophy examines reasons, duties, and conflicts. These inquiries overlap without yielding a single Western doctrine (SEP Value Theory).
 
 ### 3.1 Intrinsic, final and instrumental value
 
@@ -271,6 +271,8 @@ Scanlon's buck-passing account explains the value of something through other pro
 
 Hedonistic theories make pleasure and the absence of pain central to welfare. Desire theories locate welfare in the fulfilment of desires, often with qualifications concerning information, rationality, or the scope of the person's concern. Objective-list theories hold that some things can benefit a person independently of current desire or pleasure, such as knowledge, achievement, or worthwhile relationships (Parfit 1984, Appendix I; SEP Well-Being).
 
+On virtue accounts grounded in flourishing, good character and its exercise partly constitute living well (SEP Well-Being).
+
 Nozick's experience machine asks whether an entirely satisfying simulated experience would supply everything that matters in life. The thought experiment tests whether doing things, being a certain person, and contact with reality matter beyond experience. Its force depends on reflection about the case and the intuitions it elicits (Nozick 1974, pp. 42–45).
 
 ### 3.6 Plurality, comparison and trade-offs
@@ -278,6 +280,8 @@ Nozick's experience machine asks whether an entirely satisfying simulated experi
 Value pluralism holds that more than one irreducible kind of value matters. It need not imply that every pair of options is incomparable. Ranking, comparison through a common measure, compensation for a loss, and practical permission to make a trade-off are distinct questions. Some accounts allow comparison without a common numerical unit; others identify cases where familiar comparative relations fail (Berlin 1969; Raz 1986; Chang 1997; SEP Value Pluralism; SEP Incommensurable Values).
 
 Kant distinguishes price, which permits an equivalent, from dignity, which admits no equivalent. Anderson examines how different goods call for different modes of valuation and how market valuation can be inappropriate in some relations. These positions concern the standards governing valuation and exchange, including cases in which willingness to pay does not decide what should be done (Kant 1785, Section II; Anderson 1993).
+
+Questions of beauty, taste, and the validity of aesthetic judgment are developed in [Aesthetics](../Aesthetics/Aesthetics.pdf), §2.2.
 
 ### 3.7 Scheler and Hartmann on ordered values
 
@@ -360,7 +364,7 @@ The rope–snake illustration makes the difference in correction concrete. Ordin
 
 ### 5.4 Establishment, expression and learning
 
-Establishment in Madhyasth Darshan concerns understood relationship value becoming a sustained basis of fulfilment (§§1.3–1.4, 1.8). Advaita gives virtues and disciplined conduct a preparatory role in knowledge; its purposes and dearness distinctions do not supply counterparts to the darshan's established–expressed activity pairs (§§2.1–2.2, 2.6). Western accounts of character and care examine practical judgment, attention, and responsiveness (§3.9). These accounts disagree over the understanding that conduct should express and the evidence of its development.
+Establishment in Madhyasth Darshan concerns understood relationship value becoming a sustained basis of fulfilment (§§1.3–1.4, 1.8). Advaita gives virtues and disciplined conduct a preparatory role in knowledge; its purposes and dearness distinctions do not supply counterparts to the darshan's established–expressed activity pairs (§§2.1–2.2, 2.6). Western accounts of character and care examine practical judgment, attention, and responsiveness (§§3.5, 3.9). These accounts disagree over the understanding that conduct should express and the evidence of its development.
 
 Research on learning and psychological needs examines changing expectations and the motivational conditions of competence and participation (§§4.1, 4.3). It can inform investigation of value education through performance, reports, and the conditions under which learning persists. The darshan's further claim to established understanding requires assessment of the meaning understood and responsibilities fulfilled, including how these become continuous (§7.8).
 
@@ -793,7 +797,7 @@ The scientific discussion separates reward prediction error from decision valuat
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — saturation and activity (§1.2), completeness transitions (§§1.6–1.6.3), law and conformance (§1.11), and human goals and institutional fields of fulfilment (§1.15); supplies the ontological and social background to the continuity of value. Its account of Brahman as being, consciousness, and bliss (§2.2) supplies the Advaita background to dearness and fullness.
 - [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — actionless knowledge and the active knower (§1.1); knowing, accepting, evaluation, study, and transmission (§§1.5–1.6). Develops the activities of learning invoked in the present study's concise account of continuity, with the fuller educational programme left for subsequent study. Its account of superimposition, sublation, and levels of reality (§2.3) supports the Advaita discussion of mistaken valuation.
 - [Ethics and Morals in Human Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) — the detailed account of values, character, and right-use (§§3.1, 3.5–3.6).
-- [Aesthetics](../Aesthetics/Aesthetics.pdf) — usefulness, aesthetic addition, and the taste of values.
+- [Aesthetics](../Aesthetics/Aesthetics.pdf) — beauty, taste, and aesthetic judgment (§2.2); usefulness, aesthetic addition, and the taste of values (§§4.1, 4.5).
 - [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — named relationships, their purposes, and the responsibilities through which their values are fulfilled (§§1.1.3–1.2.1); Advaita's account of householder discipline and renunciation (§2.1).
 - [Spiritual Practice and Realization](../Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) — practice, understanding, and evidence in conduct.
 - [Human Behaviour and Social Organisation](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — the wider social account of family-based organisation and human fulfilment (§1.4), beyond the present study's account of continuity of value.
@@ -820,7 +824,7 @@ The scientific discussion separates reward prediction error from decision valuat
 - **Sen 1999** — Sen, A. [*Development as Freedom*](https://global.oup.com/academic/product/development-as-freedom-9780192893307). Oxford University Press. Cited: the critique of utility and the capability approach (§3.8).
 - **SEP Value Theory** — Schroeder, M. ["Value Theory."](https://plato.stanford.edu/entries/value-theory/) *Stanford Encyclopedia of Philosophy*. Cited: the shape of the field (§3.1).
 - **SEP Intrinsic vs Extrinsic Value** — Zimmerman, M. J., and Bradley, B. ["Intrinsic vs. Extrinsic Value."](https://plato.stanford.edu/entries/value-intrinsic-extrinsic/) *Stanford Encyclopedia of Philosophy*. Cited: final and intrinsic value distinguished (§3.1).
-- **SEP Well-Being** — Crisp, R. ["Well-Being."](https://plato.stanford.edu/entries/well-being/) *Stanford Encyclopedia of Philosophy*. Cited: hedonism, desire theories, and objective lists (§3.5).
+- **SEP Well-Being** — Crisp, R. ["Well-Being."](https://plato.stanford.edu/entries/well-being/) *Stanford Encyclopedia of Philosophy*. Cited: hedonism, desire theories, objective lists, and virtue as a constituent of flourishing (§3.5); the scope of welfare theory (§3.10).
 - **SEP Moral Realism** — Sayre-McCord, G. ["Moral Realism."](https://plato.stanford.edu/entries/moral-realism/) *Stanford Encyclopedia of Philosophy*. Cited: realist positions and their costs (§3.3).
 - **SEP Moral Anti-Realism** — Joyce, R. ["Moral Anti-Realism."](https://plato.stanford.edu/entries/moral-anti-realism/) *Stanford Encyclopedia of Philosophy*. Cited: expressivism, constructivism, and error theory (§3.3).
 - **SEP Fitting Attitude Theories** — ["Fitting Attitude Theories of Value."](https://plato.stanford.edu/entries/fitting-attitude-theories/) *Stanford Encyclopedia of Philosophy*. Cited: value analysed through fitting pro-attitudes (§3.4).
