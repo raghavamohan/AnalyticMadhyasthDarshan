@@ -152,6 +152,8 @@ class Node {
   assert.equal(nativeSelection,null);
   assert.equal(nodes.get('listen-selection-preview').textContent,textNode.textContent);
   assert.equal(nodes.get('listen-start').disabled,false);
+  document.fire('pointerdown',{target:nodes.get('listen-start')});
+  assert.equal(nodes.get('reader-selection-tools').hidden,true,'playback controls do not reopen the floating selection toolbar');
   nodes.get('listen-start').fire('click');
   assert.equal(synth.spoken.at(-1).text,textNode.textContent);
   synth.spoken.at(-1).onstart(); assert.equal(nodes.get('listen-pause').disabled,false);
