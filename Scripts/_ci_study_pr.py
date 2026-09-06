@@ -195,6 +195,7 @@ PDF_PIPELINE_PATHS = (
     "Scripts/_study_reader.py",
     "Scripts/_study_passages.py",
     "Scripts/_study_search.py",
+    "Scripts/_build_reader_offline.py",
     "Scripts/_pdf_resource_policy.cjs",
     "Scripts/_verify_study_svgs.py",
     "Scripts/_glossary_tooltips.py",

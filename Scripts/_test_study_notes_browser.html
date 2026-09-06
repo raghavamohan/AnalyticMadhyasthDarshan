@@ -1,0 +1,44 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Private notes transaction tests</title>
+<h1>Private notes transaction tests</h1><p>This fixture uses a separate temporary database. It never opens personal study notes.</p>
+<button id="run">Run transaction checks</button><pre id="result" role="status">Ready</pre>
+<script>
+const realIDB = window.indexedDB, databases = [], testDatabase = 'amd-notes-test-' + crypto.randomUUID();
+Object.defineProperty(window,'indexedDB',{value:{open:(_,version) => {
+  const request = realIDB.open(testDatabase,version);
+  request.addEventListener('success',() => databases.push(request.result)); return request;
+}}});
+</script>
+<script src="../Assets/reader/notes-core.js"></script>
+<script>
+document.getElementById('run').onclick = async () => {
+  const output = document.getElementById('result'), C = window.AMDNotes; let count = 0;
+  const check = (value,message) => { if (!value) throw new Error(message); count++; };
+  const fails = async fn => { let failed=false; try { await fn(); } catch (_) { failed=true; } check(failed,'Expected transaction failure'); };
+  try {
+    const one = await C.openStore(), two = await C.openStore();
+    const anchor = C.makeAnchor({id:'passage',heading:'section',text:'A quoted passage.'},0,16);
+    const note = {id:'original-note',revision:'original-revision',document:'/Studies/Test/Test.html',title:'Test',version:'a'.repeat(64),color:'yellow',quote:anchor.quote,note:'Original',anchors:[anchor],created:'2026-09-06T00:00:00Z',updated:'2026-09-06T00:00:00Z'};
+    await one.put(note); check((await two.all())[0].note==='Original','Second connection reads committed data');
+    const update = {...note,note:'First writer',revision:'updated-revision'};
+    await one.put(update,note.revision);
+    await fails(() => two.put({...note,note:'Stale writer'},note.revision));
+    await fails(() => two.remove(note.id,note.revision));
+    check((await one.all())[0].note==='First writer','Conflicting edits and deletes preserve saved text');
+    const backup = C.parseBackup(C.backup(await one.all()));
+    const same = await two.restore(backup); check(same.skipped===1 && same.added===0,'Identical restore is idempotent');
+    const conflict = await two.restore([note]); check(conflict.added===1,'Conflicting imported record is retained separately');
+    check((await one.all()).length===2,'Restore retains both versions');
+    const many = Array.from({length:201},(_,i) => ({...note,id:'new-note-'+i}));
+    await fails(() => one.restore(many)); check((await two.all()).length===2,'Over-limit import rolls back all prior puts');
+    await fails(() => one.restore([{...note,id:'valid-note'}, {...note,id:'invalid-note',version:'bad'}]));
+    check((await two.all()).length===2,'Malformed import rolls back preceding valid records');
+    const results = await Promise.allSettled([one.put({...update,revision:'writer-one'},update.revision),two.put({...update,revision:'writer-two'},update.revision)]);
+    check(results.filter(r => r.status==='fulfilled').length===1,'Exactly one concurrent writer commits');
+    const stored = (await two.all()).find(n => n.id===note.id); await two.remove(stored.id,stored.revision);
+    check((await one.all()).length===1,'Revision-matched removal succeeds');
+    output.textContent='PASS: '+count+' IndexedDB transaction, conflict, import and recovery checks.';
+  } catch (error) { output.textContent='FAIL: '+error.stack; }
+  finally { for (const db of databases) db.close(); realIDB.deleteDatabase(testDatabase); }
+  document.getElementById('run').disabled=true;
+};
+</script></html>

@@ -138,6 +138,8 @@ def write_search_catalog() -> None:
     manifest = manifest_content(documents)
     write_text_lf(DATA / "manifest.json", manifest)
     write_text_lf(BASE / "Studies/search.html", search_page(digest(manifest.encode("utf-8"))[:16]))
+    from _build_reader_offline import write_offline_catalog
+    write_offline_catalog()
 
 
 def write_search_document(source: Path, rendered: str) -> None:

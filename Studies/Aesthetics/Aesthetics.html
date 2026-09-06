@@ -713,6 +713,7 @@
 </style>
 <link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=97e069fdb79e189c"/>
 <link rel="stylesheet" media="screen" href="../../Assets/reader/search.css?v=c92940019b038782"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/study-tools.css?v=dbd19ff098b65862"/>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -745,7 +746,9 @@
   <div class="reader-tabs" role="tablist" aria-label="Study tools">
     <button type="button" role="tab" id="reader-tab-contents" aria-controls="reader-contents" aria-selected="true">Contents</button>
     <button type="button" role="tab" id="reader-tab-search" aria-controls="reader-search" aria-selected="false" tabindex="-1">Find</button>
+    <button type="button" role="tab" id="reader-tab-notes" aria-controls="reader-notes" aria-selected="false" tabindex="-1">Notes</button>
     <button type="button" role="tab" id="reader-tab-bookmarks" aria-controls="reader-bookmarks" aria-selected="false" tabindex="-1">Bookmarks</button>
+    <button type="button" role="tab" id="reader-tab-listen" aria-controls="reader-listen" aria-selected="false" tabindex="-1">Listen</button>
     <button type="button" role="tab" id="reader-tab-display" aria-controls="reader-display" aria-selected="false" tabindex="-1">Display</button>
   </div>
   <section id="reader-contents" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-contents" tabindex="0">
@@ -762,6 +765,37 @@
     <p id="reader-search-status" class="search-status" role="status" aria-live="polite">Enter a word or phrase.</p>
     <ol id="reader-search-results" class="search-results"></ol>
     <button type="button" id="reader-search-more" hidden>Show more results</button>
+  </section>
+  <section id="reader-notes" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-notes" tabindex="0" hidden>
+    <p class="reader-helper">Select text to highlight or annotate it. With no selection, add a note to the passage at the top of the page.</p>
+    <button type="button" id="notes-new">Highlight or add a note</button>
+    <p id="notes-status" class="reader-helper" role="status" aria-live="polite">Opening private notes…</p>
+    <form id="notes-editor" hidden>
+      <p id="notes-quote"></p>
+      <label for="notes-color">Highlight color</label><select id="notes-color"><option value="yellow">Yellow</option><option value="green">Green</option><option value="blue">Blue</option><option value="rose">Rose</option></select>
+      <label for="notes-text">Your private note</label><textarea id="notes-text" rows="6" maxlength="12000" placeholder="What does this claim mean? What should I check?"></textarea>
+      <p id="notes-save-state" role="status" aria-live="polite"></p>
+      <div class="study-tool-actions"><button type="submit">Save note</button><button type="button" id="notes-cancel">Close editor</button></div>
+      <button type="button" id="notes-reload" hidden>Reload saved note</button>
+      <button type="button" id="notes-reattach">Attach to current selection</button>
+    </form>
+    <label for="notes-scope">Show notes</label><select id="notes-scope"><option value="document">This document</option><option value="all">All documents</option></select>
+    <ol id="notes-list" class="study-note-list" aria-label="Private notes"></ol>
+    <details><summary>Export or restore notes</summary><p class="reader-helper">Exports include the notes shown above and any unsaved editor text. Conflicting imported notes are kept as separate copies.</p>
+      <div class="study-tool-actions"><button type="button" id="notes-export-md">Export Markdown</button><button type="button" id="notes-export-json">Export JSON</button></div>
+      <label for="notes-import">Restore a JSON backup</label><input id="notes-import" type="file" accept="application/json,.json"/>
+      <div id="notes-import-review" hidden><p id="notes-import-description"></p><button type="button" id="notes-import-confirm">Import these notes</button><button type="button" id="notes-import-cancel">Cancel import</button></div>
+    </details>
+    <p class="reader-helper">Notes stay on this device and are not sent to the website. Anyone using this browser profile can read them. Export a backup before clearing browser data.</p>
+    <a href="/Studies/notebook.html">My notes &amp; saved studies →</a>
+  </section>
+  <section id="reader-listen" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-listen" tabindex="0" hidden>
+    <p class="reader-helper">Select a passage, then read it using a voice installed on this device. No audio starts automatically.</p>
+    <label for="listen-voice">Device voice</label><select id="listen-voice"></select>
+    <label for="listen-speed">Reading speed</label><select id="listen-speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select>
+    <div class="study-tool-actions"><button type="button" id="listen-start">Read selection</button><button type="button" id="listen-pause" disabled>Pause</button><button type="button" id="listen-resume" disabled>Resume</button><button type="button" id="listen-stop" disabled>Stop</button></div>
+    <p id="listen-status" role="status" aria-live="polite">Open Listen to check device voices.</p>
+    <p class="reader-helper">Only voices reported by your browser as local are offered. Voice availability and offline support vary by device. Pronunciation of Sanskrit, Hindi, formulas and abbreviations may be imperfect. Highlighting follows each spoken sentence or short chunk.</p>
   </section>
   <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
     <form id="reader-bookmark-form">
@@ -783,12 +817,21 @@
     <select id="reader-color-theme"><option value="system">Follow device</option><option value="light">Light</option><option value="sepia">Sepia</option><option value="dark">Dark</option></select>
     <button type="button" id="reader-reset-display">Reset display</button>
     <p class="reader-helper">Display choices apply to study pages. PDF and print keep their original layout.</p>
+    <details id="reader-offline-tools"><summary>Offline reading</summary>
+      <p class="reader-helper">Save this document and its reading tools, images and fonts in this browser. Source PDFs, discussions and collection search require a connection.</p>
+      <div class="study-tool-actions"><button type="button" id="offline-save">Save for offline reading</button><button type="button" id="offline-remove" hidden>Remove saved copy</button></div>
+      <p id="offline-status" role="status" aria-live="polite">Open this section to check saved copies.</p>
+      <a href="/Studies/notebook.html">My notes &amp; saved studies →</a>
+      <p class="reader-helper">Browser storage can be cleared or evicted. Notes and downloaded backups are separate from saved study copies.</p>
+    </details>
   </section>
   <footer class="reader-panel-footer"><p id="reader-storage-hint">Reading position and bookmarks stay in this browser on this device.</p>
     <button type="button" id="reader-clear-data">Clear saved places for this study</button>
     <div id="reader-clear-confirm" hidden><p>Remove this study’s saved position and bookmarks?</p><button type="button" id="reader-clear-yes">Remove saved places</button><button type="button" id="reader-clear-no">Keep them</button></div>
   </footer>
 </dialog>
+<div id="reader-selection-tools" class="reader-chrome" role="region" aria-label="Selected text tools" hidden><button type="button" id="selection-highlight">Highlight</button><button type="button" id="selection-note">Note</button><button type="button" id="selection-listen">Listen</button><button type="button" id="selection-dismiss" aria-label="Hide selection tools">&#215;</button></div>
+<p id="reader-offline-banner" class="reader-chrome" role="status" hidden></p>
 <dialog id="reader-viewer" class="reader-chrome" aria-labelledby="reader-viewer-title">
   <header class="reader-panel-header"><h2 id="reader-viewer-title">Passage tools</h2><button type="button" id="reader-viewer-close" aria-label="Close preview">&#215;</button></header>
   <p id="reader-viewer-status" role="status" aria-live="polite"></p>
@@ -1558,7 +1601,9 @@ But: What does this aesthetic act do in human living and coexistence?
 </ul></main>
 <script defer src="../../Assets/reader/search.js?v=978601cd252a8f49"></script>
 <script defer src="../../Assets/reader/reader-features.js?v=507b4490fab797a0"></script>
-<script defer src="../../Assets/reader/reader.js?v=2baa7fc15a558564"></script><script>
+<script defer src="../../Assets/reader/notes-core.js?v=cf0d5435124d9148"></script>
+<script defer src="../../Assets/reader/study-tools.js?v=031e252582abc5dc" data-offline-client="../../Assets/reader/offline-client.js?v=99de458f3f336edb"></script>
+<script defer src="../../Assets/reader/reader.js?v=7c83f442bf83f5a4"></script><script>
 (() => {
   let floatPanel = document.getElementById("term-tip-float");
   if (!floatPanel) {
