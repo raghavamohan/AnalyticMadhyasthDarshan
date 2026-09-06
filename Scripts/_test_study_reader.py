@@ -26,12 +26,14 @@ class StudyReaderTests(unittest.TestCase):
         self.assertEqual(fields['title'],['Study feedback: '+title])
         self.assertEqual(fields['template'],['study-feedback.yml'])
         self.assertEqual(len(soup.select('.study-toolbar-feedback')),1)
-        import yaml
-        form = yaml.safe_load((BASE / '.github/ISSUE_TEMPLATE/study-feedback.yml').read_text(encoding='utf-8'))
-        inputs = {item['id']: item for item in form['body'] if 'id' in item}
-        self.assertEqual(inputs['study']['type'],'input')
-        self.assertEqual(inputs['location']['type'],'input')
-        self.assertTrue(inputs['description']['validations']['required'])
+        form = (BASE / '.github/ISSUE_TEMPLATE/study-feedback.yml').read_text(encoding='utf-8')
+        # The link's custom query keys must name text fields in the generated
+        # GitHub form. This contract check needs no separate YAML dependency.
+        inputs = {identifier: kind for kind, identifier in re.findall(r'^  - type: (input|textarea)\n    id: (\w+)\n',form,re.M)}
+        self.assertEqual(inputs['study'],'input')
+        self.assertEqual(inputs['location'],'input')
+        self.assertEqual(inputs['description'],'textarea')
+        self.assertIn('required: true',form.split('    id: description\n',1)[1])
 
     def test_reader_data_and_recovery(self):
         result = subprocess.run(["node", str(BASE / "Scripts/_test_study_reader.mjs")], capture_output=True, text=True)
