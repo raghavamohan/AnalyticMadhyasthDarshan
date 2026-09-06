@@ -123,7 +123,7 @@ class Node {
     getSelection:window.getSelection,NodeFilter:{SHOW_TEXT:4,FILTER_REJECT:2,FILTER_ACCEPT:1},
     setTimeout:time.setTimer,clearTimeout:time.clearTimer,console};
   vm.runInNewContext(fs.readFileSync(new URL('../Assets/reader/study-tools.js',import.meta.url),'utf8'),sandbox);
-  const context = {main,passages:[{id:'p-1',heading:'section',text:textNode.textContent,node:paragraph}],selectTab:() => {},openPanel:() => { nativeSelection = null; }};
+  const context = {main,tools:nodes.get('reader-tools'),wide:{matches:false},passages:[{id:'p-1',heading:'section',text:textNode.textContent,node:paragraph}],selectTab:() => {},openPanel:() => { nativeSelection = null; nodes.get('reader-tools').open = true; }};
   window.AMDStudyTools(context); // Deliberately never awaits IndexedDB.
   assert.equal(nodes.get('listen-test').disabled,true);
   assert.equal(nodes.get('selection-note').disabled,true);
@@ -159,6 +159,8 @@ class Node {
   synth.spoken.at(-1).onstart(); assert.equal(nodes.get('listen-pause').disabled,false);
   synth.fire('voiceschanged'); assert.match(nodes.get('listen-status').textContent,/Reading 1/);
   nodes.get('listen-stop').fire('click');
+  select(0,12); document.fire('selectionchange'); time.flush();
+  assert.equal(nodes.get('reader-selection-tools').hidden,true,'native range updates behind an open mobile drawer do not reveal floating controls');
   main.fire('pointerdown');
   assert.equal(nodes.get('listen-start').disabled,true);
   assert.match(nodes.get('listen-selection-label').textContent,/No passage/);

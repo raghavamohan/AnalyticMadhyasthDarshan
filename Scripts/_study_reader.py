@@ -47,6 +47,7 @@ def reader_controls() -> str:
   <button type="button" id="reader-resume-go">Resume</button>
   <button type="button" id="reader-resume-dismiss">Start here</button>
 </section>
+<div id="reader-tools-backdrop" class="reader-chrome" aria-hidden="true" hidden></div>
 <dialog id="reader-tools" class="reader-chrome" aria-labelledby="reader-tools-title">
   <header class="reader-panel-header"><h2 id="reader-tools-title">Study tools</h2><button type="button" id="reader-close" aria-label="Close study tools">&#215;</button></header>
   <div class="reader-tabs" role="tablist" aria-label="Study tools">
