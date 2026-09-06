@@ -11,6 +11,7 @@ import markdown
 from bs4 import BeautifulSoup
 
 from _safe_study_html import sanitize_author_html
+from _study_reader import reader_assets, reader_bootstrap, reader_controls
 from _verify_study_svgs import verify_study_svgs, verify_svg_file
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION
@@ -445,7 +446,6 @@ def _study_contents_html(html_body: str) -> str:
 {items}
     </ol>
   </nav>
-{_study_contents_open_script()}
 </details>
 """
 
@@ -516,7 +516,8 @@ def _study_toolbar_html(md_path: Path, *, title: str) -> str:
     feedback_href = _feedback_href(title)
     return f"""<nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="{catalog_href}" aria-label="Back to all studies">&larr; Studies</a>
+    <span class="reader-toolbar-start"><a class="study-toolbar-link study-toolbar-back" href="{catalog_href}" aria-label="Back to all studies">&larr; Studies</a>
+      <button type="button" id="reader-open" aria-controls="reader-tools" aria-expanded="false" hidden>Contents &amp; tools</button></span>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="{discuss_href}">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download aria-label="Download PDF">PDF</a>
@@ -528,114 +529,10 @@ def _study_toolbar_html(md_path: Path, *, title: str) -> str:
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <span id="reader-current" aria-label="Current section">Introduction</span>
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
   </div>
 </nav>
-"""
-
-
-def _study_section_nav_js() -> str:
-    return """<script>
-(() => {
-  const toolbar = document.querySelector(".study-toolbar");
-  const prev = document.getElementById("study-section-prev");
-  const next = document.getElementById("study-section-next");
-  if (!toolbar || !prev || !next) return;
-
-  const sections = Array.from(document.querySelectorAll("h2[id]"));
-  const syncToolbarHeight = () => {
-    document.documentElement.style.setProperty(
-      "--study-toolbar-height",
-      `${toolbar.offsetHeight}px`
-    );
-  };
-
-  const sectionLabel = el => el.textContent.replace(/\\s+/g, " ").trim();
-
-  const marker = () => (toolbar.offsetHeight || 0) + 16;
-
-  const currentIndex = () => {
-    const y = window.scrollY + marker();
-    let idx = -1;
-    for (let i = 0; i < sections.length; i++) {
-      if (sections[i].offsetTop <= y) idx = i;
-      else break;
-    }
-    return idx;
-  };
-
-  const setDisabled = (link, disabled, fallback) => {
-    link.classList.toggle("is-disabled", disabled);
-    if (disabled) {
-      link.removeAttribute("href");
-      link.setAttribute("aria-disabled", "true");
-      link.textContent = fallback;
-    } else {
-      link.setAttribute("aria-disabled", "false");
-    }
-  };
-
-  const update = () => {
-    if (!sections.length) {
-      setDisabled(prev, true, "\\u2190 Previous section");
-      setDisabled(next, true, "Next section \\u2192");
-      return;
-    }
-
-    const idx = currentIndex();
-
-    if (idx <= 0) {
-      setDisabled(prev, true, "\\u2190 Previous section");
-    } else {
-      prev.classList.remove("is-disabled");
-      prev.href = `#${sections[idx - 1].id}`;
-      prev.setAttribute("aria-disabled", "false");
-      prev.textContent = `\\u2190 ${sectionLabel(sections[idx - 1])}`;
-    }
-
-    if (idx >= sections.length - 1) {
-      setDisabled(next, true, "Next section \\u2192");
-    } else {
-      next.classList.remove("is-disabled");
-      next.href = `#${sections[idx + 1].id}`;
-      next.setAttribute("aria-disabled", "false");
-      next.textContent = `${sectionLabel(sections[idx + 1])} \\u2192`;
-    }
-  };
-
-  syncToolbarHeight();
-  update();
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", () => {
-    syncToolbarHeight();
-    update();
-  });
-  const scrollToSection = id => {
-    const target = document.getElementById(id);
-    if (!target) return;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    history.pushState(null, "", `#${encodeURIComponent(id)}`);
-    target.setAttribute("tabindex", "-1");
-    target.focus({ preventScroll: true });
-    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-  };
-
-  prev.addEventListener("click", event => {
-    if (prev.classList.contains("is-disabled")) return;
-    const href = prev.getAttribute("href");
-    if (!href || !href.startsWith("#")) return;
-    event.preventDefault();
-    scrollToSection(href.slice(1));
-  });
-  next.addEventListener("click", event => {
-    if (next.classList.contains("is-disabled")) return;
-    const href = next.getAttribute("href");
-    if (!href || !href.startsWith("#")) return;
-    event.preventDefault();
-    scrollToSection(href.slice(1));
-  });
-})();
-</script>
 """
 
 
@@ -736,7 +633,7 @@ def _mermaid_loader_html(html_body: str) -> str:
     return """<script type="module">
 import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@__VERSION__/dist/mermaid.esm.min.mjs";
 const system = window.matchMedia("(prefers-color-scheme: dark)");
-const diagrams = Array.from(document.querySelectorAll(".mermaid"), node => ({ node, source: node.textContent }));
+const diagrams = Array.from(document.querySelectorAll(".mermaid"), node => ({ node, source: node.dataset.readerSource || (node.dataset.readerSource = node.textContent) }));
 let queue = Promise.resolve();
 let generation = 0;
 const render = () => {
@@ -828,64 +725,6 @@ _STUDY_DARK_DECLARATIONS = """
 """
 
 
-def _study_theme_bootstrap_html() -> str:
-    """Apply a theme chosen on the studies index before first paint.
-
-    Only stamps data-theme when the reader actually made a choice, so anyone who
-    has not stays on prefers-color-scheme and keeps following their OS.
-    """
-    return """<script>
-(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
-</script>
-"""
-
-
-def _study_theme_toggle_js() -> str:
-    return """<script>
-(() => {
-  const toggle = document.getElementById("study-theme-toggle");
-  if (!toggle) return;
-  const label = toggle.querySelector(".study-theme-toggle-label");
-  const root = document.documentElement;
-  const system = window.matchMedia("(prefers-color-scheme: dark)");
-  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
-  const paint = () => {
-    const next = active() === "dark" ? "Light" : "Dark";
-    if (label) label.textContent = next;
-    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
-  };
-  toggle.addEventListener("click", () => {
-    const next = active() === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("amd-theme", next); } catch (e) {}
-    paint();
-  });
-  system.addEventListener("change", paint);
-  paint();
-})();
-</script>
-"""
-
-
-def _study_contents_open_script() -> str:
-    """Open the contents list before later body content is parsed.
-
-    The block stays closed in the HTML so small screens never pay for its
-    height. A parser-blocking script inside the element opens it on large
-    screens before the reading key exists, so first paint already has the
-    final height.
-    """
-    return """<script>
-(function(){
-  var toc = document.getElementById("study-contents");
-  if (toc && window.matchMedia("(min-width: 760px)").matches && window.innerHeight >= 640) {
-    toc.open = true;
-  }
-})();
-</script>
-"""
-
-
 def _prefix_selectors(css: str, prefix: str) -> str:
     """Scope every rule in a flat CSS block under `prefix`.
 
@@ -913,7 +752,7 @@ def _study_screen_dark_css() -> str:
     """
     chosen = _prefix_selectors(_STUDY_DARK_DECLARATIONS, 'html[data-theme="dark"]')
     inherited = _prefix_selectors(
-        _STUDY_DARK_DECLARATIONS, 'html:not([data-theme="light"])'
+        _STUDY_DARK_DECLARATIONS, 'html:not([data-theme])'
     )
     return f"""
   @media screen {{
@@ -1094,11 +933,11 @@ def convert_to_html(
         else ""
     )
     mermaid_loader = _mermaid_loader_html(html_body) if include_web_chrome else ""
-    section_nav_js = _study_section_nav_js() if include_web_chrome else ""
+    reader_css, section_nav_js = reader_assets(input_path) if include_web_chrome else ("", "")
+    reading_tools = reader_controls() if include_web_chrome else ""
     term_tip_js = _term_tip_js() if include_web_chrome else ""
     screen_dark_css = _study_screen_dark_css() if include_web_chrome else ""
-    theme_bootstrap = _study_theme_bootstrap_html() if include_web_chrome else ""
-    theme_toggle_js = _study_theme_toggle_js() if include_web_chrome else ""
+    theme_bootstrap = reader_bootstrap() if include_web_chrome else ""
     katex_css = _load_katex_css() if has_latex_math else ""
 
     kd_document_css = ""
@@ -1437,7 +1276,7 @@ def convert_to_html(
     html { color-scheme: light; }
     html[data-theme="dark"] { color-scheme: dark; }
     @media (prefers-color-scheme: dark) {
-      html:not([data-theme="light"]) { color-scheme: dark; }
+      html:not([data-theme]) { color-scheme: dark; }
     }
     body {
       background: #fff;
@@ -1498,6 +1337,7 @@ def convert_to_html(
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
+    .reader-chrome { display: none !important; }
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
@@ -1772,11 +1612,12 @@ def convert_to_html(
   }}
 {katex_css}{web_chrome_css}{screen_dark_css}
 </style>
+{reader_css}
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
-{toolbar}<main id="main">{html_body}</main>
-{mermaid_loader}{section_nav_js}{term_tip_js}{theme_toggle_js}
+{toolbar}{reading_tools}<main id="main">{html_body}</main>
+{mermaid_loader}{section_nav_js}{term_tip_js}
 </body>
 </html>"""
 

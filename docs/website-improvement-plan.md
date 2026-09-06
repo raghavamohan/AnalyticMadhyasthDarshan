@@ -23,7 +23,7 @@ This plan records a source review and sampled live browser checks, not a penetra
 
 ## Delivery phases
 
-Estimates are indicative engineering effort for one developer, subject to review and testing. Phase 1 is authorized for implementation; the remaining phases are recommendations.
+Estimates are indicative engineering effort for one developer, subject to review and testing. Phase 1 has been implemented. Phase 2 is authorized and its implementation is recorded below; Phases 3–6 remain recommendations.
 
 | Phase | Deliverables | Acceptance criteria | Estimate |
 | --- | --- | --- | --- |
@@ -122,3 +122,18 @@ Follow-up limits remain explicit: KV logout propagation is not instantaneous acr
 **Open dependency follow-up:** the Scripts audit still reports four high-severity package entries, all from the same `extract-zip` advisory through Puppeteer's browser installer. A malicious browser ZIP can contain unsafe symlinks. This is a build-tool dependency, and the document renderer does not accept ZIP archives; nevertheless, the dependency remains vulnerable. Keep browser acquisition restricted to the configured trusted source. Schedule a dedicated Puppeteer/toolchain upgrade next, with Node compatibility, the explicit Chrome pin, PDF reproducibility, pagination, math, diagrams and presentation tests verified together. The audit suggests Puppeteer 25.10.0, a major upgrade; this phase retains Puppeteer 24.43.1 and Chrome 148.0.7778.97 to preserve the established renderer contract. See the [extract-zip advisory](https://github.com/advisories/GHSA-jmr9-qjv8-65gv). This is a recorded residual risk, not an audit-clean claim.
 
 Sanitizer implementation follows the [nh3 HTML5 sanitizer documentation](https://nh3.readthedocs.io/en/latest/).
+
+## Phase 2 implementation record
+
+Implemented on `codex/reader-essentials`, 6 September 2026. Production rollout requires PR review and merge.
+
+- **Contents beside the text:** a collapsible desktop panel follows the current heading and expands its section's subsections. Previous/Next and the current heading remain in the toolbar. The panel becomes a modal drawer on smaller screens, with keyboard tabs, Escape and focus restoration.
+- **Reading comfort:** five text sizes, three line spacings, three column widths, and device/light/sepia/dark colors. Preferences survive reload and apply across study readers. Changing the type size or opening the desktop panel keeps the same passage in view.
+- **Resume a passage:** save a paragraph identifier, its section, an excerpt and the position within the paragraph. An explicit Resume banner appears on return; a supplied deep link takes precedence. If text changes, recovery uses an unambiguous excerpt in the original section or opens that section with a notice. A missing passage is reported instead of guessing.
+- **Named bookmarks:** add, revisit, rename and remove up to 100 places per document. Names and excerpts render as text. Autosave reads the latest stored bookmark collection, and other tabs receive updates. Confirmed cleanup removes only the current document's saved places.
+- **Local storage:** no account or new service is required. Storage failures retain changes for the visit and explain that they cannot persist. Unreadable saved data is preserved until the reader deliberately clears it. These are device-local conveniences; clearing browser data removes them, and cross-device sync/export remain later work.
+- **Shared delivery:** screen CSS and deferred JavaScript are separate reusable assets, versioned by their contents. All 46 tracked study and companion readers were regenerated. An enforced check catches stale asset references. These two screen-only assets do not invalidate PDF caches; changes to the markup helper still trigger the PDF verification workflows.
+
+Validation: 31 published Markdown PDFs rebuilt through the internal pipeline. Draft, Released and formal/math/diagram samples remained byte-identical to their pre-change PDFs. Automated checks cover preference and stored-data validation, passage recovery after edits, ambiguous matches, navigation boundaries, control wiring, print isolation, asset synchronization and cache behavior. Chromium browser checks cover desktop and 320/390-pixel layouts, the largest text setting, theme persistence, section links, browser Back, explicit resume, bookmark renaming, cross-tab changes, keyboard drawer operation, unavailable/full storage, unreadable-data recovery and hostile bookmark labels.
+
+Before calling this a complete accessibility or usability evaluation, test with screen-reader users and readers using Safari/Firefox and real mobile devices. Observe whether readers can resume and find an argument without assistance. Phase 3 should add passage search, citation previews and enlarged diagrams/tables; a vector database remains unnecessary for the reader essentials delivered here.

@@ -1,0 +1,82 @@
+/* Screen stylesheet only. The generator also hides reader chrome in print. */
+@media screen {
+  :root { --reader-font: 18px; --reader-line: 1.75; --reader-width: 68ch; --reader-surface: #fffdf9; --reader-ink: #302d27; --reader-muted: #686155; --reader-border: #d9d2c5; --reader-accent: #245f78; --reader-active: #eaf1f3; }
+  html[data-theme="dark"] { --reader-surface: #211e19; --reader-ink: #eee7db; --reader-muted: #bcb09e; --reader-border: #51483a; --reader-accent: #9cc9dc; --reader-active: #303a3c; }
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme]) { --reader-surface: #211e19; --reader-ink: #eee7db; --reader-muted: #bcb09e; --reader-border: #51483a; --reader-accent: #9cc9dc; --reader-active: #303a3c; }
+  }
+  body { font-size: var(--reader-font); line-height: var(--reader-line); max-width: var(--reader-width); box-sizing: border-box; }
+  [hidden] { display: none !important; }
+  html[data-theme="sepia"] { color-scheme: light; --reader-surface: #f4ead7; --reader-ink: #3b3021; --reader-muted: #71604c; --reader-border: #cbbc9e; --reader-accent: #27596d; --reader-active: #e7ddc8; }
+  html[data-theme="sepia"] body { color: #3b3021; background: #f6efdf; }
+  html[data-theme="sepia"] :is(h1,h2,h3,h4) { color: #3b3021; border-color: #cbbc9e; }
+  html[data-theme="sepia"] :is(a,a:visited) { color: #27596d; }
+  html[data-theme="sepia"] :is(blockquote,pre,code,th,tr:nth-child(even)) { background: #ece2ce; color: #3b3021; }
+  html[data-theme="sepia"] :is(th,td) { border-color: #cbbc9e; }
+  html[data-theme="sepia"] .term-tip-panel { color: #3b3021; background: #f4ead7; border-color: #cbbc9e; }
+  .study-toolbar { background: var(--reader-surface); border-color: var(--reader-border); }
+  .reader-toolbar-start { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .reader-toolbar-start button { color: var(--reader-accent); border: 1px solid var(--reader-border); border-radius: 6px; background: transparent; font: 600 12px 'Segoe UI',sans-serif; min-height: 44px; padding: 4px 10px; cursor: pointer; }
+  .study-toolbar-row--sections { grid-template-columns: auto minmax(0,1fr) auto; gap: 8px; }
+  #reader-current { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; color: var(--reader-muted); text-align: center; font-size: 12px; }
+  .study-toolbar-section { min-height: 44px; display: inline-flex; align-items: center; }
+  .reader-chrome { font: 14px/1.5 'Segoe UI',system-ui,sans-serif; color: var(--reader-ink); }
+  .reader-chrome p { font: inherit; text-align: left; margin: 0 0 12px; }
+  .reader-chrome :is(button,input,select) { font: inherit; color: inherit; box-sizing: border-box; min-height: 44px; }
+  .reader-chrome :is(button,select) { cursor: pointer; }
+  .reader-chrome button { background: var(--reader-surface); border: 1px solid var(--reader-border); border-radius: 6px; padding: 8px 10px; }
+  .reader-chrome button:hover { background: var(--reader-active); }
+  :is(.reader-chrome,.reader-toolbar-start) :is(button,a,input,select):focus-visible { outline: 2px solid var(--reader-accent); outline-offset: 2px; }
+  .reader-resume { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 14px; border: 1px solid var(--reader-border); background: var(--reader-surface); border-radius: 8px; margin: 0 0 22px; }
+  .reader-resume > div { flex: 1 1 180px; min-width: 0; }
+  #reader-resume-label { display: block; font-size: 12px; color: var(--reader-muted); }
+  #reader-tools { box-sizing: border-box; position: fixed; inset: 12px auto 12px 12px; margin: 0; padding: 0; width: min(390px,calc(100vw - 24px)); height: calc(100dvh - 24px); max-height: none; max-width: none; border: 1px solid var(--reader-border); border-radius: 12px; background: var(--reader-surface); color: var(--reader-ink); box-shadow: 0 12px 50px #0002; z-index: 50; overflow: hidden; }
+  #reader-tools[open] { display: flex; flex-direction: column; }
+  #reader-tools:not([open]) { display: none; }
+  #reader-tools::backdrop { background: #151a20a8; }
+  html[data-reader-modal] { overflow: hidden; }
+  .reader-panel-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 12px 12px 8px 16px; }
+  #reader-tools-title { font: 600 16px/1.3 'Segoe UI',sans-serif; border: 0; padding: 0; margin: 0; color: inherit; }
+  #reader-close { font-size: 24px; padding: 0; width: 44px; flex-shrink: 0; border-color: transparent; }
+  .reader-tabs { display: flex; gap: 2px; border-bottom: 1px solid var(--reader-border); padding: 0 10px; }
+  .reader-tabs button { flex: 1; border: 0; border-bottom: 3px solid transparent; border-radius: 4px 4px 0 0; padding: 8px 4px; font-size: 13px; }
+  .reader-tabs button[aria-selected="true"] { color: var(--reader-accent); border-bottom-color: var(--reader-accent); font-weight: 600; }
+  .reader-tab-panel { padding: 16px; flex: 1; overflow-y: auto; min-height: 0; overscroll-behavior: contain; }
+  .reader-helper { color: var(--reader-muted); font-size: 12px !important; }
+  .reader-outline-group { border-bottom: 1px solid var(--reader-border); padding: 4px 0; }
+  .reader-outline-row { display: flex; align-items: flex-start; gap: 3px; }
+  .reader-outline-row > a { flex: 1; font-weight: 600; }
+  #reader-outline a { display: block; padding: 11px 7px; color: var(--reader-ink); text-decoration: none; font-size: 13px; line-height: 1.55; overflow-wrap: anywhere; border-radius: 4px; }
+  #reader-outline a:hover { background: var(--reader-active); }
+  #reader-outline a[aria-current="location"] { background: var(--reader-active); color: var(--reader-accent); box-shadow: inset 3px 0 var(--reader-accent); }
+  .reader-outline-row > button { width: 36px; padding: 8px 0; border-color: transparent; flex: 0 0 36px; }
+  .reader-outline-children { padding-left: 12px; }
+  #reader-outline a[data-depth="3"] { padding-left: 18px; font-size: 12px; }
+  .reader-tab-panel label { display: block; font-weight: 600; margin: 0 0 6px; }
+  .reader-tab-panel :is(input,select) { display: block; width: 100%; border: 1px solid var(--reader-border); border-radius: 6px; background: var(--reader-surface); padding: 8px; margin-bottom: 18px; }
+  #reader-reset-display { margin: 4px 0 18px; }
+  .reader-primary { width: 100%; margin-bottom: 20px; color: var(--reader-accent) !important; font-weight: 600 !important; }
+  #reader-bookmark-list { list-style: none; padding: 0; margin: 0; }
+  #reader-bookmark-list li { padding: 12px 0; border-top: 1px solid var(--reader-border); }
+  #reader-bookmark-list .reader-bookmark-go { display: block; width: 100%; text-align: left; border: 0; padding: 4px 0; color: var(--reader-accent); font-weight: 600; overflow-wrap: anywhere; }
+  .reader-bookmark-excerpt { font-size: 12px !important; color: var(--reader-muted); margin: 4px 0 8px !important; overflow-wrap: anywhere; }
+  .reader-bookmark-actions { display: flex; gap: 6px; }
+  .reader-bookmark-actions button { font-size: 12px; }
+  .reader-panel-footer { padding: 10px 16px 12px; border-top: 1px solid var(--reader-border); max-height: 32%; overflow-y: auto; }
+  .reader-panel-footer p { font-size: 11px; color: var(--reader-muted); margin: 0; }
+  #reader-clear-data { text-align: left; border: 0; padding: 6px 0; font-size: 11px; color: var(--reader-muted); }
+  #reader-clear-confirm p { margin: 8px 0; }
+  #reader-clear-confirm button { font-size: 12px; margin-right: 4px; }
+  #reader-message { position: fixed; bottom: 16px; left: 50%; transform: translateX(-50%); padding: 12px 18px; max-width: min(560px,calc(100vw - 40px)); width: max-content; box-sizing: border-box; border: 1px solid var(--reader-border); border-radius: 8px; background: var(--reader-surface); box-shadow: 0 4px 22px #0003; z-index: 100; }
+  #main [data-reader-passage] { scroll-margin-top: calc(var(--study-toolbar-height,100px) + 12px); }
+  @media (min-width: 1180px) {
+    #reader-tools { inset: 24px auto 24px 24px; width: 260px; height: calc(100dvh - 48px); box-shadow: none; }
+    html[data-reader-panel="open"] body { width: min(var(--reader-width),calc(100vw - 330px)); max-width: none; margin-left: max(300px,calc((100vw - var(--reader-width) + 280px)/2)); margin-right: 24px; }
+  }
+  @media (max-width: 640px) {
+    body { padding-inline: 16px; margin-top: 12px; }
+    .reader-toolbar-start { width: 100%; }
+    .study-toolbar-row--sections { gap: 5px; }
+    #reader-current { font-size: 11px; }
+  }
+}
