@@ -58,7 +58,13 @@
     }
     return answer;
   }
-  const Core = { preferences, passageKey, cursor, state, resolvePlace, lastBefore };
+  function readingIndex(items, y) {
+    // Heading geometry is fractional, while scrolling and focus can round the
+    // landing position. Treat headings within 2 CSS pixels as already reached
+    // so Next cannot keep selecting the heading we just opened.
+    return lastBefore(items,y + 2);
+  }
+  const Core = { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex };
   if (typeof module !== 'undefined' && module.exports) module.exports = Core;
   if (typeof document === 'undefined') return;
 
@@ -175,7 +181,7 @@
   const toolbar = document.querySelector('.study-toolbar');
   const marker = () => toolbar.offsetHeight + 12;
   function capture() {
-    const y = scrollY + marker(), item = passages[Math.max(0,lastBefore(passages,y))];
+    const y = scrollY + marker(), item = passages[Math.max(0,readingIndex(passages,y))];
     if (!item) return null;
     return { anchor: item.id, heading: item.heading, quote: item.text.slice(0,160),
       label: headings.find(h => h.id === item.heading)?.text || 'Introduction',
@@ -262,7 +268,7 @@
     else { link.removeAttribute('href'); link.removeAttribute('title'); }
   }
   function updatePosition() {
-    const y = scrollY + marker(), index = lastBefore(headings,y), major = lastBefore(sections,y);
+    const y = scrollY + marker(), index = readingIndex(headings,y), major = readingIndex(sections,y);
     const current = headings[index];
     if (index !== currentIndex) {
       currentIndex = index;
@@ -290,10 +296,10 @@
     }
   }
   $('study-section-prev').addEventListener('click',event => {
-    event.preventDefault(); const i = lastBefore(sections,scrollY + marker()); if (i > 0) visitHeading(sections[i - 1]);
+    event.preventDefault(); const i = readingIndex(sections,scrollY + marker()); if (i > 0) visitHeading(sections[i - 1]);
   });
   $('study-section-next').addEventListener('click',event => {
-    event.preventDefault(); visitHeading(sections[lastBefore(sections,scrollY + marker()) + 1]);
+    event.preventDefault(); visitHeading(sections[readingIndex(sections,scrollY + marker()) + 1]);
   });
   window.addEventListener('scroll',() => {
     if (!frame) frame = requestAnimationFrame(() => { frame = 0; updatePosition(); });
