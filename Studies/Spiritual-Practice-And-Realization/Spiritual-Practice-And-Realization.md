@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 5, 2026, 4:53 AM IST
+**Edited on:** September 6, 2026, 5:42 AM IST
 **Status:** Draft
 **The question:** What is realisation, what practice leads to it, and how would anyone know it had occurred? How does Madhyasth Darshan's answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
@@ -136,7 +136,7 @@ Which path is for whom is not settled in writing. Exploration is *anusandhan* (M
 
 The darshan locates the defect practice addresses with unusual precision. *Jeevan* has five indivisible strengths — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — corresponding to hope, thought, desire, resolve, and realisation (MVD, p. 275); in Hindi, *asha*, *vichar*, *iccha*, ***ritambhara***, and *praman* (MVD, pp. 75, 83). *Ritambhara* is the entire ground for expressing the natural glory of truth, resolve filled with truth (MVD, p. 76) — which is what "resolve" translates. Under delusion, hope in *mun* is based on sensation, thought in *vritti* follows that hope, desire in *chitta* follows that thought, and the alienation of *buddhi* from *atma* produces deluded visualisation and desire (MVD, p. 275).
 
-Practice therefore is not the accumulation of states but the repair of a circuit: reflection reaching *buddhi* and *atma* so that realisation and resolve can project outward as coherent visualisation, analysis, selection, and conduct ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.4). Bliss is named as the harmony of *buddhi* and *atma* — not a reward for practice but the name of the repaired relation ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.3). Cognisance or realisation in coexistence becomes evident as resolution, which manifests as the taste of values, evidencing continuous happiness and regulation of the senses through cognisance (MVD, p. 274).
+Practice therefore is not the accumulation of states but the repair of a circuit: reflection reaching *buddhi* and *atma* so that realisation and resolve can project outward as coherent visualisation, analysis, selection, and conduct ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.4). Bliss is named as the harmony of *buddhi* and *atma* — not a reward for practice but the name of the repaired relation ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.2). Cognisance or realisation in coexistence becomes evident as resolution, which manifests as the taste of values, evidencing continuous happiness and regulation of the senses through cognisance (MVD, p. 274).
 
 ### 1.10 The ladder: *sakshatkar*, *bodh*, *anubhav*, *praman*
 
@@ -170,7 +170,7 @@ The dependencies of realisation are set out without concealing that they close:
 > **“The ability of realisation in knowledge depends on human awakening; human awakening depends on sanskars; development of sanskars depends on environment, study & endeavour; environment, study & endeavour depend on humaneness and higher humaneness; humaneness and higher humaneness depend on the ability of realisation in knowledge.”**
 > — MVD, p. 290
 
-These dependencies connect realisation, formation, study, and conduct. Learning can begin through study and participation before complete awakening: the outward expressed values can be learnt before their counterparts are established in state ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.7). The question of how a learner evaluates the teaching and progresses towards establishment is examined separately in §6.2.
+These dependencies connect realisation, formation, study, and conduct. Learning can begin through study and participation before complete awakening: the outward expressed values can be learnt before their counterparts are established in state ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §§1.4, 1.8). The question of how a learner evaluates the teaching and progresses towards establishment is examined separately in §6.2.
 
 ### 1.13 What the darshan rejects
 
@@ -300,7 +300,7 @@ This is not a reason to prefer Advaita's internal criterion, which distinguishes
 
 Paul's analysis (§3.4) applies unevenly across the three, and the unevenness is illuminating. Advaita handles the problem by qualification: the *sadhana-chatushtaya* screens for those already disposed, so the appraisal question is not put to the unprepared. Hadot's ancients handle it by making the exercises continuous with ordinary life, so each step is appraisable from the one before. Madhyasth Darshan takes the second route and pushes it further, requiring that understanding be conveyable to the unawakened at every stage — its strongest anti-esoteric commitment.
 
-The residual difficulty is that the darshan also asks for a disciplined relation to a realised teacher (§1.8) and holds that only awakening yields correct evaluation ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.5). Those two commitments reintroduce from the other side the asymmetry conveyability was meant to remove.
+The residual difficulty is that the darshan also asks for a disciplined relation to a realised teacher (§1.8) and holds that only awakening yields correct evaluation ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.7). Those two commitments reintroduce from the other side the asymmetry conveyability was meant to remove.
 
 ### 4.6 Practice as private or social
 
@@ -521,7 +521,7 @@ KD Chapter 2 is available in this repository only as a machine-assisted working 
 
 - [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — study, realisation, and transmission (§1.6), the active knower (§1.4), and the evidential open problems (§§7.1–7.5).
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — realisation in coexistence as an activity of *jeevan* (§1.13) and *jeevan*'s faculties (§1.7).
-- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — bliss as the harmony of *buddhi* and *atma* (§1.3), correct evaluation and awakening (§1.5), and education, establishment, and continuity through conduct (§1.7).
+- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — bliss as the harmony of *buddhi* and *atma* (§1.2), correct evaluation and awakening (§1.7), and education, establishment, and continuity through conduct (§§1.4, 1.8).
 - [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — the natal family as where *upasana* is initiated, and its feedback circuit with external behaviour (*vyavahar*) (§1.4.2).
 - *God, Divinity, and the Sacred* (Ongoing) — divinity, theism, and the sacred, which §3 deliberately leaves aside.
 
