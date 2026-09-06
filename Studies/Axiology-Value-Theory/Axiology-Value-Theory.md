@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 6, 2026, 7:10 AM IST
+**Edited on:** September 6, 2026, 7:35 AM IST
 **Status:** Released
 **The question:** How does value belong to a unit as activity in coexistence, and how is it understood, established, and fulfilled in human living? What forms does value take, what endures or changes with time, and in what senses can values be compared? How does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western value theory, and the natural and social sciences?
 
@@ -200,15 +200,18 @@ Advaita Vedanta relates the dearness of persons and goods to the Self, *Atman*, 
 
 ### 2.1 The Self, dearness and fullness
 
-Persons, wealth, and other things are dear for the sake of the Self. Love of the Self is primary, while love of other objects is secondary: in ordinary experience they are loved for the happiness sought through them. The inquiry into this dearness leads beyond the limited individual with whom one ordinarily identifies to knowledge of the Self (BU, 2.4.5 with Shankara's commentary).
+> **“It is not for the sake of all, my dear, that all is loved, but for one's own sake that it is loved.”**
+> — BU, 2.4.5
 
-Brahman's being, consciousness, and bliss—*sat*, *cit*, and *ananda*—name its undivided nature. The Upanishadic teaching identifies Brahman through truth, knowledge, and infinity, and as the source of joy. Finite pleasures depend on conditions and degrees of freedom from desire; Brahman's bliss is its own nature, disclosed through knowledge (TU, 2.1.1, 2.7–2.9 with Shankara's commentary). [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf), §2.2, develops these descriptions of Brahman.
+The Self is primary in dearness; husband, wife, children, and wealth are dear for its sake. Inquiry into this dearness leads beyond the limited individual with whom one ordinarily identifies to knowledge of the Self (BU, 2.4.5 with Shankara's commentary).
+
+The Upanishadic teaching identifies Brahman as truth, knowledge, and infinity (*satyam jnanam anantam*), and as the source of joy. Advaita's later compact formulation—being, consciousness, and bliss, *sat-cit-ananda*—brings these descriptions together as names of its undivided nature. Finite pleasures depend on conditions and degrees of freedom from desire; Brahman's bliss is its own nature, disclosed through knowledge (TU, 2.1.1, 2.7–2.9 with Shankara's commentary). [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf), §2.2, develops these descriptions of Brahman.
 
 The dearness of a person, the nourishment provided by food, and the security sought through wealth have their place in empirical life. Their finite satisfactions lead the inquiry towards the Self as the ground of fulfilment. Ethical duties govern how such goods are pursued and how others are treated (BU, 2.4.5; BG, 3.8, 16.1–16.3).
 
 ### 2.2 Human purposes and empirical virtues
 
-The inherited Indian framework of four *purusharthas* distinguishes purposes of human life: *dharma*, right living and duty; *artha*, material means; *kama*, enjoyment; and *moksha*, liberation. Advaita distinguishes pursuit of the first three with attachment to their fruits from the inquiry into liberation as the highest human purpose (BG, 18.34; BSB, 1.1.1). Acquisition and enjoyment remain answerable to *dharma*: desire compatible with duty includes bodily maintenance, while accumulation through unjust means is condemned (BG, 7.11, 16.12 with Shankara's commentary).
+The four *purusharthas* distinguish purposes of human life: *dharma*, right living and duty; *artha*, material means; *kama*, enjoyment; and *moksha*, liberation. Advaita distinguishes pursuit of the first three with attachment to their fruits from the inquiry into liberation as the highest human purpose (BG, 18.34; BSB, 1.1.1). Acquisition and enjoyment remain answerable to *dharma*: desire compatible with duty includes bodily maintenance, while accumulation through unjust means is condemned (BG, 7.11, 16.12 with Shankara's commentary).
 
 Within empirical living, *vyavahara*, duties and virtues guide action. Fearlessness, purity of mind, generosity, self-control, truthfulness, compassion, and freedom from anger are qualities of conduct that orient the person towards liberation (BG, 16.1–16.3). Discrimination of the enduring from the transient, *nitya/anitya*, concerns the reality and persistence of what is sought. Purposes, virtues, and this discrimination thus address different aspects of evaluation (BSB, 1.1.1; VC, vv. 17–20).
 
@@ -234,7 +237,7 @@ Action without attachment supports purification and knowledge. *Loka-sangraha*, 
 
 Knowledge of the Self proceeds through scriptural teaching, *shruti*, hearing, reflection, and contemplation. Discrimination, dispassion, restraint, and concentration qualify the inquirer (BU, 2.4.5; BSB, 1.1.1). The decisive issue is the removal of mistaken identification: pleasure and material success cannot by themselves establish knowledge of the Self (BSB, 1.1.4).
 
-Evaluation thus asks both whether finite goods serve legitimate empirical purposes and whether the fulfilment sought through them rests on a correct understanding of the Self. Compassion and concern for one's effect on others have continuing significance in empirical conduct, including the example offered by the wise (BG, 3.25–3.26, 16.1–16.3). Fulfilled responsibilities and the claim to liberating knowledge require assessment appropriate to each; the ultimate standpoint cannot substitute for the practical judgment a particular responsibility requires (§6.2).
+Evaluation thus asks both whether finite goods serve legitimate empirical purposes and whether the fulfilment sought through them rests on a correct understanding of the Self. Compassion and concern for one's effect on others have continuing significance in empirical conduct, including the example offered by the wise (BG, 3.25–3.26, 16.1–16.3). Empirical duty is assessed within *vyavahara*, while liberating knowledge concerns the Self's already free nature (BSB, 1.1.4).
 
 ## 3. Modern Western Philosophy on Value
 
@@ -346,7 +349,7 @@ The traditions differ both in what they call value and in what they ask an accou
 
 | Question | Madhyasth Darshan | Advaita Vedanta | Western philosophical approaches | Natural and social sciences |
 |---|---|---|---|---|
-| What grounds value or fulfilment? | Essentiality of active units in coexistence; human understanding and fulfilment through *jeevan* | The Self as the ground of dearness and Brahman as fullness; finite goods have derivative dearness and empirical significance (§2.1) | Competing accounts through goods, reasons, attitudes, nature, or practical construction | Investigated mechanisms, conditions, and outcomes; normative standards stated for particular assessments |
+| What grounds value or fulfilment? | Essentiality of active units in coexistence; human understanding and fulfilment through *jeevan* | The Self, identical with Brahman, as the ground of dearness and fullness; finite goods retain empirical significance (§2.1) | Competing accounts through goods, reasons, attitudes, nature, or practical construction | Investigated mechanisms, conditions, and outcomes; normative standards stated for particular assessments |
 | How can evaluation be mistaken? | Over-, under-, or mis-evaluation under delusion | Ignorance and superimposition; attachment and failures of discrimination | False judgment, distorted response, bad information, or defective reasoning, depending on theory | Bias, measurement error, learning failures, and mistaken causal inference |
 | How does the evaluator develop? | Study of meaning, qualitative refinement across the five faculties, self-evaluation, and evidence in conduct | Ethical discipline, non-attachment, hearing, reflection, and contemplation | Moral education, practical reasoning, attention, character, and social formation in different theories | Learning and development studied through observable interventions and outcomes |
 | What is evidence in living? | Understood meaning, fulfilled relationships, useful work, and mutual satisfaction | Disciplined action and preparation; knowledge that removes ignorance | Warranted reasons and judgments, and conduct assessed under the theory's standards | Publicly inspectable observations, measurements, comparisons, and causal tests |
@@ -400,6 +403,8 @@ Usefulness, realised benefit, labour assessment, and price answer distinguishabl
 ### 5.8 Relationships, agreement and conflict
 
 Justice in Madhyasth Darshan requires recognised responsibilities and actual fulfilment before mutual satisfaction. Care and recognition theories offer parallel questions about dependency, responsiveness, and practical standing.
+
+In Advaita, husband, wife, and child are dear for the Self, while relational duties retain their force within *vyavahara* without independent ultimate status (BU, 2.4.5; §§2.2, 2.5–2.6). [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf), §2.1, develops the relation between householder discipline and renunciation.
 
 The darshan holds that quarrelling involves error on at least one side and that correctly understanding parties do not quarrel (SB, p. 146). Applying this harmony claim to scarce resources, absent parties, and competing legitimate needs requires an account of the allocation to make (§7.7).
 
@@ -571,7 +576,7 @@ The structural account specifies what this fulfilment comprises. Happiness, peac
 
 The value classes connect these harmonies with human conduct, relationships, useful things, aesthetic addition, and symbolic valuation. Their ordering involves dedication, endurance, inclusion, and common or complete relationship value, each with its own domain. Evaluation must identify which value is at issue, what fulfilment it calls for, and in what sense time or comparison applies. The difference between the texts' constancy and temporality claims about usefulness remains a question for further collation and argument.
 
-Advaita, Western theories, and the sciences sharpen the questions of normative warrant, disputed authority, dependency, allocation, and public evidence. The darshan's contribution is a connected account of value's ground, its constitution in activity, and its fulfilment in living. Further work must show how its distinct ordering relations guide difficult decisions and how claims of established understanding are assessed through explanation, conduct, and sustained participation.
+Advaita locates dearness in the Self, identical with Brahman, while Madhyasth Darshan locates value in units' essentiality. Advaita, Western theories, and the sciences sharpen the questions of normative warrant, disputed authority, dependency, allocation, and public evidence. The darshan's contribution is a connected account of value's ground, its constitution in activity, and its fulfilment in living. Further work must show how its distinct ordering relations guide difficult decisions and how claims of established understanding are assessed through explanation, conduct, and sustained participation.
 
 ## Appendix: Structural formalisation of value
 
@@ -787,7 +792,7 @@ The scientific discussion separates reward prediction error from decision valuat
 
 ### Advaita Vedanta (primary texts)
 
-- **BU** — [*Brihadaranyaka Upanishad with the Commentary of Shankaracharya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). English translation by Swami Madhavananda. Cited: primary and secondary dearness (2.4.5 and commentary; §§2, 2.1, 5.2); hearing, reflection, and contemplation of the Self (2.4.5; §2.6).
+- **BU** — [*Brihadaranyaka Upanishad with the Commentary of Shankaracharya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf). English translation by Swami Madhavananda. Cited: primary and secondary dearness (2.4.5 and commentary; §§2, 2.1, 5.2, 5.8, 8); the Maitreyi quotation (2.4.5, PDF p. 383, printed p. 355; §2.1); hearing, reflection, and contemplation of the Self (2.4.5; §2.6).
 - **TU** — [*Taittiriya Upanishad with Shankara's Commentary*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: Brahman as truth, knowledge, and infinity (2.1.1; §2.1); Brahman as the source of joy, conditioned pleasures, and bliss as its nature (2.7–2.9; §§2.1, 5.5); the inward inquiry and *anandamaya* (2.1–2.5; Editorial Notes).
 - **BG** — [*Bhagavad Gita with the Commentary of Shankaracharya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: attachment, desire, and impaired discrimination (2.62–2.63; §2.3); necessary sensory engagement without attraction or aversion (2.64; §2.5); prescribed action and bodily maintenance (3.8; §§2.1, 2.4–2.5); action without attachment (3.19; §§2.4–2.5); Janaka, *loka-sangraha*, and guidance through action (3.20, 3.25–3.26; §§2.5–2.6); desire compatible with *dharma* (7.11; §§2.2, 2.4); divine qualities (16.1–16.3; §§2.1–2.2, 2.6); unjust acquisition (16.12; §§2.2, 2.4); attachment to the fruits of *dharma*, *kama*, and *artha* (18.34; §2.2); the knower's freedom from personal obligation (3.17–3.18; Editorial Notes).
 - **BSB** — Shankara, Adi. [*Brahma Sutra Bhashya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: mutual superimposition (Introduction; §2.3); discrimination, qualification, and liberation as the highest human objective (1.1.1; §§2, 2.2, 2.4, 2.6); liberation as the disclosure of the eternally free Self, distinct from produced results (1.1.4; §§2, 2.3–2.6); rope–snake correction and liberating knowledge (1.1.4, PDF p. 63, printed p. 39; §5.3); attachment to wealth and possessions (1.1.4, PDF p. 64, printed p. 40; §2.5); empirical distinctions and objects' dependence on Brahman (2.1.13–2.1.14; §2.5).
@@ -801,7 +806,7 @@ The scientific discussion separates reward prediction error from decision valuat
 - [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — actionless knowledge and the active knower (§1.1); knowing, accepting, evaluation, study, and transmission (§§1.5–1.6). Develops the activities of learning invoked in the present study's concise account of continuity, with the fuller educational programme left for subsequent study. Its account of superimposition, sublation, and levels of reality (§2.3) supports the Advaita discussion of mistaken valuation.
 - [Ethics and Morals in Human Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) — the detailed account of values, character, and right-use (§§3.1, 3.5–3.6).
 - [Aesthetics](../Aesthetics/Aesthetics.pdf) — usefulness, aesthetic addition, and the taste of values.
-- [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — named relationships, their purposes, and the responsibilities through which their values are fulfilled (§§1.1.3–1.2.1).
+- [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — named relationships, their purposes, and the responsibilities through which their values are fulfilled (§§1.1.3–1.2.1); Advaita's account of householder discipline and renunciation (§2.1).
 - [Spiritual Practice and Realization](../Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) — practice, understanding, and evidence in conduct.
 - [Human Behaviour and Social Organisation](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — the wider social account of family-based organisation and human fulfilment (§1.4), beyond the present study's account of continuity of value.
 - [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) — undivided society and universal orderliness as the social ends of purposeful-use (§1.1).
