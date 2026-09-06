@@ -39,7 +39,7 @@ def annotate_passages(fragment: str) -> str:
     counts: dict[str, int] = {}
     for node in soup.select(PASSAGES):
         parents = list(node.parents)
-        if any(set(parent.get("class", [])) & {"study-toc", "study-reading-key"} for parent in parents):
+        if any(set(parent.get("class", [])) & {"study-toc", "study-reading-key"} for parent in [node, *parents]):
             continue
         if any(parent.name in {"li", "table", "pre"} or "mermaid" in parent.get("class", []) for parent in parents):
             continue
