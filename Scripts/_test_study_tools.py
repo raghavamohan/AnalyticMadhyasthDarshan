@@ -16,6 +16,10 @@ class StudyToolsTests(unittest.TestCase):
         result = subprocess.run(['node', str(BASE / 'Scripts/_test_study_tools.mjs')], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
 
+    def test_mobile_speech_and_selection(self):
+        result = subprocess.run(['node', str(BASE / 'Scripts/_test_reader_speech.mjs')], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+
     def test_public_inventory_and_complete_reproducible_bundles(self):
         self.assertEqual(verify_offline(), [])
         notebook, raw = artifacts()
@@ -28,6 +32,7 @@ class StudyToolsTests(unittest.TestCase):
                 self.assertIn(doc['path'], urls)
                 self.assertIn('/Studies/notebook.html', urls)
                 self.assertIn('/Assets/reader/offline-client.js', urls)
+                self.assertIn('/Assets/reader/speech-core.js', urls)
                 self.assertLessEqual(sum(r['bytes'] for r in doc['resources']), 20000000)
                 self.assertLessEqual(len(doc['resources']), 150)
                 soup = BeautifulSoup((BASE / doc['path'].lstrip('/')).read_text(encoding='utf-8'), 'html.parser')
