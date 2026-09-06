@@ -200,6 +200,35 @@
     passages.push({ id: node.id, node, text, heading: section, subheading, top: 0, height: 0 });
   }
   const toolbar = document.querySelector('.study-toolbar');
+  const back = toolbar.querySelector('.study-toolbar-back');
+  const origin = new URLSearchParams(location.search);
+  if (back && origin.get('from') === 'start-here' && /^[1-5]$/.test(origin.get('stage') || '')) {
+    const destination = new URL(back.href);
+    destination.searchParams.set('stage',origin.get('stage'));
+    destination.hash = destination.hash.replace(/^#study-/, '#path-study-');
+    back.href = destination.href;
+    back.title = 'Return to this study in Start here';
+    back.setAttribute('aria-label',back.title);
+  }
+  const more = toolbar.querySelector('.study-toolbar-more');
+  document.addEventListener('click',event => { if (more?.open && !more.contains(event.target)) more.open = false; });
+  more?.addEventListener('keydown',event => {
+    if (event.key === 'Escape') { more.open = false; more.querySelector('summary').focus({ preventScroll: true }); }
+  });
+  const feedback = toolbar.querySelector('.study-toolbar-feedback');
+  function prepareFeedback() {
+    if (!feedback) return;
+    const place = clickedPassage ? passagePlace(clickedPassage,headings) : capture();
+    const section = headings.find(item => item.id === (place?.subheading || place?.heading));
+    const source = new URL(document.querySelector('link[rel="canonical"]')?.href || location.pathname,location.origin);
+    source.hash = section?.id || '';
+    const href = new URL(feedback.href);
+    href.searchParams.set('location',source.href + (section ? ' — ' + section.text : ' — Introduction'));
+    feedback.href = href.href;
+  }
+  more?.addEventListener('toggle',() => { if (more.open) prepareFeedback(); });
+  feedback?.addEventListener('click',prepareFeedback);
+  feedback?.addEventListener('contextmenu',prepareFeedback);
   const marker = () => toolbar.offsetHeight + 12;
   function capture() {
     const y = scrollY + marker(), item = passages[Math.max(0,readingIndex(passages,y))];
@@ -397,7 +426,7 @@
     if (returnFocus) opener.focus({ preventScroll: true });
     scheduleMeasure(wasWide && scrollY > 0 ? place : null);
   }
-  opener.addEventListener('click',() => openPanel());
+  opener.addEventListener('click',() => tools.open ? closePanel() : openPanel());
   $('reader-close').addEventListener('click',() => closePanel());
   tools.addEventListener('cancel',event => { event.preventDefault(); closePanel(); });
   tools.addEventListener('keydown',event => {

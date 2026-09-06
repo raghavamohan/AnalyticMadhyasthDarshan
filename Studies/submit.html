@@ -461,7 +461,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
           <details class="fmt-checklist" id="s-format-checklist">
             <summary>House-style checklist (topical studies)</summary>
             <ul>
-              <li>Opening intro, then a <code>## Standpoint and scope</code> section (four short paragraphs).</li>
+              <li>Open with the study’s question. State specific assumptions or limits where needed; the shared method is in <a href="index.html#approach">Our approach</a>.</li>
               <li>Continuous scholarly prose &mdash; avoid scaffold labels like <code>**Step N&mdash;**</code>, <code>**Verdict:**</code>, or <code>## How to read this study</code>.</li>
               <li><code>### N.M Descriptive title</code> subsections for argument steps; cross-reference with <code>&sect;2.3</code>.</li>
               <li>A <code>## References</code> section grouping sources, linking <code>../References/&hellip;</code> or external URLs.</li>
@@ -2046,9 +2046,6 @@ addEventListener('message', event => {
 function draftContentWarnings(content) {
   const text = String(content || '');
   const warnings = [];
-  if (!/^##\s+Standpoint and scope/im.test(text)) {
-    warnings.push('No "## Standpoint and scope" section found (required for topical studies).');
-  }
   if (!/^##\s+References/im.test(text)) {
     warnings.push('No "## References" section found.');
   }
@@ -2078,10 +2075,6 @@ const STUDY_TEMPLATE = `# Study Title
 **Author:** Your Name
 
 One or two opening paragraphs that name the question this study addresses, the Madhyasth Darshan texts it draws on, and the traditions it compares (physics and natural sciences, Advaita Vedanta, modern Western philosophy).
-
-## Standpoint and scope
-
-State the author standpoint and the matter-first starting point that is acknowledged. Describe the method: read the primary MD texts, state the darshan, and compare in parallel with physics and the natural sciences, Advaita Vedanta, and modern Western philosophy. Make clear that physics and mathematics are one leg of comparison, not the only one. Close on the aim of rigorous comparative understanding rather than persuasion. (Four short paragraphs.)
 
 ## 1. First major section
 

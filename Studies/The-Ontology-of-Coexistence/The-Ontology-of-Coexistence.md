@@ -2,22 +2,12 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 5:31 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
 
 This study examines those questions in Madhyasth Darshan (Co-existentialism), as presented by Shri A. Nagraj, and compares its answers with Advaita Vedanta and selected modern philosophical and scientific approaches to physical reality, consciousness, and selfhood. The core claim about time is stated in §1.14 — that *kaal* is duration of unit-activity and *satta* is timeless as ground; full treatment of time (*kaal*), *trikaalabadh*, and spacetime physics is in [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a scientist and technologist trained to graduate-level physics and mathematics and familiar with contemporary cosmology, quantum theory, conservation laws, and formal models. From that background, matter-first explanations are familiar: contemporary positions variously identify consciousness with brain processes, explain it through functional organisation, or treat it as emergent from physical activity. The natural sciences powerfully constrain any credible ontology through mechanism, prediction, and public evidence, but their success does not by itself establish metaphysical physicalism. The hard problem of consciousness, the status of the self, and the reality of value remain contested rather than settled in favour of matter-only reductionism.
-
-The study reads Madhyasth Darshan's primary texts and reconstructs their ontological claims before comparing them in parallel with Advaita Vedanta, modern Western philosophy, physics, and the natural sciences. Its principal translated base is *Madhyasth Darshan — Co-existentialism* (MVD), *Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*, SB), and *Jeevan Vidya: An Introduction* (JV). *Manav Karm Darshan* (KD) is used through the Hindi text and an identified working-English paraphrase where the Hindi has been checked; claims based on it are marked accordingly in the references. Physics and mathematics are therefore one leg of the comparison, not the sole framework into which the other traditions must be translated.
-
-The aim is rigorous comparative understanding — testing definitions, internal consistency, explanatory reach, and fit with public knowledge — rather than persuasion or devotional endorsement. Different traditions admit different forms of warrant, but that does not place them beyond structured comparison. Logical grounding, first-person verification, evidence in conduct, and instrument-based scientific confirmation are kept distinct so that agreement at one level is not mistaken for agreement at every level. Physics, neuroscience, and comparative argument do not by themselves establish immortal *jeevan*, constitutional completeness, or continuity across bodily death; those remain explicit points for examination.
-
-The study's scope is also limited by work developed elsewhere in this series. Full knowability is treated in [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §7.1; time, *trikaalabadh*, and spacetime in [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf); and institutional governance, *dharma-niti*, *rajya-niti*, and statutory order in the planned [*Governance Justice and Undivided Society*](../Governance-Justice-And-Undivided-Society/Governance-Justice-And-Undivided-Society.pdf), with [*How to Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) applying the assembly template socially. Editorial conventions for *satta*, *gyan*, and related terms are stated in the Editorial Notes. Clear and checkable prose is the present priority; a separate formal mathematical treatment may follow once definitions are stable across the series, but this study does not require it.
 
 ## 1. The Madhyasth Darshan Answer
 
@@ -1178,6 +1168,10 @@ Further terms — planes, justice, prosperity — are defined where they first a
 | Natural selection | Differential persistence and reproduction of heritable variation, operating with drift, development, ecology, and other evolutionary processes. |
 
 ## Editorial Notes
+
+The principal translated base is *Madhyasth Darshan — Co-existentialism* (MVD), *Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*, SB), and *Jeevan Vidya: An Introduction* (JV). *Manav Karm Darshan* (KD) is used through the Hindi text and an identified working-English paraphrase where the Hindi has been checked; claims based on it are marked accordingly in the references.
+
+The study's scope is also limited by work developed elsewhere in this series. Full knowability is treated in [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §7.1; time, *trikaalabadh*, and spacetime in [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf); and institutional governance, *dharma-niti*, *rajya-niti*, and statutory order in the planned [*Governance Justice and Undivided Society*](../Governance-Justice-And-Undivided-Society/Governance-Justice-And-Undivided-Society.pdf), with [*How to Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) applying the assembly template socially.
 
 ### Translation and editorial conventions (*satta*)
 

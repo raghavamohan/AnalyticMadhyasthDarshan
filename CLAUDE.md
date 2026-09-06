@@ -33,7 +33,7 @@ the root-matching `<Slug>.md` drives the catalog row and main PDF.
 | §2 | `Studies/index.html` ↔ `Studies/README.md` ↔ `catalog-*.json` sync | Catalog or index shell changes |
 | §3 | Markdown → PDF pipeline (`Scripts/_regenerate_pdf.py` only), plus the separate companion-deck PDF pipeline | Generating or refreshing study PDFs, or any deck PDF |
 | §4 | Study prose style — scholarly essay, not AI scaffold | All topical studies |
-| §5 | `## Standpoint and scope` section | All topical studies |
+| §5 | Shared approach and study-specific scope | All studies |
 | §6 | Reference checks (`Scripts/_check_references.py`) | Bibliography or `References/` changes |
 | §7 | Feature branch + labeled PR for any `Studies/` or `Applications/` change | Always for study work |
 | §8 | LF line endings everywhere | Always |

@@ -197,7 +197,7 @@ The second form validates SVG figures for all studies.
 Contributors submit markdown; PDF is always a **generated** artifact in CI. When a
 contributor provides only a PDF, maintainers run `Scripts/_pdf_to_study_md.py` or
 `Scripts/_add_study.py … --convert` on a feature branch, **review and fix** the
-converted `.md` (headings, tables, citations, Standpoint and scope, References), then
+converted `.md` (headings, tables, citations, study-specific scope, References), then
 regenerate the PDF with `_regenerate_pdf.py` before opening a study PR. Diagrams,
 math, and glossary tooltips are not recovered from PDF — re-add them in markdown.
 Scanned or image-only PDFs fail fast; do not commit placeholder extractions.

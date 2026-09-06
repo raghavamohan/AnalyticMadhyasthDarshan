@@ -101,7 +101,7 @@ Confirm before finishing:
 When editing study **body text**, follow [AGENTS.md](../../../AGENTS.md):
 
 - §4 — prose style (no `[Text]` tags, `**Step N —**`, `**Verdict:**`, or honesty qualifiers)
-- §5 — `## Standpoint and scope` on every topical study
+- §5 — shared approach on the landing page; study-specific scope where the argument needs it
 
 Reference implementations: `Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md`, `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md`.
 

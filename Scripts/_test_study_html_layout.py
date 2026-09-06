@@ -93,7 +93,7 @@ def test_study_reading_key_follows_contents() -> None:
 def test_study_contents_remains_a_native_fallback_before_the_reading_key() -> None:
     sections = "\n".join(f"## Section {i}\n\nParagraph {i}.\n" for i in range(1, 7))
     html = _study_html(f"# Title\n\nJeevan is sentient.\n\n{sections}")
-    details_end = html.index("</details>")
+    details_end = html.index("</details>",html.index('id="study-contents"'))
     assert 'class="study-toc study-toc--with-key" id="study-contents"' in html
     assert 'toc.open = true' not in html
     assert 'reader.js?v=' in html
@@ -106,6 +106,7 @@ def test_study_toolbar_is_two_rows_without_the_study_title() -> None:
 
     assert "A Very Long Study Title" not in toolbar
     assert toolbar.count('class="study-toolbar-row ') == 2
+    assert 'class="study-toolbar-more"' in toolbar
     assert 'aria-label="Back to all studies">&larr; Studies</a>' in toolbar
     assert 'aria-label="Download PDF">PDF</a>' in toolbar
     assert 'aria-label="Suggest a correction">Suggest edit</a>' in toolbar

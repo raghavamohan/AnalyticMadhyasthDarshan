@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Register a new study in Studies/ using Scripts/_add_study.py or _add_study.ps1 — sets metadata, updates catalogs, and generates PDF. Use when adding a study, registering a paper, creating an Ongoing placeholder, importing a PDF, or adding a Formal study.",
       "url": "/.well-known/agent-skills/add-study/SKILL.md",
-      "digest": "sha256:e630249cca3fcf0ff3f8e3f50405352bc7ab0dc691ef68e406ffd7d53af6813b"
+      "digest": "sha256:2fbcad62cb64578d8320401dd0c577c792c7d3b4d48f14d194adf790f8fd4ac3"
     },
     {
       "name": "check-references",
@@ -27,7 +27,7 @@
       "type": "skill-md",
       "description": "Add, remove, or change Draft/Released status of studies in this repo using Scripts/_add_study.py, _remove_study.py, and _set_study_status.py. Use when registering a new study, retiring a study, releasing or reverting draft status, updating study catalogs, or when the user asks to manage studies in Studies/ or Applications/.",
       "url": "/.well-known/agent-skills/manage-studies/SKILL.md",
-      "digest": "sha256:ac57147c5000d03696ac9a47fb101589846d79f77f11ce19f3bc61737e8831a8"
+      "digest": "sha256:d7ef24592326537260b0a7a6f4ed65950171b0b0345c3d5dad6fe4a1915993d6"
     },
     {
       "name": "refine-studies-index",
