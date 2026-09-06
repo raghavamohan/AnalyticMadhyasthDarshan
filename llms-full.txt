@@ -47,7 +47,7 @@ What knowledge is, who the knower is, and what can be known: coexistence, jeevan
 Value as essentiality in active units: Madhyasth Darshan's forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared
 
 - Collection: topical · Status: released
-- Edited on: Sep 6, 2026, 6:24 AM IST
+- Edited on: Sep 6, 2026, 6:46 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf
@@ -127,7 +127,7 @@ Madhyasth Darshan's account of how undivided society is established through coex
 A source-bounded qualitative reconstruction linking intrinsic unit activity, compositional closure, constitutionally complete jeevan, animal and human joint forms, reflexive evaluation, and public orderliness. It distinguishes dharma and niyati-kram from causal forces, preserves composition and atomic development as separate lines, and keeps unresolved empirical mechanisms explicit.
 
 - Collection: formal · Status: released
-- Edited on: Sep 4, 2026, 4:01 AM IST
+- Edited on: Sep 6, 2026, 6:46 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf
