@@ -40,7 +40,7 @@ Available skills: `manage-studies`, `add-study`, `remove-study`, `rename-study`,
 | §2 | `Studies/index.html` ↔ `README.md` sync | `studies-index-readme-sync.mdc` |
 | §3 | Markdown → PDF pipeline | `md-to-pdf.mdc` |
 | §4 | Study prose style | `study-prose-style.mdc` |
-| §5 | Standpoint and scope | `study-standpoint-scope.mdc` |
+| §5 | Shared approach and study-specific scope | `study-standpoint-scope.mdc` |
 | §6 | Reference checks when citations change | `study-references-check.mdc` |
 | §7 | Study submission process: branches, PR labels, templates | `study-submission-process.mdc` |
 | §8 | Line endings: LF everywhere | `line-endings.mdc` |
@@ -536,7 +536,7 @@ The second form validates SVG figures for all studies.
 Contributors submit markdown; PDF is always a **generated** artifact in CI. When a
 contributor provides only a PDF, maintainers run `Scripts/_pdf_to_study_md.py` or
 `Scripts/_add_study.py … --convert` on a feature branch, **review and fix** the
-converted `.md` (headings, tables, citations, Standpoint and scope, References), then
+converted `.md` (headings, tables, citations, study-specific scope, References), then
 regenerate the PDF with `_regenerate_pdf.py` before opening a study PR. Diagrams,
 math, and glossary tooltips are not recovered from PDF — re-add them in markdown.
 Scanned or image-only PDFs fail fast; do not commit placeholder extractions.
@@ -744,40 +744,39 @@ support is carried by prose plus a parenthetical citation. Verify what remains:
 
 ---
 
-## 5. Standpoint and scope — topical studies *(always applies)*
+## 5. Shared approach and study-specific scope *(always applies)*
 
-Every **topical** study (`Studies/<Slug>/<Slug>.md`, not `README.md`, not Formal
-Studies) includes `## Standpoint and scope` after the opening intro and before
-the glossary or first major section.
+The shared standpoint and comparative method live once in **Our approach** under
+**How we work** on the [studies landing page](Studies/index.html#approach), with
+the same prose in [Studies/README.md](Studies/README.md#our-approach).
+The HTML source is `Scripts/_build_studies_index.py`; follow §2 when changing it.
+Cursor mirror: `.cursor/rules/study-standpoint-scope.mdc`.
 
-Canonical text: [The-Ontology-of-Coexistence.md](Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md). Cursor
-mirror: `.cursor/rules/study-standpoint-scope.mdc`.
+Do **not** require or insert a recurring `## Standpoint and scope` section in
+each study. The shared statement covers the scientific starting point, parallel
+comparison with Madhyasth Darshan, Advaita Vedanta, modern philosophy, and the
+natural sciences, the distinction between kinds of warrant, and the aim of
+rigorous understanding rather than persuasion. Physics and mathematics are one
+leg of comparison, and formal reconstruction is not proof of source claims.
 
-### Must establish
+Each study should open with its particular question and proceed into its argument.
+Keep study-specific assumptions, source and translation choices, exclusions, and
+limits wherever they matter: in the introduction, relevant argument, critical
+review, or editorial notes. An explicit scope section is appropriate when the
+topic needs one; it is optional and must add information specific to that study.
+Do not replace the old boilerplate with another repeated preface or mandatory link.
 
-1. Author standpoint: scientist/technologist with graduate physics and mathematics.
-2. Honest starting point: matter-first science acknowledged; hard problem, self,
-   and value not treated as settled for materialism.
-3. Method: read primary MD texts; state the darshan; compare in parallel with
-   **physics and natural sciences**, **Advaita Vedanta**, and **modern Western
-   philosophy** (tailor parenthetical to topic).
-4. Physics/math are **one leg** of comparison, not the only one.
-5. Aim: rigorous comparative understanding — not persuasion or devotional
-   endorsement.
-6. Series note: clear checkable prose first; formal math may follow later; this
-   study does not require it.
-
-### Form
-
-Four short essay paragraphs (see §4). The intro above names this study's
-particular questions and partners; Standpoint and scope states the **shared**
-epistemic frame. Do not repeat the main question or preview the outline.
+When removing a shared preface, preserve unique source notes and qualifications,
+retain numbered section identifiers, refresh Edited on and the catalogs, and
+regenerate HTML/PDF through §1–§3. Do not alter an unpublished proposal's status
+or publish a placeholder merely to apply an editorial policy to released studies.
 
 ### Check before finishing
 
-- [ ] Section present in the correct place
-- [ ] All six points covered
-- [ ] No missionary tone; materialism not treated as proven
+- [ ] The opening moves from the study's question into its argument.
+- [ ] Necessary source notes, assumptions, and limits remain explicit.
+- [ ] Shared methodological prose is maintained in Our approach and the README.
+- [ ] No recurring standpoint section is required by templates or validation.
 
 ---
 

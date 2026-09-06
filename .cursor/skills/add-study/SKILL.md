@@ -12,7 +12,7 @@ description: >-
 ## Before you start
 
 1. Read [Studies/README.md](../../../Studies/README.md) for study format and intent.
-2. Follow [AGENTS.md](../../../AGENTS.md) §4 (prose style) and §5 (Standpoint and scope).
+2. Follow [AGENTS.md](../../../AGENTS.md) §4 (prose style) and §5 (shared approach and study-specific scope).
    Reference implementations: `Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md` (ontology, open problems);
    `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md` (comparative anthropology, critique closings).
 3. Write `Studies/<Slug>/<Slug>.md` with author block, or prepare an external PDF for maintainer conversion (`--convert`).
@@ -88,7 +88,7 @@ silently retain a document.
 draft `.md`. Maintainer must review before regenerating PDF:
 
 1. Fix headings, tables, blockquotes, and bibliography to house style (AGENTS.md §4)
-2. Add or correct `## Standpoint and scope` if missing (§5)
+2. Check study-specific assumptions and limits; the shared approach belongs on the landing page (§5)
 3. Re-run `_add_study.py` on the `.md` or `_regenerate_pdf.py <Slug>` for Draft watermark
 
 Diagrams, KaTeX math, and glossary tooltips are **not** recovered from PDF. Scanned PDFs fail
@@ -109,7 +109,7 @@ Or use `_set_study_status.py` / `_add_study.py --force --skip-pdf` only for meta
 - [ ] `verify_timestamp_sync` passes (default after add)
 - [ ] `References/MANIFEST.md` TBD rows refined if needed
 - [ ] Prose passes [AGENTS.md](../../../AGENTS.md) §4 checklist (no scaffold tags, Verdict labels, or honesty qualifiers)
-- [ ] `## Standpoint and scope` present per [AGENTS.md](../../../AGENTS.md) §5
+- [ ] Study-specific assumptions and source limits are clear per [AGENTS.md](../../../AGENTS.md) §5
 - [ ] PR describes question, primary texts, new references
 
 ## Related

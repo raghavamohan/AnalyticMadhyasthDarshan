@@ -2,7 +2,7 @@
 
 Thank you for helping expand rigorous analytic work on Madhyasth Darshan. This repository uses a **two-stage flow** managed through **[My Submissions](Studies/submit.html)** on the Web Submission Portal: propose a study, wait for maintainer approval, then submit your draft. **GitHub sign-in** is required to propose, submit, update, or change release status. Reading studies on the site does not require an account.
 
-Read [Studies/README.md](Studies/README.md) for study format, tone, and structure before you start. Agents and automation should follow **[AGENTS.md](AGENTS.md)** for Edited on, PDF pipeline, prose style, Standpoint and scope, and (§7) the branch/PR-label/template workflow described below.
+Read [Studies/README.md](Studies/README.md) for study format, tone, and structure before you start. Agents and automation should follow **[AGENTS.md](AGENTS.md)** for Edited on, PDF pipeline, prose style, study-specific scope, and (§7) the branch/PR-label/template workflow described below.
 
 **Quick start:** Open [My Submissions](Studies/submit.html) → sign in with GitHub → propose or update a study → track approval, CI, and pull requests on the same page.
 
@@ -76,7 +76,7 @@ Once the card says **Ready for draft**, return to [**My Submissions**](Studies/s
 
 1. Enter your author name — the name published on the study, which can differ from your GitHub handle (slug is pre-filled and locked from the approved proposal).
 2. Enter the approved **proposal issue number** (pre-filled when opened from your row).
-3. Click **Insert house-style template** for a section skeleton, then paste or write your full markdown content. A quick check warns if the draft is missing **Standpoint and scope** or **References**.
+3. Click **Insert house-style template** for a section skeleton, then paste or write your full markdown content. A quick check warns if the draft is missing **References**.
 4. Submit the form.
 
 The portal opens one **new-study** pull request at a time per slug. If review requests changes, use **Revise draft** on the same card: the portal updates that pull request's existing branch and reruns CI instead of opening a competing PR.
@@ -259,7 +259,7 @@ Or convert without registering in the catalog:
 python Scripts/_pdf_to_study_md.py path/to/submission.pdf --slug <Slug> --title "Study title"
 ```
 
-Review the generated `Studies/<Slug>/<Slug>.md` — fix headings, tables, citations, `## Standpoint and scope`, and `## References` to house style (AGENTS.md §4–§5) — then regenerate the PDF and open a labeled pull request as usual. Conversion works best on text-native PDFs; scanned documents fail with a clear error. Run `python Scripts/_test_pdf_to_md.py` after changing the import scripts.
+Review the generated `Studies/<Slug>/<Slug>.md` — fix headings, tables, citations, study-specific assumptions and limits, and `## References` to house style (AGENTS.md §4–§5) — then regenerate the PDF and open a labeled pull request as usual. The shared comparative method lives in Our approach on the landing page. Conversion works best on text-native PDFs; scanned documents fail with a clear error. Run `python Scripts/_test_pdf_to_md.py` after changing the import scripts.
 
 ---
 

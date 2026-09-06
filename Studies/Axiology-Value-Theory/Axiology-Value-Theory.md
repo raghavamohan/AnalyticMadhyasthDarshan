@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 6, 2026, 8:15 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Released
 **The question:** How does value belong to a unit as activity in coexistence, and how is it understood, established, and fulfilled in human living? What forms does value take, what endures or changes with time, and in what senses can values be compared? How does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western value theory, and the natural and social sciences?
 
@@ -11,16 +11,6 @@ This study examines value, evaluation, and the ordering of values in **Madhyasth
 [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) supplies the account of Omnipresence, units, form, properties, essential nature, *dharma*, the four orders, and *jeevan*. [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) examines knowing, believing, recognising, fulfilling, and evaluating. Axiology connects that ground and those activities with the forms of *mulya*: the harmonies of *jeevan*, humane conduct, relationship values and their expressions, and usefulness, aesthetic qualification, and symbolic valuation in things. Recognition and learning concern how their meanings become understood and reliably fulfilled.
 
 Ethics, aesthetics, prosperity, family relationships, and education develop particular applications of this account. Axiology must nevertheless explain their common basis. It cannot leave labour, material provision, or educational practice outside its argument when fulfilment and evaluation depend on them. The comparison with Advaita, Western philosophy, and science tests both this explanatory reach and the warrant for its claims.
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.
-
-From that background, value can appear to be something minds add to an otherwise valueless world: a preference, a reward signal, or a social convention. Scientific accounts of mechanism and measurement do not by themselves settle whether this appearance is correct. The status of well-being, the passage from factual description to obligation, and the possibility of goods independent of actual preference remain questions for investigation.
-
-This paper reads the primary Madhyasth Darshan texts, states the account they develop, and compares it with **Advaita Vedanta**, **modern Western philosophy**, and **the natural and social sciences**. Physics and mathematics are **one leg** of the comparison. The purpose is rigorous comparative understanding through definitions, arguments, textual accuracy, and fit with public knowledge, rather than persuasion or devotional endorsement.
-
-The philosophy is presented in clear, checkable prose. An optional appendix records the structural relations of value through qualitative predicates, distinguishing primary definitions from the assumptions of a formal reconstruction. A fuller mathematical treatment may follow as definitions become stable across the studies; understanding the exposition requires no mathematical formalism.
 
 ## 1. The Madhyasth Darshan Answer
 

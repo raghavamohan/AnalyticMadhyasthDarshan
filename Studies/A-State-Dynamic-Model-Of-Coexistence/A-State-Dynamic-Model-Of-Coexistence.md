@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 6, 2026, 6:46 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Released
 
 Madhyasth Darshan tells one story about existence. An actionless, all-pervading reality — *satta* — saturates countlessly many always-active units; structures stand where many activities close into one; a single atomic line matures into the sentient unit *jeevan*; and the human being, *jeevan* working through a body, is the place in nature where recognition can fail and where law, regulation, and balance must therefore be consciously understood, established, and evidenced in relationship, work, and society.
@@ -16,16 +16,6 @@ At the structural level, structures are not additions to that base but closures 
 At the human level, the same architecture extends through the five faculties and ten activities of *jeevan* into knowing, believing, recognising, fulfilling, karma, consequence, and later reflexive evaluation. Complete Knowledge comprises coexistence, *jeevan*, and humane conduct. Its sixfold grammar links two non-identical triads: *niyam–niyantran–santulan* name lawfulness, regulation, and balance to be understood and maintained; *nyaya–dharma–satya* name the human activity through which relationship and behaviour, thought and participation, and the complete reality are evaluated and fulfilled. Realisation in *atma* is projected through enlightenment and resolve in *buddhi*, contemplation and imaging in *chitta*, comparison and analysis in *vritti*, and tasting and selection in *mun*. Actual relationship and the consequences of conduct then provide evidence for later evaluation and revision. These are coupled functional dependencies, not a clocked passage from one faculty to the next. **Activity completeness** names inner resolution in which coexistence is realised as truth in *atma*, all three contents are enlightened in *buddhi*, humane conduct is evidenced in practice, all ten activities are effective, full internal harmony is sustained, and effort is restful; **conduct completeness** names activity completeness evidenced through repeatable humane conduct in relationship, work, family, society, and participation in orderliness.
 
 The reconstruction also marks its limits: the physical identification of constitutional completeness, the body–*jeevan* interface, quantitative calibration, and social-scale dynamics remain unresolved. Direct textual claims, translation or register choices, analytical reconstructions, analytical boundaries, proposed operational criteria, and open empirical questions are kept visibly distinct throughout. Terminology is collected in Appendix B. The Editorial Notes record the claim-kind and primary basis of the reconstruction's core propositions.
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a scientist and technologist trained to graduate-level physics and mathematics and familiar with contemporary cosmology, quantum theory, conservation laws, and formal models. From that background, matter-first explanations are familiar, as are the demands of mechanism, prediction, and public evidence. Their success does not by itself settle the ontological status of sentience, self, value, or orderliness, and this study does not assume that a physical description is automatically a complete description of coexistence.
-
-The study reconstructs Madhyasth Darshan's claims primarily from *Madhyasth Darshan — Co-existentialism* (MVD), *Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*, SB), *Jeevan Vidya: An Introduction* (JV), and *Manav Karm Darshan* (KD). It asks whether their accounts of unit activity, closure, the four orders, *jeevan*, and humane conduct can be expressed as one state-dynamic architecture without erasing differences of level. Physics, systems language, and mathematical notation serve as analytical aids; they do not replace the source concepts or turn the reconstruction into a quantitative physical theory.
-
-The aim is rigorous understanding rather than persuasion or devotional endorsement. Textual warrant, internal coherence, first-person verification, evidence in conduct, and instrument-based confirmation are kept distinct. A formal relation in Appendix A states how concepts depend on one another within the reconstruction; it does not by itself demonstrate that the corresponding entities or transitions exist. Constitutional completeness, the body–*jeevan* interface, and realised knowledge therefore remain claims requiring forms of evidence appropriate to them.
-
-The scope is limited to the process path from unit activity to human orderliness and to the minimum organisational extension needed to test that path. Full treatments of knowability, time, and institutional design belong respectively to [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf), [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf), and [*How to Form Self-Sustaining Organizations*](../How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf). The sixfold grammar developed here does not attribute a *jeevan* or inner faculties to an organisation; it specifies conditions that participating humans must understand, establish, and evaluate in a bounded public arrangement.
 
 ## 1. Ontological foundations
 
@@ -1666,6 +1656,8 @@ For a maintained scope $g$, trace-indexed participating evaluators $P_g(I)$, and
 Organisations can retain records, roles, and procedures that support these tests. They do not perform realisation or faculty activity. Every sixfold judgement is made through participating humans and affected standpoints, with public contradiction remaining admissible counterevidence.
 
 ## Editorial Notes
+
+The study reconstructs Madhyasth Darshan's claims primarily from *Madhyasth Darshan — Co-existentialism* (MVD), *Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*, SB), *Jeevan Vidya: An Introduction* (JV), and *Manav Karm Darshan* (KD).
 
 ### Running terms
 

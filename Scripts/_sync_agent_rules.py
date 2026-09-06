@@ -87,10 +87,10 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
     },
     5: {
         "file": "study-standpoint-scope.mdc",
-        "description": "Standpoint and scope section for topical Studies",
+        "description": "Shared approach and study-specific scope",
         "globs": "Studies/*/*.md",
         "alwaysApply": "true",
-        "title": "Standpoint and scope — topical studies",
+        "title": "Shared approach and study-specific scope",
         "section_ref": "§5",
         "extra_globs": "",
     },

@@ -5,16 +5,36 @@ import re
 import subprocess
 import tempfile
 import unittest
+from urllib.parse import parse_qs, urlparse
 from pathlib import Path
 
 from bs4 import BeautifulSoup
 
 from _common import BASE
-from _convert_to_pdf import convert_to_html
+from _convert_to_pdf import convert_to_html, _study_toolbar_html
 from _study_reader import reader_assets
 
 
 class StudyReaderTests(unittest.TestCase):
+    def test_feedback_prefills_and_companion_returns_to_parent_study(self):
+        source = BASE / 'Studies/Nature-Of-Time/Research-Note-Time.md'
+        title = 'Time: "duration" & change / काल'
+        soup = BeautifulSoup(_study_toolbar_html(source,title=title),'html.parser')
+        self.assertEqual(soup.select_one('.study-toolbar-back')['href'],'../index.html#study-Nature-Of-Time')
+        fields = parse_qs(urlparse(soup.select_one('.study-toolbar-feedback')['href']).query)
+        self.assertEqual(fields['study'],[title])
+        self.assertEqual(fields['title'],['Study feedback: '+title])
+        self.assertEqual(fields['template'],['study-feedback.yml'])
+        self.assertEqual(len(soup.select('.study-toolbar-feedback')),1)
+        form = (BASE / '.github/ISSUE_TEMPLATE/study-feedback.yml').read_text(encoding='utf-8')
+        # The link's custom query keys must name text fields in the generated
+        # GitHub form. This contract check needs no separate YAML dependency.
+        inputs = {identifier: kind for kind, identifier in re.findall(r'^  - type: (input|textarea)\n    id: (\w+)\n',form,re.M)}
+        self.assertEqual(inputs['study'],'input')
+        self.assertEqual(inputs['location'],'input')
+        self.assertEqual(inputs['description'],'textarea')
+        self.assertIn('required: true',form.split('    id: description\n',1)[1])
+
     def test_reader_data_and_recovery(self):
         result = subprocess.run(["node", str(BASE / "Scripts/_test_study_reader.mjs")], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)

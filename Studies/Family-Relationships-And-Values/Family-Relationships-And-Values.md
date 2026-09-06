@@ -2,23 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 6, 2026, 5:42 AM IST
+**Edited on:** September 6, 2026, 6:31 PM IST
 **Status:** Draft
 **The question:** What is a family in Madhyasth Darshan, why is it the first place where values become livable, and how are its relationships recognised and their values fulfilled?
 
 This study sets out the Madhyasth Darshan account of the family: what makes a family a family, which relationships constitute it, how those relationships are recognised, which values are inherent in them, and why the darshan treats the family rather than the individual or the state as the unit at which need is assessed and prosperity becomes definable.
 
 [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) supplies the setting: Omnipresence, saturated units, form, properties, essential nature and *dharma*, the four orders, and the active structure of *jeevan*. [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) establishes what a value is, the distinction between relationship and contact, and the classes of value including the named established–expressed pairs (§§1.1, 1.3–1.4). [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) §5.2 argues from the family outward to undivided society. The present study works in the other direction: inward, at the scale where relationships are actually lived, and compares the darshan's domestic axiology with Advaita Vedanta, classical Confucianism, the Western ethics of care, and modern household economics.
-
-## Standpoint and scope
-
-These studies are written from the standpoint of a **scientist and technologist** — someone trained to graduate-level **physics and mathematics**, at home with contemporary cosmology, quantum theory, conservation laws, and the logic of formal models.
-
-From that background, a familiar picture is hard to avoid: **the family looks like a contingent social arrangement** — an evolved reproductive strategy, an economic household, a bundle of negotiated preferences that varies with culture and law and carries no structure of its own. Modern social science is powerful on variation, measurement, and causal inference; yet what makes a relationship a relationship rather than an arrangement, and whether anything is owed within one independently of what the parties have agreed, remain unresolved. The standpoint taken here does not treat those questions as settled in favour of the view that family structure is merely conventional.
-
-The work begins where that picture leaves open questions — and asks whether Madhyasth Darshan offers a coherent alternative worth examining seriously. Across this collection the method is to read the primary texts carefully, state what follows from the darshan itself, and compare it in parallel with **physics and the natural and social sciences**, **Advaita Vedanta**, and **modern Western philosophy** (here, the ethics of care, family sociology, and household economics). Physics and mathematics are **one leg** of that comparison, not the only one. The aim is rigorous comparative understanding — testing definitions, internal consistency, and fit with public knowledge — not persuasion or devotional endorsement.
-
-These topical studies state the philosophy in clear, checkable prose first. A separate formal mathematical treatment may follow once the definitions and relations are stable across the studies; this paper does not assume or require that treatment.
 
 ## 1. The Madhyasth Darshan Answer
 

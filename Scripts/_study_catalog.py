@@ -1105,12 +1105,11 @@ body:
 
         For **new studies** or full rewrites, use [My Submissions](https://analyticmadhyasthdarshan.org/Studies/submit.html) instead.
 
-  - type: dropdown
+  - type: input
     id: study
     attributes:
-      label: Which study?
-      description: Choose the study your comment is about.
-      options:
+      label: Study
+      description: Filled in when you arrive from a study. For general feedback, enter "Website".
 """
 
 
@@ -1118,24 +1117,17 @@ STUDY_FEEDBACK_TEMPLATE_FOOTER = """
     validations:
       required: true
 
-  - type: dropdown
-    id: feedback_type
+  - type: input
+    id: location
     attributes:
-      label: What kind of feedback?
-      options:
-        - Typo or formatting
-        - Terminology / translation
-        - Factual or citation
-        - Clarity / readability
-        - Other
-    validations:
-      required: true
+      label: Passage or section
+      description: Filled in by the reader. You can change it if the correction concerns another passage.
 
   - type: textarea
     id: description
     attributes:
       label: Your comment
-      description: Optional — mention a section (e.g. §2.3) or paste a short quote so we can find the passage.
+      description: Describe the correction or improvement. Include a short quote or source if useful.
       placeholder: |
         In §1.7, *sanskar* could use a brief gloss on first use...
     validations:
@@ -1143,43 +1135,9 @@ STUDY_FEEDBACK_TEMPLATE_FOOTER = """
 """
 
 
-def _yaml_quote(value: str) -> str:
-    if re.search(r'[:#"\'\n]', value):
-        escaped = value.replace("\\", "\\\\").replace('"', '\\"')
-        return f'"{escaped}"'
-    return value
-
-
-def _load_feedback_study_titles() -> list[str]:
-    titles: list[str] = []
-    seen: set[str] = set()
-    for filename in ("catalog-topical.json", "catalog-formal.json", "catalog-applied.json"):
-        path = STUDIES / filename
-        if not path.is_file():
-            continue
-        entries = json.loads(path.read_text(encoding="utf-8"))
-        if not isinstance(entries, list):
-            continue
-        for entry in entries:
-            if not isinstance(entry, dict):
-                continue
-            if entry.get("status") not in {"draft", "released"}:
-                continue
-            title = str(entry.get("title") or entry.get("slug") or "").strip()
-            if title and title not in seen:
-                seen.add(title)
-                titles.append(title)
-    titles.sort(key=str.casefold)
-    titles.append("General — catalog or website")
-    return titles
-
-
 def write_study_feedback_template() -> Path:
-    """Regenerate GitHub study-feedback issue template from catalog JSON."""
-    options = "\n".join(
-        f"        - {_yaml_quote(title)}" for title in _load_feedback_study_titles()
-    )
-    content = STUDY_FEEDBACK_TEMPLATE_HEADER + options + STUDY_FEEDBACK_TEMPLATE_FOOTER
+    """Write the feedback form; text fields accept context from reader links."""
+    content = STUDY_FEEDBACK_TEMPLATE_HEADER + STUDY_FEEDBACK_TEMPLATE_FOOTER
     STUDY_FEEDBACK_TEMPLATE_PATH.parent.mkdir(parents=True, exist_ok=True)
     write_text_lf(STUDY_FEEDBACK_TEMPLATE_PATH, content)
     return STUDY_FEEDBACK_TEMPLATE_PATH
