@@ -121,8 +121,9 @@ from altering the toolchain its own required check runs on.
 
 ### 2.2 Studies index — `studies-index-check.yml`
 
-The cheap, always-run guard. Runs with `node: 'false'` — no Node, no Chrome, no
-PDF rendering — in about a minute with a warm pip cache:
+The cheap, always-run guard. Runs with `node: 'false'`, which skips rendering
+dependency setup and Chrome installation. JavaScript unit tests use the hosted
+runner's preinstalled Node.js; no PDF rendering runs here:
 
 | Step | Script | Guards |
 |------|--------|--------|
@@ -136,6 +137,14 @@ what it held on every run. That inversion is the point — only four of twenty-o
 suites used to be listed here by name, and the other seventeen were enforced by
 nothing, because adding a test file to `Scripts/` did not add it to CI. A new
 suite is now enforced the moment it lands.
+
+`_test_study_reader.py` runs the reader's Node data/recovery tests and checks that
+every tracked study/companion reader references the current shared CSS/JS hashes.
+After changing `Assets/reader/reader.css`, `Assets/reader/reader.js` or
+`Scripts/_study_reader.py`, regenerate the readers with `_convert_to_pdf.py` and
+run this suite. The controls are outside study content and hidden in print; CSS
+is linked with `media="screen"`. Markup-helper changes also trigger PDF smoke and
+build-selection checks.
 
 Among what it covers: `_test_commit_artifacts` exercises the only part of CI that
 writes to a branch — both workflows using that action need a label to fire, and
@@ -267,7 +276,8 @@ Markdown, references and presentations. Keys contain source paths and bytes,
 transitive local Python helpers, renderer scripts/dependencies, fonts, manifests,
 the workflow/setup contract and the hosted runner image. Additions, removals and
 renames change keys. Commit IDs and wall-clock timestamps do not. Reader HTML
-contents and portal code do not invalidate PDF builds; Markdown keys include
+contents, the two screen-only `Assets/reader/reader.css` and `reader.js` assets,
+and portal code do not invalidate PDF builds; Markdown keys include
 HTML/PDF target names because link rewriting uses their existence. Dependency
 coverage is deliberately conservative: e.g. a Python requirements change rebuilds
 all families, while a Node lockfile change leaves presentation reuse possible.
