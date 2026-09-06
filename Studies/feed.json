@@ -6,6 +6,27 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html",
+      "title": "Axiology: Value Theory",
+      "content_text": "Value as essentiality in active units: Madhyasth Darshan's forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-09-06T07:10:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html",
       "title": "From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence",
@@ -22,27 +43,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html",
-      "title": "Axiology: Value Theory",
-      "content_text": "Value as essentiality in active units: Madhyasth Darshan's forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-09-06T06:46:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
           "mime_type": "application/pdf"
         }
       ]
