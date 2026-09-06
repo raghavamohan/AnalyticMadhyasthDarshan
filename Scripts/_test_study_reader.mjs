@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
-const { preferences, passageKey, cursor, state, resolvePlace, lastBefore } = require('../Assets/reader/reader.js');
+const { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex } = require('../Assets/reader/reader.js');
 
 assert.deepEqual(preferences({ fontSize: '900px', lineHeight: -1, width: 10000, sidebar: 'false' }),
   { fontSize: 18, lineHeight: 1.75, width: 68, sidebar: true });
@@ -55,4 +55,24 @@ assert.equal(lastBefore(offsets, 99), -1);
 assert.equal(lastBefore(offsets, 100), 0);
 assert.equal(lastBefore(offsets, 449.5), 1);
 assert.equal(lastBefore(offsets, 900), 2);
+
+// Real reader headings land on fractional coordinates. Rounded scroll/focus
+// positions must advance from Scope through the first and subsequent sections.
+const sections = [
+  { id: 'scope', top: 715.7734375 },
+  { id: 'first', top: 2009.109375 },
+  { id: 'second', top: 32434.234375 },
+];
+assert.equal(readingIndex([], 100), -1);
+assert.equal(readingIndex(sections, 0), -1);
+for (const [index, section] of sections.entries()) {
+  assert.equal(readingIndex(sections, section.top - 2.01), index - 1);
+  for (const y of [section.top, Math.floor(section.top), Math.floor(section.top) - 1, Math.ceil(section.top)]) {
+    const current = readingIndex(sections, y);
+    assert.equal(current, index, `Identify ${section.id} at rounded position ${y}`);
+    assert.equal(sections[current + 1]?.id, sections[index + 1]?.id, 'Next advances or stops at the final section');
+    assert.equal(sections[current - 1]?.id, sections[index - 1]?.id, 'Previous returns without skipping a section');
+  }
+}
+assert.equal(readingIndex(sections, 40000), 2);
 console.log('Reader preference, storage validation, passage recovery and navigation tests passed.');
