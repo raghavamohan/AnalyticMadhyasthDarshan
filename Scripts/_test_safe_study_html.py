@@ -33,7 +33,9 @@ class SafeStudyHtmlTests(unittest.TestCase):
                 result = convert_to_html(md, include_web_chrome=True).read_text(encoding="utf-8")
             self.assertIn("$x_1$", render.call_args.args[0])
             self.assertIn('class="mermaid"', result)
-            self.assertIn("<table>", result)
+            table = BeautifulSoup(result, "html.parser").select_one("main table")
+            self.assertIsNotNone(table)
+            self.assertEqual([cell.text for cell in table.select("td")], ["a", "b"])
             self.assertNotIn("MATH_0", result)
 
     def test_metadata_cannot_close_its_script_element(self):

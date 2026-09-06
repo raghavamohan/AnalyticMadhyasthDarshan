@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import html as html_module
 import json
 import re
@@ -12,6 +13,7 @@ from bs4 import BeautifulSoup
 
 from _safe_study_html import sanitize_author_html
 from _study_reader import reader_assets, reader_bootstrap, reader_controls
+from _study_passages import annotate_passages
 from _verify_study_svgs import verify_study_svgs, verify_svg_file
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION
@@ -926,6 +928,7 @@ def convert_to_html(
         html_body = render_latex_math(html_body)
     if include_web_chrome:
         html_body = insert_study_reading_key(html_body)
+        html_body = annotate_passages(html_body)
 
     toolbar = (
         _study_toolbar_html(input_path, title=title)
@@ -1359,6 +1362,7 @@ def convert_to_html(
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>{html_module.escape(title)}</title>
+<meta name="amd-source-version" content="{hashlib.sha256(input_path.read_bytes()).hexdigest()}"/>
 {favicon_link_tags()}{seo_head}
 {theme_bootstrap}<style>
   @page {{
@@ -1622,6 +1626,9 @@ def convert_to_html(
 </html>"""
 
     write_text_lf(output_path, full_html)
+    if include_web_chrome:
+        from _study_search import write_search_document
+        write_search_document(input_path, full_html)
     return output_path
 
 
