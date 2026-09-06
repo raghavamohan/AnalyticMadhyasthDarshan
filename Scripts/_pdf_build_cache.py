@@ -69,7 +69,9 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
     for name in tracked:
         path = Path(name)
         suffix = path.suffix.lower()
-        if name.startswith("Assets/"):
+        # These two assets are linked as screen-only CSS and browser JS. PDF
+        # loading disables reader scripts; neither can affect printed output.
+        if name.startswith("Assets/") and name not in {"Assets/reader/reader.css", "Assets/reader/reader.js"}:
             selected.add(name)
         if family == "presentations":
             if name == "Scripts/presentation-pipeline.json" or (

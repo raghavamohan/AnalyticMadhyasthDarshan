@@ -29,7 +29,14 @@
 {"@context":"https://schema.org","@type":"ScholarlyArticle","headline":"Education and Sanskar","description":"How understanding is formed and carried forward: education, sanskar, study, awakening, and transmission across generations","url":"https://analyticmadhyasthdarshan.org/Studies/Education-And-Sanskar/Education-And-Sanskar.html","inLanguage":"en","author":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"publisher":{"@type":"Organization","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"license":"https://creativecommons.org/licenses/by/4.0/","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/Education-And-Sanskar.png","dateModified":"2026-06-30T11:32:00+05:30"}
 </script>
 <script>
-(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
+(()=>{try{
+ const r=document.documentElement,t=localStorage.getItem('amd-theme');
+ if(['light','dark','sepia'].includes(t))r.dataset.theme=t;
+ const p=JSON.parse(localStorage.getItem('amd-reader-prefs-v1')||'{}');
+ if([16,18,20,22,24].includes(p.fontSize))r.style.setProperty('--reader-font',p.fontSize+'px');
+ if([1.5,1.75,2].includes(p.lineHeight))r.style.setProperty('--reader-line',p.lineHeight);
+ if([56,68,80].includes(p.width))r.style.setProperty('--reader-width',p.width+'ch');
+}catch(e){}})();
 </script>
 <style>
   @page {
@@ -560,7 +567,7 @@
     html { color-scheme: light; }
     html[data-theme="dark"] { color-scheme: dark; }
     @media (prefers-color-scheme: dark) {
-      html:not([data-theme="light"]) { color-scheme: dark; }
+      html:not([data-theme]) { color-scheme: dark; }
     }
     body {
       background: #fff;
@@ -621,6 +628,7 @@
     .study-toc-nav { max-height: 52vh; }
   }
   @media print {
+    .reader-chrome { display: none !important; }
     .study-toolbar { display: none !important; }
     .study-theme-toggle { display: none !important; }
     .study-toc { display: none !important; }
@@ -668,46 +676,48 @@
     html[data-theme="dark"] .study-theme-toggle:hover { border-color: #7ebbed; }
   }
   @media screen and (prefers-color-scheme: dark) {
-    html:not([data-theme="light"]) body { color: #e6dfd6; background: #1a1815; }
-    html:not([data-theme="light"]) h1, html:not([data-theme="light"]) h2, html:not([data-theme="light"]) h3, html:not([data-theme="light"]) h4 { color: #f5f1ec; }
-    html:not([data-theme="light"]) h1 { border-bottom-color: #6f655a; }
-    html:not([data-theme="light"]) h2 { border-bottom-color: #423b33; }
-    html:not([data-theme="light"]) a { color: #7ebbed; }
-    html:not([data-theme="light"]) a:visited { color: #9ec8e8; }
-    html:not([data-theme="light"]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
-    html:not([data-theme="light"]) .quote-source { color: #aca194; }
-    html:not([data-theme="light"]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
-    html:not([data-theme="light"]) td { border-color: #423b33; color: #e6dfd6; }
-    html:not([data-theme="light"]) tr:nth-child(even) { background: #1e1b18; }
-    html:not([data-theme="light"]) code { background: #2f2a24; color: #f0e8dc; }
-    html:not([data-theme="light"]) pre { background: #1e1b18; color: #e6dfd6; }
-    html:not([data-theme="light"]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
-    html:not([data-theme="light"]) .study-toolbar-link { color: #7ebbed; }
-    html:not([data-theme="light"]) .study-toolbar-link:hover { color: #b8daf3; }
-    html:not([data-theme="light"]) .study-toolbar-section.is-disabled { color: #6f655a; }
-    html:not([data-theme="light"]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
-    html:not([data-theme="light"]) .term-tip:hover { background: #2f2a24; }
-    html:not([data-theme="light"]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
-    html:not([data-theme="light"]) .study-toc { border-color: #423b33; }
-    html:not([data-theme="light"]) .study-toc-summary:hover { background: #1e1b18; }
-    html:not([data-theme="light"]) .study-toc-label { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-toc-meta { color: #aca194; }
-    html:not([data-theme="light"]) .study-toc-list a { color: #7ebbed; }
-    html:not([data-theme="light"]) .study-toc-l1 > a { color: #f5f1ec; }
-    html:not([data-theme="light"]) .study-reading-key { color: #aca194; }
-    html:not([data-theme="light"]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
-    html:not([data-theme="light"]) .study-reading-key-link { color: #7ebbed; }
-    html:not([data-theme="light"]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
-    html:not([data-theme="light"]) .study-theme-toggle:hover { border-color: #7ebbed; }
+    html:not([data-theme]) body { color: #e6dfd6; background: #1a1815; }
+    html:not([data-theme]) h1, html:not([data-theme]) h2, html:not([data-theme]) h3, html:not([data-theme]) h4 { color: #f5f1ec; }
+    html:not([data-theme]) h1 { border-bottom-color: #6f655a; }
+    html:not([data-theme]) h2 { border-bottom-color: #423b33; }
+    html:not([data-theme]) a { color: #7ebbed; }
+    html:not([data-theme]) a:visited { color: #9ec8e8; }
+    html:not([data-theme]) blockquote { background: #26231e; border-left-color: #6f655a; color: #e6dfd6; }
+    html:not([data-theme]) .quote-source { color: #aca194; }
+    html:not([data-theme]) th { background: #2f2a24; border-color: #423b33; color: #f5f1ec; }
+    html:not([data-theme]) td { border-color: #423b33; color: #e6dfd6; }
+    html:not([data-theme]) tr:nth-child(even) { background: #1e1b18; }
+    html:not([data-theme]) code { background: #2f2a24; color: #f0e8dc; }
+    html:not([data-theme]) pre { background: #1e1b18; color: #e6dfd6; }
+    html:not([data-theme]) .study-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+    html:not([data-theme]) .study-toolbar-link { color: #7ebbed; }
+    html:not([data-theme]) .study-toolbar-link:hover { color: #b8daf3; }
+    html:not([data-theme]) .study-toolbar-section.is-disabled { color: #6f655a; }
+    html:not([data-theme]) .term-tip { color: inherit; border-bottom-color: #c9a66b; }
+    html:not([data-theme]) .term-tip:hover { background: #2f2a24; }
+    html:not([data-theme]) .term-tip-panel { color: #e6dfd6; background: #26231e; border-color: #423b33; }
+    html:not([data-theme]) .study-toc { border-color: #423b33; }
+    html:not([data-theme]) .study-toc-summary:hover { background: #1e1b18; }
+    html:not([data-theme]) .study-toc-label { color: #f5f1ec; }
+    html:not([data-theme]) .study-toc-meta { color: #aca194; }
+    html:not([data-theme]) .study-toc-list a { color: #7ebbed; }
+    html:not([data-theme]) .study-toc-l1 > a { color: #f5f1ec; }
+    html:not([data-theme]) .study-reading-key { color: #aca194; }
+    html:not([data-theme]) .study-reading-key-term { color: #e6dfd6; border-bottom-color: #c9a66b; }
+    html:not([data-theme]) .study-reading-key-link { color: #7ebbed; }
+    html:not([data-theme]) .study-theme-toggle { color: #7ebbed; border-color: #423b33; background: #1e1b18; }
+    html:not([data-theme]) .study-theme-toggle:hover { border-color: #7ebbed; }
   }
 
 </style>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=a0e5215a2530d800"/>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <nav class="study-toolbar" aria-label="Study navigation">
   <div class="study-toolbar-row study-toolbar-row--primary">
-    <a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Education-And-Sanskar" aria-label="Back to all studies">&larr; Studies</a>
+    <span class="reader-toolbar-start"><a class="study-toolbar-link study-toolbar-back" href="../index.html#study-Education-And-Sanskar" aria-label="Back to all studies">&larr; Studies</a>
+      <button type="button" id="reader-open" aria-controls="reader-tools" aria-expanded="false" hidden>Contents &amp; tools</button></span>
     <span class="study-toolbar-actions">
       <a class="study-toolbar-link study-toolbar-discuss" href="discussion.html?dv=3">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="Education-And-Sanskar.pdf" download aria-label="Download PDF">PDF</a>
@@ -719,9 +729,53 @@
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
+    <span id="reader-current" aria-label="Current section">Introduction</span>
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
   </div>
 </nav>
+<section class="reader-resume reader-chrome" id="reader-resume" aria-label="Saved reading position" hidden>
+  <div><strong>Continue reading</strong><span id="reader-resume-label"></span></div>
+  <button type="button" id="reader-resume-go">Resume</button>
+  <button type="button" id="reader-resume-dismiss">Start here</button>
+</section>
+<dialog id="reader-tools" class="reader-chrome" aria-labelledby="reader-tools-title">
+  <header class="reader-panel-header"><h2 id="reader-tools-title">Study tools</h2><button type="button" id="reader-close" aria-label="Close study tools">&#215;</button></header>
+  <div class="reader-tabs" role="tablist" aria-label="Study tools">
+    <button type="button" role="tab" id="reader-tab-contents" aria-controls="reader-contents" aria-selected="true">Contents</button>
+    <button type="button" role="tab" id="reader-tab-bookmarks" aria-controls="reader-bookmarks" aria-selected="false" tabindex="-1">Bookmarks</button>
+    <button type="button" role="tab" id="reader-tab-display" aria-controls="reader-display" aria-selected="false" tabindex="-1">Display</button>
+  </div>
+  <section id="reader-contents" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-contents" tabindex="0">
+    <p class="reader-helper">Follow the argument, section by section.</p>
+    <nav id="reader-outline" aria-label="Study contents"></nav>
+  </section>
+  <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
+    <form id="reader-bookmark-form">
+      <label for="reader-bookmark-name">Name this place</label>
+      <input id="reader-bookmark-name" type="text" maxlength="80" placeholder="e.g. Return to the definition" autocomplete="off"/>
+      <button type="submit" class="reader-primary">Bookmark this place</button>
+    </form>
+    <p id="reader-bookmark-empty" class="reader-helper">No bookmarks in this study yet.</p>
+    <ol id="reader-bookmark-list" aria-label="Saved places"></ol>
+  </section>
+  <section id="reader-display" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-display" tabindex="0" hidden>
+    <label for="reader-font-size">Text size</label>
+    <select id="reader-font-size"><option value="16">Small · 16</option><option value="18">Default · 18</option><option value="20">Large · 20</option><option value="22">Larger · 22</option><option value="24">Largest · 24</option></select>
+    <label for="reader-line-height">Line spacing</label>
+    <select id="reader-line-height"><option value="1.5">Compact</option><option value="1.75">Comfortable</option><option value="2">Spacious</option></select>
+    <label for="reader-column-width">Text width</label>
+    <select id="reader-column-width"><option value="56">Narrow</option><option value="68">Comfortable</option><option value="80">Wide</option></select>
+    <label for="reader-color-theme">Page color</label>
+    <select id="reader-color-theme"><option value="system">Follow device</option><option value="light">Light</option><option value="sepia">Sepia</option><option value="dark">Dark</option></select>
+    <button type="button" id="reader-reset-display">Reset display</button>
+    <p class="reader-helper">Display choices apply to study pages. PDF and print keep their original layout.</p>
+  </section>
+  <footer class="reader-panel-footer"><p id="reader-storage-hint">Reading position and bookmarks stay in this browser on this device.</p>
+    <button type="button" id="reader-clear-data">Clear saved places for this study</button>
+    <div id="reader-clear-confirm" hidden><p>Remove this study’s saved position and bookmarks?</p><button type="button" id="reader-clear-yes">Remove saved places</button><button type="button" id="reader-clear-no">Keep them</button></div>
+  </footer>
+</dialog>
+<div id="reader-message" class="reader-chrome" role="status" aria-live="polite" hidden></div>
 <main id="main"><h1>Education and Sanskar</h1>
 <p><strong>Author:</strong> <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">AnalyticMadhyasthDarshan.org</a> — a group of people studying <span class="term-tip-wrap"><button type="button" class="term-tip" data-term="darshan" data-definition="Madhyasth Darshan — the coexistentialist worldview; darshan is the holistic view obtained through perspective, conception, and realisation.">Madhyasth Darshan</button></span> philosophy. Source repository: <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan" rel="noopener noreferrer">raghavamohan/AnalyticMadhyasthDarshan</a>.</p>
 <p><strong>Edited on:</strong> June 30, 2026, 11:32 AM IST</p>
@@ -742,108 +796,7 @@ Submit the full study via <a href="https://analyticmadhyasthdarshan.org/Studies/
 <ul>
 <li><em>(Add references when you submit the full draft — link to files under <code>../References/</code> where available.)</em></li>
 </ul></main>
-<script>
-(() => {
-  const toolbar = document.querySelector(".study-toolbar");
-  const prev = document.getElementById("study-section-prev");
-  const next = document.getElementById("study-section-next");
-  if (!toolbar || !prev || !next) return;
-
-  const sections = Array.from(document.querySelectorAll("h2[id]"));
-  const syncToolbarHeight = () => {
-    document.documentElement.style.setProperty(
-      "--study-toolbar-height",
-      `${toolbar.offsetHeight}px`
-    );
-  };
-
-  const sectionLabel = el => el.textContent.replace(/\s+/g, " ").trim();
-
-  const marker = () => (toolbar.offsetHeight || 0) + 16;
-
-  const currentIndex = () => {
-    const y = window.scrollY + marker();
-    let idx = -1;
-    for (let i = 0; i < sections.length; i++) {
-      if (sections[i].offsetTop <= y) idx = i;
-      else break;
-    }
-    return idx;
-  };
-
-  const setDisabled = (link, disabled, fallback) => {
-    link.classList.toggle("is-disabled", disabled);
-    if (disabled) {
-      link.removeAttribute("href");
-      link.setAttribute("aria-disabled", "true");
-      link.textContent = fallback;
-    } else {
-      link.setAttribute("aria-disabled", "false");
-    }
-  };
-
-  const update = () => {
-    if (!sections.length) {
-      setDisabled(prev, true, "\u2190 Previous section");
-      setDisabled(next, true, "Next section \u2192");
-      return;
-    }
-
-    const idx = currentIndex();
-
-    if (idx <= 0) {
-      setDisabled(prev, true, "\u2190 Previous section");
-    } else {
-      prev.classList.remove("is-disabled");
-      prev.href = `#${sections[idx - 1].id}`;
-      prev.setAttribute("aria-disabled", "false");
-      prev.textContent = `\u2190 ${sectionLabel(sections[idx - 1])}`;
-    }
-
-    if (idx >= sections.length - 1) {
-      setDisabled(next, true, "Next section \u2192");
-    } else {
-      next.classList.remove("is-disabled");
-      next.href = `#${sections[idx + 1].id}`;
-      next.setAttribute("aria-disabled", "false");
-      next.textContent = `${sectionLabel(sections[idx + 1])} \u2192`;
-    }
-  };
-
-  syncToolbarHeight();
-  update();
-  window.addEventListener("scroll", update, { passive: true });
-  window.addEventListener("resize", () => {
-    syncToolbarHeight();
-    update();
-  });
-  const scrollToSection = id => {
-    const target = document.getElementById(id);
-    if (!target) return;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    history.pushState(null, "", `#${encodeURIComponent(id)}`);
-    target.setAttribute("tabindex", "-1");
-    target.focus({ preventScroll: true });
-    target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-  };
-
-  prev.addEventListener("click", event => {
-    if (prev.classList.contains("is-disabled")) return;
-    const href = prev.getAttribute("href");
-    if (!href || !href.startsWith("#")) return;
-    event.preventDefault();
-    scrollToSection(href.slice(1));
-  });
-  next.addEventListener("click", event => {
-    if (next.classList.contains("is-disabled")) return;
-    const href = next.getAttribute("href");
-    if (!href || !href.startsWith("#")) return;
-    event.preventDefault();
-    scrollToSection(href.slice(1));
-  });
-})();
-</script>
-<script>
+<script defer src="../../Assets/reader/reader.js?v=3d08bd1cb4f261ad"></script><script>
 (() => {
   let floatPanel = document.getElementById("term-tip-float");
   if (!floatPanel) {
@@ -925,29 +878,6 @@ Submit the full study via <a href="https://analyticmadhyasthdarshan.org/Studies/
       hide();
     }
   });
-})();
-</script>
-<script>
-(() => {
-  const toggle = document.getElementById("study-theme-toggle");
-  if (!toggle) return;
-  const label = toggle.querySelector(".study-theme-toggle-label");
-  const root = document.documentElement;
-  const system = window.matchMedia("(prefers-color-scheme: dark)");
-  const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
-  const paint = () => {
-    const next = active() === "dark" ? "Light" : "Dark";
-    if (label) label.textContent = next;
-    toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
-  };
-  toggle.addEventListener("click", () => {
-    const next = active() === "dark" ? "light" : "dark";
-    root.setAttribute("data-theme", next);
-    try { localStorage.setItem("amd-theme", next); } catch (e) {}
-    paint();
-  });
-  system.addEventListener("change", paint);
-  paint();
 })();
 </script>
 
