@@ -191,8 +191,46 @@
     });
     window.addEventListener('beforeunload',event => { if (dirty) { event.preventDefault(); event.returnValue = ''; } });
     if (channel) channel.onmessage = () => { refresh().then(() => { if (dirty) status('Notes changed in another tab. Your unsaved text is still in the editor.'); }).catch(error => status(error.message)); };
-    const loadingControls = [...document.querySelectorAll('#reader-notes button,#reader-notes input,#notebook-notes button,#notebook-notes input')];
+    const loadingControls = [...document.querySelectorAll('#reader-notes button,#reader-notes input,#notebook-notes button,#notebook-notes input,#selection-note,#selection-highlight')];
     loadingControls.forEach(node => { node.disabled = true; });
+    if (context) {
+      // Speech and native selection must work even while IndexedDB is opening.
+      const updateSpeechSelection = setupSpeech(context,() => selection,domRange,candidates);
+      let selectionTimer;
+      function captureSelectionNow(showTools = true) {
+        clearTimeout(selectionTimer);
+        const next = snapshot(), native = window.getSelection();
+        if (next || (!native?.isCollapsed && context.main.contains(native?.anchorNode))) {
+          selection = next;
+          if (!next) $('reader-selection-tools').hidden = true;
+          else if (showTools && !context.tools?.matches(':modal')) $('reader-selection-tools').hidden = false;
+          updateSpeechSelection();
+        }
+      }
+      const captureSelection = () => { clearTimeout(selectionTimer); selectionTimer = setTimeout(captureSelectionNow,100); };
+      const clearSelection = () => { clearTimeout(selectionTimer); selection = null; $('reader-selection-tools').hidden = true; updateSpeechSelection(); };
+      // Android's long-press handles can move without another pointerup.
+      document.addEventListener('selectionchange',captureSelection);
+      context.main.addEventListener('pointerup',captureSelection); context.main.addEventListener('keyup',captureSelection);
+      context.main.addEventListener('pointerdown',clearSelection);
+      // Opening the mobile dialog moves focus and may collapse the DOM range.
+      // Freeze it before the toolbar's click handler or pointer default action.
+      const preserveSelection = event => { if (event.target.closest('.reader-chrome,.study-toolbar')) captureSelectionNow(false); };
+      document.addEventListener('pointerdown',preserveSelection,true);
+      document.addEventListener('click',preserveSelection,true);
+      $('selection-dismiss').addEventListener('click',clearSelection);
+      $('selection-note').addEventListener('click',() => { if (selection) { begin(newNote(selection)); $('reader-selection-tools').hidden = true; } });
+      $('selection-highlight').addEventListener('click',async () => {
+        if (!selection) return;
+        try { await store.put(newNote(selection)); signal(); await refresh(); $('reader-selection-tools').hidden = true; context.message(volatile ? 'Highlight kept for this visit. Export a backup.' : 'Highlight saved. Open Notes to add your thoughts.'); }
+        catch (error) { context.message(error.message,true); }
+      });
+      $('reader-offline-tools').addEventListener('toggle',() => { if ($('reader-offline-tools').open) loadOffline().then(api => api.reader(path)).catch(error => { $('offline-status').textContent = error.message; }); });
+      if (document.documentElement.hasAttribute('data-offline-copy')) { $('reader-offline-banner').hidden = false; $('reader-offline-banner').textContent = 'Reading a saved copy. Open Display → Offline reading to check its date or update it.'; }
+    } else {
+      $('notes-new').hidden = true; $('notes-scope').value = 'all'; $('notes-scope').disabled = true;
+      loadOffline().then(api => api.library()).catch(error => { $('offline-library-status').textContent = error.message; });
+    }
     try { store = await C.openStore(); await refresh(); status(`${noteCount(notes.filter(n => !path || n.document === path).length)} saved on this device.`); }
     catch (_) {
       volatile = true; const memory = new Map();
@@ -204,73 +242,77 @@
       status('Device storage is unavailable or unreadable. Existing stored data is untouched. New notes last only for this visit; export before leaving.'); render();
     }
     loadingControls.forEach(node => { node.disabled = false; });
-    if (context) {
-      let selectionTimer;
-      const captureSelection = () => { clearTimeout(selectionTimer); selectionTimer = setTimeout(() => { const next = snapshot(); if (next) { selection = next; $('reader-selection-tools').hidden = false; } },100); };
-      context.main.addEventListener('pointerup',captureSelection); context.main.addEventListener('keyup',captureSelection);
-      context.main.addEventListener('pointerdown',() => { selection = null; $('reader-selection-tools').hidden = true; });
-      $('selection-dismiss').addEventListener('click',() => { $('reader-selection-tools').hidden = true; selection = null; });
-      $('selection-note').addEventListener('click',() => { if (selection) { begin(newNote(selection)); $('reader-selection-tools').hidden = true; } });
-      $('selection-highlight').addEventListener('click',async () => {
-        if (!selection) return;
-        try { await store.put(newNote(selection)); signal(); await refresh(); $('reader-selection-tools').hidden = true; context.message(volatile ? 'Highlight kept for this visit. Export a backup.' : 'Highlight saved. Open Notes to add your thoughts.'); }
-        catch (error) { context.message(error.message,true); }
-      });
-      setupSpeech(context,() => selection,domRange,candidates);
-      $('reader-offline-tools').addEventListener('toggle',() => { if ($('reader-offline-tools').open) loadOffline().then(api => api.reader(path)).catch(error => { $('offline-status').textContent = error.message; }); });
-      if (document.documentElement.hasAttribute('data-offline-copy')) { $('reader-offline-banner').hidden = false; $('reader-offline-banner').textContent = 'Reading a saved copy. Open Display → Offline reading to check its date or update it.'; }
-    } else {
-      $('notes-new').hidden = true; $('notes-scope').value = 'all'; $('notes-scope').disabled = true;
-      loadOffline().then(api => api.library()).catch(error => { $('offline-library-status').textContent = error.message; });
-    }
   };
   function setupSpeech(context,getSelection,domRange,candidates) {
-    const synth = window.speechSynthesis; let voices = [], generation = 0, active = false, utterance;
+    const synth = window.speechSynthesis, S = window.AMDReaderSpeech;
+    let voices = [], state = 'idle', ranges = [], testing = false;
     const status = text => { $('listen-status').textContent = text; };
-    function controls(state) { active = state !== 'idle'; $('listen-start').disabled = active || !voices.length; $('listen-pause').disabled = state !== 'speaking'; $('listen-resume').disabled = state !== 'paused'; $('listen-stop').disabled = !active; $('listen-voice').disabled = $('listen-speed').disabled = active; }
+    const clearHighlight = () => window.CSS?.highlights?.delete('reader-speaking');
+    function controls(value = state) {
+      state = value; const active = state !== 'idle';
+      $('listen-start').disabled = active || !voices.length || !getSelection();
+      $('listen-test').disabled = active || !voices.length;
+      $('listen-pause').disabled = state !== 'speaking'; $('listen-resume').disabled = state !== 'paused';
+      $('listen-stop').disabled = !active; $('listen-voice').disabled = $('listen-speed').disabled = active || !voices.length;
+      if (state !== 'speaking') clearHighlight();
+    }
+    function updateSelection() {
+      const selected = getSelection();
+      $('listen-selection-label').textContent = selected ? `Selected passage · ${selected.quote.length.toLocaleString()} characters` : 'No passage selected';
+      $('listen-selection-preview').textContent = selected ? selected.quote.slice(0,240) + (selected.quote.length > 240 ? '…' : '') : 'Close tools and select up to 6,000 characters in the study. Then open Listen.';
+      controls();
+    }
+    if (!synth || !window.SpeechSynthesisUtterance || !S) {
+      status('Read-aloud is not available in this browser.'); updateSelection(); return updateSelection;
+    }
+    const player = S.createPlayer({synth,Utterance:window.SpeechSynthesisUtterance,
+      onState:value => { controls(value); if (value === 'starting') status('Starting device voice…'); if (value === 'paused') status('Paused. Resume restarts this sentence or short chunk.'); },
+      onChunk:(piece,index,total) => {
+        status(testing ? 'Playing the test voice.' : `Reading ${index + 1} of ${total} sentences or chunks.`);
+        if (window.CSS?.highlights && window.Highlight) {
+          const highlights = ranges.filter(r => r.from < piece.end && r.to > piece.start).map(r => domRange(r.passage,r.start + Math.max(0,piece.start - r.from),r.start + Math.min(r.to - r.from,piece.end - r.from))).filter(Boolean);
+          CSS.highlights.set('reader-speaking',new Highlight(...highlights));
+        }
+      },
+      onError:code => status(code === 'start-timeout' ? 'The device voice did not start. Try Test voice or another voice. Open “No sound?” below for phone settings.' : 'The device could not read aloud (' + code + '). Try another voice or open “No sound?” below.'),
+      onFinish:() => status(testing ? 'Voice test finished. If you heard nothing, open “No sound?” below.' : 'Finished reading the selection.'),
+    });
     function refreshVoices() {
-      if (!synth) { status('Read-aloud is not available in this browser.'); controls('idle'); return; }
-      if (active) return;
-      const previous = $('listen-voice').value; voices = synth.getVoices().filter(v => v.localService);
+      if (state !== 'idle') return;
+      const previous = $('listen-voice').value;
+      try { voices = synth.getVoices().filter(v => v.localService); } catch (_) { voices = []; }
+      const preferred = S.chooseVoice(voices,previous,document.documentElement.lang || 'en',navigator.languages);
       $('listen-voice').replaceChildren();
       for (const voice of voices) { const option = document.createElement('option'); option.value = voice.voiceURI; option.textContent = `${voice.name} · ${voice.lang}`; $('listen-voice').append(option); }
-      if (voices.some(v => v.voiceURI === previous)) $('listen-voice').value = previous;
-      controls('idle'); status(voices.length ? 'Select up to 6,000 characters, then choose Read selection.' : 'No device voices are available. Install a voice in your device’s speech settings, then reopen Listen.');
+      if (preferred) $('listen-voice').value = preferred.voiceURI;
+      controls(); status(voices.length ? 'Choose Read selection, or Test voice to check sound.' : 'No device voices are available yet. Reopen Listen after installing a voice in your phone’s text-to-speech settings. See “No sound?” below.');
     }
-    function stop(announce = true) { generation++; synth?.cancel(); window.CSS?.highlights?.delete('reader-speaking'); controls('idle'); if (announce) status('Stopped.'); }
     $('reader-tab-listen').addEventListener('click',refreshVoices);
     $('selection-listen').addEventListener('click',() => { context.selectTab('listen'); context.openPanel(); $('reader-selection-tools').hidden = true; refreshVoices(); });
-    synth?.addEventListener('voiceschanged',refreshVoices);
-    $('listen-stop').addEventListener('click',() => stop());
-    $('listen-pause').addEventListener('click',() => { synth?.pause(); controls('paused'); status('Paused.'); });
-    $('listen-resume').addEventListener('click',() => { synth?.resume(); controls('speaking'); status('Reading.'); });
-    window.addEventListener('pagehide',() => stop(false));
+    synth.addEventListener('voiceschanged',refreshVoices);
+    $('listen-stop').addEventListener('click',() => { player.stop(); status('Stopped.'); });
+    $('listen-pause').addEventListener('click',() => player.pause());
+    $('listen-resume').addEventListener('click',() => player.resume());
+    window.addEventListener('pagehide',() => player.stop());
+    const voice = () => voices.find(v => v.voiceURI === $('listen-voice').value);
+    $('listen-test').addEventListener('click',() => {
+      const chosen = voice(); if (!chosen) return;
+      testing = true; ranges = []; player.play({text:'This is a test of the reading voice on your device.',voice:chosen,rate:Number($('listen-speed').value)});
+    });
     $('listen-start').addEventListener('click',() => {
-      const selected = getSelection(), voice = voices.find(v => v.voiceURI === $('listen-voice').value);
-      if (!selected || !voice) { status('Select study text and choose an available device voice first.'); return; }
-      stop(false); const run = ++generation, pieces = []; let offset = 0;
+      const selected = getSelection(), chosen = voice();
+      if (!selected || !chosen) { status('Select study text and choose an available device voice first.'); return; }
       const resolved = selected.anchors.map(a => C.resolve(a,candidates()));
       if (resolved.some(a => !a)) { status('The selected passage has changed. Select it again.'); return; }
-      const ranges = resolved.map((found,i) => { const start = offset; offset += selected.anchors[i].quote.length + 1; return {...found,from:start,to:offset - 1}; });
-      const text = selected.anchors.map(a => a.quote).join('\n');
-      let sentences = [{start:0,text}];
-      try { if (typeof Intl.Segmenter === 'function') sentences = [...new Intl.Segmenter(voice.lang,{granularity:'sentence'}).segment(text)].map(s => ({start:s.index,text:s.segment})); } catch (_) { /* Some installed voices expose a nonstandard language tag. */ }
-      for (const sentence of sentences) for (let i = 0; i < sentence.text.length;) { let size = Math.min(600,sentence.text.length - i); if (size === 600) { const space = sentence.text.lastIndexOf(' ',i + size); if (space > i + 200) size = space - i + 1; } pieces.push({start:sentence.start + i,end:sentence.start + i + size}); i += size; }
-      for (let i = pieces.length - 1; i >= 0; i--) if (!text.slice(pieces[i].start,pieces[i].end).trim()) pieces.splice(i,1);
-      let index = 0;
-      const speak = () => {
-        if (run !== generation) return;
-        if (index >= pieces.length) { controls('idle'); window.CSS?.highlights?.delete('reader-speaking'); status('Finished reading the selection.'); return; }
-        const piece = pieces[index++]; utterance = new SpeechSynthesisUtterance(text.slice(piece.start,piece.end)); utterance.voice = voice; utterance.lang = voice.lang; utterance.rate = Number($('listen-speed').value);
-        utterance.onstart = () => { if (run !== generation) return; controls(synth.paused ? 'paused' : 'speaking'); status(synth.paused ? 'Paused.' : `Reading ${index} of ${pieces.length} sentences or chunks.`);
-          if (window.CSS?.highlights && window.Highlight) { const highlights = ranges.filter(r => r.from < piece.end && r.to > piece.start).map(r => domRange(r.passage,r.start + Math.max(0,piece.start - r.from),r.start + Math.min(r.to - r.from,piece.end - r.from))).filter(Boolean); CSS.highlights.set('reader-speaking',new Highlight(...highlights)); }
-        };
-        utterance.onpause = () => { if (run === generation) { controls('paused'); status('Paused.'); } }; utterance.onresume = () => { if (run === generation) { controls('speaking'); status('Reading.'); } };
-        utterance.onend = speak; utterance.onerror = event => { if (run === generation) { stop(false); status('This voice could not read the selection (' + event.error + '). Try another device voice.'); } };
-        controls('speaking'); synth.speak(utterance);
-      };
-      try { speak(); } catch (_) { stop(false); status('The device could not start speech. Try another voice.'); }
+      let offset = 0;
+      ranges = resolved.map((found,i) => { const start = offset; offset += selected.anchors[i].quote.length + 1; return {...found,from:start,to:offset - 1}; });
+      testing = false; player.play({text:selected.anchors.map(a => a.quote).join('\n'),voice:chosen,rate:Number($('listen-speed').value)});
     });
+    updateSelection(); refreshVoices();
+    // Some mobile engines initialize lazily and deliver voiceschanged late.
+    const retries = [300,1000,3000].map(delay => setTimeout(() => { if (!voices.length) refreshVoices(); },delay));
+    window.addEventListener('pagehide',() => retries.forEach(clearTimeout),{once:true});
+    return updateSelection;
   }
   const startNotebook = () => { if ($('notebook')) window.AMDStudyTools(null).catch(() => { $('notes-status').textContent = 'Notes could not open. Reload the page to retry; existing device data is retained.'; }); };
   if (document.readyState !== 'complete') document.addEventListener('DOMContentLoaded',startNotebook,{once:true});

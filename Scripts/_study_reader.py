@@ -20,6 +20,7 @@ def reader_assets(source: Path) -> tuple[str, str]:
         f'<script defer src="{url("search.js")}"></script>\n'
         f'<script defer src="{url("reader-features.js")}"></script>\n'
         f'<script defer src="{url("notes-core.js")}"></script>\n'
+        f'<script defer src="{url("speech-core.js")}"></script>\n'
         f'<script defer src="{url("study-tools.js")}" data-offline-client="{url("offline-client.js")}"></script>\n'
         f'<script defer src="{url("reader.js")}"></script>',
     )
@@ -96,10 +97,18 @@ def reader_controls() -> str:
   </section>
   <section id="reader-listen" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-listen" tabindex="0" hidden>
     <p class="reader-helper">Select a passage, then read it using a voice installed on this device. No audio starts automatically.</p>
+    <div class="listen-selection"><strong id="listen-selection-label">No passage selected</strong><p id="listen-selection-preview">Close tools and select up to 6,000 characters in the study. Then open Listen.</p></div>
     <label for="listen-voice">Device voice</label><select id="listen-voice"></select>
     <label for="listen-speed">Reading speed</label><select id="listen-speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select>
-    <div class="study-tool-actions"><button type="button" id="listen-start">Read selection</button><button type="button" id="listen-pause" disabled>Pause</button><button type="button" id="listen-resume" disabled>Resume</button><button type="button" id="listen-stop" disabled>Stop</button></div>
+    <div class="study-tool-actions"><button type="button" id="listen-start" disabled>Read selection</button><button type="button" id="listen-test" disabled>Test voice</button></div>
+    <div class="study-tool-actions"><button type="button" id="listen-pause" disabled>Pause</button><button type="button" id="listen-resume" disabled>Resume</button><button type="button" id="listen-stop" disabled>Stop</button></div>
     <p id="listen-status" role="status" aria-live="polite">Open Listen to check device voices.</p>
+    <p class="reader-helper">Resume restarts the paused sentence or short chunk. Keep this page open while listening.</p>
+    <details><summary>No sound?</summary>
+      <p class="reader-helper">Turn up media volume and check whether sound is going to Bluetooth headphones. Try Test voice, then a different device voice.</p>
+      <p class="reader-helper">On Android, search Settings for “Text-to-speech output”. Choose an engine and language, install its voice data if needed, and use Play to test it. Return to Chrome and reopen Listen; reload the page if the voice list has not updated.</p>
+      <a href="https://support.google.com/accessibility/android/answer/6006983?hl=en" target="_blank" rel="noopener noreferrer">Android text-to-speech settings ↗</a>
+    </details>
     <p class="reader-helper">Only voices reported by your browser as local are offered. Voice availability and offline support vary by device. Pronunciation of Sanskrit, Hindi, formulas and abbreviations may be imperfect. Highlighting follows each spoken sentence or short chunk.</p>
   </section>
   <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
