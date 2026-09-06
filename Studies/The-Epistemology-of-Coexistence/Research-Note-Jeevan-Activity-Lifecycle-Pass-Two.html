@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta name="color-scheme" content="light dark"/>
 <title>Research Note: Pass-Two Lifecycle and Evidence Coding of All 122 *Jeevan* Members</title>
+<meta name="amd-source-version" content="6b983628d9dcb96e26ac56a9f0d2bc0f15f8bda74d7596d8d6238f3091ee3e9f"/>
 <link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
@@ -710,7 +711,8 @@
   }
 
 </style>
-<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=a0e5215a2530d800"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=97e069fdb79e189c"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/search.css?v=c92940019b038782"/>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -742,12 +744,24 @@
   <header class="reader-panel-header"><h2 id="reader-tools-title">Study tools</h2><button type="button" id="reader-close" aria-label="Close study tools">&#215;</button></header>
   <div class="reader-tabs" role="tablist" aria-label="Study tools">
     <button type="button" role="tab" id="reader-tab-contents" aria-controls="reader-contents" aria-selected="true">Contents</button>
+    <button type="button" role="tab" id="reader-tab-search" aria-controls="reader-search" aria-selected="false" tabindex="-1">Find</button>
     <button type="button" role="tab" id="reader-tab-bookmarks" aria-controls="reader-bookmarks" aria-selected="false" tabindex="-1">Bookmarks</button>
     <button type="button" role="tab" id="reader-tab-display" aria-controls="reader-display" aria-selected="false" tabindex="-1">Display</button>
   </div>
   <section id="reader-contents" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-contents" tabindex="0">
-    <p class="reader-helper">Follow the argument, section by section.</p>
+    <button type="button" id="reader-passage-tools">Link &amp; sources for this passage</button>
+    <p class="reader-helper">Select text to choose a passage, or use the passage at the top of the page. Click a citation code to preview its source.</p>
     <nav id="reader-outline" aria-label="Study contents"></nav>
+  </section>
+  <section id="reader-search" class="reader-tab-panel study-search" role="tabpanel" aria-labelledby="reader-tab-search" tabindex="0" hidden>
+    <form id="reader-search-form" class="search-form"><label for="reader-search-query">Find in this document</label>
+      <div class="search-input-row"><input id="reader-search-query" type="search" maxlength="200" placeholder="Word or quoted phrase"/><button type="submit">Find</button></div>
+    </form>
+    <p class="reader-helper">All words must occur in a passage. Use quotes for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
+    <a id="reader-search-all" href="/Studies/search.html">Search all studies and notes →</a>
+    <p id="reader-search-status" class="search-status" role="status" aria-live="polite">Enter a word or phrase.</p>
+    <ol id="reader-search-results" class="search-results"></ol>
+    <button type="button" id="reader-search-more" hidden>Show more results</button>
   </section>
   <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
     <form id="reader-bookmark-form">
@@ -775,122 +789,138 @@
     <div id="reader-clear-confirm" hidden><p>Remove this study’s saved position and bookmarks?</p><button type="button" id="reader-clear-yes">Remove saved places</button><button type="button" id="reader-clear-no">Keep them</button></div>
   </footer>
 </dialog>
+<dialog id="reader-viewer" class="reader-chrome" aria-labelledby="reader-viewer-title">
+  <header class="reader-panel-header"><h2 id="reader-viewer-title">Passage tools</h2><button type="button" id="reader-viewer-close" aria-label="Close preview">&#215;</button></header>
+  <p id="reader-viewer-status" role="status" aria-live="polite"></p>
+  <div id="reader-source-view">
+    <p id="reader-passage-excerpt"></p><button type="button" id="reader-copy-passage">Copy passage link</button>
+    <label id="reader-copy-label" for="reader-copy-fallback" hidden>Copy this text</label><textarea id="reader-copy-fallback" rows="3" readonly hidden></textarea>
+    <div id="reader-source-detail" hidden><h3 id="reader-source-title"></h3><p id="reader-source-citation"></p><p id="reader-source-note" class="reader-helper"></p>
+      <a id="reader-source-open" target="_blank" rel="noopener noreferrer">Open source in a new tab ↗</a> <button type="button" id="reader-copy-citation">Copy citation</button>
+    </div>
+    <label for="reader-source-query">Find a reference in this study</label><input id="reader-source-query" type="search" placeholder="Source code, title or author"/>
+    <p id="reader-source-status" class="reader-helper"></p><ul id="reader-source-list"></ul>
+  </div>
+  <div id="reader-visual-view" hidden><div class="reader-zoom-controls"><button type="button" id="reader-zoom-out" aria-label="Zoom out">−</button><output id="reader-zoom-level" aria-live="polite">100%</output><button type="button" id="reader-zoom-in" aria-label="Zoom in">+</button><button type="button" id="reader-zoom-fit">Fit</button><button type="button" id="reader-zoom-reset">100%</button></div>
+    <p class="reader-helper">Scroll or swipe inside the viewer to see the whole figure or table.</p><div id="reader-visual-stage" tabindex="0" role="region" aria-label="Enlarged figure or table"><div id="reader-visual-canvas"><div id="reader-visual-content"></div></div></div>
+  </div>
+</dialog>
 <div id="reader-message" class="reader-chrome" role="status" aria-live="polite" hidden></div>
 <main id="main"><h1>Research Note: Pass-Two Lifecycle and Evidence Coding of All 122 <em>Jeevan</em> Members</h1>
-<p><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org" rel="noopener noreferrer">analyticmadhyasthdarshan.org</a>)</p>
-<p><strong>Edited on:</strong> August 16, 2026, 6:31 PM IST</p>
-<p><strong>Status:</strong> Internal research note (not a catalog entry). Pass Two of the activity-to-sphere analysis.</p>
-<p><strong>Scope:</strong> This register completes the normalization gate and Pass-Two coding for all 122 <em>bal/shakti</em> column assignments. It takes the source anatomy established in the sixteen <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html" rel="noopener noreferrer">pilot records</a> and the 106-member <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html" rel="noopener noreferrer">Pass-One register</a>, separates internal dependencies from external requirements, and records the lifecycle conditions under which each member can be developed, rightly oriented, expressed, evidenced, evaluated, corrected, sustained, and transmitted. It does not cluster the records into spheres and does not assign family or institutional functions.</p>
-<p>The constitutional activity of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> is not created by an environment. Pass Two therefore never treats an external condition as the cause of realisation or as an additional power of <em>jeevan</em>. It asks instead what is necessary or supportive for receptivity, embodied or relational expression, valid evidence, correction, and continuity. Where a source slot names a role, relationship, property, body process, criterion, or result, the lifecycle follows that entry form rather than redescribing it as a private mental operation.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-7ac73ef7967dc581"><strong>Author:</strong> Raghava Mohan Madhwapathi (<a href="https://analyticmadhyasthdarshan.org" rel="noopener noreferrer">analyticmadhyasthdarshan.org</a>)</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-04c332e278674164"><strong>Edited on:</strong> August 16, 2026, 6:31 PM IST</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-144fc9f5296ea5f1"><strong>Status:</strong> Internal research note (not a catalog entry). Pass Two of the activity-to-sphere analysis.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-02ff0c4cc19b0d5a"><strong>Scope:</strong> This register completes the normalization gate and Pass-Two coding for all 122 <em>bal/shakti</em> column assignments. It takes the source anatomy established in the sixteen <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html" rel="noopener noreferrer">pilot records</a> and the 106-member <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html" rel="noopener noreferrer">Pass-One register</a>, separates internal dependencies from external requirements, and records the lifecycle conditions under which each member can be developed, rightly oriented, expressed, evidenced, evaluated, corrected, sustained, and transmitted. It does not cluster the records into spheres and does not assign family or institutional functions.</p>
+<p data-reader-heading="" data-reader-passage="" id="reader-p-756e609026daf68a">The constitutional activity of <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em> is not created by an environment. Pass Two therefore never treats an external condition as the cause of realisation or as an additional power of <em>jeevan</em>. It asks instead what is necessary or supportive for receptivity, embodied or relational expression, valid evidence, correction, and continuity. Where a source slot names a role, relationship, property, body process, criterion, or result, the lifecycle follows that entry form rather than redescribing it as a private mental operation.</p>
 <details class="study-toc study-toc--with-key" id="study-contents">
-  <summary class="study-toc-summary">
-    <span class="study-toc-label">Contents</span>
-    <span class="study-toc-meta">9 sections &middot; 78 headings</span>
-  </summary>
-  <nav class="study-toc-nav" aria-label="Contents">
-    <ol class="study-toc-list">
-      <li class="study-toc-item study-toc-l1"><a href="#1-normalized-record-and-coding-discipline">1. Normalized record and coding discipline</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#2-atma-and-buddhi-six-member-records">2. Atma and buddhi: six member records</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#a-01-anubhav-pramanikta">A-01 - Anubhav / pramanikta</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#b-01-anand-dhee">B-01 - Anand / dhee</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#b-02-astitva-dhruti">B-02 - Astitva / dhruti</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#3-chitta-sixteen-member-records">3. Chitta: sixteen member records</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#c-01-shruti-smriti">C-01 - Shruti / smriti</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#c-02-medha-kala">C-02 - Medha / kala</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#c-03-kanti-roop">C-03 - Kanti / roop</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#c-04-nireekshan-guna">C-04 - Nireekshan / guna</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#c-05-santosh-shree">C-05 - Santosh / shree</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#c-06-prem-ananyata">C-06 - Prem / ananyata</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#c-07-vatsalya-sahajta">C-07 - Vatsalya / sahajta</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#c-08-shraddha-pujyata">C-08 - Shraddha / pujyata</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#4-vritti-thirty-six-member-records">4. Vritti: thirty-six member records</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-01-vidya-pragya">V-01 - Vidya / pragya</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-02-keerti-vichar">V-02 - Keerti / vichar</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-03-nishchaya-dhairya">V-03 - Nishchaya / dhairya</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-04-shanti-daya">V-04 - Shanti / daya</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-05-krupa-karuna">V-05 - Krupa / karuna</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-06-dum-kshama">V-06 - Dum / kshama</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-07-tatparta-utsah">V-07 - Tatparta / utsah</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-08-kritagyata-saumyata">V-08 - Kritagyata / saumyata</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-09-gaurav-saralta">V-09 - Gaurav / saralta</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-10-vishwas-saujanyata">V-10 - Vishwas / saujanyata</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-11-satya-dharma">V-11 - Satya / dharma</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-12-nyaya-samvedna">V-12 - Nyaya / samvedna</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-13-tadatmayata-sahas">V-13 - Tadatmayata / sahas</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-14-samyama-niyam">V-14 - Samyama / niyam</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-15-veerta-dheerta">V-15 - Veerta / dheerta</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-16-bhav-samveg">V-16 - Bhav / samveg</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-17-jati-kaal">V-17 - Jati / kaal</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#v-18-tushti-pushti">V-18 - Tushti / pushti</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#5-mun-sixty-four-member-records">5. Mun: sixty-four member records</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-01-bhakti-tanmayata">M-01 - Bhakti / tanmayata</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-02-mamta-udarta">M-02 - Mamta / udarta</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-03-samman-sauhardta">M-03 - Samman / sauhardta</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-04-sneha-nishtha">M-04 - Sneha / nishtha</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-05-putra-putri-anurag">M-05 - Putra-putri / anurag</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-06-sathi-dayitva">M-06 - Sathi / dayitva</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-07-sahyogi-kartavya">M-07 - Sahyogi / kartavya</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-08-svayatta-samriddhi">M-08 - Svayatta / samriddhi</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-09-hita-svasthya">M-09 - Hita / svasthya</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-10-priya-pravrittiyan">M-10 - Priya / pravrittiyan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-11-ullas-haas">M-11 - Ullas / haas</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-12-sheel-sankoch">M-12 - Sheel / sankoch</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-13-guru-pramanik">M-13 - Guru / pramanik</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-14-shishya-jigyasu">M-14 - Shishya / jigyasu</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-15-bhai-mitra-pragati">M-15 - Bhai-mitra / pragati</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-16-bahan-unnati">M-16 - Bahan / unnati</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-17-sweekruti-swagat">M-17 - Sweekruti / swagat</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-18-ruchi-pehchan">M-18 - Ruchi / pehchan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-19-sukh-sfoorti">M-19 - Sukh / sfoorti</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-20-pati-patni-yatitva-satitva">M-20 - Pati-patni / yatitva-satitva</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-21-mata-poshan">M-21 - Mata / poshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-22-pita-sanrakshan">M-22 - Pita / sanrakshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-23-mridu-kathor-vahan-samvahan">M-23 - Mridu-kathor / vahan-samvahan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-24-sheet-ushna-poshan">M-24 - Sheet-ushna / poshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-25-khatta-poshan">M-25 - Khatta / poshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-26-meetha-poshan">M-26 - Meetha / poshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-27-chirchira-charpara-poshan">M-27 - Chirchira-charpara / poshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-28-kadua-poshan">M-28 - Kadua / poshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-29-kasaila-poshan">M-29 - Kasaila / poshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-30-khara-poshan">M-30 - Khara / poshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-31-sugandh-durgandh-shvasan-nihshvasan">M-31 - Sugandh-durgandh / shvasan-nihshvasan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#m-32-suroop-kuroop-swagat-aswagat">M-32 - Suroop-kuroop / swagat-aswagat</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#6-findings-across-the-122-member-lifecycle-matrix">6. Findings across the 122-member lifecycle matrix</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#61-internal-constitution-and-external-dependence-occupy-different-logical-levels">6.1 Internal constitution and external dependence occupy different logical levels</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#62-entry-form-changes-the-lifecycle-question">6.2 Entry form changes the lifecycle question</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#63-evidence-is-standpoint-dependent-and-normally-convergent">6.3 Evidence is standpoint-dependent and normally convergent</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#64-correction-must-match-the-failure-mechanism">6.4 Correction must match the failure mechanism</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#65-continuity-recurs-through-several-media">6.5 Continuity recurs through several media</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#66-universal-invariants-do-not-yet-determine-institutional-bundles">6.6 Universal invariants do not yet determine institutional bundles</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#7-residual-and-sensitivity-register">7. Residual and sensitivity register</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#8-completion-statement-and-frozen-handoff-to-pass-three">8. Completion statement and frozen handoff to Pass Three</a></li>
-      <li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan">Madhyasth Darshan</a></li>
-      <li class="study-toc-item study-toc-l2"><a href="#related-research-notes">Related research notes</a></li>
-    </ol>
-  </nav>
+<summary class="study-toc-summary">
+<span class="study-toc-label">Contents</span>
+<span class="study-toc-meta">9 sections · 78 headings</span>
+</summary>
+<nav aria-label="Contents" class="study-toc-nav">
+<ol class="study-toc-list">
+<li class="study-toc-item study-toc-l1"><a href="#1-normalized-record-and-coding-discipline">1. Normalized record and coding discipline</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#2-atma-and-buddhi-six-member-records">2. Atma and buddhi: six member records</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#a-01-anubhav-pramanikta">A-01 - Anubhav / pramanikta</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#b-01-anand-dhee">B-01 - Anand / dhee</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#b-02-astitva-dhruti">B-02 - Astitva / dhruti</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#3-chitta-sixteen-member-records">3. Chitta: sixteen member records</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#c-01-shruti-smriti">C-01 - Shruti / smriti</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#c-02-medha-kala">C-02 - Medha / kala</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#c-03-kanti-roop">C-03 - Kanti / roop</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#c-04-nireekshan-guna">C-04 - Nireekshan / guna</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#c-05-santosh-shree">C-05 - Santosh / shree</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#c-06-prem-ananyata">C-06 - Prem / ananyata</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#c-07-vatsalya-sahajta">C-07 - Vatsalya / sahajta</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#c-08-shraddha-pujyata">C-08 - Shraddha / pujyata</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#4-vritti-thirty-six-member-records">4. Vritti: thirty-six member records</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-01-vidya-pragya">V-01 - Vidya / pragya</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-02-keerti-vichar">V-02 - Keerti / vichar</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-03-nishchaya-dhairya">V-03 - Nishchaya / dhairya</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-04-shanti-daya">V-04 - Shanti / daya</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-05-krupa-karuna">V-05 - Krupa / karuna</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-06-dum-kshama">V-06 - Dum / kshama</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-07-tatparta-utsah">V-07 - Tatparta / utsah</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-08-kritagyata-saumyata">V-08 - Kritagyata / saumyata</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-09-gaurav-saralta">V-09 - Gaurav / saralta</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-10-vishwas-saujanyata">V-10 - Vishwas / saujanyata</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-11-satya-dharma">V-11 - Satya / dharma</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-12-nyaya-samvedna">V-12 - Nyaya / samvedna</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-13-tadatmayata-sahas">V-13 - Tadatmayata / sahas</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-14-samyama-niyam">V-14 - Samyama / niyam</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-15-veerta-dheerta">V-15 - Veerta / dheerta</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-16-bhav-samveg">V-16 - Bhav / samveg</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-17-jati-kaal">V-17 - Jati / kaal</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#v-18-tushti-pushti">V-18 - Tushti / pushti</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#5-mun-sixty-four-member-records">5. Mun: sixty-four member records</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-01-bhakti-tanmayata">M-01 - Bhakti / tanmayata</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-02-mamta-udarta">M-02 - Mamta / udarta</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-03-samman-sauhardta">M-03 - Samman / sauhardta</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-04-sneha-nishtha">M-04 - Sneha / nishtha</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-05-putra-putri-anurag">M-05 - Putra-putri / anurag</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-06-sathi-dayitva">M-06 - Sathi / dayitva</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-07-sahyogi-kartavya">M-07 - Sahyogi / kartavya</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-08-svayatta-samriddhi">M-08 - Svayatta / samriddhi</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-09-hita-svasthya">M-09 - Hita / svasthya</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-10-priya-pravrittiyan">M-10 - Priya / pravrittiyan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-11-ullas-haas">M-11 - Ullas / haas</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-12-sheel-sankoch">M-12 - Sheel / sankoch</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-13-guru-pramanik">M-13 - Guru / pramanik</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-14-shishya-jigyasu">M-14 - Shishya / jigyasu</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-15-bhai-mitra-pragati">M-15 - Bhai-mitra / pragati</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-16-bahan-unnati">M-16 - Bahan / unnati</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-17-sweekruti-swagat">M-17 - Sweekruti / swagat</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-18-ruchi-pehchan">M-18 - Ruchi / pehchan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-19-sukh-sfoorti">M-19 - Sukh / sfoorti</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-20-pati-patni-yatitva-satitva">M-20 - Pati-patni / yatitva-satitva</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-21-mata-poshan">M-21 - Mata / poshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-22-pita-sanrakshan">M-22 - Pita / sanrakshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-23-mridu-kathor-vahan-samvahan">M-23 - Mridu-kathor / vahan-samvahan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-24-sheet-ushna-poshan">M-24 - Sheet-ushna / poshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-25-khatta-poshan">M-25 - Khatta / poshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-26-meetha-poshan">M-26 - Meetha / poshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-27-chirchira-charpara-poshan">M-27 - Chirchira-charpara / poshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-28-kadua-poshan">M-28 - Kadua / poshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-29-kasaila-poshan">M-29 - Kasaila / poshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-30-khara-poshan">M-30 - Khara / poshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-31-sugandh-durgandh-shvasan-nihshvasan">M-31 - Sugandh-durgandh / shvasan-nihshvasan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#m-32-suroop-kuroop-swagat-aswagat">M-32 - Suroop-kuroop / swagat-aswagat</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#6-findings-across-the-122-member-lifecycle-matrix">6. Findings across the 122-member lifecycle matrix</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#61-internal-constitution-and-external-dependence-occupy-different-logical-levels">6.1 Internal constitution and external dependence occupy different logical levels</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#62-entry-form-changes-the-lifecycle-question">6.2 Entry form changes the lifecycle question</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#63-evidence-is-standpoint-dependent-and-normally-convergent">6.3 Evidence is standpoint-dependent and normally convergent</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#64-correction-must-match-the-failure-mechanism">6.4 Correction must match the failure mechanism</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#65-continuity-recurs-through-several-media">6.5 Continuity recurs through several media</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#66-universal-invariants-do-not-yet-determine-institutional-bundles">6.6 Universal invariants do not yet determine institutional bundles</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#7-residual-and-sensitivity-register">7. Residual and sensitivity register</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#8-completion-statement-and-frozen-handoff-to-pass-three">8. Completion statement and frozen handoff to Pass Three</a></li>
+<li class="study-toc-item study-toc-l1"><a href="#references">References</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#madhyasth-darshan">Madhyasth Darshan</a></li>
+<li class="study-toc-item study-toc-l2"><a href="#related-research-notes">Related research notes</a></li>
+</ol>
+</nav>
 </details>
-<p class="study-reading-key" aria-label="Reading key">
-  <span class="study-reading-key-term">Dotted underline</span>: definition
-  <span aria-hidden="true">&middot;</span>
-  <span class="study-reading-key-link">Blue underline</span>: link
+<p aria-label="Reading key" class="study-reading-key" data-reader-heading="" data-reader-passage="" id="reader-p-2d479c97e6bf2881">
+<span class="study-reading-key-term">Dotted underline</span>: definition
+  <span aria-hidden="true">·</span>
+<span class="study-reading-key-link">Blue underline</span>: link
 </p>
-<h2 id="1-normalized-record-and-coding-discipline">1. Normalized record and coding discipline</h2>
-<p>Every member has a stable lowercase suffix: <code>a</code> for the AVD <em>bal</em> column and <code>b</code> for the <em>shakti</em> column. The suffix preserves documentary position; it does not imply inward state and outward performance. Each record separates:</p>
+<h2 data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="1-normalized-record-and-coding-discipline">1. Normalized record and coding discipline</h2>
+<p data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-8995178091fee2aa">Every member has a stable lowercase suffix: <code>a</code> for the AVD <em>bal</em> column and <code>b</code> for the <em>shakti</em> column. The suffix preserves documentary position; it does not imply inward state and outward performance. Each record separates:</p>
 <ul>
-<li><strong>locus</strong> - where the entry is borne;</li>
-<li><strong>operation field</strong> - the content, person, body, relation, object, or process with which it deals;</li>
-<li><strong>consequence field</strong> - who or what is affected by expression or instantiation;</li>
-<li><strong>evidence field</strong> - where correctness becomes available to competent evaluation; and</li>
-<li><strong>internal dependency</strong> - the activities of <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em> that orient, inform, carry, or correct the member before an external requirement is proposed.</li>
+<li data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-2d49e418f5ba42a4"><strong>locus</strong> - where the entry is borne;</li>
+<li data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-8039026a57049352"><strong>operation field</strong> - the content, person, body, relation, object, or process with which it deals;</li>
+<li data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-a545952de994161b"><strong>consequence field</strong> - who or what is affected by expression or instantiation;</li>
+<li data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-60dd805d5eb77745"><strong>evidence field</strong> - where correctness becomes available to competent evaluation; and</li>
+<li data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-e4c6f369fac44499"><strong>internal dependency</strong> - the activities of <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em> that orient, inform, carry, or correct the member before an external requirement is proposed.</li>
 </ul>
-<p>Source anatomy retains the Pass-One provenance: <strong>D</strong> for direct textual content, <strong>I</strong> for structural inference, <strong>H</strong> for a provisional environmental claim, and <strong>O</strong> for an unresolved point. Lifecycle claims in this register are normally <strong>I</strong>. They are not promoted to <strong>D</strong> merely because the member name is direct.</p>
-<p>External classifications have four parts. Relation types are <strong>CONST</strong> (constitutive), <strong>ENAB</strong> (enabling), <strong>EVID</strong> (evidential), <strong>PROT</strong> (protective), <strong>CORR</strong> (corrective or restorative), <strong>SUST</strong> (sustaining), and <strong>TRANS</strong> (transmissive). Strength is <strong>N</strong>, <strong>S</strong>, <strong>C</strong>, or <strong>U</strong>, scoped to occurrence (<strong>OCC</strong>), expression (<strong>EXP</strong>), evidence (<strong>EVD</strong>), correction (<strong>COR</strong>), or continuity (<strong>CON</strong>). Universality is <strong>U-J</strong> when constitutional to common <em>jeevan</em>, <strong>U-H</strong> when it follows from embodied-human or relational dependence, and <strong>V-C</strong> when the arrangement remains contextual. Thus <code>EVID; N-EVD; U-H; I</code> means that an external field is structurally necessary for valid embodied-human evidence, not for the inward occurrence of the activity.</p>
-<p>The topology codes remain <strong>J</strong> (intra-<em>jeevan</em>), <strong>B</strong> (embodied personal), <strong>D</strong> (dyadic or small-group), <strong>R</strong> (durable close or intergenerational), <strong>C</strong> (collective or public), <strong>E</strong> (material or ecological), and <strong>T</strong> (historical or intergenerational transmission). Source-embedded role or social vocabulary is retained in the anatomy but flagged in the open-field row; it cannot count as an independent institutional discovery.</p>
-<p>Throughout this analysis, <strong>voice</strong> has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. A lifecycle row therefore treats voice as effective participation whose evidence includes consideration, response, and non-retaliatory correction, not speech alone.</p>
-<h2 id="2-atma-and-buddhi-six-member-records">2. <em>Atma</em> and <em>buddhi</em>: six member records</h2>
-<h3 id="a-01-anubhav-pramanikta">A-01 - <em>Anubhav / pramanikta</em></h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-d928abd41b284f94">Source anatomy retains the Pass-One provenance: <strong>D</strong> for direct textual content, <strong>I</strong> for structural inference, <strong>H</strong> for a provisional environmental claim, and <strong>O</strong> for an unresolved point. Lifecycle claims in this register are normally <strong>I</strong>. They are not promoted to <strong>D</strong> merely because the member name is direct.</p>
+<p data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-97c2f462afcdf3d8">External classifications have four parts. Relation types are <strong>CONST</strong> (constitutive), <strong>ENAB</strong> (enabling), <strong>EVID</strong> (evidential), <strong>PROT</strong> (protective), <strong>CORR</strong> (corrective or restorative), <strong>SUST</strong> (sustaining), and <strong>TRANS</strong> (transmissive). Strength is <strong>N</strong>, <strong>S</strong>, <strong>C</strong>, or <strong>U</strong>, scoped to occurrence (<strong>OCC</strong>), expression (<strong>EXP</strong>), evidence (<strong>EVD</strong>), correction (<strong>COR</strong>), or continuity (<strong>CON</strong>). Universality is <strong>U-J</strong> when constitutional to common <em>jeevan</em>, <strong>U-H</strong> when it follows from embodied-human or relational dependence, and <strong>V-C</strong> when the arrangement remains contextual. Thus <code>EVID; N-EVD; U-H; I</code> means that an external field is structurally necessary for valid embodied-human evidence, not for the inward occurrence of the activity.</p>
+<p data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-8cf7d595b776e16b">The topology codes remain <strong>J</strong> (intra-<em>jeevan</em>), <strong>B</strong> (embodied personal), <strong>D</strong> (dyadic or small-group), <strong>R</strong> (durable close or intergenerational), <strong>C</strong> (collective or public), <strong>E</strong> (material or ecological), and <strong>T</strong> (historical or intergenerational transmission). Source-embedded role or social vocabulary is retained in the anatomy but flagged in the open-field row; it cannot count as an independent institutional discovery.</p>
+<p data-reader-heading="1-normalized-record-and-coding-discipline" data-reader-passage="" id="reader-p-d325c267f65f8e05">Throughout this analysis, <strong>voice</strong> has a precise operational meaning: the effective, supported opportunity of a person, counterpart, or affected party to express understanding, needs, expectations, agreement, and disagreement; to participate in deliberation and decisions that affect them; to have what they express considered and answered with reasons; and to refuse, challenge, or appeal without retaliation. It means neither mere permission to speak nor equal authority in every decision. A lifecycle row therefore treats voice as effective participation whose evidence includes consideration, response, and non-retaliatory correction, not speech alone.</p>
+<h2 data-reader-heading="2-atma-and-buddhi-six-member-records" data-reader-passage="" id="2-atma-and-buddhi-six-member-records">2. <em>Atma</em> and <em>buddhi</em>: six member records</h2>
+<h3 data-reader-heading="2-atma-and-buddhi-six-member-records" data-reader-passage="" id="a-01-anubhav-pramanikta">A-01 - <em>Anubhav / pramanikta</em></h3>
+<div class="table-scroll"><table data-reader-heading="2-atma-and-buddhi-six-member-records" data-reader-passage="" id="reader-p-188d6048dbd76c1a">
 <thead>
 <tr>
 <th>Field</th>
@@ -941,8 +971,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="b-01-anand-dhee">B-01 - <em>Anand / dhee</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="2-atma-and-buddhi-six-member-records" data-reader-passage="" id="b-01-anand-dhee">B-01 - <em>Anand / dhee</em></h3>
+<div class="table-scroll"><table data-reader-heading="2-atma-and-buddhi-six-member-records" data-reader-passage="" id="reader-p-948a431489059904">
 <thead>
 <tr>
 <th>Field</th>
@@ -993,8 +1023,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="b-02-astitva-dhruti">B-02 - <em>Astitva / dhruti</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="2-atma-and-buddhi-six-member-records" data-reader-passage="" id="b-02-astitva-dhruti">B-02 - <em>Astitva / dhruti</em></h3>
+<div class="table-scroll"><table data-reader-heading="2-atma-and-buddhi-six-member-records" data-reader-passage="" id="reader-p-57da6a26153ca104">
 <thead>
 <tr>
 <th>Field</th>
@@ -1045,9 +1075,9 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="3-chitta-sixteen-member-records">3. <em>Chitta</em>: sixteen member records</h2>
-<h3 id="c-01-shruti-smriti">C-01 - <em>Shruti / smriti</em></h3>
-<div class="table-scroll"><table>
+<h2 data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="3-chitta-sixteen-member-records">3. <em>Chitta</em>: sixteen member records</h2>
+<h3 data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="c-01-shruti-smriti">C-01 - <em>Shruti / smriti</em></h3>
+<div class="table-scroll"><table data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="reader-p-66755f40c4949c86">
 <thead>
 <tr>
 <th>Field</th>
@@ -1098,8 +1128,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="c-02-medha-kala">C-02 - <em>Medha / kala</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="c-02-medha-kala">C-02 - <em>Medha / kala</em></h3>
+<div class="table-scroll"><table data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="reader-p-f38d7c2241c5d75e">
 <thead>
 <tr>
 <th>Field</th>
@@ -1150,8 +1180,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="c-03-kanti-roop">C-03 - <em>Kanti / roop</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="c-03-kanti-roop">C-03 - <em>Kanti / roop</em></h3>
+<div class="table-scroll"><table data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="reader-p-c4620fde84239346">
 <thead>
 <tr>
 <th>Field</th>
@@ -1202,8 +1232,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="c-04-nireekshan-guna">C-04 - <em>Nireekshan / guna</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="c-04-nireekshan-guna">C-04 - <em>Nireekshan / guna</em></h3>
+<div class="table-scroll"><table data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="reader-p-b0ae7f7954b2158b">
 <thead>
 <tr>
 <th>Field</th>
@@ -1254,8 +1284,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="c-05-santosh-shree">C-05 - <em>Santosh / shree</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="c-05-santosh-shree">C-05 - <em>Santosh / shree</em></h3>
+<div class="table-scroll"><table data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="reader-p-f45511f83dbd4182">
 <thead>
 <tr>
 <th>Field</th>
@@ -1306,8 +1336,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="c-06-prem-ananyata">C-06 - <em>Prem / ananyata</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="c-06-prem-ananyata">C-06 - <em>Prem / ananyata</em></h3>
+<div class="table-scroll"><table data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="reader-p-0e6bb2ffa873c7bf">
 <thead>
 <tr>
 <th>Field</th>
@@ -1358,8 +1388,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="c-07-vatsalya-sahajta">C-07 - <em>Vatsalya / sahajta</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="c-07-vatsalya-sahajta">C-07 - <em>Vatsalya / sahajta</em></h3>
+<div class="table-scroll"><table data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="reader-p-22df444afbada1a0">
 <thead>
 <tr>
 <th>Field</th>
@@ -1410,8 +1440,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="c-08-shraddha-pujyata">C-08 - <em>Shraddha / pujyata</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="c-08-shraddha-pujyata">C-08 - <em>Shraddha / pujyata</em></h3>
+<div class="table-scroll"><table data-reader-heading="3-chitta-sixteen-member-records" data-reader-passage="" id="reader-p-1e312a95d4f636e5">
 <thead>
 <tr>
 <th>Field</th>
@@ -1462,9 +1492,9 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="4-vritti-thirty-six-member-records">4. <em>Vritti</em>: thirty-six member records</h2>
-<h3 id="v-01-vidya-pragya">V-01 - <em>Vidya / pragya</em></h3>
-<div class="table-scroll"><table>
+<h2 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="4-vritti-thirty-six-member-records">4. <em>Vritti</em>: thirty-six member records</h2>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-01-vidya-pragya">V-01 - <em>Vidya / pragya</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-c0b30e8d61410aa5">
 <thead>
 <tr>
 <th>Field</th>
@@ -1515,8 +1545,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-02-keerti-vichar">V-02 - <em>Keerti / vichar</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-02-keerti-vichar">V-02 - <em>Keerti / vichar</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-0136d15b2a416151">
 <thead>
 <tr>
 <th>Field</th>
@@ -1567,8 +1597,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-03-nishchaya-dhairya">V-03 - <em>Nishchaya / dhairya</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-03-nishchaya-dhairya">V-03 - <em>Nishchaya / dhairya</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-14cf85e3a2cfd7d1">
 <thead>
 <tr>
 <th>Field</th>
@@ -1619,8 +1649,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-04-shanti-daya">V-04 - <em>Shanti / daya</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-04-shanti-daya">V-04 - <em>Shanti / daya</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-2ddfff7baae5cf79">
 <thead>
 <tr>
 <th>Field</th>
@@ -1671,8 +1701,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-05-krupa-karuna">V-05 - <em>Krupa / karuna</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-05-krupa-karuna">V-05 - <em>Krupa / karuna</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-64a7df08842c5a14">
 <thead>
 <tr>
 <th>Field</th>
@@ -1723,8 +1753,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-06-dum-kshama">V-06 - <em>Dum / kshama</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-06-dum-kshama">V-06 - <em>Dum / kshama</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-a70ebd3e7d40eda2">
 <thead>
 <tr>
 <th>Field</th>
@@ -1775,8 +1805,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-07-tatparta-utsah">V-07 - <em>Tatparta / utsah</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-07-tatparta-utsah">V-07 - <em>Tatparta / utsah</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-b0e69e9fbc85bb5d">
 <thead>
 <tr>
 <th>Field</th>
@@ -1827,8 +1857,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-08-kritagyata-saumyata">V-08 - <em>Kritagyata / saumyata</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-08-kritagyata-saumyata">V-08 - <em>Kritagyata / saumyata</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-67ab1f3eeadbf920">
 <thead>
 <tr>
 <th>Field</th>
@@ -1879,8 +1909,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-09-gaurav-saralta">V-09 - <em>Gaurav / saralta</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-09-gaurav-saralta">V-09 - <em>Gaurav / saralta</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-62b745d0fd73273e">
 <thead>
 <tr>
 <th>Field</th>
@@ -1931,8 +1961,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-10-vishwas-saujanyata">V-10 - <em>Vishwas / saujanyata</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-10-vishwas-saujanyata">V-10 - <em>Vishwas / saujanyata</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-15fcdf75ff50d735">
 <thead>
 <tr>
 <th>Field</th>
@@ -1983,8 +2013,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-11-satya-dharma">V-11 - <em>Satya / dharma</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-11-satya-dharma">V-11 - <em>Satya / dharma</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-63e8a7510c2bb3b1">
 <thead>
 <tr>
 <th>Field</th>
@@ -2035,8 +2065,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-12-nyaya-samvedna">V-12 - <em>Nyaya / samvedna</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-12-nyaya-samvedna">V-12 - <em>Nyaya / samvedna</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-a58b1ab1c7bfe281">
 <thead>
 <tr>
 <th>Field</th>
@@ -2087,8 +2117,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-13-tadatmayata-sahas">V-13 - <em>Tadatmayata / sahas</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-13-tadatmayata-sahas">V-13 - <em>Tadatmayata / sahas</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-2a49cf8df70b8f4d">
 <thead>
 <tr>
 <th>Field</th>
@@ -2139,8 +2169,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-14-samyama-niyam">V-14 - <em>Samyama / niyam</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-14-samyama-niyam">V-14 - <em>Samyama / niyam</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-252c09c3d65ce8f7">
 <thead>
 <tr>
 <th>Field</th>
@@ -2191,8 +2221,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-15-veerta-dheerta">V-15 - <em>Veerta / dheerta</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-15-veerta-dheerta">V-15 - <em>Veerta / dheerta</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-e4e9ddd31ba4f1a9">
 <thead>
 <tr>
 <th>Field</th>
@@ -2243,8 +2273,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-16-bhav-samveg">V-16 - <em>Bhav / samveg</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-16-bhav-samveg">V-16 - <em>Bhav / samveg</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-0085400b724c792f">
 <thead>
 <tr>
 <th>Field</th>
@@ -2295,8 +2325,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-17-jati-kaal">V-17 - <em>Jati / kaal</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-17-jati-kaal">V-17 - <em>Jati / kaal</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-5f5b7af97b02c0db">
 <thead>
 <tr>
 <th>Field</th>
@@ -2347,8 +2377,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="v-18-tushti-pushti">V-18 - <em>Tushti / pushti</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="v-18-tushti-pushti">V-18 - <em>Tushti / pushti</em></h3>
+<div class="table-scroll"><table data-reader-heading="4-vritti-thirty-six-member-records" data-reader-passage="" id="reader-p-f1a5228cb4e48324">
 <thead>
 <tr>
 <th>Field</th>
@@ -2399,9 +2429,9 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="5-mun-sixty-four-member-records">5. <em>Mun</em>: sixty-four member records</h2>
-<h3 id="m-01-bhakti-tanmayata">M-01 - <em>Bhakti / tanmayata</em></h3>
-<div class="table-scroll"><table>
+<h2 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="5-mun-sixty-four-member-records">5. <em>Mun</em>: sixty-four member records</h2>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-01-bhakti-tanmayata">M-01 - <em>Bhakti / tanmayata</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-d9d0e929871f4bb1">
 <thead>
 <tr>
 <th>Field</th>
@@ -2452,8 +2482,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-02-mamta-udarta">M-02 - <em>Mamta / udarta</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-02-mamta-udarta">M-02 - <em>Mamta / udarta</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-6cbdbaa33f53f70f">
 <thead>
 <tr>
 <th>Field</th>
@@ -2504,8 +2534,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-03-samman-sauhardta">M-03 - <em>Samman / sauhardta</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-03-samman-sauhardta">M-03 - <em>Samman / sauhardta</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-a2659b434e814741">
 <thead>
 <tr>
 <th>Field</th>
@@ -2556,8 +2586,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-04-sneha-nishtha">M-04 - <em>Sneha / nishtha</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-04-sneha-nishtha">M-04 - <em>Sneha / nishtha</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-303b46eda1892d7f">
 <thead>
 <tr>
 <th>Field</th>
@@ -2608,8 +2638,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-05-putra-putri-anurag">M-05 - <em>Putra-putri / anurag</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-05-putra-putri-anurag">M-05 - <em>Putra-putri / anurag</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-ad6b7f242326aa02">
 <thead>
 <tr>
 <th>Field</th>
@@ -2660,8 +2690,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-06-sathi-dayitva">M-06 - <em>Sathi / dayitva</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-06-sathi-dayitva">M-06 - <em>Sathi / dayitva</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-f63f0bcb36184d0b">
 <thead>
 <tr>
 <th>Field</th>
@@ -2712,8 +2742,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-07-sahyogi-kartavya">M-07 - <em>Sahyogi / kartavya</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-07-sahyogi-kartavya">M-07 - <em>Sahyogi / kartavya</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-bedc83c01d617c2c">
 <thead>
 <tr>
 <th>Field</th>
@@ -2764,8 +2794,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-08-svayatta-samriddhi">M-08 - <em>Svayatta / samriddhi</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-08-svayatta-samriddhi">M-08 - <em>Svayatta / samriddhi</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-bcd8bc338cf92f97">
 <thead>
 <tr>
 <th>Field</th>
@@ -2816,8 +2846,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-09-hita-svasthya">M-09 - <em>Hita / svasthya</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-09-hita-svasthya">M-09 - <em>Hita / svasthya</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-2df5a80e68aa49f8">
 <thead>
 <tr>
 <th>Field</th>
@@ -2868,8 +2898,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-10-priya-pravrittiyan">M-10 - <em>Priya / pravrittiyan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-10-priya-pravrittiyan">M-10 - <em>Priya / pravrittiyan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-b59da88ef8f1816e">
 <thead>
 <tr>
 <th>Field</th>
@@ -2920,8 +2950,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-11-ullas-haas">M-11 - <em>Ullas / haas</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-11-ullas-haas">M-11 - <em>Ullas / haas</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-39a6da90e50b6fd4">
 <thead>
 <tr>
 <th>Field</th>
@@ -2972,8 +3002,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-12-sheel-sankoch">M-12 - <em>Sheel / sankoch</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-12-sheel-sankoch">M-12 - <em>Sheel / sankoch</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-86027c24d23ff318">
 <thead>
 <tr>
 <th>Field</th>
@@ -3024,8 +3054,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-13-guru-pramanik">M-13 - <em>Guru / pramanik</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-13-guru-pramanik">M-13 - <em>Guru / pramanik</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-277ea76817fb8830">
 <thead>
 <tr>
 <th>Field</th>
@@ -3076,8 +3106,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-14-shishya-jigyasu">M-14 - <em>Shishya / jigyasu</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-14-shishya-jigyasu">M-14 - <em>Shishya / jigyasu</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-5bef766db3b910a1">
 <thead>
 <tr>
 <th>Field</th>
@@ -3128,8 +3158,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-15-bhai-mitra-pragati">M-15 - <em>Bhai-mitra / pragati</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-15-bhai-mitra-pragati">M-15 - <em>Bhai-mitra / pragati</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-26719e7b00565791">
 <thead>
 <tr>
 <th>Field</th>
@@ -3180,8 +3210,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-16-bahan-unnati">M-16 - <em>Bahan / unnati</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-16-bahan-unnati">M-16 - <em>Bahan / unnati</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-a703fa4f52ea207b">
 <thead>
 <tr>
 <th>Field</th>
@@ -3232,8 +3262,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-17-sweekruti-swagat">M-17 - <em>Sweekruti / swagat</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-17-sweekruti-swagat">M-17 - <em>Sweekruti / swagat</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-aac8eccdd25f4755">
 <thead>
 <tr>
 <th>Field</th>
@@ -3284,8 +3314,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-18-ruchi-pehchan">M-18 - <em>Ruchi / pehchan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-18-ruchi-pehchan">M-18 - <em>Ruchi / pehchan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-f59446a106ff4851">
 <thead>
 <tr>
 <th>Field</th>
@@ -3336,8 +3366,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-19-sukh-sfoorti">M-19 - <em>Sukh / sfoorti</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-19-sukh-sfoorti">M-19 - <em>Sukh / sfoorti</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-5a2964eb9c620ebd">
 <thead>
 <tr>
 <th>Field</th>
@@ -3388,8 +3418,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-20-pati-patni-yatitva-satitva">M-20 - <em>Pati-patni / yatitva-satitva</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-20-pati-patni-yatitva-satitva">M-20 - <em>Pati-patni / yatitva-satitva</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-86bca21b2081c783">
 <thead>
 <tr>
 <th>Field</th>
@@ -3440,8 +3470,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-21-mata-poshan">M-21 - <em>Mata / poshan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-21-mata-poshan">M-21 - <em>Mata / poshan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-a4994bce4532b338">
 <thead>
 <tr>
 <th>Field</th>
@@ -3492,8 +3522,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-22-pita-sanrakshan">M-22 - <em>Pita / sanrakshan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-22-pita-sanrakshan">M-22 - <em>Pita / sanrakshan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-d176bbd0d92a4b52">
 <thead>
 <tr>
 <th>Field</th>
@@ -3544,8 +3574,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-23-mridu-kathor-vahan-samvahan">M-23 - <em>Mridu-kathor / vahan-samvahan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-23-mridu-kathor-vahan-samvahan">M-23 - <em>Mridu-kathor / vahan-samvahan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-f8e0223045718970">
 <thead>
 <tr>
 <th>Field</th>
@@ -3596,8 +3626,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-24-sheet-ushna-poshan">M-24 - <em>Sheet-ushna / poshan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-24-sheet-ushna-poshan">M-24 - <em>Sheet-ushna / poshan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-797e44b1f4146a0d">
 <thead>
 <tr>
 <th>Field</th>
@@ -3648,9 +3678,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>The six taste positions M-25 through M-30 share a source pattern but retain separate records. In each, the left member is a sensory-material quality known through tongue-body contact. The right member repeats <em>poshan</em> as a conducive rather than depleting conjunction. Pass Two therefore repeats the lifecycle where the source repeats the slot and keeps the ontological question open; it does not manufacture six different definitions of <em>poshan</em>.</p>
-<h3 id="m-25-khatta-poshan">M-25 - <em>Khatta / poshan</em></h3>
-<div class="table-scroll"><table>
+<p data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-7c5473648c5bd51e">The six taste positions M-25 through M-30 share a source pattern but retain separate records. In each, the left member is a sensory-material quality known through tongue-body contact. The right member repeats <em>poshan</em> as a conducive rather than depleting conjunction. Pass Two therefore repeats the lifecycle where the source repeats the slot and keeps the ontological question open; it does not manufacture six different definitions of <em>poshan</em>.</p>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-25-khatta-poshan">M-25 - <em>Khatta / poshan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-75b7242c2a22d54e">
 <thead>
 <tr>
 <th>Field</th>
@@ -3701,8 +3731,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-26-meetha-poshan">M-26 - <em>Meetha / poshan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-26-meetha-poshan">M-26 - <em>Meetha / poshan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-0148aa6256de4c40">
 <thead>
 <tr>
 <th>Field</th>
@@ -3753,8 +3783,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-27-chirchira-charpara-poshan">M-27 - <em>Chirchira-charpara / poshan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-27-chirchira-charpara-poshan">M-27 - <em>Chirchira-charpara / poshan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-ed850224c1031804">
 <thead>
 <tr>
 <th>Field</th>
@@ -3805,8 +3835,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-28-kadua-poshan">M-28 - <em>Kadua / poshan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-28-kadua-poshan">M-28 - <em>Kadua / poshan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-734311caa3c047c2">
 <thead>
 <tr>
 <th>Field</th>
@@ -3857,8 +3887,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-29-kasaila-poshan">M-29 - <em>Kasaila / poshan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-29-kasaila-poshan">M-29 - <em>Kasaila / poshan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-cce105fcb559c230">
 <thead>
 <tr>
 <th>Field</th>
@@ -3909,8 +3939,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-30-khara-poshan">M-30 - <em>Khara / poshan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-30-khara-poshan">M-30 - <em>Khara / poshan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-4fb20234ec00e326">
 <thead>
 <tr>
 <th>Field</th>
@@ -3961,8 +3991,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-31-sugandh-durgandh-shvasan-nihshvasan">M-31 - <em>Sugandh-durgandh / shvasan-nihshvasan</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-31-sugandh-durgandh-shvasan-nihshvasan">M-31 - <em>Sugandh-durgandh / shvasan-nihshvasan</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-149cff919724aa2b">
 <thead>
 <tr>
 <th>Field</th>
@@ -4013,8 +4043,8 @@
 </tr>
 </tbody>
 </table></div>
-<h3 id="m-32-suroop-kuroop-swagat-aswagat">M-32 - <em>Suroop-kuroop / swagat-aswagat</em></h3>
-<div class="table-scroll"><table>
+<h3 data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="m-32-suroop-kuroop-swagat-aswagat">M-32 - <em>Suroop-kuroop / swagat-aswagat</em></h3>
+<div class="table-scroll"><table data-reader-heading="5-mun-sixty-four-member-records" data-reader-passage="" id="reader-p-d467a5120ec69004">
 <thead>
 <tr>
 <th>Field</th>
@@ -4065,63 +4095,63 @@
 </tr>
 </tbody>
 </table></div>
-<h2 id="6-findings-across-the-122-member-lifecycle-matrix">6. Findings across the 122-member lifecycle matrix</h2>
-<h3 id="61-internal-constitution-and-external-dependence-occupy-different-logical-levels" data-depth="2">6.1 Internal constitution and external dependence occupy different logical levels</h3>
-<p>The records consistently distinguish constitutional orientation from embodied availability. Realisation, enlightenment, contemplation, deliberation, and selection form internal dependencies at <strong>U-J</strong>. No family, teacher, procedure, material resource, or institution is coded as necessary for their constitutional presence. External conditions become structurally relevant when an inward member must be developed through receptivity, expressed through the body, evidenced before another standpoint, corrected after contradiction, or maintained across persons and time.</p>
-<p>This distinction prevents two opposite errors. The first is environmental creationism: treating education, relationship, or organisation as if it supplied an activity absent from <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="jeevan" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences.">jeevan</button></span></em>. The second is inward isolationism: treating a private claim of realisation or understanding as complete evidence even where the member’s definition concerns authenticity, relationship, work, care, production, communication, or continuity.</p>
-<h3 id="62-entry-form-changes-the-lifecycle-question" data-depth="2">6.2 Entry form changes the lifecycle question</h3>
-<p>The normalized matrix contains five recurrent entry-form families without reducing every record to one of them.</p>
+<h2 data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="6-findings-across-the-122-member-lifecycle-matrix">6. Findings across the 122-member lifecycle matrix</h2>
+<h3 data-depth="2" data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="61-internal-constitution-and-external-dependence-occupy-different-logical-levels">6.1 Internal constitution and external dependence occupy different logical levels</h3>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-213a32b992aa6aa7">The records consistently distinguish constitutional orientation from embodied availability. Realisation, enlightenment, contemplation, deliberation, and selection form internal dependencies at <strong>U-J</strong>. No family, teacher, procedure, material resource, or institution is coded as necessary for their constitutional presence. External conditions become structurally relevant when an inward member must be developed through receptivity, expressed through the body, evidenced before another standpoint, corrected after contradiction, or maintained across persons and time.</p>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-20a24502c27abb1c">This distinction prevents two opposite errors. The first is environmental creationism: treating education, relationship, or organisation as if it supplied an activity absent from <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Jeevan — a constitutionally complete atom and sentient unit, the seer of the physicochemical world; it is immortal and continuous, while birth and death are occurrences." data-term="jeevan" type="button">jeevan</button></span></em>. The second is inward isolationism: treating a private claim of realisation or understanding as complete evidence even where the member’s definition concerns authenticity, relationship, work, care, production, communication, or continuity.</p>
+<h3 data-depth="2" data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="62-entry-form-changes-the-lifecycle-question">6.2 Entry form changes the lifecycle question</h3>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-22b04828b2eae944">The normalized matrix contains five recurrent entry-form families without reducing every record to one of them.</p>
 <ul>
-<li>Inward operations and orientations require right criterion, outer-faculty coordination, and protection of inquiry; their external evidence can be necessary even when outward conditions are not necessary for occurrence.</li>
-<li>Roles and relationships require a recognisable counterpart and reciprocal or asymmetric responsibilities; their occurrence is partly relational, so <strong>CONST; N-OCC; U-H</strong> is justified where the definition itself names the relation.</li>
-<li>Material and sensory properties require body-object contact, discrimination, and consequence evaluation; the property is not converted into a second private mental act.</li>
-<li>Bodily processes and states require capability, observation, care, restoration, and accommodation; first-person report remains indispensable but not exhaustive.</li>
-<li>Criteria and results require the operations that produce or recognise them, evidence distinguishing them from imitation, affected-party access, and a continuity test.</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-ef0a96d103635571">Inward operations and orientations require right criterion, outer-faculty coordination, and protection of inquiry; their external evidence can be necessary even when outward conditions are not necessary for occurrence.</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-21958eec490dba12">Roles and relationships require a recognisable counterpart and reciprocal or asymmetric responsibilities; their occurrence is partly relational, so <strong>CONST; N-OCC; U-H</strong> is justified where the definition itself names the relation.</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-5324a5eb4aaab819">Material and sensory properties require body-object contact, discrimination, and consequence evaluation; the property is not converted into a second private mental act.</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-75de182129614bf5">Bodily processes and states require capability, observation, care, restoration, and accommodation; first-person report remains indispensable but not exhaustive.</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-046e7f28241bedb8">Criteria and results require the operations that produce or recognise them, evidence distinguishing them from imitation, affected-party access, and a continuity test.</li>
 </ul>
-<p>The residual entries remain visible rather than being forced into these families. <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence.">Satya</button></span></em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em>, <em>jati</em>, <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="Time — duration of an activity.">kaal</button></span></em>, repeated <em>poshan</em>, and the closing visible-form response retain their disputed activity grammar.</p>
-<h3 id="63-evidence-is-standpoint-dependent-and-normally-convergent" data-depth="2">6.3 Evidence is standpoint-dependent and normally convergent</h3>
-<p>No single evaluator covers all evidence fields. The bearer has privileged access to resolution, intention, felt contradiction, sensory contact, pain, and bodily experience. A relational counterpart has access to expectation, value-fulfilment, consent, satisfaction, domination, and repair. Skilled peers can assess competence, causal explanation, measurement, treatment, design, or technical consequence. Users, workers, dependants, and affected publics can disclose burdens hidden from the immediate bearer. Material, ecological, and future evidence can contradict present satisfaction or output.</p>
-<p>Pass Two therefore treats convergence as stronger than substitution. A public body cannot declare another person’s inward resolution, while first-person conviction cannot settle a claim about justice, safe work, health, useful production, or ecological regeneration. Apparent disagreement first triggers a standpoint audit: which evidence is directly available to each evaluator, what is being claimed, and whether the conflict concerns criterion, observation, means, role, or consequence.</p>
-<h3 id="64-correction-must-match-the-failure-mechanism" data-depth="2">6.4 Correction must match the failure mechanism</h3>
-<p>The matrix discloses several irreducible correction paths:</p>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-1a590d07ee9be17b">The residual entries remain visible rather than being forced into these families. <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence." data-term="satya" type="button">Satya</button></span></em>, <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives." data-term="dharma" type="button">dharma</button></span></em>, <em>jati</em>, <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Time — duration of an activity." data-term="kaal" type="button">kaal</button></span></em>, repeated <em>poshan</em>, and the closing visible-form response retain their disputed activity grammar.</p>
+<h3 data-depth="2" data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="63-evidence-is-standpoint-dependent-and-normally-convergent">6.3 Evidence is standpoint-dependent and normally convergent</h3>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-7884554783ec2027">No single evaluator covers all evidence fields. The bearer has privileged access to resolution, intention, felt contradiction, sensory contact, pain, and bodily experience. A relational counterpart has access to expectation, value-fulfilment, consent, satisfaction, domination, and repair. Skilled peers can assess competence, causal explanation, measurement, treatment, design, or technical consequence. Users, workers, dependants, and affected publics can disclose burdens hidden from the immediate bearer. Material, ecological, and future evidence can contradict present satisfaction or output.</p>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-7fdbb679998d7bc3">Pass Two therefore treats convergence as stronger than substitution. A public body cannot declare another person’s inward resolution, while first-person conviction cannot settle a claim about justice, safe work, health, useful production, or ecological regeneration. Apparent disagreement first triggers a standpoint audit: which evidence is directly available to each evaluator, what is being claimed, and whether the conflict concerns criterion, observation, means, role, or consequence.</p>
+<h3 data-depth="2" data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="64-correction-must-match-the-failure-mechanism">6.4 Correction must match the failure mechanism</h3>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-d4624d8bbc80766d">The matrix discloses several irreducible correction paths:</p>
 <ul>
-<li>renewed inquiry for error in meaning, truth claim, or inward criterion;</li>
-<li>dialogue and changed fulfilment for relational contradiction;</li>
-<li>protection, appeal, boundary, or separation where power defeats direct reciprocity;</li>
-<li>retraining or changed means where understanding is sound but competence is insufficient;</li>
-<li>repair, restitution, or restoration where conduct has already caused harm;</li>
-<li>redesign where roles, incentives, tools, or procedures repeatedly produce the distortion;</li>
-<li>treatment, rehabilitation, or accommodation for bodily impairment; and</li>
-<li>ecological restoration and long-horizon monitoring where material costs are delayed or displaced.</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-134261bd191e6907">renewed inquiry for error in meaning, truth claim, or inward criterion;</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-a019f8af2ad8f4c7">dialogue and changed fulfilment for relational contradiction;</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-a7f3bfbecf6503e4">protection, appeal, boundary, or separation where power defeats direct reciprocity;</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-872b0198fc6abf36">retraining or changed means where understanding is sound but competence is insufficient;</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-12bd58bb03675169">repair, restitution, or restoration where conduct has already caused harm;</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-3dcb4499081cb825">redesign where roles, incentives, tools, or procedures repeatedly produce the distortion;</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-8ff477d28b67ed66">treatment, rehabilitation, or accommodation for bodily impairment; and</li>
+<li data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-129f0d73937c736f">ecological restoration and long-horizon monitoring where material costs are delayed or displaced.</li>
 </ul>
-<p>An arrangement that offers only inward reflection, only punishment, or only technical redesign cannot correct every class of failure. Pass Four may later ask which correction paths require durable organisation; Pass Two establishes only that the paths must remain available where the corresponding failure is possible.</p>
-<h3 id="65-continuity-recurs-through-several-media" data-depth="2">6.5 Continuity recurs through several media</h3>
-<p>Continuity is not one generic act of transmission. Understanding continues through proposal, dialogue, learner verification, and the capacity to teach without status substitution. Relationship continues through remembered expectations, value-fulfilment, repair, changing responsibilities, and protected voice. Care continues through competence, respite, material support, succession, and the growing agency of the cared-for person. Work and production continue through maintained tools, safe practice, records, reserve, apprenticeship, and regenerative inputs. Public evidence continues through preserved disagreement, independent review, and access to consequences. No one medium can substitute for all the others.</p>
-<h3 id="66-universal-invariants-do-not-yet-determine-institutional-bundles" data-depth="2">6.6 Universal invariants do not yet determine institutional bundles</h3>
-<p>The recurring <strong>U-H</strong> requirements include embodied capability, truthful communication, reciprocal recognition, affected-party voice, protection from domination, visible consequence, correction, care through dependency, productive competence, material access, maintenance, reserve, and ecological continuity. These are candidate invariants because they recur from member anatomy and lifecycle, not because an institutional label was supplied.</p>
-<p>The means of satisfying them remain <strong>V-C</strong> where the member does not select a concrete form. A teacher-learner relation does not by itself determine a school system. Need assessment and productive capability do not determine one property or exchange regime. Protection does not determine one court or police form. Intergenerational continuity does not determine one household composition. Pass Two therefore supplies constraints and comparison features, not a pre-clustered family or five-function conclusion.</p>
-<h2 id="7-residual-and-sensitivity-register">7. Residual and sensitivity register</h2>
-<p>The following fields remain open and must be carried into Pass Three without imputation:</p>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-09139cd72838995b">An arrangement that offers only inward reflection, only punishment, or only technical redesign cannot correct every class of failure. Pass Four may later ask which correction paths require durable organisation; Pass Two establishes only that the paths must remain available where the corresponding failure is possible.</p>
+<h3 data-depth="2" data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="65-continuity-recurs-through-several-media">6.5 Continuity recurs through several media</h3>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-cf49a045e0c08c99">Continuity is not one generic act of transmission. Understanding continues through proposal, dialogue, learner verification, and the capacity to teach without status substitution. Relationship continues through remembered expectations, value-fulfilment, repair, changing responsibilities, and protected voice. Care continues through competence, respite, material support, succession, and the growing agency of the cared-for person. Work and production continue through maintained tools, safe practice, records, reserve, apprenticeship, and regenerative inputs. Public evidence continues through preserved disagreement, independent review, and access to consequences. No one medium can substitute for all the others.</p>
+<h3 data-depth="2" data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="66-universal-invariants-do-not-yet-determine-institutional-bundles">6.6 Universal invariants do not yet determine institutional bundles</h3>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-e29f3b159a66d0f9">The recurring <strong>U-H</strong> requirements include embodied capability, truthful communication, reciprocal recognition, affected-party voice, protection from domination, visible consequence, correction, care through dependency, productive competence, material access, maintenance, reserve, and ecological continuity. These are candidate invariants because they recur from member anatomy and lifecycle, not because an institutional label was supplied.</p>
+<p data-reader-heading="6-findings-across-the-122-member-lifecycle-matrix" data-reader-passage="" id="reader-p-cca8a46e42078a9a">The means of satisfying them remain <strong>V-C</strong> where the member does not select a concrete form. A teacher-learner relation does not by itself determine a school system. Need assessment and productive capability do not determine one property or exchange regime. Protection does not determine one court or police form. Intergenerational continuity does not determine one household composition. Pass Two therefore supplies constraints and comparison features, not a pre-clustered family or five-function conclusion.</p>
+<h2 data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="7-residual-and-sensitivity-register">7. Residual and sensitivity register</h2>
+<p data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-976d8c6f8e3b30ff">The following fields remain open and must be carried into Pass Three without imputation:</p>
 <ol>
-<li>the two source formulations of <em>medha</em> and their exact relation to <em>kala</em>;</li>
-<li>the narrow distinction between <em>shraddha</em> and <em>pujyata</em>;</li>
-<li>the criterion that makes an exemplar worthy in <em>gaurav</em>;</li>
-<li>whether <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="satya" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence.">satya</button></span></em> and <em><span class="term-tip-wrap"><button type="button" class="term-tip" data-term="dharma" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives.">dharma</button></span></em> name operations, objects, governing criteria, or mixed slots;</li>
-<li>the pair rationale and activity grammar of <em>jati/<span class="term-tip-wrap"><button type="button" class="term-tip" data-term="kaal" data-definition="Time — duration of an activity.">kaal</button></span></em>;</li>
-<li>the lexical and role variants around <em>sathi/swami</em>, <em>ullas/haas/hras</em>, and <em>sugandh-durgandh/shvasan-nihshvasan</em>;</li>
-<li>the mixed parent-child syntax and the non-exclusive allocation of nurturing, protection, education, and provision;</li>
-<li>the specific values and endpoint of the spousal slot and its relation to <em>yatitva-satitva</em>;</li>
-<li>the one-to-one mapping of softness, hardness, bearing, shared-bearing, and contraction;</li>
-<li>whether the seven <em>poshan</em> assignments represent independent members, a repeated criterion, or tabular shorthand;</li>
-<li>a correctness criterion for beauty judgement and affinity or otherness after visible form; and</li>
-<li>several pair interfaces whose two definitions are individually clear but whose pairing is not explained.</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-5597ac6c824ba574">the two source formulations of <em>medha</em> and their exact relation to <em>kala</em>;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-69ae987d89b0bfcb">the narrow distinction between <em>shraddha</em> and <em>pujyata</em>;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-953454f6dbe1b304">the criterion that makes an exemplar worthy in <em>gaurav</em>;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-cabe7a342105eb42">whether <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Truth — that which is uniformly perceivable, existent, and realisable at all times; it includes absolute, relative, and objective truth in existence." data-term="satya" type="button">satya</button></span></em> and <em><span class="term-tip-wrap"><button class="term-tip" data-definition="Dharma — innateness: that from which a unit cannot be separated; for human beings, happiness. It also names one of the humane evaluative perspectives." data-term="dharma" type="button">dharma</button></span></em> name operations, objects, governing criteria, or mixed slots;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-4a753455671e306f">the pair rationale and activity grammar of <em>jati/<span class="term-tip-wrap"><button class="term-tip" data-definition="Time — duration of an activity." data-term="kaal" type="button">kaal</button></span></em>;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-016531230abd49b1">the lexical and role variants around <em>sathi/swami</em>, <em>ullas/haas/hras</em>, and <em>sugandh-durgandh/shvasan-nihshvasan</em>;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-6106bf81ebc77b7d">the mixed parent-child syntax and the non-exclusive allocation of nurturing, protection, education, and provision;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-3f0ee96c47092644">the specific values and endpoint of the spousal slot and its relation to <em>yatitva-satitva</em>;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-076f4b067944c762">the one-to-one mapping of softness, hardness, bearing, shared-bearing, and contraction;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-9a0d651bb09a7489">whether the seven <em>poshan</em> assignments represent independent members, a repeated criterion, or tabular shorthand;</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-62b91824fba7ad54">a correctness criterion for beauty judgement and affinity or otherness after visible form; and</li>
+<li data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-50d49e11fc600d2f">several pair interfaces whose two definitions are individually clear but whose pairing is not explained.</li>
 </ol>
-<p>Sensitivity analysis must test at least three treatments of these records: include them with open features, exclude the unresolved feature while retaining the member, and hold the member as a residual outside clustering. A sphere that exists only under one imputed interpretation is not stable.</p>
-<h2 id="8-completion-statement-and-frozen-handoff-to-pass-three">8. Completion statement and frozen handoff to Pass Three</h2>
-<p>Pass Two is complete at the declared analytical grain. The register contains sixty-one pair sections and 122 independently coded member columns. Every member now has a normalized location, an internal dependency statement, development and orientation conditions, expression and consequence conditions, evaluator standpoints, a correction path, continuity and transmission conditions, an external-classification summary, a false-positive test, and explicit open fields where warranted.</p>
-<p>Completion does not mean that every inference is established beyond revision. It means that the same questions have been asked of every source slot and that uncertainty is encoded rather than hidden. The lifecycle claims remain structural inferences to be challenged by counterexample, primary-text review, and later practical evidence.</p>
-<p>Pass Three must export one feature vector per member in the following frozen order:</p>
-<div class="table-scroll"><table>
+<p data-reader-heading="7-residual-and-sensitivity-register" data-reader-passage="" id="reader-p-72c71b82b66b63e2">Sensitivity analysis must test at least three treatments of these records: include them with open features, exclude the unresolved feature while retaining the member, and hold the member as a residual outside clustering. A sphere that exists only under one imputed interpretation is not stable.</p>
+<h2 data-reader-heading="8-completion-statement-and-frozen-handoff-to-pass-three" data-reader-passage="" id="8-completion-statement-and-frozen-handoff-to-pass-three">8. Completion statement and frozen handoff to Pass Three</h2>
+<p data-reader-heading="8-completion-statement-and-frozen-handoff-to-pass-three" data-reader-passage="" id="reader-p-22b20e352ee7e683">Pass Two is complete at the declared analytical grain. The register contains sixty-one pair sections and 122 independently coded member columns. Every member now has a normalized location, an internal dependency statement, development and orientation conditions, expression and consequence conditions, evaluator standpoints, a correction path, continuity and transmission conditions, an external-classification summary, a false-positive test, and explicit open fields where warranted.</p>
+<p data-reader-heading="8-completion-statement-and-frozen-handoff-to-pass-three" data-reader-passage="" id="reader-p-b844ff85c7aa6d3f">Completion does not mean that every inference is established beyond revision. It means that the same questions have been asked of every source slot and that uncertainty is encoded rather than hidden. The lifecycle claims remain structural inferences to be challenged by counterexample, primary-text review, and later practical evidence.</p>
+<p data-reader-heading="8-completion-statement-and-frozen-handoff-to-pass-three" data-reader-passage="" id="reader-p-6a7a2da40721c8f0">Pass Three must export one feature vector per member in the following frozen order:</p>
+<div class="table-scroll"><table data-reader-heading="8-completion-statement-and-frozen-handoff-to-pass-three" data-reader-passage="" id="reader-p-ba951be77ffacb85">
 <thead>
 <tr>
 <th style="text-align:right">Position</th>
@@ -4195,28 +4225,30 @@
 </tr>
 </tbody>
 </table></div>
-<p>Before clustering, replace member names, faculties, pair numbers, source-embedded role terms, and all family or institutional vocabulary with anonymous IDs. Do not use the pilot sphere atlas as starting centroids. Permit overlap and residual membership, compare coarse, middle, and fine granularities, and test stability under the alternate treatments in §7. Names and source structure may be restored only after the blind cluster result is recorded.</p>
-<p>This handoff is completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer">Pass-Three Activity-Sphere Derivation</a>. The blind analysis selects three coarse domains, eight middle clusters, and fourteen fine clusters. Four middle clusters remain stable under both residual treatments, two operate as boundary-sensitive bridges, and two remain residual groupings. The subsequent <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer">Pass-Four durable-function analysis</a> tests every member for durable responsibility and compares five alternative bundles. It derives five continuity channels covering all 122 members and finds the five-function basis sufficient and practically minimal at the selected grain without claiming five organisations or numerical uniqueness.</p>
-<h2 id="references">References</h2>
-<h3 id="madhyasth-darshan">Madhyasth Darshan</h3>
+<p data-reader-heading="8-completion-statement-and-frozen-handoff-to-pass-three" data-reader-passage="" id="reader-p-4c4ab36263416e48">Before clustering, replace member names, faculties, pair numbers, source-embedded role terms, and all family or institutional vocabulary with anonymous IDs. Do not use the pilot sphere atlas as starting centroids. Permit overlap and residual membership, compare coarse, middle, and fine granularities, and test stability under the alternate treatments in §7. Names and source structure may be restored only after the blind cluster result is recorded.</p>
+<p data-reader-heading="8-completion-statement-and-frozen-handoff-to-pass-three" data-reader-passage="" id="reader-p-40aebd14ea58ed34">This handoff is completed in the <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer">Pass-Three Activity-Sphere Derivation</a>. The blind analysis selects three coarse domains, eight middle clusters, and fourteen fine clusters. Four middle clusters remain stable under both residual treatments, two operate as boundary-sensitive bridges, and two remain residual groupings. The subsequent <a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer">Pass-Four durable-function analysis</a> tests every member for durable responsibility and compares five alternative bundles. It derives five continuity channels covering all 122 members and finds the five-function basis sufficient and practically minimal at the selected grain without claiming five organisations or numerical uniqueness.</p>
+<h2 data-reader-heading="references" data-reader-passage="" id="references">References</h2>
+<h3 data-reader-heading="references" data-reader-passage="" id="madhyasth-darshan">Madhyasth Darshan</h3>
 <ul>
-<li><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf" rel="noopener noreferrer"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one <em>bal/shakti</em> assignments used to preserve documentary position for all 122 member records (pp. 91-94; §§1-5).</li>
-<li><strong>MVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the constitutional activity count and the detailed definitions governing entry form, bearer, object, counterpart, endpoint, criterion, and residual status (pp. 323, 327-348; §§1-5); the lifecycle requirements in this register are structural inferences from that anatomy rather than direct quotations.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-296d8dbdcad4fa25"><strong>AVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf" rel="noopener noreferrer"><em>Adhyatmvad</em></a>, tr. Sanjeev Chopra (work in progress). Cited: the five-column table, faculty allocation, and sixty-one <em>bal/shakti</em> assignments used to preserve documentary position for all 122 member records (pp. 91-94; §§1-5).</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-5863206e24ee0874"><strong>MVD</strong> - A. Nagraj, <a href="https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf" rel="noopener noreferrer"><em>Madhyasth Darshan - Co-existentialism</em></a>, tr. Rakesh Gupta. Cited: the constitutional activity count and the detailed definitions governing entry form, bearer, object, counterpart, endpoint, criterion, and residual status (pp. 323, 327-348; §§1-5); the lifecycle requirements in this register are structural inferences from that anatomy rather than direct quotations.</li>
 </ul>
-<h3 id="related-research-notes">Related research notes</h3>
+<h3 data-reader-heading="references" data-reader-passage="" id="related-research-notes">Related research notes</h3>
 <ul>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html" rel="noopener noreferrer"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - the bilingual source inventory and documentary variants.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html" rel="noopener noreferrer"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source and anatomy records for the 106 non-pilot members and the normalization gate.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html" rel="noopener noreferrer"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the sixteen pilot records and refined pass sequence.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html" rel="noopener noreferrer"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the field provenance, lifecycle, universality, clustering, and validation schema.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html" rel="noopener noreferrer"><em>Jeevan Architecture</em></a> - the five faculties, ten generic activities, 122 detailed positions, embodiment, and restfulness.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html" rel="noopener noreferrer"><em>A Functional Model of Jeevan</em></a> - orientation, expression, consequence, evaluation, correction, and lasting change.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the completed anonymous clustering and sphere architecture derived from this register.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the completed durability and institutional-bundle analysis built from this register and Pass Three.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html" rel="noopener noreferrer"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the provisional social thesis to be tested only after bottom-up clustering and validation.</li>
-<li><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the completed anonymous feature matrix, multi-resolution partitions, residual sensitivity tests, stable cores, bridges, and restored comparison.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-a214d57e84329812"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.html" rel="noopener noreferrer"><em>The Sixty-One Activity Pairs of Jeevan</em></a> - the bilingual source inventory and documentary variants.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-6a89d09c2d4f0f62"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.html" rel="noopener noreferrer"><em>Pass-One Anatomy of the Remaining Jeevan Activities</em></a> - source and anatomy records for the 106 non-pilot members and the normalization gate.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-2918d8a2f50022ae"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.html" rel="noopener noreferrer"><em>Bottom-Up Pilot Derivation of Jeevan Activity Spheres</em></a> - the sixteen pilot records and refined pass sequence.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-9d5c17b1246e3273"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.html" rel="noopener noreferrer"><em>Jeevan Activity-to-Sphere Dossier Template</em></a> - the field provenance, lifecycle, universality, clustering, and validation schema.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-d0d5116ab3e3ea6e"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.html" rel="noopener noreferrer"><em>Jeevan Architecture</em></a> - the five faculties, ten generic activities, 122 detailed positions, embodiment, and restfulness.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-418fa41b1e202405"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Functional-Model.html" rel="noopener noreferrer"><em>A Functional Model of Jeevan</em></a> - orientation, expression, consequence, evaluation, correction, and lasting change.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-16474bf655d05eec"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the completed anonymous clustering and sphere architecture derived from this register.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-250659d3fc3f8403"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Durable-Functions-Pass-Four.html" rel="noopener noreferrer"><em>Pass-Four Derivation of Durable Social Functions from Jeevan</em></a> - the completed durability and institutional-bundle analysis built from this register and Pass Three.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-86dd24e8b432161e"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-To-Universal-Human-Order.html" rel="noopener noreferrer"><em>From the Activity Architecture of Jeevan to Universal Human Order</em></a> - the provisional social thesis to be tested only after bottom-up clustering and validation.</li>
+<li data-reader-heading="references" data-reader-passage="" id="reader-p-466f2741f26fd993"><a href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Spheres-Pass-Three.html" rel="noopener noreferrer"><em>Pass-Three Derivation of Jeevan Activity Spheres</em></a> - the completed anonymous feature matrix, multi-resolution partitions, residual sensitivity tests, stable cores, bridges, and restored comparison.</li>
 </ul></main>
-<script defer src="../../Assets/reader/reader.js?v=3d08bd1cb4f261ad"></script><script>
+<script defer src="../../Assets/reader/search.js?v=978601cd252a8f49"></script>
+<script defer src="../../Assets/reader/reader-features.js?v=edb1d33ae1e81f91"></script>
+<script defer src="../../Assets/reader/reader.js?v=2baa7fc15a558564"></script><script>
 (() => {
   let floatPanel = document.getElementById("term-tip-float");
   if (!floatPanel) {

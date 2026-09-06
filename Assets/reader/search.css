@@ -1,0 +1,30 @@
+/* Shared search styling; reader documents link this sheet for screen only. */
+.search-page { color-scheme: light dark; --search-bg: #fffdf9; --search-ink: #302d27; --search-muted: #686155; --search-edge: #d9d2c5; --search-link: #245f78; }
+@media (prefers-color-scheme: dark) { .search-page { --search-bg: #211e19; --search-ink: #eee7db; --search-muted: #bcb09e; --search-edge: #51483a; --search-link: #9cc9dc; } }
+.search-page { max-width: 960px; margin: 0 auto; padding: 32px 24px 70px; background: var(--search-bg); color: var(--search-ink); font: 17px/1.65 system-ui,sans-serif; }
+.search-page h1 { font: 600 42px/1.15 Georgia,serif; margin: 30px 0 14px; }
+.search-page a { color: var(--search-link); }
+.study-search [hidden] { display: none !important; }
+.search-form label { display: block; font-weight: 600; }
+.search-input-row { display: flex; gap: 8px; margin: 7px 0; }
+.study-search :is(input,select,button) { font: inherit; color: inherit; background: transparent; border: 1px solid var(--search-edge); border-radius: 6px; padding: 9px 12px; min-height: 44px; box-sizing: border-box; }
+.search-input-row input { flex: 1; width: 100%; min-width: 0; }
+.study-search button { cursor: pointer; }
+.study-search :is(input,select,button,a):focus-visible { outline: 2px solid var(--search-link); outline-offset: 3px; }
+.search-help { font-size: 13px; color: var(--search-muted); }
+.search-filters { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; margin: 24px 0; }
+.search-filters label { font-size: 13px; min-width: 0; }
+.search-filters select { display: block; width: 100%; margin-top: 6px; }
+.search-status { margin: 22px 0; font-weight: 600; }
+.search-results { list-style: none; padding: 0; margin: 0; }
+.search-results li { padding: 22px 0; border-top: 1px solid var(--search-edge); }
+.search-results a { font-weight: 600; text-underline-offset: 3px; }
+.search-results p { margin: 8px 0 0; overflow-wrap: anywhere; }
+.search-results mark { background: #f4d87a; color: #242016; border-radius: 2px; }
+.search-more { margin: 24px 0; }
+@media (max-width: 640px) {
+  .search-page { padding: 20px 16px 48px; }
+  .search-page h1 { font-size: 34px; }
+  .search-filters { grid-template-columns: 1fr 1fr; }
+  .search-filters label:first-child { grid-column: 1 / -1; }
+}

@@ -42,6 +42,10 @@ class PdfBuildCacheTests(unittest.TestCase):
             "Assets/KaTeX/fonts/font.woff2": "font bytes",
             "Assets/reader/reader.css": "@media screen { body { color: black; } }",
             "Assets/reader/reader.js": "// browser reader",
+            "Assets/reader/search.js": "// browser search",
+            "Assets/reader/search.css": "/* search screen styles */",
+            "Assets/reader/reader-features.js": "// browser previews",
+            "Studies/search-data/manifest.json": "{}",
             "infra/worker/src/index.js": "portal worker",
         })
         for name, value in fixtures.items():
@@ -75,6 +79,10 @@ class PdfBuildCacheTests(unittest.TestCase):
             "Assets/KaTeX/fonts/font.woff2": set(FAMILIES),
             "Assets/reader/reader.css": set(),
             "Assets/reader/reader.js": set(),
+            "Assets/reader/search.js": set(),
+            "Assets/reader/search.css": set(),
+            "Assets/reader/reader-features.js": set(),
+            "Studies/search-data/manifest.json": set(),
             "Studies/A/A.html": set(),
             "Studies/submit.html": set(),
             "infra/worker/src/index.js": set(),
