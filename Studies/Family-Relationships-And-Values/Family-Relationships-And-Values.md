@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 5, 2026, 4:53 AM IST
+**Edited on:** September 6, 2026, 5:42 AM IST
 **Status:** Draft
 **The question:** What is a family in Madhyasth Darshan, why is it the first place where values become livable, and how are its relationships recognised and their values fulfilled?
 
@@ -193,7 +193,7 @@ Prosperity is defined twice, and the two definitions are not in competition:
 
 The first names the state, the second its condition. Because need has already been fixed by the wise family's assessment (§1.3.2), "more than needs" is a determinate quantity rather than a receding target, and the sentiment of lacking can therefore actually cease. SB states the same at family scale — prosperity through production in excess of needs within a wise family (SB, p. 223) — and MVD adds that the realisation of prosperity is self-reliance (*svayattata*) (MVD, p. 342).
 
-This is where the darshan's account of family does argumentative work that no other scale can do for it. Prosperity is not definable for an individual, because an individual's needs are not assessed against the fulfilment of relationships; and it is not definable for a state, because aggregate production says nothing about whether any household has enough. It becomes definable exactly where need is assessed. Prosperity in the family is correspondingly one of the four human goals, alongside resolution in the individual, fearlessness in society, and coexistence in universal orderliness ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §§1.3, 1.6).
+This is where the darshan's account of family does argumentative work that no other scale can do for it. Prosperity is not definable for an individual, because an individual's needs are not assessed against the fulfilment of relationships; and it is not definable for a state, because aggregate production says nothing about whether any household has enough. It becomes definable exactly where need is assessed. Prosperity in the family is correspondingly one of the four human goals, alongside resolution in the individual, fearlessness in society, and coexistence in universal orderliness ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §§1.2, 1.5).
 
 #### 1.3.4 Physical effort, domestic work, and nature's order
 
@@ -210,7 +210,7 @@ The family is where understanding is transmitted before any institution reaches 
 > **“The development of a successful education-sanskar method is possible only when the educational procedure, teachers, parents, and study are aligned. This paves the way for gratitude and coexistence.”**
 > — MVD, p. 270
 
-*Sanskar* includes acceptances towards completeness and the knowledge and tendencies carried forward for evidencing; it is connected with awakening of the sentient aspect (MVD, p. 90), with *susanskar* under awakening and *kusanskar* under delusion (MVD, p. 315). [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.7 distinguishes outward learning, establishment in state, and continuity through understood and evidenced conduct.
+*Sanskar* includes acceptances towards completeness and the knowledge and tendencies carried forward for evidencing; it is connected with awakening of the sentient aspect (MVD, p. 90), with *susanskar* under awakening and *kusanskar* under delusion (MVD, p. 315). [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §§1.4, 1.8 distinguish outward learning, establishment in state, and continuity through understood and evidenced conduct.
 
 Family conduct gives children opportunities to learn the outward expressions of values before their counterparts are established in state. Conduct shaped by fear or temptation can also reinforce mistaken expectations. Education must therefore include examination of what is learnt and fulfilled in the home, together with the child's developing understanding.
 
@@ -220,7 +220,7 @@ Madhyasth Darshan maintains a precise structural distinction between the interna
 - ***Upasana*** (internal refinement) is defined in *Manav Karm Darshan* Chapter 2 as **the internal process of refining root tendencies (*mool-vritti parimarjan*) and transforming acceptances (*sanskar-parivartan*) towards complete awakening** (KD, pp. 30, 37).
 - ***Vyavahar*** (humane behaviour) is defined as **the utilization of effort in mutuality where more than one human comes together** (MVD, p. 33), with domestic living categorized under relational fulfilment (*mulya nirvah*) and justice (*nyaya*) (MVD, p. 55; JV, p. 55).
 
-Internal refinement and relational conduct are connected through learning and evaluation. An individual can learn and practise expressed values in *gati* before their corresponding values are established in *bal/sthiti*. Continuous awakened fulfilment involves the established understanding being evidenced in conduct; initial outward proficiency alone does not establish that continuity ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §§1.3, 1.7).
+Internal refinement and relational conduct are connected through learning and evaluation. An individual can learn and practise expressed values in *gati* before their corresponding values are established in *bal/sthiti*. Continuous awakened fulfilment involves the established understanding being evidenced in conduct; initial outward proficiency alone does not establish that continuity ([Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §§1.3–1.4, 1.8).
 
 It is in this precise sense that the natal family is where *upasana* (internal refinement) is initiated. The family is the first setting where human mutuality is experienced and where relational friction or unmet expectations force the individual *jeevan* to look inward, examine its acceptances (*sanskar*), and refine its root tendencies (*mool-vritti parimarjan*). As KD Chapter 2 emphasizes, wisdom, resolution, and prosperity are the direct result of *upasana*, "in which sociality remains naturally contained" (KD, p. 37). Because sociality is naturally contained in *upasana*, the natal family is the initial ground where internal tendential refinement is called forth by relational living and where its evidence — resolution, trust, and mutual satisfaction — is verified in conduct.
 
@@ -435,7 +435,7 @@ MVD defines prosperity both as the lack of the sentiment of lacking (p. 72) and 
 
 ### Related studies in this collection
 
-- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — what a value is (§1.1), relationship and contact (§1.4), established and expressed values (§1.3), the four-step justice sequence (§1.4), and education, establishment, and continuity through conduct (§1.7), and open problems (§7).
+- [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — what a value is (§1.1), relationship and contact (§1.4), established and expressed values (§1.3), the four-step justice sequence (§1.4), and education, establishment, and continuity through conduct (§§1.4, 1.8), and open problems (§7).
 - [How Undivided Society Is Established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) — the family as the first field of evidence and the argument outward to undivided society (§5.2).
 - [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — family-based self-organising orderliness and the progression from person to undivided society (§§1.4.2–1.4.3).
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — the four human goals and the five dimensions of social orderliness (§1.15).
