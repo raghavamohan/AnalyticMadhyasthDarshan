@@ -79,7 +79,7 @@
 
   const root = document.documentElement, main = document.getElementById('main');
   const tools = document.getElementById('reader-tools'), opener = document.getElementById('reader-open');
-  if (!main || !tools || !opener || typeof tools.showModal !== 'function') return;
+  if (!main || !tools || !opener || typeof tools.show !== 'function') return;
   const $ = id => document.getElementById(id);
   const wide = matchMedia('(min-width: 1180px)'), system = matchMedia('(prefers-color-scheme: dark)');
   const preferenceKey = 'amd-reader-prefs-v1', documentKey = 'amd-reader-v1:' + location.pathname;
@@ -213,7 +213,7 @@
   const more = toolbar.querySelector('.study-toolbar-more');
   document.addEventListener('click',event => { if (more?.open && !more.contains(event.target)) more.open = false; });
   more?.addEventListener('keydown',event => {
-    if (event.key === 'Escape') { more.open = false; more.querySelector('summary').focus({ preventScroll: true }); }
+    if (event.key === 'Escape' && more.open) { event.preventDefault(); event.stopPropagation(); more.open = false; more.querySelector('summary').focus({ preventScroll: true }); }
   });
   const feedback = toolbar.querySelector('.study-toolbar-feedback');
   function prepareFeedback() {
@@ -226,7 +226,9 @@
     href.searchParams.set('location',source.href + (section ? ' — ' + section.text : ' — Introduction'));
     feedback.href = href.href;
   }
-  more?.addEventListener('toggle',() => { if (more.open) prepareFeedback(); });
+  more?.addEventListener('toggle',() => {
+    if (more.open) { if (tools.open && !wide.matches) closePanel(false,false); prepareFeedback(); }
+  });
   feedback?.addEventListener('click',prepareFeedback);
   feedback?.addEventListener('contextmenu',prepareFeedback);
   const marker = () => toolbar.offsetHeight + 12;
@@ -242,6 +244,7 @@
   });
   function measure() {
     root.style.setProperty('--study-toolbar-height',toolbar.offsetHeight + 'px');
+    root.style.setProperty('--reader-toolbar-bottom',toolbar.getBoundingClientRect().bottom + 'px');
     for (const item of [...headings,...passages]) {
       const rect = item.node.getBoundingClientRect();
       item.top = rect.top + scrollY; item.height = rect.height;
@@ -404,33 +407,51 @@
       if (next !== undefined) { event.preventDefault(); selectTab(tabs[next].id.replace('reader-tab-',''),true); }
     });
   }
-  function openPanel(user = true) {
+  const backdrop = $('reader-tools-backdrop');
+  let coveredContent = [];
+  function openPanel(user = true, focusTools = true) {
     const place = capture();
     if (!tools.open) {
+      root.style.setProperty('--reader-toolbar-bottom',toolbar.getBoundingClientRect().bottom + 'px');
+      // A modal dialog makes the toolbar inert. Use a drawer below it so the
+      // same disclosure remains clickable to close, including on phones.
       if (wide.matches) { tools.setAttribute('open',''); root.dataset.readerPanel = 'open'; }
-      else { tools.showModal(); root.dataset.readerModal = ''; }
+      else {
+        tools.show();
+        root.dataset.readerOverlay = ''; backdrop.hidden = false;
+        coveredContent = [main,$('reader-resume')].map(node => ({node,inert:node.inert}));
+        coveredContent.forEach(({node}) => { node.inert = true; });
+      }
     }
+    if (more) more.open = false;
+    $('reader-selection-tools').hidden = true;
     opener.setAttribute('aria-expanded','true');
+    opener.title = 'Hide contents and study tools';
     if (user) {
       if (wide.matches) { prefs.sidebar = true; savePreferences(); }
-      tools.querySelector('[role="tab"][aria-selected="true"]').focus();
+      if (focusTools) tools.querySelector('[role="tab"][aria-selected="true"]').focus({ preventScroll: true });
+      else opener.focus({ preventScroll: true });
       if (!$('reader-bookmarks').hidden && !editId) $('reader-bookmarks').scrollTop = 0;
     }
     scheduleMeasure(wide.matches && scrollY > 0 ? place : null);
   }
   function closePanel(returnFocus = true, remember = true) {
     const place = capture(), wasWide = root.dataset.readerPanel === 'open';
-    tools.close(); delete root.dataset.readerPanel; delete root.dataset.readerModal;
+    tools.close(); delete root.dataset.readerPanel; delete root.dataset.readerOverlay;
+    backdrop.hidden = true;
+    coveredContent.forEach(({node,inert}) => { node.inert = inert; }); coveredContent = [];
     opener.setAttribute('aria-expanded','false');
+    opener.title = 'Show contents and study tools';
     if (remember && wide.matches) { prefs.sidebar = false; savePreferences(); }
     if (returnFocus) opener.focus({ preventScroll: true });
     scheduleMeasure(wasWide && scrollY > 0 ? place : null);
   }
-  opener.addEventListener('click',() => tools.open ? closePanel() : openPanel());
+  opener.addEventListener('click',() => tools.open ? closePanel() : openPanel(true,false));
   $('reader-close').addEventListener('click',() => closePanel());
+  backdrop.addEventListener('click',() => closePanel());
   tools.addEventListener('cancel',event => { event.preventDefault(); closePanel(); });
-  tools.addEventListener('keydown',event => {
-    if (event.key === 'Escape' && wide.matches) { event.preventDefault(); closePanel(); }
+  document.addEventListener('keydown',event => {
+    if (event.key === 'Escape' && !event.defaultPrevented && tools.open && !document.querySelector('dialog:modal')) { event.preventDefault(); closePanel(); }
   });
   wide.addEventListener('change',() => { closePanel(false,false); if (wide.matches && prefs.sidebar) openPanel(false); });
   for (const [id,field] of [['reader-font-size','fontSize'],['reader-line-height','lineHeight'],['reader-column-width','width']]) {
