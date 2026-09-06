@@ -632,8 +632,14 @@ def _mermaid_loader_html(html_body: str) -> str:
     version = json.loads((SCRIPTS_DIR / "package.json").read_text(encoding="utf-8"))["dependencies"]["mermaid"]
     if not re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", version):
         raise ValueError("Pin Mermaid to an exact version shared by browser and PDF rendering")
+    vendor = BASE / 'Assets/Mermaid/mermaid.min.js'
+    asset_hash = hashlib.sha256(vendor.read_bytes()).hexdigest()[:16]
     return """<script type="module">
-import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@__VERSION__/dist/mermaid.esm.min.mjs";
+const mermaid = window.mermaid || await new Promise((resolve,reject) => {
+  const script = document.createElement('script'); script.src = '/Assets/Mermaid/mermaid.min.js?v=__HASH__';
+  script.onload = () => resolve(window.mermaid); script.onerror = () => reject(new Error('Study diagrams could not load.'));
+  document.head.append(script);
+});
 const system = window.matchMedia("(prefers-color-scheme: dark)");
 const diagrams = Array.from(document.querySelectorAll(".mermaid"), node => ({ node, source: node.dataset.readerSource || (node.dataset.readerSource = node.textContent) }));
 let queue = Promise.resolve();
@@ -656,7 +662,7 @@ new MutationObserver(render).observe(document.documentElement, { attributes: tru
 system.addEventListener("change", render);
 render();
 </script>
-""".replace("__VERSION__", version)
+""".replace("__HASH__", asset_hash)
 
 
 _STUDY_DARK_DECLARATIONS = """

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My notes &amp; saved studies</title><meta name="robots" content="noindex"/>
+<link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
+<link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/Assets/Icons/akhand-samaj-favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/Assets/Icons/akhand-samaj-apple-touch-icon.png"/><script>
+(()=>{try{
+ const r=document.documentElement,t=localStorage.getItem('amd-theme');
+ if(['light','dark','sepia'].includes(t))r.dataset.theme=t;
+ const p=JSON.parse(localStorage.getItem('amd-reader-prefs-v1')||'{}');
+ if([16,18,20,22,24].includes(p.fontSize))r.style.setProperty('--reader-font',p.fontSize+'px');
+ if([1.5,1.75,2].includes(p.lineHeight))r.style.setProperty('--reader-line',p.lineHeight);
+ if([56,68,80].includes(p.width))r.style.setProperty('--reader-width',p.width+'ch');
+}catch(e){}})();
+</script>
+<link rel="stylesheet" media="screen" href="../Assets/reader/reader.css?v=97e069fdb79e189c"/>
+<link rel="stylesheet" media="screen" href="../Assets/reader/search.css?v=c92940019b038782"/>
+<link rel="stylesheet" media="screen" href="../Assets/reader/study-tools.css?v=dbd19ff098b65862"/><script defer src="../Assets/reader/search.js?v=978601cd252a8f49"></script>
+<script defer src="../Assets/reader/reader-features.js?v=507b4490fab797a0"></script>
+<script defer src="../Assets/reader/notes-core.js?v=cf0d5435124d9148"></script>
+<script defer src="../Assets/reader/study-tools.js?v=031e252582abc5dc" data-offline-client="../Assets/reader/offline-client.js?v=99de458f3f336edb"></script>
+<script defer src="../Assets/reader/reader.js?v=7c83f442bf83f5a4"></script></head>
+<body class="notebook-page reader-chrome"><a href="index.html">← All studies</a>
+<main id="notebook"><h1>My notes &amp; saved studies</h1>
+<nav class="notebook-nav" aria-label="Notebook sections"><a href="#notebook-notes">Private notes</a><a href="#saved-studies">Saved studies</a></nav>
+<h2>Private notes</h2><section id="notebook-notes">
+<p class="reader-helper">Private highlights and notes from your study readers, stored in this browser profile. Open a source title to return to the study.</p>
+<button id="notes-new" type="button">Highlight or add a note</button>
+<p aria-live="polite" class="reader-helper" id="notes-status" role="status">Opening private notes…</p>
+<form hidden="" id="notes-editor">
+<p id="notes-quote"></p>
+<label for="notes-color">Highlight color</label><select id="notes-color"><option value="yellow">Yellow</option><option value="green">Green</option><option value="blue">Blue</option><option value="rose">Rose</option></select>
+<label for="notes-text">Your private note</label><textarea id="notes-text" maxlength="12000" placeholder="What does this claim mean? What should I check?" rows="6"></textarea>
+<p aria-live="polite" id="notes-save-state" role="status"></p>
+<div class="study-tool-actions"><button type="submit">Save note</button><button id="notes-cancel" type="button">Close editor</button></div>
+<button hidden="" id="notes-reload" type="button">Reload saved note</button>
+<button id="notes-reattach" type="button">Attach to current selection</button>
+</form>
+<label for="notes-scope">Show notes</label><select id="notes-scope"><option value="document">This document</option><option value="all">All documents</option></select>
+<ol aria-label="Private notes" class="study-note-list" id="notes-list"></ol>
+<details><summary>Export or restore notes</summary><p class="reader-helper">Exports include the notes shown above and any unsaved editor text. Conflicting imported notes are kept as separate copies.</p>
+<div class="study-tool-actions"><button id="notes-export-md" type="button">Export Markdown</button><button id="notes-export-json" type="button">Export JSON</button></div>
+<label for="notes-import">Restore a JSON backup</label><input accept="application/json,.json" id="notes-import" type="file"/>
+<div hidden="" id="notes-import-review"><p id="notes-import-description"></p><button id="notes-import-confirm" type="button">Import these notes</button><button id="notes-import-cancel" type="button">Cancel import</button></div>
+</details>
+<p class="reader-helper">Notes stay on this device and are not sent to the website. Anyone using this browser profile can read them. Export a backup before clearing browser data.</p>
+<a href="/Studies/notebook.html">My notes &amp; saved studies →</a>
+</section>
+<section id="saved-studies"><h2>Saved studies</h2><p id="offline-library-status" role="status" aria-live="polite">Checking saved copies…</p><ol id="offline-library" class="study-note-list"></ol>
+<p>Saved copies include the study and its reading assets. Linked source PDFs, discussions and collection search require a connection. Browser storage can be evicted; keep exported backups of your notes.</p></section>
+<noscript>JavaScript is needed to open your device’s notes and saved-study list. Your downloaded Markdown and JSON backups remain readable independently.</noscript>
+</main></body></html>

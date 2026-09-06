@@ -162,6 +162,32 @@ Unicode/phrase matching, URL validation, bookmark-compatible IDs, incremental
 updates and unpublishing/rename regressions. New sources must be staged before
 indexing because the public inventory deliberately uses Git's tracked paths.
 
+Phase 5 adds `Scripts/_build_reader_offline.py`. Catalog writes and reader builds
+refresh `Studies/notebook.html` and `Studies/offline-manifest.json`; the index
+verifier checks both against the complete public inventory and current resource
+checksums. Run `python Scripts/_build_reader_offline.py --check` independently.
+After upgrading the pinned Node Mermaid dependency, run
+`python Scripts/_build_reader_offline.py --vendor-mermaid` and regenerate every
+diagram reader. The browser uses that same-origin bundle and its included license;
+PDF rendering continues to use the pinned Node renderer.
+
+`_test_study_tools.py` exercises the shipped notes core and service-worker event
+handlers, including ambiguous passage anchors, hostile backup/resource data,
+bounded downloads, failed/partial cache replacements, concurrent saves, online
+withdrawals, and isolation from APIs and contributor pages. Together with the
+existing suites this makes 40 enforced suites. For real IndexedDB transactions,
+serve the repository locally and open `Scripts/_test_study_notes_browser.html`;
+its 13 checks use a separate temporary database. Browser acceptance also covers
+selection, mobile editing, export/import, cross-tab conflicts, local voices and
+saved-page navigation while the preview server is stopped.
+
+Only an explicit offline Save action registers `/reader-sw.js`. Its root scope
+allows both Studies and Applications paths, but interception and caching are
+limited to allowlisted public readers and their assets. Notes use a separate
+IndexedDB store and never enter the offline manifest or HTTP requests. Failed
+saves retain the previous complete copy; unavailable browser storage retains
+unsaved text for export. Clearing site data removes both notes and saved copies.
+
 Among what it covers: `_test_commit_artifacts` exercises the only part of CI that
 writes to a branch — both workflows using that action need a label to fire, and
 `study-pr.yml` resolves it `@master`, so without this job it could reach `master`
@@ -292,9 +318,9 @@ Markdown, references and presentations. Keys contain source paths and bytes,
 transitive local Python helpers, renderer scripts/dependencies, fonts, manifests,
 the workflow/setup contract and the hosted runner image. Additions, removals and
 renames change keys. Commit IDs and wall-clock timestamps do not. Reader HTML
-contents, the five screen-only reader/search assets (`reader.css`, `reader.js`,
-`search.css`, `search.js`, `reader-features.js`), generated `Studies/search-data/`
-JSON, and portal code do not invalidate PDF builds; Markdown keys include
+contents, the explicitly listed screen-only assets in `Assets/reader/`, the
+vendored browser Mermaid files, `reader-sw.js`, generated `Studies/search-data/`
+JSON, `Studies/offline-manifest.json`, and portal code do not invalidate PDF builds; Markdown keys include
 HTML/PDF target names because link rewriting uses their existence. Dependency
 coverage is deliberately conservative: e.g. a Python requirements change rebuilds
 all families, while a Node lockfile change leaves presentation reuse possible.
