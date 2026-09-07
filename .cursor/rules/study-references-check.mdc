@@ -41,6 +41,12 @@ The check suite (`Scripts/_check_references.py`) verifies:
 Supporting scripts: `_audit_references.py` (bibliography-only), `_download_references.py`
 (mirrors), `_quote_tool.py verify` (blockquotes against local PDFs).
 
+These checks establish reference integrity and quotation matches, not whether a
+paraphrase, translation, or synthesis is conceptually supported. Use the review
+method in §5 and [review-study](.agents/skills/review-study/SKILL.md) when that is
+the question. A failed or partial OCR match requires inspection of the source page
+before deciding that a quotation or concept is wrong.
+
 Agent skill: [check-references](.agents/skills/check-references/SKILL.md). Download
 workflow: [download-references](.agents/skills/download-references/SKILL.md).
 

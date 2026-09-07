@@ -31,7 +31,7 @@ skills orchestrate `Scripts/_*.py`; they defer content and style rules to the se
 Available skills: `manage-studies`, `add-study`, `remove-study`, `rename-study`,
 `set-study-status`, `download-references`, `check-references`, `regenerate-study-pdf`,
 `update-study-presentation`, `update-presenters-companion`, `refine-studies-index`,
-`transcribe-recording`, `sync-master-clean-branches`.
+`transcribe-recording`, `sync-master-clean-branches`, `review-study`.
 
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|
@@ -612,6 +612,23 @@ review with a plain closing sentence naming the tradition, not `**Verdict:**`
 or `### Critical assessment`. Cross-reference with `§2.3`, not `Section 2`. Do
 not use `---` horizontal rules between sections within the study body.
 
+### English revision and conceptual meaning
+
+Separate improvements to English from corrections of meaning. Improve grammar,
+sentence flow, transitions, and explanations while preserving the claim's scope,
+strength, defining relationships, purpose, and developmental direction. Changing
+"definite" to "possible", removing a relation of fulfilment, or turning a connected
+account into disconnected definitions is a substantive change, not copyediting.
+Make such changes only when the source review warrants them.
+
+Use the study's established English term consistently for each source concept,
+with the original term and a clear explanation where needed. Check the definition
+before replacing an unfamiliar term with a familiar synonym; fluency alone does
+not establish equivalence. Record consequential translation choices in the glossary
+or Editorial Notes, and check their use throughout the study. Do not silently
+rewrite quotations to match the chosen analytical vocabulary. Remove formulaic
+hedges without removing warranted uncertainty or qualifications that affect meaning.
+
 ### Source attribution in exposition
 
 Exposition states the darshan's own positions in continuous prose. Do **not** make
@@ -630,8 +647,10 @@ is his (`Nagraj's founding questions ask…`); naming a book as a speaker is not
 
 ### Textual variants and interpretive choices
 
-Exposition presents what the texts establish, not the study's reading of them.
-Keep the following out of the exposition sections:
+Exposition presents the philosophy positively, including synthesis warranted by
+the connected primary account. Material textual variants and interpretive choices
+belong in Editorial Notes; the reader need not follow the review process sentence
+by sentence. Keep the following out of the exposition sections:
 
 - Enumeration reconciliation: `the three-content formulation… the four-content
   formulation`, `the two enumerations answer different questions`, `these
@@ -645,15 +664,21 @@ Keep the following out of the exposition sections:
 
 State the chosen content positively in the exposition and record the choice in
 `## Editorial Notes` (`### <topic>` subsections, placed after the glossary and
-before `## References`). **Never assert a harmonisation the sources do not
-state** — if one passage lists four constituents and another three, present the
-content and let the Editorial Note carry the enumeration; do not write that one
-of them is "not a separate fourth content."
+before `## References`). **Do not invent a reconciliation or suppress a genuine
+conflict.** Assess synthesis against the connected definitions, classifications,
+relationships, and applications in the relevant primary texts; no single passage
+need state every connection. Preserve supported synthesis with appropriate citations;
+record consequential interpretive choices in Editorial Notes. If two enumerations
+differ, check
+what each counts and how the contents relate before reconciling or rejecting them.
+Do not declare an item redundant, or two lists incompatible, from their counts alone.
 
 Comparison with other traditions belongs in the comparison sections (typically
-§§2–5). Criticism, contestable inferences, testability, and open problems belong
-in critical review and open problems (typically §§6–7), cross-referenced from the
-exposition with `§6.1` or `§7.4` rather than argued in place.
+§§2–5). Criticism, genuinely new or disputed extensions, testability, and open
+problems belong in critical review and open problems (typically §§6–7),
+cross-referenced from the exposition with `§6.1` or `§7.4` rather than argued in
+place. Ordinary synthesis of the primary account belongs in exposition; material
+uncertainty about that synthesis must remain visible where it affects the argument.
 
 ### Block quotes
 
@@ -734,7 +759,10 @@ support is carried by prose plus a parenthetical citation. Verify what remains:
 - [ ] No enumeration reconciliation, cross-text variant notes, or
   meta-commentary on the sources in exposition — recorded in
   `## Editorial Notes` instead
-- [ ] No harmonisation asserted that the sources do not state
+- [ ] English edits preserve conceptual meaning; substantive changes have source
+  reasons, consistent terminology, and corresponding glossary/notes updates
+- [ ] Supported synthesis is retained; no invented reconciliation or suppressed
+  conflict; material interpretive choices and uncertainty remain explicit
 - [ ] Comparison confined to the comparison sections and criticism to critical
   review / open problems, not argued inside the exposition
 - [ ] Block quotes reserved for a section's most important point;
@@ -770,6 +798,35 @@ When removing a shared preface, preserve unique source notes and qualifications,
 retain numbered section identifiers, refresh Edited on and the catalogs, and
 regenerate HTML/PDF through §1–§3. Do not alter an unpublished proposal's status
 or publish a placeholder merely to apply an editorial policy to released studies.
+
+### Reviewing primary support and synthesis
+
+For a substantive review, assess the complete argument and the author's intended
+connections before revising individual passages. Distinguish an explicit source
+statement, a synthesis supported across passages, an illustrative application, and
+a new or disputed extension. Use these distinctions in working review notes; do not
+add classification tags to the published essay.
+
+A synthesis needs support for its connections as well as its component definitions.
+Follow the relevant terms through definitions, classifications, purposes, and
+applications across the primary works, checking contrary passages and translation
+or edition differences. Absence of the whole claim from one passage is insufficient
+grounds to remove it. Conversely, compatible vocabulary alone does not establish
+a link. Report "not located in the material reviewed" when the search is limited;
+reserve stronger claims of absent support for a review that can justify them.
+
+Preserve well-supported relationships while correcting exact errors of definition,
+pairing, faculty, level, scope, or attribution. When concepts change, trace their
+consequences through comparison, criticism, conclusion, tables, appendix, glossary,
+and Editorial Notes. Criticism should address the strongest supported account;
+removing its explanatory connections must not manufacture an apparent deficiency.
+Identify affected companion material and update it when within the user's scope;
+otherwise report the specific remaining inconsistency. Apply the same evidential
+standard to every tradition under comparison.
+
+Use [review-study](.agents/skills/review-study/SKILL.md) for the complete review
+workflow. A spelling correction or rendering-only task does not require a new
+review of the whole study.
 
 ### Check before finishing
 
@@ -814,6 +871,12 @@ The check suite (`Scripts/_check_references.py`) verifies:
 
 Supporting scripts: `_audit_references.py` (bibliography-only), `_download_references.py`
 (mirrors), `_quote_tool.py verify` (blockquotes against local PDFs).
+
+These checks establish reference integrity and quotation matches, not whether a
+paraphrase, translation, or synthesis is conceptually supported. Use the review
+method in §5 and [review-study](.agents/skills/review-study/SKILL.md) when that is
+the question. A failed or partial OCR match requires inspection of the source page
+before deciding that a quotation or concept is wrong.
 
 Agent skill: [check-references](.agents/skills/check-references/SKILL.md). Download
 workflow: [download-references](.agents/skills/download-references/SKILL.md).
