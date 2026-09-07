@@ -6,6 +6,27 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html",
+      "title": "The Epistemology of Coexistence",
+      "content_text": "What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-09-07T19:24:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html",
       "title": "Axiology: Value Theory",
@@ -64,27 +85,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html",
-      "title": "The Epistemology of Coexistence",
-      "content_text": "What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-09-06T18:31:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf",
           "mime_type": "application/pdf"
         }
       ]
