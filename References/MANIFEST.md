@@ -30,7 +30,8 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-05.
 | | ATR | external |
 | [Human-Behavior-And-Society.pdf](../Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) | MVD, SB, JV | present |
 
-| [The-Epistemology-of-Coexistence.pdf](../Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) | MVD, SB, JV | present |
+| [The-Epistemology-of-Coexistence.pdf](../Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) | MVD, SB, JV, KD | present |
+| | YAT | external |
 | | BG, BU, BSB, CU, DDV, MU, TU, VC | present |
 | | VP | external |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
@@ -71,10 +72,11 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md` analysis extract](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | all Studies papers above |
 | **MAD** | [Manav Abhyas Darshan — Hindi reader](https://db.madhyasth.org/books/read/144/) (external) | Axiology-Value-Theory; displayed reader pp. 30, 34, 43, 45, 47, 51 |
 | **PS** | [Paribhasha Samhita — official publications](https://originals.madhyasth.org/granth/published) · [source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7) (external); third edition 2012, printing 2016; `15_paribhasha_sanhita_2015_ocr.pdf` | Axiology-Value-Theory; printed pp. 40–41, 78, 93, 149, 151, 154, 179 (PDF positions +8) |
+| **YAT** | [Yatharthata, Vastavikta, Satyata](https://originals.madhyasth.org/avdharna/yatharth) (external); official Hindi excerpt compilation attributed to *Paribhasha Sanhita* and other writings | The-Epistemology-of-Coexistence; the headings “स्थिति सत्य,” “वस्तुगत सत्य,” and “वस्तु स्थिति सत्य” (§1.1 and Editorial Notes) |
 | **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | The-Ontology-of-Coexistence; Axiology-Value-Theory; Family-Relationships-And-Values; A-State-Dynamic-Model-Of-Coexistence; Research-Note-Jeevan-Architecture (internal) |
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | terminology glossary; Phase 4 MVD/SB refresh (see MD-Mapping-Sources/) |
-| **KD** | [Madhyasth-Darshan/KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) · [active translation workspace](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal). The source plus generated English and interleaved Hindi-English review PDFs are explicit active-translation exceptions in `r2-artifacts.json` and remain in Git. |
+| **KD** | [Madhyasth-Darshan/KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) · [active translation workspace](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | The-Ontology-of-Coexistence; The-Epistemology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal). The source plus generated English and interleaved Hindi-English review PDFs are explicit active-translation exceptions in `r2-artifacts.json` and remain in Git. |
 | **MSM** | [Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf](Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf) | (none — not yet cited by any study) |
 | **KD-Karm-Darshan-English** | [Madhyasth-Darshan/KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | The-Ontology-of-Coexistence; Research-Note-Physics-Of-Satta-Unit-Interaction (internal); full-book working translation (front matter + ch. 1–3) |
 | **MSM-Manav-Sanchetnavadi-Manovigyan-English** | [Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/](Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/README.md) | (setup only — no English translation yet) |
