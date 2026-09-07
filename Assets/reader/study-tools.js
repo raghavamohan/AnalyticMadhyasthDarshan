@@ -29,7 +29,7 @@
     let passageCache;
     const candidates = () => passageCache ||= context ? context.passages.filter(p => !p.node.matches('.mermaid') && !p.text.startsWith('Author:') && !p.text.startsWith('Edited on:'))
       .map(p => ({...p,text:textNodes(p.node).map(node => node.textContent).join('')})) : [];
-    let notes = [], store, volatile = false, editor = null, expected = null, dirty = false, selection = null, pendingImport = null, shown = 20;
+    let notes = [], store, volatile = false, editor = null, expected = null, dirty = false, selection = null, invalidSelection = false, pendingImport = null, shown = 20;
     const status = value => { $('notes-status').textContent = value; };
     let channel;
     try { channel = new BroadcastChannel('amd-study-notes'); } catch (_) { /* Reload still reads current records. */ }
@@ -158,6 +158,24 @@
       if (!p || !p.text.trim()) return null;
       const end = Math.min(6000,p.text.length); return {anchors:[C.makeAnchor(p,0,end)],quote:p.text.slice(0,end)};
     }
+    let speechParagraphs;
+    function speechTarget() {
+      if (invalidSelection) return {error:'Select up to 6,000 characters across at most 20 passages to read aloud.'};
+      let selected = selection, paragraph;
+      if (!selected) {
+        speechParagraphs ||= new Map(candidates().filter(p => p.node.matches('p,li') && p.text.trim()).map(p => [p.id,p]));
+        const place = context.currentPlace(), start = context.passages.findIndex(p => p.id === place?.anchor);
+        // At a heading, figure or table, offer the next prose paragraph. At the
+        // end of the document, retain the last readable paragraph.
+        paragraph = context.passages.slice(Math.max(0,start)).map(p => speechParagraphs.get(p.id)).find(Boolean)
+          || [...speechParagraphs.values()].at(-1);
+        if (!paragraph) return null;
+        selected = {anchors:[C.makeAnchor(paragraph,0,paragraph.text.length)],quote:paragraph.text};
+      }
+      const first = paragraph || candidates().find(p => p.id === selected.anchors[0].id);
+      const section = context.headings.find(h => h.id === (first?.subheading || first?.heading));
+      return {...selected,kind:paragraph ? 'paragraph' : 'selection',section:section?.text || 'Introduction'};
+    }
     function newNote(selected) {
       const now = new Date().toISOString();
       return {id:crypto.randomUUID(),revision:crypto.randomUUID(),document:path,title,version,color:'yellow',note:'',created:now,updated:now,...selected};
@@ -195,20 +213,22 @@
     loadingControls.forEach(node => { node.disabled = true; });
     if (context) {
       // Speech and native selection must work even while IndexedDB is opening.
-      const updateSpeechSelection = setupSpeech(context,() => selection,domRange,candidates);
+      const updateSpeechSelection = setupSpeech(context,speechTarget,domRange,candidates);
+      context.onPlaceChange(updateSpeechSelection);
       let selectionTimer;
       function captureSelectionNow(showTools = true) {
         clearTimeout(selectionTimer);
         const next = snapshot(), native = window.getSelection();
         if (next || (!native?.isCollapsed && context.main.contains(native?.anchorNode))) {
           selection = next;
+          invalidSelection = !next;
           if (!next) $('reader-selection-tools').hidden = true;
           else if (showTools && !(context.tools?.open && !context.wide.matches)) $('reader-selection-tools').hidden = false;
           updateSpeechSelection();
         }
       }
       const captureSelection = () => { clearTimeout(selectionTimer); selectionTimer = setTimeout(captureSelectionNow,100); };
-      const clearSelection = () => { clearTimeout(selectionTimer); selection = null; $('reader-selection-tools').hidden = true; updateSpeechSelection(); };
+      const clearSelection = () => { clearTimeout(selectionTimer); selection = null; invalidSelection = false; $('reader-selection-tools').hidden = true; updateSpeechSelection(); };
       // Android's long-press handles can move without another pointerup.
       document.addEventListener('selectionchange',captureSelection);
       context.main.addEventListener('pointerup',captureSelection); context.main.addEventListener('keyup',captureSelection);
@@ -243,30 +263,51 @@
     }
     loadingControls.forEach(node => { node.disabled = false; });
   };
-  function setupSpeech(context,getSelection,domRange,candidates) {
+  function setupSpeech(context,getTarget,domRange,candidates) {
     const synth = window.speechSynthesis, S = window.AMDReaderSpeech;
-    let voices = [], state = 'idle', ranges = [], testing = false;
+    let voices = [], state = 'idle', ranges = [], testing = false, activeTarget = null, read = null;
     const status = text => { $('listen-status').textContent = text; };
     const clearHighlight = () => window.CSS?.highlights?.delete('reader-speaking');
     function controls(value = state) {
       state = value; const active = state !== 'idle';
-      $('listen-start').disabled = active || !voices.length || !getSelection();
+      const target = getTarget();
+      $('listen-start').disabled = active || !voices.length || !target?.quote || target.quote.length > 6000;
       $('listen-test').disabled = active || !voices.length;
       $('listen-pause').disabled = state !== 'speaking'; $('listen-resume').disabled = state !== 'paused';
       $('listen-stop').disabled = !active; $('listen-voice').disabled = $('listen-speed').disabled = active || !voices.length;
       if (state !== 'speaking') clearHighlight();
     }
     function updateSelection() {
-      const selected = getSelection();
-      $('listen-selection-label').textContent = selected ? `Selected passage · ${selected.quote.length.toLocaleString()} characters` : 'No passage selected';
-      $('listen-selection-preview').textContent = selected ? selected.quote.slice(0,240) + (selected.quote.length > 240 ? '…' : '') : 'Close tools and select up to 6,000 characters in the study. Then open Listen.';
+      const selected = state !== 'idle' && !testing ? activeTarget : getTarget();
+      const kind = selected?.kind === 'paragraph' ? 'Current paragraph' : 'Selected passage';
+      const label = selected?.quote ? `${kind} · ${selected.quote.length.toLocaleString()} characters` : 'No readable passage';
+      const preview = selected?.quote ? selected.quote.slice(0,240) + (selected.quote.length > 240 ? '…' : '') : '';
+      const hint = selected?.error || (selected?.quote?.length > 6000 ? 'This paragraph is longer than 6,000 characters. Select the part you want to hear.'
+        : selected?.quote ? '' : 'Click a paragraph or select text in the study, then return to Listen.');
+      for (const [id,text] of [['listen-selection-label',label],['listen-selection-section',selected?.section || ''],['listen-selection-preview',preview],['listen-selection-hint',hint]]) {
+        if ($(id).textContent !== text) $(id).textContent = text;
+      }
+      $('listen-selection-hint').hidden = !hint;
+      $('listen-start').textContent = selected?.kind === 'selection' ? 'Read selection' : 'Read paragraph';
       controls();
     }
+    $('selection-listen').addEventListener('click',() => {
+      const selected = getTarget();
+      context.selectTab('listen'); context.openPanel(); $('reader-selection-tools').hidden = true;
+      updateSelection();
+      // Keep speech in this tap's user activation, even if opening the drawer
+      // collapses the native selection. Never wait for storage or voice loading.
+      if (read) read(selected);
+      if (!$('listen-stop').disabled) {
+        $('listen-stop').scrollIntoView({block:'nearest'});
+        $('listen-stop').focus({preventScroll:true});
+      }
+    });
     if (!synth || !window.SpeechSynthesisUtterance || !S) {
       status('Read-aloud is not available in this browser.'); updateSelection(); return updateSelection;
     }
     const player = S.createPlayer({synth,Utterance:window.SpeechSynthesisUtterance,
-      onState:value => { controls(value); if (value === 'starting') status('Starting device voice…'); if (value === 'paused') status('Paused. Resume restarts this sentence or short chunk.'); },
+      onState:value => { controls(value); updateSelection(); if (value === 'starting') status('Starting device voice…'); if (value === 'paused') status('Paused. Resume restarts this sentence or short chunk.'); },
       onChunk:(piece,index,total) => {
         status(testing ? 'Playing the test voice.' : `Reading ${index + 1} of ${total} sentences or chunks.`);
         if (window.CSS?.highlights && window.Highlight) {
@@ -275,7 +316,7 @@
         }
       },
       onError:code => status(code === 'start-timeout' ? 'The device voice did not start. Try Test voice or another voice. Open “No sound?” below for phone settings.' : 'The device could not read aloud (' + code + '). Try another voice or open “No sound?” below.'),
-      onFinish:() => status(testing ? 'Voice test finished. If you heard nothing, open “No sound?” below.' : 'Finished reading the selection.'),
+      onFinish:() => status(testing ? 'Voice test finished. If you heard nothing, open “No sound?” below.' : 'Finished reading the ' + (activeTarget?.kind === 'paragraph' ? 'paragraph.' : 'selection.')),
     });
     function refreshVoices() {
       if (state !== 'idle') return;
@@ -285,10 +326,9 @@
       $('listen-voice').replaceChildren();
       for (const voice of voices) { const option = document.createElement('option'); option.value = voice.voiceURI; option.textContent = `${voice.name} · ${voice.lang}`; $('listen-voice').append(option); }
       if (preferred) $('listen-voice').value = preferred.voiceURI;
-      controls(); status(voices.length ? 'Choose Read selection, or Test voice to check sound.' : 'No device voices are available yet. Reopen Listen after installing a voice in your phone’s text-to-speech settings. See “No sound?” below.');
+      updateSelection(); status(voices.length ? 'Choose Read paragraph or Read selection to begin. Test voice checks the sound.' : 'No device voices are available yet. Reopen Listen after installing a voice in your phone’s text-to-speech settings. See “No sound?” below.');
     }
     $('reader-tab-listen').addEventListener('click',refreshVoices);
-    $('selection-listen').addEventListener('click',() => { context.selectTab('listen'); context.openPanel(); $('reader-selection-tools').hidden = true; refreshVoices(); });
     synth.addEventListener('voiceschanged',refreshVoices);
     $('listen-stop').addEventListener('click',() => { player.stop(); status('Stopped.'); });
     $('listen-pause').addEventListener('click',() => player.pause());
@@ -299,15 +339,17 @@
       const chosen = voice(); if (!chosen) return;
       testing = true; ranges = []; player.play({text:'This is a test of the reading voice on your device.',voice:chosen,rate:Number($('listen-speed').value)});
     });
-    $('listen-start').addEventListener('click',() => {
-      const selected = getSelection(), chosen = voice();
-      if (!selected || !chosen) { status('Select study text and choose an available device voice first.'); return; }
+    read = selected => {
+      refreshVoices(); const chosen = voice();
+      if (!selected?.quote || selected.quote.length > 6000) { updateSelection(); return; }
+      if (!chosen) return; // refreshVoices explains how to load a voice; a later tap starts playback.
       const resolved = selected.anchors.map(a => C.resolve(a,candidates()));
       if (resolved.some(a => !a)) { status('The selected passage has changed. Select it again.'); return; }
       let offset = 0;
       ranges = resolved.map((found,i) => { const start = offset; offset += selected.anchors[i].quote.length + 1; return {...found,from:start,to:offset - 1}; });
-      testing = false; player.play({text:selected.anchors.map(a => a.quote).join('\n'),voice:chosen,rate:Number($('listen-speed').value)});
-    });
+      testing = false; activeTarget = selected; player.play({text:selected.anchors.map(a => a.quote).join('\n'),voice:chosen,rate:Number($('listen-speed').value)});
+    };
+    $('listen-start').addEventListener('click',() => read(getTarget()));
     updateSelection(); refreshVoices();
     // Some mobile engines initialize lazily and deliver voiceschanged late.
     const retries = [300,1000,3000].map(delay => setTimeout(() => { if (!voices.length) refreshVoices(); },delay));

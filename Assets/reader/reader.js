@@ -87,6 +87,7 @@
   let model = emptyState(), prefs = preferences(null), corrupt = false, storageAvailable = true;
   let messageTimer, saveTimer, geometryTimer, pendingPlace = null, frame = 0, editId = null, tracking = false;
   let clickedPassage = null, clickedScrollY = 0, previewPlace = null;
+  const placeListeners = new Set();
   function message(text, permanent = false) {
     clearTimeout(messageTimer);
     $('reader-message').textContent = text;
@@ -218,7 +219,7 @@
   const feedback = toolbar.querySelector('.study-toolbar-feedback');
   function prepareFeedback() {
     if (!feedback) return;
-    const place = clickedPassage ? passagePlace(clickedPassage,headings) : capture();
+    const place = currentPlace();
     const section = headings.find(item => item.id === (place?.subheading || place?.heading));
     const source = new URL(document.querySelector('link[rel="canonical"]')?.href || location.pathname,location.origin);
     source.hash = section?.id || '';
@@ -236,11 +237,16 @@
     const y = scrollY + marker(), item = passages[Math.max(0,readingIndex(passages,y))];
     return passagePlace(item,headings,item ? (y - item.top) / Math.max(1,item.height) : 0);
   }
+  function currentPlace() { return clickedPassage ? passagePlace(clickedPassage,headings) : capture(); }
+  function updatePlaceTools() {
+    updateBookmarkPreview();
+    for (const listener of placeListeners) listener();
+  }
   main.addEventListener('click',event => {
     const node = event.target.closest('[data-reader-passage]');
     clickedPassage = passages.find(item => item.node === node) || null;
     clickedScrollY = scrollY;
-    updateBookmarkPreview();
+    updatePlaceTools();
   });
   function measure() {
     root.style.setProperty('--study-toolbar-height',toolbar.offsetHeight + 'px');
@@ -354,7 +360,7 @@
         if (rect.top < bounds.top || rect.bottom > bounds.bottom) panel.scrollTop += rect.top - bounds.top - 20;
       }
     }
-    updateBookmarkPreview();
+    updatePlaceTools();
   }
   $('study-section-prev').addEventListener('click',event => {
     event.preventDefault(); const i = readingIndex(sections,scrollY + marker()); if (i > 0) visitHeading(sections[i - 1]);
@@ -376,7 +382,7 @@
         || (event.key === ' ' && event.target.closest?.('button')))) return;
     pendingPlace = null;
     clickedPassage = null;
-    updateBookmarkPreview();
+    updatePlaceTools();
     startTracking();
   },{ passive: true });
   window.addEventListener('pagehide',persistPosition);
@@ -478,7 +484,7 @@
   bookmarkForm.querySelector('[type="submit"]').setAttribute('aria-describedby','reader-bookmark-section reader-bookmark-quote');
   function updateBookmarkPreview() {
     previewPlace = editId ? model.bookmarks.find(mark => mark.id === editId)?.place
-      : clickedPassage ? passagePlace(clickedPassage,headings) : capture();
+      : currentPlace();
     const label = previewPlace?.label || 'Introduction', excerpt = previewPlace?.quote || '';
     const quote = excerpt === label ? 'At this heading' : excerpt + (excerpt.length === 160 ? '…' : '');
     const context = editId ? 'Saved place' : clickedPassage ? 'Will bookmark · Clicked passage' : 'Will bookmark · Reading position';
@@ -590,6 +596,6 @@
   window.AMDReaderFeatures?.({ main,passages,headings,tools,wide,capture,go,measure,scheduleMeasure,
     closePanel,openPanel,selectTab,message,cleanText });
   window.AMDStudyTools?.({ main,passages,headings,tools,wide,capture,go,scheduleMeasure,
-    closePanel,openPanel,selectTab,message,cleanText });
+    currentPlace,onPlaceChange:listener => placeListeners.add(listener),closePanel,openPanel,selectTab,message,cleanText });
   requestAnimationFrame(() => { measure(); if (location.hash) followHash(); });
 })();
