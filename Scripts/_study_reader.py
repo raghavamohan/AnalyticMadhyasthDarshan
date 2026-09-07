@@ -97,13 +97,13 @@ def reader_controls() -> str:
     <a href="/Studies/notebook.html">My notes &amp; saved studies →</a>
   </section>
   <section id="reader-listen" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-listen" tabindex="0" hidden>
-    <p class="reader-helper">Select a passage, then read it using a voice installed on this device. No audio starts automatically.</p>
-    <div class="listen-selection"><strong id="listen-selection-label">No passage selected</strong><p id="listen-selection-preview">Close tools and select up to 6,000 characters in the study. Then open Listen.</p></div>
-    <label for="listen-voice">Device voice</label><select id="listen-voice"></select>
-    <label for="listen-speed">Reading speed</label><select id="listen-speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select>
-    <div class="study-tool-actions"><button type="button" id="listen-start" disabled>Read selection</button><button type="button" id="listen-test" disabled>Test voice</button></div>
+    <p class="reader-helper">Read the current paragraph or selected text. Click a paragraph to choose it; scroll to follow your reading position.</p>
+    <div class="listen-selection"><strong id="listen-selection-label">Current paragraph</strong><p id="listen-selection-section" class="reader-helper"></p><p id="listen-selection-preview"></p><p id="listen-selection-hint" class="reader-helper" hidden></p></div>
+    <div class="study-tool-actions"><button type="button" id="listen-start" aria-describedby="listen-selection-label listen-selection-section listen-selection-preview listen-selection-hint" disabled>Read paragraph</button><button type="button" id="listen-test" disabled>Test voice</button></div>
     <div class="study-tool-actions"><button type="button" id="listen-pause" disabled>Pause</button><button type="button" id="listen-resume" disabled>Resume</button><button type="button" id="listen-stop" disabled>Stop</button></div>
     <p id="listen-status" role="status" aria-live="polite">Open Listen to check device voices.</p>
+    <label for="listen-voice">Device voice</label><select id="listen-voice"></select>
+    <label for="listen-speed">Reading speed</label><select id="listen-speed"><option value="0.75">0.75×</option><option value="1" selected>1×</option><option value="1.25">1.25×</option><option value="1.5">1.5×</option></select>
     <p class="reader-helper">Resume restarts the paused sentence or short chunk. Keep this page open while listening.</p>
     <details><summary>No sound?</summary>
       <p class="reader-helper">Turn up media volume and check whether sound is going to Bluetooth headphones. Try Test voice, then a different device voice.</p>
@@ -145,7 +145,7 @@ def reader_controls() -> str:
     <div id="reader-clear-confirm" hidden><p>Remove this study’s saved position and bookmarks?</p><button type="button" id="reader-clear-yes">Remove saved places</button><button type="button" id="reader-clear-no">Keep them</button></div>
   </footer>
 </dialog>
-<div id="reader-selection-tools" class="reader-chrome" role="region" aria-label="Selected text tools" hidden><button type="button" id="selection-highlight">Highlight</button><button type="button" id="selection-note">Note</button><button type="button" id="selection-listen">Listen</button><button type="button" id="selection-dismiss" aria-label="Hide selection tools">&#215;</button></div>
+<div id="reader-selection-tools" class="reader-chrome" role="region" aria-label="Selected text tools" hidden><button type="button" id="selection-highlight">Highlight</button><button type="button" id="selection-note">Note</button><button type="button" id="selection-listen" title="Read selected text and open Listen">Read</button><button type="button" id="selection-dismiss" aria-label="Hide selection tools">&#215;</button></div>
 <p id="reader-offline-banner" class="reader-chrome" role="status" hidden></p>
 <dialog id="reader-viewer" class="reader-chrome" aria-labelledby="reader-viewer-title">
   <header class="reader-panel-header"><h2 id="reader-viewer-title">Passage tools</h2><button type="button" id="reader-viewer-close" aria-label="Close preview">&#215;</button></header>
