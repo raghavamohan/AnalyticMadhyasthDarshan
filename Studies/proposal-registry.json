@@ -12,6 +12,26 @@
       "phase": "published"
     },
     {
+      "slug": "Artificial-Intelligence-And-The-Conscious-Knower",
+      "title": "Artificial Intelligence and the Conscious Knower",
+      "issueNumber": 418,
+      "submitter": "raghavamohan",
+      "category": "Philosophy of Mind",
+      "description": "Computational architecture versus conscious selfhood: examining AI, neural complexity, and functionalism through Madhyasth Darshan's distinction between the brain (medhas) and jeevan",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Atomic-Transformation-And-Natural-Progression",
+      "title": "Atomic Transformation and Natural Progression",
+      "issueNumber": 416,
+      "submitter": "raghavamohan",
+      "category": "Ontology",
+      "description": "The transformation of physicochemical atoms into the constitutionally complete conscious atom (jeevan), and the unfolding of the four orders within coexistence (niyati-kram)",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
       "slug": "Axiology-Value-Theory",
       "title": "Axiology: Value Theory",
       "issueNumber": 13,
@@ -28,6 +48,16 @@
       "submitter": "raghavamohan",
       "category": "Philosophy of Mind",
       "description": "How Madhyasth Darshan and neuroscience account for memory: chitta and jeevan, the brain's biological memory, and the philosophical question of where remembering occurs",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Coexistence-Buddhism-And-Classical-Samkhya",
+      "title": "Coexistence, Buddhism, and Classical Samkhya",
+      "issueNumber": 419,
+      "submitter": "raghavamohan",
+      "category": "Other (describe in study summary)",
+      "description": "Madhyasth Darshan in dialogue with classical Indian thought: comparing coexistence (satta and units) with Samkhya's dualism (Prakriti-Purusha) and Buddhism's Anatta and Pratityasamutpada",
       "formal": false,
       "phase": "pre-catalog"
     },
@@ -142,6 +172,16 @@
       "phase": "published"
     },
     {
+      "slug": "Jurisprudence-And-The-Humane-Constitution",
+      "title": "Jurisprudence and the Humane Constitution",
+      "issueNumber": 417,
+      "submitter": "raghavamohan",
+      "category": "Political Philosophy, Axiology",
+      "description": "Legal philosophy and institutional order in Madhyasth Darshan: human rights, restorative justice, ethical policy (dharma, artha, rajya neeti), and the ten-tiered undivided social structure",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
       "slug": "Language-Meaning-And-Definition",
       "title": "Language Meaning and Definition",
       "issueNumber": 22,
@@ -188,6 +228,16 @@
       "submitter": "raghavamohan",
       "category": "Philosophy of Mind",
       "description": "How Madhyasth Darshan understands the inner life: jeevan and its faculties \u2014 mun, vritti, chitta, buddhi, and atma \u2014 and desire, imagination, selection, delusion, and awakening",
+      "formal": false,
+      "phase": "pre-catalog"
+    },
+    {
+      "slug": "Principles-Of-Cyclical-Economics",
+      "title": "Principles of Cyclical Economics",
+      "issueNumber": 420,
+      "submitter": "raghavamohan",
+      "category": "Economics, Axiology",
+      "description": "Cyclical production, non-depletive consumption, and genuine wealth (samriddhi) in Madhyasth Darshan: a critical analysis of Avartansheel Arthashastra against extractive capitalism and socialism",
       "formal": false,
       "phase": "pre-catalog"
     },
