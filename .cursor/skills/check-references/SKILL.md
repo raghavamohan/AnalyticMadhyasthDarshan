@@ -62,6 +62,14 @@ python Scripts/_check_references.py --study The-Ontology-of-Coexistence --skip-p
 A file is **unusable** when it is empty, too small, or a PDF whose content starts
 with `<!DOCTYPE` (publisher bot-wall HTML saved as `.pdf`).
 
+## What a passing check does not establish
+
+Link integrity and quotation matching do not verify the meaning of a paraphrase,
+translation, or synthesis. For a substantive source review, use
+[review-study](../review-study/SKILL.md) and AGENTS.md §§4–5. Inspect the source
+page when OCR returns a partial or failed match; do not infer conceptual error
+from an extraction failure.
+
 ## If checks fail
 
 1. **Empty or corrupt local file** — re-download via [download-references](../download-references/SKILL.md), or remove the local path and link the external DOI/URL only; document in [References/NOT-DOWNLOADED.md](../../../References/NOT-DOWNLOADED.md).

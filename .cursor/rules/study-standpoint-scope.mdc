@@ -33,6 +33,35 @@ retain numbered section identifiers, refresh Edited on and the catalogs, and
 regenerate HTML/PDF through §1–§3. Do not alter an unpublished proposal's status
 or publish a placeholder merely to apply an editorial policy to released studies.
 
+## Reviewing primary support and synthesis
+
+For a substantive review, assess the complete argument and the author's intended
+connections before revising individual passages. Distinguish an explicit source
+statement, a synthesis supported across passages, an illustrative application, and
+a new or disputed extension. Use these distinctions in working review notes; do not
+add classification tags to the published essay.
+
+A synthesis needs support for its connections as well as its component definitions.
+Follow the relevant terms through definitions, classifications, purposes, and
+applications across the primary works, checking contrary passages and translation
+or edition differences. Absence of the whole claim from one passage is insufficient
+grounds to remove it. Conversely, compatible vocabulary alone does not establish
+a link. Report "not located in the material reviewed" when the search is limited;
+reserve stronger claims of absent support for a review that can justify them.
+
+Preserve well-supported relationships while correcting exact errors of definition,
+pairing, faculty, level, scope, or attribution. When concepts change, trace their
+consequences through comparison, criticism, conclusion, tables, appendix, glossary,
+and Editorial Notes. Criticism should address the strongest supported account;
+removing its explanatory connections must not manufacture an apparent deficiency.
+Identify affected companion material and update it when within the user's scope;
+otherwise report the specific remaining inconsistency. Apply the same evidential
+standard to every tradition under comparison.
+
+Use [review-study](.agents/skills/review-study/SKILL.md) for the complete review
+workflow. A spelling correction or rendering-only task does not require a new
+review of the whole study.
+
 ## Check before finishing
 
 - [ ] The opening moves from the study's question into its argument.
