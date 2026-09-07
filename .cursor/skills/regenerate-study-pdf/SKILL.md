@@ -19,12 +19,17 @@ beside a study, using the pipeline governed by [AGENTS.md](../../../AGENTS.md) �
 |------|-----|
 | Catalog study PDF/HTML from `Studies/<Slug>/<Slug>.md` or `Applications/<Slug>/<Slug>.md` | `python Scripts/_regenerate_pdf.py <Slug>` |
 | Unwatermarked companion-note PDF/HTML | `python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note.md` |
-| Deck slides PDF (`<Deck>.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — `_pptx_to_pdf.py` |
-| Deck read-aloud notes PDF (`<Deck>-notes.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — `_build_deck_notes_pdf.py` |
+| Deck slides PDF (`<Deck>.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — staged `_build_presentations.py --deck <ID> --in-place` |
+| Deck read-aloud notes PDF (`<Deck>-notes.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — same staged build produces the notes PDF |
 | Presenter's Companion DOCX/PDF | [update-presenters-companion](../update-presenters-companion/SKILL.md) |
 
 Companion notes and deck/companion artifacts do **not** refresh the catalog study's
 `**Edited on:**` or catalog timestamps. Editing the catalog study markdown does.
+
+Successful rendering verifies the output format. For a requested substantive
+revision, complete [review-study](../review-study/SKILL.md)'s source and prose
+checks before the final build. A rendering-only task does not trigger a fresh
+conceptual review.
 
 ## Before you start
 
