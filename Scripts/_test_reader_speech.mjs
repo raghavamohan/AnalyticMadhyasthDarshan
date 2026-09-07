@@ -95,26 +95,35 @@ class Node {
   append(node) { this.children.push(node); if (!this.value) this.value = node.value; }
   replaceChildren() { this.children = []; this.value = ''; }
   closest() { return this.id ? this : null; }
+  scrollIntoView() { this.revealed = true; }
+  focus() { this.focused = true; }
 }
-{
+function integration() {
   const time = clock(), synth = Object.assign(new Node(),engine());
   let available = [], nativeSelection = null;
   synth.getVoices = () => available;
   const ids = [...fs.readFileSync(new URL('_study_reader.py',import.meta.url),'utf8').matchAll(/id="([a-z-]+)"/g)].map(m => m[1]);
   const nodes = new Map(ids.map(id => [id,new Node(id)]));
   nodes.get('listen-speed').value = '1';
-  const main = new Node('main'), paragraph = new Node();
-  const textNode = {textContent:'The selected paragraph is preserved on a phone.',length:47,parentElement:{closest:() => null}};
-  textNode.length = textNode.textContent.length;
-  paragraph.matches = () => false;
-  main.contains = n => n === paragraph || n === textNode;
+  const main = new Node('main');
+  function passage(id,text,tag = 'p') {
+    const node = new Node(), textNode = {textContent:text,length:text.length,parentElement:{closest:() => null}};
+    node.matches = selector => selector.split(',').includes(tag);
+    return {id,heading:'section',subheading:'subsection',text,node,textNode};
+  }
+  const heading = passage('heading','Section heading','h3');
+  const first = passage('p-1','The selected paragraph is preserved on a phone.');
+  const second = passage('p-2','This clicked paragraph is read without selecting text.');
+  const long = passage('p-long','Long prose '.repeat(650));
+  const passages = [heading,first,second,long];
+  main.contains = n => passages.some(p => p.node === n || p.textNode === n);
   const document = new Node();
   Object.assign(document,{readyState:'loading',currentScript:{dataset:{}},documentElement:{lang:'en',hasAttribute:() => false},
     getElementById:id => nodes.get(id) || null,
     querySelector:selector => selector === 'h1' ? {textContent:'Test study'} : {content:'abc'},
     querySelectorAll:() => ['notes-new','selection-note','selection-highlight'].map(id => nodes.get(id)),
     createElement:() => new Node(),
-    createTreeWalker:() => { let seen = false; return {nextNode:() => seen ? null : (seen = true,textNode)}; },
+    createTreeWalker:root => { let seen = false; return {nextNode:() => seen ? null : (seen = true,passages.find(p => p.node === root).textNode)}; },
   });
   const window = Object.assign(new Node(),{speechSynthesis:synth,SpeechSynthesisUtterance:Utterance,
     AMDReaderSpeech:{...S,createPlayer:options => S.createPlayer({...options,...time})},
@@ -123,47 +132,109 @@ class Node {
     getSelection:window.getSelection,NodeFilter:{SHOW_TEXT:4,FILTER_REJECT:2,FILTER_ACCEPT:1},
     setTimeout:time.setTimer,clearTimeout:time.clearTimer,console};
   vm.runInNewContext(fs.readFileSync(new URL('../Assets/reader/study-tools.js',import.meta.url),'utf8'),sandbox);
-  const context = {main,tools:nodes.get('reader-tools'),wide:{matches:false},passages:[{id:'p-1',heading:'section',text:textNode.textContent,node:paragraph}],selectTab:() => {},openPanel:() => { nativeSelection = null; nodes.get('reader-tools').open = true; }};
+  let place = 'p-1', changePlace = () => {}, tab = null;
+  const context = {main,tools:nodes.get('reader-tools'),wide:{matches:false},passages,
+    headings:[{id:'subsection',text:'1.1 Current subsection'}],
+    currentPlace:() => ({anchor:place}),onPlaceChange:listener => { changePlace = listener; },
+    selectTab:name => { tab = name; },openPanel:() => { nativeSelection = null; nodes.get('reader-tools').open = true; }};
   window.AMDStudyTools(context); // Deliberately never awaits IndexedDB.
+  function select(start,end,p = first) {
+    const textNode = p.textNode;
+    nativeSelection = {rangeCount:1,isCollapsed:false,anchorNode:textNode,getRangeAt:() => ({
+      commonAncestorContainer:p.node,startContainer:textNode,endContainer:textNode,startOffset:start,endOffset:end,
+      intersectsNode:n => n === p.node || n === textNode,
+    })};
+  }
+  return {time,synth,nodes,main,document,first,second,long,select,
+    voices(value) { available = value; synth.fire('voiceschanged'); },
+    place(value) { place = value; changePlace(); },
+    get tab() { return tab; },get nativeSelection() { return nativeSelection; }};
+}
+{
+  const f = integration(), {time,synth,nodes,main,document,first,second,select} = f;
   assert.equal(nodes.get('listen-test').disabled,true);
   assert.equal(nodes.get('selection-note').disabled,true);
   assert.equal(synth.spoken.length,0,'initialization never plays audio');
-  available = [hindi,remote,english]; synth.fire('voiceschanged');
+  assert.equal(nodes.get('listen-selection-preview').textContent,first.text);
+  assert.match(nodes.get('listen-selection-label').textContent,/Current paragraph/);
+  f.voices([hindi,remote,english]);
   assert.equal(nodes.get('listen-voice').value,'en');
   assert.equal(nodes.get('listen-voice').children.length,2,'remote voices stay excluded');
   assert.equal(nodes.get('listen-test').disabled,false,'Listen works before notes storage opens');
-  nodes.get('listen-test').fire('click'); assert.equal(synth.spoken.length,1);
+  assert.equal(nodes.get('listen-start').disabled,false,'current paragraph needs no native selection');
+  nodes.get('reader-tab-listen').fire('click');
+  assert.equal(synth.spoken.length,0,'opening Listen never starts audio');
+  f.place('p-2');
+  assert.equal(nodes.get('listen-selection-preview').textContent,second.text);
+  assert.equal(nodes.get('listen-selection-section').textContent,'1.1 Current subsection');
+  nodes.get('listen-start').fire('click');
+  assert.equal(synth.spoken.at(-1).text,second.text,'Read paragraph starts synchronously');
+  synth.spoken.at(-1).onstart();
+  f.place('p-1');
+  assert.equal(nodes.get('listen-selection-preview').textContent,second.text,'scrolling cannot relabel the paragraph being spoken');
+  nodes.get('listen-pause').fire('click');
+  assert.equal(nodes.get('listen-resume').disabled,false);
+  nodes.get('listen-resume').fire('click');
+  assert.equal(synth.spoken.at(-1).text,second.text);
+  nodes.get('listen-stop').fire('click');
+  assert.equal(nodes.get('listen-selection-preview').textContent,first.text,'stopping restores the current reading target');
+  const beforeTest = synth.spoken.length;
+  nodes.get('listen-test').fire('click'); assert.equal(synth.spoken.length,beforeTest + 1);
   assert.equal(nodes.get('listen-pause').disabled,true,'starting is not yet speaking');
   time.flush(); assert.match(nodes.get('listen-status').textContent,/did not start/);
   assert.equal(nodes.get('listen-test').disabled,false);
-  function select(start,end) {
-    nativeSelection = {rangeCount:1,isCollapsed:false,anchorNode:textNode,getRangeAt:() => ({
-      commonAncestorContainer:paragraph,startContainer:textNode,endContainer:textNode,startOffset:start,endOffset:end,intersectsNode:() => true,
-    })};
-  }
   select(0,12); document.fire('selectionchange'); time.flush();
-  assert.equal(nodes.get('listen-selection-preview').textContent,textNode.textContent.slice(0,12));
+  assert.equal(nodes.get('listen-selection-preview').textContent,first.text.slice(0,12));
+  f.place('p-2');
+  assert.equal(nodes.get('listen-selection-preview').textContent,first.text.slice(0,12),'selected text takes precedence over reading position');
   // Capture the final drag-handle adjustment before the debounce or dialog focus.
-  select(0,textNode.length);
+  select(0,first.text.length);
   document.fire('selectionchange');
   document.fire('pointerdown',{target:nodes.get('selection-listen')});
+  const beforeRead = synth.spoken.length;
   nodes.get('selection-listen').fire('click');
+  assert.equal(synth.spoken.length,beforeRead + 1,'floating Read speaks in the same click, without another Read tap');
+  assert.equal(synth.spoken.at(-1).text,first.text);
+  assert.equal(f.tab,'listen');
+  assert.equal(nodes.get('listen-stop').revealed,true,'direct Read brings playback controls into view');
+  assert.equal(nodes.get('listen-stop').focused,true,'keyboard focus follows the selected-text action into Listen');
+  synth.spoken.at(-1).onstart();
   document.fire('selectionchange'); time.flush();
-  assert.equal(nativeSelection,null);
-  assert.equal(nodes.get('listen-selection-preview').textContent,textNode.textContent);
-  assert.equal(nodes.get('listen-start').disabled,false);
+  assert.equal(f.nativeSelection,null);
+  assert.equal(nodes.get('listen-selection-preview').textContent,first.text);
+  assert.equal(nodes.get('listen-start').disabled,true,'the active run uses Pause, Resume and Stop');
   document.fire('pointerdown',{target:nodes.get('listen-start')});
   assert.equal(nodes.get('reader-selection-tools').hidden,true,'playback controls do not reopen the floating selection toolbar');
-  nodes.get('listen-start').fire('click');
-  assert.equal(synth.spoken.at(-1).text,textNode.textContent);
-  synth.spoken.at(-1).onstart(); assert.equal(nodes.get('listen-pause').disabled,false);
+  assert.equal(nodes.get('listen-pause').disabled,false);
   synth.fire('voiceschanged'); assert.match(nodes.get('listen-status').textContent,/Reading 1/);
   nodes.get('listen-stop').fire('click');
   select(0,12); document.fire('selectionchange'); time.flush();
   assert.equal(nodes.get('reader-selection-tools').hidden,true,'native range updates behind an open mobile drawer do not reveal floating controls');
   main.fire('pointerdown');
-  assert.equal(nodes.get('listen-start').disabled,true);
-  assert.match(nodes.get('listen-selection-label').textContent,/No passage/);
+  assert.equal(nodes.get('listen-start').disabled,false);
+  assert.match(nodes.get('listen-selection-label').textContent,/Current paragraph/);
+  assert.equal(nodes.get('listen-selection-preview').textContent,second.text);
   assert.equal(nodes.get('listen-test').disabled,false);
+  f.place('heading');
+  assert.equal(nodes.get('listen-selection-preview').textContent,first.text,'a heading offers its following prose paragraph');
+  f.place('p-long');
+  assert.equal(nodes.get('listen-start').disabled,true);
+  assert.match(nodes.get('listen-selection-hint').textContent,/longer than 6,000/);
+  assert.equal(nodes.get('listen-selection-hint').hidden,false,'long paragraphs cannot be silently truncated');
+  select(0,f.long.text.length,f.long); document.fire('selectionchange'); time.flush();
+  assert.equal(nodes.get('listen-start').disabled,true);
+  assert.match(nodes.get('listen-selection-hint').textContent,/Select up to 6,000/);
 }
-console.log('Reader speech: mobile selection, delayed storage/voices, chunking, pause/resume, stalls and errors passed.');
+{
+  const f = integration();
+  f.select(0,f.first.text.length); f.document.fire('selectionchange'); f.time.flush();
+  f.nodes.get('selection-listen').fire('click');
+  assert.equal(f.tab,'listen');
+  assert.equal(f.synth.spoken.length,0);
+  assert.match(f.nodes.get('listen-status').textContent,/No device voices/);
+  f.voices([english]);
+  assert.equal(f.synth.spoken.length,0,'late voices never cause deferred autoplay');
+  f.nodes.get('listen-start').fire('click');
+  assert.equal(f.synth.spoken.at(-1).text,f.first.text);
+}
+console.log('Reader speech: current paragraphs, direct Read, mobile selection, delayed storage/voices, pause/resume, stalls and errors passed.');
