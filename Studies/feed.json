@@ -6,6 +6,27 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html",
+      "title": "Axiology: Value Theory",
+      "content_text": "Value as essentiality in active units: Madhyasth Darshan's forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-09-07T07:50:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html",
       "title": "Why Humans Are Not Just Material",
@@ -211,27 +232,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html",
-      "title": "Axiology: Value Theory",
-      "content_text": "Value as essentiality in active units: Madhyasth Darshan's forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-09-06T18:31:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
           "mime_type": "application/pdf"
         }
       ]

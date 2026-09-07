@@ -9,6 +9,7 @@ Works cited in `Studies/` that are **not** copied into `References/`. Each paper
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
 | **MAD** | Nagraj, A. *Manav Abhyas Darshan* (Hindi). Native reader, 222-page version; page-specific links in Axiology-Value-Theory. External reader retained because a usable canonical PDF mirror was not available during review. | https://db.madhyasth.org/books/read/144/ |
+| **PS** | Nagraj, A. *Paribhasha Samhita* (Hindi). Third edition 2012, printed 14 January 2016; Jeevan Vidya Prakashan, Divyapath Sansthan. Official file `15_paribhasha_sanhita_2015_ocr.pdf`, 234 PDF pages. Cited by printed page in Axiology-Value-Theory. External source retained; the copy inspected for review is not a repository mirror. Distinct from the selected English definitions below. | [Official publications](https://originals.madhyasth.org/granth/published) · [official source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7) |
 | **Paribhasha** | Nagraj, A. *Paribhasha Samhita* (Hindi, ed. 2008). English selection of definitions. | https://www.madhyasth.org/browse-texts/browse-topics/definitions |
 
 ## Madhyasth Darshan ? recorded sessions (recordings external; transcripts stored locally)
