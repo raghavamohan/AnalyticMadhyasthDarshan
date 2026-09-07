@@ -13,7 +13,7 @@
       "type": "skill-md",
       "description": "Run full reference integrity checks on Studies/ bibliographies, local ../References/ links, References/ mirror files, and study PDF links using Scripts/_check_references.py. Use when adding or editing study references, after downloading references, before committing bibliography changes, or when a user asks to verify reference links work.",
       "url": "/.well-known/agent-skills/check-references/SKILL.md",
-      "digest": "sha256:833f6111ad035abca880340fa8a4abbe66c032020ac175c223d991cf0ebd19da"
+      "digest": "sha256:3507e26eab1282d1c36f692ede1e60883376ce5a64712b920d9e2c9fe645a1c0"
     },
     {
       "name": "download-references",
@@ -41,7 +41,7 @@
       "type": "skill-md",
       "description": "Regenerate a study or companion-note PDF/HTML from markdown using Scripts/_regenerate_pdf.py. Use after editing a study markdown source, when fixing PDF rendering, applying a Draft/Released watermark, or rebuilding an unwatermarked research/technical note beside a study. Runs the repository's SVG, Mermaid, fenced-code, KaTeX-font, and outline verifiers.",
       "url": "/.well-known/agent-skills/regenerate-study-pdf/SKILL.md",
-      "digest": "sha256:3cecb3f6c087f4b4fa0a9a17abeab6acdaef450d767e34997f6620704e0ae954"
+      "digest": "sha256:709ae5de2d40ff3ed5474a47a4fc6209cbac83afe5c47e207d45dcdc87d67473"
     },
     {
       "name": "remove-study",
@@ -56,6 +56,13 @@
       "description": "Rename a study slug and/or display title using Scripts/_rename_study.py — moves the study directory, syncs catalogs, proposal-registry, GitHub proposal issue, References paths, and regenerated PDF/HTML; Start here and cross-study links are verified for same-PR updates. Use when renaming a study, changing a catalog slug, fixing a too-long slug, or updating My Submissions after a rename.",
       "url": "/.well-known/agent-skills/rename-study/SKILL.md",
       "digest": "sha256:64b60fb07814eb69cb7755d538fa5caac2174d0aa10f0f021d39a27323e268b1"
+    },
+    {
+      "name": "review-study",
+      "type": "skill-md",
+      "description": "Critically review or revise a study for primary-text support, connected synthesis, English prose, terminology, and consistency across sections and companion material. Use for substantive study reviews, disputed interpretations, or a complete review after revisions; routine spelling, link-only, and rendering checks use their own focused workflows.",
+      "url": "/.well-known/agent-skills/review-study/SKILL.md",
+      "digest": "sha256:a36160da433e61b06da649f1664c72d0a97d4e61cddaedab48efef358462d4c6"
     },
     {
       "name": "set-study-status",
@@ -90,7 +97,7 @@
       "type": "skill-md",
       "description": "Update an existing study companion PowerPoint deck under Studies/ or Applications/, preserve its established design, regenerate its slides PDF and read-aloud notes PDF, and verify every format. Use for PPTX content edits, figure replacements, slide additions or removals, slide reordering, presentation reviews that require fixes, and PPTX-to-PDF refreshes. The PPTX is the source of truth; this repository does not use a slides-YAML generation workflow.",
       "url": "/.well-known/agent-skills/update-study-presentation/SKILL.md",
-      "digest": "sha256:9329e04621f592fd06a9f64f634bf74cee21ad946d85603963b9571f4329e6b8"
+      "digest": "sha256:16a6b6b1c6a7034c35d86c2cd1b079c38e115f6f5abff4d820bc479ad22bb7f5"
     }
   ]
 }

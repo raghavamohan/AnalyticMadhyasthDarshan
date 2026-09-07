@@ -20,6 +20,20 @@ description: >-
 - Preserve the deck's typography, palette, spacing, layouts, footers, notes, and visual language unless the user asks for a redesign.
 - Base substantive changes on the companion study and cited sources. Keep visible copy concise and suitable for teaching; avoid editorial or production commentary unless it serves the audience.
 
+## Consistency with the study
+
+For substantive revisions, use [review-study](../review-study/SKILL.md)'s source
+and terminology guidance. Condense explanations while preserving defining pairs,
+faculty positions, purposes, developmental connections, and necessary qualifiers.
+Keep a supported synthesis intact across the study, slides, tables, and notes.
+Study prose and slide copy can differ in length while saying the same thing.
+
+Compare the actual source revisions before replacing a deck: file size alone does
+not identify the intended version. Read slides in presentation order (`p:sldIdLst`
+and its relationships), not numerical `slideN.xml` filename order, and check speaker
+notes against that order. Preserve the user's chosen sequence and slide count
+unless the requested work calls for changing them.
+
 ## Workflow
 
 1. Confirm the work is on a feature branch. Any change under `Studies/` or `Applications/` requires a `study-update` pull request under [AGENTS.md](../../../AGENTS.md) §7.
@@ -206,6 +220,8 @@ Before finishing, confirm:
       add, removal, or reorder
 - [ ] No unintended clipping, overlap, or unresolved placeholders
 - [ ] Speaker notes and source footers preserved where intended
+- [ ] Substantively revised slide text, tables, and notes agree with the reviewed
+      study's definitions, terminology, and supported connections
 - [ ] Staged manifest build completed and changed pages visually verified
 - [ ] PPTX slide count equals slides-PDF page count
 - [ ] `<Deck>-notes.pdf` regenerated after the slides PDF, with every slide's script
