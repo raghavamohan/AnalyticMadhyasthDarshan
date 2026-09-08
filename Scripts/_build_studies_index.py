@@ -17,7 +17,7 @@ if str(SCRIPTS) not in sys.path:
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # noqa: E402
 from _common import BASE, STUDIES, favicon_link_tags, write_text_lf  # noqa: E402
-from _presentation_pipeline import load_manifest  # noqa: E402
+from _presentation_pipeline import DeckSpec, load_manifest  # noqa: E402
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
     STUDY_FEEDBACK_TEMPLATE_PATH,
@@ -38,6 +38,7 @@ from _study_catalog import (  # noqa: E402
 CATALOG_SHELL_PLACEHOLDER = "<!-- @catalog-data@ -->"
 CATALOG_BOOTSTRAP_PLACEHOLDER = "<!-- @catalog-bootstrap@ -->"
 CATALOG_BUILD_ID_PLACEHOLDER = "@catalog-build-id@"
+CATALOG_PRESENTATIONS_PLACEHOLDER = "@catalog-presentations@"
 DISCUSS_ASSET_VERSION_PLACEHOLDER = "@discuss-asset-version@"
 HERO_SCOPE_PLACEHOLDER = "<!-- @hero-scope@ -->"
 FAVICON_LINKS_PLACEHOLDER = "<!-- @favicon-links@ -->"
@@ -600,7 +601,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .cat-group-label .count { font-weight: 400; text-transform: none; letter-spacing: 0; }
 
   .grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
     gap: 16px; margin: 12px 0 4px; padding: 0; list-style: none;
   }
 
@@ -638,6 +639,33 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     border-bottom-color: rgba(92, 83, 72, 0.35);
   }
   .card.is-planned .card-title a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .card-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-height: 13px;
+    margin: 0 0 7px;
+    font-family: var(--sans);
+    font-size: 10px;
+    line-height: 1.2;
+  }
+  .card-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .card-status .badge-dot { width: 5px; height: 5px; }
+  .card-status.released { color: #2d6a4f; }
+  .card-status.released .badge-dot { background: #2d6a4f; }
+  .card-status.draft { color: #b45309; }
+  .card-status.draft .badge-dot { background: #d97706; }
+  .card-status.planned { color: var(--warm); }
+  .card-status.planned .badge-dot { background: var(--warm); }
   .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; }
   .chip {
     font-family: var(--sans); font-size: 11px; color: var(--warm);
@@ -649,22 +677,18 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .card-desc { font-size: 14px; line-height: 1.5; color: var(--text); margin: 0 0 14px; flex: 1 1 auto; }
   .card.is-planned .card-desc { color: var(--text-muted); }
   .card-foot {
-    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    display: flex; align-items: center;
     font-family: var(--sans); font-size: 12px; color: var(--text-muted);
     border-top: 1px solid #efe9e1; padding-top: 11px;
   }
-  .badge {
-    display: inline-flex; align-items: center; gap: 5px;
-    font-family: var(--sans); font-size: 11px; font-weight: 600;
-    letter-spacing: 0.02em; border-radius: 999px; padding: 3px 10px;
+  .card-updated {
+    color: #9a8f80;
+    font-size: 10px;
+    line-height: 1.2;
+    margin-left: auto;
+    white-space: nowrap;
   }
   .badge-dot { width: 6px; height: 6px; border-radius: 50%; }
-  .badge.released { color: #1b4332; background: #d8f3dc; border: 1px solid #95d5b2; }
-  .badge.released .badge-dot { background: #2d6a4f; }
-  .badge.draft { color: #92400e; background: #fef3c7; border: 1px solid #fcd34d; }
-  .badge.draft .badge-dot { background: #d97706; }
-  .badge.planned { color: var(--warm); background: var(--warm-soft); border: 1px solid #e0d0be; }
-  .badge.planned .badge-dot { background: var(--warm); }
 
   .start-here {
     margin: 0 0 20px;
@@ -1076,15 +1100,22 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     font-size: 10px;
   }
   .card-actions {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: 10px;
-    margin-left: auto;
+    justify-content: flex-start;
+    flex: 1 1 auto;
+    flex-wrap: nowrap;
+    gap: 5px;
+    width: 100%;
+    min-width: 0;
   }
-  .discuss-link {
+  .discuss-link, .presentation-link {
     display: inline-flex;
     align-items: center;
-    padding: 4px 10px;
+    justify-content: center;
+    box-sizing: border-box;
+    height: 30px;
+    padding: 0 9px;
     border-radius: 999px;
     border: 1px solid #c5d9e6;
     background: var(--accent-soft);
@@ -1095,10 +1126,22 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     white-space: nowrap;
     transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
-  .discuss-link:hover {
+  .discuss-link:hover, .presentation-link:hover {
     color: var(--accent-hover);
     background: #d4e6f2;
     border-color: #a5c4d9;
+  }
+  .presentation-link {
+    gap: 4px;
+    padding: 0 7px;
+    background: var(--surface);
+    font-size: 11px;
+  }
+  .presentation-link svg {
+    display: block;
+    width: 13px;
+    height: 13px;
+    flex: 0 0 auto;
   }
   .discuss-link--active {
     padding-right: 8px;
@@ -1129,7 +1172,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     line-height: 1;
   }
   .discuss-badge--empty {
-    visibility: hidden;
+    display: none;
   }
   .discuss-link--unread .discuss-badge {
     background: #b45309;
@@ -1146,6 +1189,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     border-radius: 8px;
     text-decoration: none;
     flex: 0 0 auto;
+    margin-left: auto;
     transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
   .pdf-download:hover {
@@ -1278,8 +1322,14 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   [data-theme="dark"] .btn-reset-filters { background: #1e1b18; }
   [data-theme="dark"] .btn-reset-filters:disabled { color: #6f655a; }
   [data-theme="dark"] .card.is-available:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5); }
+  [data-theme="dark"] .card-status.released { color: #8fd4a8; }
+  [data-theme="dark"] .card-status.released .badge-dot { background: #8fd4a8; }
+  [data-theme="dark"] .card-status.draft { color: #f0c78a; }
+  [data-theme="dark"] .card-status.draft .badge-dot { background: #f0c78a; }
   [data-theme="dark"] .pdf-download { background: #233e52; border-color: #3d6278; color: #7ebbed; }
   [data-theme="dark"] .pdf-download:hover { background: #2f4f63; border-color: #5ba3d3; color: #b8daf3; }
+  [data-theme="dark"] .presentation-link { background: #1e1b18; border-color: #3d6278; color: #7ebbed; }
+  [data-theme="dark"] .presentation-link:hover { background: #2f4f63; border-color: #5ba3d3; color: #b8daf3; }
   [data-theme="dark"] .discuss-link { background: #1a2e22; border-color: #355940; color: #8fd4a8; }
   [data-theme="dark"] .discuss-link:hover { background: #243b2c; border-color: #4f8f66; color: #c2efd0; }
   [data-theme="dark"] .discuss-link--unread { background: #3a2818; border-color: #8b5e34; color: #f0c78a; }
@@ -1828,6 +1878,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <script>
 (() => {
   const CATALOG_BUILD_ID = "@catalog-build-id@";
+  const PRESENTATIONS = @catalog-presentations@;
   const DISCUSS_ASSET_VERSION = "@discuss-asset-version@";
   const catalogSources = [
     { url: `catalog-topical.json?cb=${CATALOG_BUILD_ID}`, coll: "topical" },
@@ -1847,7 +1898,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       d: entry.description || "",
       pdf: entry.pdf || null,
       html: entry.html || null,
-      discussion: entry.discussion || null
+      discussion: entry.discussion || null,
+      presentations: PRESENTATIONS[entry.slug] || []
     }));
   };
 
@@ -2139,8 +2191,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const PDF_DOWNLOAD_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>';
+  const PRESENTATION_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h6v2H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 2h14v10H5V5Zm3 2a1 1 0 0 0-1 1v4a1 1 0 0 0 1.55.83l3-2a1 1 0 0 0 0-1.66l-3-2A1 1 0 0 0 8 7Z"/></svg>';
 
   const hasReadLinks = s => isAvail(s) || Boolean(s.html || s.pdf);
+
+  const presentationLinksHtml = s => (s.presentations || []).map(deck => {
+    const sep = deck.href.includes("?") ? "&" : "?";
+    const href = `${deck.href}${sep}cb=${CATALOG_BUILD_ID}`;
+    return `<a class="presentation-link" href="${href}" title="Open ${escAttr(deck.label.toLowerCase())} for ${escAttr(s.t)}" aria-label="Open ${escAttr(deck.label)} for ${escAttr(s.t)}">${PRESENTATION_ICON}<span>${deck.shortLabel || deck.label}</span></a>`;
+  }).join("");
 
   const cardHTML = s => {
     const avail = isAvail(s);
@@ -2156,20 +2215,21 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const badgeClass = !avail ? "planned" : (s.status === "released" ? "released" : "draft");
     const badgeLabel = !avail ? "In progress" : (s.status === "released" ? "Released" : "Draft");
     const draftTitle = s.status === "draft" ? ' title="Draft PDF includes a watermark"' : "";
+    const presentationActions = presentationLinksHtml(s);
     const readActions = readable
       ? `<a class="pdf-download" href="${pdfHref}" download title="Download PDF" aria-label="Download PDF for ${escAttr(s.t)}">${PDF_DOWNLOAD_ICON}</a>`
       : "";
-    const foot = avail
-      ? `<span class="badge ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span><span class="card-actions">${discussLinkHtml(s)}${readActions}</span>`
-      : `<span class="badge planned"><span class="badge-dot"></span>In progress</span><span class="card-actions">${discussLinkHtml(s)}${readActions}</span>`;
-    const dateLine = avail && s.updated
-      ? `<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">Updated ${updatedDate(s.updated)}</div>`
+    const updated = avail && s.updated
+      ? `<span class="card-updated">Updated ${updatedDate(s.updated)}</span>`
       : "";
+    const topLine = `<div class="card-topline"><span class="card-status ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span>${updated}</div>`;
+    const foot = `<span class="card-actions">${presentationActions}${discussLinkHtml(s)}${readActions}</span>`;
     return `<li class="card ${cardClass}" id="study-${escAttr(s.slug)}">
+      ${topLine}
       <h3 class="card-title">${titleInner}</h3>
       <div class="chips">${chips}</div>
       <p class="card-desc">${s.d}</p>
-      <div class="card-foot">${foot}</div>${dateLine}</li>`;
+      <div class="card-foot">${foot}</div></li>`;
   };
 
   const renderCatalog = () => {
@@ -2195,7 +2255,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       shown += items.length;
       const grid = document.getElementById(`grid-${coll}`);
       if (grid) {
-        const key = items.map(s => [s.slug, s.status, s.updated || "", s.t, s.d, (s.cats || []).join("\\u001f"), s.html || "", s.pdf || ""].join("\\t")).join("\\n") + `|${state.sort}`;
+        const key = items.map(s => [s.slug, s.status, s.updated || "", s.t, s.d, (s.cats || []).join("\\u001f"), s.html || "", s.pdf || "", JSON.stringify(s.presentations || [])].join("\\t")).join("\\n") + `|${state.sort}`;
         const existingSlugs = Array.from(grid.querySelectorAll(".card")).map(el => el.id.slice(6));
         const sameOrder = existingSlugs.length === items.length && existingSlugs.every((slug, i) => slug === items[i].slug);
         if (lastGridPaint[coll] == null && sameOrder && !filtersActive()) {
@@ -2675,6 +2735,54 @@ def serialize_catalog_bootstrap_json(
     return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
 
 
+def presentation_links_by_slug() -> dict[str, list[dict[str, str]]]:
+    """Return every manifest-backed slides PDF as a link from Studies/index.html.
+
+    Presentation PDFs are generated artifacts and may be absent locally, so the
+    manifest—not filesystem discovery—is the durable source of truth. Multiple
+    decks beside one study remain individually reachable from that study's card.
+    """
+    grouped: dict[str, list[DeckSpec]] = {}
+    for deck in load_manifest().decks:
+        grouped.setdefault(deck.source.parent.name, []).append(deck)
+
+    result: dict[str, list[dict[str, str]]] = {}
+    for slug, decks in grouped.items():
+        decks = sorted(
+            decks,
+            key=lambda deck: (
+                "comparison" in f"{deck.id} {deck.source.stem}".lower(),
+                deck.id,
+            ),
+        )
+        links = []
+        used_labels: set[str] = set()
+        for deck in decks:
+            identifying_text = f"{deck.id} {deck.source.stem}".lower()
+            if len(decks) == 1:
+                label = "Slides"
+                short_label = label
+            elif "comparison" in identifying_text:
+                label = "Comparison slides"
+                short_label = "Compare"
+            else:
+                label = "Study slides"
+                short_label = "Main"
+            if label in used_labels:
+                label = f"{deck.id.replace('-', ' ').title()} slides"
+                short_label = "Deck"
+            used_labels.add(label)
+
+            repo_path = deck.slides_pdf.resolve().relative_to(BASE.resolve())
+            if repo_path.parts[0] == STUDIES.name:
+                href = Path(*repo_path.parts[1:]).as_posix()
+            else:
+                href = f"../{repo_path.as_posix()}"
+            links.append({"label": label, "shortLabel": short_label, "href": href})
+        result[slug] = links
+    return result
+
+
 def build_hero_scope_html(rows: list) -> str:
     total = len(rows)
     available = sum(
@@ -2695,6 +2803,11 @@ def build_hero_scope_html(rows: list) -> str:
 PDF_DOWNLOAD_ICON = (
     '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
     '<path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/>'
+    "</svg>"
+)
+PRESENTATION_ICON = (
+    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
+    '<path fill="currentColor" d="M5 3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h6v2H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 2h14v10H5V5Zm3 2a1 1 0 0 0-1 1v4a1 1 0 0 0 1.55.83l3-2a1 1 0 0 0 0-1.66l-3-2A1 1 0 0 0 8 7Z"/>'
     "</svg>"
 )
 
@@ -2768,7 +2881,24 @@ def _card_discuss_link_html(entry: dict, version_query: str) -> str:
     )
 
 
-def _render_catalog_card(row: StudyRow, entry: dict) -> str:
+def _card_presentation_links_html(entry: dict, build_id: str) -> str:
+    links = []
+    for deck in entry.get("presentations", []):
+        sep = "&" if "?" in deck["href"] else "?"
+        href = f'{deck["href"]}{sep}cb={build_id}'
+        label = deck["label"]
+        short_label = deck.get("shortLabel", label)
+        title = entry["title"]
+        links.append(
+            f'<a class="presentation-link" href="{href}" '
+            f'title="Open {_card_esc_attr(label.lower())} for {_card_esc_attr(title)}" '
+            f'aria-label="Open {_card_esc_attr(label)} for {_card_esc_attr(title)}">'
+            f"{PRESENTATION_ICON}<span>{short_label}</span></a>"
+        )
+    return "".join(links)
+
+
+def _render_catalog_card(row: StudyRow, entry: dict, build_id: str) -> str:
     """Reproduce the JS `cardHTML` for an available (draft/released) study so the
     server-rendered card and the client re-render have identical layout height."""
     version_query = _card_version_query(row)
@@ -2790,40 +2920,52 @@ def _render_catalog_card(row: StudyRow, entry: dict) -> str:
         f'title="Download PDF" aria-label="Download PDF for {_card_esc_attr(title)}">'
         f"{PDF_DOWNLOAD_ICON}</a>"
     )
-    foot = (
-        f'<span class="badge {badge_class}"{draft_title}>'
-        f'<span class="badge-dot"></span>{badge_label}</span>'
-        f'<span class="card-actions">'
-        f"{_card_discuss_link_html(entry, version_query)}{read_actions}</span>"
-    )
+    presentation_actions = _card_presentation_links_html(entry, build_id)
     updated = _updated_date_only(entry.get("updated"))
-    date_line = (
-        f'<div class="card-foot" style="border:none;padding:6px 0 0;color:#9a8f80;">'
-        f"Updated {updated}</div>"
-        if updated
-        else ""
+    updated_line = (
+        f'<span class="card-updated">Updated {updated}</span>' if updated else ""
+    )
+    top_line = (
+        f'<div class="card-topline"><span class="card-status {badge_class}"{draft_title}>'
+        f'<span class="badge-dot"></span>{badge_label}</span>{updated_line}</div>'
+    )
+    foot = (
+        f'<span class="card-actions">{presentation_actions}'
+        f"{_card_discuss_link_html(entry, version_query)}{read_actions}</span>"
     )
     return (
         f'<li class="card {card_class}" id="study-{_card_esc_attr(entry["slug"])}">\n'
+        f"      {top_line}\n"
         f'      <h3 class="card-title">{title_inner}</h3>\n'
         f'      <div class="chips">{chips}</div>\n'
         f'      <p class="card-desc">{entry["description"]}</p>\n'
-        f'      <div class="card-foot">{foot}</div>{date_line}</li>'
+        f'      <div class="card-foot">{foot}</div></li>'
     )
 
 
-def render_catalog_cards(rows: list[StudyRow]) -> str:
+def render_catalog_cards(
+    rows: list[StudyRow],
+    presentations: dict[str, list[dict[str, str]]],
+    build_id: str,
+) -> str:
     """Render the default-visible (status "available") cards for one collection,
     in catalog-file order to match the client's stable "recently updated" sort."""
     parts: list[str] = []
     for row in rows:
         if row.status not in (StudyStatus.DRAFT, StudyStatus.RELEASED):
             continue
-        parts.append(_render_catalog_card(row, row_to_catalog_entry(row)))
+        entry = row_to_catalog_entry(row)
+        entry["presentations"] = presentations.get(row.slug, [])
+        parts.append(_render_catalog_card(row, entry, build_id))
     return "".join(parts)
 
 
-def inject_catalog_cards(html: str, rows_by_coll: dict[str, list[StudyRow]]) -> str:
+def inject_catalog_cards(
+    html: str,
+    rows_by_coll: dict[str, list[StudyRow]],
+    presentations: dict[str, list[dict[str, str]]],
+    build_id: str,
+) -> str:
     """Pre-render the default catalog cards into the empty grids so the first paint
     reserves their height (eliminating the JS-fill layout shift).
 
@@ -2832,7 +2974,7 @@ def inject_catalog_cards(html: str, rows_by_coll: dict[str, list[StudyRow]]) -> 
     of silently skipping pre-rendering if INDEX_TEMPLATE markup changes.
     """
     for coll, rows in rows_by_coll.items():
-        cards = render_catalog_cards(rows)
+        cards = render_catalog_cards(rows, presentations, build_id)
         pattern = re.compile(
             rf'(<ul\b[^>]*\bid="grid-{re.escape(coll)}"[^>]*>).*?(</ul>)',
             flags=re.DOTALL,
@@ -2882,6 +3024,13 @@ def strip_build_time_data(content: str) -> str:
         f'const CATALOG_BUILD_ID = "{CATALOG_BUILD_ID_PLACEHOLDER}";',
         result,
         count=1,
+    )
+    result = re.sub(
+        r"const PRESENTATIONS = \{.*?\};",
+        f"const PRESENTATIONS = {CATALOG_PRESENTATIONS_PLACEHOLDER};",
+        result,
+        count=1,
+        flags=re.DOTALL,
     )
     result = re.sub(
         r'const DISCUSS_ASSET_VERSION = "[^"]*";',
@@ -3023,6 +3172,32 @@ def verify_catalog_bootstrap_sync() -> list[str]:
     return []
 
 
+def verify_presentation_links_sync() -> list[str]:
+    """Ensure Browse-card presentation data matches the pipeline manifest."""
+    index_path = STUDIES / "index.html"
+    if not index_path.exists():
+        return ["Studies/index.html is missing."]
+
+    match = re.search(
+        r"const PRESENTATIONS = (\{.*?\});",
+        index_path.read_text(encoding="utf-8"),
+        flags=re.DOTALL,
+    )
+    if match is None:
+        return ["Studies/index.html: presentation link data not found."]
+    try:
+        actual = json.loads(match.group(1))
+    except json.JSONDecodeError:
+        return ["Studies/index.html: presentation link data is not valid JSON."]
+    expected = presentation_links_by_slug()
+    if actual != expected:
+        return [
+            "Studies/index.html: Browse-card presentation links do not match "
+            "Scripts/presentation-pipeline.json. Run python Scripts/_build_studies_index.py."
+        ]
+    return []
+
+
 def verify_index_shell_sync() -> list[str]:
     """Ensure Studies/index.html shell matches INDEX_TEMPLATE (catalog JSON excluded)."""
     index_path = STUDIES / "index.html"
@@ -3083,12 +3258,7 @@ def catalog_build_id() -> str:
 
 def _presentation_source_paths() -> list[Path]:
     """PPTX sources whose R2 outputs are linked from the landing page."""
-    linked = {
-        (STUDIES / rel).resolve()
-        for rel in re.findall(r'data-presentation-pdf="([^"]+)"', INDEX_TEMPLATE)
-    }
-    paths = [deck.source for deck in load_manifest().decks if deck.slides_pdf.resolve() in linked]
-    return sorted(paths)
+    return sorted(deck.source for deck in load_manifest().decks)
 
 
 INDEX_TEMPLATE = INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags())
@@ -3118,8 +3288,14 @@ def write_index_html() -> dict[str, list[StudyRow]] | None:
         return None
 
     all_rows = topical_rows + formal_rows + applied_rows
+    presentations = presentation_links_by_slug()
+    build_id = catalog_build_id()
     html = INDEX_TEMPLATE.replace(HERO_SCOPE_PLACEHOLDER, build_hero_scope_html(all_rows))
-    html = html.replace(CATALOG_BUILD_ID_PLACEHOLDER, catalog_build_id())
+    html = html.replace(CATALOG_BUILD_ID_PLACEHOLDER, build_id)
+    html = html.replace(
+        CATALOG_PRESENTATIONS_PLACEHOLDER,
+        json.dumps(presentations, ensure_ascii=False, separators=(",", ":")),
+    )
     html = html.replace(DISCUSS_ASSET_VERSION_PLACEHOLDER, DISCUSS_ASSET_VERSION)
     bootstrap_json = serialize_catalog_bootstrap_json(topical_rows, formal_rows, applied_rows)
     # Guard against premature </script> termination inside the inlined JSON island.
@@ -3128,6 +3304,8 @@ def write_index_html() -> dict[str, list[StudyRow]] | None:
     html = inject_catalog_cards(
         html,
         {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows},
+        presentations,
+        build_id,
     )
     html = render_start_here_status(html, all_rows)
     write_text_lf(index_path, minify_inline_css(html))
