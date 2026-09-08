@@ -215,10 +215,21 @@ def test_regenerated_pull_request_head_gets_required_verification() -> None:
     assert '-f state=pending' in study_workflow
     assert '-f context=verify' in study_workflow
     assert '-f report_sha="$HEAD_SHA"' in study_workflow
+    assert (
+        'VERIFY_WORKFLOW_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/'
+        'actions/workflows/studies-index-check.yml"' in study_workflow
+    )
+    assert '-f target_url="$VERIFY_WORKFLOW_URL"' in study_workflow
+    assert "if ! gh workflow run studies-index-check.yml" in study_workflow
+    assert '-f state=failure' in study_workflow
+    assert "Could not start regenerated-head verification." in study_workflow
     assert "workflow_dispatch:" in verify_workflow
     assert "report_sha:" in verify_workflow
     assert "statuses: write" in verify_workflow
     assert "steps.dispatch_target.outputs.sha != ''" in verify_workflow
+    assert "Link regenerated-head status to this verifier run" in verify_workflow
+    assert "Regenerated-head verification is running." in verify_workflow
+    assert verify_workflow.count('-f state=pending') == 1
     assert '-f state="$VERIFY_STATE"' in verify_workflow
     assert '-f context=verify' in verify_workflow
 

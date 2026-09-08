@@ -53,6 +53,24 @@ jobs:
           fi
           echo "sha=$REPORT_SHA" >> "$GITHUB_OUTPUT"
 
+      # The study workflow can only link its queued status to this workflow's
+      # runs page. As soon as the dispatched verifier starts, point that same
+      # required status at this exact run so a pending PR never appears idle.
+      - name: Link regenerated-head status to this verifier run
+        if: steps.dispatch_target.outputs.sha != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPORT_SHA: ${{ steps.dispatch_target.outputs.sha }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          RUN_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$REPORT_SHA" \
+            -f state=pending \
+            -f context=verify \
+            -f description="Regenerated-head verification is running." \
+            -f target_url="$RUN_URL"
+
       - name: Checkout
         uses: actions/checkout@v7
 
