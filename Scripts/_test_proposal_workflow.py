@@ -227,6 +227,14 @@ class ProposalPortalContractTests(unittest.TestCase):
     def test_dashboard_limit_and_bootstrap_feedback_are_explicit(self) -> None:
         self.assertNotIn("per_page=20", self.worker)
         self.assertIn("per_page=100", self.worker)
+        self.assertIn("/pulls?state=open&per_page=${perPage}", self.worker)
+        self.assertNotIn(
+            "repo:${REPO} is:pr label:new-study,study-update,status-change",
+            self.worker,
+        )
+        self.assertIn("Promise.all([registryLoad, refreshAuthState()])", self.portal)
+        self.assertIn("pollDashboardStatuses()", self.portal)
+        self.assertIn("/api/me/submissions/status", self.portal)
         self.assertIn("Report workspace preparation failure", self.workflow)
         self.assertIn("Confirm that the proposal workspace is ready", self.workflow)
 

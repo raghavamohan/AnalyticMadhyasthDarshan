@@ -10,7 +10,7 @@ import test from 'node:test';
 async function sourceUrl(file) {
   let source = await readFile(file, 'utf8');
   if (path.basename(process.cwd()) === 'worker' && file === path.resolve('src/index.js'))
-    source += '\nexport {submissionStage,aggregateCheckRuns,fetchPrReviewState};\n';
+    source += '\nexport {submissionStage,aggregateCheckRuns,fetchPrReviewState,buildDashboard,buildDashboardStatus};\n';
   for (const match of [...source.matchAll(/from ['"]([^'"]+)['"]/g)]) {
     const target = match[1];
     const url = target.startsWith('.')
@@ -42,6 +42,91 @@ if (!discussion) test('dashboard separates workflow state and reports current fa
     const review=await workerModule.fetchPrReviewState(1,{},'test',{githubRequests:0});
     assert.equal(review.state,'changes_requested');assert.equal(review.feedback[0].body,'Clarify §2.');
   } finally {globalThis.fetch=original;}
+});
+
+if (!discussion) test('dashboard status uses the open-PR head and enriches without a PR detail request',async () => {
+  const original=globalThis.fetch;
+  const calls=[];
+  try {
+    globalThis.fetch=async input => {
+      const url=String(input);calls.push(url);
+      if (url.includes('/pulls?state=open')) return Response.json([{
+        number:7,state:'open',draft:false,html_url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/7',
+        body:'Proposal issue: #3\nPortal-GitHub: @alice',labels:[{name:'new-study'}],
+        user:{login:'portal-bot'},head:{sha:'head-sha'},
+      }]);
+      if (url.endsWith('/pulls/7/reviews')) return Response.json([
+        {id:1,user:{login:'reviewer'},state:'CHANGES_REQUESTED',body:'Clarify the argument.'},
+      ]);
+      if (url.includes('/commits/head-sha/check-runs')) return Response.json({
+        check_runs:[{id:1,name:'Study PR',app:{id:1},status:'completed',conclusion:'success'}],total_count:1,
+      });
+      throw new Error('Unexpected dashboard status request: '+url);
+    };
+    const result=await workerModule.buildDashboardStatus({login:'alice',accessToken:'test'},{});
+    assert.equal(result.statuses.length,1);
+    assert.equal(result.statuses[0].stage,'changes_requested');
+    assert.equal(result.statuses[0].checks.state,'success');
+    assert.equal(result.meta.githubRequests,3);
+    assert.equal(calls.some(url => new URL(url).pathname.endsWith('/pulls/7')),false);
+
+    const auth=await import(await sourceUrl(path.resolve('src/auth.js')));
+    const kv=new Map();
+    const env={SESSION_SECRET:'fixture-only',SESSIONS:{
+      put:async (key,value) => kv.set(key,value),get:async key => kv.get(key),
+    }};
+    const token=await auth.createSession(env,{login:'alice',userId:1,accessToken:'test'});
+    const response=await worker.fetch(new Request('https://api.example/api/me/submissions/status',{
+      headers:{Cookie:auth.setSessionCookie(token,env).split(';')[0]},
+    }),env);
+    const payload=await response.json();
+    assert.equal(response.status,200);
+    assert.equal(payload.statuses[0].number,7);
+    assert.match(response.headers.get('Server-Timing'),/^github-status;dur=\d+$/);
+  } finally {globalThis.fetch=original;}
+});
+
+if (!discussion) test('full dashboard avoids the historical PR search on the blocking path',async () => {
+  const originalFetch=globalThis.fetch;
+  const originalCaches=globalThis.caches;
+  const calls=[];
+  try {
+    globalThis.caches={default:{
+      match:async request => {
+        const url=String(request.url || request);
+        if (url.endsWith('/catalog-maps-v2')) return Response.json({
+          statuses:{'Test-Study':'draft'},categories:{'Test-Study':['Human']},
+        });
+        if (url.endsWith('/proposal-registry')) return Response.json({
+          version:1,proposals:[{issueNumber:3,slug:'Test-Study',phase:'catalog'}],
+        });
+        return null;
+      },
+      put:async () => {},
+    }};
+    globalThis.fetch=async input => {
+      const url=String(input);calls.push(url);
+      if (url.includes('/issues?creator=alice')) return Response.json([{
+        number:3,state:'closed',title:'Study proposal: Test Study',
+        body:'### Slug\n\nTest-Study\n\n### Category\n\nHuman',
+        labels:[{name:'study-proposal'},{name:'proposal-approved'}],
+        user:{login:'alice'},html_url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/3',
+      }]);
+      if (url.includes('/pulls?state=open')) return Response.json([]);
+      throw new Error('Unexpected full dashboard request: '+url);
+    };
+    const result=await workerModule.buildDashboard({login:'alice',accessToken:'test'},{});
+    assert.equal(result.submissions.length,1);
+    assert.equal(result.submissions[0].stage,'merged');
+    assert.equal(result.submissions[0].slug,'Test-Study');
+    assert.equal(result.meta.githubRequests,2);
+    assert.equal(calls.length,2);
+    assert.equal(calls.some(url => url.includes('/search/issues')),false);
+  } finally {
+    globalThis.fetch=originalFetch;
+    if (originalCaches === undefined) delete globalThis.caches;
+    else globalThis.caches=originalCaches;
+  }
 });
 
 test('real routes apply write checks and private headers before handlers', async () => {

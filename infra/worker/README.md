@@ -128,6 +128,7 @@ now checks and deploys both API Workers when either or their shared guard change
 | `GET /api/auth/me` | cookie | `{ loggedIn, login }` |
 | `POST /api/auth/logout` | cookie | Clear session |
 | `GET /api/me/submissions` | cookie | Unified dashboard: proposals (pending/preparing/ready/declined/retired), study categories, Planned/catalog status, PRs, CI, row actions |
+| `GET /api/me/submissions/status` | cookie | Lightweight review/check refresh for the signed-in contributor's open study PRs |
 | `GET /api/me/notifications` | cookie | `{ configured, email, enabled }` notification preferences |
 | `POST /api/me/notifications` | cookie | Update notification `email` / `enabled` |
 | `POST /api/propose` | cookie + Turnstile | Create a `study-proposal` issue **as the signed-in user** |
@@ -193,13 +194,14 @@ Contributors manage their address and opt-out from the notification bar on **My 
 
 ### Dashboard performance
 
-`GET /api/me/submissions` uses a batched fetch pipeline (no per-proposal GitHub searches):
+`GET /api/me/submissions` keeps historical PRs out of the blocking path and uses a batched fetch pipeline (no per-proposal GitHub searches):
 
-1. Parallel: up to 100 of the user's proposals via the REST issues list (`creator` + `study-proposal` label — immediately consistent, so a just-submitted proposal shows up at once), up to 100 recent matching PRs, and catalog JSON (three files, cached 60 s via Workers Cache API).
-2. In-memory join: link proposals to PRs by `Proposal issue: #N` in PR bodies.
-3. Conditional enrich: check-runs for open PRs only (concurrency pool of 5).
+1. Parallel: up to 100 of the user's proposals via the REST issues list (`creator` + `study-proposal` label — immediately consistent, so a just-submitted proposal shows up at once), the repository's open pull requests, and catalog/registry JSON (cached 60 s via Workers Cache API).
+2. In-memory join: filter the open PR list to the contributor and link proposals to PRs by `Proposal issue: #N` in PR bodies. Completed study state comes from the proposal registry and catalog rather than a repository-wide historical PR search.
+3. Conditional enrich: reviews and check-runs for each open contributor PR run concurrently (pool of 5). The full-PR detail request is skipped because the open-PR list already supplies the head SHA.
+4. While CI is pending, the portal polls `GET /api/me/submissions/status`. That endpoint refreshes only open PR review/check state and triggers a full dashboard reload only when PR membership or workflow state changes.
 
-Response includes `meta.timingMs`, `meta.githubRequests`, and optional `meta.truncated`.
+Responses include `meta.timingMs`, `meta.githubRequests`, and optional `meta.truncated`. The full dashboard also reports `meta.phaseTimingMs` and a `Server-Timing` header for the base and enrichment phases.
 
 ## Cloudflare edge configuration (not in this repo)
 
