@@ -149,6 +149,28 @@ test('real routes apply write checks and private headers before handlers', async
   assert.equal(missing.headers.get('Cache-Control'), 'private, no-store');
 });
 
+if (!discussion) test('auth snapshot includes notification state without exposing the email address', async () => {
+  const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
+  const kv = new Map();
+  const env = {
+    SESSION_SECRET: 'fixture-only',
+    RESEND_API_KEY: 'fixture-only',
+    SESSIONS: {
+      put: async (key, value) => kv.set(key, value),
+      get: async key => kv.get(key),
+    },
+  };
+  const token = await auth.createSession(env, {login:'alice',userId:1,accessToken:'test'});
+  await env.SESSIONS.put('notify:alice', JSON.stringify({email:'alice@example.test',enabled:true}));
+  const response = await worker.fetch(new Request(url('/me'), {
+    headers:{Cookie:auth.setSessionCookie(token,env).split(';')[0]},
+  }), env);
+  const payload = await response.json();
+  assert.equal(response.status, 200);
+  assert.deepEqual(payload.notifications, {configured:true,hasEmail:true,enabled:true});
+  assert.equal(JSON.stringify(payload).includes('alice@example.test'), false);
+});
+
 if (!discussion) test('callback rejects mismatched state before any GitHub request', async () => {
   const configured = { GITHUB_CLIENT_ID: 'test', GITHUB_CLIENT_SECRET: 'test', SESSION_SECRET: 'test', SESSIONS: {} };
   const login = await worker.fetch(new Request(url('/github')), configured);
