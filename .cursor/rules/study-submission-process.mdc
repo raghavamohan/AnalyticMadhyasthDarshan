@@ -139,6 +139,14 @@ from a fork must therefore regenerate tracked artifacts themselves — step 3 ab
 optional for them. The protected-branch generated-PDF workflow publishes verified PDFs to R2
 and audits the public paths after merge.
 
+When CI pushes those tracked artifacts, the bot commit becomes the PR's new head without a
+normal `pull_request` check suite. The study workflow must publish a pending `verify` status on
+that exact SHA and dispatch the Studies index workflow with the SHA as `report_sha`; the
+dispatched verifier validates its checkout and replaces the status with success or failure.
+Do not replace this with a bare `workflow_dispatch`: its run can pass without attaching a
+required check to the PR head, leaving the PR permanently pending. See [.github/CI.md](.github/CI.md)
+§2.1 and §5.
+
 The default-branch ruleset requires the `verify` check from **Studies index**, which
 runs on every pull request. It does **not** require `study-pr`, which cannot be
 required because it does not run at all on a PR opened without a study label. So a red

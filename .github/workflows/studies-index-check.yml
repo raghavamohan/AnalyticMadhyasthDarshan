@@ -18,18 +18,56 @@ name: Studies index
 
 on:
   workflow_dispatch:
+    inputs:
+      report_sha:
+        description: >-
+          Optional regenerated PR-head SHA whose required verify commit status
+          this dispatch must complete.
+        required: false
+        type: string
   pull_request:
   push:
     branches:
       - master
       - main
 
+permissions:
+  contents: read
+  statuses: write
+
 jobs:
   verify:
     runs-on: ubuntu-latest
     steps:
+      - name: Validate regenerated PR-head status target
+        if: github.event_name == 'workflow_dispatch' && inputs.report_sha != ''
+        id: dispatch_target
+        shell: bash
+        env:
+          REPORT_SHA: ${{ inputs.report_sha }}
+        run: |
+          set -euo pipefail
+          if [[ ! "$REPORT_SHA" =~ ^[0-9a-f]{40}$ ]]; then
+            echo "::error title=Invalid report SHA::report_sha must be a full lowercase Git commit SHA."
+            exit 1
+          fi
+          echo "sha=$REPORT_SHA" >> "$GITHUB_OUTPUT"
+
       - name: Checkout
         uses: actions/checkout@v7
+
+      - name: Confirm regenerated PR head
+        if: steps.dispatch_target.outputs.sha != ''
+        shell: bash
+        env:
+          REPORT_SHA: ${{ steps.dispatch_target.outputs.sha }}
+        run: |
+          set -euo pipefail
+          CHECKED_OUT_SHA="$(git rev-parse HEAD)"
+          if [ "$REPORT_SHA" != "$CHECKED_OUT_SHA" ]; then
+            echo "::error title=Verification ref moved::Expected $REPORT_SHA but checked out $CHECKED_OUT_SHA."
+            exit 1
+          fi
 
       # Verification only — no PDF rendering, so Node and Chrome are not installed.
       - name: Set up study toolchain
@@ -58,3 +96,23 @@ jobs:
       # SKILL.md, and nothing verified it, so the mirrors could drift silently.
       - name: Check agent rules and skills mirrors are in sync
         run: python Scripts/_sync_agent_rules.py --check
+
+      # workflow_dispatch check suites are not attached to a pull request even
+      # when --ref names its head branch. Complete the pending commit status that
+      # study-pr.yml placed on the exact regenerated SHA, so branch rules see the
+      # required `verify` result on the current PR head.
+      - name: Report regenerated PR-head verification
+        if: always() && steps.dispatch_target.outputs.sha != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPORT_SHA: ${{ steps.dispatch_target.outputs.sha }}
+          VERIFY_STATE: ${{ job.status == 'success' && 'success' || 'failure' }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          RUN_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$REPORT_SHA" \
+            -f state="$VERIFY_STATE" \
+            -f context=verify \
+            -f description="Regenerated PR-head verification $VERIFY_STATE." \
+            -f target_url="$RUN_URL"
