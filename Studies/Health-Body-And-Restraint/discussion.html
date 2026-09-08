@@ -28,7 +28,21 @@
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@type": "DiscussionForumPosting", "headline": "Discussion: Health Body and Restraint", "url": "https://analyticmadhyasthdarshan.org/Studies/Health-Body-And-Restraint/discussion.html", "about": "Health Body and Restraint", "isPartOf": {"@type": "WebSite", "name": "AnalyticMadhyasthDarshan.org", "url": "https://analyticmadhyasthdarshan.org/"}}
 </script>
-<link rel="stylesheet" href="../assets/discuss.css?v=3">
+<script>
+(function(){
+  var key="amd-discuss-auth-v1";
+  try {
+    var raw=sessionStorage.getItem(key);
+    var cached=raw?JSON.parse(raw):null;
+    var fresh=cached&&Date.now()-Number(cached.checkedAt||0)<300000;
+    if(fresh&&typeof cached.loggedIn==="boolean"){
+      window.__amdDiscussAuthBootstrap=cached;
+      document.documentElement.setAttribute("data-discuss-auth",cached.loggedIn?"signed-in":"signed-out");
+    }else if(raw){sessionStorage.removeItem(key);}
+  } catch(e) {}
+})();
+</script>
+<link rel="stylesheet" href="../assets/discuss.css?v=4">
 </head>
 <body>
 <div class="wrap">
@@ -86,7 +100,9 @@
 
   <section class="comments-section" aria-labelledby="comments-heading">
     <h2 id="comments-heading">Comments</h2>
-    <ul id="comment-list" class="comments" aria-live="polite"></ul>
+    <ul id="comment-list" class="comments" aria-live="polite" aria-busy="true">
+      <li class="comments-loading">Loading comments&hellip;</li>
+    </ul>
     <p id="comments-empty" class="hidden">No comments yet. Be the first to start the discussion.</p>
     <p id="comments-error" class="comments-error hidden">
       Comments could not be loaded.
@@ -98,8 +114,21 @@
   </section>
 </div>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
 <script>window.AMD_DISCUSS = {"slug": "Health-Body-And-Restraint", "title": "Health Body and Restraint", "siteHost": "analyticmadhyasthdarshan.org", "apiFallback": "https://amd-discussions.raghavamohan.workers.dev", "turnstileSiteKey": "0x4AAAAAADoBfrNV5lPeJQWO", "turnstileAction": "turnstile-spin-v1"};</script>
-<script src="../assets/discuss.js?v=3"></script>
+<script>
+(function(){
+  var session=window.__amdDiscussAuthBootstrap;
+  if(!session||session.loggedIn!==true)return;
+  var button=document.getElementById("toolbar-auth-btn");
+  var panel=document.getElementById("comment-panel");
+  if(button){
+    button.textContent="Log out";
+    button.classList.remove("btn-primary");
+    button.setAttribute("aria-label","Sign out of discussion");
+  }
+  if(panel)panel.classList.remove("hidden");
+})();
+</script>
+<script src="../assets/discuss.js?v=4"></script>
 </body>
 </html>

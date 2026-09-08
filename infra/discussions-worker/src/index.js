@@ -140,6 +140,14 @@ function mapCommentRow(row, session, env) {
   };
 }
 
+function discussionViewer(session, env) {
+  if (!session) return { loggedIn: false };
+  return {
+    loggedIn: true,
+    isAdmin: isAdmin(session, env),
+  };
+}
+
 router.options('*', (request, env) => new Response(null, { headers: corsHeaders(request, env) }));
 
 router.get('/api/discussions/health', (request, env) => jsonResponse(request, env, { status: 'ok' }));
@@ -171,6 +179,7 @@ router.get('/api/discussions/:slug', async (request, env) => {
     const comments = await listComments(db, slug, { limit, offset });
     return jsonResponse(request, env, {
       slug,
+      viewer: discussionViewer(session, env),
       comments: comments.map((row) => mapCommentRow(row, session, env)),
     });
   } catch (err) {

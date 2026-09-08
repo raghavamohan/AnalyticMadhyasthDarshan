@@ -69,7 +69,14 @@
           }
         ],
         "responses": {
-          "200": { "description": "Comment list." },
+          "200": {
+            "description": "Comment list with an email-free viewer/session summary.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/DiscussionResponse" }
+              }
+            }
+          },
           "400": { "description": "Invalid slug." }
         }
       }
@@ -243,6 +250,26 @@
                 "latestAt": { "type": "integer" }
               }
             }
+          }
+        }
+      },
+      "DiscussionViewer": {
+        "type": "object",
+        "required": ["loggedIn"],
+        "properties": {
+          "loggedIn": { "type": "boolean" },
+          "isAdmin": { "type": "boolean" }
+        }
+      },
+      "DiscussionResponse": {
+        "type": "object",
+        "required": ["slug", "viewer", "comments"],
+        "properties": {
+          "slug": { "type": "string" },
+          "viewer": { "$ref": "#/components/schemas/DiscussionViewer" },
+          "comments": {
+            "type": "array",
+            "items": { "type": "object" }
           }
         }
       },
