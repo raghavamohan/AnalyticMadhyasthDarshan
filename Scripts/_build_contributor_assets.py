@@ -26,7 +26,7 @@ def main():
     targets = [
         (PORTAL / 'preview.js', {'../../Assets/Mermaid/mermaid.min.js':BASE / 'Assets/Mermaid/mermaid.min.js'}),
         (PORTAL / 'preview.html', {name:PORTAL / name for name in ['preview.css','preview.js','vendor/katex.min.css','vendor/katex.min.js','vendor/markdown-it.min.js','vendor/purify.min.js']}),
-        (BASE / 'Studies/submit.html', {'portal/' + name:PORTAL / name for name in ['drafts.js','contributor.js','contributor.css','preview.html']}),
+        (BASE / 'Studies/submit.html', {'portal/' + name:PORTAL / name for name in ['drafts.js','action-operations.js','contributor.js','contributor.css','preview.html']}),
     ]
     for path,sources in targets:
         text = expected(path,sources)

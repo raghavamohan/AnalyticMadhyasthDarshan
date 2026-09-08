@@ -1,4 +1,13 @@
-import { operationId, operationPaths, digestPayload, claimOperation, finishOperation, receiptResponse } from './operations.js';
+import {
+  operationId,
+  operationPaths,
+  operationLabel,
+  operationBranchName,
+  operationResource,
+  digestPayload,
+  claimOperation,
+  finishOperation,
+} from './operations.js';
 import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
 import { normalizeApiErrorResponse } from '../../shared/api-errors.mjs';
 import { Router } from 'itty-router';
@@ -538,14 +547,6 @@ async function runPool(items, limit, worker) {
 
 function defaultBranch(env) {
   return env.DEFAULT_BRANCH || DEFAULT_BRANCH;
-}
-
-async function deleteBranchQuietly(branchName, env, stats = null) {
-  try {
-    await githubRequest(`/git/refs/heads/${branchName}`, 'DELETE', null, env, null, stats);
-  } catch (e) {
-    // Best-effort cleanup; ignore failures (branch may not exist yet).
-  }
 }
 
 function titleToSlug(title) {
@@ -2294,7 +2295,7 @@ router.post('/api/delete-artifact', async (request, env) => {
 
     const root = mappedStudy.root === 'Applications' ? 'Applications' : 'Studies';
     const directory = `${root}/${slug}`;
-    const branchName = `deletion-${slug}-${Date.now()}`;
+    const branchName = operationBranchName('/api/delete-artifact', data, env.operationId);
     const base = defaultBranch(env);
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env, null, stats);
     await githubRequest('/git/refs', 'POST', {
@@ -2371,7 +2372,7 @@ router.post('/api/delete-artifact', async (request, env) => {
         fileName: targetName,
       });
     } catch (innerErr) {
-      await deleteBranchQuietly(branchName, env, stats);
+      // Keep the deterministic branch for receipt reconciliation or maintainer recovery.
       throw innerErr;
     }
   } catch (err) {
@@ -2418,7 +2419,7 @@ router.post('/api/status-change', async (request, env) => {
     assertStatusChangeAllowed(slug, targetStatus, catalogMap, statusPrSearch.items);
     assertNoOpenStudyPr(slug, buildOpenStudyPrIndex(studyPrSearch.items));
 
-    const branchName = `status-${slug}-${Date.now()}`;
+    const branchName = operationBranchName('/api/status-change', data, env.operationId);
     const base = defaultBranch(env);
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env, null, stats);
     const baseSha = baseRef.object.sha;
@@ -2477,7 +2478,7 @@ router.post('/api/status-change', async (request, env) => {
 
       return jsonResponse(request, env, { success: true, url: pr.html_url, number: pr.number });
     } catch (innerErr) {
-      await deleteBranchQuietly(branchName, env, stats);
+      // Keep the deterministic branch for receipt reconciliation or maintainer recovery.
       throw innerErr;
     }
   } catch (err) {
@@ -2500,8 +2501,8 @@ export class ContributorOperations {
       const id = url.searchParams.get('id');
       if (!operationId(id)) return Response.json({error:'Invalid submission receipt.'}, {status:400});
       const receipt = await this.state.storage.get('op:' + id);
-      if (!receipt) return Response.json({success:false, notStarted:true, error:'This receipt has not arrived. Retry only with this same receipt, because the original request may still be in transit.'});
-      if (receipt.response) return Response.json({...receipt.response, completed:true});
+      if (!receipt) return Response.json({success:false, operationId:id, state:'notStarted', notStarted:true, retryAllowed:true, error:'This receipt has not arrived. Retry only with this same receipt and unchanged content, because the original request may still be in transit.'});
+      if (receipt.response) return Response.json(operationResource(receipt));
       // Reconcile external success after the connection or worker was interrupted.
       // Never interpret a negative search (which can lag GitHub) as permission to resend.
       if (receipt.phase === 'writing' || receipt.phase === 'uncertain') {
@@ -2520,8 +2521,10 @@ export class ContributorOperations {
             return finishOperation(this.state.storage, receipt, Response.json({success:true, url:pr.html_url, number:pr.number}), false);
         }
       }
-      return Response.json({success:false, uncertain:true, operationId:id,
-        error:'The result is not confirmed yet. Check again shortly. If this persists, ask a maintainer to inspect this receipt on GitHub; a second copy has not been sent.' + (receipt.slug ? ` Recovery branch: submission-${receipt.slug}-${id}.` : '')});
+      if (receipt.phase === 'started') return Response.json(operationResource(receipt));
+      const resource = operationResource({...receipt, phase:'uncertain'});
+      resource.error = 'The result is not confirmed yet. Check again shortly. If this persists, ask a maintainer to inspect this receipt on GitHub; a second copy has not been sent.' + (receipt.recoveryBranch ? ` Recovery branch: ${receipt.recoveryBranch}.` : '');
+      return Response.json(resource);
     }
     const raw = await request.clone().text();
     if (raw.length > 18000000) return Response.json({error:'Submission exceeds 18 MB.'}, {status:413});
@@ -2532,7 +2535,13 @@ export class ContributorOperations {
     const fingerprint = await digestPayload(url.pathname, data);
     const claim = await claimOperation(this.state.storage, data.operationId, fingerprint, url.pathname);
     if (claim.response) return claim.response;
-    const receipt = {...claim.receipt, prNumber:data.prNumber || null, slug:String(data.slug || '').slice(0,60), label:url.pathname === '/api/propose' ? 'study-proposal' : data.isNew ? 'new-study' : 'study-update'};
+    const receipt = {
+      ...claim.receipt,
+      prNumber: data.prNumber || null,
+      slug: String(data.slug || '').trim().slice(0,60),
+      label: operationLabel(url.pathname, data),
+      recoveryBranch: operationBranchName(url.pathname, data, data.operationId),
+    };
     let wrote = false;
     const env = {...this.env, operationId:data.operationId, beforeGitHubWrite:async () => {
       if (!wrote) {

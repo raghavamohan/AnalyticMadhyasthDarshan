@@ -23,7 +23,8 @@ added.
 
 ## Phase 1 — lock the contract (implemented)
 
-Status: complete in the Phase 1 API-contract change; deployment follows merge.
+Status: complete and deployed by the protected-branch workflows after the Phase
+1 API-contract merge.
 
 - Make OpenAPI the required review artifact for every route change.
 - Validate all three OpenAPI files in CI with a standards-compliant parser and
@@ -57,14 +58,14 @@ Implementation notes:
   discovery test, or shared contract changes, so a route cannot bypass contract
   validation.
 
-## Phase 2 — make writes resilient and predictable
+## Phase 2 — make writes resilient and predictable (in progress)
 
 Target: following release.
 
 - Extend operation receipts and idempotency keys from propose/revise/submit to
-  status changes and deletions.
+  status changes and deletions. **Implemented in the first Phase 2 slice.**
 - Return a stable operation resource with explicit `notStarted`, `inProgress`,
-  `complete`, and `uncertain` states.
+  `complete`, and `uncertain` states. **Implemented in the first Phase 2 slice.**
 - Publish rate-limit headers and retry guidance for worker and edge limits.
 - Add optimistic-concurrency fields to every update/delete operation and return
   `409` with the current source identifier when state is stale.
@@ -76,6 +77,20 @@ Target: following release.
 Exit criteria: retrying a write with the same idempotency key cannot create a
 duplicate GitHub issue or pull request; clients can recover an interrupted
 operation without guessing.
+
+First-slice implementation notes:
+
+- All five contribution writes use the account-scoped `ContributorOperations`
+  Durable Object. Status and deletion requests now use client-persisted UUIDv4
+  receipts and deterministic recovery branches, just like content submissions.
+- `GET /api/operation` exposes one state vocabulary while retaining the previous
+  booleans and top-level result fields for additive compatibility.
+- The dashboard stores at most one status/deletion receipt per GitHub account in
+  browser storage before sending. A reload can check an uncertain result or
+  retry only a confirmed `notStarted` action with the same receipt and payload.
+- No new Durable Object migration or secret is required. Remaining Phase 2 work
+  is rate-limit response metadata, complete optimistic-concurrency coverage,
+  explicit request-size boundaries, and bounded pagination/filter contracts.
 
 ## Phase 3 — observability and service levels
 
@@ -148,8 +163,8 @@ notification secret.
 
 ## Delivery order
 
-1. Complete Phase 1 contract/error work.
-2. Extend idempotency and recovery semantics in Phase 2.
+1. Keep the deployed Phase 1 contract/error checks green.
+2. Complete the remaining Phase 2 resilience and predictability work.
 3. Establish Phase 3 telemetry and objectives.
 4. Add Phase 4 versioning and client tooling when an external consumer exists.
 5. Revisit A2A or agent OAuth only in response to a validated use case and an
