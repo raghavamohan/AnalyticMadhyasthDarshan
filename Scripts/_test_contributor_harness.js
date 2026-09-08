@@ -10,10 +10,21 @@
     const url = new URL(typeof input === 'string' ? input : input.url,location.href);
     if (url.pathname.endsWith('/companion-artifacts.json')) return response(registry);
     if (!url.pathname.startsWith('/api/') && url.origin === location.origin) return realFetch(input,options);
-    if (url.pathname === '/api/auth/me') return response({loggedIn:account !== 'signed-out',login:account,userId:account === 'alice' ? 1 : 2});
+    if (url.pathname === '/api/auth/me') {
+      if (document.referrer.endsWith('/Studies/index.html')) {
+        document.documentElement.dataset.fixtureAuthPending = 'true';
+        await new Promise(resolve => setTimeout(resolve,1500));
+        document.documentElement.dataset.fixtureAuthPending = 'false';
+      }
+      return response({loggedIn:account !== 'signed-out',login:account,userId:account === 'alice' ? 1 : 2});
+    }
     if (url.pathname === '/api/auth/logout') { account = 'signed-out'; sessionStorage.setItem('fixture-account',account); return response({success:true}); }
     if (url.pathname === '/api/me/notifications') return response({configured:false,enabled:false});
-    if (url.pathname === '/api/me/submissions') return response({success:true,submissions:[{title:'Test study',slug:'Test-Study',stage:'changes_requested',kindLabel:'Study',catalogStatus:'draft',categories:['Ontology'],pullRequest:{number:123,url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123'},feedback:[{reviewer:'reviewer',body:'Clarify the comparison in §2. <script>alert(1)</script>',url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123#pullrequestreview-1'}],checks:{state:'failure',url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123/checks',details:[{name:'Study PR',conclusion:'failure',title:'Missing References section',summary:'Add ## References and run the reference verifier.',url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/1'}]},actions:[]}],meta:{}});
+    if (url.pathname === '/api/me/submissions') {
+      const requests = Number(document.documentElement.dataset.fixtureDashboardRequests || 0) + 1;
+      document.documentElement.dataset.fixtureDashboardRequests = String(requests);
+      return response({success:true,submissions:[{title:'Test study',slug:'Test-Study',stage:'changes_requested',kindLabel:'Study',catalogStatus:'draft',categories:['Ontology'],pullRequest:{number:123,url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123'},feedback:[{reviewer:'reviewer',body:'Clarify the comparison in §2. <script>alert(1)</script>',url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123#pullrequestreview-1'}],checks:{state:'failure',url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123/checks',details:[{name:'Study PR',conclusion:'failure',title:'Missing References section',summary:'Add ## References and run the reference verifier.',url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/1'}]},actions:[]}],meta:{}});
+    }
     if (url.pathname === '/api/me/submissions/status') return response({success:true,statuses:[{number:123,stage:'changes_requested',pullRequest:{number:123,url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123'},feedback:[],checks:{state:'success',url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123/checks',details:[]}}],meta:{}});
     if (url.pathname === '/api/study-source' || url.pathname === '/api/revision-source') {
       if (document.getElementById('fixture-delay')?.checked) await new Promise(resolve => setTimeout(resolve,2500));

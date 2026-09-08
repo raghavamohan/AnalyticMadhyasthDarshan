@@ -20,7 +20,18 @@
 <link rel="preconnect" href="https://api.analyticmadhyasthdarshan.org" crossorigin/>
 <link rel="dns-prefetch" href="//api.analyticmadhyasthdarshan.org"/>
 <script>
-(function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
+(function(){
+  try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}
+  try{
+    var raw=sessionStorage.getItem("amd-github-auth-v1");
+    var cached=raw?JSON.parse(raw):null;
+    var fresh=cached&&Date.now()-Number(cached.checkedAt||0)<300000;
+    if(fresh&&cached.loggedIn===true&&typeof cached.login==="string"&&cached.login){
+      window.__amdGithubAuthBootstrap=cached;
+      document.documentElement.setAttribute("data-github-auth","signed-in");
+    }else if(raw&&!fresh){sessionStorage.removeItem("amd-github-auth-v1");}
+  }catch(e){}
+})();
 </script>
 <link rel="icon" href="/Assets/Icons/akhand-samaj-favicon.ico" sizes="any"/>
 <link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
@@ -73,6 +84,9 @@ button.submit-btn:disabled{opacity:0.6;cursor:not-allowed;}
 .auth-btn[hidden],.auth-btn.hidden{display:none !important;}
 .auth-btn.primary{background:var(--accent);border-color:var(--accent);color:#fff;}
 .auth-btn:hover{opacity:0.92;}
+html[data-github-auth="signed-in"]:not([data-github-auth-ready]) #auth-user,
+html[data-github-auth="signed-in"]:not([data-github-auth-ready]) #auth-action-btn{visibility:hidden;}
+html[data-github-auth="signed-in"]:not([data-github-auth-ready]) #dashboard-signed-out{display:none;}
 .login-gate{background:var(--warm-soft);border:1px solid #e0d0be;border-radius:8px;padding:14px 16px;margin-bottom:20px;font-family:var(--sans);font-size:14px;display:none;}
 .login-gate.visible{display:block;}
 .signed-out-lead{font-family:var(--sans);font-size:14px;line-height:1.55;color:var(--text-muted);margin:0 0 12px;max-width:62ch;}
@@ -501,11 +515,17 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <script>
 const API_BASE = 'https://api.analyticmadhyasthdarshan.org';
+const AUTH_CACHE_KEY = 'amd-github-auth-v1';
 const PROPOSAL_STORAGE_KEY = 'amd-last-proposal-issue';
 const LOGIN_PENDING_KEY = 'amd-login-pending';
 const DASHBOARD_CACHE_MS = 30000;
 
-let currentUser = null;
+const bootstrapAuth = window.__amdGithubAuthBootstrap || null;
+let currentUser = bootstrapAuth ? {
+  loggedIn: true,
+  login: bootstrapAuth.login,
+  userId: bootstrapAuth.userId,
+} : null;
 let contributionBusy = false;
 let dashboardCache = null;
 let dashboardCacheAt = 0;
@@ -741,6 +761,8 @@ function escapeHtml(text) {
 }
 
 function updateAuthUi(loggedIn) {
+  document.documentElement.setAttribute('data-github-auth', loggedIn ? 'signed-in' : 'signed-out');
+  document.documentElement.setAttribute('data-github-auth-ready', '');
   ['propose-form', 'submit-form'].forEach((id) => {
     const form = document.getElementById(id);
     if (!form) return;
@@ -767,6 +789,17 @@ function updateAuthUi(loggedIn) {
   updateSubmitAvailability();
 }
 
+function cacheAuthState(data) {
+  try {
+    const snapshot = {loggedIn:Boolean(data?.loggedIn),checkedAt:Date.now()};
+    if (snapshot.loggedIn && typeof data.login === 'string' && data.login) {
+      snapshot.login = data.login;
+      snapshot.userId = data.userId;
+    }
+    sessionStorage.setItem(AUTH_CACHE_KEY, JSON.stringify(snapshot));
+  } catch (_) { /* storage can be unavailable */ }
+}
+
 let authRequest = 0;
 async function refreshAuthState() {
   const requestId = ++authRequest;
@@ -775,8 +808,10 @@ async function refreshAuthState() {
     const data = await res.json();
     if (requestId !== authRequest) return;
     if (!res.ok) throw new Error('Could not check sign-in. Refresh to try again.');
+    cacheAuthState(data);
     if (currentUser?.login !== data.login) {
-      dashboardCache = null; dashboardCacheAt = 0; dashboardRequest++; proposalOptionsLoaded = false;
+      dashboardCache = null; dashboardCacheAt = 0; dashboardRequest++;
+      dashboardLoadPromise = null; dashboardLoadAccount = null; proposalOptionsLoaded = false;
       document.getElementById('dashboard-cards').replaceChildren();
       notifyPrefs = {configured:false,email:null,enabled:false}; document.getElementById('notify-bar').hidden = true;
     }
@@ -825,7 +860,9 @@ async function refreshAuthState() {
     }
   } catch (err) {
     if (requestId !== authRequest) return;
+    try { sessionStorage.removeItem(AUTH_CACHE_KEY); } catch (_) { /* ignore */ }
     currentUser = null; dashboardCache = null; dashboardRequest++;
+    dashboardLoadPromise = null; dashboardLoadAccount = null;
     document.getElementById('auth-user').textContent = 'Could not check sign-in. Refresh to try again; download any unsaved work before leaving.';
     updateAuthUi(false);
   }
@@ -1317,6 +1354,8 @@ function showDashboardSkeleton() {
 }
 
 let dashboardRequest = 0;
+let dashboardLoadPromise = null;
+let dashboardLoadAccount = null;
 async function loadDashboard(options = {}) {
   if (!currentUser) return;
   const force = Boolean(options.force);
@@ -1328,26 +1367,40 @@ async function loadDashboard(options = {}) {
     return;
   }
 
+  if (!force && dashboardLoadPromise && dashboardLoadAccount === currentUser.login) {
+    return dashboardLoadPromise;
+  }
+
   const requestId = ++dashboardRequest, account = currentUser.login;
   if (!dashboardCache) showDashboardSkeleton();
   document.getElementById('dashboard-empty').hidden = true;
-  try {
-    const res = await apiFetch('/api/me/submissions');
-    const data = await res.json();
-    if (!res.ok || !data.success) throw new Error(data.error || 'Could not load submissions');
-    if (requestId !== dashboardRequest || currentUser?.login !== account) return;
-    dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
-    dashboardCacheAt = Date.now();
-    ciPollFailures = 0;
-    proposalOptionsLoaded = true;
-    document.getElementById('dashboard-alert').style.display = 'none';
-    renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
-    scheduleCiPoll(dashboardCache.submissions);
-  } catch (err) {
-    if (requestId !== dashboardRequest || currentUser?.login !== account) return;
-    document.querySelectorAll('.skeleton-card').forEach(card => card.remove());
-    showAlert('dashboard', 'error', escapeHtml(err.message) + ' Use Refresh submissions to retry.');
-  }
+  const pending = (async () => {
+    try {
+      const res = await apiFetch('/api/me/submissions');
+      const data = await res.json();
+      if (!res.ok || !data.success) throw new Error(data.error || 'Could not load submissions');
+      if (requestId !== dashboardRequest || currentUser?.login !== account) return;
+      dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
+      dashboardCacheAt = Date.now();
+      ciPollFailures = 0;
+      proposalOptionsLoaded = true;
+      document.getElementById('dashboard-alert').style.display = 'none';
+      renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
+      scheduleCiPoll(dashboardCache.submissions);
+    } catch (err) {
+      if (requestId !== dashboardRequest || currentUser?.login !== account) return;
+      document.querySelectorAll('.skeleton-card').forEach(card => card.remove());
+      showAlert('dashboard', 'error', escapeHtml(err.message) + ' Use Refresh submissions to retry.');
+    }
+  })();
+  dashboardLoadPromise = pending;
+  dashboardLoadAccount = account;
+  return pending.finally(() => {
+    if (dashboardLoadPromise === pending) {
+      dashboardLoadPromise = null;
+      dashboardLoadAccount = null;
+    }
+  });
 }
 
 function titleToSlug(title) {
@@ -1806,13 +1859,8 @@ async function ensureProposalOptions(force) {
   }
   try {
     if (!dashboardCache) {
-      const res = await apiFetch('/api/me/submissions');
-      const data = await res.json();
-      if (res.ok && data.success) {
-        if (currentUser?.login !== identity) return;
-    dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
-        dashboardCacheAt = Date.now();
-      }
+      await loadDashboard();
+      if (currentUser?.login !== identity) return;
     }
     proposalOptionsLoaded = true;
     fillProposalOptions(approvedProposalsFromCache());
@@ -2370,7 +2418,11 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   const draft = params.get('draft');
   if (draft && /^[a-zA-Z0-9-]{1,80}$/.test(draft)) document.getElementById('p-draft-id').value = draft;
   applyQueryParams();
-  updateAuthUi(false);
+  if (currentUser) {
+    document.getElementById('auth-user').innerHTML = 'Signed in as <strong>@' + escapeHtml(currentUser.login) + '</strong>';
+    showDashboardSkeleton();
+  }
+  updateAuthUi(Boolean(currentUser));
   const registryLoad = loadCompanionRegistry().catch(() => {});
   updateSlugPreview();
   await Promise.all([registryLoad, refreshAuthState()]);

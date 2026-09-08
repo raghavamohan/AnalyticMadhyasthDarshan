@@ -1,7 +1,8 @@
 """Local-only portal fixture. It never calls GitHub, OAuth or Turnstile.
 
-Run manually, then inspect http://127.0.0.1:8766/Studies/submit.html in a browser.
-The production page is served unchanged except for the isolated test harness.
+Run manually, then start at http://127.0.0.1:8766/Studies/index.html and open
+My Submissions. Production pages are served unchanged except for isolated auth
+and submission test harnesses.
 """
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -9,6 +10,23 @@ import re
 from _cloudflare_performance import CSP
 
 BASE = Path(__file__).resolve().parents[1]
+
+INDEX_AUTH_HARNESS = """<script>
+(() => {
+  const realFetch = window.fetch.bind(window);
+  const response = data => Promise.resolve(new Response(JSON.stringify(data), {
+    status: 200, headers: {'Content-Type': 'application/json'}
+  }));
+  window.fetch = (input, options = {}) => {
+    const url = new URL(typeof input === 'string' ? input : input.url, location.href);
+    if (url.pathname === '/api/auth/me') {
+      const account = sessionStorage.getItem('fixture-account') || 'alice';
+      return response({loggedIn: account !== 'signed-out', login: account, userId: 1});
+    }
+    return realFetch(input, options);
+  };
+})();
+</script>"""
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -22,7 +40,17 @@ class Handler(SimpleHTTPRequestHandler):
         super().end_headers()
 
     def do_GET(self):
-        if self.path.split("?")[0] == "/Studies/submit.html":
+        path = self.path.split("?")[0]
+        if path == "/Studies/index.html":
+            page = (BASE / "Studies/index.html").read_text(encoding="utf-8")
+            page = page.replace("<head>", "<head>\n" + INDEX_AUTH_HARNESS, 1)
+            payload = page.encode("utf-8")
+            self.send_response(200)
+            self.send_header("Content-Type", "text/html; charset=utf-8")
+            self.send_header("Content-Length", str(len(payload)))
+            self.end_headers()
+            self.wfile.write(payload)
+        elif path == "/Studies/submit.html":
             page = (BASE / "Studies/submit.html").read_text(encoding="utf-8")
             page = page.replace('<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>', '')
             harness = (BASE / "Scripts/_test_contributor_harness.js").read_text(encoding="utf-8")
@@ -42,5 +70,5 @@ class Handler(SimpleHTTPRequestHandler):
 
 
 if __name__ == "__main__":
-    print("Isolated contributor fixture: http://127.0.0.1:8766/Studies/submit.html", flush=True)
+    print("Isolated contributor fixture: http://127.0.0.1:8766/Studies/index.html", flush=True)
     ThreadingHTTPServer(("127.0.0.1", 8766), Handler).serve_forever()

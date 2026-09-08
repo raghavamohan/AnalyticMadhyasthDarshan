@@ -86,12 +86,33 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta name="twitter:title" content="Studies of Madhyasth Darshan"/>
 <meta name="twitter:description" content="An open comparative study of Madhyasth Darshan, following a path through existence, knowledge, value, lived participation, and formal synthesis."/>
 <meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<link rel="preconnect" href="https://api.analyticmadhyasthdarshan.org" crossorigin/>
+<link rel="dns-prefetch" href="//api.analyticmadhyasthdarshan.org"/>
 <script src="/webmcp.js" defer></script>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"CollectionPage","name":"Studies of Madhyasth Darshan","description":"An open comparative study of Madhyasth Darshan, following a path from the human question through existence, knowledge, value, lived participation, and formal synthesis.","url":"https://analyticmadhyasthdarshan.org/Studies/index.html","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png","license":"https://creativecommons.org/licenses/by/4.0/"}
 </script>
 <script>
 (function(){try{var t=localStorage.getItem("amd-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
+</script>
+<script>
+(function(){
+  var key="amd-github-auth-v1";
+  try {
+    window.__amdGithubAuthPrefetch=fetch("https://api.analyticmadhyasthdarshan.org/api/auth/me",{
+      credentials:"include",headers:{Accept:"application/json"}
+    }).then(function(response){
+      if(!response.ok)throw new Error("auth check failed");
+      return response.json();
+    }).then(function(data){
+      if(!data||typeof data.loggedIn!=="boolean")return null;
+      var snapshot={loggedIn:data.loggedIn,checkedAt:Date.now()};
+      if(data.loggedIn&&typeof data.login==="string"&&data.login){snapshot.login=data.login;snapshot.userId=data.userId;}
+      sessionStorage.setItem(key,JSON.stringify(snapshot));
+      return snapshot;
+    }).catch(function(){return null;});
+  } catch(e) {}
+})();
 </script>
 <style>
   :root {
