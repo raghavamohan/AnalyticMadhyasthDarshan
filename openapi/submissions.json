@@ -127,6 +127,29 @@
         }
       }
     },
+    "/api/me/submissions/status": {
+      "get": {
+        "tags": [
+          "submissions"
+        ],
+        "summary": "Current review and CI state for the contributor's open study PRs",
+        "operationId": "listMyOpenSubmissionStatuses",
+        "security": [
+          { "sessionCookie": [] }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lightweight status refresh for open pull requests.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SubmissionStatusDashboard" }
+              }
+            }
+          },
+          "401": { "description": "Not signed in." }
+        }
+      }
+    },
     "/api/me/notifications": {
       "get": {
         "tags": [
@@ -523,7 +546,14 @@
         "properties": {
           "timingMs": { "type": "integer", "minimum": 0 },
           "githubRequests": { "type": "integer", "minimum": 0 },
-          "truncated": { "type": "boolean" }
+          "truncated": { "type": "boolean" },
+          "phaseTimingMs": {
+            "type": "object",
+            "properties": {
+              "base": { "type": "integer", "minimum": 0 },
+              "enrichment": { "type": "integer", "minimum": 0 }
+            }
+          }
         }
       },
       "SubmissionDashboardRow": {
@@ -567,6 +597,42 @@
           },
           "pullRequest": { "type": [ "object", "null" ] },
           "checks": { "type": [ "object", "null" ] }
+        },
+        "additionalProperties": true
+      },
+      "SubmissionStatusDashboard": {
+        "type": "object",
+        "required": [
+          "success",
+          "login",
+          "statuses",
+          "meta"
+        ],
+        "properties": {
+          "success": { "type": "boolean", "const": true },
+          "login": { "type": "string" },
+          "statuses": {
+            "type": "array",
+            "items": { "$ref": "#/components/schemas/SubmissionStatusRow" }
+          },
+          "meta": { "$ref": "#/components/schemas/SubmissionDashboardMeta" }
+        }
+      },
+      "SubmissionStatusRow": {
+        "type": "object",
+        "required": [
+          "number",
+          "stage",
+          "feedback",
+          "pullRequest",
+          "checks"
+        ],
+        "properties": {
+          "number": { "type": "integer" },
+          "stage": { "type": "string", "enum": [ "pr-open", "changes_requested" ] },
+          "feedback": { "type": "array", "items": { "type": "object" } },
+          "pullRequest": { "type": "object" },
+          "checks": { "type": "object" }
         },
         "additionalProperties": true
       },

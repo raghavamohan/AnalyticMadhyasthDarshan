@@ -17,6 +17,8 @@
 <meta name="twitter:title" content="My Submissions"/>
 <meta name="twitter:description" content="Propose a study, submit a draft, and follow its review through to release."/>
 <meta name="twitter:image" content="https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png"/>
+<link rel="preconnect" href="https://api.analyticmadhyasthdarshan.org" crossorigin/>
+<link rel="dns-prefetch" href="//api.analyticmadhyasthdarshan.org"/>
 <script>
 (function(){try{var t=localStorage.getItem("amd-theme");if(t==="light"||t==="dark"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();
 </script>
@@ -779,12 +781,12 @@ async function refreshAuthState() {
       notifyPrefs = {configured:false,email:null,enabled:false}; document.getElementById('notify-bar').hidden = true;
     }
     currentUser = data.loggedIn ? data : null;
-    await contributor.auth(currentUser);
+    const authenticatedLogin = currentUser?.login || null;
+    const contributorRestore = contributor.auth(currentUser);
     const userEl = document.getElementById('auth-user');
     if (currentUser) {
       try { sessionStorage.removeItem(LOGIN_PENDING_KEY); } catch (e) { /* ignore */ }
       userEl.innerHTML = 'Signed in as <strong>@' + escapeHtml(currentUser.login) + '</strong>';
-      applyAuthorDefault();
     } else {
       dashboardCache = null;
       let loginPending = false;
@@ -799,12 +801,18 @@ async function refreshAuthState() {
     updateAuthUi(Boolean(currentUser));
     if (currentUser) {
       loadNotifyPrefs();
+      if (document.getElementById('dashboard-tab').classList.contains('active')) {
+        loadDashboard();
+      }
     } else {
       document.getElementById('notify-bar').hidden = true;
     }
-    if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
-      loadDashboard();
-    }
+    // Browser-draft recovery is independent of dashboard data. Let the GitHub
+    // request start immediately, then finish restoring editor state before any
+    // form-specific source loads run.
+    await contributorRestore;
+    if (requestId !== authRequest || currentUser?.login !== authenticatedLogin) return;
+    if (currentUser) applyAuthorDefault();
     if (currentUser && document.getElementById('submit-tab').classList.contains('active')) {
       const mode = document.getElementById('s-mode').value;
       if (mode === 'new') ensureProposalOptions();
@@ -817,7 +825,7 @@ async function refreshAuthState() {
     }
   } catch (err) {
     if (requestId !== authRequest) return;
-    currentUser = null; dashboardCache = null;
+    currentUser = null; dashboardCache = null; dashboardRequest++;
     document.getElementById('auth-user').textContent = 'Could not check sign-in. Refresh to try again; download any unsaved work before leaving.';
     updateAuthUi(false);
   }
@@ -1330,6 +1338,7 @@ async function loadDashboard(options = {}) {
     if (requestId !== dashboardRequest || currentUser?.login !== account) return;
     dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
     dashboardCacheAt = Date.now();
+    ciPollFailures = 0;
     proposalOptionsLoaded = true;
     document.getElementById('dashboard-alert').style.display = 'none';
     renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
@@ -2124,19 +2133,83 @@ function scheduleProposeDraftSave() { contributor.schedule('propose'); }
 ['p-category','p-fam','p-formal'].forEach(id => document.getElementById(id).addEventListener('change',scheduleProposeDraftSave));
 
 let ciPollTimer = null;
+let ciPollFailures = 0;
+let dashboardStatusRequest = 0;
 function hasPendingCi(submissions) {
   return (submissions || []).some((item) => item.checks && item.checks.state === 'pending');
+}
+function openDashboardRows(submissions) {
+  return (submissions || []).filter((item) =>
+    item.pullRequest && (item.stage === 'pr-open' || item.stage === 'changes_requested')
+  );
+}
+async function pollDashboardStatuses() {
+  if (!currentUser || !dashboardCache) return;
+  const requestId = ++dashboardStatusRequest;
+  const account = currentUser.login;
+  try {
+    const res = await apiFetch('/api/me/submissions/status');
+    const data = await res.json();
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not refresh submission status');
+    if (requestId !== dashboardStatusRequest || currentUser?.login !== account || !dashboardCache) return;
+
+    const currentByNumber = new Map(openDashboardRows(dashboardCache.submissions)
+      .map((item) => [Number(item.pullRequest.number), item]));
+    const freshByNumber = new Map((data.statuses || [])
+      .map((status) => [Number(status.number), status]));
+    // The status endpoint can include other open lifecycle PRs that are
+    // represented only as blocked actions on a deduplicated study card. Ignore
+    // those additions here; reload when a PR this poll is tracking closes or
+    // changes workflow state.
+    const membershipChanged = [...currentByNumber.keys()]
+      .some((number) => !freshByNumber.has(number));
+    const workflowChanged = !membershipChanged && [...currentByNumber].some(([number, item]) =>
+      freshByNumber.get(number).stage !== item.stage
+    );
+    if (membershipChanged || workflowChanged) {
+      await loadDashboard({ force: true });
+      return;
+    }
+
+    const submissions = dashboardCache.submissions.map((item) => {
+      const number = Number(item.pullRequest?.number);
+      const status = freshByNumber.get(number);
+      if (!status) return item;
+      return {
+        ...item,
+        feedback: status.feedback || [],
+        pullRequest: status.pullRequest || item.pullRequest,
+        checks: status.checks || item.checks,
+      };
+    });
+    dashboardCache = {
+      submissions,
+      truncated: dashboardCache.truncated || Boolean(data.meta && data.meta.truncated),
+    };
+    dashboardCacheAt = Date.now();
+    ciPollFailures = 0;
+    renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
+    scheduleCiPoll(dashboardCache.submissions);
+  } catch (_) {
+    if (requestId !== dashboardStatusRequest || currentUser?.login !== account) return;
+    ciPollFailures += 1;
+    scheduleCiPoll(dashboardCache?.submissions || []);
+  }
 }
 function scheduleCiPoll(submissions) {
   clearTimeout(ciPollTimer);
   if (!hasPendingCi(submissions) || document.hidden) return;
   if (!document.getElementById('dashboard-tab').classList.contains('active')) return;
+  const delay = Math.min(120000, 30000 * Math.pow(2, ciPollFailures));
   ciPollTimer = setTimeout(() => {
     if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
-      loadDashboard({ force: true });
+      pollDashboardStatuses();
     }
-  }, 20000);
+  }, delay);
 }
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && dashboardCache) scheduleCiPoll(dashboardCache.submissions);
+});
 
 function setContributionBusy(value) {
   contributionBusy = value;
@@ -2298,9 +2371,9 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   if (draft && /^[a-zA-Z0-9-]{1,80}$/.test(draft)) document.getElementById('p-draft-id').value = draft;
   applyQueryParams();
   updateAuthUi(false);
-  await loadCompanionRegistry().catch(() => {});
+  const registryLoad = loadCompanionRegistry().catch(() => {});
   updateSlugPreview();
-  await refreshAuthState();
+  await Promise.all([registryLoad, refreshAuthState()]);
 })();
 </script>
 <script>
