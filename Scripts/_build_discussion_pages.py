@@ -36,11 +36,41 @@ TURNSTILE_ACTION = "turnstile-spin-v1"
 DISCUSSIONS_API_FALLBACK = "https://amd-discussions.raghavamohan.workers.dev"
 
 # Bump when discuss.css / discuss.js change so the cached shared assets refresh.
-ASSET_VERSION = "3"
+ASSET_VERSION = "4"
 
 ASSETS_DIRNAME = "assets"
 DISCUSS_CSS_NAME = "discuss.css"
 DISCUSS_JS_NAME = "discuss.js"
+
+AUTH_BOOTSTRAP_SCRIPT = """<script>
+(function(){
+  var key="amd-discuss-auth-v1";
+  try {
+    var raw=sessionStorage.getItem(key);
+    var cached=raw?JSON.parse(raw):null;
+    var fresh=cached&&Date.now()-Number(cached.checkedAt||0)<300000;
+    if(fresh&&typeof cached.loggedIn==="boolean"){
+      window.__amdDiscussAuthBootstrap=cached;
+      document.documentElement.setAttribute("data-discuss-auth",cached.loggedIn?"signed-in":"signed-out");
+    }else if(raw){sessionStorage.removeItem(key);}
+  } catch(e) {}
+})();
+</script>"""
+
+AUTH_RENDER_BOOTSTRAP_SCRIPT = """<script>
+(function(){
+  var session=window.__amdDiscussAuthBootstrap;
+  if(!session||session.loggedIn!==true)return;
+  var button=document.getElementById("toolbar-auth-btn");
+  var panel=document.getElementById("comment-panel");
+  if(button){
+    button.textContent="Log out";
+    button.classList.remove("btn-primary");
+    button.setAttribute("aria-label","Sign out of discussion");
+  }
+  if(panel)panel.classList.remove("hidden");
+})();
+</script>"""
 
 
 def assets_dir() -> Path:
@@ -233,7 +263,7 @@ a { color: var(--accent); }
 .discuss-header-note { margin: 0; font-size: 0.82rem; color: var(--text-muted); line-height: 1.45; }
 .btn-sm { padding: 5px 11px; font-size: 0.85rem; }
 .btn-tiny { padding: 5px 11px; font-size: 0.82rem; }
-.btn-auth { cursor: pointer; font: inherit; flex-shrink: 0; }
+.btn-auth { cursor: pointer; font: inherit; flex-shrink: 0; min-width: 64px; justify-content: center; }
 .btn {
   display: inline-flex;
   align-items: center;
@@ -369,22 +399,17 @@ a { color: var(--accent); }
   border-top: 1px solid #e6c27a;
 }
 .comments-list-actions { margin-top: 16px; text-align: center; }
-.skeleton-comment {
+.comments-loading {
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 14px 16px;
+  min-height: 40px;
+  padding: 8px 12px;
   background: var(--surface);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
 }
-.skeleton-line {
-  height: 10px;
-  border-radius: 4px;
-  background: var(--border);
-  opacity: 0.6;
-  margin: 8px 0;
-  animation: skeleton-pulse 1.2s ease-in-out infinite;
-}
-.skeleton-line.short { width: 32%; }
-@keyframes skeleton-pulse { 0%, 100% { opacity: 0.35; } 50% { opacity: 0.7; } }
 .alert { padding: 10px 12px; border-radius: 8px; margin-bottom: 12px; font-size: 0.92rem; }
 .alert-error { background: #fdecea; color: #8a1f11; border: 1px solid #f5c2c0; }
 .alert-success { background: #edf7ed; color: #1e4620; border: 1px solid #c8e6c9; }
@@ -414,9 +439,6 @@ a { color: var(--accent); }
 }
 @media (max-width: 600px) {
   .auth-grid { grid-template-columns: 1fr; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .skeleton-line { animation: none; }
 }
 @media (prefers-color-scheme: dark) {
   :root {
@@ -465,6 +487,7 @@ DISCUSS_JS = r"""(() => {
   const TURNSTILE_SITE_KEY = cfg.turnstileSiteKey;
   const TURNSTILE_ACTION = cfg.turnstileAction;
   const PAGE_SIZE = 50;
+  const AUTH_CACHE_KEY = "amd-discuss-auth-v1";
 
   const apiBase = () => (window.location.hostname === SITE_HOST ? "" : API_FALLBACK);
 
@@ -480,9 +503,13 @@ DISCUSS_JS = r"""(() => {
   const magicForm = document.getElementById("magic-link-form");
   const commentForm = document.getElementById("comment-form");
   const toolbarAuthBtn = document.getElementById("toolbar-auth-btn");
-  let currentSession = { loggedIn: false };
+  const bootstrapSession = window.__amdDiscussAuthBootstrap;
+  let currentSession = bootstrapSession && typeof bootstrapSession.loggedIn === "boolean"
+    ? { loggedIn: bootstrapSession.loggedIn, isAdmin: Boolean(bootstrapSession.isAdmin) }
+    : { loggedIn: false };
   let signInTurnstileWidgetId = null;
   let signInTurnstileTimer = null;
+  let turnstileLoadPromise = null;
   let allComments = [];
   let nextOffset = 0;
   let hasMore = false;
@@ -533,8 +560,25 @@ DISCUSS_JS = r"""(() => {
     alertEl.classList.remove("hidden");
   };
 
-  const withTurnstile = (fn) => {
-    turnstile.ready(fn);
+  const loadTurnstile = () => {
+    if (window.turnstile) return Promise.resolve(window.turnstile);
+    if (!turnstileLoadPromise) {
+      turnstileLoadPromise = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+        script.async = true;
+        script.dataset.discussTurnstile = "true";
+        script.onload = () => window.turnstile
+          ? resolve(window.turnstile)
+          : reject(new Error("Could not load the verification check. Check your connection and try again."));
+        script.onerror = () => reject(new Error("Could not load the verification check. Check your connection and try again."));
+        document.head.appendChild(script);
+      }).catch((err) => {
+        turnstileLoadPromise = null;
+        throw err;
+      });
+    }
+    return turnstileLoadPromise;
   };
 
   const signInTurnstileEl = () => document.getElementById("sign-in-turnstile");
@@ -546,21 +590,24 @@ DISCUSS_JS = r"""(() => {
   };
 
   const destroySignInTurnstile = () => {
-    withTurnstile(() => {
-      if (signInTurnstileWidgetId != null) {
-        try {
-          turnstile.remove(signInTurnstileWidgetId);
-        } catch {
-          // ignore stale widget ids
-        }
-        signInTurnstileWidgetId = null;
-      }
-    });
+    const turnstile = window.turnstile;
+    if (!turnstile) {
+      signInTurnstileWidgetId = null;
+      return;
+    }
+    if (signInTurnstileWidgetId == null) return;
+    try {
+      turnstile.remove(signInTurnstileWidgetId);
+    } catch {
+      // ignore stale widget ids
+    }
+    signInTurnstileWidgetId = null;
   };
 
   const mountSignInTurnstile = () => {
     if (!signInPanel || signInPanel.classList.contains("hidden")) return;
-    withTurnstile(() => {
+    loadTurnstile().then((turnstile) => {
+      if (signInPanel.classList.contains("hidden")) return;
       let widget = signInTurnstileEl();
       if (!widget) {
         resetSignInTurnstileContainer();
@@ -581,7 +628,7 @@ DISCUSS_JS = r"""(() => {
         theme: "auto",
         "refresh-expired": "auto",
       });
-    });
+    }).catch((err) => showAlert("error", readableError(err)));
   };
 
   const scheduleSignInTurnstile = () => {
@@ -626,7 +673,7 @@ DISCUSS_JS = r"""(() => {
     try {
       await fetchJson("/api/discuss-auth/logout", { method: "POST", body: "{}" });
       setAuthUi({ loggedIn: false });
-      renderComments();
+      await loadComments();
     } catch (err) {
       showAlert("error", readableError(err));
     }
@@ -670,15 +717,19 @@ DISCUSS_JS = r"""(() => {
 
   const resetSignInTurnstile = () => {
     if (signInTurnstileWidgetId != null) {
-      withTurnstile(() => {
-        try {
-          turnstile.reset(signInTurnstileWidgetId);
-        } catch {
-          destroySignInTurnstile();
-          resetSignInTurnstileContainer();
-          scheduleSignInTurnstile();
-        }
-      });
+      const turnstile = window.turnstile;
+      if (!turnstile) {
+        signInTurnstileWidgetId = null;
+        scheduleSignInTurnstile();
+        return;
+      }
+      try {
+        turnstile.reset(signInTurnstileWidgetId);
+      } catch {
+        destroySignInTurnstile();
+        resetSignInTurnstileContainer();
+        scheduleSignInTurnstile();
+      }
       return;
     }
     scheduleSignInTurnstile();
@@ -780,12 +831,11 @@ DISCUSS_JS = r"""(() => {
     loadMoreWrap.classList.toggle("hidden", !hasMore);
   };
 
-  const showCommentsSkeleton = () => {
+  const showCommentsLoading = () => {
     commentsEmpty.classList.add("hidden");
+    if (commentsError) commentsError.classList.add("hidden");
     commentList.setAttribute("aria-busy", "true");
-    commentList.innerHTML = Array.from({ length: 3 }).map(() =>
-      `<li class="skeleton-comment" aria-hidden="true"><div class="skeleton-line short"></div><div class="skeleton-line"></div><div class="skeleton-line"></div></li>`
-    ).join("");
+    commentList.innerHTML = '<li class="comments-loading">Loading comments&hellip;</li>';
   };
 
   const renderComments = () => {
@@ -816,6 +866,16 @@ DISCUSS_JS = r"""(() => {
   const setAuthUi = (session) => {
     currentSession = session || { loggedIn: false };
     const loggedIn = Boolean(currentSession.loggedIn);
+    document.documentElement.dataset.discussAuth = loggedIn ? "signed-in" : "signed-out";
+    try {
+      sessionStorage.setItem(AUTH_CACHE_KEY, JSON.stringify({
+        loggedIn,
+        isAdmin: loggedIn ? Boolean(currentSession.isAdmin) : false,
+        checkedAt: Date.now(),
+      }));
+    } catch {
+      // storage can be unavailable
+    }
     if (loggedIn) {
       toolbarAuthBtn.textContent = "Log out";
       toolbarAuthBtn.classList.remove("btn-primary");
@@ -928,7 +988,7 @@ DISCUSS_JS = r"""(() => {
     if (!append) {
       nextOffset = 0;
       allComments = [];
-      showCommentsSkeleton();
+      showCommentsLoading();
     } else if (loadMoreBtn) {
       loadMoreBtn.disabled = true;
     }
@@ -936,6 +996,17 @@ DISCUSS_JS = r"""(() => {
       const data = await fetchJson(
         `/api/discussions/${encodeURIComponent(STUDY_SLUG)}?limit=${PAGE_SIZE}&offset=${nextOffset}`,
       );
+      if (data.viewer && typeof data.viewer.loggedIn === "boolean") {
+        setAuthUi(data.viewer);
+      } else {
+        // Keep the page compatible while an older Worker deployment is still
+        // serving the comments response during rollout.
+        try {
+          setAuthUi(await fetchJson("/api/discuss-auth/me"));
+        } catch {
+          setAuthUi({ loggedIn: false });
+        }
+      }
       const batch = data.comments || [];
       if (initialLastSeen === null) initialLastSeen = lastSeenForSlug();
       allComments = append ? allComments.concat(batch) : batch;
@@ -965,17 +1036,6 @@ DISCUSS_JS = r"""(() => {
       loadComments({ append: true }).catch((err) => showAlert("error", readableError(err)));
     });
   }
-
-  const loadSession = async () => {
-    try {
-      setAuthUi(await fetchJson("/api/discuss-auth/me"));
-    } catch (err) {
-      // Reading the discussion needs no session, so a failed check only means
-      // the reader is treated as signed out.
-      setAuthUi({ loggedIn: false });
-    }
-    await loadComments();
-  };
 
   const savedName = (() => {
     try {
@@ -1043,7 +1103,7 @@ DISCUSS_JS = r"""(() => {
     }
   });
 
-  loadSession().catch((err) => showAlert("error", readableError(err)));
+  loadComments().catch((err) => showAlert("error", readableError(err)));
 })();
 """
 
@@ -1126,6 +1186,7 @@ def render_discussion_page(row: StudyRow) -> str:
 <script type="application/ld+json">
 {ld_json}
 </script>
+{AUTH_BOOTSTRAP_SCRIPT}
 <link rel="stylesheet" href="{css_href}">
 </head>
 <body>
@@ -1175,7 +1236,9 @@ def render_discussion_page(row: StudyRow) -> str:
 
   <section class="comments-section" aria-labelledby="comments-heading">
     <h2 id="comments-heading">Comments</h2>
-    <ul id="comment-list" class="comments" aria-live="polite"></ul>
+    <ul id="comment-list" class="comments" aria-live="polite" aria-busy="true">
+      <li class="comments-loading">Loading comments&hellip;</li>
+    </ul>
     <p id="comments-empty" class="hidden">No comments yet. Be the first to start the discussion.</p>
     <p id="comments-error" class="comments-error hidden">
       Comments could not be loaded.
@@ -1187,8 +1250,8 @@ def render_discussion_page(row: StudyRow) -> str:
   </section>
 </div>
 
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"></script>
 <script>window.AMD_DISCUSS = {config_json};</script>
+{AUTH_RENDER_BOOTSTRAP_SCRIPT}
 <script src="{js_href}"></script>
 </body>
 </html>
@@ -1243,8 +1306,16 @@ def verify_discussion_pages() -> list[str]:
     js_path = assets_dir() / DISCUSS_JS_NAME
     if not css_path.is_file():
         errors.append(f"Missing shared discussion stylesheet: {css_path.relative_to(STUDIES.parent)}")
+    elif css_path.read_text(encoding="utf-8") != DISCUSS_CSS:
+        errors.append(f"Stale shared discussion stylesheet: {css_path.relative_to(STUDIES.parent)}")
     if not js_path.is_file():
         errors.append(f"Missing shared discussion script: {js_path.relative_to(STUDIES.parent)}")
+    elif js_path.read_text(encoding="utf-8") != DISCUSS_JS:
+        errors.append(f"Stale shared discussion script: {js_path.relative_to(STUDIES.parent)}")
+    if 'script.dataset.discussTurnstile = "true"' not in DISCUSS_JS:
+        errors.append("Discussion Turnstile must be loaded on demand from the shared script")
+    if "const loadSession" in DISCUSS_JS:
+        errors.append("Discussion comments must not wait on a separate session request")
     for table in CATALOG_TABLES:
         for row in load_catalog_rows(table):
             path = discussion_output_path(row)
@@ -1252,6 +1323,15 @@ def verify_discussion_pages() -> list[str]:
                 continue
             if not path.is_file():
                 errors.append(f"Missing discussion page for {row.slug}: {path.relative_to(STUDIES.parent)}")
+                continue
+            actual = path.read_text(encoding="utf-8")
+            expected = render_discussion_page(row)
+            if actual != expected:
+                errors.append(f"Stale discussion page for {row.slug}: {path.relative_to(STUDIES.parent)}")
+            if '<script src="https://challenges.cloudflare.com' in actual:
+                errors.append(f"Discussion page loads Turnstile before login: {path.relative_to(STUDIES.parent)}")
+            if 'class="comments-loading"' not in actual or 'aria-busy="true"' not in actual:
+                errors.append(f"Discussion page lacks its initial loading state: {path.relative_to(STUDIES.parent)}")
     return errors
 
 
