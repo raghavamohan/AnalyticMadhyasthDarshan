@@ -795,6 +795,13 @@ function cacheAuthState(data) {
     if (snapshot.loggedIn && typeof data.login === 'string' && data.login) {
       snapshot.login = data.login;
       snapshot.userId = data.userId;
+      if (data.notifications && typeof data.notifications.configured === 'boolean') {
+        snapshot.notifications = {
+          configured: data.notifications.configured,
+          hasEmail: Boolean(data.notifications.hasEmail),
+          enabled: Boolean(data.notifications.enabled),
+        };
+      }
     }
     sessionStorage.setItem(AUTH_CACHE_KEY, JSON.stringify(snapshot));
   } catch (_) { /* storage can be unavailable */ }
@@ -813,9 +820,18 @@ async function refreshAuthState() {
       dashboardCache = null; dashboardCacheAt = 0; dashboardRequest++;
       dashboardLoadPromise = null; dashboardLoadAccount = null; proposalOptionsLoaded = false;
       document.getElementById('dashboard-cards').replaceChildren();
-      notifyPrefs = {configured:false,email:null,enabled:false}; document.getElementById('notify-bar').hidden = true;
+      notifyPrefs = {configured:false,email:null,hasEmail:false,enabled:false,loaded:false}; document.getElementById('notify-bar').hidden = true;
     }
     currentUser = data.loggedIn ? data : null;
+    if (currentUser?.notifications) {
+      notifyPrefs = {
+        configured: Boolean(currentUser.notifications.configured),
+        email: null,
+        hasEmail: Boolean(currentUser.notifications.hasEmail),
+        enabled: Boolean(currentUser.notifications.enabled),
+        loaded: false,
+      };
+    }
     const authenticatedLogin = currentUser?.login || null;
     const contributorRestore = contributor.auth(currentUser);
     const userEl = document.getElementById('auth-user');
@@ -835,6 +851,7 @@ async function refreshAuthState() {
     }
     updateAuthUi(Boolean(currentUser));
     if (currentUser) {
+      renderNotifyBar();
       loadNotifyPrefs();
       if (document.getElementById('dashboard-tab').classList.contains('active')) {
         loadDashboard();
@@ -881,16 +898,25 @@ async function logout() {
   showAlert('dashboard', 'info', 'Signed out.');
 }
 
-let notifyPrefs = { configured: false, email: null, enabled: false };
+const bootstrapNotifications = bootstrapAuth?.notifications || null;
+let notifyPrefs = {
+  configured: Boolean(bootstrapNotifications?.configured),
+  email: null,
+  hasEmail: Boolean(bootstrapNotifications?.hasEmail),
+  enabled: Boolean(bootstrapNotifications?.enabled),
+  loaded: false,
+};
 
 function renderNotifyBar() {
   const bar = document.getElementById('notify-bar');
   if (!currentUser || !notifyPrefs.configured) { bar.hidden = true; return; }
   bar.hidden = false;
-  document.getElementById('notify-enabled').checked = Boolean(notifyPrefs.enabled);
+  bar.setAttribute('aria-busy', notifyPrefs.loaded ? 'false' : 'true');
+  const checkbox = document.getElementById('notify-enabled');
+  checkbox.checked = Boolean(notifyPrefs.enabled);
   const btn = document.getElementById('notify-email-btn');
-  btn.textContent = notifyPrefs.email ? 'Change email' : 'Set email';
-  btn.title = notifyPrefs.email || 'Add an email address for notifications';
+  btn.textContent = notifyPrefs.hasEmail ? 'Change email' : 'Set email';
+  btn.title = notifyPrefs.email || (notifyPrefs.hasEmail ? 'Change the notification email address' : 'Add an email address for notifications');
 }
 
 async function loadNotifyPrefs() {
@@ -901,11 +927,12 @@ async function loadNotifyPrefs() {
     const data = await res.json();
     if (currentUser?.login !== identity) return;
     if (res.ok && data.success) {
-      notifyPrefs = { configured: Boolean(data.configured), email: data.email || null, enabled: Boolean(data.enabled) };
+      notifyPrefs = { configured: Boolean(data.configured), email: data.email || null, hasEmail: Boolean(data.email), enabled: Boolean(data.enabled), loaded: true };
+      currentUser.notifications = { configured: notifyPrefs.configured, hasEmail: notifyPrefs.hasEmail, enabled: notifyPrefs.enabled };
+      cacheAuthState(currentUser);
     }
   } catch (e) {
     if (currentUser?.login !== identity) return;
-    notifyPrefs = { configured: false, email: null, enabled: false };
   }
   renderNotifyBar();
 }
@@ -922,7 +949,11 @@ async function saveNotifyPrefs(update) {
     if (currentUser?.login !== identity) return;
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not save notification settings.');
     notifyPrefs.email = data.email || null;
+    notifyPrefs.hasEmail = Boolean(data.email);
     notifyPrefs.enabled = Boolean(data.enabled);
+    notifyPrefs.loaded = true;
+    currentUser.notifications = { configured: notifyPrefs.configured, hasEmail: notifyPrefs.hasEmail, enabled: notifyPrefs.enabled };
+    cacheAuthState(currentUser);
     renderNotifyBar();
   } catch (err) {
     if (currentUser?.login !== identity) return;
@@ -932,7 +963,7 @@ async function saveNotifyPrefs(update) {
 }
 
 document.getElementById('notify-enabled').addEventListener('change', (e) => {
-  if (e.target.checked && !notifyPrefs.email) {
+  if (e.target.checked && !notifyPrefs.hasEmail) {
     const email = window.prompt('Email address for submission notifications:');
     if (!email) { e.target.checked = false; return; }
     saveNotifyPrefs({ email: email.trim(), enabled: true });
@@ -2420,6 +2451,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   applyQueryParams();
   if (currentUser) {
     document.getElementById('auth-user').innerHTML = 'Signed in as <strong>@' + escapeHtml(currentUser.login) + '</strong>';
+    renderNotifyBar();
     showDashboardSkeleton();
   }
   updateAuthUi(Boolean(currentUser));
