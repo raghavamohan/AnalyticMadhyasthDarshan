@@ -125,7 +125,7 @@ now checks and deploys both API Workers when either or their shared guard change
 | `GET /api/health` | — | Liveness `{ status: "ok" }` |
 | `GET /api/auth/github?return_to=…` | — | Start GitHub OAuth; redirects back to `return_to` after sign-in |
 | `GET /api/auth/callback` | — | OAuth callback; sets session cookie |
-| `GET /api/auth/me` | cookie | `{ loggedIn, login }` |
+| `GET /api/auth/me` | cookie | `{ loggedIn, login, notifications }` (notification summary omits the email address) |
 | `POST /api/auth/logout` | cookie | Clear session |
 | `GET /api/me/submissions` | cookie | Unified dashboard: proposals (pending/preparing/ready/declined/retired), study categories, Planned/catalog status, PRs, CI, row actions |
 | `GET /api/me/submissions/status` | cookie | Lightweight review/check refresh for the signed-in contributor's open study PRs |

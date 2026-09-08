@@ -46,7 +46,16 @@
     }).then(function(data){
       if(!data||typeof data.loggedIn!=="boolean")return null;
       var snapshot={loggedIn:data.loggedIn,checkedAt:Date.now()};
-      if(data.loggedIn&&typeof data.login==="string"&&data.login){snapshot.login=data.login;snapshot.userId=data.userId;}
+      if(data.loggedIn&&typeof data.login==="string"&&data.login){
+        snapshot.login=data.login;snapshot.userId=data.userId;
+        if(data.notifications&&typeof data.notifications.configured==="boolean"){
+          snapshot.notifications={
+            configured:data.notifications.configured,
+            hasEmail:Boolean(data.notifications.hasEmail),
+            enabled:Boolean(data.notifications.enabled)
+          };
+        }
+      }
       sessionStorage.setItem(key,JSON.stringify(snapshot));
       return snapshot;
     }).catch(function(){return null;});
