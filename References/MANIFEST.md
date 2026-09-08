@@ -1,6 +1,6 @@
 # Studies citation verification
 
-Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-05.
+Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-05; human-sentience study entries updated: 2026-09-08.
 
 **Legend:** present = available through its listed reference link (R2 or a Git-retained file); external = linked from the original publisher or author URL (see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)); internal = another paper in `Studies/`, not a bibliographic source. Storage state, checksums, and rights decisions are authoritative in [r2-artifacts.json](r2-artifacts.json).
 
@@ -22,9 +22,11 @@ Audit of every reference tag cited in `Studies/`. Last verified: 2026-09-05.
 | | Curry, Mullins, and Whitehouse 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 | external |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV | present |
 | | BU, TU, MU, CU, KU, BG, BSB, VC, DDV | present |
-| | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
-| | Bloom 2013, Churchland 1986, Dennett 1991, Popper 1959, Shapiro 2007, Kandel et al. 2021 | external |
-| | Goff 2019, Kim 2005, Tomasello 2014 | external |
+| | Chalmers 1995, Strawson 2006, Cogitate Consortium 2025 (same archive as Melloni et al. 2025) | present |
+| | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Tomasello 2014 | external |
+| | Bodien et al. 2024, Bridges et al. 2024, Friston et al. 2015, Geraci et al. 2025, Lockwood et al. 2024, Lucca et al. 2025, Lyu et al. 2023, Pinto et al. 2017, Pinto et al. 2023, Ross et al. 2025, Wong et al. 2025 | external |
+| | Bayne and Chalmers 2003, Chalmers 2003, Graziano 2024, Papineau 2016, Papineau 2020, Sterelny 2025 | external |
+| | Ostrom 2010, Prabhakar et al. 2012 | external |
 | [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV | present |
 | | AV, SV | present |
 | | ATR | external |
@@ -101,13 +103,15 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Matthew 22:37-40**, **Quran 16:90** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
 | **Chalmers 1995** | [Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf](Science/Chalmers-1995-Facing-Up-to-the-Problem-of-Consciousness.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
 | **Crockett 2013** | [Science/Crockett-2013-Models-of-Morality.pdf](https://analyticmadhyasthdarshan.org/References/Science/Crockett-2013-Models-of-Morality.pdf) | Axiology-Value-Theory, Ethics-And-Morals |
-| **Nagel 1974** | [Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
+| **Nagel 1974** | [Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf](Science/Nagel-1974-What-Is-It-Like-to-Be-a-Bat.pdf) | Knowledge-Knower, The-Ontology-of-Coexistence |
 | **Strawson 2006** | [Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
-| **Bloom 2013**, **Tomasello 2014** (except Chalmers/Nagel/Strawson) | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans |
-| **Churchland 1986**, **Dennett 1991**, **Goff 2019**, **Kandel et al. 2021**, **Kim 2005**, **Popper 1959** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans, Knowledge-Knower |
+| **Bloom 2013** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Retained external reference; no longer cited in Why-Humans |
+| **Tomasello 2014** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans |
+| **Churchland 1986**, **Dennett 1991**, **Goff 2019**, **Kandel et al. 2021**, **Kim 2005** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans, Knowledge-Knower |
+| **Popper 1959** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
 | **Frankish 2016** | [Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Knowledge-Knower, The-Ontology-of-Coexistence |
 | **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower, The-Ontology-of-Coexistence |
-| **Melloni et al. 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower |
+| **Melloni et al. 2025** / **Cogitate Consortium 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower; Why-Humans (Cogitate Consortium tag) |
 | **SEP Aesthetics of the Everyday** | [SEP entry](https://plato.stanford.edu/entries/aesthetics-of-everyday/) | Aesthetics |
 | **SEP Concept of the Aesthetic** | [SEP entry](https://plato.stanford.edu/entries/aesthetic-concept/) | Aesthetics |
 | **SEP Definition of Art** | [SEP entry](https://plato.stanford.edu/entries/art-definition/) | Aesthetics |
@@ -140,16 +144,34 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Killingsworth 2021** | [Publisher article](https://doi.org/10.1073/pnas.2016976118); [external-reference record](NOT-DOWNLOADED.md) | Axiology-Value-Theory |
 | **Killingsworth, Kahneman, and Mellers 2023** | [Publisher article](https://doi.org/10.1073/pnas.2208661120); [external-reference record](NOT-DOWNLOADED.md) | Axiology-Value-Theory |
 
+### Human sentience sources
+
+| Tag | Reference location | Cited by |
+|-----|--------------------|----------|
+| **Bayne and Chalmers 2003** | [Original source](https://consc.net/papers/unity.html); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Bodien et al. 2024** | [Original source](https://www.nejm.org/doi/full/10.1056/NEJMoa2400645); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Bridges et al. 2024** | [Original source](https://www.nature.com/articles/s41586-024-07126-4); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Chalmers 2003** | [Original source](https://consc.net/papers/nature.html); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Friston et al. 2015** | [Original source](https://pubmed.ncbi.nlm.nih.gov/25689102/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Geraci et al. 2025** | [Original source](https://www.nature.com/articles/s41467-025-61517-3); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Graziano 2024** | [Original source](https://pmc.ncbi.nlm.nih.gov/articles/PMC11521794/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Lockwood et al. 2024** | [Original source](https://www.nature.com/articles/s41562-024-01899-4); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Lucca et al. 2025** | [Original source](https://doi.org/10.1111/desc.13581); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Lyu et al. 2023** | [Original source](https://pubmed.ncbi.nlm.nih.gov/37295420/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Ostrom 2010** | [Publisher article](https://www.aeaweb.org/articles?id=10.1257/aer.100.3.641); [university-hosted full text](https://web.pdx.edu/~nwallace/EHP/OstromPolyGov.pdf); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Papineau 2016** | [Original source](https://doi.org/10.1017/9781107295490.006); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Papineau 2020** | [Original source](https://academic.oup.com/edited-volume/28269/chapter/213410595); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Pinto et al. 2017** | [Original source](https://academic.oup.com/brain/article/140/5/1231/2951052); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Pinto et al. 2023** | [Original source](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1278025/full); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Prabhakar et al. 2012** | [Publisher article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002670); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Ross et al. 2025** | [Original source](https://link.springer.com/article/10.1186/s13019-025-03484-w); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Sterelny 2025** | [Original source](https://gavindavidyounglectures.au/index.php/gdylp/article/download/3/8/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Wong et al. 2025** | [Original source](https://www.nature.com/articles/s41467-025-61945-1); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+
 ## Summary
 
-| Category | Stored locally | External only |
-|----------|----------------|---------------|
-| Madhyasth Darshan (MVD, SB, JV, AVD, JVD, KD, MSM) | 7 PDFs + 1 spreadsheet + KD working translation + MSM translation workspace | 0 |
-| Advaita Vedanta (9 tags) | 8 R2 PDFs | 0 |
-| Comparative philosophy, Indian aesthetics, and religious ethics | 5 | 5 |
-| Science and moral science | 14 (open-access papers) | 26 |
-| Modern philosophy and cognitive science | 19 | 4 |
-| Applied formal studies of Madhyasth Darshan | 1 | 0 |
-| **Total distinct tags** | **47 local files + MD** | **31 external** |
+The tables above record citation coverage; [r2-artifacts.json](r2-artifacts.json) records storage and rights for reference artifacts. A citation tag is not a file count: several tags can identify one volume, and one work can have more than one citation tag.
+
+The science and modern-philosophy bibliography of *Why Humans Are Not Just Material* contains 28 entries: three use existing repository reference links and 25 link externally. The Lucca correction is linked with its original article.
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.
