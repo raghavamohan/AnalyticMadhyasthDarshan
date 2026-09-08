@@ -6,6 +6,10 @@
   const study = '# Test study\n\n**Author:** Alice\n\n## Introduction\n\nA comparison of approaches.\n\n## Table\n\n| Tradition | Claim |\n| --- | --- |\n| MD | Coexistence |\n\n## Equation\n\n$E=mc^2$ and $$x=\\frac{a}{b}$$\n\n```mermaid\nflowchart LR\n  A[Question] --> B[Study]\n```\n\n## References\n\n[Source](https://example.org)\n';
   const registry = {studies:[{slug:'Test-Study',root:'Studies',title:'Test study',notes:['Research-Note-Test.md'],presentations:['Test-Deck.pptx']},{slug:'Second-Study',root:'Applications',title:'Second study',notes:[],presentations:[]}]};
   let account = sessionStorage.getItem('fixture-account') || 'alice';
+  const notificationPrefs = {
+    alice:{configured:true,email:'alice@example.test',enabled:true},
+    bob:{configured:true,email:null,enabled:false},
+  };
   window.fetch = async (input, options={}) => {
     const url = new URL(typeof input === 'string' ? input : input.url,location.href);
     if (url.pathname.endsWith('/companion-artifacts.json')) return response(registry);
@@ -16,10 +20,27 @@
         await new Promise(resolve => setTimeout(resolve,1500));
         document.documentElement.dataset.fixtureAuthPending = 'false';
       }
-      return response({loggedIn:account !== 'signed-out',login:account,userId:account === 'alice' ? 1 : 2});
+      const prefs = notificationPrefs[account];
+      return response({
+        loggedIn:account !== 'signed-out',login:account,userId:account === 'alice' ? 1 : 2,
+        notifications:prefs ? {configured:prefs.configured,hasEmail:Boolean(prefs.email),enabled:prefs.enabled} : undefined,
+      });
     }
     if (url.pathname === '/api/auth/logout') { account = 'signed-out'; sessionStorage.setItem('fixture-account',account); return response({success:true}); }
-    if (url.pathname === '/api/me/notifications') return response({configured:false,enabled:false});
+    if (url.pathname === '/api/me/notifications') {
+      const prefs = notificationPrefs[account] || {configured:true,email:null,enabled:false};
+      if ((options.method || 'GET').toUpperCase() === 'POST') {
+        const update = JSON.parse(options.body || '{}');
+        if (update.email !== undefined) prefs.email = update.email || null;
+        if (update.enabled !== undefined) prefs.enabled = Boolean(update.enabled);
+        if (!prefs.email) prefs.enabled = false;
+      } else if (document.referrer.endsWith('/Studies/index.html')) {
+        document.documentElement.dataset.fixtureNotifyPending = 'true';
+        await new Promise(resolve => setTimeout(resolve,1500));
+        document.documentElement.dataset.fixtureNotifyPending = 'false';
+      }
+      return response({success:true,configured:prefs.configured,email:prefs.email,enabled:prefs.enabled});
+    }
     if (url.pathname === '/api/me/submissions') {
       const requests = Number(document.documentElement.dataset.fixtureDashboardRequests || 0) + 1;
       document.documentElement.dataset.fixtureDashboardRequests = String(requests);

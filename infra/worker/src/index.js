@@ -1688,10 +1688,16 @@ router.get('/api/auth/me', async (request, env) => {
   if (!session) {
     return jsonResponse(request, env, { loggedIn: false });
   }
+  const notifyPrefs = await getNotifyPrefs(env, session.login);
   return jsonResponse(request, env, {
     loggedIn: true,
     login: session.login,
     userId: session.userId,
+    notifications: {
+      configured: Boolean(env.RESEND_API_KEY),
+      hasEmail: Boolean(notifyPrefs.email),
+      enabled: notifyPrefs.enabled,
+    },
   });
 });
 

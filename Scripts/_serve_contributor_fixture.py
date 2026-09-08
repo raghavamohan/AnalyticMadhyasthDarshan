@@ -21,7 +21,12 @@ INDEX_AUTH_HARNESS = """<script>
     const url = new URL(typeof input === 'string' ? input : input.url, location.href);
     if (url.pathname === '/api/auth/me') {
       const account = sessionStorage.getItem('fixture-account') || 'alice';
-      return response({loggedIn: account !== 'signed-out', login: account, userId: 1});
+      return response({
+        loggedIn: account !== 'signed-out', login: account, userId: 1,
+        notifications: account === 'signed-out' ? undefined : {
+          configured: true, hasEmail: account === 'alice', enabled: account === 'alice'
+        }
+      });
     }
     return realFetch(input, options);
   };
