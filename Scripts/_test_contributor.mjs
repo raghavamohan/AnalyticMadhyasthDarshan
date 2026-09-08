@@ -44,7 +44,7 @@ test('dashboard action receipts are account-scoped and never retain transient cr
     removeItem:key => values.delete(key),
   };
   const store=actionOperations.create(storage), id='123e4567-e89b-42d3-a456-426614174000';
-  const operation={id,path:'/api/status-change',payload:{slug:'Test-Study',targetStatus:'released',reason:''},created:'2026-09-08T00:00:00.000Z',retryAllowed:false,state:'inProgress'};
+  const operation={id,path:'/api/status-change',payload:{slug:'Test-Study',targetStatus:'released',reason:'',sourceSha:'a'.repeat(40)},created:'2026-09-08T00:00:00.000Z',retryAllowed:false,state:'inProgress'};
   store.save('Alice',operation);
   assert.deepEqual(store.load('alice'),operation);
   assert.equal(store.load('bob'),null);
@@ -109,4 +109,18 @@ test('failed validation releases the account; ambiguous GitHub writes keep the r
   assert.equal((await operations.claimOperation(store,next.receipt.id,'next','/api/submit')).response.status,409);
   await operations.finishOperation(store,next.receipt,Response.json({success:true,number:45}),false);
   assert.equal(await store.get('active'),undefined);
+});
+test('account write quota publishes remaining capacity and an exact retry delay',async () => {
+  const store=storageFixture();
+  for (let index=0;index<30;index++) {
+    const claim=await operations.claimOperation(store,crypto.randomUUID(),`hash-${index}`,'/api/propose');
+    assert.ok(claim.receipt);
+    assert.match(claim.rateLimitHeaders['RateLimit-Policy'],/account-write/);
+    assert.match(claim.rateLimitHeaders.RateLimit,new RegExp(`r=${29-index}`));
+    await operations.finishOperation(store,claim.receipt,Response.json({success:true}),false);
+  }
+  const limited=await operations.claimOperation(store,crypto.randomUUID(),'over-limit','/api/propose');
+  assert.equal(limited.response.status,429);
+  assert.match(limited.response.headers.get('RateLimit'),/r=0/);
+  assert.match(limited.response.headers.get('Retry-After'),/^\d+$/);
 });

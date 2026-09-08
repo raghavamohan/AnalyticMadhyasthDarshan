@@ -22,6 +22,12 @@ The plain Studies HTTP endpoints use the shared JSON error envelope documented
 in [`openapi/studies.json`](../../openapi/studies.json), with the same
 `requestId` in the `X-Request-ID` header. MCP errors retain their required
 JSON-RPC shape and add that correlation value at `error.data.requestId`.
+Study search, study listing, and glossary reads accept bounded `limit` / `offset`
+pagination (50 by default, 100 maximum) and report `total`, `limit`, `offset`,
+`hasMore`, and `nextOffset`; the corresponding MCP tools expose the same controls.
+Invalid filters return `400` over HTTP or JSON-RPC `-32602` from MCP. MCP request
+bodies are capped at 64 KiB, and plain API responses advertise the shared edge
+policy through `RateLimit-Policy`.
 
 The zone API token can upload this Worker. Production attaches zone Workers
 Routes (`/.well-known/mcp/*`, `/mcp*`, `/api/studies*`, `/api/glossary*`,

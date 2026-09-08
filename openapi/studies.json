@@ -183,7 +183,8 @@
             "name": "q",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 200
             },
             "description": "Search text. Alias: query."
           },
@@ -215,9 +216,35 @@
             "name": "slug",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 60,
+              "pattern": "^[A-Za-z0-9-]+$"
             },
             "description": "Exact catalog directory name."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            },
+            "description": "Maximum rows returned in this page."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            },
+            "description": "Zero-based offset into matching rows."
           }
         ],
         "responses": {
@@ -229,7 +256,18 @@
                   "$ref": "#/components/schemas/SearchResponse"
                 }
               }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "502": {
             "$ref": "#/components/responses/UpstreamError"
@@ -251,7 +289,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 60
             },
             "description": "Catalog directory name, for example The-Ontology-of-Coexistence."
           }
@@ -265,10 +304,18 @@
                   "$ref": "#/components/schemas/StudyDetail"
                 }
               }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
             }
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "502": {
             "$ref": "#/components/responses/UpstreamError"
@@ -289,9 +336,34 @@
             "name": "q",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 200
             },
             "description": "Search text. Alias: query."
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            },
+            "description": "Maximum rows returned in this page."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            },
+            "description": "Zero-based offset into matching rows."
           }
         ],
         "responses": {
@@ -303,7 +375,18 @@
                   "$ref": "#/components/schemas/GlossarySearchResponse"
                 }
               }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
             }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "502": {
             "$ref": "#/components/responses/UpstreamError"
@@ -328,7 +411,15 @@
                   "$ref": "#/components/schemas/StartHere"
                 }
               }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "502": {
             "$ref": "#/components/responses/UpstreamError"
@@ -350,7 +441,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 60
             }
           }
         ],
@@ -363,10 +455,18 @@
                   "$ref": "#/components/schemas/CiteResponse"
                 }
               }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
             }
           },
           "404": {
             "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "502": {
             "$ref": "#/components/responses/UpstreamError"
@@ -523,7 +623,12 @@
         "type": "object",
         "required": [
           "count",
-          "studies"
+          "studies",
+          "total",
+          "limit",
+          "offset",
+          "hasMore",
+          "nextOffset"
         ],
         "properties": {
           "query": {
@@ -542,13 +647,39 @@
             ]
           },
           "count": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Rows returned in this page."
           },
           "studies": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SearchStudy"
             }
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Total matching rows before pagination."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "hasMore": {
+            "type": "boolean"
+          },
+          "nextOffset": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
           }
         }
       },
@@ -617,14 +748,20 @@
         "type": "object",
         "required": [
           "count",
-          "terms"
+          "terms",
+          "total",
+          "limit",
+          "offset",
+          "hasMore",
+          "nextOffset"
         ],
         "properties": {
           "query": {
             "type": "string"
           },
           "count": {
-            "type": "integer"
+            "type": "integer",
+            "description": "Rows returned in this page."
           },
           "terms": {
             "type": "array",
@@ -648,6 +785,31 @@
                 }
               }
             }
+          },
+          "total": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Total matching rows before pagination."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "hasMore": {
+            "type": "boolean"
+          },
+          "nextOffset": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
           }
         }
       },
@@ -707,6 +869,19 @@
           "type": "string",
           "minLength": 8,
           "maxLength": 128
+        }
+      },
+      "RateLimitPolicy": {
+        "description": "Edge IP quota policy: 40 requests per 10 seconds.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "RetryAfter": {
+        "description": "Seconds to wait before retrying a 429 response.",
+        "schema": {
+          "type": "string",
+          "pattern": "^\\d+$"
         }
       }
     },
@@ -880,10 +1055,16 @@
         }
       },
       "RateLimited": {
-        "description": "The request rate limit was exceeded.",
+        "description": "Rate limit exceeded. Wait for Retry-After before retrying.",
         "headers": {
           "X-Request-ID": {
             "$ref": "#/components/headers/RequestId"
+          },
+          "RateLimit-Policy": {
+            "$ref": "#/components/headers/RateLimitPolicy"
+          },
+          "Retry-After": {
+            "$ref": "#/components/headers/RetryAfter"
           }
         },
         "content": {
@@ -894,7 +1075,7 @@
             "example": {
               "success": false,
               "code": "rate_limited",
-              "message": "The request rate limit was exceeded.",
+              "message": "Too many requests. Retry after the indicated delay.",
               "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
             }
           }

@@ -5,6 +5,13 @@ const PROTOCOL_VERSIONS = ["2025-06-18", "2025-03-26", "2024-11-05"];
 const DEFAULT_PROTOCOL = PROTOCOL_VERSIONS[0];
 const CITATION_AUTHOR = "Raghav Mohan";
 const SLUG_RE = /^[A-Za-z0-9-]+$/;
+const MAX_SLUG_LENGTH = 60;
+const MAX_QUERY_LENGTH = 200;
+const DEFAULT_PAGE_LIMIT = 50;
+const MAX_PAGE_LIMIT = 100;
+const MAX_PAGE_OFFSET = 10000;
+const MAX_MCP_BODY_BYTES = 64 * 1024;
+const EDGE_RATE_LIMIT_POLICY = '"edge-ip";q=40;w=10';
 const CATALOG_SOURCES = [
   ["/Studies/catalog-topical.json", "topical"],
   ["/Studies/catalog-formal.json", "formal"],
@@ -51,7 +58,7 @@ const CORS_HEADERS = {
   "access-control-allow-methods": "GET, HEAD, POST, OPTIONS",
   "access-control-allow-headers":
     "content-type, mcp-session-id, mcp-protocol-version, accept",
-  "access-control-expose-headers": "mcp-session-id, mcp-protocol-version, x-request-id",
+  "access-control-expose-headers": "mcp-session-id, mcp-protocol-version, x-request-id, ratelimit-policy, retry-after",
 };
 
 const CARD_HEADERS = {
@@ -145,6 +152,17 @@ function emptyResponse(status, extraHeaders) {
   });
 }
 
+function withEdgeRatePolicy(response) {
+  const headers = new Headers(response.headers);
+  headers.set("RateLimit-Policy", EDGE_RATE_LIMIT_POLICY);
+  headers.delete("Content-Length");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 function absoluteFromStudies(href) {
   if (!href) {
     return null;
@@ -183,6 +201,61 @@ function matchesQuery(entry, query) {
     .join(" ")
     .toLowerCase();
   return haystack.indexOf(String(query).toLowerCase()) !== -1;
+}
+
+function contractError(message) {
+  const error = new Error(message);
+  error.status = 400;
+  return error;
+}
+
+function boundedInteger(value, name, fallback, min, max) {
+  if (value == null || value === "") return fallback;
+  const text = String(value);
+  if (!/^\d+$/.test(text)) {
+    throw contractError(`${name} must be an integer from ${min} to ${max}.`);
+  }
+  const number = Number(text);
+  if (!Number.isSafeInteger(number) || number < min || number > max) {
+    throw contractError(`${name} must be an integer from ${min} to ${max}.`);
+  }
+  return number;
+}
+
+function pagination(input) {
+  return {
+    limit: boundedInteger(input?.limit, "limit", DEFAULT_PAGE_LIMIT, 1, MAX_PAGE_LIMIT),
+    offset: boundedInteger(input?.offset, "offset", 0, 0, MAX_PAGE_OFFSET),
+  };
+}
+
+function pagePayload(total, limit, offset) {
+  const hasMore = offset + limit < total;
+  return {
+    total,
+    limit,
+    offset,
+    hasMore,
+    nextOffset: hasMore ? offset + limit : null,
+  };
+}
+
+function validateCatalogInput(input) {
+  const query = String(input?.query ?? input?.q ?? "");
+  const collection = String(input?.collection || "");
+  const status = String(input?.status || "");
+  const slug = String(input?.slug || "");
+  if (query.length > MAX_QUERY_LENGTH) throw contractError(`query must be ${MAX_QUERY_LENGTH} characters or fewer.`);
+  if (collection && !["topical", "formal", "applied"].includes(collection)) {
+    throw contractError("collection must be topical, formal, or applied.");
+  }
+  if (status && !["ongoing", "draft", "released"].includes(status)) {
+    throw contractError("status must be ongoing, draft, or released.");
+  }
+  if (slug && (!SLUG_RE.test(slug) || slug.length > MAX_SLUG_LENGTH)) {
+    throw contractError("slug must use at most 60 letters, numbers, and hyphens.");
+  }
+  return {...input, query, q: query, collection, status, slug};
 }
 
 async function fetchJson(path) {
@@ -472,6 +545,7 @@ const TOOLS = [
       properties: {
         query: {
           type: "string",
+          maxLength: MAX_QUERY_LENGTH,
           description: "Search text to match against title, slug, description, and category.",
         },
         collection: {
@@ -483,6 +557,8 @@ const TOOLS = [
           type: "string",
           enum: ["ongoing", "draft", "released"],
         },
+        limit: { type: "integer", minimum: 1, maximum: MAX_PAGE_LIMIT, default: DEFAULT_PAGE_LIMIT },
+        offset: { type: "integer", minimum: 0, maximum: MAX_PAGE_OFFSET, default: 0 },
       },
       additionalProperties: false,
     },
@@ -501,6 +577,8 @@ const TOOLS = [
           type: "string",
           enum: ["ongoing", "draft", "released"],
         },
+        limit: { type: "integer", minimum: 1, maximum: MAX_PAGE_LIMIT, default: DEFAULT_PAGE_LIMIT },
+        offset: { type: "integer", minimum: 0, maximum: MAX_PAGE_OFFSET, default: 0 },
       },
       additionalProperties: false,
     },
@@ -513,6 +591,7 @@ const TOOLS = [
       properties: {
         slug: {
           type: "string",
+          maxLength: MAX_SLUG_LENGTH,
           description: "Catalog directory name, for example The-Ontology-of-Coexistence.",
         },
       },
@@ -529,6 +608,7 @@ const TOOLS = [
       properties: {
         slug: {
           type: "string",
+          maxLength: MAX_SLUG_LENGTH,
           description: "Catalog directory name, for example The-Ontology-of-Coexistence.",
         },
       },
@@ -545,8 +625,11 @@ const TOOLS = [
       properties: {
         query: {
           type: "string",
+          maxLength: MAX_QUERY_LENGTH,
           description: "Optional substring. Omit to return every term.",
         },
+        limit: { type: "integer", minimum: 1, maximum: MAX_PAGE_LIMIT, default: DEFAULT_PAGE_LIMIT },
+        offset: { type: "integer", minimum: 0, maximum: MAX_PAGE_OFFSET, default: 0 },
       },
       additionalProperties: false,
     },
@@ -570,6 +653,7 @@ const TOOLS = [
       properties: {
         slug: {
           type: "string",
+          maxLength: MAX_SLUG_LENGTH,
           description: "Catalog directory name, for example The-Ontology-of-Coexistence.",
         },
       },
@@ -594,25 +678,32 @@ function toolError(message) {
 }
 
 async function callTool(name, args) {
-  const input = args && typeof args === "object" ? args : {};
+  const rawInput = args && typeof args === "object" ? args : {};
   if (name === "search_studies" || name === "list_studies" || name === "get_study") {
+    const input = validateCatalogInput(rawInput);
     const rows = await loadCatalogs();
     if (name === "search_studies") {
       const matches = filterStudies(rows, input);
+      const {limit, offset} = pagination(input);
+      const studies = matches.slice(offset, offset + limit);
       return textResult({
         query: input.query || "",
         collection: input.collection || "all",
-        count: matches.length,
-        studies: matches.map(studySummary),
+        count: studies.length,
+        ...pagePayload(matches.length, limit, offset),
+        studies: studies.map(studySummary),
       });
     }
     if (name === "list_studies") {
       const matches = filterStudies(rows, input);
+      const {limit, offset} = pagination(input);
+      const studies = matches.slice(offset, offset + limit);
       return textResult({
         collection: input.collection || "all",
         status: input.status || "all",
-        count: matches.length,
-        studies: matches.map(studySummary),
+        count: studies.length,
+        ...pagePayload(matches.length, limit, offset),
+        studies: studies.map(studySummary),
       });
     }
     const slug = input.slug;
@@ -626,6 +717,7 @@ async function callTool(name, args) {
     return textResult(studySummary(match));
   }
   if (name === "get_study_outline") {
+    const input = validateCatalogInput(rawInput);
     const slug = input.slug;
     if (!slug) {
       return toolError("slug is required");
@@ -638,14 +730,19 @@ async function callTool(name, args) {
     return textResult(await studyDetail(match));
   }
   if (name === "get_glossary") {
+    const input = rawInput;
     const glossary = await fetchJson("/Studies/glossary.json");
     const terms = Array.isArray(glossary.terms) ? glossary.terms : [];
-    const query = input.query || input.q || "";
+    const query = String(input.query || input.q || "");
+    if (query.length > MAX_QUERY_LENGTH) throw contractError(`query must be ${MAX_QUERY_LENGTH} characters or fewer.`);
     const matches = terms.filter((term) => matchesGlossaryTerm(term, query));
+    const {limit, offset} = pagination(input);
+    const pageTerms = matches.slice(offset, offset + limit);
     return textResult({
       query,
-      count: matches.length,
-      terms: matches,
+      count: pageTerms.length,
+      ...pagePayload(matches.length, limit, offset),
+      terms: pageTerms,
     });
   }
   if (name === "get_start_here") {
@@ -653,6 +750,7 @@ async function callTool(name, args) {
     return textResult(await startHerePayload(rows));
   }
   if (name === "get_cite") {
+    const input = validateCatalogInput(rawInput);
     const slug = input.slug;
     if (!slug) {
       return toolError("slug is required");
@@ -691,7 +789,7 @@ function parseStudyResourceUri(uri) {
     return null;
   }
   const slug = decodeURIComponent(uri.slice(prefix.length));
-  return SLUG_RE.test(slug) ? slug : null;
+  return SLUG_RE.test(slug) && slug.length <= MAX_SLUG_LENGTH ? slug : null;
 }
 
 async function handleRpc(message) {
@@ -740,7 +838,7 @@ async function handleRpc(message) {
       const result = await callTool(name, params.arguments || {});
       return rpcResult(id, result);
     } catch (err) {
-      return rpcError(id, -32603, String(err && err.message ? err.message : err));
+      return rpcError(id, err?.status === 400 ? -32602 : -32603, String(err && err.message ? err.message : err));
     }
   }
 
@@ -829,8 +927,16 @@ async function handleMcp(request) {
     return emptyResponse(405, { allow: "POST, OPTIONS" });
   }
   let payload;
+  const advertised = Number(request.headers.get("Content-Length") || 0);
+  if (advertised > MAX_MCP_BODY_BYTES) {
+    return jsonResponse(413, rpcError(null, -32600, `Request body must be ${MAX_MCP_BODY_BYTES} bytes or fewer.`));
+  }
   try {
-    payload = await request.json();
+    const raw = await request.text();
+    if (new TextEncoder().encode(raw).byteLength > MAX_MCP_BODY_BYTES) {
+      return jsonResponse(413, rpcError(null, -32600, `Request body must be ${MAX_MCP_BODY_BYTES} bytes or fewer.`));
+    }
+    payload = JSON.parse(raw);
   } catch (_err) {
     return jsonResponse(400, rpcError(null, -32700, "Parse error"));
   }
@@ -862,29 +968,35 @@ async function handleStudiesApi(request) {
     return emptyResponse(405, { allow: "GET, HEAD, OPTIONS" });
   }
   const url = new URL(request.url);
-  const input = {
+  const rawInput = {
     q: url.searchParams.get("q") || url.searchParams.get("query") || "",
     collection: url.searchParams.get("collection") || "",
     status: url.searchParams.get("status") || "",
     slug: url.searchParams.get("slug") || "",
+    limit: url.searchParams.get("limit"),
+    offset: url.searchParams.get("offset"),
   };
   try {
+    const input = validateCatalogInput(rawInput);
+    const {limit, offset} = pagination(input);
     const rows = await loadCatalogs();
     const matches = filterStudies(rows, input);
+    const studies = matches.slice(offset, offset + limit);
     const body = {
       query: input.q,
       collection: input.collection || "all",
       status: input.status || "all",
       slug: input.slug || null,
-      count: matches.length,
-      studies: matches.map(studySummary),
+      count: studies.length,
+      ...pagePayload(matches.length, limit, offset),
+      studies: studies.map(studySummary),
     };
     if (request.method === "HEAD") {
       return emptyResponse(200, jsonHeaders());
     }
     return jsonResponse(200, body);
   } catch (err) {
-    return jsonResponse(502, { error: String(err && err.message ? err.message : err) });
+    return jsonResponse(err?.status || 502, { error: String(err && err.message ? err.message : err) });
   }
 }
 
@@ -895,7 +1007,7 @@ async function handleStudyBySlug(request, slug) {
   if (request.method !== "GET" && request.method !== "HEAD") {
     return emptyResponse(405, { allow: "GET, HEAD, OPTIONS" });
   }
-  if (!SLUG_RE.test(slug)) {
+  if (!SLUG_RE.test(slug) || slug.length > MAX_SLUG_LENGTH) {
     return jsonResponse(400, { error: "invalid slug" });
   }
   try {
@@ -924,16 +1036,27 @@ async function handleGlossary(request) {
   const url = new URL(request.url);
   const query = url.searchParams.get("q") || url.searchParams.get("query") || "";
   try {
+    if (query.length > MAX_QUERY_LENGTH) throw contractError(`query must be ${MAX_QUERY_LENGTH} characters or fewer.`);
+    const {limit, offset} = pagination({
+      limit: url.searchParams.get("limit"),
+      offset: url.searchParams.get("offset"),
+    });
     const glossary = await fetchJson("/Studies/glossary.json");
     const terms = Array.isArray(glossary.terms) ? glossary.terms : [];
     const matches = terms.filter((term) => matchesGlossaryTerm(term, query));
-    const body = { query, count: matches.length, terms: matches };
+    const pageTerms = matches.slice(offset, offset + limit);
+    const body = {
+      query,
+      count: pageTerms.length,
+      ...pagePayload(matches.length, limit, offset),
+      terms: pageTerms,
+    };
     if (request.method === "HEAD") {
       return emptyResponse(200, jsonHeaders());
     }
     return jsonResponse(200, body);
   } catch (err) {
-    return jsonResponse(502, { error: String(err && err.message ? err.message : err) });
+    return jsonResponse(err?.status || 502, { error: String(err && err.message ? err.message : err) });
   }
 }
 
@@ -963,7 +1086,7 @@ async function handleCite(request, slug) {
   if (request.method !== "GET" && request.method !== "HEAD") {
     return emptyResponse(405, { allow: "GET, HEAD, OPTIONS" });
   }
-  if (!SLUG_RE.test(slug)) {
+  if (!SLUG_RE.test(slug) || slug.length > MAX_SLUG_LENGTH) {
     return jsonResponse(400, { error: "invalid slug" });
   }
   try {
@@ -1029,7 +1152,7 @@ export default {
     for (const route of STUDIES_API_ROUTES) {
       const params = route.match(path);
       if (params) {
-        return route.handle(request, ...params);
+        return withEdgeRatePolicy(await route.handle(request, ...params));
       }
     }
     return new Response("Not Found", { status: 404, headers: CORS_HEADERS });

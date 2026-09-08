@@ -79,11 +79,20 @@ Receipts retain only identifiers, hashes, timestamps and small result metadata,
 not draft bodies or authentication tokens. Receipts are retained to prevent old
 attempts from being replayed after an arbitrary expiry.
 
-Before replacing existing Markdown, the Worker compares `sourceSha` with the
-current GitHub blob. Revisions additionally use GitHub's `sha` update condition,
-so a concurrent commit fails instead of being overwritten. Update branches start
-from the checked base commit. Presentation uploads retain the existing ownership,
-registry and file validation; binary merging is not provided.
+Before replacing an existing study, note, or presentation, the Worker compares
+`sourceSha` with the current GitHub blob. Status changes and deletions carry the
+same source identifier. Revisions additionally use GitHub's `sha` update
+condition, so a concurrent commit fails instead of being overwritten. Update
+branches start from the checked base commit. A stale request returns `409` with
+the current identifier in `details.currentSource`; binary merging is not
+provided.
+
+Contribution responses advertise both the edge policy (40 requests per IP per
+10 seconds) and the account write policy (30 new attempts per UTC hour).
+`RateLimit` reports remaining account capacity and reset time. A `429` includes
+`Retry-After`; wait that many seconds and retry only when the receipt state says
+the unchanged request is allowed. Checking or replaying an existing receipt
+does not consume the account quota.
 
 `GET /api/operation?id=…` checks a receipt scoped to the signed-in account and
 returns one explicit state: `notStarted`, `inProgress`, `complete`, or
