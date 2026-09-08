@@ -74,9 +74,9 @@
     {
       "name": "sync-master-clean-branches",
       "type": "skill-md",
-      "description": "Safely switch a Git repository to master, fast-forward it to origin/master, remove obsolete local PR branches whose work is already merged, and clean up uncommitted generated study/application PDFs. Use when asked to sync or refresh master, return to the remote head, prune merged local PR branches, or perform a full sync and cleanup. Preserves tracked PDFs, reference-library files, dirty source work, and remote or unmerged branches.",
+      "description": "Safely switch a Git repository to master, fast-forward it to origin/master, remove obsolete local PR branches whose work is already merged, remove the repository-local tmp directory, and clean up generated study/application PDFs. Use when asked to sync or refresh master, return to the remote head, prune merged local PR branches, or perform a full sync and cleanup. Preserves reference-library files, dirty source work, and remote or unmerged branches.",
       "url": "/.well-known/agent-skills/sync-master-clean-branches/SKILL.md",
-      "digest": "sha256:7e3b93c1ca04524336839273e419ec41df5729763089a93f575aa1fe6a6eea8c"
+      "digest": "sha256:c5e829b079de3b4a0085100f24a192168d4680e10bf886eb11d773fe3118f179"
     },
     {
       "name": "transcribe-recording",
