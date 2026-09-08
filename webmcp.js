@@ -28,7 +28,6 @@
     auth: "/auth.md",
     submissions: "/Studies/submit.html",
     "api-catalog": "/.well-known/api-catalog",
-    "agent-card": "/.well-known/agent-card.json",
   };
   var catalogCache = null;
 
@@ -320,7 +319,7 @@
       name: "open_page",
       description:
         "Navigate this tab to a site page: studies catalog, API docs, Auth.md, " +
-        "submissions portal, RFC 9727 api-catalog, or A2A Agent Card.",
+        "submissions portal, or RFC 9727 api-catalog.",
       inputSchema: {
         type: "object",
         properties: {

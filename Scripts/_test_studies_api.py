@@ -25,6 +25,7 @@ from _study_catalog import (
     LLMS_TXT_PATH,
     STUDIES_FEED_PATH,
     StudyStatus,
+    _absolute_from_studies,
     catalog_json_path,
 )
 
@@ -152,6 +153,12 @@ def check_llms(rows: list[dict]) -> None:
         html_link = f"{row['slug']}/{row['slug']}.html)"
         if html_link in text.split("## Studies", 1)[-1].split("## Optional", 1)[0]:
             fail(f"llms.txt Studies section still links HTML for {row['slug']}")
+        html_url = row.get("html")
+        if not html_url or not html_url.endswith(".html"):
+            fail(f"published study {row['slug']} html is {html_url!r}")
+        absolute_html = _absolute_from_studies(html_url)
+        if f"- HTML: {absolute_html}" not in full:
+            fail(f"llms-full.txt should label the HTML URL for {row['slug']}")
     print("OK: llms.txt and llms-full.txt list published studies.")
 
 
@@ -258,6 +265,23 @@ def check_openapi() -> None:
     ):
         if path not in paths:
             fail(f"openapi/studies.json is missing {path}")
+    cite_404 = ((paths["/api/cite/{slug}"]["get"].get("responses") or {}).get("404") or {})
+    if "published document" not in str(cite_404.get("description") or ""):
+        fail("openapi/studies.json must document uncitable ongoing rows as 404")
+    runtime = (BASE / "infra" / "mcp-worker" / "src" / "runtime.js").read_text(
+        encoding="utf-8"
+    )
+    tool_section = runtime.split('if (name === "get_cite")', 1)[-1].split(
+        "return toolError(`Unknown tool", 1
+    )[0]
+    http_section = runtime.split("async function handleCite", 1)[-1].split(
+        "export default", 1
+    )[0]
+    if any(
+        "No published document for slug" not in section
+        for section in (tool_section, http_section)
+    ):
+        fail("MCP and HTTP citation paths must both reject rows without a document")
     print("OK: openapi/studies.json documents catalog read endpoints.")
 
 
@@ -384,6 +408,18 @@ def check_live() -> None:
     if slug not in (cite.get("citation") or "") or not cite.get("mdUrl"):
         fail(f"GET /api/cite/{slug} citation is incomplete: {body[:300]}")
     print(f"OK: live GET /api/cite/{slug} returns a citation line.")
+
+    rows = load_json(CATALOG_ALL_PATH)
+    ongoing = next((row for row in rows if row.get("status") == "ongoing"), None)
+    if ongoing:
+        ongoing_slug = ongoing["slug"]
+        status, _headers, body = fetch_live(f"{SITE}/api/cite/{ongoing_slug}")
+        if status != 404:
+            fail(
+                f"GET /api/cite/{ongoing_slug} returned HTTP {status}, expected 404: "
+                f"{body[:300]}"
+            )
+        print("OK: live citation endpoint rejects ongoing rows without a document.")
 
 
 def main() -> None:

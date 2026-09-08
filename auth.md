@@ -1,22 +1,11 @@
 # auth.md
 
-This document tells agents how Analytic Madhyasth Darshan handles identity.
-Machine-readable OAuth discovery is at
-
-- https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource
-  ([RFC 9728](https://www.rfc-editor.org/rfc/rfc9728))
-- https://analyticmadhyasthdarshan.org/.well-known/oauth-authorization-server
-  ([RFC 8414](https://www.rfc-editor.org/rfc/rfc8414))
+This document tells agents how Analytic Madhyasth Darshan handles identity and
+which public interfaces require credentials.
 
 The public API catalog is at
 https://analyticmadhyasthdarshan.org/.well-known/api-catalog
 ([RFC 9727](https://www.rfc-editor.org/rfc/rfc9727)).
-
-The A2A Agent Card is at
-https://analyticmadhyasthdarshan.org/.well-known/agent-card.json
-([A2A Protocol](https://a2a-protocol.org/latest/specification/)).
-It describes public catalog reads over HTTP+JSON. This site does not run an
-A2A JSON-RPC Worker and does not accept `message/send` tasks.
 
 Repo agent skills are listed at
 https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json
@@ -64,8 +53,7 @@ and registers tools with `navigator.modelContext.registerTool` on load.
 DNS for AI Discovery ([DNS-AID](https://datatracker.ietf.org/doc/html/draft-mozleywilliams-dnsop-dnsaid))
 publishes ServiceMode HTTPS records under the `_agents` namespace. The zone is
 DNSSEC-signed; Cloudflare Registrar publishes the parent DS from CDS/CDNSKEY.
-Query `_index._agents.analyticmadhyasthdarshan.org` for the site index
-and `_a2a._agents.analyticmadhyasthdarshan.org` for the Agent Card endpoint.
+Query `_index._agents.analyticmadhyasthdarshan.org` for the site index.
 
 ## Audience
 
@@ -75,10 +63,10 @@ JSON, HTML, Markdown, and PDFs are public. Start at
 [Studies/catalog-all.json](Studies/catalog-all.json), or
 [Studies/catalog-topical.json](Studies/catalog-topical.json).
 
-**Write APIs are for humans.** This site does not mint OAuth access tokens for
-agents, does not accept ID-JAG assertions, and does not run an Auth.md
-credential ceremony. `POST` to `register_uri` or `claim_uri` returns
-`501` and does not create an account, send email, or issue a credential.
+**Write APIs are for humans.** The public site does not expose an OAuth
+authorization server, bearer-token flow, agent registration flow, or A2A task
+runtime. Agents should treat submission and discussion writes as interactive
+browser workflows unless a future API version explicitly documents otherwise.
 
 ## Human provisioning
 
@@ -120,8 +108,3 @@ preview origins must be explicitly configured. API responses are private and
 must not be cached. OAuth callbacks validate signed, expiring state and use
 S256 PKCE; session cookies contain an opaque identifier rather than a GitHub
 access token. Email sign-in links are single-use and expire after 15 minutes.
-
-Authorization Server metadata still advertises `bearer_methods_supported: ["header"]`
-and a verified-email registration method so agents can discover this policy
-through the Auth.md / RFC 9728 path. The advertised `register_uri` and
-`claim_uri` are discovery stubs; they do not issue tokens.

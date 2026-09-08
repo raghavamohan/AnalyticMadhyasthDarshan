@@ -135,6 +135,10 @@ test('real routes apply write checks and private headers before handlers', async
     assert.equal(response.status, 403);
     assert.equal(response.headers.get('Cache-Control'), 'private, no-store');
   }
+  const wrongMediaType = await worker.fetch(new Request(url('/logout'), {
+    method: 'POST', headers: { Origin: origin },
+  }), {});
+  assert.equal(wrongMediaType.status, 415);
   const response = await worker.fetch(new Request(url('/logout'), {
     method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' },
   }), {});
@@ -147,6 +151,27 @@ test('real routes apply write checks and private headers before handlers', async
   const missing = await worker.fetch(new Request('https://api.example/unknown'), {});
   assert.equal(missing.status, 404);
   assert.equal(missing.headers.get('Cache-Control'), 'private, no-store');
+
+  const protectedUrl = discussion
+    ? 'https://api.example/api/discussions/Test-Study/comments'
+    : 'https://api.example/api/propose';
+  const unauthorized = await worker.fetch(new Request(protectedUrl, {
+    method: 'POST',
+    headers: { Origin: origin, 'Content-Type': 'application/json' },
+    body: '{}',
+  }), {});
+  assert.equal(unauthorized.status, 401);
+  assert.equal(unauthorized.headers.get('WWW-Authenticate'), null);
+  assert.equal((await unauthorized.json()).success, false);
+
+  if (discussion) {
+    const malformed = await worker.fetch(new Request(url('/magic-link'), {
+      method: 'POST',
+      headers: { Origin: origin, 'Content-Type': 'application/json' },
+      body: '{',
+    }), { DB: {} });
+    assert.equal(malformed.status, 400);
+  }
 });
 
 if (discussion) test('comment listing includes an email-free viewer summary', async () => {
@@ -244,6 +269,10 @@ if (!discussion) test('revision routes reject stale source and replay a receipt 
   const post = data => worker.fetch(new Request('https://api.example/api/revise',{method:'POST',headers,body:JSON.stringify(data)}),env);
   const base={prNumber:7,author:'Alice',content:'# Test study\n\nA revised study.',turnstileToken:'fixture'};
   try {
+    const malformed = await worker.fetch(new Request('https://api.example/api/revise', {
+      method:'POST', headers, body:'{',
+    }), env);
+    assert.equal(malformed.status, 400);
     const loaded=await worker.fetch(new Request('https://api.example/api/revision-source?pr=7',{headers}),env);
     assert.equal((await loaded.json()).sourceSha,'a'.repeat(40));
     const stale=await post({...base,operationId:crypto.randomUUID(),sourceSha:'b'.repeat(40)});

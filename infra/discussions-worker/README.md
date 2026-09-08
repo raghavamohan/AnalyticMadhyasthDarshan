@@ -119,7 +119,7 @@ Or manually in Cloudflare dashboard → Workers Routes:
 | `GET /api/discuss-auth/me` | cookie | `{ loggedIn, email, displayName, isAdmin }` |
 | `POST /api/discuss-auth/logout` | cookie | Clear session |
 
-Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with the submissions worker (`/api/auth/github`, etc.). `health` and `stats` are reserved slugs so `GET /api/discussions/:slug` cannot swallow the liveness or stats routes. Unauthenticated JSON `401` responses include `WWW-Authenticate` pointing at the apex [RFC 9728](https://www.rfc-editor.org/rfc/rfc9728) Protected Resource Metadata.
+Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with the submissions worker (`/api/auth/github`, etc.). `health` and `stats` are reserved slugs so `GET /api/discussions/:slug` cannot swallow the liveness or stats routes. Unauthenticated writes return JSON `401` responses and rely on the documented first-party session-cookie flow; they do not advertise bearer authentication.
 
 ## Cloudflare edge limits (apex domain)
 
