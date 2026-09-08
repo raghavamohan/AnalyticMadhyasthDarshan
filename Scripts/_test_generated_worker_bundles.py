@@ -1,6 +1,7 @@
 """Compare generated discovery Worker bundles with their canonical inputs."""
 from __future__ import annotations
 
+import argparse
 import json
 from pathlib import Path
 
@@ -16,9 +17,15 @@ def fail(message: str) -> None:
     raise SystemExit(f"FAIL: {message}")
 
 
-def check(path: Path, expected: str) -> None:
+def check(path: Path, expected: str, *, require_generated: bool) -> None:
     if not path.is_file():
-        fail(f"missing generated bundle {path.relative_to(BASE)}")
+        if require_generated:
+            fail(f"missing generated bundle {path.relative_to(BASE)}")
+        print(
+            f"OK: rendered canonical {path.relative_to(BASE)}; "
+            "generated bundle is absent from this clean checkout."
+        )
+        return
     actual = path.read_bytes()
     canonical = expected.replace("\r\n", "\n").encode("utf-8")
     if actual != canonical:
@@ -27,6 +34,16 @@ def check(path: Path, expected: str) -> None:
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Validate generated discovery Worker bundles."
+    )
+    parser.add_argument(
+        "--require-generated",
+        action="store_true",
+        help="fail when a generated Worker bundle is absent",
+    )
+    args = parser.parse_args()
+
     agent_index = json.loads(agent_skills.INDEX_PATH.read_text(encoding="utf-8"))
     maintainer_index = json.loads(
         agent_skills.MAINTAINER_INDEX_PATH.read_text(encoding="utf-8")
@@ -38,14 +55,17 @@ def main() -> None:
             maintainer_index,
             agent_skills.load_published_skills(),
         ),
+        require_generated=args.require_generated,
     )
     check(
         mcp.WORKER_SRC,
         mcp.worker_js(json.loads(mcp.CARD_PATH.read_text(encoding="utf-8"))),
+        require_generated=args.require_generated,
     )
     check(
         auth_md.WORKER_SRC,
         auth_md.worker_js(auth_md.AUTH_MD_PATH.read_text(encoding="utf-8")),
+        require_generated=args.require_generated,
     )
 
 

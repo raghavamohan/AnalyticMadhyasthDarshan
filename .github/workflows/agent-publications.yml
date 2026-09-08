@@ -139,7 +139,7 @@ jobs:
 
       - name: Check generated JavaScript
         run: |
-          python Scripts/_test_generated_worker_bundles.py
+          python Scripts/_test_generated_worker_bundles.py --require-generated
           node --check infra/agent-skills-worker/src/index.js
           node --check infra/mcp-worker/src/index.js
           node --check infra/auth-md-worker/src/index.js
