@@ -1,5 +1,11 @@
 import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
 import { normalizeApiErrorResponse } from '../../shared/api-errors.mjs';
+import {
+  paginationMeta,
+  parsePagination,
+  readJsonWithin,
+  withRateLimitPolicy,
+} from '../../shared/api-contract.mjs';
 import { Router } from 'itty-router';
 import {
   allowedOrigins,
@@ -14,7 +20,8 @@ import {
 } from './auth.js';
 import {
   consumeMagicToken,
-  countRecentMagicTokens,
+  countComments,
+  countThreadStats,
   ensureThread,
   findOrCreateUser,
   getComment,
@@ -22,6 +29,7 @@ import {
   insertComment,
   listComments,
   listThreadStats,
+  magicLinkRateState,
   nowMs,
   storeMagicToken,
 } from './db.js';
@@ -32,6 +40,15 @@ const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverif
 const MAGIC_LINK_TTL_MS = 15 * 60 * 1000;
 const MAX_BODY_LENGTH = 8192;
 const MAX_DISPLAY_NAME_LENGTH = 80;
+const MAX_SLUG_LENGTH = 60;
+const MAX_TITLE_LENGTH = 160;
+const MAX_EMAIL_LENGTH = 254;
+const MAX_RETURN_TO_LENGTH = 2048;
+const MAX_TURNSTILE_TOKEN_LENGTH = 4096;
+const MAX_JSON_BYTES = 16 * 1024;
+const MAGIC_LINK_LIMIT = 5;
+const MAGIC_LINK_WINDOW_SECONDS = 3600;
+const MAGIC_LINK_POLICY = `"magic-link-email";q=${MAGIC_LINK_LIMIT};w=${MAGIC_LINK_WINDOW_SECONDS}, "edge-ip";q=40;w=10`;
 const SLUG_RE = /^[A-Za-z0-9][A-Za-z0-9-]*$/;
 const RESERVED_SLUGS = new Set(['health', 'stats']);
 function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
@@ -59,9 +76,11 @@ function requireDb(env) {
   return env.DB;
 }
 
-function httpError(status, message) {
+function httpError(status, message, options = {}) {
   const error = new Error(message);
   error.status = status;
+  error.details = options.details;
+  error.headers = options.headers;
   return error;
 }
 
@@ -70,18 +89,45 @@ function validationError(message) {
 }
 
 async function readJson(request) {
-  try {
-    return await request.json();
-  } catch (_) {
-    throw validationError('Request body must be valid JSON.');
+  return readJsonWithin(request, MAX_JSON_BYTES);
+}
+
+function errorPayload(error) {
+  return {
+    success: false,
+    error: error.message,
+    ...(error.details ? {details: error.details} : {}),
+  };
+}
+
+function magicLinkHeaders(used, retryAfter, includeRetryAfter = false) {
+  const remaining = Math.max(0, MAGIC_LINK_LIMIT - used);
+  return {
+    'RateLimit-Policy': MAGIC_LINK_POLICY,
+    'RateLimit': `"magic-link-email";r=${remaining};t=${retryAfter}`,
+    ...(includeRetryAfter ? {'Retry-After': String(retryAfter)} : {}),
+  };
+}
+
+function sourceConflict(currentSource, providedSource) {
+  return httpError(409, 'The comment changed. Reload the discussion and try again.', {
+    details: {currentSource, providedSource: providedSource ?? null},
+  });
+}
+
+function sourceUpdatedAt(value) {
+  const parsed = Number(value);
+  if (!Number.isSafeInteger(parsed) || parsed < 0) {
+    throw validationError('sourceUpdatedAt must be the current comment source identifier.');
   }
+  return parsed;
 }
 
 async function verifyTurnstile(token, env, request) {
   if (!env.TURNSTILE_SECRET_KEY) {
     throw httpError(503, 'Turnstile is not configured on the server.');
   }
-  if (!token) {
+  if (!token || String(token).length > MAX_TURNSTILE_TOKEN_LENGTH) {
     throw validationError('Turnstile verification is required.');
   }
 
@@ -118,7 +164,7 @@ function sanitizeBody(body) {
 
 function validateSlug(slug) {
   const value = String(slug || '').trim();
-  if (!value || !SLUG_RE.test(value) || RESERVED_SLUGS.has(value.toLowerCase())) {
+  if (!value || value.length > MAX_SLUG_LENGTH || !SLUG_RE.test(value) || RESERVED_SLUGS.has(value.toLowerCase())) {
     throw validationError('Invalid study slug.');
   }
   return value;
@@ -167,13 +213,19 @@ router.get('/api/discussions/health', (request, env) => jsonResponse(request, en
 router.get('/api/discussions/stats', async (request, env) => {
   try {
     const db = requireDb(env);
-    const rows = await listThreadStats(db);
+    const url = new URL(request.url);
+    const {limit, offset} = parsePagination(url);
+    const [rows, total] = await Promise.all([
+      listThreadStats(db, {limit, offset}),
+      countThreadStats(db),
+    ]);
     return jsonResponse(request, env, {
       threads: rows.map((row) => ({
         slug: row.slug,
         count: Number(row.count || 0),
         latestAt: Number(row.latest_at || 0),
       })),
+      meta: paginationMeta(total, limit, offset),
     });
   } catch (err) {
     return jsonResponse(request, env, { error: err.message }, err.status || 500);
@@ -186,13 +238,16 @@ router.get('/api/discussions/:slug', async (request, env) => {
     const slug = validateSlug(request.params.slug);
     const session = await getSession(request, env);
     const url = new URL(request.url);
-    const limit = Math.min(Number(url.searchParams.get('limit') || 50), 100);
-    const offset = Math.max(Number(url.searchParams.get('offset') || 0), 0);
-    const comments = await listComments(db, slug, { limit, offset });
+    const {limit, offset} = parsePagination(url);
+    const [comments, total] = await Promise.all([
+      listComments(db, slug, {limit, offset}),
+      countComments(db, slug),
+    ]);
     return jsonResponse(request, env, {
       slug,
       viewer: discussionViewer(session, env),
       comments: comments.map((row) => mapCommentRow(row, session, env)),
+      meta: paginationMeta(total, limit, offset),
     });
   } catch (err) {
     return jsonResponse(request, env, { error: err.message }, err.status || 500);
@@ -208,6 +263,9 @@ router.post('/api/discussions/:slug/comments', async (request, env) => {
 
     const body = sanitizeBody(data.body);
     const title = String(data.title || slug).trim() || slug;
+    if (title.length > MAX_TITLE_LENGTH) {
+      throw validationError(`Discussion title must be ${MAX_TITLE_LENGTH} characters or fewer.`);
+    }
     await ensureThread(db, slug, title);
 
     // Only accept a parent that is a visible comment in this same thread;
@@ -221,7 +279,7 @@ router.post('/api/discussions/:slug/comments', async (request, env) => {
     }
 
     const commentId = crypto.randomUUID();
-    await insertComment(db, {
+    const createdAt = await insertComment(db, {
       id: commentId,
       threadSlug: slug,
       parentId,
@@ -229,7 +287,6 @@ router.post('/api/discussions/:slug/comments', async (request, env) => {
       body,
     });
 
-    const createdAt = nowMs();
     return jsonResponse(request, env, {
       success: true,
       comment: {
@@ -258,16 +315,24 @@ router.post('/api/discussions/:slug/comments/:commentId/hide', async (request, e
     }
     const db = requireDb(env);
     const slug = validateSlug(request.params.slug);
+    const data = await readJson(request);
+    const expectedUpdatedAt = sourceUpdatedAt(data.sourceUpdatedAt);
     const comment = await getComment(db, request.params.commentId, slug);
     if (!comment || comment.status !== 'visible') {
       const err = new Error('Comment not found.');
       err.status = 404;
       throw err;
     }
-    await hideComment(db, request.params.commentId);
+    if (Number(comment.updated_at) !== expectedUpdatedAt) {
+      throw sourceConflict(Number(comment.updated_at), expectedUpdatedAt);
+    }
+    if (!await hideComment(db, request.params.commentId, expectedUpdatedAt)) {
+      const current = await getComment(db, request.params.commentId, slug);
+      throw sourceConflict(current ? Number(current.updated_at) : null, expectedUpdatedAt);
+    }
     return jsonResponse(request, env, { success: true });
   } catch (err) {
-    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+    return jsonResponse(request, env, errorPayload(err), err.status || 500, err.headers);
   }
 });
 
@@ -276,6 +341,8 @@ router.post('/api/discussions/:slug/comments/:commentId/delete', async (request,
     const session = requireSession(await getSession(request, env));
     const db = requireDb(env);
     const slug = validateSlug(request.params.slug);
+    const data = await readJson(request);
+    const expectedUpdatedAt = sourceUpdatedAt(data.sourceUpdatedAt);
     const comment = await getComment(db, request.params.commentId, slug);
     if (!comment || comment.status !== 'visible') {
       const err = new Error('Comment not found.');
@@ -287,10 +354,16 @@ router.post('/api/discussions/:slug/comments/:commentId/delete', async (request,
       err.status = 403;
       throw err;
     }
-    await hideComment(db, request.params.commentId);
+    if (Number(comment.updated_at) !== expectedUpdatedAt) {
+      throw sourceConflict(Number(comment.updated_at), expectedUpdatedAt);
+    }
+    if (!await hideComment(db, request.params.commentId, expectedUpdatedAt)) {
+      const current = await getComment(db, request.params.commentId, slug);
+      throw sourceConflict(current ? Number(current.updated_at) : null, expectedUpdatedAt);
+    }
     return jsonResponse(request, env, { success: true });
   } catch (err) {
-    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+    return jsonResponse(request, env, errorPayload(err), err.status || 500, err.headers);
   }
 });
 
@@ -302,18 +375,26 @@ router.post('/api/discuss-auth/magic-link', async (request, env) => {
 
     const email = String(data.email || '').trim().toLowerCase();
     const displayName = String(data.displayName || '').trim();
+    if (String(data.returnTo || '').length > MAX_RETURN_TO_LENGTH) {
+      throw validationError(`returnTo must be ${MAX_RETURN_TO_LENGTH} characters or fewer.`);
+    }
     const returnTo = sanitizeReturnTo(data.returnTo, env);
 
-    if (!email || !email.includes('@')) {
+    if (!email || email.length > MAX_EMAIL_LENGTH || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
       throw validationError('A valid email address is required.');
     }
     if (!displayName || displayName.length > MAX_DISPLAY_NAME_LENGTH) {
       throw validationError(`Display name is required (max ${MAX_DISPLAY_NAME_LENGTH} characters).`);
     }
 
-    const recentCount = await countRecentMagicTokens(db, email, nowMs() - 60 * 60 * 1000);
-    if (recentCount >= 5) {
-      throw httpError(429, 'Too many sign-in requests. Try again later.');
+    const now = nowMs();
+    // Tokens expire after 15 minutes, so an expiry newer than now - 45 minutes
+    // corresponds to an issuance time inside the rolling one-hour window.
+    const rate = await magicLinkRateState(db, email, now - 45 * 60 * 1000, now);
+    if (rate.count >= MAGIC_LINK_LIMIT) {
+      throw httpError(429, 'Too many sign-in requests. Retry after the indicated delay.', {
+        headers: magicLinkHeaders(rate.count, rate.retryAfter, true),
+      });
     }
 
     const token = crypto.randomUUID();
@@ -329,7 +410,7 @@ router.post('/api/discuss-auth/magic-link', async (request, env) => {
         success: true,
         message: 'Magic link generated (dev mode).',
         verifyUrl,
-      });
+      }, 200, magicLinkHeaders(rate.count + 1, rate.retryAfter));
     } else {
       throw httpError(503, 'Email is not configured on the server.');
     }
@@ -337,9 +418,9 @@ router.post('/api/discuss-auth/magic-link', async (request, env) => {
     return jsonResponse(request, env, {
       success: true,
       message: 'Check your email for a sign-in link.',
-    });
+    }, 200, magicLinkHeaders(rate.count + 1, rate.retryAfter));
   } catch (err) {
-    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+    return jsonResponse(request, env, errorPayload(err), err.status || 500, err.headers);
   }
 });
 
@@ -348,8 +429,12 @@ router.get('/api/discuss-auth/verify', async (request, env) => {
     const db = requireDb(env);
     const url = new URL(request.url);
     const token = url.searchParams.get('token');
-    const returnTo = sanitizeReturnTo(url.searchParams.get('return_to'), env);
-    if (!token) {
+    const returnToParam = url.searchParams.get('return_to');
+    if (String(returnToParam || '').length > MAX_RETURN_TO_LENGTH) {
+      throw validationError(`return_to must be ${MAX_RETURN_TO_LENGTH} characters or fewer.`);
+    }
+    const returnTo = sanitizeReturnTo(returnToParam, env);
+    if (!token || token.length > 64) {
       throw validationError('Missing sign-in token.');
     }
 
@@ -407,6 +492,6 @@ export default {
       }
     }
     response = await normalizeApiErrorResponse(request, response);
-    return privateResponse(response, corsHeaders(request, env));
+    return privateResponse(withRateLimitPolicy(response), corsHeaders(request, env));
   },
 };

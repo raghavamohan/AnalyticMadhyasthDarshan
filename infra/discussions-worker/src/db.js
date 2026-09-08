@@ -90,17 +90,18 @@ export async function insertComment(db, {
     INSERT INTO comments (id, thread_slug, parent_id, user_id, body, status, created_at, updated_at)
     VALUES (?, ?, ?, ?, ?, 'visible', ?, ?)
   `).bind(id, threadSlug, parentId || null, userId, body, ts, ts).run();
+  return ts;
 }
 
 export async function getComment(db, commentId, threadSlug) {
   return db.prepare(`
-    SELECT id, thread_slug, user_id, status
+    SELECT id, thread_slug, user_id, status, updated_at
     FROM comments
     WHERE id = ? AND thread_slug = ?
   `).bind(commentId, threadSlug).first();
 }
 
-export async function listThreadStats(db) {
+export async function listThreadStats(db, {limit = 50, offset = 0} = {}) {
   const { results } = await db.prepare(`
     SELECT
       thread_slug AS slug,
@@ -109,19 +110,47 @@ export async function listThreadStats(db) {
     FROM comments
     WHERE status = 'visible'
     GROUP BY thread_slug
-  `).all();
+    ORDER BY latest_at DESC, slug ASC
+    LIMIT ? OFFSET ?
+  `).bind(limit, offset).all();
   return results || [];
 }
 
-export async function hideComment(db, commentId) {
-  await db.prepare(
-    "UPDATE comments SET status = 'hidden', updated_at = ? WHERE id = ? AND status = 'visible'",
-  ).bind(nowMs(), commentId).run();
+export async function countThreadStats(db) {
+  const row = await db.prepare(`
+    SELECT COUNT(*) AS count FROM (
+      SELECT thread_slug
+      FROM comments
+      WHERE status = 'visible'
+      GROUP BY thread_slug
+    )
+  `).first();
+  return Number(row?.count || 0);
 }
 
-export async function countRecentMagicTokens(db, email, sinceMs) {
+export async function countComments(db, slug) {
   const row = await db.prepare(
-    'SELECT COUNT(*) AS count FROM magic_tokens WHERE email = ? AND expires_at > ?',
-  ).bind(email.trim().toLowerCase(), sinceMs).first();
+    "SELECT COUNT(*) AS count FROM comments WHERE thread_slug = ? AND status = 'visible'",
+  ).bind(slug).first();
   return Number(row?.count || 0);
+}
+
+export async function hideComment(db, commentId, sourceUpdatedAt) {
+  const result = await db.prepare(
+    "UPDATE comments SET status = 'hidden', updated_at = ? WHERE id = ? AND status = 'visible' AND updated_at = ?",
+  ).bind(nowMs(), commentId, sourceUpdatedAt).run();
+  return Number(result?.meta?.changes || 0) === 1;
+}
+
+export async function magicLinkRateState(db, email, sinceExpiryMs, now = nowMs()) {
+  const row = await db.prepare(
+    'SELECT COUNT(*) AS count, MIN(expires_at) AS oldest_expiry FROM magic_tokens WHERE email = ? AND expires_at > ?',
+  ).bind(email.trim().toLowerCase(), sinceExpiryMs).first();
+  const oldestExpiry = Number(row?.oldest_expiry || 0);
+  return {
+    count: Number(row?.count || 0),
+    retryAfter: oldestExpiry
+      ? Math.max(1, Math.ceil((oldestExpiry + 45 * 60 * 1000 - now) / 1000))
+      : 3600,
+  };
 }

@@ -7,9 +7,16 @@ import {
   digestPayload,
   claimOperation,
   finishOperation,
+  attachRateLimitHeaders,
 } from './operations.js';
 import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
 import { normalizeApiErrorResponse } from '../../shared/api-errors.mjs';
+import {
+  paginationMeta,
+  parsePagination,
+  readJsonWithin,
+  withRateLimitPolicy,
+} from '../../shared/api-contract.mjs';
 import { Router } from 'itty-router';
 import {
   allowedOrigins,
@@ -57,6 +64,10 @@ const PROPOSAL_REGISTRY_CACHE_KEY = 'https://amd-submissions.internal/proposal-r
 const COMPANION_ARTIFACTS_PATH = 'Studies/companion-artifacts.json';
 const COMPANION_ARTIFACTS_CACHE_KEY = 'https://amd-submissions.internal/companion-artifacts';
 const CHECK_POOL_SIZE = 5;
+const DASHBOARD_STAGES = new Set([
+  'pending', 'preparing', 'accepted', 'declined', 'retired',
+  'pr-open', 'changes_requested', 'merged', 'pr-closed', 'closed',
+]);
 function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
   const headers = {
     ...corsHeaders(request, env),
@@ -77,7 +88,7 @@ async function verifyTurnstile(token, env, request) {
   if (!env.TURNSTILE_SECRET_KEY) {
     throw httpError(503, 'Turnstile is not configured on the server.');
   }
-  if (!token) {
+  if (!token || String(token).length > 4096) {
     throw validationError('Turnstile verification is required.');
   }
 
@@ -287,7 +298,13 @@ function studyMdPath(slug, appliedSlugs) {
 
 const MAX_MARKDOWN_BYTES = 2 * 1024 * 1024;
 const MAX_PRESENTATION_BYTES = 10 * 1024 * 1024;
+const MAX_CONTRIBUTION_JSON_BYTES = 18_000_000;
+const MAX_JSON_BYTES = 64 * 1024;
 const MAX_COMPANION_FILENAME_LEN = 120;
+const MAX_AUTHOR_LEN = 200;
+const MAX_REASON_LEN = 2000;
+const MAX_EMAIL_LEN = 254;
+const MAX_RETURN_TO_LEN = 2048;
 const SUBMISSION_ARTIFACT_TYPES = new Set(['study', 'note', 'presentation']);
 
 function validationError(message) {
@@ -304,12 +321,16 @@ function httpError(status, message) {
   return error;
 }
 
-async function readJson(request) {
-  try {
-    return await request.json();
-  } catch (_) {
-    throw validationError('Request body must be valid JSON.');
-  }
+async function readJson(request, maxBytes = MAX_JSON_BYTES) {
+  return readJsonWithin(request, maxBytes);
+}
+
+function errorPayload(error) {
+  return {
+    success: false,
+    error: error.message,
+    ...(error.details ? {details: error.details} : {}),
+  };
 }
 
 function normalizeMarkdownContent(content) {
@@ -1313,7 +1334,7 @@ function dedupeSubmissionsBySlug(submissions) {
   return result;
 }
 
-async function buildDashboard(session, env) {
+async function buildDashboard(session, env, options = {}) {
   const started = Date.now();
   const stats = { githubRequests: 0 };
   const login = session.login;
@@ -1495,8 +1516,18 @@ async function buildDashboard(session, env) {
   const dedupedSubmissions = dedupeSubmissionsBySlug(submissions);
 
   dedupedSubmissions.sort((a, b) => submissionRecency(b) - submissionRecency(a));
+  const filteredSubmissions = dedupedSubmissions.filter((row) => {
+    if (options.stage && row.stage !== options.stage) return false;
+    if (options.category && !(row.categories || []).some(
+      (category) => category.toLowerCase() === options.category.toLowerCase()
+    )) return false;
+    return true;
+  });
+  const limit = options.limit || 50;
+  const offset = options.offset || 0;
+  const pageSubmissions = filteredSubmissions.slice(offset, offset + limit);
 
-  const openRows = dedupedSubmissions.filter((row) =>
+  const openRows = pageSubmissions.filter((row) =>
     (row.stage === 'pr-open' || row.stage === 'changes_requested') && row.pullRequest
   );
   const enrichmentStarted = Date.now();
@@ -1545,11 +1576,12 @@ async function buildDashboard(session, env) {
 
   return {
     login,
-    submissions: dedupedSubmissions,
+    submissions: pageSubmissions,
     meta: {
       timingMs: Date.now() - started,
       githubRequests: stats.githubRequests,
       truncated,
+      ...paginationMeta(filteredSubmissions.length, limit, offset),
       phaseTimingMs: {
         base: baseFinished - started,
         enrichment: enrichmentFinished - enrichmentStarted,
@@ -1558,15 +1590,18 @@ async function buildDashboard(session, env) {
   };
 }
 
-async function buildDashboardStatus(session, env) {
+async function buildDashboardStatus(session, env, options = {}) {
   const started = Date.now();
   const stats = { githubRequests: 0 };
   const openPullList = await listOpenPullRequests(env, session.accessToken, stats);
   const pullRequests = openPullList.items.filter((item) =>
     isPortalPullRequest(item, session.login)
   );
+  const limit = options.limit || 50;
+  const offset = options.offset || 0;
+  const pagePullRequests = pullRequests.slice(offset, offset + limit);
 
-  const statuses = await runPool(pullRequests, CHECK_POOL_SIZE, async (item) => {
+  const statuses = await runPool(pagePullRequests, CHECK_POOL_SIZE, async (item) => {
     let pullRequest = summarizePullRequestFromSearch(item);
     if (!pullRequest.headSha) {
       const full = await githubRequest(
@@ -1606,6 +1641,7 @@ async function buildDashboardStatus(session, env) {
       timingMs: Date.now() - started,
       githubRequests: stats.githubRequests,
       truncated: openPullList.truncated,
+      ...paginationMeta(pullRequests.length, limit, offset),
     },
   };
 }
@@ -1641,7 +1677,11 @@ router.get('/api/auth/github', async (request, env) => {
     return jsonResponse(request, env, { success: false, error: 'GitHub sign-in is not configured.' }, 503);
   }
   const url = new URL(request.url);
-  const returnTo = sanitizeReturnTo(url.searchParams.get('return_to'), env);
+  const returnToParam = url.searchParams.get('return_to');
+  if (String(returnToParam || '').length > MAX_RETURN_TO_LEN) {
+    return jsonResponse(request, env, {success:false,error:`return_to must be ${MAX_RETURN_TO_LEN} characters or fewer.`}, 400);
+  }
+  const returnTo = sanitizeReturnTo(returnToParam, env);
   const stateValue = await buildOAuthState(returnTo, env);
   const headers = {
     Location: githubAuthorizeUrl(env, request, stateValue),
@@ -1719,10 +1759,25 @@ router.post('/api/auth/logout', async (request, env) => {
   });
 });
 
+function dashboardPageOptions(request, {filters = true} = {}) {
+  const url = new URL(request.url);
+  const page = parsePagination(url, {maxOffset: 1000});
+  if (!filters) return page;
+  const stage = String(url.searchParams.get('stage') || '').trim();
+  const category = String(url.searchParams.get('category') || '').trim();
+  if (stage && !DASHBOARD_STAGES.has(stage)) {
+    throw validationError('stage is not a recognized submission stage.');
+  }
+  if (category.length > MAX_PROPOSAL_CATEGORY_LEN) {
+    throw validationError(`category must be ${MAX_PROPOSAL_CATEGORY_LEN} characters or fewer.`);
+  }
+  return {...page, stage, category};
+}
+
 router.get('/api/me/submissions', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const dashboard = await buildDashboard(session, env);
+    const dashboard = await buildDashboard(session, env, dashboardPageOptions(request));
     const phases = dashboard.meta.phaseTimingMs;
     return jsonResponse(request, env, { success: true, ...dashboard }, 200, {
       'Server-Timing': `github-base;dur=${phases.base}, github-enrichment;dur=${phases.enrichment}`,
@@ -1735,7 +1790,11 @@ router.get('/api/me/submissions', async (request, env) => {
 router.get('/api/me/submissions/status', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const dashboardStatus = await buildDashboardStatus(session, env);
+    const dashboardStatus = await buildDashboardStatus(
+      session,
+      env,
+      dashboardPageOptions(request, {filters: false})
+    );
     return jsonResponse(request, env, { success: true, ...dashboardStatus }, 200, {
       'Server-Timing': `github-status;dur=${dashboardStatus.meta.timingMs}`,
     });
@@ -1753,6 +1812,7 @@ router.get('/api/me/notifications', async (request, env) => {
       configured: Boolean(env.RESEND_API_KEY),
       email: prefs.email,
       enabled: prefs.enabled,
+      sourceVersion: prefs.sourceVersion,
     });
   } catch (err) {
     return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
@@ -1763,19 +1823,33 @@ router.post('/api/me/notifications', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
     const data = await readJson(request);
+    const current = await getNotifyPrefs(env, session.login);
+    if (String(data.sourceVersion ?? '') !== current.sourceVersion) {
+      const error = conflictError('Notification settings changed. Reload the current settings and try again.');
+      error.details = {
+        currentSource: current.sourceVersion,
+        providedSource: data.sourceVersion ?? null,
+      };
+      throw error;
+    }
     const update = {};
     if (data.email !== undefined) {
       const email = String(data.email || '').trim();
-      if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      if (email.length > MAX_EMAIL_LEN || (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email))) {
         throw new Error('Enter a valid email address.');
       }
       update.email = email;
     }
     if (data.enabled !== undefined) update.enabled = Boolean(data.enabled);
     const prefs = await setNotifyPrefs(env, session.login, update);
-    return jsonResponse(request, env, { success: true, email: prefs.email, enabled: prefs.enabled });
+    return jsonResponse(request, env, {
+      success: true,
+      email: prefs.email,
+      enabled: prefs.enabled,
+      sourceVersion: prefs.sourceVersion,
+    });
   } catch (err) {
-    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+    return jsonResponse(request, env, errorPayload(err), err.status || 500);
   }
 });
 
@@ -1789,10 +1863,17 @@ router.post('/api/notify', async (request, env) => {
       return jsonResponse(request, env, { success: false, error: 'Unauthorized.' }, 401);
     }
     const data = await readJson(request);
-    const login = String(data.login || '').replace(/^@/, '').trim();
+    const rawLogin = String(data.login || '').trim();
+    const login = rawLogin.replace(/^@/, '');
     const event = String(data.event || '').trim();
-    if (!login || !['approved', 'declined', 'merged'].includes(event)) {
+    const title = String(data.title || '');
+    const targetUrl = String(data.url || '');
+    if (!/^[A-Za-z0-9](?:[A-Za-z0-9-]{0,37}[A-Za-z0-9])?$/.test(login) || rawLogin.length > 40 ||
+        !['approved', 'declined', 'merged'].includes(event)) {
       return jsonResponse(request, env, { success: false, error: 'login and a valid event are required.' }, 400);
+    }
+    if (title.length > 500 || targetUrl.length > MAX_RETURN_TO_LEN) {
+      throw validationError('Notification title or URL is too long.');
     }
     const prefs = await getNotifyPrefs(env, login);
     if (!prefs.enabled || !prefs.email) {
@@ -1801,8 +1882,8 @@ router.post('/api/notify', async (request, env) => {
     await sendNotificationEmail(env, {
       to: prefs.email,
       event,
-      title: data.title,
-      url: data.url,
+      title,
+      url: targetUrl,
     });
     return jsonResponse(request, env, { success: true, sent: true });
   } catch (err) {
@@ -1948,7 +2029,14 @@ router.get('/api/study-artifacts', async (request, env) => {
     }
     const registry = await fetchCompanionArtifacts(env, { githubRequests: 0 });
     if (!slug) {
-      return jsonResponse(request, env, { success: true, ...registry });
+      const {limit, offset} = parsePagination(url);
+      const studies = Array.isArray(registry.studies) ? registry.studies : [];
+      return jsonResponse(request, env, {
+        success: true,
+        ...registry,
+        studies: studies.slice(offset, offset + limit),
+        meta: paginationMeta(studies.length, limit, offset),
+      });
     }
     const study = companionStudy(registry, slug);
     if (!study) {
@@ -1970,26 +2058,30 @@ router.get('/api/study-source', async (request, env) => {
     const artifactType = (url.searchParams.get('artifactType') || 'study').trim().toLowerCase();
     const fileName = (url.searchParams.get('fileName') || '').trim();
     let filePath;
+    let markdown = true;
     if (artifactType === 'study') {
       const appliedSlugs = await fetchAppliedSlugSet(env, { githubRequests: 0 });
       filePath = studyMdPath(slug, appliedSlugs);
-    } else if (artifactType === 'note') {
-      validateCompanionFilename('note', fileName);
+    } else if (artifactType === 'note' || artifactType === 'presentation') {
+      validateCompanionFilename(artifactType, fileName);
       const registry = await fetchCompanionArtifacts(env, { githubRequests: 0 });
       const study = companionStudy(registry, slug);
-      if (!study || !Array.isArray(study.notes) || !study.notes.includes(fileName)) {
-        return jsonResponse(request, env, { success: false, error: `No registered note found for "${slug}".` }, 404);
+      const registered = artifactType === 'note' ? study?.notes : study?.presentations;
+      if (!study || !Array.isArray(registered) || !registered.includes(fileName)) {
+        return jsonResponse(request, env, { success: false, error: `No registered ${artifactType} found for "${slug}".` }, 404);
       }
       filePath = `${study.root}/${slug}/${fileName}`;
+      markdown = artifactType === 'note';
     } else {
-      return jsonResponse(request, env, { success: false, error: 'Only study and note Markdown can be loaded.' }, 400);
+      return jsonResponse(request, env, { success: false, error: 'Choose study, note, or presentation.' }, 400);
     }
-    let content, sourceSha;
+    let content = '', sourceSha;
     try {
       const file = await githubRequest(`/contents/${filePath}?ref=${encodeURIComponent(defaultBranch(env))}`, 'GET', null, env);
-      content = decodeBase64Content(file.content); sourceSha = file.sha;
+      if (markdown) content = decodeBase64Content(file.content);
+      sourceSha = file.sha;
     } catch (e) {
-      return jsonResponse(request, env, { success: false, error: `No published Markdown found for "${slug}".` }, 404);
+      return jsonResponse(request, env, { success: false, error: `No published ${artifactType} found for "${slug}".` }, 404);
     }
     return jsonResponse(request, env, { success: true, slug, artifactType, fileName: fileName || `${slug}.md`, content, sourceSha });
   } catch (err) {
@@ -2000,7 +2092,12 @@ router.get('/api/study-source', async (request, env) => {
 function assertSourceVersion(expected, actual) {
   if (!/^[a-f0-9]{40,64}$/.test(expected || '') || expected !== actual) {
     const error = new Error('The source changed, or no source version was loaded. Download your draft backup, load the current source, compare your changes and submit again.');
-    error.status = 409; throw error;
+    error.status = 409;
+    error.details = {
+      currentSource: actual || null,
+      providedSource: expected || null,
+    };
+    throw error;
   }
 }
 
@@ -2067,14 +2164,16 @@ router.get('/api/revision-source', async (request, env) => {
 router.post('/api/revise', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const data = await readJson(request);
+    const data = await readJson(request, MAX_CONTRIBUTION_JSON_BYTES);
     await verifyTurnstile(data.turnstileToken, env, request);
     const prNumber = Number(data.prNumber);
     const author = String(data.author || '').trim();
     if (!Number.isInteger(prNumber) || prNumber < 1) {
       throw validationError('A valid pull request number is required.');
     }
-    if (!author) throw validationError('Author name is required.');
+    if (!author || author.length > MAX_AUTHOR_LEN) {
+      throw validationError(`Author name is required and must be ${MAX_AUTHOR_LEN} characters or fewer.`);
+    }
 
     const pr = await githubRequest(`/pulls/${prNumber}`, 'GET', null, env, session.accessToken);
     const target = revisionTarget(pr, session);
@@ -2104,14 +2203,14 @@ router.post('/api/revise', async (request, env) => {
       slug: target.slug,
     });
   } catch (err) {
-    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+    return jsonResponse(request, env, errorPayload(err), err.status || 500);
   }
 });
 
 router.post('/api/submit', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const data = await readJson(request);
+    const data = await readJson(request, MAX_CONTRIBUTION_JSON_BYTES);
     await verifyTurnstile(data.turnstileToken, env, request);
 
     const slug = String(data.slug || '').trim();
@@ -2121,13 +2220,14 @@ router.post('/api/submit', async (request, env) => {
     if (!/^[A-Za-z0-9-]+$/.test(slug) || slug.length > MAX_SLUG_LEN) {
       throw validationError(`Study slug must use letters, numbers, and hyphens and be ${MAX_SLUG_LEN} characters or fewer.`);
     }
-    if (!author) {
-      throw validationError('Author name is required.');
+    if (!author || author.length > MAX_AUTHOR_LEN) {
+      throw validationError(`Author name is required and must be ${MAX_AUTHOR_LEN} characters or fewer.`);
     }
 
     const stats = { githubRequests: 0 };
     const istTime = getISTDateString();
     let appliedSlugs = new Set();
+    let expectsExistingSource = false;
     let artifact = isNew
       ? buildSubmissionArtifact({ ...data, isNew }, slug, appliedSlugs, istTime)
       : null;
@@ -2161,6 +2261,11 @@ router.post('/api/submit', async (request, env) => {
         registry.studies.filter((study) => study.root === 'Applications').map((study) => study.slug)
       );
       artifact = buildSubmissionArtifact({ ...data, isNew }, slug, appliedSlugs, istTime);
+      expectsExistingSource = artifact.artifactType === 'study' || (
+        artifact.artifactType === 'note'
+          ? (mappedStudy.notes || []).includes(artifact.fileName)
+          : (mappedStudy.presentations || []).includes(artifact.fileName)
+      );
     }
 
     const prSearch = await githubSearch(
@@ -2182,10 +2287,13 @@ router.post('/api/submit', async (request, env) => {
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env);
     const baseSha = baseRef.object.sha;
 
-    if (!isNew && artifact.artifactType !== 'presentation') {
+    if (!isNew) {
       let sourceFile;
       try { sourceFile = await githubRequest(`/contents/${filePath}?ref=${baseSha}`, 'GET', null, env); }
       catch (error) { if (error.status !== 404) throw error; }
+      if (!sourceFile && expectsExistingSource) {
+        throw validationError(`The registered source "${artifact.fileName}" no longer exists. Refresh the artifact list before submitting.`);
+      }
       if (sourceFile) assertSourceVersion(data.sourceSha, sourceFile.sha);
     }
     await githubRequest('/git/refs', 'POST', {
@@ -2247,7 +2355,7 @@ router.post('/api/submit', async (request, env) => {
       throw innerErr;
     }
   } catch (err) {
-    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+    return jsonResponse(request, env, errorPayload(err), err.status || 500);
   }
 });
 
@@ -2295,9 +2403,18 @@ router.post('/api/delete-artifact', async (request, env) => {
 
     const root = mappedStudy.root === 'Applications' ? 'Applications' : 'Studies';
     const directory = `${root}/${slug}`;
+    const targetPath = `${directory}/${targetName}`;
     const branchName = operationBranchName('/api/delete-artifact', data, env.operationId);
     const base = defaultBranch(env);
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env, null, stats);
+    let targetFile;
+    try {
+      targetFile = await githubRequest(`/contents/${targetPath}?ref=${baseRef.object.sha}`, 'GET', null, env, null, stats);
+    } catch (error) {
+      if (error.status === 404) throw validationError(`"${targetName}" no longer exists in "${slug}".`);
+      throw error;
+    }
+    assertSourceVersion(data.sourceSha, targetFile.sha);
     await githubRequest('/git/refs', 'POST', {
       ref: `refs/heads/${branchName}`,
       sha: baseRef.object.sha,
@@ -2320,7 +2437,7 @@ router.post('/api/delete-artifact', async (request, env) => {
           stats
         );
       } else {
-        const filePath = `${directory}/${targetName}`;
+        const filePath = targetPath;
         await deleteRepositoryFile(filePath, branchName, env, stats);
         if (artifactType === 'note') {
           await deleteRepositoryFile(filePath.replace(/\.md$/i, '.html'), branchName, env, stats, { required: false });
@@ -2376,7 +2493,7 @@ router.post('/api/delete-artifact', async (request, env) => {
       throw innerErr;
     }
   } catch (err) {
-    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+    return jsonResponse(request, env, errorPayload(err), err.status || 500);
   }
 });
 
@@ -2395,6 +2512,9 @@ router.post('/api/status-change', async (request, env) => {
     }
     if (targetStatus !== 'draft' && targetStatus !== 'released') {
       throw validationError('Target status must be draft or released.');
+    }
+    if (reason.length > MAX_REASON_LEN) {
+      throw validationError(`Reason must be ${MAX_REASON_LEN} characters or fewer.`);
     }
 
     const stats = { githubRequests: 0 };
@@ -2423,6 +2543,14 @@ router.post('/api/status-change', async (request, env) => {
     const base = defaultBranch(env);
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env, null, stats);
     const baseSha = baseRef.object.sha;
+    const filePath = studyMdPath(slug, appliedSlugs);
+    let fileData;
+    try {
+      fileData = await githubRequest(`/contents/${filePath}?ref=${baseSha}`, 'GET', null, env, null, stats);
+    } catch (error) {
+      throw new Error(`Could not load ${filePath} to apply the status change.`);
+    }
+    assertSourceVersion(data.sourceSha, fileData.sha);
 
     await githubRequest('/git/refs', 'POST', {
       ref: `refs/heads/${branchName}`,
@@ -2433,13 +2561,6 @@ router.post('/api/status-change', async (request, env) => {
       // Commit the status flip on the branch so the pull request has a diff.
       // CI (_set_study_status via _ci_study_pr.py) then finalizes the catalog,
       // timestamp, and PDF watermark on merge.
-      const filePath = studyMdPath(slug, appliedSlugs);
-      let fileData;
-      try {
-        fileData = await githubRequest(`/contents/${filePath}?ref=${branchName}`, 'GET', null, env, null, stats);
-      } catch (e) {
-        throw new Error(`Could not load ${filePath} to apply the status change.`);
-      }
       const currentContent = decodeBase64Content(fileData.content);
       const istTime = getISTDateString();
       let newContent = setStatusLine(currentContent, targetStatus);
@@ -2482,7 +2603,7 @@ router.post('/api/status-change', async (request, env) => {
       throw innerErr;
     }
   } catch (err) {
-    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+    return jsonResponse(request, env, errorPayload(err), err.status || 500);
   }
 });
 
@@ -2527,7 +2648,9 @@ export class ContributorOperations {
       return Response.json(resource);
     }
     const raw = await request.clone().text();
-    if (raw.length > 18000000) return Response.json({error:'Submission exceeds 18 MB.'}, {status:413});
+    if (new TextEncoder().encode(raw).byteLength > MAX_CONTRIBUTION_JSON_BYTES) {
+      return Response.json({error:`Submission exceeds ${MAX_CONTRIBUTION_JSON_BYTES} bytes.`}, {status:413});
+    }
     let data;
     try { data = JSON.parse(raw); }
     catch (_) { return Response.json({success:false, error:'Invalid JSON submission.'}, {status:400}); }
@@ -2552,7 +2675,10 @@ export class ContributorOperations {
     let response;
     try { response = await router.fetch(request, env); }
     catch (_) { response = Response.json({success:false, error:'The submission did not complete.'}, {status:500}); }
-    return finishOperation(this.state.storage, receipt, response, wrote);
+    return attachRateLimitHeaders(
+      await finishOperation(this.state.storage, receipt, response, wrote),
+      claim.rateLimitHeaders
+    );
   }
 }
 
@@ -2581,6 +2707,6 @@ export default {
       }
     }
     response = await normalizeApiErrorResponse(request, response);
-    return privateResponse(response, corsHeaders(request, env));
+    return privateResponse(withRateLimitPolicy(response), corsHeaders(request, env));
   },
 };

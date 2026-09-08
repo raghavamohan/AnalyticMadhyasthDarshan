@@ -30,13 +30,17 @@ https://analyticmadhyasthdarshan.org/Studies/glossary.json
 The unified catalog is at
 https://analyticmadhyasthdarshan.org/Studies/catalog-all.json
 Catalog search is `GET https://analyticmadhyasthdarshan.org/api/studies`
-(query parameters `q`, `collection`, `status`, `slug`).
+(query parameters `q`, `collection`, `status`, `slug`, `limit`, `offset`).
 One published study plus its heading outline is
 `GET https://analyticmadhyasthdarshan.org/api/studies/{slug}`.
 The recommended reading path is
 `GET https://analyticmadhyasthdarshan.org/api/start-here`.
 A suggested citation line is
 `GET https://analyticmadhyasthdarshan.org/api/cite/{slug}`.
+Study and glossary list responses default to 50 rows and allow at most 100 per
+request. Their response includes `total`, `limit`, `offset`, `hasMore`, and
+`nextOffset`. MCP `search_studies`, `list_studies`, and `get_glossary` use the
+same bounds.
 
 The Web Bot Auth directory is at
 https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory
@@ -108,3 +112,11 @@ preview origins must be explicitly configured. API responses are private and
 must not be cached. OAuth callbacks validate signed, expiring state and use
 S256 PKCE; session cookies contain an opaque identifier rather than a GitHub
 access token. Email sign-in links are single-use and expire after 15 minutes.
+
+Existing-content updates and deletions require the source identifier returned
+by the relevant read operation. Stale writes return `409` with the current
+identifier in `details.currentSource`; clients must reload and reconcile rather
+than overwrite it. Responses advertise rate policy in `RateLimit-Policy`.
+Contribution writes also return account quota in `RateLimit`; magic-link
+requests return their email quota. On `429`, honor `Retry-After` before retrying.
+OpenAPI documents the byte and field-size limits for every JSON write.

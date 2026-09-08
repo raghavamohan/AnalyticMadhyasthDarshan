@@ -23,6 +23,7 @@ async function sourceUrl(file) {
 const workerModule = await import(await sourceUrl(path.resolve('src/index.js')));
 const worker = workerModule.default;
 const apiErrors = await import(await sourceUrl(path.resolve('../shared/api-errors.mjs')));
+const apiContract = await import(await sourceUrl(path.resolve('../shared/api-contract.mjs')));
 const discussion = path.basename(process.cwd()) === 'discussions-worker';
 const prefix = discussion ? '/api/discuss-auth' : '/api/auth';
 const origin = 'https://analyticmadhyasthdarshan.org';
@@ -64,6 +65,22 @@ test('shared HTTP errors cover every reusable OpenAPI status', async () => {
     );
     const payload = await assertErrorEnvelope(response, {status, code, privateHeaders: false});
     assert.equal(payload.details.fixtureStatus, status);
+  }
+});
+
+test('shared request bounds count UTF-8 bytes and pagination rejects coercion', async () => {
+  assert.deepEqual(await apiContract.readJsonWithin(new Request('https://api.example/test', {
+    method:'POST',body:'{"x":"é"}',headers:{'Content-Type':'application/json'},
+  }), 10), {x:'é'});
+  await assert.rejects(
+    apiContract.readJsonWithin(new Request('https://api.example/test', {
+      method:'POST',body:'{"x":"é"}',headers:{'Content-Type':'application/json'},
+    }), 9),
+    error => error.status === 413,
+  );
+  assert.deepEqual(apiContract.parsePagination(new URL('https://api.example/test?limit=100&offset=7')), {limit:100,offset:7});
+  for (const query of ['limit=0','limit=1.5','limit=101','offset=-1','offset=10001']) {
+    assert.throws(() => apiContract.parsePagination(new URL('https://api.example/test?'+query)), error => error.status === 400);
   }
 });
 
@@ -225,10 +242,16 @@ if (discussion) test('comment listing includes an email-free viewer summary', as
   const env = {
     SESSION_SECRET:'fixture-only',
     ADMIN_EMAILS:'alice@example.test',
-    DB:{prepare:() => ({bind:() => ({all:async () => ({results:[]})})})},
+    DB:{prepare:() => ({bind:() => ({
+      all:async () => ({results:[]}),
+      first:async () => ({count:0}),
+    })})},
   };
   const signedOut = await worker.fetch(new Request('https://api.example/api/discussions/Test-Study'), env);
-  assert.deepEqual(await signedOut.json(), {slug:'Test-Study',viewer:{loggedIn:false},comments:[]});
+  assert.deepEqual(await signedOut.json(), {
+    slug:'Test-Study',viewer:{loggedIn:false},comments:[],
+    meta:{total:0,limit:50,offset:0,hasMore:false,nextOffset:null},
+  });
 
   const token = await auth.createSession(env, {
     userId:'user-1',email:'alice@example.test',displayName:'Alice',
@@ -239,6 +262,29 @@ if (discussion) test('comment listing includes an email-free viewer summary', as
   const payload = await signedIn.json();
   assert.deepEqual(payload.viewer, {loggedIn:true,isAdmin:true});
   assert.equal(JSON.stringify(payload).includes('alice@example.test'), false);
+});
+
+if (discussion) test('comment mutations reject a stale source identifier before writing', async () => {
+  const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
+  const kv = new Map(); let updates = 0;
+  const env = {
+    SESSION_SECRET:'fixture-only',
+    SESSIONS:{put:async (key,value) => kv.set(key,value),get:async key => kv.get(key)},
+    DB:{prepare:sql => ({bind:() => ({
+      first:async () => sql.includes('FROM comments')
+        ? {id:'comment-1',thread_slug:'Test-Study',user_id:'user-1',status:'visible',updated_at:42}
+        : null,
+      run:async () => {updates++;return {meta:{changes:1}};},
+    })})},
+  };
+  const token = await auth.createSession(env,{userId:'user-1',email:'alice@example.test',displayName:'Alice'});
+  const response = await worker.fetch(new Request(
+    'https://api.example/api/discussions/Test-Study/comments/comment-1/delete',
+    {method:'POST',headers:{Origin:origin,'Content-Type':'application/json',Cookie:auth.setSessionCookie(token,env).split(';')[0]},body:'{"sourceUpdatedAt":41}'},
+  ),env);
+  const payload = await assertErrorEnvelope(response,{status:409,code:'conflict'});
+  assert.deepEqual(payload.details,{currentSource:42,providedSource:41});
+  assert.equal(updates,0);
 });
 
 if (!discussion) test('auth snapshot includes notification state without exposing the email address', async () => {
@@ -261,6 +307,23 @@ if (!discussion) test('auth snapshot includes notification state without exposin
   assert.equal(response.status, 200);
   assert.deepEqual(payload.notifications, {configured:true,hasEmail:true,enabled:true});
   assert.equal(JSON.stringify(payload).includes('alice@example.test'), false);
+});
+
+if (!discussion) test('notification updates require the current opaque source identifier', async () => {
+  const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
+  const kv = new Map();
+  const env = {SESSION_SECRET:'fixture-only',SESSIONS:{
+    put:async (key,value) => kv.set(key,value),get:async key => kv.get(key),
+  }};
+  const token = await auth.createSession(env,{login:'alice',userId:1,accessToken:'test'});
+  await env.SESSIONS.put('notify:alice',JSON.stringify({email:'alice@example.test',enabled:true,sourceVersion:'current'}));
+  const response = await worker.fetch(new Request('https://api.example/api/me/notifications',{
+    method:'POST',headers:{Origin:origin,'Content-Type':'application/json',Cookie:auth.setSessionCookie(token,env).split(';')[0]},
+    body:JSON.stringify({enabled:false,sourceVersion:'stale'}),
+  }),env);
+  const payload = await assertErrorEnvelope(response,{status:409,code:'conflict'});
+  assert.equal(payload.details.currentSource,'current');
+  assert.equal(JSON.parse(await env.SESSIONS.get('notify:alice')).enabled,true);
 });
 
 if (!discussion) test('callback rejects mismatched state before any GitHub request', async () => {
@@ -354,7 +417,8 @@ if (!discussion) test('revision routes reject stale source and replay a receipt 
     const loaded=await worker.fetch(new Request('https://api.example/api/revision-source?pr=7',{headers}),env);
     assert.equal((await loaded.json()).sourceSha,'a'.repeat(40));
     const stale=await post({...base,operationId:crypto.randomUUID(),sourceSha:'b'.repeat(40)});
-    await assertErrorEnvelope(stale,{status:409,code:'conflict'});assert.equal(writes,0);
+    const stalePayload=await assertErrorEnvelope(stale,{status:409,code:'conflict'});
+    assert.equal(stalePayload.details.currentSource,'a'.repeat(40));assert.equal(writes,0);
     const id=crypto.randomUUID(), body={...base,operationId:id,sourceSha:'a'.repeat(40)};
     const first=await post(body);assert.equal(first.status,200);assert.equal((await first.json()).state,'complete');assert.equal(writes,1);
     const again=await post({...body,turnstileToken:'fresh-token'});assert.equal(again.status,200);assert.equal((await again.json()).state,'complete');assert.equal(writes,1);

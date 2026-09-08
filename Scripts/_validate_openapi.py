@@ -111,6 +111,12 @@ def check_components(spec: dict, label: str) -> None:
         if not isinstance(response, dict):
             fail(f"{label} is missing reusable {status} response {component}")
         check_error_response(response, status, f"{label} components.responses.{component}")
+    rate_limited = responses.get("RateLimited") or {}
+    rate_headers = rate_limited.get("headers") or {}
+    if rate_headers.get("RateLimit-Policy") != {"$ref": "#/components/headers/RateLimitPolicy"}:
+        fail(f"{label} RateLimited must expose the reusable RateLimit-Policy header")
+    if rate_headers.get("Retry-After") != {"$ref": "#/components/headers/RetryAfter"}:
+        fail(f"{label} RateLimited must expose the reusable Retry-After header")
 
 
 def check_operations(spec: dict, label: str) -> tuple[int, int]:
@@ -141,6 +147,24 @@ def check_operations(spec: dict, label: str) -> tuple[int, int]:
             responses = operation.get("responses") or {}
             if not any(str(status).startswith(("2", "3")) for status in responses):
                 fail(f"{location} needs a success or redirect response")
+            if path.startswith("/api/"):
+                if responses.get("429") != {"$ref": "#/components/responses/RateLimited"}:
+                    fail(f"{location} must document the edge 429 response")
+                for status, success_response in responses.items():
+                    if not str(status).startswith("2") or not isinstance(success_response, dict):
+                        continue
+                    if success_response.get("$ref"):
+                        continue
+                    headers = success_response.get("headers") or {}
+                    if headers.get("RateLimit-Policy") != {"$ref": "#/components/headers/RateLimitPolicy"}:
+                        fail(f"{location} {status} must advertise RateLimit-Policy")
+            request_body = operation.get("requestBody")
+            if request_body:
+                maximum = request_body.get("x-maxBodyBytes")
+                if not isinstance(maximum, int) or maximum < 1:
+                    fail(f"{location} requestBody needs a positive x-maxBodyBytes limit")
+                if responses.get("413") != {"$ref": "#/components/responses/PayloadTooLarge"}:
+                    fail(f"{location} with a request body must document 413")
             for status, response_ref in responses.items():
                 status = str(status)
                 if not status.startswith(("4", "5")):

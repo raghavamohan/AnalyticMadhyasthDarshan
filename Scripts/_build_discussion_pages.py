@@ -704,7 +704,11 @@ DISCUSS_JS = r"""(() => {
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
       const message = typeof data.error === "string" ? data.error : data.error?.message || data.message;
-      throw new Error(message || `Request failed (${response.status})`);
+      const retryAfter = response.headers.get("Retry-After");
+      const guidance = response.status === 429 && retryAfter
+        ? ` Retry after ${retryAfter} seconds.`
+        : "";
+      throw new Error((message || `Request failed (${response.status})`) + guidance);
     }
     return data;
   };
@@ -895,7 +899,14 @@ DISCUSS_JS = r"""(() => {
     const path = action === "hide"
       ? `/api/discussions/${encodeURIComponent(STUDY_SLUG)}/comments/${encodeURIComponent(commentId)}/hide`
       : `/api/discussions/${encodeURIComponent(STUDY_SLUG)}/comments/${encodeURIComponent(commentId)}/delete`;
-    await fetchJson(path, { method: "POST", body: "{}" });
+    const comment = allComments.find((item) => item.id === commentId);
+    if (!comment || !Number.isSafeInteger(Number(comment.updatedAt))) {
+      throw new Error("Reload the discussion before changing this comment.");
+    }
+    await fetchJson(path, {
+      method: "POST",
+      body: JSON.stringify({sourceUpdatedAt: Number(comment.updatedAt)}),
+    });
     showAlert("success", action === "hide" ? "Comment hidden." : "Comment deleted.");
     await loadComments();
   };
@@ -1010,7 +1021,7 @@ DISCUSS_JS = r"""(() => {
       if (initialLastSeen === null) initialLastSeen = lastSeenForSlug();
       allComments = append ? allComments.concat(batch) : batch;
       nextOffset += batch.length;
-      hasMore = batch.length === PAGE_SIZE;
+      hasMore = typeof data.meta?.hasMore === "boolean" ? data.meta.hasMore : batch.length === PAGE_SIZE;
       renderComments();
       markDiscussionSeen(allComments);
       if (commentsError) commentsError.classList.add("hidden");

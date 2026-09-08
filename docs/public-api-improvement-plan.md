@@ -58,14 +58,15 @@ Implementation notes:
   discovery test, or shared contract changes, so a route cannot bypass contract
   validation.
 
-## Phase 2 — make writes resilient and predictable (in progress)
+## Phase 2 — make writes resilient and predictable (implemented)
 
-Target: following release.
+Status: complete in the repository; deployment follows the protected-branch
+workflow after merge.
 
 - Extend operation receipts and idempotency keys from propose/revise/submit to
-  status changes and deletions. **Implemented in the first Phase 2 slice.**
+  status changes and deletions.
 - Return a stable operation resource with explicit `notStarted`, `inProgress`,
-  `complete`, and `uncertain` states. **Implemented in the first Phase 2 slice.**
+  `complete`, and `uncertain` states.
 - Publish rate-limit headers and retry guidance for worker and edge limits.
 - Add optimistic-concurrency fields to every update/delete operation and return
   `409` with the current source identifier when state is stale.
@@ -78,7 +79,7 @@ Exit criteria: retrying a write with the same idempotency key cannot create a
 duplicate GitHub issue or pull request; clients can recover an interrupted
 operation without guessing.
 
-First-slice implementation notes:
+Implementation notes:
 
 - All five contribution writes use the account-scoped `ContributorOperations`
   Durable Object. Status and deletion requests now use client-persisted UUIDv4
@@ -88,9 +89,26 @@ First-slice implementation notes:
 - The dashboard stores at most one status/deletion receipt per GitHub account in
   browser storage before sending. A reload can check an uncertain result or
   retry only a confirmed `notStarted` action with the same receipt and payload.
-- No new Durable Object migration or secret is required. Remaining Phase 2 work
-  is rate-limit response metadata, complete optimistic-concurrency coverage,
-  explicit request-size boundaries, and bounded pagination/filter contracts.
+- Existing study, note, and presentation replacements, status changes, artifact
+  deletions, discussion moderation, and notification-preference updates carry a
+  source identifier. A stale request returns `409` and
+  `details.currentSource`; the browser preserves the original operation payload
+  instead of silently rebasing a write.
+- Contribution attempts publish the 30-per-account hourly policy, remaining
+  capacity, and reset delay. Discussion magic-link requests publish their
+  five-per-email hourly policy. Every API response advertises the 40-per-IP,
+  10-second edge policy; `429` responses include `Retry-After`, which clients
+  must honor before any reset hint.
+- JSON bodies are counted as UTF-8 bytes before parsing. The public schemas
+  state the 18,000,000-byte contribution-upload envelope, 65,536-byte small
+  submission envelope, 16,384-byte discussion envelope, 2 MiB Markdown limit,
+  10 MiB presentation limit, and individual string bounds.
+- Studies and glossary reads, MCP list/search tools, submission dashboards,
+  editable-artifact discovery, discussion threads, and discussion statistics
+  use `limit`/`offset`, default 50, with a maximum page size of 100. Filters have
+  explicit enums or maximum lengths. Browser clients follow `nextOffset` while
+  every individual response remains bounded.
+- No new Durable Object migration or secret is required.
 
 ## Phase 3 — observability and service levels
 
