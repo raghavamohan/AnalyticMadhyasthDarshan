@@ -95,10 +95,18 @@ jobs:
           set -euo pipefail
           HEAD_SHA="$(git rev-parse HEAD)"
           RUN_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          VERIFY_WORKFLOW_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/workflows/studies-index-check.yml"
           gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$HEAD_SHA" \
             -f state=pending \
             -f context=verify \
-            -f description="Verification queued for the regenerated PR head." \
-            -f target_url="$RUN_URL"
-          gh workflow run studies-index-check.yml --ref "$HEAD_REF" \
-            -f report_sha="$HEAD_SHA"
+            -f description="Waiting for regenerated-head verification to start." \
+            -f target_url="$VERIFY_WORKFLOW_URL"
+          if ! gh workflow run studies-index-check.yml --ref "$HEAD_REF" \
+            -f report_sha="$HEAD_SHA"; then
+            gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$HEAD_SHA" \
+              -f state=failure \
+              -f context=verify \
+              -f description="Could not start regenerated-head verification." \
+              -f target_url="$RUN_URL"
+            exit 1
+          fi

@@ -117,6 +117,11 @@ When that run pushes regenerated artifacts, the pushed commit becomes the PR's
 new head but its CI-skip token prevents a normal `pull_request` check suite.
 `study-pr.yml` therefore publishes a pending `verify` commit status on the exact
 new SHA and dispatches `studies-index-check.yml` with that SHA as `report_sha`.
+While the dispatch is queued, the pending status links to the verifier workflow's
+runs page rather than the already-finished study job. If dispatch cannot start,
+the bridge replaces pending with failure instead of leaving a permanently stuck
+status. As soon as the verifier begins, it updates the same status to link to its
+exact running job.
 The dispatched workflow first confirms that its checked-out commit is exactly
 the requested SHA, runs the normal complete verifier, and replaces the pending
 status with success or failure in an `always()` step. A bare manual dispatch has
@@ -216,10 +221,10 @@ required status check needs.
 
 On the internal regenerated-head path only, the same workflow also accepts a
 full `report_sha` through `workflow_dispatch`. It validates that value against
-the checked-out commit and reports the required `verify` context back to that
-SHA. The dispatch's own check run remains useful in Actions history, while the
-commit status is the part associated with the PR head and enforced by the
-ruleset.
+the checked-out commit, updates the pending `verify` status to link to the exact
+running job, and reports the final required context back to that SHA. The
+dispatch's own check run remains useful in Actions history, while the commit
+status is the part associated with the PR head and enforced by the ruleset.
 
 ### 2.3 PDF pipeline smoke — `pdf-pipeline-smoke.yml`
 
