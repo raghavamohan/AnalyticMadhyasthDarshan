@@ -47,18 +47,11 @@ const PROPOSAL_REGISTRY_CACHE_KEY = 'https://amd-submissions.internal/proposal-r
 const COMPANION_ARTIFACTS_PATH = 'Studies/companion-artifacts.json';
 const COMPANION_ARTIFACTS_CACHE_KEY = 'https://amd-submissions.internal/companion-artifacts';
 const CHECK_POOL_SIZE = 5;
-const RESOURCE_METADATA_URL =
-  'https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource';
-
 function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
   const headers = {
     ...corsHeaders(request, env),
     'Content-Type': 'application/json',
   };
-  if (status === 401) {
-    headers['WWW-Authenticate'] =
-      `Bearer realm="Analytic Madhyasth Darshan", resource_metadata="${RESOURCE_METADATA_URL}"`;
-  }
   Object.assign(headers, extraHeaders);
   return new Response(JSON.stringify(payload), {
     status,
@@ -72,10 +65,10 @@ function redirectResponse(url, extraHeaders = {}) {
 
 async function verifyTurnstile(token, env, request) {
   if (!env.TURNSTILE_SECRET_KEY) {
-    throw new Error('Turnstile is not configured on the server.');
+    throw httpError(503, 'Turnstile is not configured on the server.');
   }
   if (!token) {
-    throw new Error('Turnstile verification is required.');
+    throw validationError('Turnstile verification is required.');
   }
 
   const body = new FormData();
@@ -90,7 +83,7 @@ async function verifyTurnstile(token, env, request) {
   const result = await response.json();
   if (!result.success) {
     const codes = (result['error-codes'] || []).join(', ') || 'verification failed';
-    throw new Error(`Turnstile verification failed: ${codes}`);
+    throw validationError(`Turnstile verification failed: ${codes}`);
   }
   return result;
 }
@@ -288,9 +281,25 @@ const MAX_COMPANION_FILENAME_LEN = 120;
 const SUBMISSION_ARTIFACT_TYPES = new Set(['study', 'note', 'presentation']);
 
 function validationError(message) {
+  return httpError(400, message);
+}
+
+function conflictError(message) {
+  return httpError(409, message);
+}
+
+function httpError(status, message) {
   const error = new Error(message);
-  error.status = 400;
+  error.status = status;
   return error;
+}
+
+async function readJson(request) {
+  try {
+    return await request.json();
+  } catch (_) {
+    throw validationError('Request body must be valid JSON.');
+  }
 }
 
 function normalizeMarkdownContent(content) {
@@ -755,7 +764,7 @@ function buildOpenStudyPrIndex(prItems) {
 function assertNoOpenStudyPr(slug, openStudyPrs) {
   if (!slug || !openStudyPrs.has(slug)) return;
   const pr = openStudyPrs.get(slug);
-  throw new Error(
+  throw conflictError(
     `An open ${pr.prType} pull request already exists for "${slug}" (#${pr.number}). Wait for review or close it before opening another.`
   );
 }
@@ -767,7 +776,7 @@ function assertNoOpenStudyPr(slug, openStudyPrs) {
 function assertNoOpenStatusChangePr(slug, openStatusChanges) {
   if (!slug || !openStatusChanges.has(slug)) return;
   const pr = openStatusChanges.get(slug);
-  throw new Error(
+  throw conflictError(
     `A status-change pull request is already open for "${slug}" (#${pr.number}). Wait for review or close it before submitting an update.`
   );
 }
@@ -803,7 +812,7 @@ async function assertProposalApproved(issueNumber, env, userToken = null) {
   const issue = await githubRequest(`/issues/${issueNumber}`, 'GET', null, env, userToken);
   const labels = issueLabels(issue);
   if (labels.includes('proposal-declined')) {
-    throw new Error(
+    throw validationError(
       `Issue #${issueNumber} was declined. Open a new proposal or discuss on the issue before submitting.`
     );
   }
@@ -1602,7 +1611,7 @@ async function buildDashboardStatus(session, env) {
 function catalogStatusForSlug(slug, catalogMap) {
   const status = catalogMap.get(slug);
   if (!status) {
-    throw new Error(
+    throw validationError(
       `Study "${slug}" is not in the public catalog yet. Submit and merge a draft pull request first.`
     );
   }
@@ -1612,12 +1621,12 @@ function catalogStatusForSlug(slug, catalogMap) {
 function assertStatusChangeAllowed(slug, targetStatus, catalogMap, prItems) {
   const current = catalogStatusForSlug(slug, catalogMap);
   if (current === targetStatus) {
-    throw new Error(`"${slug}" is already ${targetStatus}.`);
+    throw conflictError(`"${slug}" is already ${targetStatus}.`);
   }
   const open = buildOpenStatusChangeIndex(prItems);
   if (open.has(slug)) {
     const pr = open.get(slug);
-    throw new Error(`A status-change pull request is already open for "${slug}" (#${pr.number}).`);
+    throw conflictError(`A status-change pull request is already open for "${slug}" (#${pr.number}).`);
   }
 }
 
@@ -1751,7 +1760,7 @@ router.get('/api/me/notifications', async (request, env) => {
 router.post('/api/me/notifications', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const data = await request.json();
+    const data = await readJson(request);
     const update = {};
     if (data.email !== undefined) {
       const email = String(data.email || '').trim();
@@ -1777,7 +1786,7 @@ router.post('/api/notify', async (request, env) => {
     if (provided !== env.NOTIFY_SECRET) {
       return jsonResponse(request, env, { success: false, error: 'Unauthorized.' }, 401);
     }
-    const data = await request.json();
+    const data = await readJson(request);
     const login = String(data.login || '').replace(/^@/, '').trim();
     const event = String(data.event || '').trim();
     if (!login || !['approved', 'declined', 'merged'].includes(event)) {
@@ -1802,7 +1811,7 @@ router.post('/api/notify', async (request, env) => {
 router.post('/api/propose', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const data = await request.json();
+    const data = await readJson(request);
     await verifyTurnstile(data.turnstileToken, env, request);
 
     const title = requiredProposalText(data.title, 'Proposed title', MAX_PROPOSAL_TITLE_LEN);
@@ -2056,7 +2065,7 @@ router.get('/api/revision-source', async (request, env) => {
 router.post('/api/revise', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const data = await request.json();
+    const data = await readJson(request);
     await verifyTurnstile(data.turnstileToken, env, request);
     const prNumber = Number(data.prNumber);
     const author = String(data.author || '').trim();
@@ -2100,7 +2109,7 @@ router.post('/api/revise', async (request, env) => {
 router.post('/api/submit', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const data = await request.json();
+    const data = await readJson(request);
     await verifyTurnstile(data.turnstileToken, env, request);
 
     const slug = String(data.slug || '').trim();
@@ -2243,7 +2252,7 @@ router.post('/api/submit', async (request, env) => {
 router.post('/api/delete-artifact', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const data = await request.json();
+    const data = await readJson(request);
     await verifyTurnstile(data.turnstileToken, env, request);
 
     const slug = String(data.slug || '').trim();
@@ -2372,18 +2381,18 @@ router.post('/api/delete-artifact', async (request, env) => {
 router.post('/api/status-change', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
-    const data = await request.json();
+    const data = await readJson(request);
     await verifyTurnstile(data.turnstileToken, env, request);
 
     const slug = (data.slug || '').trim();
     const targetStatus = (data.targetStatus || '').trim().toLowerCase();
     const reason = (data.reason || '').trim();
 
-    if (!slug) {
-      throw new Error('Study slug is required.');
+    if (!/^[A-Za-z0-9-]+$/.test(slug) || slug.length > MAX_SLUG_LEN) {
+      throw validationError('Study slug must use letters, numbers, and hyphens.');
     }
     if (targetStatus !== 'draft' && targetStatus !== 'released') {
-      throw new Error('Target status must be draft or released.');
+      throw validationError('Target status must be draft or released.');
     }
 
     const stats = { githubRequests: 0 };
@@ -2515,7 +2524,9 @@ export class ContributorOperations {
     }
     const raw = await request.clone().text();
     if (raw.length > 18000000) return Response.json({error:'Submission exceeds 18 MB.'}, {status:413});
-    const data = JSON.parse(raw);
+    let data;
+    try { data = JSON.parse(raw); }
+    catch (_) { return Response.json({success:false, error:'Invalid JSON submission.'}, {status:400}); }
     if (!operationId(data.operationId)) return Response.json({success:false, error:'A submission receipt is required. Refresh the portal and try again.'}, {status:400});
     const fingerprint = await digestPayload(url.pathname, data);
     const claim = await claimOperation(this.state.storage, data.operationId, fingerprint, url.pathname);
@@ -2551,9 +2562,12 @@ export default {
         if (request.method === 'POST' && operationPaths.has(path)) response = await forwardContributionOperation(request, env);
         else response = await router.fetch(request, env, ctx);
       } catch (error) {
-        response = new Response(JSON.stringify({ error: error.status === 401 ? error.message : 'Request failed. Check the saved submission result before retrying a contribution.' }), {
-          status: error.status || 500, headers: { 'Content-Type': 'application/json' },
-        });
+        response = jsonResponse(request, env, {
+          success: false,
+          error: error.status === 401
+            ? error.message
+            : 'Request failed. Check the saved submission result before retrying a contribution.',
+        }, error.status || 500);
       }
     }
     return privateResponse(response, corsHeaders(request, env));

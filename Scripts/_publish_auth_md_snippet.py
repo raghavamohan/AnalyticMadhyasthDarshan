@@ -1,13 +1,14 @@
-"""Publish Auth.md and OAuth discovery documents via a Cloudflare Worker.
+"""Publish Auth.md via a Cloudflare Worker.
 
 Snippets cannot currently be created or updated with the zone token used for
 Transform Rules, so this path deploys Worker `amd-auth-md`. The canonical
-documents remain at `auth.md` and `.well-known/oauth-*` for GitHub Pages.
-A leftover Snippet still wins on the apex until it can be unbound; Redirect
-Rules run first, so a 302 to workers.dev serves the current documents.
+document remains at `auth.md` for GitHub Pages. A leftover Snippet still wins
+on the apex until it can be unbound; a Redirect Rule can temporarily send the
+request to workers.dev.
 """
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 import uuid
@@ -17,78 +18,55 @@ from urllib.request import Request, urlopen
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import _cloudflare_performance as cf
+from _common import write_text_lf
 
 WORKER_NAME = "amd-auth-md"
 WORKER_SRC = cf.BASE / "infra" / "auth-md-worker" / "src" / "index.js"
 AUTH_MD_PATH = cf.BASE / "auth.md"
-PRM_PATH = cf.BASE / ".well-known" / "oauth-protected-resource"
-AS_PATH = cf.BASE / ".well-known" / "oauth-authorization-server"
 COMPATIBILITY_DATE = "2024-03-01"
-WORKER_ROUTES = (
-    f"{cf.SITE_HOST}/auth.md*",
+WORKER_ROUTE = f"{cf.SITE_HOST}/auth.md*"
+RETIRED_WORKER_ROUTES = (
     f"{cf.SITE_HOST}/.well-known/oauth-protected-resource*",
     f"{cf.SITE_HOST}/.well-known/oauth-authorization-server*",
     f"{cf.SITE_HOST}/agent/auth*",
     f"{cf.SITE_HOST}/oauth2/token",
 )
-LIVE_URLS = (
-    f"https://{cf.SITE_HOST}/auth.md",
-    f"https://{cf.SITE_HOST}/.well-known/oauth-protected-resource",
-    f"https://{cf.SITE_HOST}/.well-known/oauth-authorization-server",
-)
-STUB_BODY = json.dumps(
-    {
-        "error": "not_implemented",
-        "error_description": (
-            "This site does not issue OAuth credentials to agents. "
-            "See https://analyticmadhyasthdarshan.org/auth.md"
-        ),
-    },
-    separators=(",", ":"),
-)
+LIVE_URL = f"https://{cf.SITE_HOST}/auth.md"
 
 
-def worker_js(auth_md: str, prm: str, as_metadata: str) -> str:
+def worker_js(auth_md: str) -> str:
     return f"""\
 const AUTH_MD = {json.dumps(auth_md)};
-const PRM = {json.dumps(prm)};
-const AS_METADATA = {json.dumps(as_metadata)};
-const STUB = {json.dumps(STUB_BODY)};
 
-function jsonHeaders(contentType) {{
+function responseHeaders() {{
   return {{
-    "content-type": contentType,
+    "content-type": {json.dumps(cf.AUTH_MD_CONTENT_TYPE)},
     "cache-control": "public, max-age=3600",
     "access-control-allow-origin": "*",
-    "access-control-allow-methods": "GET, HEAD, OPTIONS, POST",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
   }};
 }}
 
-function respond(request, body, contentType, status) {{
-  const headers = jsonHeaders(contentType);
+function respond(request) {{
+  const headers = responseHeaders();
   if (request.method === "OPTIONS") {{
     return new Response(null, {{ status: 204, headers }});
   }}
-  if (request.method === "HEAD") {{
-    return new Response(null, {{ status: status, headers }});
+  if (request.method !== "GET" && request.method !== "HEAD") {{
+    headers.allow = "GET, HEAD, OPTIONS";
+    return new Response(null, {{ status: 405, headers }});
   }}
-  return new Response(body, {{ status: status, headers }});
+  if (request.method === "HEAD") {{
+    return new Response(null, {{ status: 200, headers }});
+  }}
+  return new Response(AUTH_MD, {{ status: 200, headers }});
 }}
 
 export default {{
   async fetch(request) {{
     const path = new URL(request.url).pathname;
     if (path === "/auth.md" || path === "/auth.md/") {{
-      return respond(request, AUTH_MD, {json.dumps(cf.AUTH_MD_CONTENT_TYPE)}, 200);
-    }}
-    if (path === "/.well-known/oauth-protected-resource") {{
-      return respond(request, PRM, {json.dumps(cf.OAUTH_METADATA_CONTENT_TYPE)}, 200);
-    }}
-    if (path === "/.well-known/oauth-authorization-server") {{
-      return respond(request, AS_METADATA, {json.dumps(cf.OAUTH_METADATA_CONTENT_TYPE)}, 200);
-    }}
-    if (path === "/agent/auth" || path === "/agent/auth/claim" || path === "/oauth2/token") {{
-      return respond(request, STUB, {json.dumps(cf.OAUTH_METADATA_CONTENT_TYPE)}, 501);
+      return respond(request);
     }}
     return new Response("Not Found", {{ status: 404 }});
   }}
@@ -161,26 +139,45 @@ def ensure_route(token: str, zone: str, script: str, pattern: str) -> None:
     print(f"Created worker route {pattern} -> {script}")
 
 
+def remove_retired_routes(token: str, zone: str) -> None:
+    payload = cf._api_request("GET", f"/zones/{zone}/workers/routes", token)
+    routes = (payload or {}).get("result") or []
+    retired = set(RETIRED_WORKER_ROUTES)
+    for route in routes:
+        if route.get("pattern") not in retired or not route.get("id"):
+            continue
+        cf._api_request(
+            "DELETE",
+            f"/zones/{zone}/workers/routes/{route['id']}",
+            token,
+        )
+        print(f"Removed retired worker route {route['pattern']}")
+
+
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Publish the Auth.md Worker.")
+    parser.add_argument(
+        "--generate-only",
+        action="store_true",
+        help="Write the Worker bundle without deploying it.",
+    )
+    args = parser.parse_args()
+    if not AUTH_MD_PATH.is_file():
+        print("missing auth.md", file=sys.stderr)
+        return 1
+    js = worker_js(AUTH_MD_PATH.read_text(encoding="utf-8"))
+    WORKER_SRC.parent.mkdir(parents=True, exist_ok=True)
+    write_text_lf(WORKER_SRC, js)
+    print(f"Wrote {WORKER_SRC.relative_to(cf.BASE)}")
+    if args.generate_only:
+        return 0
     cf.load_repo_env()
     token = cf.cloudflare_api_token()
     if not token:
         print("CLOUDFLARE_API_TOKEN is required.", file=sys.stderr)
         return 1
-    for path in (AUTH_MD_PATH, PRM_PATH, AS_PATH):
-        if not path.is_file():
-            print(f"missing {path.relative_to(cf.BASE)}", file=sys.stderr)
-            return 1
     zone = cf.resolve_zone_id(token, cf.cloudflare_zone_id())
     account = resolve_account_id(token)
-    js = worker_js(
-        AUTH_MD_PATH.read_text(encoding="utf-8"),
-        PRM_PATH.read_text(encoding="utf-8"),
-        AS_PATH.read_text(encoding="utf-8"),
-    )
-    WORKER_SRC.parent.mkdir(parents=True, exist_ok=True)
-    WORKER_SRC.write_text(js, encoding="utf-8", newline="\n")
-    print(f"Wrote {WORKER_SRC.relative_to(cf.BASE)}")
     print(f"Uploading worker {WORKER_NAME!r} to account {account}...")
     result = multipart_put(
         f"{cf.API_BASE}/accounts/{account}/workers/scripts/{WORKER_NAME}",
@@ -201,8 +198,8 @@ def main() -> int:
     except RuntimeError as exc:
         print(f"workers.dev subdomain enable skipped: {exc}")
     try:
-        for pattern in WORKER_ROUTES:
-            ensure_route(token, zone, WORKER_NAME, pattern)
+        ensure_route(token, zone, WORKER_NAME, WORKER_ROUTE)
+        remove_retired_routes(token, zone)
     except RuntimeError as exc:
         print(
             "Zone worker route was not created (token may lack Workers Routes Edit). "
@@ -210,7 +207,7 @@ def main() -> int:
         )
     cf.apply_auth_md_redirect(token, zone)
     try:
-        cf.purge_cache_files(token, zone, list(LIVE_URLS))
+        cf.purge_cache_files(token, zone, [LIVE_URL])
     except RuntimeError as exc:
         print(f"Cache purge skipped: {exc}")
     return 0

@@ -26,7 +26,6 @@ SITE_HOST = "analyticmadhyasthdarshan.org"
 API_HOST = f"api.{SITE_HOST}"
 PORTAL_NOTIFY_URL = f"https://{API_HOST}/api/notify"
 ROBOTS_URL = f"https://{SITE_HOST}/robots.txt"
-AGENT_CARD_URL = f"https://{SITE_HOST}/.well-known/agent-card.json"
 START_HERE_API_URL = f"https://{SITE_HOST}/api/start-here"
 ROOT_URL = f"https://{SITE_HOST}/"
 CATALOG_PATH = "/Studies/index.html"
@@ -43,13 +42,14 @@ PROBE_BLOCK_REF = "amd_block_common_probes"
 SECURITY_HEADERS_REF = "amd_security_headers_static"
 HOMEPAGE_LINK_HEADERS_REF = "amd_homepage_link_headers"
 API_CATALOG_HEADERS_REF = "amd_api_catalog_content_type"
-AGENT_CARD_HEADERS_REF = "amd_agent_card_content_type"
 AGENT_SKILLS_INDEX_HEADERS_REF = "amd_agent_skills_content_type"
 AGENT_SKILLS_MD_HEADERS_REF = "amd_agent_skills_md_content_type"
 MCP_SERVER_CARD_HEADERS_REF = "amd_mcp_server_card_content_type"
 WEB_BOT_AUTH_HEADERS_REF = "amd_web_bot_auth_content_type"
 AUTH_MD_HEADERS_REF = "amd_auth_md_content_type"
-OAUTH_METADATA_HEADERS_REF = "amd_oauth_metadata_content_type"
+RETIRED_RESPONSE_HEADER_REFS = frozenset(
+    {"amd_agent_card_content_type", "amd_oauth_metadata_content_type"}
+)
 EDGE_API_RATE_LIMIT_REF = "amd_rl_edge_api"
 # Keep retired refs owned until apply removes them from the live ruleset.
 WAF_CUSTOM_MANAGED_REFS = (
@@ -93,9 +93,6 @@ SECURITY_HEADERS_EXPRESSION = (
 API_CATALOG_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/api-catalog")'
 )
-AGENT_CARD_HEADERS_EXPRESSION = (
-    f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/.well-known/agent-card.json")'
-)
 AGENT_SKILLS_INDEX_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and ('
     'http.request.uri.path eq "/.well-known/agent-skills/index.json" or '
@@ -114,14 +111,12 @@ WEB_BOT_AUTH_HEADERS_EXPRESSION = (
 AUTH_MD_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/auth.md")'
 )
-OAUTH_METADATA_HEADERS_EXPRESSION = (
-    f'(http.host eq "{SITE_HOST}" and ('
-    'http.request.uri.path eq "/.well-known/oauth-protected-resource" or '
-    'http.request.uri.path eq "/.well-known/oauth-authorization-server"))'
-)
 AUTH_MD_SNIPPET_EXPRESSION = (
+    f'(http.host eq "{SITE_HOST}" and http.request.uri.path eq "/auth.md")'
+)
+RETIRED_DISCOVERY_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and ('
-    'http.request.uri.path eq "/auth.md" or '
+    'http.request.uri.path eq "/.well-known/agent-card.json" or '
     'http.request.uri.path eq "/.well-known/oauth-protected-resource" or '
     'http.request.uri.path eq "/.well-known/oauth-authorization-server" or '
     'http.request.uri.path eq "/agent/auth" or '
@@ -129,7 +124,6 @@ AUTH_MD_SNIPPET_EXPRESSION = (
     'http.request.uri.path eq "/oauth2/token"))'
 )
 AUTH_MD_CONTENT_TYPE = "text/markdown; charset=utf-8"
-OAUTH_METADATA_CONTENT_TYPE = "application/json"
 HOMEPAGE_LINK_HEADERS_EXPRESSION = (
     f'(http.host eq "{SITE_HOST}" and ('
     'http.request.uri.path eq "/" or '
@@ -141,7 +135,6 @@ HOMEPAGE_LINK_HEADERS_EXPRESSION = (
 API_CATALOG_CONTENT_TYPE = (
     'application/linkset+json; profile="https://www.rfc-editor.org/rfc/rfc9727"'
 )
-AGENT_CARD_CONTENT_TYPE = "application/a2a+json"
 AGENT_SKILLS_INDEX_CONTENT_TYPE = "application/json"
 MCP_SERVER_CARD_CONTENT_TYPE = "application/json"
 WEB_BOT_AUTH_CONTENT_TYPE = "application/http-message-signatures-directory+json"
@@ -152,13 +145,11 @@ API_CATALOG_LINK = (
 # Comma-separated values in one Link header are valid (so is multiple Link headers).
 HOMEPAGE_LINK = (
     '</.well-known/api-catalog>; rel="api-catalog"; type="application/linkset+json", '
-    '</.well-known/agent-card.json>; rel="describedby"; type="application/a2a+json", '
     '</.well-known/agent-skills/index.json>; rel="describedby"; type="application/json", '
     '</.well-known/mcp/server-card.json>; rel="describedby"; type="application/json", '
     '</.well-known/http-message-signatures-directory>; rel="describedby"; type="application/http-message-signatures-directory+json", '
     '</webmcp.js>; rel="describedby"; type="text/javascript", '
     '</auth.md>; rel="describedby"; type="text/markdown", '
-    '</.well-known/oauth-protected-resource>; rel="describedby"; type="application/json", '
     '</Studies/catalog-topical.json>; rel="describedby"; type="application/json", '
     '</Studies/catalog-formal.json>; rel="describedby"; type="application/json", '
     '</Studies/catalog-applied.json>; rel="describedby"; type="application/json", '
@@ -187,9 +178,8 @@ AGENT_SKILLS_REDIRECT_REF = "amd_agent_skills_redirect"
 AGENT_SKILLS_WORKER_HOST = "amd-agent-skills.raghavamohan.workers.dev"
 API_CATALOG_REDIRECT_REF = "amd_api_catalog_redirect"
 API_CATALOG_WORKER_HOST = "amd-api-catalog.raghavamohan.workers.dev"
-AGENT_CARD_REDIRECT_REF = "amd_agent_card_redirect"
-AGENT_CARD_WORKER_HOST = "amd-agent-card.raghavamohan.workers.dev"
 AUTH_MD_REDIRECT_REF = "amd_auth_md_redirect"
+RETIRED_DISCOVERY_REDIRECT_REF = "amd_retired_agent_discovery_404"
 AUTH_MD_WORKER_HOST = "amd-auth-md.raghavamohan.workers.dev"
 MCP_SERVER_CARD_REDIRECT_REF = "amd_mcp_server_card_redirect"
 MCP_RUNTIME_REDIRECT_REF = "amd_mcp_runtime_redirect"
@@ -198,7 +188,6 @@ WEB_BOT_AUTH_REDIRECT_REF = "amd_web_bot_auth_redirect"
 WEB_BOT_AUTH_WORKER_HOST = "amd-web-bot-auth.raghavamohan.workers.dev"
 DISCOVERY_WORKER_ROUTES = (
     (f"{SITE_HOST}/.well-known/api-catalog*", "amd-api-catalog"),
-    (f"{SITE_HOST}/.well-known/agent-card.json", "amd-agent-card"),
     (f"{SITE_HOST}/.well-known/agent-skills/*", "amd-agent-skills"),
     (f"{SITE_HOST}/.well-known/mcp/*", "amd-mcp"),
     (f"{SITE_HOST}/mcp*", "amd-mcp"),
@@ -208,18 +197,24 @@ DISCOVERY_WORKER_ROUTES = (
     (f"{SITE_HOST}/api/cite*", "amd-mcp"),
     (f"{SITE_HOST}/.well-known/http-message-signatures-directory", "amd-web-bot-auth"),
     (f"{SITE_HOST}/auth.md*", "amd-auth-md"),
-    (f"{SITE_HOST}/.well-known/oauth-protected-resource*", "amd-auth-md"),
-    (f"{SITE_HOST}/.well-known/oauth-authorization-server*", "amd-auth-md"),
-    (f"{SITE_HOST}/agent/auth*", "amd-auth-md"),
-    (f"{SITE_HOST}/oauth2/token", "amd-auth-md"),
+)
+RETIRED_DISCOVERY_WORKER_ROUTES = frozenset(
+    {
+        f"{SITE_HOST}/.well-known/agent-card.json",
+        f"{SITE_HOST}/.well-known/oauth-protected-resource*",
+        f"{SITE_HOST}/.well-known/oauth-authorization-server*",
+        f"{SITE_HOST}/agent/auth*",
+        f"{SITE_HOST}/oauth2/token",
+    }
 )
 WORKER_DEV_REDIRECT_REFS = (
     AGENT_SKILLS_REDIRECT_REF,
     MCP_SERVER_CARD_REDIRECT_REF,
     MCP_RUNTIME_REDIRECT_REF,
     API_CATALOG_REDIRECT_REF,
-    AGENT_CARD_REDIRECT_REF,
+    "amd_agent_card_redirect",
     AUTH_MD_REDIRECT_REF,
+    RETIRED_DISCOVERY_REDIRECT_REF,
     WEB_BOT_AUTH_REDIRECT_REF,
 )
 # Leftover Snippets return HTTP 200 before Workers Routes. Unbind these
@@ -234,7 +229,7 @@ STALE_DISCOVERY_SNIPPETS = (
     "amd_auth_md",
 )
 SNIPPET_GUARDED_REDIRECT_REFS = frozenset(
-    {API_CATALOG_REDIRECT_REF, AGENT_CARD_REDIRECT_REF, AUTH_MD_REDIRECT_REF}
+    {API_CATALOG_REDIRECT_REF, AUTH_MD_REDIRECT_REF, RETIRED_DISCOVERY_REDIRECT_REF}
 )
 CACHE_RULE_REFS = (
     "amd_cache_pdfs",
@@ -412,6 +407,14 @@ def apply_discovery_worker_routes(token: str, zone_id: str | None) -> None:
     zone = resolve_zone_id(token, zone_id)
     for pattern, script in DISCOVERY_WORKER_ROUTES:
         ensure_worker_route(token, zone, pattern, script)
+    payload = _api_request("GET", f"/zones/{zone}/workers/routes", token)
+    for route in (payload or {}).get("result") or []:
+        if route.get("pattern") not in RETIRED_DISCOVERY_WORKER_ROUTES:
+            continue
+        route_id = route.get("id")
+        if route_id:
+            _api_request("DELETE", f"/zones/{zone}/workers/routes/{route_id}", token)
+            print(f"Removed retired discovery route: {route.get('pattern')}")
     print("Discovery worker routes applied.")
 
 
@@ -508,28 +511,26 @@ def serve_discovery_from_workers(token: str, zone_id: str | None) -> None:
     if not snippets_cleared:
         for body in (
             api_catalog_redirect_rule_body(),
-            agent_card_redirect_rule_body(),
             auth_md_redirect_rule_body(),
+            retired_discovery_redirect_rule_body(),
         ):
             ensure_redirect_rule(token, zone_id, body)
         drop = [ref for ref in drop if ref not in SNIPPET_GUARDED_REDIRECT_REFS]
         print(
-            "Keeping api-catalog, Agent Card, and Auth.md 302s until leftover "
+            "Keeping api-catalog/Auth.md compatibility redirects and the retired-"
+            "discovery 404 redirect until leftover "
             "Snippets can be unbound (Snippets Edit)."
         )
     remove_discovery_worker_redirects(token, zone_id, tuple(drop))
     purge_urls = [
         f"https://{SITE_HOST}/.well-known/api-catalog",
         f"https://{SITE_HOST}/.well-known/api-catalog/",
-        f"https://{SITE_HOST}/.well-known/agent-card.json",
         f"https://{SITE_HOST}/.well-known/agent-skills/index.json",
         f"https://{SITE_HOST}/.well-known/mcp/server-card.json",
         f"https://{SITE_HOST}/mcp",
         f"https://{SITE_HOST}/api/studies",
         f"https://{SITE_HOST}/.well-known/http-message-signatures-directory",
         f"https://{SITE_HOST}/auth.md",
-        f"https://{SITE_HOST}/.well-known/oauth-protected-resource",
-        f"https://{SITE_HOST}/.well-known/oauth-authorization-server",
     ]
     try:
         purge_cache_files(token, zone_id, purge_urls)
@@ -749,7 +750,6 @@ def verify_bot_policy_publication() -> tuple[bool, list[str]]:
             issues.append("robots.txt is missing the managed training-crawler directives.")
 
         for url, user_agent, expected_type in (
-            (AGENT_CARD_URL, "ChatGPT-User", "json"),
             (START_HERE_API_URL, "Codex-Agent/1.0", "json"),
         ):
             status, content_type, _body = _public_probe(url, user_agent)
@@ -1180,21 +1180,6 @@ def api_catalog_headers_rule_body() -> dict:
     }
 
 
-def agent_card_headers_rule_body() -> dict:
-    return {
-        "ref": AGENT_CARD_HEADERS_REF,
-        "expression": AGENT_CARD_HEADERS_EXPRESSION,
-        "description": "A2A Agent Card Content-Type.",
-        "action": "rewrite",
-        "enabled": True,
-        "action_parameters": {
-            "headers": {
-                "Content-Type": _header_set(AGENT_CARD_CONTENT_TYPE),
-            },
-        },
-    }
-
-
 def agent_skills_index_headers_rule_body() -> dict:
     return {
         "ref": AGENT_SKILLS_INDEX_HEADERS_REF,
@@ -1285,21 +1270,6 @@ def auth_md_headers_rule_body() -> dict:
     }
 
 
-def oauth_metadata_headers_rule_body() -> dict:
-    return {
-        "ref": OAUTH_METADATA_HEADERS_REF,
-        "expression": OAUTH_METADATA_HEADERS_EXPRESSION,
-        "description": "RFC 8414 / RFC 9728 OAuth metadata Content-Type.",
-        "action": "rewrite",
-        "enabled": True,
-        "action_parameters": {
-            "headers": {
-                "Content-Type": _header_set(OAUTH_METADATA_CONTENT_TYPE),
-            },
-        },
-    }
-
-
 def managed_response_header_rules() -> list[dict]:
     # Catalog rule last so its Link header wins on /.well-known/api-catalog
     # if expressions ever overlap.
@@ -1307,8 +1277,6 @@ def managed_response_header_rules() -> list[dict]:
         security_headers_rule_body(),
         homepage_link_headers_rule_body(),
         auth_md_headers_rule_body(),
-        oauth_metadata_headers_rule_body(),
-        agent_card_headers_rule_body(),
         agent_skills_index_headers_rule_body(),
         agent_skills_md_headers_rule_body(),
         mcp_server_card_headers_rule_body(),
@@ -1347,14 +1315,6 @@ def _homepage_link_headers_rule_is_correct(rule: dict) -> bool:
 
 def _auth_md_headers_rule_is_correct(rule: dict) -> bool:
     return _header_rule_is_correct(rule, auth_md_headers_rule_body())
-
-
-def _oauth_metadata_headers_rule_is_correct(rule: dict) -> bool:
-    return _header_rule_is_correct(rule, oauth_metadata_headers_rule_body())
-
-
-def _agent_card_headers_rule_is_correct(rule: dict) -> bool:
-    return _header_rule_is_correct(rule, agent_card_headers_rule_body())
 
 
 def _agent_skills_index_headers_rule_is_correct(rule: dict) -> bool:
@@ -1409,9 +1369,10 @@ def _upsert_response_header_rules(
     foreign_rules = [
         _sanitize_rule_for_put(rule)
         for rule in ruleset.get("rules", [])
-        if rule.get("ref") not in managed_refs
+        if rule.get("ref") not in managed_refs | RETIRED_RESPONSE_HEADER_REFS
     ]
-    if all(
+    retired_present = any(ref in existing_by_ref for ref in RETIRED_RESPONSE_HEADER_REFS)
+    if not retired_present and all(
         ref in existing_by_ref and _header_rule_is_correct(existing_by_ref[ref], expected)
         for expected in managed_rules
         for ref in (expected["ref"],)
@@ -1468,8 +1429,6 @@ def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[
         (security_headers_rule_body(), _security_headers_rule_is_correct),
         (homepage_link_headers_rule_body(), _homepage_link_headers_rule_is_correct),
         (auth_md_headers_rule_body(), _auth_md_headers_rule_is_correct),
-        (oauth_metadata_headers_rule_body(), _oauth_metadata_headers_rule_is_correct),
-        (agent_card_headers_rule_body(), _agent_card_headers_rule_is_correct),
         (agent_skills_index_headers_rule_body(), _agent_skills_index_headers_rule_is_correct),
         (agent_skills_md_headers_rule_body(), _agent_skills_md_headers_rule_is_correct),
         (mcp_server_card_headers_rule_body(), _mcp_server_card_headers_rule_is_correct),
@@ -1486,6 +1445,9 @@ def check_security_headers(token: str, zone_id: str | None) -> tuple[bool, list[
             continue
         if not correct(rule):
             issues.append(f"Response header rule {ref!r} does not match spec.")
+    for ref in sorted(RETIRED_RESPONSE_HEADER_REFS):
+        if ref in existing_by_ref:
+            issues.append(f"Retired response header rule ref {ref!r} is still present.")
     return not issues, issues
 
 
@@ -1499,7 +1461,7 @@ def print_check_security_headers(token: str, zone_id: str | None) -> bool:
     if ok:
         print(
             "  OK: static-site security headers, homepage RFC 8288 Link, "
-            "Auth.md / OAuth metadata Content-Type, A2A Agent Card Content-Type, "
+            "Auth.md Content-Type, "
             "Agent Skills Discovery Content-Type, RFC 9727 catalog Content-Type."
         )
         return True
@@ -1679,15 +1641,12 @@ def api_catalog_redirect_rule_body() -> dict:
     }
 
 
-def agent_card_redirect_rule_body() -> dict:
+def auth_md_redirect_rule_body() -> dict:
     return {
-        "ref": AGENT_CARD_REDIRECT_REF,
-        "expression": (
-            f'(http.host eq "{SITE_HOST}" and '
-            'http.request.uri.path eq "/.well-known/agent-card.json")'
-        ),
+        "ref": AUTH_MD_REDIRECT_REF,
+        "expression": AUTH_MD_SNIPPET_EXPRESSION,
         "description": (
-            "Serve the A2A Agent Card from the amd-agent-card Worker. "
+            "Serve Auth.md from the amd-auth-md Worker. "
             "302 skips the stale Snippet this token cannot update."
         ),
         "action": "redirect",
@@ -1698,7 +1657,7 @@ def agent_card_redirect_rule_body() -> dict:
                 "preserve_query_string": True,
                 "target_url": {
                     "expression": (
-                        f'concat("https://{AGENT_CARD_WORKER_HOST}", http.request.uri.path)'
+                        f'concat("https://{AUTH_MD_WORKER_HOST}", http.request.uri.path)'
                     )
                 },
             }
@@ -1706,14 +1665,12 @@ def agent_card_redirect_rule_body() -> dict:
     }
 
 
-def auth_md_redirect_rule_body() -> dict:
+def retired_discovery_redirect_rule_body() -> dict:
+    """Bypass stale Snippets while returning 404 from the Auth.md Worker."""
     return {
-        "ref": AUTH_MD_REDIRECT_REF,
-        "expression": AUTH_MD_SNIPPET_EXPRESSION,
-        "description": (
-            "Serve Auth.md and OAuth discovery from the amd-auth-md Worker. "
-            "302 skips the stale Snippet this token cannot update."
-        ),
+        "ref": RETIRED_DISCOVERY_REDIRECT_REF,
+        "expression": RETIRED_DISCOVERY_EXPRESSION,
+        "description": "Return 404 for retired A2A and agent-OAuth discovery paths.",
         "action": "redirect",
         "enabled": True,
         "action_parameters": {
@@ -2149,11 +2106,6 @@ def apply_mcp_server_card_redirect(token: str, zone_id: str | None) -> None:
 
 
 def apply_api_catalog_redirect(token: str, zone_id: str | None) -> None:
-    """Bind discovery Workers on the apex; drop workers.dev redirects."""
-    serve_discovery_from_workers(token, zone_id)
-
-
-def apply_agent_card_redirect(token: str, zone_id: str | None) -> None:
     """Bind discovery Workers on the apex; drop workers.dev redirects."""
     serve_discovery_from_workers(token, zone_id)
 
@@ -2775,8 +2727,8 @@ def main() -> int:
         action="store_true",
         help=(
             "Add response security headers (enforcing CSP), homepage RFC 8288 "
-            "Link headers, Auth.md / OAuth metadata Content-Type, A2A Agent Card "
-            "Content-Type, Agent Skills Discovery Content-Type, and RFC 9727 "
+            "Link headers, Auth.md Content-Type, Agent Skills Discovery "
+            "Content-Type, and RFC 9727 "
             "api-catalog Content-Type."
         ),
     )
