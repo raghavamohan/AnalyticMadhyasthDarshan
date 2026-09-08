@@ -311,7 +311,7 @@ function citationDate(updated) {
 
 function citePayload(row) {
   const summary = studySummary(row);
-  const url = summary.mdUrl || summary.htmlUrl || `${ORIGIN}/Studies/${row.slug}/`;
+  const url = summary.mdUrl || summary.htmlUrl;
   const date = citationDate(row.updated);
   const status = row.status || "ongoing";
   const parts = [CITATION_AUTHOR, `*${row.title}*`, status];
@@ -596,6 +596,9 @@ async function callTool(name, args) {
     const match = findStudy(rows, slug);
     if (!match) {
       return toolError(`No catalog row for slug ${slug}`);
+    }
+    if (!match.md && !match.mdUrl && !match.html && !match.htmlUrl) {
+      return toolError(`No published document for slug ${slug}`);
     }
     return textResult(citePayload(match));
   }
@@ -903,6 +906,9 @@ async function handleCite(request, slug) {
     const match = findStudy(rows, slug);
     if (!match) {
       return jsonResponse(404, { error: `No catalog row for slug ${slug}` });
+    }
+    if (!match.md && !match.mdUrl && !match.html && !match.htmlUrl) {
+      return jsonResponse(404, { error: `No published document for slug ${slug}` });
     }
     const body = citePayload(match);
     if (request.method === "HEAD") {

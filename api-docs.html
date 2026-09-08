@@ -43,9 +43,7 @@
 <p>
   Agents should start at
   <a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a>
-  (RFC 9727) or the
-  <a href="/.well-known/agent-card.json">A2A Agent Card</a>
-  at <code>/.well-known/agent-card.json</code>.
+  (RFC 9727).
   Public reader skills are listed at
   <a href="/.well-known/agent-skills/index.json"><code>/.well-known/agent-skills/index.json</code></a>.
   The MCP Server Card is at
@@ -57,15 +55,11 @@
   <a href="https://webmachinelearning.github.io/webmcp/">WebMCP</a>
   (<a href="/webmcp.js"><code>/webmcp.js</code></a>).
   DNS for AI Discovery (DNS-AID) publishes ServiceMode HTTPS records at
-  <code>_index._agents.analyticmadhyasthdarshan.org</code> and
-  <code>_a2a._agents.analyticmadhyasthdarshan.org</code>.
+  <code>_index._agents.analyticmadhyasthdarshan.org</code>.
   The catalog linkset points at the published
   <strong>studies catalog JSON</strong> for reading papers, and at the
-  submission and discussion HTTP APIs for writes. Identity discovery is at
-  <a href="/auth.md"><code>/auth.md</code></a>
-  (Auth.md) plus
-  <a href="/.well-known/oauth-protected-resource"><code>/.well-known/oauth-protected-resource</code></a>
-  (RFC 9728).
+  submission and discussion HTTP APIs for writes. Identity policy is at
+  <a href="/auth.md"><code>/auth.md</code></a> (Auth.md).
 </p>
 
 <h2>Studies catalog</h2>
@@ -217,10 +211,6 @@
   </thead>
   <tbody>
     <tr>
-      <td>A2A Agent Card</td>
-      <td><a href="/.well-known/agent-card.json"><code>/.well-known/agent-card.json</code></a></td>
-    </tr>
-    <tr>
       <td>Agent Skills Discovery</td>
       <td><a href="/.well-known/agent-skills/index.json"><code>/.well-known/agent-skills/index.json</code></a></td>
     </tr>
@@ -228,28 +218,8 @@
       <td>Auth.md</td>
       <td><a href="/auth.md"><code>/auth.md</code></a></td>
     </tr>
-    <tr>
-      <td>Protected resource metadata</td>
-      <td><a href="/.well-known/oauth-protected-resource"><code>/.well-known/oauth-protected-resource</code></a></td>
-    </tr>
-    <tr>
-      <td>Authorization server metadata</td>
-      <td><a href="/.well-known/oauth-authorization-server"><code>/.well-known/oauth-authorization-server</code></a></td>
-    </tr>
   </tbody>
 </table>
-
-<h2>A2A Agent Card</h2>
-<p class="muted">
-  <code>GET</code> and <code>HEAD</code>
-  <a href="/.well-known/agent-card.json"><code>/.well-known/agent-card.json</code></a>
-  return an
-  <a href="https://a2a-protocol.org/latest/specification/">A2A</a>
-  Agent Card (<code>Content-Type: application/a2a+json</code>).
-  Skills cover listing and reading studies. The advertised
-  <code>supportedInterfaces</code> are existing HTTP+JSON catalog URLs.
-  This site does not run an A2A JSON-RPC runtime.
-</p>
 
 <h2>DNS for AI Discovery (DNS-AID)</h2>
 <p class="muted">
@@ -275,12 +245,6 @@
       <td><code>_index._agents.analyticmadhyasthdarshan.org</code> HTTPS 1
         <code>analyticmadhyasthdarshan.org.</code>
         <code>alpn="h3,h2" port=443</code></td>
-    </tr>
-    <tr>
-      <td>A2A</td>
-      <td><code>_a2a._agents.analyticmadhyasthdarshan.org</code> HTTPS 1
-        <code>analyticmadhyasthdarshan.org.</code>
-        <code>alpn="a2a" port=443 mandatory="alpn,port"</code></td>
     </tr>
   </tbody>
 </table>
@@ -327,6 +291,12 @@
   <code>service-desc</code>, <code>service-doc</code>, and optional
   <code>status</code> links, following
   <a href="https://www.rfc-editor.org/rfc/rfc9727">RFC 9727</a>.
+</p>
+<h2>Improvement roadmap</h2>
+<p class="muted">
+  Contract hardening, write resilience, observability, versioning, and the
+  decision gates for future A2A or agent OAuth support are tracked in the
+  <a href="/docs/public-api-improvement-plan.md">public API improvement plan</a>.
 </p>
 <p><a href="Studies/index.html">Back to the studies catalog</a></p>
 </body>

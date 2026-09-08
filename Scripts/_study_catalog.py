@@ -626,7 +626,7 @@ def serialize_llms_full_txt(entries: list[dict] | None = None) -> str:
     ]
     for entry in published:
         title = entry.get("title") or entry["slug"]
-        html_url = _llms_study_url(entry)
+        html_url = _absolute_from_studies(entry.get("html"))
         md_url = _absolute_from_studies(entry.get("md"))
         pdf_url = _absolute_from_studies(entry.get("pdf"))
         lines.append(f"## {title}")
@@ -638,7 +638,8 @@ def serialize_llms_full_txt(entries: list[dict] | None = None) -> str:
         )
         if entry.get("updated"):
             lines.append(f"- Edited on: {entry['updated']}")
-        lines.append(f"- HTML: {html_url}")
+        if html_url:
+            lines.append(f"- HTML: {html_url}")
         if md_url:
             lines.append(f"- Markdown: {md_url}")
         if pdf_url:

@@ -33,18 +33,11 @@ const MAX_BODY_LENGTH = 8192;
 const MAX_DISPLAY_NAME_LENGTH = 80;
 const SLUG_RE = /^[A-Za-z0-9][A-Za-z0-9-]*$/;
 const RESERVED_SLUGS = new Set(['health', 'stats']);
-const RESOURCE_METADATA_URL =
-  'https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource';
-
 function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
   const headers = {
     ...corsHeaders(request, env),
     'Content-Type': 'application/json',
   };
-  if (status === 401) {
-    headers['WWW-Authenticate'] =
-      `Bearer realm="Analytic Madhyasth Darshan", resource_metadata="${RESOURCE_METADATA_URL}"`;
-  }
   Object.assign(headers, extraHeaders);
   return new Response(JSON.stringify(payload), {
     status,
@@ -65,12 +58,30 @@ function requireDb(env) {
   return env.DB;
 }
 
+function httpError(status, message) {
+  const error = new Error(message);
+  error.status = status;
+  return error;
+}
+
+function validationError(message) {
+  return httpError(400, message);
+}
+
+async function readJson(request) {
+  try {
+    return await request.json();
+  } catch (_) {
+    throw validationError('Request body must be valid JSON.');
+  }
+}
+
 async function verifyTurnstile(token, env, request) {
   if (!env.TURNSTILE_SECRET_KEY) {
-    throw new Error('Turnstile is not configured on the server.');
+    throw httpError(503, 'Turnstile is not configured on the server.');
   }
   if (!token) {
-    throw new Error('Turnstile verification is required.');
+    throw validationError('Turnstile verification is required.');
   }
 
   const body = new FormData();
@@ -85,7 +96,7 @@ async function verifyTurnstile(token, env, request) {
   const result = await response.json();
   if (!result.success) {
     const codes = (result['error-codes'] || []).join(', ') || 'verification failed';
-    throw new Error(`Turnstile verification failed: ${codes}`);
+    throw validationError(`Turnstile verification failed: ${codes}`);
   }
   return result;
 }
@@ -96,10 +107,10 @@ function sanitizeBody(body) {
   // renderer, so no HTML is interpreted from stored comment bodies.
   const text = String(body || '').replace(/\r\n/g, '\n').trim();
   if (!text) {
-    throw new Error('Comment cannot be empty.');
+    throw validationError('Comment cannot be empty.');
   }
   if (text.length > MAX_BODY_LENGTH) {
-    throw new Error(`Comment must be at most ${MAX_BODY_LENGTH} characters.`);
+    throw validationError(`Comment must be at most ${MAX_BODY_LENGTH} characters.`);
   }
   return text;
 }
@@ -107,7 +118,7 @@ function sanitizeBody(body) {
 function validateSlug(slug) {
   const value = String(slug || '').trim();
   if (!value || !SLUG_RE.test(value) || RESERVED_SLUGS.has(value.toLowerCase())) {
-    throw new Error('Invalid study slug.');
+    throw validationError('Invalid study slug.');
   }
   return value;
 }
@@ -192,7 +203,7 @@ router.post('/api/discussions/:slug/comments', async (request, env) => {
     const session = requireSession(await getSession(request, env));
     const db = requireDb(env);
     const slug = validateSlug(request.params.slug);
-    const data = await request.json();
+    const data = await readJson(request);
 
     const body = sanitizeBody(data.body);
     const title = String(data.title || slug).trim() || slug;
@@ -285,7 +296,7 @@ router.post('/api/discussions/:slug/comments/:commentId/delete', async (request,
 router.post('/api/discuss-auth/magic-link', async (request, env) => {
   try {
     const db = requireDb(env);
-    const data = await request.json();
+    const data = await readJson(request);
     await verifyTurnstile(data.turnstileToken, env, request);
 
     const email = String(data.email || '').trim().toLowerCase();
@@ -293,15 +304,15 @@ router.post('/api/discuss-auth/magic-link', async (request, env) => {
     const returnTo = sanitizeReturnTo(data.returnTo, env);
 
     if (!email || !email.includes('@')) {
-      throw new Error('A valid email address is required.');
+      throw validationError('A valid email address is required.');
     }
     if (!displayName || displayName.length > MAX_DISPLAY_NAME_LENGTH) {
-      throw new Error(`Display name is required (max ${MAX_DISPLAY_NAME_LENGTH} characters).`);
+      throw validationError(`Display name is required (max ${MAX_DISPLAY_NAME_LENGTH} characters).`);
     }
 
     const recentCount = await countRecentMagicTokens(db, email, nowMs() - 60 * 60 * 1000);
     if (recentCount >= 5) {
-      throw new Error('Too many sign-in requests. Try again later.');
+      throw httpError(429, 'Too many sign-in requests. Try again later.');
     }
 
     const token = crypto.randomUUID();
@@ -319,7 +330,7 @@ router.post('/api/discuss-auth/magic-link', async (request, env) => {
         verifyUrl,
       });
     } else {
-      throw new Error('Email is not configured on the server.');
+      throw httpError(503, 'Email is not configured on the server.');
     }
 
     return jsonResponse(request, env, {
@@ -338,12 +349,12 @@ router.get('/api/discuss-auth/verify', async (request, env) => {
     const token = url.searchParams.get('token');
     const returnTo = sanitizeReturnTo(url.searchParams.get('return_to'), env);
     if (!token) {
-      throw new Error('Missing sign-in token.');
+      throw validationError('Missing sign-in token.');
     }
 
     const payload = await consumeMagicToken(db, token);
     if (!payload) {
-      throw new Error('This sign-in link is invalid or has expired.');
+      throw validationError('This sign-in link is invalid or has expired.');
     }
 
     const user = await findOrCreateUser(db, payload.email, payload.displayName);

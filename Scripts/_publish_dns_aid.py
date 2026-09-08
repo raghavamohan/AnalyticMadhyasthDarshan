@@ -24,12 +24,10 @@ ZONE = cf.SITE_HOST
 TTL = 3600
 COMMENT = "DNS-AID — agent discovery"
 INDEX_NAME = f"_index._agents.{ZONE}"
-A2A_NAME = f"_a2a._agents.{ZONE}"
+RETIRED_RECORD_NAMES = (f"_a2a._agents.{ZONE}",)
 # Private-use SvcParamKeys until IANA registers DNS-AID names (dns-aid-core).
 KEY_CAP = "key65400"
-KEY_WELL_KNOWN = "key65409"
 INDEX_CAP = f"https://{ZONE}/.well-known/api-catalog"
-A2A_CAP = f"https://{ZONE}/.well-known/agent-card.json"
 
 RECORDS = (
     {
@@ -38,16 +36,6 @@ RECORDS = (
         "priority": 1,
         "target": ZONE,
         "value": f'alpn="h3,h2" port=443 {KEY_CAP}="{INDEX_CAP}"',
-    },
-    {
-        "name": A2A_NAME,
-        "type": "HTTPS",
-        "priority": 1,
-        "target": ZONE,
-        "value": (
-            f'alpn="a2a" port=443 mandatory="alpn,port" '
-            f'{KEY_CAP}="{A2A_CAP}" {KEY_WELL_KNOWN}="agent-card.json"'
-        ),
     },
 )
 
@@ -76,6 +64,23 @@ def find_record(token: str, zone_id: str, record: dict) -> dict | None:
     )
     results = (body or {}).get("result") or []
     return results[0] if results else None
+
+
+def find_named_record(token: str, zone_id: str, name: str) -> dict | None:
+    return find_record(token, zone_id, {"name": name, "type": "HTTPS"})
+
+
+def delete_retired_records(token: str, zone_id: str) -> None:
+    for name in RETIRED_RECORD_NAMES:
+        existing = find_named_record(token, zone_id, name)
+        if not existing:
+            continue
+        cf._api_request(
+            "DELETE",
+            f"/zones/{zone_id}/dns_records/{existing['id']}",
+            token,
+        )
+        print(f"Removed retired HTTPS {name}")
 
 
 def upsert_record(token: str, zone_id: str, record: dict) -> dict:
@@ -172,6 +177,10 @@ def check_records(token: str, zone_id: str) -> int:
         if priority_n < 1:
             print(f"  expected ServiceMode priority >= 1, got {priority!r}")
             failed += 1
+    for name in RETIRED_RECORD_NAMES:
+        if find_named_record(token, zone_id, name):
+            print(f"UNEXPECTED retired HTTPS {name}")
+            failed += 1
     dnssec = get_dnssec(token, zone_id)
     print_dnssec(dnssec)
     status = str(dnssec.get("status") or "").lower()
@@ -184,6 +193,7 @@ def check_records(token: str, zone_id: str) -> int:
 def apply_records(token: str, zone_id: str, *, enable_sec: bool) -> int:
     for record in RECORDS:
         upsert_record(token, zone_id, record)
+    delete_retired_records(token, zone_id)
     if enable_sec:
         try:
             print_dnssec(enable_dnssec(token, zone_id))

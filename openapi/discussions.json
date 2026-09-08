@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan discussions API",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Per-study discussion boards on https://analyticmadhyasthdarshan.org. Readers sign in with an email magic link (no GitHub account required) to post comments. Structured corrections still use GitHub Issues. All POST requests require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store, including comment permissions. Magic links are single-use and expire after 15 minutes."
   },
   "servers": [
@@ -100,7 +100,11 @@
         },
         "responses": {
           "201": { "description": "Comment created." },
-          "401": { "description": "Not signed in." }
+          "400": { "description": "Invalid slug or comment payload." },
+          "401": { "description": "Not signed in." },
+          "403": { "$ref": "#/components/responses/OriginRejected" },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
         }
       }
     },
@@ -116,8 +120,12 @@
         ],
         "responses": {
           "200": { "description": "Hidden." },
-          "403": { "description": "Admin access required." },
-          "404": { "description": "Comment not found." }
+          "400": { "description": "Invalid slug or comment identifier." },
+          "401": { "description": "Not signed in." },
+          "403": { "description": "Origin rejected, or admin access is required." },
+          "404": { "description": "Comment not found." },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
         }
       }
     },
@@ -133,8 +141,12 @@
         ],
         "responses": {
           "200": { "description": "Hidden." },
-          "403": { "description": "Not the author." },
-          "404": { "description": "Comment not found." }
+          "400": { "description": "Invalid slug or comment identifier." },
+          "401": { "description": "Not signed in." },
+          "403": { "description": "Origin rejected, or the user is not the author." },
+          "404": { "description": "Comment not found." },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
         }
       }
     },
@@ -152,7 +164,12 @@
           }
         },
         "responses": {
-          "200": { "description": "Email sent (or verifyUrl in local dev)." }
+          "200": { "description": "Email sent (or verifyUrl in local dev)." },
+          "400": { "description": "Invalid email, return URL, or Turnstile token." },
+          "403": { "$ref": "#/components/responses/OriginRejected" },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "429": { "description": "Too many recent magic-link requests." },
+          "503": { "description": "Email or database service is unavailable." }
         }
       }
     },
@@ -175,7 +192,9 @@
           }
         ],
         "responses": {
-          "302": { "description": "Redirect back to the discussion page." }
+          "302": { "description": "Redirect back to the discussion page." },
+          "400": { "description": "Missing, invalid, expired, or already-used sign-in token." },
+          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
         }
       }
     },
@@ -202,12 +221,20 @@
         "summary": "Clear session",
         "operationId": "discussLogout",
         "responses": {
-          "200": { "description": "Session cookie cleared." }
+          "200": { "description": "Session cookie cleared." },
+          "403": { "$ref": "#/components/responses/OriginRejected" },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
         }
       }
     }
   },
   "components": {
+    "responses": {
+      "OriginRejected": { "description": "Browser Origin is not trusted." },
+      "JsonRequired": { "description": "Content-Type must be application/json." },
+      "ServiceUnavailable": { "description": "A required database, email, or verification service is unavailable." }
+    },
     "securitySchemes": {
       "sessionCookie": {
         "type": "apiKey",

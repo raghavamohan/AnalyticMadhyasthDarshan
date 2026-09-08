@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan public study catalog",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "Read-only catalog of topical, formal, and applied studies. Markdown is the source of truth; HTML and PDF are generated. Write APIs (submissions, discussions) are separate and for humans; see /auth.md."
   },
   "servers": [
@@ -257,7 +257,7 @@
         "tags": ["cite"],
         "summary": "Suggested citation for one study",
         "operationId": "getStudyCitation",
-        "description": "Title, slug, status, Edited-on, markdown URL, and a suggested citation line. Do not invent timestamps.",
+        "description": "Title, slug, status, Edited-on, published document URL, and a suggested citation line. Ongoing rows without a document are not citable. Do not invent timestamps.",
         "parameters": [
           {
             "name": "slug",
@@ -276,7 +276,7 @@
             }
           },
           "404": {
-            "description": "Unknown slug."
+            "description": "Unknown slug, or the row has no published document."
           }
         }
       }
