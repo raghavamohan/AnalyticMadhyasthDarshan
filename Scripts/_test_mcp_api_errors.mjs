@@ -120,6 +120,7 @@ test('MCP JSON-RPC errors retain the protocol envelope and expose requestId', as
   ));
   assert.equal(response.status, 400);
   assert.equal(response.headers.get('Cache-Control'), 'no-store');
+  assert.match(response.headers.get('RateLimit-Policy'), /edge-ip/);
   const payload = await response.json();
   assert.equal(payload.jsonrpc, '2.0');
   assert.equal(payload.error.code, -32700);
