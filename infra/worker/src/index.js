@@ -1,5 +1,6 @@
 import { operationId, operationPaths, digestPayload, claimOperation, finishOperation, receiptResponse } from './operations.js';
 import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
+import { normalizeApiErrorResponse } from '../../shared/api-errors.mjs';
 import { Router } from 'itty-router';
 import {
   allowedOrigins,
@@ -2570,6 +2571,7 @@ export default {
         }, error.status || 500);
       }
     }
+    response = await normalizeApiErrorResponse(request, response);
     return privateResponse(response, corsHeaders(request, env));
   },
 };

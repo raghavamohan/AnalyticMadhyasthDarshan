@@ -1,3 +1,5 @@
+import { apiErrorResponse } from './api-errors.mjs';
+
 // CORS controls response access; writes must also be checked before routing.
 // JSON plus an exact trusted Origin rejects simple forms and hostile fetches.
 export function rejectUnsafeWrite(request, origins, { machinePath } = {}) {
@@ -14,9 +16,7 @@ export function rejectUnsafeWrite(request, origins, { machinePath } = {}) {
     status = 415;
     error = 'Use application/json for this request.';
   }
-  return status ? new Response(JSON.stringify({ success: false, error }), {
-    status, headers: { 'Content-Type': 'application/json' },
-  }) : null;
+  return status ? apiErrorResponse(request, status, error) : null;
 }
 
 export function privateResponse(response, cors = {}) {

@@ -266,8 +266,11 @@ def check_openapi() -> None:
         if path not in paths:
             fail(f"openapi/studies.json is missing {path}")
     cite_404 = ((paths["/api/cite/{slug}"]["get"].get("responses") or {}).get("404") or {})
-    if "published document" not in str(cite_404.get("description") or ""):
-        fail("openapi/studies.json must document uncitable ongoing rows as 404")
+    if cite_404 != {"$ref": "#/components/responses/NotFound"}:
+        fail("openapi/studies.json citation 404 must use the shared NotFound response")
+    cite_description = str(paths["/api/cite/{slug}"]["get"].get("description") or "")
+    if "not citable" not in cite_description:
+        fail("openapi/studies.json must document uncitable ongoing rows")
     runtime = (BASE / "infra" / "mcp-worker" / "src" / "runtime.js").read_text(
         encoding="utf-8"
     )
@@ -302,6 +305,11 @@ def fetch_live(url: str, *, method: str = "GET", data: bytes | None = None) -> t
         return exc.code, header_map, body
     except urllib.error.URLError as exc:
         fail(f"{url} request failed: {exc}")
+
+
+def header_value(headers: dict, name: str) -> str:
+    wanted = name.lower()
+    return next((value for key, value in headers.items() if key.lower() == wanted), "")
 
 
 def check_live() -> None:
@@ -413,13 +421,20 @@ def check_live() -> None:
     ongoing = next((row for row in rows if row.get("status") == "ongoing"), None)
     if ongoing:
         ongoing_slug = ongoing["slug"]
-        status, _headers, body = fetch_live(f"{SITE}/api/cite/{ongoing_slug}")
+        status, headers, body = fetch_live(f"{SITE}/api/cite/{ongoing_slug}")
         if status != 404:
             fail(
                 f"GET /api/cite/{ongoing_slug} returned HTTP {status}, expected 404: "
                 f"{body[:300]}"
             )
-        print("OK: live citation endpoint rejects ongoing rows without a document.")
+        payload = json.loads(body)
+        if payload.get("success") is not False or payload.get("code") != "not_found":
+            fail(f"GET /api/cite/{ongoing_slug} has the wrong error envelope: {payload}")
+        if header_value(headers, "X-Request-ID") != payload.get("requestId"):
+            fail(f"GET /api/cite/{ongoing_slug} body/header request IDs differ")
+        if header_value(headers, "Cache-Control").lower() != "no-store":
+            fail(f"GET /api/cite/{ongoing_slug} error is cacheable")
+        print("OK: live citation endpoint returns the shared 404 error contract.")
 
 
 def main() -> None:

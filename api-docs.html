@@ -199,6 +199,29 @@
   </tbody>
 </table>
 
+<h2>Error responses</h2>
+<p class="muted">
+  Every JSON HTTP error from the Studies, submission, and discussion APIs uses
+  the same envelope. Success responses are unchanged. The
+  <code>X-Request-ID</code> header always matches <code>requestId</code> in the
+  body and can be included in an issue report. Submission and discussion
+  responses are private and use <code>Cache-Control: private, no-store</code>;
+  public Studies API errors use <code>Cache-Control: no-store</code>.
+</p>
+<pre><code>{
+  "success": false,
+  "code": "invalid_request",
+  "message": "The request is invalid.",
+  "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12",
+  "details": {}
+}</code></pre>
+<p class="muted">
+  <code>details</code> is optional. MCP JSON-RPC failures retain the protocol's
+  required error object and place the correlation value at
+  <code>error.data.requestId</code>. The reusable status responses and exact
+  schemas are in the three OpenAPI documents above.
+</p>
+
 <h2>Identity</h2>
 <p class="muted">
   Reading studies needs no account. Write APIs use human GitHub OAuth
@@ -294,7 +317,8 @@
 </p>
 <h2>Improvement roadmap</h2>
 <p class="muted">
-  Contract hardening, write resilience, observability, versioning, and the
+  Phase 1 contract hardening is implemented. Write resilience, observability,
+  versioning, and the
   decision gates for future A2A or agent OAuth support are tracked in the
   <a href="/docs/public-api-improvement-plan.md">public API improvement plan</a>.
 </p>

@@ -106,6 +106,11 @@ Or manually in Cloudflare dashboard → Workers Routes:
 
 ## API
 
+JSON errors use the public [`ErrorResponse`](../../openapi/discussions.json)
+contract: `success: false`, stable `code`, human-readable `message`,
+`requestId`, and optional `details`. The same value is returned in the
+`X-Request-ID` header. Successful response bodies are unchanged.
+
 | Route | Auth | Purpose |
 |-------|------|---------|
 | `GET /api/discussions/health` | — | Liveness `{ status: "ok" }` (`health` is not a study slug) |
