@@ -1147,7 +1147,7 @@ export default {
       return respondCard(request);
     }
     if (path === "/mcp") {
-      return handleMcp(request);
+      return withEdgeRatePolicy(await handleMcp(request));
     }
     for (const route of STUDIES_API_ROUTES) {
       const params = route.match(path);
