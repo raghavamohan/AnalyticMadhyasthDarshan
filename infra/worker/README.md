@@ -133,14 +133,14 @@ now checks and deploys both API Workers when either or their shared guard change
 | `GET /api/auth/callback` | — | OAuth callback; sets session cookie |
 | `GET /api/auth/me` | cookie | `{ loggedIn, login, notifications }` (notification summary omits the email address) |
 | `POST /api/auth/logout` | cookie | Clear session |
-| `GET /api/me/submissions` | cookie | Unified dashboard: proposals (pending/preparing/ready/declined/retired), study categories, Planned/catalog status, PRs, CI, row actions |
-| `GET /api/me/submissions/status` | cookie | Lightweight review/check refresh for the signed-in contributor's open study PRs |
-| `GET /api/me/notifications` | cookie | `{ configured, email, enabled }` notification preferences |
-| `POST /api/me/notifications` | cookie | Update notification `email` / `enabled` |
+| `GET /api/me/submissions` | cookie | Paginated unified dashboard: proposals (pending/preparing/ready/declined/retired), study categories, Planned/catalog status, PRs, CI, row actions |
+| `GET /api/me/submissions/status` | cookie | Paginated lightweight review/check refresh for the signed-in contributor's open study PRs |
+| `GET /api/me/notifications` | cookie | `{ configured, email, enabled, sourceVersion }` notification preferences |
+| `POST /api/me/notifications` | cookie | Update notification `email` / `enabled`; requires `sourceVersion` |
 | `POST /api/propose` | cookie + Turnstile | Create a `study-proposal` issue **as the signed-in user** |
 | `GET /api/proposal-status?issue=N` | optional | Approval/declined/closed status, locked slug, `workspaceReady`, and `ownedByYou` when signed in |
-| `GET /api/study-artifacts?slug=Slug` | — | Durable editable-study mapping, including every registered note and presentation; omit `slug` for the complete mapping |
-| `GET /api/study-source?slug=Slug` | — | Current published study Markdown, or a registered note when `artifactType=note&fileName=...` |
+| `GET /api/study-artifacts?slug=Slug` | — | Durable editable-study mapping, including every registered note and presentation; omit `slug` for a paginated mapping |
+| `GET /api/study-source?slug=Slug` | — | Current published study Markdown or a registered note/presentation source token selected with `artifactType` and `fileName` |
 | `GET /api/revision-source?pr=N` | cookie | Load the signed-in contributor's open first-draft PR Markdown for an in-place revision |
 | `POST /api/revise` | cookie + Turnstile | Commit revised Markdown to the same owned first-draft PR branch and rerun CI |
 | `GET /api/operation?id=UUID` | cookie | Recover an account-scoped submission receipt without repeating its GitHub write |
@@ -168,10 +168,22 @@ account-scoped receipts through a SQLite-backed Durable Object. Its included
 no new secret is needed. A missing binding stops content writes with 503. Keep
 the same receipt after a lost response and use `/api/operation` to check its
 explicit `notStarted`, `inProgress`, `complete`, or `uncertain` state;
-never create another ID merely because a GitHub search is empty. Existing
-Markdown updates also require the `sourceSha` returned by source loading.
+never create another ID merely because a GitHub search is empty. Every existing
+study, note, or presentation update—and every status or deletion request—also
+requires the `sourceSha` returned by source loading. A stale version returns
+`409` with the current and provided source tokens. Notification preference
+updates use the analogous `sourceVersion` value.
 See [Contributor reliability](../../docs/contributor-reliability.md) for browser
 storage, source conflicts, recovery limits and deployment sequencing.
+
+Dashboard and unfiltered artifact-list routes accept bounded `limit` / `offset`
+pagination and return `total`, `limit`, `offset`, `hasMore`, and `nextOffset` in
+`meta`; the dashboard also supports validated stage and category filters. JSON
+request bodies are limited to 64 KiB for ordinary writes and 18 MB for submission
+and revision envelopes; individual Markdown and decoded presentation limits remain
+2 MB and 10 MB. All API responses advertise the shared edge policy through
+`RateLimit-Policy`. Account-scoped contribution writes also include `RateLimit`,
+and exhausted quotas return `429` with `Retry-After`.
 
 `/api/delete-artifact` accepts only studies shown in the signed-in contributor's dashboard and only note/presentation filenames present in the durable artifact registry. It deletes a single mapped companion source on the PR branch, unregisters a deleted deck from the presentation pipeline, and removes a note's generated HTML reader when present. Whole-study requests add a short-lived marker that study PR CI recognizes and fulfills through `Scripts/_remove_study.py`, keeping catalogs, proposal metadata, References, and presentation registrations synchronized. No deletion reaches the published branch until a maintainer merges the PR. Status and deletion recovery branches use the receipt-derived names `status-<slug>-<operationId>` and `deletion-<slug>-<operationId>` and are retained when an external write cannot be confirmed.
 

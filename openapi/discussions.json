@@ -38,7 +38,15 @@
                   "$ref": "#/components/schemas/Health"
                 }
               }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           }
         }
       }
@@ -59,7 +67,15 @@
                   "$ref": "#/components/schemas/StatsResponse"
                 }
               }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -67,7 +83,33 @@
           "503": {
             "$ref": "#/components/responses/ServiceUnavailable"
           }
-        }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            },
+            "description": "Maximum rows returned in this page."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            },
+            "description": "Zero-based offset into matching rows."
+          }
+        ]
       }
     },
     "/api/discussions/{slug}": {
@@ -110,10 +152,18 @@
                   "$ref": "#/components/schemas/DiscussionResponse"
                 }
               }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
             }
           },
           "400": {
             "$ref": "#/components/responses/BadRequest"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -149,11 +199,39 @@
                 "$ref": "#/components/schemas/PostCommentRequest"
               }
             }
-          }
+          },
+          "description": "Maximum serialized JSON request size: 16,384 bytes.",
+          "x-maxBodyBytes": 16384
         },
         "responses": {
           "201": {
-            "description": "Comment created."
+            "description": "Comment created.",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "success",
+                    "comment"
+                  ],
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "const": true
+                    },
+                    "comment": {
+                      "$ref": "#/components/schemas/Comment"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/BadRequest"
@@ -164,8 +242,14 @@
           "403": {
             "$ref": "#/components/responses/Forbidden"
           },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
           "415": {
             "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "503": {
             "$ref": "#/components/responses/ServiceUnavailable"
@@ -195,7 +279,12 @@
         ],
         "responses": {
           "200": {
-            "description": "Hidden."
+            "description": "Hidden.",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/BadRequest"
@@ -209,12 +298,33 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
           "415": {
             "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "503": {
             "$ref": "#/components/responses/ServiceUnavailable"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "Maximum serialized JSON request size: 16,384 bytes.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentMutationRequest"
+              }
+            }
+          },
+          "x-maxBodyBytes": 16384
         }
       }
     },
@@ -240,7 +350,12 @@
         ],
         "responses": {
           "200": {
-            "description": "Hidden."
+            "description": "Hidden.",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/BadRequest"
@@ -254,12 +369,33 @@
           "404": {
             "$ref": "#/components/responses/NotFound"
           },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
           "415": {
             "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "503": {
             "$ref": "#/components/responses/ServiceUnavailable"
           }
+        },
+        "requestBody": {
+          "required": true,
+          "description": "Maximum serialized JSON request size: 16,384 bytes.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CommentMutationRequest"
+              }
+            }
+          },
+          "x-maxBodyBytes": 16384
         }
       }
     },
@@ -278,17 +414,30 @@
                 "$ref": "#/components/schemas/MagicLinkRequest"
               }
             }
-          }
+          },
+          "description": "Maximum serialized JSON request size: 16,384 bytes.",
+          "x-maxBodyBytes": 16384
         },
         "responses": {
           "200": {
-            "description": "Email sent (or verifyUrl in local dev)."
+            "description": "Email sent (or verifyUrl in local dev).",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "RateLimit": {
+                "$ref": "#/components/headers/RateLimit"
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/BadRequest"
           },
           "403": {
             "$ref": "#/components/responses/Forbidden"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
           },
           "415": {
             "$ref": "#/components/responses/UnsupportedMediaType"
@@ -315,7 +464,8 @@
             "in": "query",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "maxLength": 64
             }
           },
           {
@@ -323,13 +473,17 @@
             "in": "query",
             "schema": {
               "type": "string",
-              "format": "uri"
+              "format": "uri",
+              "maxLength": 2048
             }
           }
         ],
         "responses": {
           "302": {
             "description": "Redirect back to the discussion page."
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           }
         }
       }
@@ -350,7 +504,15 @@
                   "$ref": "#/components/schemas/DiscussAuthMe"
                 }
               }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
             }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
@@ -367,13 +529,21 @@
         "operationId": "discussLogout",
         "responses": {
           "200": {
-            "description": "Session cookie cleared."
+            "description": "Session cookie cleared.",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
+            }
           },
           "403": {
             "$ref": "#/components/responses/Forbidden"
           },
           "415": {
             "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
           }
         }
       }
@@ -550,10 +720,19 @@
         }
       },
       "RateLimited": {
-        "description": "The request rate limit was exceeded.",
+        "description": "Rate limit exceeded. Preserve the request and wait for Retry-After before retrying.",
         "headers": {
           "X-Request-ID": {
             "$ref": "#/components/headers/RequestId"
+          },
+          "RateLimit-Policy": {
+            "$ref": "#/components/headers/RateLimitPolicy"
+          },
+          "RateLimit": {
+            "$ref": "#/components/headers/RateLimit"
+          },
+          "Retry-After": {
+            "$ref": "#/components/headers/RetryAfter"
           }
         },
         "content": {
@@ -564,7 +743,7 @@
             "example": {
               "success": false,
               "code": "rate_limited",
-              "message": "The request rate limit was exceeded.",
+              "message": "Too many requests. Retry after the indicated delay.",
               "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
             }
           }
@@ -647,7 +826,9 @@
         "in": "path",
         "required": true,
         "schema": {
-          "type": "string"
+          "type": "string",
+          "maxLength": 60,
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9-]*$"
         }
       },
       "CommentId": {
@@ -725,8 +906,14 @@
                 }
               }
             }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
-        }
+        },
+        "required": [
+          "meta"
+        ]
       },
       "DiscussionViewer": {
         "type": "object",
@@ -747,7 +934,8 @@
         "required": [
           "slug",
           "viewer",
-          "comments"
+          "comments",
+          "meta"
         ],
         "properties": {
           "slug": {
@@ -759,8 +947,11 @@
           "comments": {
             "type": "array",
             "items": {
-              "type": "object"
+              "$ref": "#/components/schemas/Comment"
             }
+          },
+          "meta": {
+            "$ref": "#/components/schemas/PaginationMeta"
           }
         }
       },
@@ -775,7 +966,8 @@
             "maxLength": 8192
           },
           "title": {
-            "type": "string"
+            "type": "string",
+            "maxLength": 160
           },
           "parentId": {
             "type": "string",
@@ -793,7 +985,8 @@
         "properties": {
           "email": {
             "type": "string",
-            "format": "email"
+            "format": "email",
+            "maxLength": 254
           },
           "displayName": {
             "type": "string",
@@ -801,10 +994,13 @@
           },
           "returnTo": {
             "type": "string",
-            "format": "uri"
+            "format": "uri",
+            "maxLength": 2048
           },
           "turnstileToken": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096
           }
         }
       },
@@ -827,6 +1023,107 @@
             "type": "boolean"
           }
         }
+      },
+      "PaginationMeta": {
+        "type": "object",
+        "required": [
+          "total",
+          "limit",
+          "offset",
+          "hasMore",
+          "nextOffset"
+        ],
+        "properties": {
+          "total": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Total matching rows before pagination."
+          },
+          "limit": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
+          },
+          "offset": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 10000
+          },
+          "hasMore": {
+            "type": "boolean"
+          },
+          "nextOffset": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "minimum": 0
+          }
+        }
+      },
+      "CommentMutationRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sourceUpdatedAt"
+        ],
+        "properties": {
+          "sourceUpdatedAt": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "updatedAt value from the current comment representation."
+          }
+        }
+      },
+      "Comment": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "parentId",
+          "body",
+          "authorName",
+          "createdAt",
+          "updatedAt",
+          "canDelete",
+          "canHide"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "parentId": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "uuid"
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 8192
+          },
+          "authorName": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "createdAt": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "updatedAt": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Source identifier required by hide/delete."
+          },
+          "canDelete": {
+            "type": "boolean"
+          },
+          "canHide": {
+            "type": "boolean"
+          }
+        }
       }
     },
     "headers": {
@@ -837,6 +1134,25 @@
           "type": "string",
           "minLength": 8,
           "maxLength": 128
+        }
+      },
+      "RateLimitPolicy": {
+        "description": "Quota policy. The edge IP policy is 40 requests per 10 seconds; route-specific policies may also be listed.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "RateLimit": {
+        "description": "Structured remaining quota and seconds until reset for the most constraining worker policy.",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "RetryAfter": {
+        "description": "Seconds to wait before retrying a 429 response. This takes precedence over reset hints in RateLimit.",
+        "schema": {
+          "type": "string",
+          "pattern": "^\\d+$"
         }
       }
     }

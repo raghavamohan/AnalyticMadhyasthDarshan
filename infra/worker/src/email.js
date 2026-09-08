@@ -10,17 +10,18 @@ export function notifyKey(login) {
 }
 
 export async function getNotifyPrefs(env, login) {
-  if (!env.SESSIONS || !login) return { email: null, enabled: false };
+  if (!env.SESSIONS || !login) return { email: null, enabled: false, sourceVersion: '0' };
   try {
     const raw = await env.SESSIONS.get(notifyKey(login));
-    if (!raw) return { email: null, enabled: false };
+    if (!raw) return { email: null, enabled: false, sourceVersion: '0' };
     const data = JSON.parse(raw);
     return {
       email: data.email || null,
       enabled: data.enabled !== false && Boolean(data.email),
+      sourceVersion: String(data.sourceVersion || data.updatedAt || '0'),
     };
   } catch {
-    return { email: null, enabled: false };
+    return { email: null, enabled: false, sourceVersion: '0' };
   }
 }
 
@@ -30,11 +31,12 @@ export async function setNotifyPrefs(env, login, { email, enabled }) {
   const next = {
     email: email === undefined ? current.email : (email || null),
     enabled: enabled === undefined ? current.enabled : Boolean(enabled),
+    sourceVersion: crypto.randomUUID(),
     updatedAt: Math.floor(Date.now() / 1000),
   };
   if (!next.email) next.enabled = false;
   await env.SESSIONS.put(notifyKey(login), JSON.stringify(next));
-  return { email: next.email, enabled: next.enabled };
+  return { email: next.email, enabled: next.enabled, sourceVersion: next.sourceVersion };
 }
 
 const EVENT_COPY = {

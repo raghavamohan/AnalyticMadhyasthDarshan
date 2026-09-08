@@ -79,6 +79,39 @@ test('Studies API 502 uses the common HTTP error envelope', async () => {
   }
 });
 
+test('Studies API pagination is bounded and advertises the edge quota', async () => {
+  const original = globalThis.fetch;
+  try {
+    globalThis.fetch = async () => Response.json([
+      {slug:'One',title:'One',status:'draft',collection:'topical'},
+      {slug:'Two',title:'Two',status:'draft',collection:'topical'},
+      {slug:'Three',title:'Three',status:'released',collection:'formal'},
+    ]);
+    const worker = await loadWorker('pagination');
+    const response = await worker.fetch(new Request(
+      'https://analyticmadhyasthdarshan.org/api/studies?limit=1&offset=1',
+    ));
+    assert.equal(response.status,200);
+    assert.match(response.headers.get('RateLimit-Policy'),/edge-ip/);
+    const payload = await response.json();
+    assert.equal(payload.count,1);
+    assert.equal(payload.total,3);
+    assert.equal(payload.hasMore,true);
+    assert.equal(payload.nextOffset,2);
+    assert.equal(payload.studies[0].slug,'Two');
+    const invalid = await worker.fetch(new Request(
+      'https://analyticmadhyasthdarshan.org/api/studies?limit=0',
+    ));
+    await assertHttpError(invalid,400,'invalid_request');
+    const oversizedSlug = await worker.fetch(new Request(
+      'https://analyticmadhyasthdarshan.org/api/cite/' + 'A'.repeat(61),
+    ));
+    await assertHttpError(oversizedSlug,400,'invalid_request');
+  } finally {
+    globalThis.fetch = original;
+  }
+});
+
 test('MCP JSON-RPC errors retain the protocol envelope and expose requestId', async () => {
   const worker = await loadWorker('json-rpc-error');
   const response = await worker.fetch(new Request(
@@ -92,4 +125,22 @@ test('MCP JSON-RPC errors retain the protocol envelope and expose requestId', as
   assert.equal(payload.error.code, -32700);
   assert.equal(payload.error.data.requestId, response.headers.get('X-Request-ID'));
   assert.match(payload.error.data.requestId, /^[0-9a-f-]{36}$/i);
+});
+
+test('MCP accepts the exact body boundary and rejects one byte over it', async () => {
+  const worker = await loadWorker('body-boundary');
+  const message = {jsonrpc:'2.0',id:1,method:'ping',padding:''};
+  let raw = JSON.stringify(message);
+  message.padding = 'x'.repeat(65536 - raw.length);
+  raw = JSON.stringify(message);
+  assert.equal(Buffer.byteLength(raw),65536);
+  const exact = await worker.fetch(new Request('https://analyticmadhyasthdarshan.org/mcp',{
+    method:'POST',headers:{'Content-Type':'application/json'},body:raw,
+  }));
+  assert.equal(exact.status,200);
+  const oversized = await worker.fetch(new Request('https://analyticmadhyasthdarshan.org/mcp',{
+    method:'POST',headers:{'Content-Type':'application/json','Content-Length':'65537'},body:'{}',
+  }));
+  assert.equal(oversized.status,413);
+  assert.equal((await oversized.json()).error.code,-32600);
 });
