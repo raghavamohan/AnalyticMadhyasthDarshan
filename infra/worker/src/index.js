@@ -148,6 +148,20 @@ async function githubSearch(query, env, userToken = null, stats = null) {
   return { items: data.items || [], totalCount: data.total_count || 0 };
 }
 
+async function listOpenPullRequests(env, userToken = null, stats = null) {
+  const perPage = 100;
+  const items = await githubRequest(
+    `/pulls?state=open&per_page=${perPage}&sort=created&direction=desc`,
+    'GET',
+    null,
+    env,
+    userToken,
+    stats
+  );
+  const list = Array.isArray(items) ? items : [];
+  return { items: list, truncated: list.length >= perPage };
+}
+
 async function githubRawFile(path, env, stats = null) {
   const branch = defaultBranch(env);
   const url = `https://api.github.com/repos/${REPO}/contents/${path}?ref=${branch}`;
@@ -1005,7 +1019,9 @@ function isStudyProposalIssue(issue) {
 }
 
 function isPortalPullRequest(item, login) {
-  if (!item.pull_request) return false;
+  // Search results identify PRs with `pull_request`; the repository pull-list
+  // endpoint returns full PR objects with `head`. Accept both representations.
+  if (!item.pull_request && !item.head) return false;
   // Only surface the signed-in user's own portal pull requests. Portal PRs are
   // opened by the bot token but tag the submitter as `Portal-GitHub: @<login>`;
   // a PR the user authored directly also counts.
@@ -1029,14 +1045,14 @@ function summarizePullRequest(prDetails) {
 }
 
 function summarizePullRequestFromSearch(item) {
-  if (!item.pull_request) return null;
+  if (!item.pull_request && !item.head) return null;
   return {
     number: item.number,
-    url: item.pull_request.html_url || item.html_url,
+    url: item.pull_request?.html_url || item.html_url,
     state: item.state,
-    merged: Boolean(item.pull_request.merged_at),
-    draft: false,
-    headSha: null,
+    merged: Boolean(item.merged_at || item.pull_request?.merged_at),
+    draft: Boolean(item.draft),
+    headSha: item.head?.sha || null,
   };
 }
 
@@ -1292,30 +1308,27 @@ async function buildDashboard(session, env) {
   const login = session.login;
   const userToken = session.accessToken;
 
-  const [proposalList, prSearch, catalogMaps, proposalRegistry] = await Promise.all([
+  const [proposalList, openPullList, catalogMaps, proposalRegistry] = await Promise.all([
     listProposalIssues(login, env, userToken, stats),
-    githubSearch(
-      `repo:${REPO} is:pr label:new-study,study-update,status-change`,
-      env,
-      userToken,
-      stats
-    ),
+    listOpenPullRequests(env, userToken, stats),
     fetchCatalogMaps(env, stats),
     fetchProposalRegistry(env, stats),
   ]);
+  const baseFinished = Date.now();
 
   const catalogMap = catalogMaps.statusMap;
   const catalogCategoryMap = catalogMaps.categoryMap;
   const preCatalogSlugs = preCatalogSlugSet(proposalRegistry);
   const proposals = proposalList.items.filter(isStudyProposalIssue);
-  const prItems = prSearch.items.filter((item) => isPortalPullRequest(item, login));
+  // Historical PRs are deliberately absent from the blocking path. Proposal,
+  // registry and catalog data describe completed studies; only open PRs can
+  // change available actions, review feedback or CI state.
+  const prItems = openPullList.items.filter((item) => isPortalPullRequest(item, login));
   const openStatusChanges = buildOpenStatusChangeIndex(prItems);
   const openStudyPrs = buildOpenStudyPrIndex(prItems);
 
   const prByProposal = new Map();
-  const prByNumber = new Map();
   for (const item of prItems) {
-    prByNumber.set(item.number, item);
     const linked = parseProposalIssueFromBody(item.body);
     const existing = linked ? prByProposal.get(linked) : null;
     if (linked && (!existing || (item.state === 'open' && existing.state !== 'open'))) {
@@ -1472,17 +1485,21 @@ async function buildDashboard(session, env) {
 
   dedupedSubmissions.sort((a, b) => submissionRecency(b) - submissionRecency(a));
 
-  const openRows = dedupedSubmissions.filter((row) => row.stage === 'pr-open' && row.pullRequest);
-  const prDetailsCache = new Map();
+  const openRows = dedupedSubmissions.filter((row) =>
+    (row.stage === 'pr-open' || row.stage === 'changes_requested') && row.pullRequest
+  );
+  const enrichmentStarted = Date.now();
   await runPool(openRows, CHECK_POOL_SIZE, async (row) => {
     const num = row.pullRequest.number;
-    if (!prDetailsCache.has(num)) {
+    let summary = row.pullRequest;
+    if (!summary.headSha) {
       const full = await githubRequest(`/pulls/${num}`, 'GET', null, env, userToken, stats);
-      prDetailsCache.set(num, full);
+      summary = summarizePullRequest(full);
     }
-    const full = prDetailsCache.get(num);
-    const summary = summarizePullRequest(full);
-    const reviewState = await fetchPrReviewState(num, env, userToken, stats);
+    const [reviewState, checkSummary] = await Promise.all([
+      fetchPrReviewState(num, env, userToken, stats),
+      summary.headSha ? aggregateCheckRuns(summary.headSha, env, stats) : Promise.resolve(null),
+    ]);
     if (reviewState?.state === 'changes_requested') {
       row.feedback = reviewState.feedback;
       summary.changesRequested = true;
@@ -1491,6 +1508,12 @@ async function buildDashboard(session, env) {
       }
     }
     row.pullRequest = summary;
+    row.checks = checkSummary ? {
+      state: checkSummary.state,
+      url: `${summary.url}/checks`,
+      summary: checkSummary.summary,
+      details: checkSummary.details,
+    } : { state: null, url: `${summary.url}/checks`, summary: null };
     Object.assign(
       row,
       buildActions(
@@ -1505,23 +1528,9 @@ async function buildDashboard(session, env) {
       )
     );
   });
+  const enrichmentFinished = Date.now();
 
-  await runPool(openRows, CHECK_POOL_SIZE, async (row) => {
-    const sha = row.pullRequest?.headSha;
-    if (!sha) {
-      row.checks = { state: null, url: `${row.pullRequest.url}/checks`, summary: null };
-      return;
-    }
-    const summary = await aggregateCheckRuns(sha, env, stats);
-    row.checks = {
-      state: summary.state,
-      url: `${row.pullRequest.url}/checks`,
-      summary: summary.summary,
-      details: summary.details,
-    };
-  });
-
-  const truncated = proposalList.truncated || prSearch.totalCount > 100;
+  const truncated = proposalList.truncated || openPullList.truncated;
 
   return {
     login,
@@ -1530,6 +1539,62 @@ async function buildDashboard(session, env) {
       timingMs: Date.now() - started,
       githubRequests: stats.githubRequests,
       truncated,
+      phaseTimingMs: {
+        base: baseFinished - started,
+        enrichment: enrichmentFinished - enrichmentStarted,
+      },
+    },
+  };
+}
+
+async function buildDashboardStatus(session, env) {
+  const started = Date.now();
+  const stats = { githubRequests: 0 };
+  const openPullList = await listOpenPullRequests(env, session.accessToken, stats);
+  const pullRequests = openPullList.items.filter((item) =>
+    isPortalPullRequest(item, session.login)
+  );
+
+  const statuses = await runPool(pullRequests, CHECK_POOL_SIZE, async (item) => {
+    let pullRequest = summarizePullRequestFromSearch(item);
+    if (!pullRequest.headSha) {
+      const full = await githubRequest(
+        `/pulls/${item.number}`,
+        'GET',
+        null,
+        env,
+        session.accessToken,
+        stats
+      );
+      pullRequest = summarizePullRequest(full);
+    }
+    const [reviewState, checkSummary] = await Promise.all([
+      fetchPrReviewState(item.number, env, session.accessToken, stats),
+      pullRequest.headSha
+        ? aggregateCheckRuns(pullRequest.headSha, env, stats)
+        : Promise.resolve(null),
+    ]);
+    return {
+      number: item.number,
+      stage: reviewState?.state === 'changes_requested' ? 'changes_requested' : 'pr-open',
+      feedback: reviewState?.feedback || [],
+      pullRequest,
+      checks: checkSummary ? {
+        state: checkSummary.state,
+        url: `${pullRequest.url}/checks`,
+        summary: checkSummary.summary,
+        details: checkSummary.details,
+      } : { state: null, url: `${pullRequest.url}/checks`, summary: null },
+    };
+  });
+
+  return {
+    login: session.login,
+    statuses,
+    meta: {
+      timingMs: Date.now() - started,
+      githubRequests: stats.githubRequests,
+      truncated: openPullList.truncated,
     },
   };
 }
@@ -1641,7 +1706,22 @@ router.get('/api/me/submissions', async (request, env) => {
   try {
     const session = requireSession(await getSession(request, env));
     const dashboard = await buildDashboard(session, env);
-    return jsonResponse(request, env, { success: true, ...dashboard });
+    const phases = dashboard.meta.phaseTimingMs;
+    return jsonResponse(request, env, { success: true, ...dashboard }, 200, {
+      'Server-Timing': `github-base;dur=${phases.base}, github-enrichment;dur=${phases.enrichment}`,
+    });
+  } catch (err) {
+    return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
+  }
+});
+
+router.get('/api/me/submissions/status', async (request, env) => {
+  try {
+    const session = requireSession(await getSession(request, env));
+    const dashboardStatus = await buildDashboardStatus(session, env);
+    return jsonResponse(request, env, { success: true, ...dashboardStatus }, 200, {
+      'Server-Timing': `github-status;dur=${dashboardStatus.meta.timingMs}`,
+    });
   } catch (err) {
     return jsonResponse(request, env, { success: false, error: err.message }, err.status || 500);
   }
