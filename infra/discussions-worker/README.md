@@ -114,8 +114,8 @@ contract: `success: false`, stable `code`, human-readable `message`,
 | Route | Auth | Purpose |
 |-------|------|---------|
 | `GET /api/discussions/health` | — | Liveness `{ status: "ok" }` (`health` is not a study slug) |
-| `GET /api/discussions/stats` | — | Comment counts and latest activity per study slug (`stats` is reserved) |
-| `GET /api/discussions/:slug` | — | List visible comments plus an email-free viewer/session summary for a study |
+| `GET /api/discussions/stats` | — | Paginated comment counts and latest activity per study slug (`stats` is reserved) |
+| `GET /api/discussions/:slug` | — | Paginated visible comments plus an email-free viewer/session summary for a study |
 | `POST /api/discussions/:slug/comments` | cookie | Post a comment (session required; Turnstile not repeated per post) |
 | `POST /api/discussions/:slug/comments/:id/hide` | admin cookie | Soft-hide another user's comment |
 | `POST /api/discussions/:slug/comments/:id/delete` | author cookie | Soft-hide your own comment |
@@ -125,6 +125,14 @@ contract: `success: false`, stable `code`, human-readable `message`,
 | `POST /api/discuss-auth/logout` | cookie | Clear session |
 
 Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with the submissions worker (`/api/auth/github`, etc.). `health` and `stats` are reserved slugs so `GET /api/discussions/:slug` cannot swallow the liveness or stats routes. Unauthenticated writes return JSON `401` responses and rely on the documented first-party session-cookie flow; they do not advertise bearer authentication.
+
+List routes accept validated `limit` and `offset` query parameters (`limit` defaults
+to 50 and is capped at 100; `offset` is capped at 10,000). Responses include a
+`meta` object with `total`, `limit`, `offset`, `hasMore`, and `nextOffset`.
+Every returned comment includes `updatedAt`; hide and delete requests must send that
+value as `sourceUpdatedAt`. A concurrent change returns `409` with
+`details.currentSource` and `details.providedSource`, allowing the client to reload
+instead of silently overwriting newer state.
 
 ## Cloudflare edge limits (apex domain)
 
@@ -138,8 +146,10 @@ Static discussion pages receive **enforcing CSP** and other security headers fro
 
 - Comments are plain text (HTML stripped server-side).
 - Max body length: 8192 characters.
+- JSON request bodies are limited to 16 KiB; oversized payloads return `413`.
 - Turnstile required on magic-link requests only (signed-in session covers repeat comment posts).
 - Rate limit: 5 magic-link emails per address per hour (worker); edge WAF limits — see **Cloudflare edge limits** above.
+- API responses advertise the edge policy in `RateLimit-Policy`. Magic-link responses also include the account-specific `RateLimit` state, and a `429` includes `Retry-After`.
 - Admins (`ADMIN_EMAILS`) see a **Hide** button on others' comments.
 - Authors see **Delete** on their own comments (same soft-hide in D1).
 - Hidden comments are excluded from `GET /api/discussions/:slug`.

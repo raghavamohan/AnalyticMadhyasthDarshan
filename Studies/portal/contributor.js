@@ -241,7 +241,7 @@ const contributor = (() => {
   }
   function ticket() { return {epoch, account, key:AMDContributorDrafts.key(context('submit')), content:el('s-content').value}; }
   function matches(t) { return t.epoch === epoch && t.account === account && t.key === AMDContributorDrafts.key(context('submit')) && t.content === el('s-content').value; }
-  function source(data) { states.submit.source = {content:data.content, sha:data.sourceSha}; }
+  function source(data) { states.submit.source = {content:data.content || '', sha:data.sourceSha}; }
   function download(kind) {
     const data = {format:'amd-contributor-draft', schema:1, context:states[kind].context || context(kind), data:capture(kind)};
     const blob = new Blob([JSON.stringify(data, null, 2) + '\n'], {type:'application/json'});

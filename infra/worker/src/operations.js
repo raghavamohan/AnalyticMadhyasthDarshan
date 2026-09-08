@@ -8,6 +8,32 @@ export const operationPaths = new Set([
   '/api/status-change',
   '/api/delete-artifact',
 ]);
+export const ACCOUNT_WRITE_LIMIT = 30;
+export const ACCOUNT_WRITE_WINDOW_SECONDS = 3600;
+export const ACCOUNT_WRITE_POLICY = `"account-write";q=${ACCOUNT_WRITE_LIMIT};w=${ACCOUNT_WRITE_WINDOW_SECONDS}, "edge-ip";q=40;w=10`;
+
+export function accountRateLimitHeaders(used, now = Date.now(), includeRetryAfter = false) {
+  const remaining = Math.max(0, ACCOUNT_WRITE_LIMIT - used);
+  const resetSeconds = Math.max(1, Math.ceil(
+    (((Math.floor(now / 3600000) + 1) * 3600000) - now) / 1000
+  ));
+  return {
+    'RateLimit-Policy': ACCOUNT_WRITE_POLICY,
+    'RateLimit': `"account-write";r=${remaining};t=${resetSeconds}`,
+    ...(includeRetryAfter ? {'Retry-After': String(resetSeconds)} : {}),
+  };
+}
+
+function withHeaders(response, extraHeaders) {
+  const headers = new Headers(response.headers);
+  for (const [name, value] of Object.entries(extraHeaders || {})) headers.set(name, value);
+  headers.delete('Content-Length');
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
 
 export function operationLabel(path, data = {}) {
   if (path === '/api/propose') return 'study-proposal';
@@ -74,23 +100,31 @@ export function receiptResponse(receipt) {
 
 export async function claimOperation(storage, id, fingerprint, path) {
   return storage.transaction(async tx => {
+    const now = Date.now(), window = Math.floor(now / 3600000);
+    const budget = await tx.get('budget');
+    const used = budget?.window === window ? budget.count : 0;
+    const currentHeaders = accountRateLimitHeaders(used, now);
     const known = await tx.get('op:' + id);
     if (known) {
-      if (known.fingerprint !== fingerprint) return {response:Response.json({success:false, state:'uncertain', uncertain:true, retryAllowed:false, operationId:id, error:'This operation receipt belongs to different content. Check its result before starting another operation.'}, {status:409})};
-      return {response:receiptResponse(known)};
+      if (known.fingerprint !== fingerprint) return {response:withHeaders(Response.json({success:false, state:'uncertain', uncertain:true, retryAllowed:false, operationId:id, error:'This operation receipt belongs to different content. Check its result before starting another operation.'}, {status:409}), currentHeaders)};
+      return {response:withHeaders(receiptResponse(known), currentHeaders)};
     }
     const active = await tx.get('active');
-    if (active) return {response:Response.json({success:false, state:'uncertain', uncertain:true, retryAllowed:false, operationId:active,
-      error:'An earlier operation still needs a result check. Resolve it before sending another.'}, {status:409})};
-    const window = Math.floor(Date.now() / 3600000), budget = await tx.get('budget');
-    if (budget?.window === window && budget.count >= 30) return {response:Response.json({success:false,
-      error:'This account has made 30 submission attempts this hour. Your draft is safe; try again next hour.'}, {status:429})};
-    await tx.put('budget',{window,count:budget?.window === window ? budget.count + 1 : 1});
+    if (active) return {response:withHeaders(Response.json({success:false, state:'uncertain', uncertain:true, retryAllowed:false, operationId:active,
+      error:'An earlier operation still needs a result check. Resolve it before sending another.'}, {status:409}), currentHeaders)};
+    if (used >= ACCOUNT_WRITE_LIMIT) return {response:withHeaders(Response.json({success:false,
+      error:`This account has made ${ACCOUNT_WRITE_LIMIT} submission attempts this hour. Your draft is safe; retry after the indicated delay.`}, {status:429}), accountRateLimitHeaders(used, now, true))};
+    const nextUsed = used + 1;
+    await tx.put('budget',{window,count:nextUsed});
     const receipt = {id, fingerprint, path, phase:'started', created:new Date().toISOString()};
     await tx.put('op:' + id, receipt);
     await tx.put('active', id);
-    return {receipt};
+    return {receipt, rateLimitHeaders: accountRateLimitHeaders(nextUsed, now)};
   });
+}
+
+export function attachRateLimitHeaders(response, headers) {
+  return withHeaders(response, headers);
 }
 
 export async function finishOperation(storage, receipt, response, wrote) {

@@ -202,7 +202,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 </style>
 <link rel="stylesheet" href="portal/contributor.css?v=3408cf66f34bf9f7">
 <script src="portal/drafts.js?v=f24389c7c24bcd02"></script>
-<script src="portal/action-operations.js?v=00e1a195cc0baab1"></script>
+<script src="portal/action-operations.js?v=695538fa19fd4606"></script>
 </head>
 <body>
 <div class="page">
@@ -735,6 +735,13 @@ function normalizeApiData(data) {
       : data.message;
   return { ...details, ...data, ...(legacyMessage ? { error: legacyMessage } : {}) };
 }
+function responseError(data, response, fallback) {
+  const retryAfter = response?.headers?.get('Retry-After');
+  const guidance = response?.status === 429 && retryAfter
+    ? ' Retry after ' + retryAfter + ' seconds.'
+    : '';
+  return (data?.error || fallback) + guidance;
+}
 function safeGitHubUrl(value) {
   try { const url = new URL(value); if (url.origin === 'https://github.com' && url.pathname.startsWith('/raghavamohan/AnalyticMadhyasthDarshan/')) return url.href; } catch (_) {}
   return 'https://github.com/raghavamohan/AnalyticMadhyasthDarshan';
@@ -838,7 +845,7 @@ async function refreshAuthState() {
       dashboardCache = null; dashboardCacheAt = 0; dashboardRequest++;
       dashboardLoadPromise = null; dashboardLoadAccount = null; proposalOptionsLoaded = false;
       document.getElementById('dashboard-cards').replaceChildren();
-      notifyPrefs = {configured:false,email:null,hasEmail:false,enabled:false,loaded:false}; document.getElementById('notify-bar').hidden = true;
+      notifyPrefs = {configured:false,email:null,hasEmail:false,enabled:false,sourceVersion:null,loaded:false}; document.getElementById('notify-bar').hidden = true;
     }
     currentUser = data.loggedIn ? data : null;
     dashboardOperations.auth(currentUser);
@@ -848,6 +855,7 @@ async function refreshAuthState() {
         email: null,
         hasEmail: Boolean(currentUser.notifications.hasEmail),
         enabled: Boolean(currentUser.notifications.enabled),
+        sourceVersion: null,
         loaded: false,
       };
     }
@@ -892,6 +900,7 @@ async function refreshAuthState() {
         if (selectedArtifactType() === 'study') loadStudySource({silent:true});
         const target = document.getElementById('s-target').value;
         if (selectedArtifactType() === 'note' && target && target !== '__new__') loadStudySource({artifactType:'note',fileName:target,silent:true});
+        if (selectedArtifactType() === 'presentation' && target && target !== '__new__') loadStudySource({artifactType:'presentation',fileName:target,silent:true});
       }
     }
   } catch (err) {
@@ -924,6 +933,7 @@ let notifyPrefs = {
   email: null,
   hasEmail: Boolean(bootstrapNotifications?.hasEmail),
   enabled: Boolean(bootstrapNotifications?.enabled),
+  sourceVersion: null,
   loaded: false,
 };
 
@@ -947,7 +957,7 @@ async function loadNotifyPrefs() {
     const data = normalizeApiData(await res.json());
     if (currentUser?.login !== identity) return;
     if (res.ok && data.success) {
-      notifyPrefs = { configured: Boolean(data.configured), email: data.email || null, hasEmail: Boolean(data.email), enabled: Boolean(data.enabled), loaded: true };
+      notifyPrefs = { configured: Boolean(data.configured), email: data.email || null, hasEmail: Boolean(data.email), enabled: Boolean(data.enabled), sourceVersion: data.sourceVersion, loaded: true };
       currentUser.notifications = { configured: notifyPrefs.configured, hasEmail: notifyPrefs.hasEmail, enabled: notifyPrefs.enabled };
       cacheAuthState(currentUser);
     }
@@ -960,17 +970,23 @@ async function loadNotifyPrefs() {
 async function saveNotifyPrefs(update) {
   const identity = currentUser?.login;
   try {
+    if (!notifyPrefs.loaded) await loadNotifyPrefs();
+    if (!notifyPrefs.sourceVersion) throw new Error('Reload the current notification settings before saving.');
     const res = await apiFetch('/api/me/notifications', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(update),
+      body: JSON.stringify({...update, sourceVersion: notifyPrefs.sourceVersion}),
     });
     const data = normalizeApiData(await res.json());
     if (currentUser?.login !== identity) return;
-    if (!res.ok || !data.success) throw new Error(data.error || 'Could not save notification settings.');
+    if (!res.ok || !data.success) {
+      if (res.status === 409) await loadNotifyPrefs();
+      throw new Error(responseError(data, res, 'Could not save notification settings.'));
+    }
     notifyPrefs.email = data.email || null;
     notifyPrefs.hasEmail = Boolean(data.email);
     notifyPrefs.enabled = Boolean(data.enabled);
+    notifyPrefs.sourceVersion = data.sourceVersion;
     notifyPrefs.loaded = true;
     currentUser.notifications = { configured: notifyPrefs.configured, hasEmail: notifyPrefs.hasEmail, enabled: notifyPrefs.enabled };
     cacheAuthState(currentUser);
@@ -1339,7 +1355,7 @@ async function sendDashboardAction(path, payload, buttonEl = null) {
     const data = normalizeApiData(await res.json());
     const certain = operationResponseIsCertain(data, res.status);
     dashboardOperations.settle(data, certain);
-    if (!res.ok || !data.success) throw new Error(dashboardActionError(path, data));
+    if (!res.ok || !data.success) throw new Error(responseError(data, res, dashboardActionError(path, data)));
     dashboardCache = null;
     await loadDashboard({ force: true });
     const message = path === '/api/status-change'
@@ -1353,6 +1369,17 @@ async function sendDashboardAction(path, payload, buttonEl = null) {
     showAlert('dashboard', 'error', escapeHtml(err.message));
     return false;
   }
+}
+
+async function loadArtifactSourceVersion(slug, artifactType = 'study', fileName = '') {
+  const params = new URLSearchParams({slug, artifactType});
+  if (fileName) params.set('fileName', fileName);
+  const response = await apiFetch('/api/study-source?' + params.toString());
+  const data = normalizeApiData(await response.json());
+  if (!response.ok || !data.success || !data.sourceSha) {
+    throw new Error(data.error || 'Could not load the current source version.');
+  }
+  return data.sourceSha;
 }
 
 async function checkDashboardOperation() {
@@ -1413,7 +1440,12 @@ async function inlineStatusChange(slug, target, buttonEl) {
   if (!window.confirm('Change "' + slug + '" to ' + label + '? A pull request will open for maintainer approval.')) {
     return;
   }
-  await sendDashboardAction('/api/status-change', {slug, targetStatus:target, reason:''}, buttonEl);
+  try {
+    const sourceSha = await loadArtifactSourceVersion(slug);
+    await sendDashboardAction('/api/status-change', {slug, targetStatus:target, reason:'', sourceSha}, buttonEl);
+  } catch (error) {
+    showAlert('dashboard', 'error', escapeHtml(error.message));
+  }
 }
 
 async function inlineDeleteArtifact(slug, artifactType, fileName, buttonEl) {
@@ -1433,7 +1465,12 @@ async function inlineDeleteArtifact(slug, artifactType, fileName, buttonEl) {
       return;
     }
   }
-  await sendDashboardAction('/api/delete-artifact', {slug, artifactType, fileName}, buttonEl);
+  try {
+    const sourceSha = await loadArtifactSourceVersion(slug, artifactType, fileName);
+    await sendDashboardAction('/api/delete-artifact', {slug, artifactType, fileName, sourceSha}, buttonEl);
+  } catch (error) {
+    showAlert('dashboard', 'error', escapeHtml(error.message));
+  }
 }
 
 document.getElementById('dashboard-check-operation').addEventListener('click', checkDashboardOperation);
@@ -1471,6 +1508,20 @@ function showDashboardSkeleton() {
 let dashboardRequest = 0;
 let dashboardLoadPromise = null;
 let dashboardLoadAccount = null;
+async function fetchDashboardPages(path, field) {
+  const rows = [];
+  let offset = 0, meta = {};
+  do {
+    const separator = path.includes('?') ? '&' : '?';
+    const res = await apiFetch(path + separator + 'limit=100&offset=' + offset);
+    const data = normalizeApiData(await res.json());
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not load submissions');
+    rows.push(...(Array.isArray(data[field]) ? data[field] : []));
+    meta = data.meta || {};
+    offset = Number(meta.nextOffset);
+  } while (meta.hasMore && Number.isSafeInteger(offset) && offset > 0 && offset <= 1000);
+  return {rows, meta};
+}
 async function loadDashboard(options = {}) {
   if (!currentUser) return;
   const force = Boolean(options.force);
@@ -1491,11 +1542,9 @@ async function loadDashboard(options = {}) {
   document.getElementById('dashboard-empty').hidden = true;
   const pending = (async () => {
     try {
-      const res = await apiFetch('/api/me/submissions');
-      const data = normalizeApiData(await res.json());
-      if (!res.ok || !data.success) throw new Error(data.error || 'Could not load submissions');
+      const data = await fetchDashboardPages('/api/me/submissions', 'submissions');
       if (requestId !== dashboardRequest || currentUser?.login !== account) return;
-      dashboardCache = { submissions: data.submissions || [], truncated: Boolean(data.meta && data.meta.truncated) };
+      dashboardCache = { submissions: data.rows, truncated: Boolean(data.meta.truncated) };
       dashboardCacheAt = Date.now();
       ciPollFailures = 0;
       proposalOptionsLoaded = true;
@@ -1714,7 +1763,7 @@ async function handleArtifactFile(file) {
 
 async function loadStudySource(opts = {}) {
   const artifactType = opts.artifactType || selectedArtifactType();
-  if (artifactType !== 'study' && artifactType !== 'note') return false;
+  if (!['study', 'note', 'presentation'].includes(artifactType)) return false;
   const fileName = opts.fileName || '';
   const slug = document.getElementById('s-slug').value.trim();
   const statusEl = document.getElementById('s-load-source-status');
@@ -1724,8 +1773,8 @@ async function loadStudySource(opts = {}) {
     return false;
   }
   const ta = document.getElementById('s-content');
-  const sourceLabel = artifactType === 'note' ? fileName : slug;
-  if (ta.value.trim() && !opts.silent &&
+  const sourceLabel = artifactType === 'study' ? slug : fileName;
+  if (artifactType !== 'presentation' && ta.value.trim() && !opts.silent &&
       !window.confirm('Replace the editor content with the published Markdown for "' + sourceLabel + '"?')) {
     return false;
   }
@@ -1740,10 +1789,14 @@ async function loadStudySource(opts = {}) {
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not load the current Markdown.');
     if (!contributor.matches(ticket)) return false;
     contributor.source(data);
-    ta.value = data.content;
-    setEditorMode('write');
+    if (artifactType !== 'presentation') {
+      ta.value = data.content;
+      setEditorMode('write');
+    }
     scheduleDraftSave();
-    showStatus('Loaded "' + sourceLabel + '". Edit it or upload a replacement file, then submit.');
+    showStatus(artifactType === 'presentation'
+      ? 'Loaded the current source version for "' + sourceLabel + '". Choose its replacement file, then submit.'
+      : 'Loaded "' + sourceLabel + '". Edit it or upload a replacement file, then submit.');
     return true;
   } catch (err) {
     if (!contributor.matches(ticket)) return false;
@@ -2166,6 +2219,8 @@ document.getElementById('s-target').addEventListener('change', async () => {
   updateArtifactUi();
   if (target && target !== '__new__' && selectedArtifactType() === 'note' && !document.getElementById('s-content').value)
     loadStudySource({artifactType:'note', fileName:target});
+  if (target && target !== '__new__' && selectedArtifactType() === 'presentation')
+    loadStudySource({artifactType:'presentation', fileName:target, silent:true});
 });
 
 document.getElementById('s-file').addEventListener('change', async (event) => {
@@ -2311,14 +2366,12 @@ async function pollDashboardStatuses() {
   const requestId = ++dashboardStatusRequest;
   const account = currentUser.login;
   try {
-    const res = await apiFetch('/api/me/submissions/status');
-    const data = normalizeApiData(await res.json());
-    if (!res.ok || !data.success) throw new Error(data.error || 'Could not refresh submission status');
+    const page = await fetchDashboardPages('/api/me/submissions/status', 'statuses');
     if (requestId !== dashboardStatusRequest || currentUser?.login !== account || !dashboardCache) return;
 
     const currentByNumber = new Map(openDashboardRows(dashboardCache.submissions)
       .map((item) => [Number(item.pullRequest.number), item]));
-    const freshByNumber = new Map((data.statuses || [])
+    const freshByNumber = new Map(page.rows
       .map((status) => [Number(status.number), status]));
     // The status endpoint can include other open lifecycle PRs that are
     // represented only as blocked actions on a deduplicated study card. Ignore
@@ -2347,7 +2400,7 @@ async function pollDashboardStatuses() {
     });
     dashboardCache = {
       submissions,
-      truncated: dashboardCache.truncated || Boolean(data.meta && data.meta.truncated),
+      truncated: dashboardCache.truncated || Boolean(page.meta.truncated),
     };
     dashboardCacheAt = Date.now();
     ciPollFailures = 0;
@@ -2414,7 +2467,7 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
     });
     const data = normalizeApiData(await res.json());
     await contributor.complete('propose', data, operationResponseIsCertain(data, res.status));
-    if (!res.ok) throw new Error(data.error || 'Unknown error');
+    if (!res.ok) throw new Error(responseError(data, res, 'Unknown error'));
     if (data.issueNumber) sessionStorage.setItem(PROPOSAL_STORAGE_KEY, String(data.issueNumber));
     dashboardCache = null;
     // Keep the submitted proposal as a browser recovery copy.
@@ -2473,6 +2526,20 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   )) {
     return;
   }
+  const existingUpdate = !submitIsNew && !isRevision && (
+    artifactType === 'study' || targetFileName !== '__new__'
+  );
+  if (existingUpdate && !contributor.sourceSha) {
+    const loaded = await loadStudySource({
+      artifactType,
+      fileName: artifactType === 'study' ? '' : targetFileName,
+      silent: true,
+    });
+    if (!loaded) {
+      showAlert('submit', 'error', 'Load the current source version before submitting this update. Your draft is unchanged.');
+      return;
+    }
+  }
   setContributionBusy(true);
   btn.disabled = true;
   btn.textContent = 'Submitting…';
@@ -2503,7 +2570,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     });
     const data = normalizeApiData(await res.json());
     await contributor.complete('submit', data, operationResponseIsCertain(data, res.status));
-    if (!res.ok) throw new Error(data.error || 'Unknown error');
+    if (!res.ok) throw new Error(responseError(data, res, 'Unknown error'));
     dashboardCache = null;
     setEditorMode('write');
     await goToDashboard(true);
@@ -2525,7 +2592,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
 });
 
 </script>
-<script src="portal/contributor.js?v=f9372fedf537f6e1"></script>
+<script src="portal/contributor.js?v=b161db4e275c3fb0"></script>
 <script>
 (async () => {
   toggleProposalField();

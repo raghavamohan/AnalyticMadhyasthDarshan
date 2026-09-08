@@ -7,6 +7,7 @@
 
   const PREFIX = 'amd-contributor-action-v1:';
   const UUID_V4 = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+  const SOURCE_SHA = /^[a-f0-9]{40,64}$/;
   const SLUG = /^[A-Za-z0-9-]{1,60}$/;
   const PATHS = new Set(['/api/status-change', '/api/delete-artifact']);
 
@@ -25,18 +26,20 @@
     if ('turnstileToken' in value || 'operationId' in value) throw new Error('The saved action receipt contains transient credentials.');
     const slug = String(value.slug || '').trim();
     if (!SLUG.test(slug)) throw new Error('The saved action receipt has an invalid study slug.');
+    const sourceSha = String(value.sourceSha || '').trim();
+    if (!SOURCE_SHA.test(sourceSha)) throw new Error('The saved action receipt has an invalid source version.');
     if (path === '/api/status-change') {
       const targetStatus = String(value.targetStatus || '').trim().toLowerCase();
       if (!['draft', 'released'].includes(targetStatus)) throw new Error('The saved status-change receipt has an invalid target status.');
       const reason = String(value.reason || '');
       if (reason.length > 2000) throw new Error('The saved status-change reason is too long.');
-      return {slug, targetStatus, reason};
+      return {slug, targetStatus, reason, sourceSha};
     }
     const artifactType = String(value.artifactType || '').trim().toLowerCase();
     if (!['study', 'note', 'presentation'].includes(artifactType)) throw new Error('The saved deletion receipt has an invalid artifact type.');
     const fileName = String(value.fileName || '').trim();
     if (fileName.length > 240 || (artifactType !== 'study' && !fileName)) throw new Error('The saved deletion receipt has an invalid filename.');
-    return {slug, artifactType, fileName};
+    return {slug, artifactType, fileName, sourceSha};
   }
 
   function validate(value) {
