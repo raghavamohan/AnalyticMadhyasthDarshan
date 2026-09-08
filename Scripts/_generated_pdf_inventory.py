@@ -7,7 +7,7 @@ from pathlib import Path
 
 from _common import APPLICATIONS, BASE, STUDIES
 from _presentation_pipeline import load_manifest, manifest_errors, repo_relative
-from _study_catalog import StudyStatus, get_study_row
+from _study_pdf_metadata import StudyStatus, get_pdf_study_row
 
 
 @dataclass(frozen=True)
@@ -28,10 +28,9 @@ def _publishable_markdown(path: Path) -> bool:
     # and uncataloged proposal stubs have no public read/download link.
     if path.stem != path.parent.name:
         return True
-    located = get_study_row(path.stem)
-    if located is None:
+    row = get_pdf_study_row(path.stem)
+    if row is None:
         return False
-    row, _table = located
     return row.status in (StudyStatus.DRAFT, StudyStatus.RELEASED)
 
 

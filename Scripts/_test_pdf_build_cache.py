@@ -10,7 +10,15 @@ from pathlib import Path
 from unittest.mock import patch
 
 import _build_reference_pdfs as reference_builder
-from _pdf_build_cache import BASE, COMMON_INPUTS, FAMILIES, fingerprint, seal, verify
+from _pdf_build_cache import (
+    BASE,
+    COMMON_INPUTS,
+    FAMILIES,
+    affected_families,
+    fingerprint,
+    seal,
+    verify,
+)
 
 
 class PdfBuildCacheTests(unittest.TestCase):
@@ -20,9 +28,15 @@ class PdfBuildCacheTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         fixtures = {name: "# fixture\n" for name in COMMON_INPUTS}
         fixtures.update({
-            "Scripts/_build_markdown_pdfs.py": "from _shared import value\nhelper = '_convert_to_pdf.py'\n",
+            "Scripts/_build_markdown_pdfs.py": (
+                "from _shared import value\n"
+                "from _study_pdf_metadata import metadata\n"
+                "helper = '_convert_to_pdf.py'\n"
+            ),
             "Scripts/_convert_to_pdf.py": "from _safe_study_html import clean\n",
             "Scripts/_safe_study_html.py": "clean = True\n",
+            "Scripts/_study_pdf_metadata.py": "metadata = True\n",
+            "Scripts/_study_catalog.py": "def serialize_catalog(): return 'catalog only'\n",
             "Scripts/_build_reference_pdfs.py": "from _shared import value\n",
             "Scripts/_shared.py": "value = 1\n",
             "Scripts/_build_presentations.py": "from _presentation_pipeline import value\n",
@@ -83,10 +97,12 @@ class PdfBuildCacheTests(unittest.TestCase):
             "References/Source.md": {"references"},
             "References/r2-artifacts.json": {"markdown", "references"},
             "Scripts/_safe_study_html.py": {"markdown"},
+            "Scripts/_study_pdf_metadata.py": {"markdown"},
+            "Scripts/_study_catalog.py": set(),
             "Scripts/_shared.py": {"markdown", "references"},
             "Scripts/package-lock.json": {"markdown", "references"},
             "Scripts/_html_to_pdf.js": {"markdown", "references"},
-            "Scripts/_pdf_helper.mjs": {"markdown", "references"},
+            "Scripts/_pdf_helper.mjs": set(),
             "requirements.txt": set(FAMILIES),
             "Assets/KaTeX/fonts/font.woff2": set(FAMILIES),
             "Assets/reader/reader.css": set(),
@@ -121,6 +137,17 @@ class PdfBuildCacheTests(unittest.TestCase):
                 path.write_bytes(original)
         self.assertEqual(self.keys(), initial)
         self.assertTrue(all(self.keys("new-runner-image")[family] != initial[family] for family in FAMILIES))
+
+    def test_change_plan_excludes_catalog_only_code(self) -> None:
+        self.assertEqual(affected_families({"Scripts/_study_catalog.py"}, self.root), set())
+        self.assertEqual(
+            affected_families({"Scripts/_study_pdf_metadata.py"}, self.root),
+            {"markdown"},
+        )
+        self.assertEqual(
+            affected_families({"References/Source.md"}, self.root),
+            {"references"},
+        )
 
     def test_addition_removal_and_link_target_names_invalidate(self) -> None:
         original = self.keys()

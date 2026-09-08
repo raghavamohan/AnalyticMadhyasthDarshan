@@ -25,6 +25,7 @@ on:
   pull_request:
     paths:
       - "Scripts/_convert_to_pdf.py"
+      - "Scripts/_discussion_assets.py"
       - "Scripts/_safe_study_html.py"
       - "Scripts/_study_reader.py"
       - "Scripts/_study_passages.py"
@@ -35,7 +36,8 @@ on:
       - "Scripts/_html_to_pdf.js"
       - "Scripts/_pdf_metadata.py"
       - "Scripts/_regenerate_pdf.py"
-      - "Scripts/_study_catalog.py"
+      - "Scripts/_study_pdf_metadata.py"
+      - "Scripts/_study_pdf_pipeline.py"
       - "Scripts/_verify_pdf_reproducible.py"
       - "Scripts/package.json"
       - "Scripts/package-lock.json"

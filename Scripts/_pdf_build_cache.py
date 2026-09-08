@@ -29,6 +29,12 @@ COMMON_INPUTS = {
     ".github/workflows/generated-pdf-publish.yml",
 }
 IMAGE_SUFFIXES = {".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
+PDF_RENDERER_INPUTS = {
+    "Scripts/_chrome.js",
+    "Scripts/_html_to_pdf.js",
+    "Scripts/_pdf_resource_policy.cjs",
+    "Scripts/_render_katex_math.js",
+}
 
 
 def tracked_files(root: Path) -> set[str]:
@@ -90,9 +96,9 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
         else:
             if name in {"Scripts/package.json", "Scripts/package-lock.json", "References/r2-artifacts.json"}:
                 selected.add(name)
-            # JS require/import dependencies and renderer utilities are small;
-            # include them all rather than maintain an incomplete JS parser.
-            if name.startswith("Scripts/") and suffix in {".js", ".cjs", ".mjs"}:
+            # The renderer's local JS dependencies are explicit. Unrelated Node
+            # tests and portal utilities must not invalidate PDF build families.
+            if name in PDF_RENDERER_INPUTS:
                 selected.add(name)
             if family == "markdown":
                 if name.startswith(("Studies/", "Applications/")) and not name.startswith("Studies/search-data/") and name != "Studies/offline-manifest.json" and suffix in (
@@ -103,6 +109,50 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
             elif name.startswith("References/") and suffix in ({".md", ".html", ".pdf"} | IMAGE_SUFFIXES):
                 selected.add(name)
     return selected
+
+
+def affected_families(changed_paths: set[str], root: Path = BASE) -> set[str]:
+    """Return build families whose current inputs intersect a Git diff.
+
+    Deleted source files are classified by path because they no longer appear in
+    ``git ls-files`` at HEAD.  Imported pipeline helpers are discovered from the
+    current dependency graph, so unrelated scripts do not become global rebuild
+    switches.
+    """
+    normalized = {name.replace("\\", "/") for name in changed_paths}
+    tracked = tracked_files(root)
+    affected = {
+        family
+        for family in FAMILIES
+        if normalized & input_paths(family, root, tracked)
+    }
+    for name in normalized:
+        path = Path(name)
+        suffix = path.suffix.lower()
+        if name.startswith(("Studies/", "Applications/")):
+            if suffix == ".pptx":
+                affected.add("presentations")
+            elif suffix in ({".md", ".json"} | IMAGE_SUFFIXES):
+                affected.add("markdown")
+        if name.startswith("References/") and suffix in ({".md", ".html", ".pdf"} | IMAGE_SUFFIXES):
+            affected.add("references")
+            if name == "References/r2-artifacts.json":
+                affected.add("markdown")
+    return affected
+
+
+def git_changed_paths(base: str, root: Path = BASE) -> set[str]:
+    completed = subprocess.run(
+        ["git", "diff", "--name-only", base, "HEAD"],
+        cwd=root,
+        check=False,
+        text=True,
+        capture_output=True,
+    )
+    if completed.returncode != 0:
+        detail = completed.stderr.strip() or completed.stdout.strip()
+        raise RuntimeError(f"git diff {base} HEAD failed: {detail}")
+    return {line.strip() for line in completed.stdout.splitlines() if line.strip()}
 
 
 def file_hash(path: Path) -> str:
@@ -161,6 +211,7 @@ def main() -> int:
     action.add_argument("--keys", action="store_true")
     action.add_argument("--seal", choices=FAMILIES)
     action.add_argument("--verify", choices=FAMILIES)
+    parser.add_argument("--changed-since")
     parser.add_argument("--root", type=Path)
     parser.add_argument("--fingerprint")
     parser.add_argument("--github-output", type=Path)
@@ -168,6 +219,15 @@ def main() -> int:
     if args.keys:
         image = f"{os.environ.get('ImageOS', os.name)}:{os.environ.get('ImageVersion', 'local')}"
         lines = [f"{family}={fingerprint(family, image=image)}" for family in FAMILIES]
+        affected = (
+            affected_families(git_changed_paths(args.changed_since))
+            if args.changed_since
+            else set(FAMILIES)
+        )
+        lines.extend(
+            f"{family}_changed={'true' if family in affected else 'false'}"
+            for family in FAMILIES
+        )
         print("\n".join(lines))
         if args.github_output:
             with args.github_output.open("a", encoding="utf-8", newline="\n") as handle:
