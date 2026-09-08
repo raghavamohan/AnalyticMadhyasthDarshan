@@ -16,6 +16,7 @@ from _study_catalog import StudyRow, StudyStatus, StudyTable
 
 WORKER = BASE / "infra" / "worker" / "src" / "index.js"
 PORTAL = BASE / "Studies" / "submit.html"
+INDEX_BUILDER = BASE / "Scripts" / "_build_studies_index.py"
 APPROVAL_WORKFLOW = BASE / ".github" / "workflows" / "proposal-approved.yml"
 
 
@@ -195,6 +196,7 @@ class ProposalPortalContractTests(unittest.TestCase):
     def setUpClass(cls) -> None:
         cls.worker = WORKER.read_text(encoding="utf-8")
         cls.portal = PORTAL.read_text(encoding="utf-8")
+        cls.index_builder = INDEX_BUILDER.read_text(encoding="utf-8")
         cls.workflow = APPROVAL_WORKFLOW.read_text(encoding="utf-8")
 
     def test_proposal_submission_validates_fields_and_slug_uniqueness(self) -> None:
@@ -237,6 +239,16 @@ class ProposalPortalContractTests(unittest.TestCase):
         self.assertIn("/api/me/submissions/status", self.portal)
         self.assertIn("Report workspace preparation failure", self.workflow)
         self.assertIn("Confirm that the proposal workspace is ready", self.workflow)
+
+    def test_landing_page_prefetches_auth_for_a_stable_portal_first_paint(self) -> None:
+        self.assertIn('fetch("https://api.analyticmadhyasthdarshan.org/api/auth/me"', self.index_builder)
+        self.assertIn('credentials:"include"', self.index_builder)
+        self.assertIn('sessionStorage.setItem(key,JSON.stringify(snapshot))', self.index_builder)
+        self.assertIn('window.__amdGithubAuthBootstrap=cached', self.portal)
+        self.assertIn("const bootstrapAuth = window.__amdGithubAuthBootstrap || null", self.portal)
+        self.assertIn("cacheAuthState(data);", self.portal)
+        self.assertIn("updateAuthUi(Boolean(currentUser));", self.portal)
+        self.assertIn("dashboardLoadPromise && dashboardLoadAccount === currentUser.login", self.portal)
 
     def test_review_state_uses_each_reviewers_latest_decision(self) -> None:
         self.assertIn("const latestByReviewer = new Map();", self.worker)
