@@ -26,6 +26,7 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 | | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Tomasello 2014 | external |
 | | Bodien et al. 2024, Bridges et al. 2024, Friston et al. 2015, Geraci et al. 2025, Lockwood et al. 2024, Lucca et al. 2025, Lyu et al. 2023, Pinto et al. 2017, Pinto et al. 2023, Ross et al. 2025, Wong et al. 2025 | external |
 | | Bayne and Chalmers 2003, Chalmers 2003, Graziano 2024, Papineau 2016, Papineau 2020, Sterelny 2025 | external |
+| | Ostrom 2010, Prabhakar et al. 2012 | external |
 | [How-To-Form-Self-Sustaining-Organizations.pdf](../Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf) | MVD, SB, JV | present |
 | | AV, SV | present |
 | | ATR | external |
@@ -157,10 +158,12 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Lockwood et al. 2024** | [Original source](https://www.nature.com/articles/s41562-024-01899-4); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Lucca et al. 2025** | [Original source](https://doi.org/10.1111/desc.13581); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Lyu et al. 2023** | [Original source](https://pubmed.ncbi.nlm.nih.gov/37295420/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Ostrom 2010** | [Publisher article](https://www.aeaweb.org/articles?id=10.1257/aer.100.3.641); [university-hosted full text](https://web.pdx.edu/~nwallace/EHP/OstromPolyGov.pdf); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Papineau 2016** | [Original source](https://doi.org/10.1017/9781107295490.006); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Papineau 2020** | [Original source](https://academic.oup.com/edited-volume/28269/chapter/213410595); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Pinto et al. 2017** | [Original source](https://academic.oup.com/brain/article/140/5/1231/2951052); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Pinto et al. 2023** | [Original source](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1278025/full); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Prabhakar et al. 2012** | [Publisher article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002670); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Ross et al. 2025** | [Original source](https://link.springer.com/article/10.1186/s13019-025-03484-w); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Sterelny 2025** | [Original source](https://gavindavidyounglectures.au/index.php/gdylp/article/download/3/8/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Wong et al. 2025** | [Original source](https://www.nature.com/articles/s41467-025-61945-1); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
@@ -169,6 +172,6 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 
 The tables above record citation coverage; [r2-artifacts.json](r2-artifacts.json) records storage and rights for reference artifacts. A citation tag is not a file count: several tags can identify one volume, and one work can have more than one citation tag.
 
-The science and modern-philosophy bibliography of *Why Humans Are Not Just Material* contains 26 entries: three use existing repository reference links and 23 link externally. The Lucca correction is linked with its original article.
+The science and modern-philosophy bibliography of *Why Humans Are Not Just Material* contains 28 entries: three use existing repository reference links and 25 link externally. The Lucca correction is linked with its original article.
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.
