@@ -173,12 +173,16 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: python Scripts/_publish_api_catalog_snippet.py
 
-      - name: Synchronize discovery response headers
+      - name: Synchronize Agent API edge policy
         if: github.event_name != 'pull_request'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: python Scripts/_cloudflare_performance.py --apply-security-headers
+        run: >-
+          python Scripts/_cloudflare_performance.py
+          --apply-security-headers
+          --apply-portal-edge-security
+          --apply-discussions-rate-limits
 
       - name: Verify live publications
         if: github.event_name != 'pull_request'

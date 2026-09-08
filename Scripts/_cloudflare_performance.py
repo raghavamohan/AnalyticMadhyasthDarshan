@@ -568,7 +568,7 @@ def get_waf_custom_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
 
 
 def super_bot_fight_mode_spec() -> dict:
-    """Agent-friendly bot policy: allow discovery, block model training."""
+    """Agent-friendly bot policy: allow user-directed automation, block training."""
     return {
         "enable_js": True,
         "ai_bots_protection": "disabled",
@@ -578,8 +578,8 @@ def super_bot_fight_mode_spec() -> dict:
         "bot_preference_sync_enabled": True,
         "is_robots_txt_managed": True,
         "content_bots_protection": "disabled",
-        "crawler_protection": "enabled",
-        "sbfm_definitely_automated": "managed_challenge",
+        "crawler_protection": "disabled",
+        "sbfm_definitely_automated": "allow",
         "sbfm_verified_bots": "allow",
         "sbfm_static_resource_protection": False,
     }
@@ -668,8 +668,8 @@ def print_check_portal_edge_security(token: str, zone_id: str | None) -> bool:
         return False
     if ok:
         print(
-            "  OK: search/user agents allowed, training blocked, definitely "
-            f"automated challenged, with WAF skip for {PORTAL_NOTIFY_URL}."
+            "  OK: search/user agents and generic automation allowed, training "
+            f"blocked, with WAF skip for {PORTAL_NOTIFY_URL}."
         )
         return True
     for issue in issues:
@@ -1005,12 +1005,12 @@ def get_rate_limit_entrypoint_ruleset(token: str, zone_id: str) -> dict | None:
 
 
 def edge_api_rate_limit_expression() -> str:
-    """Single rate-limit match for portal (api. host) and discussions (apex /api/...)."""
+    """Single rate-limit match for every dynamic API surface on both hosts."""
     return (
         f'(http.host eq "{API_HOST}" and starts_with(http.request.uri.path, "/api/")) '
         f'or (http.host eq "{SITE_HOST}" and ('
-        'starts_with(http.request.uri.path, "/api/discussions/") '
-        'or http.request.uri.path eq "/api/discuss-auth/magic-link"))'
+        'starts_with(http.request.uri.path, "/api/") '
+        'or starts_with(http.request.uri.path, "/mcp")))'
     )
 
 
@@ -1019,7 +1019,7 @@ def edge_api_rate_limit_rules_spec() -> list[dict]:
     return [
         _rate_limit_rule(
             EDGE_API_RATE_LIMIT_REF,
-            "Throttle portal and discussion API per IP",
+            "Throttle public reads, MCP, portal, and discussion APIs per IP",
             edge_api_rate_limit_expression(),
             requests_per_period=40,
             period=10,
@@ -1033,7 +1033,7 @@ def _is_legacy_portal_rate_limit_rule(rule: dict) -> bool:
 
 
 def apply_discussions_rate_limits(token: str, zone_id: str | None) -> None:
-    """Upsert combined portal + discussion API rate limit (Pro: max 2 rules in phase)."""
+    """Upsert the combined dynamic API rate limit (Pro: max 2 rules in phase)."""
     zone = resolve_zone_id(token, zone_id)
     print(f"Zone ID: {zone}")
     expected_rules = edge_api_rate_limit_rules_spec()
@@ -1131,7 +1131,7 @@ def print_check_discussions_rate_limits(token: str, zone_id: str | None) -> bool
         print(f"  ERROR: {exc}")
         return False
     if ok:
-        print("  OK: combined portal + discussion API rate limit configured.")
+        print("  OK: combined public-read, MCP, portal, and discussion rate limit configured.")
         return True
     for issue in issues:
         print(f"  {issue}")
@@ -2615,9 +2615,9 @@ Cloudflare dashboard steps for {SITE_HOST} (GitHub Pages origin, orange-cloud pr
 5. After deploy, verify the root redirect (this script runs the check by default):
    python Scripts/_cloudflare_performance.py --verify-only
 
-6. Portal edge security (Pro+): allow search and user agents, block AI training,
-   challenge unknown definitely automated traffic, and install a WAF skip for
-   GitHub Actions POST /api/notify (see infra/worker/README.md):
+6. Portal edge security (Pro+): allow search, user-directed agents, and generic
+   automation; block AI training; disable crawler link mazes; and install a WAF
+   skip for GitHub Actions POST /api/notify (see infra/worker/README.md):
    python Scripts/_cloudflare_performance.py --apply-portal-edge-security
    python Scripts/_cloudflare_performance.py --check-portal-edge-security
 
@@ -3043,9 +3043,12 @@ def main() -> int:
             verify_ok = print_verify_homepage_link_headers() and verify_ok
         if args.apply_edge_security:
             verify_ok = print_check_edge_security(token, zone_id) and verify_ok
-        elif args.apply_portal_edge_security:
-            verify_ok = print_check_portal_edge_security(token, zone_id) and verify_ok
-            verify_ok = print_verify_notify_reachable() and verify_ok
+        else:
+            if args.apply_portal_edge_security:
+                verify_ok = print_check_portal_edge_security(token, zone_id) and verify_ok
+                verify_ok = print_verify_notify_reachable() and verify_ok
+            if args.apply_discussions_rate_limits:
+                verify_ok = print_check_discussions_rate_limits(token, zone_id) and verify_ok
         if not verify_ok:
             return 1
 

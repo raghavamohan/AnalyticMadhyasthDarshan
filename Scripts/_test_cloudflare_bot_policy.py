@@ -7,6 +7,7 @@ from pathlib import Path
 from unittest import mock
 
 SCRIPTS = Path(__file__).resolve().parent
+BASE = SCRIPTS.parent
 sys.path.insert(0, str(SCRIPTS))
 
 import _cloudflare_performance as cf
@@ -22,14 +23,32 @@ class CloudflareBotPolicyTests(unittest.TestCase):
         self.assertTrue(policy["bot_preference_sync_enabled"])
         self.assertTrue(policy["is_robots_txt_managed"])
         self.assertEqual(policy["content_bots_protection"], "disabled")
-        self.assertEqual(policy["crawler_protection"], "enabled")
+        self.assertEqual(policy["crawler_protection"], "disabled")
 
-    def test_unknown_automation_is_challenged_and_verified_bots_allowed(self) -> None:
+    def test_generic_automation_and_verified_bots_are_allowed(self) -> None:
         policy = cf.super_bot_fight_mode_spec()
-        self.assertEqual(policy["sbfm_definitely_automated"], "managed_challenge")
+        self.assertEqual(policy["sbfm_definitely_automated"], "allow")
         self.assertEqual(policy["sbfm_verified_bots"], "allow")
         self.assertFalse(policy["sbfm_static_resource_protection"])
         self.assertTrue(policy["enable_js"])
+
+    def test_rate_limit_covers_every_dynamic_api_surface(self) -> None:
+        expression = cf.edge_api_rate_limit_expression()
+        self.assertIn(cf.API_HOST, expression)
+        self.assertIn(cf.SITE_HOST, expression)
+        self.assertIn('starts_with(http.request.uri.path, "/api/")', expression)
+        self.assertIn('starts_with(http.request.uri.path, "/mcp")', expression)
+
+    def test_agent_publication_deploy_converges_edge_policy(self) -> None:
+        workflow = (BASE / ".github" / "workflows" / "agent-publications.yml").read_text(
+            encoding="utf-8"
+        )
+        for flag in (
+            "--apply-security-headers",
+            "--apply-portal-edge-security",
+            "--apply-discussions-rate-limits",
+        ):
+            self.assertIn(flag, workflow)
 
     def test_public_content_does_not_bypass_training_policy(self) -> None:
         rules = cf.waf_custom_security_rules_spec()
