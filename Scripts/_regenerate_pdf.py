@@ -14,8 +14,11 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+from _build_discussion_pages import write_discussion_page
 from _common import APPLICATIONS, BASE, STUDIES, study_md, study_pdf
-from _study_catalog import StudyStatus, parse_status_md, regenerate_pdf
+from _study_catalog import get_study_row
+from _study_pdf_metadata import StudyStatus, parse_status_md
+from _study_pdf_pipeline import regenerate_pdf
 
 
 def normalize_slug(value: str) -> str:
@@ -94,6 +97,9 @@ def main() -> None:
         )
 
     regenerate_pdf(md_path, status)
+    row_info = get_study_row(md_path.parent.name)
+    if row_info:
+        write_discussion_page(row_info[0])
     print(f"Regenerated HTML at {md_path.with_suffix('.html')}")
     pdf_path = md_path.with_suffix(".pdf") if companion else study_pdf(md_path.stem)
     print(f"Regenerated PDF at {pdf_path}")

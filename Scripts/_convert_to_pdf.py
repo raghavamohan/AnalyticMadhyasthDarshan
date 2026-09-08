@@ -16,7 +16,7 @@ from _study_reader import reader_assets, reader_bootstrap, reader_controls
 from _study_passages import annotate_passages
 from _verify_study_svgs import verify_study_svgs, verify_svg_file
 
-from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION
+from _discussion_assets import ASSET_VERSION as DISCUSS_ASSET_VERSION
 from _common import (
     APPLICATIONS,
     BASE,
@@ -30,7 +30,15 @@ from _common import (
 )
 from _glossary_tooltips import apply_glossary_tooltips, load_glossary, wrap_tables_for_scroll
 from _reference_artifacts import public_delivery_url
-from _study_catalog import STATUS_MD_RE, get_study_row, parse_edited_on, strip_status_for_pdf
+from _study_pdf_metadata import (
+    ONGOING_DESC_PREFIX_RE,
+    STATUS_MD_RE,
+    StudyStatus,
+    get_pdf_study_row,
+    parse_edited_on,
+    parse_status_md,
+    strip_status_for_pdf,
+)
 
 FEEDBACK_ISSUES_URL = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new"
 
@@ -790,11 +798,9 @@ def _truncate_description(text: str, limit: int = _META_DESC_MAX) -> str:
 
 
 def _study_description(md_text: str, slug: str) -> str:
-    from _study_catalog import ONGOING_DESC_PREFIX_RE
-
-    row_info = get_study_row(slug)
-    if row_info:
-        desc = ONGOING_DESC_PREFIX_RE.sub("", row_info[0].description.strip()).strip()
+    row = get_pdf_study_row(slug)
+    if row:
+        desc = ONGOING_DESC_PREFIX_RE.sub("", row.description.strip()).strip()
         if desc:
             return _truncate_description(desc)
     question = _THE_QUESTION_RE.search(md_text)
@@ -1659,8 +1665,6 @@ def main() -> None:
 
     if args.watermark:
         print("Note: --watermark on _convert_to_pdf.py is ignored; use _html_to_pdf.js instead.")
-
-    from _study_catalog import StudyStatus, parse_status_md
 
     md_text = input_path.read_text(encoding="utf-8")
     status = parse_status_md(md_text)

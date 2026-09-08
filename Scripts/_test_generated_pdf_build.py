@@ -15,7 +15,7 @@ from _build_markdown_pdfs import markdown_specs, select_specs
 from _build_studies_index import _presentation_source_paths, catalog_build_id
 from _common import BASE
 from _presentation_pipeline import repo_relative
-from _study_catalog import StudyRow, StudyStatus, StudyTable
+from _study_pdf_metadata import PdfStudyRow, StudyStatus
 
 
 class GeneratedPdfBuildSelectionTests(unittest.TestCase):
@@ -36,8 +36,18 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         self.assertTrue(all(spec.key.startswith(directory) for spec in selected))
 
     def test_shared_pipeline_change_selects_every_markdown_output(self) -> None:
-        for source in ("Scripts/_html_to_pdf.js", "Scripts/_safe_study_html.py", "Scripts/_pdf_resource_policy.cjs"):
+        for source in (
+            "Scripts/_html_to_pdf.js",
+            "Scripts/_safe_study_html.py",
+            "Scripts/_pdf_resource_policy.cjs",
+            "Scripts/_study_pdf_metadata.py",
+            "Scripts/_study_pdf_pipeline.py",
+            "Studies/catalog-topical.json",
+        ):
             self.assertEqual(select_specs((source,), self.specs), self.specs)
+
+    def test_catalog_publication_code_selects_no_pdf(self) -> None:
+        self.assertEqual(select_specs(("Scripts/_study_catalog.py",), self.specs), ())
 
     def test_presentation_only_change_selects_no_markdown_output(self) -> None:
         selected = select_specs((
@@ -73,7 +83,7 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
             source = directory / "Example-Proposal.md"
             source.write_text("**Status:** Draft\n", encoding="utf-8")
 
-            with patch.object(generated_inventory, "get_study_row", return_value=None):
+            with patch.object(generated_inventory, "get_pdf_study_row", return_value=None):
                 self.assertFalse(generated_inventory._publishable_markdown(source))
 
             for status, expected in (
@@ -81,16 +91,15 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
                 (StudyStatus.DRAFT, True),
                 (StudyStatus.RELEASED, True),
             ):
-                row = StudyRow(
+                row = PdfStudyRow(
                     slug=source.stem,
-                    category="Ontology",
                     description="Example",
                     status=status,
                 )
                 with self.subTest(status=status), patch.object(
                     generated_inventory,
-                    "get_study_row",
-                    return_value=(row, StudyTable.TOPICAL),
+                    "get_pdf_study_row",
+                    return_value=row,
                 ):
                     self.assertEqual(generated_inventory._publishable_markdown(source), expected)
 
@@ -108,6 +117,8 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
             "!contains(github.event.pull_request.body, 'Portal-GitHub: @')",
             pdf_job,
         )
+        self.assertIn("--changed-since \"$BASE_SHA\"", pdf_job)
+        self.assertIn("steps.pdf-inputs.outputs.references_changed == 'true'", pdf_job)
 
         deploy_job = workflow.split("\n  publish-and-deploy:\n", 1)[1]
         self.assertIn("needs: [pdfs, presentations]", deploy_job)
@@ -142,6 +153,9 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
                 any(fnmatchcase(portal_path, pattern) for pattern in configured_paths),
                 f"portal-only path unexpectedly triggers PDF publication: {portal_path}",
             )
+        self.assertNotIn("Scripts/_study_catalog.py", configured_paths)
+        self.assertIn("Scripts/_study_pdf_metadata.py", configured_paths)
+        self.assertIn("Scripts/_study_pdf_pipeline.py", configured_paths)
 
     def test_proposal_bootstrap_syncs_allowlist_and_verifies_before_merge(self) -> None:
         workflow_path = BASE / ".github" / "workflows" / "proposal-approved.yml"

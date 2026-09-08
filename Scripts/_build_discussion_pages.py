@@ -20,6 +20,7 @@ from _common import (  # noqa: E402
     site_base_url,
     write_text_lf,
 )
+from _discussion_assets import ASSET_VERSION  # noqa: E402
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
     StudyRow,
@@ -34,9 +35,6 @@ FEEDBACK_ISSUES_URL = "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/
 TURNSTILE_SITE_KEY = "0x4AAAAAADoBfrNV5lPeJQWO"
 TURNSTILE_ACTION = "turnstile-spin-v1"
 DISCUSSIONS_API_FALLBACK = "https://amd-discussions.raghavamohan.workers.dev"
-
-# Bump when discuss.css / discuss.js change so the cached shared assets refresh.
-ASSET_VERSION = "4"
 
 ASSETS_DIRNAME = "assets"
 DISCUSS_CSS_NAME = "discuss.css"

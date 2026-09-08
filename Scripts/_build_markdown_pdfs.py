@@ -13,16 +13,20 @@ from _common import BASE, configure_utf8_stdio
 from _generated_pdf_inventory import GeneratedPdfSpec, generated_pdf_specs, inventory_errors
 from _presentation_pipeline import repo_relative
 from _publish_generated_pdfs import verify_artifacts
+from _study_pdf_pipeline import regenerate_pdf, render_status
 
 SHARED_PIPELINE_PATHS = frozenset({
     "CNAME",
     "requirements.txt",
     "Studies/glossary.json",
-    "Scripts/_build_discussion_pages.py",
+    "Studies/catalog-applied.json",
+    "Studies/catalog-formal.json",
+    "Studies/catalog-topical.json",
     "Scripts/_build_markdown_pdfs.py",
     "Scripts/_chrome.js",
     "Scripts/_common.py",
     "Scripts/_convert_to_pdf.py",
+    "Scripts/_discussion_assets.py",
     "Scripts/_safe_study_html.py",
     "Scripts/_study_reader.py",
     "Scripts/_study_passages.py",
@@ -33,9 +37,9 @@ SHARED_PIPELINE_PATHS = frozenset({
     "Scripts/_glossary_tooltips.py",
     "Scripts/_html_to_pdf.js",
     "Scripts/_pdf_metadata.py",
-    "Scripts/_regenerate_pdf.py",
     "Scripts/_render_katex_math.js",
-    "Scripts/_study_catalog.py",
+    "Scripts/_study_pdf_metadata.py",
+    "Scripts/_study_pdf_pipeline.py",
     "Scripts/_verify_pdf_diagrams.py",
     "Scripts/_verify_pdf_fenced_code.py",
     "Scripts/_verify_pdf_math.py",
@@ -94,11 +98,7 @@ def changed_paths(base: str) -> tuple[str, ...]:
 def build(specs: tuple[GeneratedPdfSpec, ...], output_root: Path) -> None:
     for spec in specs:
         print(f"Building {spec.key} from {repo_relative(spec.source)}", flush=True)
-        subprocess.run(
-            [sys.executable, str(BASE / "Scripts" / "_regenerate_pdf.py"), str(spec.source)],
-            cwd=BASE,
-            check=True,
-        )
+        regenerate_pdf(spec.source, render_status(spec.source))
         target = output_root / Path(spec.key)
         target.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(spec.output, target)

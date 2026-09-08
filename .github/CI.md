@@ -260,9 +260,10 @@ and never modifies the checkout.
 
 This is the protected-branch publication path for generated PDFs under `Studies/`
 and `Applications/` and manifest-approved reference PDFs. Pull requests run one
-Linux `pdfs` job: it installs the shared Python/Node/Chrome environment once, runs
-the Markdown and normalized-reference pipelines in sequence, checks manifest/link
-policy, and uploads separate short-lived Actions artifacts for inspection.
+Linux `pdfs` job. Its initial fingerprint step maps the PR diff to the Markdown
+and reference build families, then installs the shared Python/Node/Chrome
+environment and uploads short-lived artifacts only for affected families. When
+both families change, they still share one toolchain setup.
 Pull-request jobs do not receive R2 or Cloudflare credentials and cannot publish.
 Before the labelled study pipeline completes, it regenerates both
 `Studies/companion-artifacts.json` and the generated-PDF Worker's explicit allowlist
@@ -284,13 +285,12 @@ canonical extracted-text digest because Chromium's PDF container and font subset
 are host-platform-specific even with identical embedded fonts. Linux CI is the
 canonical byte producer; immutable source PDFs remain byte-for-byte checked.
 
-The Markdown builder remains change-aware on pull requests and exits immediately
-with an empty provenance artifact when no study/companion PDF is affected. Because
-reference rendering shares its toolchain in the same job, that no-op no longer pays
-for a second npm install and Puppeteer cache restore. The repository-wide published-
-document scan runs through the required `verify` job on pull requests; `pdfs` repeats
-the direct scan only for protected-branch and manual publication runs, where deployment
-must not depend on a separate workflow.
+The Markdown builder remains document-aware on pull requests, while the job-level
+plan prevents an unaffected family from reaching setup, cache restoration, rendering,
+or artifact upload. A study change therefore does not rebuild the normalized reference
+inventory. The repository-wide published-document scan runs through the required
+`verify` job on pull requests; `pdfs` repeats the direct scan only for protected-branch
+and manual publication runs, where deployment must not depend on a separate workflow.
 
 On a relevant `master` push (or a manual dispatch on `master`), CI builds the full
 publishable Markdown inventory and all manifest-approved reference PDFs in the shared
@@ -298,8 +298,10 @@ Linux job, and all slides/notes PDFs with the pinned LibreOffice production rend
 on Windows. Relevant pushes are limited to document Markdown, embedded study figures,
 PPTX sources, reference HTML/Markdown/PDF sources and manifests, or the rendering and
 publication toolchain. Root portal and catalog artifacts such as `Studies/submit.html`
-and `Studies/companion-artifacts.json` do not start publication. `publish-and-deploy`
-does not start until both build jobs complete successfully.
+and `Studies/companion-artifacts.json`, and catalog-only serialization code, do not
+start publication. The generated catalog JSON does remain an input because status and
+description affect public PDF inventory and reader metadata. `publish-and-deploy` does
+not start until both build jobs complete successfully.
 Complete build trees can now come from verified caches, as described below;
 the publisher still receives the entire current inventory.
 It merges the verified artifact trees; publishes generated PDFs and approved
@@ -331,6 +333,13 @@ R2 uploads already compare the generated SHA-256 with remote metadata and skip
 identical objects. Previously, every relevant merge still paid for full rendering
 before that comparison, including every presentation on Windows.
 
+PDF-sensitive status parsing, catalog lookup and rendering live in
+`_study_pdf_metadata.py` and `_study_pdf_pipeline.py`. Catalog lifecycle code imports
+that contract, but the PDF builder does not import `_study_catalog.py`. Consequently,
+changes limited to sitemap, API, LLM-catalog or landing-page serialization cannot
+invalidate all PDFs; changing the focused contract still does. Do not reintroduce the
+monolithic catalog module into the PDF dependency root or workflow path filters.
+
 `Scripts/_pdf_build_cache.py` now fingerprints three complete build families:
 Markdown, references and presentations. Keys contain source paths and bytes,
 transitive local Python helpers, renderer scripts/dependencies, fonts, manifests,
@@ -349,7 +358,8 @@ are checked again against their manifest without rendering/downloading, and
 presentations against their PPTX sources. Publication retains its complete-inventory
 PDF/provenance verification, R2 coverage, canary, route and public-delivery checks.
 Only a validated complete build on `master` can save a build cache; partial PR
-Markdown builds never populate it. PRs may read the complete reference cache.
+Markdown builds never populate it. PRs may read the complete reference cache when
+the reference family is affected.
 There are no prefix restore keys. See [GitHub cache scoping and exact matches](https://github.com/actions/cache/blob/main/README.md#cache-scopes).
 
 Missing or evicted caches run the ordinary builders. The first merge after this

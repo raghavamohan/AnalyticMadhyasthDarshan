@@ -65,18 +65,17 @@ class InventoryTests(unittest.TestCase):
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
         self.root = Path(temp.name)
-        self.rows = [SimpleNamespace(slug='Public', status=search.StudyStatus.DRAFT),
-                     SimpleNamespace(slug='Pending', status=search.StudyStatus.ONGOING)]
+        self.rows = [SimpleNamespace(slug='Public', status=search.StudyStatus.DRAFT, collection='Studies'),
+                     SimpleNamespace(slug='Pending', status=search.StudyStatus.ONGOING, collection='Studies')]
         for name in ('Public/Public', 'Public/Note', 'Public/Research-Template-X', 'Public/Private', 'Pending/Pending'):
             path = self.root / ('Studies/' + name + '.md')
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(b'# Test\n')
         self.tracked = b'Studies/Public/Public.md\0Studies/Public/Note.md\0Studies/Public/Research-Template-X.md\0Studies/Pending/Pending.md\0'
-        for target, value in [('BASE', self.root), ('DATA', self.root / 'Studies/search-data'),
-                              ('CATALOG_TABLES', [search.StudyTable.TOPICAL])]:
+        for target, value in [('BASE', self.root), ('DATA', self.root / 'Studies/search-data')]:
             patcher = patch.object(search, target, value)
             patcher.start(); self.addCleanup(patcher.stop)
-        patcher = patch.object(search, 'load_catalog_rows', side_effect=lambda _: self.rows)
+        patcher = patch.object(search, 'iter_pdf_study_rows', side_effect=lambda: tuple(self.rows))
         patcher.start(); self.addCleanup(patcher.stop)
         patcher = patch.object(search.subprocess, 'check_output', side_effect=lambda *a, **kw: self.tracked)
         patcher.start(); self.addCleanup(patcher.stop)
