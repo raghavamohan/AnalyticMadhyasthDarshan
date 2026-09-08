@@ -58,8 +58,8 @@ router regenerated back onto the branch.
 
 - `opened` is omitted. Creating a PR with its label already applied fires both
   `opened` and `labeled`; with `cancel-in-progress` one run is cancelled, and a
-  required check keyed on the cancelled run strands the PR — the successful run
-  has already pushed a `[skip ci]` commit, so no `synchronize` ever re-runs it.
+  cancelled run could otherwise be interrupted after it pushes artifacts but
+  before it hands the regenerated head to the required-check bridge.
 - `edited` is omitted so body/checklist edits do not re-run Puppeteer. The router
   compensates by re-reading the **live** PR body from the API
   (`resolve_pr_body`), so a corrected `Study slug:` line takes effect on the next
@@ -112,6 +112,17 @@ Every run ends in `verify_studies_index()`, which calls the *same*
 `collect_index_errors()` the master-push check uses. Calling a hand-picked subset
 here is what previously let a stale `Studies/index.html` pass a PR and turn
 `master` red after the merge.
+
+When that run pushes regenerated artifacts, the pushed commit becomes the PR's
+new head but its CI-skip token prevents a normal `pull_request` check suite.
+`study-pr.yml` therefore publishes a pending `verify` commit status on the exact
+new SHA and dispatches `studies-index-check.yml` with that SHA as `report_sha`.
+The dispatched workflow first confirms that its checked-out commit is exactly
+the requested SHA, runs the normal complete verifier, and replaces the pending
+status with success or failure in an `always()` step. A bare manual dispatch has
+no `report_sha` and writes no status. This explicit status bridge is necessary:
+a `workflow_dispatch` check run can succeed on a PR branch without appearing in
+that pull request's check rollup.
 
 **Composite actions are referenced as `raghavamohan/AnalyticMadhyasthDarshan/...@master`,
 not `./`.** The checkout deliberately targets the PR head, which for a fork is the
@@ -202,6 +213,13 @@ read `infra/`, `.agents/skills/`, `.well-known/`, `AGENTS.md` and
 `Studies/glossary.json`, none of which any filter listed. Running unconditionally
 also makes this the one workflow that reports on every PR, which is what a
 required status check needs.
+
+On the internal regenerated-head path only, the same workflow also accepts a
+full `report_sha` through `workflow_dispatch`. It validates that value against
+the checked-out commit and reports the required `verify` context back to that
+SHA. The dispatch's own check run remains useful in Actions history, while the
+commit status is the part associated with the PR head and enforced by the
+ruleset.
 
 ### 2.3 PDF pipeline smoke — `pdf-pipeline-smoke.yml`
 
@@ -596,7 +614,9 @@ arguably already redundant — a push made with `GITHUB_TOKEN` does not trigger
 workflows, and that, rather than the token, is what actually stops the regen push
 from re-running `study-pr.yml`. It becomes load-bearing again the moment anyone
 swaps to a PAT or App token, which is why it is still there and why the merge
-method is constrained instead.
+method is constrained instead. The regenerated-head status bridge does not rely
+on a new `pull_request` event: it runs the full required verifier explicitly and
+reports its result on the exact bot-generated SHA.
 
 **Why `verify` and not the study pipeline.** `studies-index-check.yml` is
 unfiltered and reports on every pull request, so requiring it is safe.

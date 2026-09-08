@@ -208,10 +208,19 @@ def test_regenerated_pull_request_head_gets_required_verification() -> None:
     study_workflow = STUDY_WORKFLOW.read_text(encoding="utf-8")
     verify_workflow = VERIFY_WORKFLOW.read_text(encoding="utf-8")
     assert "actions: write" in study_workflow
+    assert "statuses: write" in study_workflow
     assert "id: commit_artifacts" in study_workflow
     assert "steps.commit_artifacts.outputs.pushed == 'true'" in study_workflow
     assert "gh workflow run studies-index-check.yml" in study_workflow
+    assert '-f state=pending' in study_workflow
+    assert '-f context=verify' in study_workflow
+    assert '-f report_sha="$HEAD_SHA"' in study_workflow
     assert "workflow_dispatch:" in verify_workflow
+    assert "report_sha:" in verify_workflow
+    assert "statuses: write" in verify_workflow
+    assert "steps.dispatch_target.outputs.sha != ''" in verify_workflow
+    assert '-f state="$VERIFY_STATE"' in verify_workflow
+    assert '-f context=verify' in verify_workflow
 
 
 def main() -> int:
