@@ -36,12 +36,12 @@ SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
 
 from _common import study_md, study_pdf  # noqa: E402
-from _study_catalog import (  # noqa: E402
+from _study_pdf_metadata import (  # noqa: E402
     StudyStatus,
-    get_study_row,
+    get_pdf_study_row,
     parse_status_md,
-    regenerate_pdf,
 )
+from _study_pdf_pipeline import regenerate_pdf  # noqa: E402
 
 # One Released and one Draft study, so both date-pinning mechanisms are covered.
 DEFAULT_SLUGS = ("Nature-Of-Time", "Human-Behavior-And-Society")
@@ -52,10 +52,10 @@ def resolve_status(slug: str) -> StudyStatus:
     md_status = parse_status_md(md_path.read_text(encoding="utf-8"))
     if md_status:
         return StudyStatus(md_status.lower())
-    located = get_study_row(slug)
-    if located is None:
+    row = get_pdf_study_row(slug)
+    if row is None:
         raise SystemExit(f"{slug}: no **Status:** line and no catalog row.")
-    return located[0].status
+    return row.status
 
 
 ISO_TIMESTAMP_RE = re.compile(rb"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}")

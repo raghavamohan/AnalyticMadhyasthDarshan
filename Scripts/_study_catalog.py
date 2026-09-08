@@ -4,19 +4,16 @@ from __future__ import annotations
 import html
 import json
 import re
-import subprocess
 import sys
 from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from zoneinfo import ZoneInfo
 
 from _common import (
     BASE,
     REFERENCES,
-    SCRIPTS,
     STUDIES,
     application_discussion_href,
     application_html_href,
@@ -33,8 +30,20 @@ from _common import (
     study_pdf_ref_path,
     write_text_lf,
 )
-
-IST = ZoneInfo("Asia/Kolkata")
+from _study_pdf_metadata import (
+    EDITED_ON_RE,
+    IST,
+    MONTH_ABBR_TO_FULL,
+    MONTH_FULL_TO_ABBR,
+    ONGOING_DESC_PREFIX_RE,
+    STATUS_MD_RE,
+    STATUS_MD_WITH_SURROUNDING_BLANKS_RE,
+    StudyStatus,
+    parse_edited_on,
+    parse_status_md,
+    parse_timestamp_text,
+    strip_status_for_pdf,
+)
 
 TOPICAL_CATALOG_START = "<!-- studies-catalog -->"
 TOPICAL_CATALOG_END = "<!-- /studies-catalog -->"
@@ -59,63 +68,13 @@ STUDIES_README_APPLIED_HEADER = (
 )
 REFERENCES_README_TABLE_HEADER = "| Paper | Primary tags |\n|-------|----------------|"
 
-MONTH_FULL_TO_ABBR = {
-    "January": "Jan",
-    "February": "Feb",
-    "March": "Mar",
-    "April": "Apr",
-    "May": "May",
-    "June": "Jun",
-    "July": "Jul",
-    "August": "Aug",
-    "September": "Sep",
-    "October": "Oct",
-    "November": "Nov",
-    "December": "Dec",
-}
-MONTH_ABBR_TO_FULL = {v: k for k, v in MONTH_FULL_TO_ABBR.items()}
-
-EDITED_ON_RE = re.compile(
-    r"^\*\*Edited on:\*\*\s+(.+?)\s+IST\s*$",
-    re.MULTILINE,
-)
-# Core text of the **Status:** line itself, shared by the existence check (STATUS_MD_RE)
-# and the paragraph-scoped removal below (STATUS_MD_WITH_SURROUNDING_BLANKS_RE) so the two
-# can never drift into testing two different notions of "the Status line." Restricted to
-# horizontal whitespace ([ \t]) rather than \s so this fragment can only ever match within a
-# single line -- all newline/blank-line handling is left entirely to the explicit
-# blank-line pattern below rather than leaking into this one via a newline-matching \s.
-_STATUS_LINE_BODY = r"\*\*Status:\*\*[ \t]+(Draft|Released)[ \t]*"
-STATUS_MD_RE = re.compile(rf"^{_STATUS_LINE_BODY}$", re.MULTILINE)
-# One mandatory line separator, plus any further lines that are themselves blank (only
-# horizontal whitespace). Each repetition requires its own trailing \n before it is
-# accepted, so this can only ever consume vertical whitespace between paragraphs -- it can
-# never consume a real line's leading indentation or any other paragraph text, because the
-# moment [ \t]* runs into a non-blank line's content instead of a \n, that whole repetition
-# fails to match and nothing from that line is consumed.
-_BLANK_LINE_RUN = r"\n(?:[ \t]*\n)*"
-# The Status line together with any blank-line run immediately before/after it, so removing
-# this whole match and replacing it with exactly "\n\n" always leaves one blank line where
-# **Status:** was -- regardless of how much blank-line spacing the source markdown used
-# around it -- without touching newlines, indentation, or text anywhere else in the document.
-STATUS_MD_WITH_SURROUNDING_BLANKS_RE = re.compile(
-    rf"(?:{_BLANK_LINE_RUN})?^{_STATUS_LINE_BODY}$(?:{_BLANK_LINE_RUN})?",
-    re.MULTILINE,
-)
 CATALOG_TIMESTAMP_RE = re.compile(
     r"Last updated on:\s+(\w+)\s+(\d+),\s+(\d{4}),\s+(\d+:\d+\s+[AP]M)\s+IST"
 )
-ONGOING_DESC_PREFIX_RE = re.compile(r"^Ongoing\.+\s*", re.IGNORECASE)
 CATALOG_JSON_SCRIPT_RE = re.compile(
     r'<script\s+type="application/json"\s+id="([^"]+)"\s*>\s*(.*?)\s*</script>',
     re.DOTALL,
 )
-
-
-class StudyStatus(str, Enum):
-    ONGOING = "ongoing"
-    DRAFT = "draft"
-    RELEASED = "released"
 
 
 class StudyTable(str, Enum):
@@ -183,33 +142,6 @@ def format_status_catalog(dt: datetime | None, status: StudyStatus) -> str:
     return f"{label}<br>Last updated on: {month} {day}, {year}, {time_part} IST"
 
 
-def parse_edited_on(md_text: str) -> datetime | None:
-    match = EDITED_ON_RE.search(md_text)
-    if not match:
-        return None
-    return parse_timestamp_text(match.group(1).strip())
-
-
-def parse_timestamp_text(text: str) -> datetime | None:
-    """Parse 'June 17, 2026, 1:13 PM' or 'Jun 17, 2026, 1:13 PM'."""
-    match = re.match(
-        r"^(\w+)\s+(\d+),\s+(\d{4}),\s+(\d+:\d+\s+[AP]M)$",
-        text.strip(),
-    )
-    if not match:
-        return None
-    month_token, day_s, year_s, time_s = match.groups()
-    month_name = MONTH_ABBR_TO_FULL.get(month_token, month_token)
-    try:
-        dt = datetime.strptime(
-            f"{month_name} {day_s} {year_s} {time_s}",
-            "%B %d %Y %I:%M %p",
-        )
-    except ValueError:
-        return None
-    return dt.replace(tzinfo=IST)
-
-
 def parse_status_cell(status_cell: str) -> tuple[StudyStatus, datetime | None]:
     text = status_cell.strip()
     if text == "Ongoing":
@@ -255,45 +187,6 @@ def format_status_md(status: StudyStatus) -> str:
         raise ValueError("Ongoing studies do not carry a **Status:** field.")
     label = "Draft" if status == StudyStatus.DRAFT else "Released"
     return f"**Status:** {label}"
-
-
-def parse_status_md(md_text: str) -> StudyStatus | None:
-    match = STATUS_MD_RE.search(md_text)
-    if not match:
-        return None
-    return StudyStatus.DRAFT if match.group(1) == "Draft" else StudyStatus.RELEASED
-
-
-def strip_status_for_pdf(md_text: str) -> str:
-    """Remove the **Status:** line from markdown before PDF rendering (watermark/catalog
-    carry status), while preserving the paragraph break on either side of it.
-
-    Every Draft/Released study must carry a **Status:** line (AGENTS.md §1); callers only
-    reach this function once that has been confirmed (``regenerate_pdf`` and
-    ``_convert_to_pdf.main`` both gate on status first and return/exit before calling it for
-    Ongoing studies, whose internal proposal stubs are not publishable study PDFs and carry
-    no **Status:** line to strip). A study reaching
-    here without one is therefore a markdown-formatting bug, not a state this function should
-    paper over silently -- raise so it surfaces immediately instead of shipping a PDF with a
-    stray or missing header line.
-
-    STATUS_MD_WITH_SURROUNDING_BLANKS_RE matches the **Status:** line together with any
-    blank-line runs immediately before and after it, and the whole match is replaced with
-    exactly one blank line (``\\n\\n``). That keeps the normalization scoped to the
-    **Status:** line's own vicinity -- unlike a global ``\\n{3,}`` collapse, it never touches
-    blank-line spacing elsewhere in the document, and (per _BLANK_LINE_RUN's construction)
-    it can never consume a real line's text or leading indentation either -- while still
-    guaranteeing that whatever came before **Status:** (e.g. **Edited on:**) and whatever
-    came after it (e.g. **The question:**) end up separated by a real paragraph break,
-    regardless of how much or how little blank-line spacing the source markdown used around
-    **Status:** to begin with.
-    """
-    if not STATUS_MD_RE.search(md_text):
-        raise ValueError(
-            "strip_status_for_pdf: no **Status:** Draft|Released line found. Every "
-            "Draft/Released study must carry one (AGENTS.md §1) before PDF rendering."
-        )
-    return STATUS_MD_WITH_SURROUNDING_BLANKS_RE.sub("\n\n", md_text, count=1)
 
 
 def set_status_md(md_text: str, status: StudyStatus) -> str:
@@ -1380,57 +1273,9 @@ def verify_timestamp_sync(slug: str) -> list[str]:
 
 
 def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
-    if status == StudyStatus.ONGOING:
-        return
-    from _convert_to_pdf import convert_to_html
-    from _verify_pdf_diagrams import verify_study_pdf_diagrams
-    from _verify_pdf_fenced_code import verify_study_pdf_fenced_code
-    from _verify_pdf_math import verify_study_pdf_math
-    from _verify_pdf_outline import verify_study_pdf_outline
-    from _verify_study_svgs import verify_study_svgs
+    from _study_pdf_pipeline import regenerate_pdf as render_pdf
 
-    verify_study_svgs(md_path)
-
-    html_path = md_path.with_suffix(".html")
-    pdf_path = md_path.with_suffix(".pdf")
-    build_pdf_path = md_path.with_name(f"{md_path.stem}.build.pdf")
-    convert_to_html(
-        md_path,
-        is_draft=status == StudyStatus.DRAFT,
-        include_web_chrome=True,
-    )
-    from _pdf_metadata import stamp_for_markdown
-
-    html_to_pdf_cmd = ["node", str(SCRIPTS / "_html_to_pdf.js"), str(html_path)]
-    if status == StudyStatus.DRAFT:
-        html_to_pdf_cmd.append("Draft")
-    else:
-        html_to_pdf_cmd.append("")
-    html_to_pdf_cmd.append(str(build_pdf_path))
-    # Pass the pinned date explicitly. The Draft branch used to scrape
-    # `**Edited on:**` out of the rendered DOM, which is timing-sensitive: on a
-    # loaded runner the read could come back empty and silently fall back to a
-    # different date, so two renders of the same markdown disagreed. Reading it
-    # from the markdown here is authoritative and keeps one parser, in Python.
-    html_to_pdf_cmd.append(stamp_for_markdown(md_path))
-    subprocess.run(
-        html_to_pdf_cmd,
-        check=True,
-        cwd=SCRIPTS.parent,
-    )
-    build_pdf_path.replace(pdf_path)
-    if build_pdf_path.exists():
-        build_pdf_path.unlink()
-    # Pin the PDF's dates before verification so re-running on unchanged markdown
-    # produces byte-identical output (see _pdf_metadata for why this is an
-    # incremental rewrite rather than a full re-save).
-    from _pdf_metadata import normalize_study_pdf
-
-    normalize_study_pdf(md_path, pdf_path)
-    verify_study_pdf_diagrams(md_path, pdf_path)
-    verify_study_pdf_fenced_code(md_path, pdf_path)
-    verify_study_pdf_math(md_path, pdf_path)
-    verify_study_pdf_outline(md_path, pdf_path)
+    render_pdf(md_path, status)
 
     from _build_discussion_pages import write_discussion_page
 
