@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan submission portal API",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token. Browser POST requests also require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store. The machine-only /api/notify endpoint uses its separate secret and JSON without browser cookies or Origin. JSON error responses use one envelope: success=false, code, message, requestId, and optional details. The same requestId is returned in the X-Request-ID response header."
   },
   "servers": [
@@ -795,7 +795,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Confirmed result, completed validation failure, uncertain result or not-yet-arrived receipt. A notStarted response permits retry only with the SAME operationId and identical content."
+            "description": "Stable operation state. A notStarted response permits retry only with the same operationId and identical content.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OperationResponse"
+                }
+              }
+            }
           },
           "400": {
             "$ref": "#/components/responses/BadRequest"
@@ -1484,7 +1491,8 @@
         "required": [
           "slug",
           "artifactType",
-          "turnstileToken"
+          "turnstileToken",
+          "operationId"
         ],
         "properties": {
           "slug": {
@@ -1506,6 +1514,11 @@
           },
           "turnstileToken": {
             "type": "string"
+          },
+          "operationId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Client-generated UUIDv4 retained across interrupted/retried requests. Reusing it with different content is rejected."
           }
         },
         "allOf": [
@@ -1558,6 +1571,67 @@
             "format": "uri"
           }
         }
+      },
+      "OperationResponse": {
+        "type": "object",
+        "required": [
+          "success",
+          "operationId",
+          "state",
+          "retryAllowed"
+        ],
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "description": "Whether a completed operation produced its intended GitHub result. False for non-terminal states and completed validation failures."
+          },
+          "operationId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "state": {
+            "type": "string",
+            "enum": [
+              "notStarted",
+              "inProgress",
+              "complete",
+              "uncertain"
+            ]
+          },
+          "retryAllowed": {
+            "type": "boolean",
+            "description": "True only when the server has no receipt and the same operationId and unchanged content may be retried."
+          },
+          "result": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "The original JSON response when state is complete. Its fields are also retained at top level for compatibility."
+          },
+          "recoveryBranch": {
+            "type": "string",
+            "description": "Deterministic GitHub branch that maintainers can inspect for an uncertain branch-based write."
+          },
+          "notStarted": {
+            "type": "boolean",
+            "description": "Compatibility flag equivalent to state=notStarted."
+          },
+          "inProgress": {
+            "type": "boolean",
+            "description": "Compatibility flag equivalent to state=inProgress."
+          },
+          "completed": {
+            "type": "boolean",
+            "description": "Compatibility flag equivalent to state=complete."
+          },
+          "uncertain": {
+            "type": "boolean",
+            "description": "Compatibility flag equivalent to state=uncertain."
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
       },
       "ProposeRequest": {
         "type": "object",
@@ -1678,7 +1752,8 @@
         "required": [
           "slug",
           "targetStatus",
-          "turnstileToken"
+          "turnstileToken",
+          "operationId"
         ],
         "properties": {
           "slug": {
@@ -1698,6 +1773,11 @@
           },
           "turnstileToken": {
             "type": "string"
+          },
+          "operationId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Client-generated UUIDv4 retained across interrupted/retried requests. Reusing it with different content is rejected."
           }
         }
       }

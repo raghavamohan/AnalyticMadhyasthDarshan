@@ -20,6 +20,107 @@ function renderContributorFeedback(item) {
   return result + '</div>';
 }
 
+const dashboardOperations = (() => {
+  'use strict';
+  const el = id => document.getElementById(id);
+  let account = '', store = null, operation = null, storageError = '';
+
+  function operationStore() {
+    if (store) return store;
+    try { store = AMDContributorActionOperations.create(window.localStorage); }
+    catch (error) { throw new Error(error.message || 'Browser receipt storage is unavailable. No action was sent.'); }
+    return store;
+  }
+
+  function actionLabel(value = operation) {
+    if (!value) return 'dashboard action';
+    return value.path === '/api/status-change'
+      ? `status change for ${value.payload.slug}`
+      : `deletion request for ${value.payload.artifactType === 'study' ? value.payload.slug : value.payload.fileName}`;
+  }
+
+  function paint(message = '') {
+    const panel = el('dashboard-operation'), status = el('dashboard-operation-status');
+    const check = el('dashboard-check-operation'), retry = el('dashboard-retry-operation');
+    if (!account) { panel.hidden = true; return; }
+    if (storageError) {
+      panel.hidden = false; status.textContent = storageError;
+      check.hidden = true; retry.hidden = true; return;
+    }
+    panel.hidden = !operation;
+    if (!operation) return;
+    check.hidden = false; retry.hidden = !operation.retryAllowed;
+    status.textContent = message || (operation.blockedBy
+      ? `An earlier contribution must be resolved before the saved ${actionLabel()}. Check operation ${operation.blockedBy}.`
+      : operation.state === 'notStarted'
+        ? `The server has not recorded the saved ${actionLabel()}. Retry only this unchanged action with receipt ${operation.id}.`
+        : operation.state === 'inProgress'
+          ? `The saved ${actionLabel()} is still processing. Check receipt ${operation.id} before sending anything else.`
+          : operation.state === 'uncertain'
+            ? `The saved ${actionLabel()} has an uncertain result. Check receipt ${operation.id}; do not send another copy.`
+            : `A receipt is saved for the ${actionLabel()}. Check result before sending another action. Receipt: ${operation.id}`);
+  }
+
+  function save() {
+    operation = operationStore().save(account, operation);
+    paint();
+  }
+
+  function auth(user) {
+    account = String(user?.login || '').trim().toLowerCase();
+    operation = null; storageError = '';
+    if (account) {
+      try { operation = operationStore().load(account); }
+      catch (error) { storageError = error.message; }
+    }
+    paint();
+  }
+
+  function begin(path, payload) {
+    if (!account || account !== currentUser?.login?.toLowerCase()) throw new Error('Refresh sign-in before sending this action.');
+    if (storageError) throw new Error(storageError);
+    if (operation) {
+      if (!operation.retryAllowed) throw new Error('Check the saved dashboard action before sending another.');
+      if (operation.path !== path || JSON.stringify(operation.payload) !== JSON.stringify(payload)) {
+        throw new Error('Retry the unchanged saved action, or check its result before starting a different one.');
+      }
+      operation = {...operation, retryAllowed:false, state:'inProgress'};
+    } else {
+      operation = {id:crypto.randomUUID(), path, payload, created:new Date().toISOString(), retryAllowed:false, state:'inProgress'};
+    }
+    save();
+    return {...operation.payload, operationId:operation.id};
+  }
+
+  function settle(data, certain) {
+    if (!operation) return {cleared:false};
+    if (data?.operationId && data.operationId !== operation.id) {
+      operation = {...operation, blockedBy:data.operationId, state:'uncertain', retryAllowed:false};
+      save();
+      return {cleared:false, blockedBy:true};
+    }
+    const state = data?.state || (data?.notStarted ? 'notStarted' : data?.uncertain ? 'uncertain' : certain ? 'complete' : 'uncertain');
+    if (state === 'complete' || certain) {
+      operationStore().clear(account);
+      operation = null; paint();
+      return {cleared:true};
+    }
+    operation = {...operation, state, retryAllowed:state === 'notStarted'};
+    save();
+    return {cleared:false};
+  }
+
+  function clear() {
+    if (account) operationStore().clear(account);
+    operation = null; paint();
+  }
+
+  return {
+    auth, begin, settle, clear, paint,
+    get current() { return operation; },
+  };
+})();
+
 const contributor = (() => {
   'use strict';
   const el = id => document.getElementById(id);
@@ -217,17 +318,18 @@ const contributor = (() => {
       const response = await apiFetch('/api/operation?id=' + encodeURIComponent(op.blockedBy || op.id));
       const data = normalizeApiData(await response.json());
       if (account !== identity || states[kind].operation?.id !== op.id) return;
-      if (data.uncertain) {
+      const operationState = data.state || (data.notStarted ? 'notStarted' : data.uncertain ? 'uncertain' : data.completed ? 'complete' : null);
+      if (operationState === 'uncertain' || operationState === 'inProgress') {
         el(kind + '-operation-status').textContent = (data.error || 'The submission is still being checked.') + ' Receipt: ' + op.id;
         return;
       }
-      if (data.notStarted) {
+      if (operationState === 'notStarted') {
         states[kind].operation.retryAllowed = true;
         await serial(() => save(kind));
         el(kind + '-operation-status').textContent = 'The server has not recorded this attempt. Submit unchanged content to retry with the same receipt; a delayed first request cannot create a second copy.';
         return;
       }
-      if (data.success || data.completed) {
+      if (operationState === 'complete' || data.success || data.completed) {
         await complete(kind, data);
         showAlert(kind, data.success ? 'success' : 'info', data.success
           ? (op.blockedBy ? 'The earlier submission is confirmed. This draft has not been sent. ' : 'Submission confirmed. ') + '<a href="' + escapeHtml(safeGitHubUrl(data.url)) + '" target="_blank" rel="noopener">Open on GitHub</a>. ' + escapeHtml(data.warning || '')
