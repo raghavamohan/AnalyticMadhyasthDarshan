@@ -18,6 +18,11 @@ Resources: `studies://catalog-all`, `studies://glossary`, `studies://feed`,
 `studies://start-here`, and `studies://study/{slug}` for canonical markdown.
 There are no write tools. DNS-AID does not publish `_mcp._agents`.
 
+The plain Studies HTTP endpoints use the shared JSON error envelope documented
+in [`openapi/studies.json`](../../openapi/studies.json), with the same
+`requestId` in the `X-Request-ID` header. MCP errors retain their required
+JSON-RPC shape and add that correlation value at `error.data.requestId`.
+
 The zone API token can upload this Worker. Production attaches zone Workers
 Routes (`/.well-known/mcp/*`, `/mcp*`, `/api/studies*`, `/api/glossary*`,
 `/api/start-here*`, `/api/cite*`) so apex requests run

@@ -51,7 +51,7 @@ const CORS_HEADERS = {
   "access-control-allow-methods": "GET, HEAD, POST, OPTIONS",
   "access-control-allow-headers":
     "content-type, mcp-session-id, mcp-protocol-version, accept",
-  "access-control-expose-headers": "mcp-session-id, mcp-protocol-version",
+  "access-control-expose-headers": "mcp-session-id, mcp-protocol-version, x-request-id",
 };
 
 const CARD_HEADERS = {
@@ -71,10 +71,70 @@ function jsonHeaders(extra) {
   };
 }
 
+const HTTP_ERROR_CODES = Object.freeze({
+  400: "invalid_request",
+  401: "authentication_required",
+  403: "forbidden",
+  404: "not_found",
+  405: "method_not_allowed",
+  409: "conflict",
+  413: "payload_too_large",
+  415: "unsupported_media_type",
+  429: "rate_limited",
+  500: "internal_error",
+  502: "upstream_error",
+  503: "service_unavailable",
+});
+
+function httpErrorEnvelope(status, payload, requestId) {
+  const nested = payload && typeof payload.error === "object" ? payload.error : {};
+  const message = typeof payload?.message === "string"
+    ? payload.message
+    : typeof payload?.error === "string"
+      ? payload.error
+      : typeof nested.message === "string"
+        ? nested.message
+        : `Request failed with HTTP ${status}.`;
+  const code = typeof payload?.code === "string"
+    ? payload.code
+    : typeof nested.code === "string"
+      ? nested.code
+      : HTTP_ERROR_CODES[status] || "http_error";
+  const reserved = new Set(["success", "error", "code", "message", "requestId", "details"]);
+  const extra = Object.fromEntries(
+    Object.entries(payload || {}).filter(([key, value]) => !reserved.has(key) && value !== undefined)
+  );
+  const explicit = payload?.details && typeof payload.details === "object" ? payload.details : {};
+  const details = { ...explicit, ...extra };
+  return {
+    success: false,
+    code,
+    message,
+    requestId,
+    ...(Object.keys(details).length ? { details } : {}),
+  };
+}
+
 function jsonResponse(status, payload, extraHeaders) {
+  const headers = jsonHeaders(extraHeaders);
+  if (status >= 400) {
+    const requestId = crypto.randomUUID();
+    headers["x-request-id"] = requestId;
+    if (payload?.jsonrpc === "2.0" && payload.error) {
+      payload = {
+        ...payload,
+        error: {
+          ...payload.error,
+          data: { ...(payload.error.data || {}), requestId },
+        },
+      };
+    } else {
+      payload = httpErrorEnvelope(status, payload, requestId);
+    }
+  }
   return new Response(JSON.stringify(payload), {
     status,
-    headers: jsonHeaders(extraHeaders),
+    headers,
   });
 }
 
@@ -133,7 +193,7 @@ async function fetchJson(path) {
       const response = await fetch(url, {
         headers: {
           Accept: "application/json",
-          "User-Agent": "amd-mcp-catalog-fetch/1.2",
+          "User-Agent": "amd-mcp-catalog-fetch/1.3",
         },
       });
       if (!response.ok) {
@@ -159,7 +219,7 @@ async function fetchText(urls) {
       const response = await fetch(url, {
         headers: {
           Accept: "text/markdown, text/plain, */*",
-          "User-Agent": "amd-mcp-catalog-fetch/1.2",
+          "User-Agent": "amd-mcp-catalog-fetch/1.3",
         },
       });
       if (!response.ok) {
@@ -183,6 +243,7 @@ async function loadCatalogs() {
   } catch (_err) {
     // Fall back to the three collection files if catalog-all is not live yet.
   }
+  let loadedCollections = 0;
   const parts = await Promise.all(
     CATALOG_SOURCES.map(async ([path, collection]) => {
       try {
@@ -190,12 +251,16 @@ async function loadCatalogs() {
         if (!Array.isArray(rows)) {
           return [];
         }
+        loadedCollections += 1;
         return rows.map((row) => normalizeRow(row, collection));
       } catch (_err) {
         return [];
       }
     })
   );
+  if (loadedCollections === 0) {
+    throw new Error("No study catalog source is available.");
+  }
   return parts.flat();
 }
 
@@ -920,6 +985,37 @@ async function handleCite(request, slug) {
   }
 }
 
+const exactPath = expected => path => path === expected ? [] : null;
+const capturePath = pattern => path => {
+  const match = pattern.exec(path);
+  return match ? match.slice(1) : null;
+};
+const STUDIES_API_ROUTES = Object.freeze([
+  {
+    method: "get", path: "/api/studies",
+    match: exactPath("/api/studies"), handle: request => handleStudiesApi(request),
+  },
+  {
+    method: "get", path: "/api/studies/{slug}",
+    match: capturePath(/^\/api\/studies\/([A-Za-z0-9-]+)$/), handle: handleStudyBySlug,
+  },
+  {
+    method: "get", path: "/api/glossary",
+    match: exactPath("/api/glossary"), handle: request => handleGlossary(request),
+  },
+  {
+    method: "get", path: "/api/start-here",
+    match: exactPath("/api/start-here"), handle: request => handleStartHere(request),
+  },
+  {
+    method: "get", path: "/api/cite/{slug}",
+    match: capturePath(/^\/api\/cite\/([A-Za-z0-9-]+)$/), handle: handleCite,
+  },
+]);
+export const STUDIES_API_OPERATIONS = Object.freeze(
+  STUDIES_API_ROUTES.map(({ method, path }) => Object.freeze([method, path])),
+);
+
 export default {
   async fetch(request) {
     const url = new URL(request.url);
@@ -930,22 +1026,11 @@ export default {
     if (path === "/mcp") {
       return handleMcp(request);
     }
-    if (path === "/api/studies") {
-      return handleStudiesApi(request);
-    }
-    const studyMatch = path.match(/^\/api\/studies\/([A-Za-z0-9-]+)$/);
-    if (studyMatch) {
-      return handleStudyBySlug(request, studyMatch[1]);
-    }
-    if (path === "/api/glossary") {
-      return handleGlossary(request);
-    }
-    if (path === "/api/start-here") {
-      return handleStartHere(request);
-    }
-    const citeMatch = path.match(/^\/api\/cite\/([A-Za-z0-9-]+)$/);
-    if (citeMatch) {
-      return handleCite(request, citeMatch[1]);
+    for (const route of STUDIES_API_ROUTES) {
+      const params = route.match(path);
+      if (params) {
+        return route.handle(request, ...params);
+      }
     }
     return new Response("Not Found", { status: 404, headers: CORS_HEADERS });
   },

@@ -357,10 +357,31 @@ def check_live_cookie_auth() -> None:
         status, headers, body = fetch_live(url, method=method, data=data)
         if status != 401:
             fail(f"{method} {url} returned HTTP {status}, expected 401: {body[:200]}")
+        if "json" not in header_value(headers, "Content-Type").lower():
+            fail(f"{url} 401 is not JSON")
+        try:
+            payload = json.loads(body)
+        except json.JSONDecodeError:
+            fail(f"{url} 401 has invalid JSON: {body[:200]}")
+        required = {"success", "code", "message", "requestId"}
+        missing = sorted(required - set(payload))
+        if missing:
+            fail(f"{url} 401 error envelope is missing {missing}: {payload}")
+        if payload.get("success") is not False or payload.get("code") != "authentication_required":
+            fail(f"{url} 401 has the wrong error envelope: {payload}")
+        if header_value(headers, "X-Request-ID") != payload.get("requestId"):
+            fail(f"{url} 401 body/header request IDs differ")
+        if header_value(headers, "Cache-Control").lower() != "private, no-store":
+            fail(f"{url} 401 is not private/no-store")
+        if header_value(headers, "Pragma").lower() != "no-cache":
+            fail(f"{url} 401 is missing Pragma: no-cache")
+        vary = {part.strip().lower() for part in header_value(headers, "Vary").split(",")}
+        if not {"origin", "cookie"}.issubset(vary):
+            fail(f"{url} 401 Vary must include Origin and Cookie")
         www = header_value(headers, "WWW-Authenticate")
         if www:
             fail(f"{url} 401 incorrectly advertises bearer authentication: {www!r}")
-    print("OK: unauthenticated write APIs consistently return cookie-only 401 responses.")
+    print("OK: unauthenticated APIs return the private cookie-only 401 contract.")
 
 
 class _NoRedirectHandler(urllib.request.HTTPRedirectHandler):
