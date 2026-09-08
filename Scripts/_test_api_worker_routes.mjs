@@ -149,6 +149,27 @@ test('real routes apply write checks and private headers before handlers', async
   assert.equal(missing.headers.get('Cache-Control'), 'private, no-store');
 });
 
+if (discussion) test('comment listing includes an email-free viewer summary', async () => {
+  const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
+  const env = {
+    SESSION_SECRET:'fixture-only',
+    ADMIN_EMAILS:'alice@example.test',
+    DB:{prepare:() => ({bind:() => ({all:async () => ({results:[]})})})},
+  };
+  const signedOut = await worker.fetch(new Request('https://api.example/api/discussions/Test-Study'), env);
+  assert.deepEqual(await signedOut.json(), {slug:'Test-Study',viewer:{loggedIn:false},comments:[]});
+
+  const token = await auth.createSession(env, {
+    userId:'user-1',email:'alice@example.test',displayName:'Alice',
+  });
+  const signedIn = await worker.fetch(new Request('https://api.example/api/discussions/Test-Study', {
+    headers:{Cookie:auth.setSessionCookie(token,env).split(';')[0]},
+  }), env);
+  const payload = await signedIn.json();
+  assert.deepEqual(payload.viewer, {loggedIn:true,isAdmin:true});
+  assert.equal(JSON.stringify(payload).includes('alice@example.test'), false);
+});
+
 if (!discussion) test('auth snapshot includes notification state without exposing the email address', async () => {
   const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
   const kv = new Map();

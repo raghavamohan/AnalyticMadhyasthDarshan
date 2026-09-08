@@ -7,6 +7,7 @@
   const TURNSTILE_SITE_KEY = cfg.turnstileSiteKey;
   const TURNSTILE_ACTION = cfg.turnstileAction;
   const PAGE_SIZE = 50;
+  const AUTH_CACHE_KEY = "amd-discuss-auth-v1";
 
   const apiBase = () => (window.location.hostname === SITE_HOST ? "" : API_FALLBACK);
 
@@ -22,9 +23,13 @@
   const magicForm = document.getElementById("magic-link-form");
   const commentForm = document.getElementById("comment-form");
   const toolbarAuthBtn = document.getElementById("toolbar-auth-btn");
-  let currentSession = { loggedIn: false };
+  const bootstrapSession = window.__amdDiscussAuthBootstrap;
+  let currentSession = bootstrapSession && typeof bootstrapSession.loggedIn === "boolean"
+    ? { loggedIn: bootstrapSession.loggedIn, isAdmin: Boolean(bootstrapSession.isAdmin) }
+    : { loggedIn: false };
   let signInTurnstileWidgetId = null;
   let signInTurnstileTimer = null;
+  let turnstileLoadPromise = null;
   let allComments = [];
   let nextOffset = 0;
   let hasMore = false;
@@ -75,8 +80,25 @@
     alertEl.classList.remove("hidden");
   };
 
-  const withTurnstile = (fn) => {
-    turnstile.ready(fn);
+  const loadTurnstile = () => {
+    if (window.turnstile) return Promise.resolve(window.turnstile);
+    if (!turnstileLoadPromise) {
+      turnstileLoadPromise = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+        script.async = true;
+        script.dataset.discussTurnstile = "true";
+        script.onload = () => window.turnstile
+          ? resolve(window.turnstile)
+          : reject(new Error("Could not load the verification check. Check your connection and try again."));
+        script.onerror = () => reject(new Error("Could not load the verification check. Check your connection and try again."));
+        document.head.appendChild(script);
+      }).catch((err) => {
+        turnstileLoadPromise = null;
+        throw err;
+      });
+    }
+    return turnstileLoadPromise;
   };
 
   const signInTurnstileEl = () => document.getElementById("sign-in-turnstile");
@@ -88,21 +110,24 @@
   };
 
   const destroySignInTurnstile = () => {
-    withTurnstile(() => {
-      if (signInTurnstileWidgetId != null) {
-        try {
-          turnstile.remove(signInTurnstileWidgetId);
-        } catch {
-          // ignore stale widget ids
-        }
-        signInTurnstileWidgetId = null;
-      }
-    });
+    const turnstile = window.turnstile;
+    if (!turnstile) {
+      signInTurnstileWidgetId = null;
+      return;
+    }
+    if (signInTurnstileWidgetId == null) return;
+    try {
+      turnstile.remove(signInTurnstileWidgetId);
+    } catch {
+      // ignore stale widget ids
+    }
+    signInTurnstileWidgetId = null;
   };
 
   const mountSignInTurnstile = () => {
     if (!signInPanel || signInPanel.classList.contains("hidden")) return;
-    withTurnstile(() => {
+    loadTurnstile().then((turnstile) => {
+      if (signInPanel.classList.contains("hidden")) return;
       let widget = signInTurnstileEl();
       if (!widget) {
         resetSignInTurnstileContainer();
@@ -123,7 +148,7 @@
         theme: "auto",
         "refresh-expired": "auto",
       });
-    });
+    }).catch((err) => showAlert("error", readableError(err)));
   };
 
   const scheduleSignInTurnstile = () => {
@@ -168,7 +193,7 @@
     try {
       await fetchJson("/api/discuss-auth/logout", { method: "POST", body: "{}" });
       setAuthUi({ loggedIn: false });
-      renderComments();
+      await loadComments();
     } catch (err) {
       showAlert("error", readableError(err));
     }
@@ -212,15 +237,19 @@
 
   const resetSignInTurnstile = () => {
     if (signInTurnstileWidgetId != null) {
-      withTurnstile(() => {
-        try {
-          turnstile.reset(signInTurnstileWidgetId);
-        } catch {
-          destroySignInTurnstile();
-          resetSignInTurnstileContainer();
-          scheduleSignInTurnstile();
-        }
-      });
+      const turnstile = window.turnstile;
+      if (!turnstile) {
+        signInTurnstileWidgetId = null;
+        scheduleSignInTurnstile();
+        return;
+      }
+      try {
+        turnstile.reset(signInTurnstileWidgetId);
+      } catch {
+        destroySignInTurnstile();
+        resetSignInTurnstileContainer();
+        scheduleSignInTurnstile();
+      }
       return;
     }
     scheduleSignInTurnstile();
@@ -322,12 +351,11 @@
     loadMoreWrap.classList.toggle("hidden", !hasMore);
   };
 
-  const showCommentsSkeleton = () => {
+  const showCommentsLoading = () => {
     commentsEmpty.classList.add("hidden");
+    if (commentsError) commentsError.classList.add("hidden");
     commentList.setAttribute("aria-busy", "true");
-    commentList.innerHTML = Array.from({ length: 3 }).map(() =>
-      `<li class="skeleton-comment" aria-hidden="true"><div class="skeleton-line short"></div><div class="skeleton-line"></div><div class="skeleton-line"></div></li>`
-    ).join("");
+    commentList.innerHTML = '<li class="comments-loading">Loading comments&hellip;</li>';
   };
 
   const renderComments = () => {
@@ -358,6 +386,16 @@
   const setAuthUi = (session) => {
     currentSession = session || { loggedIn: false };
     const loggedIn = Boolean(currentSession.loggedIn);
+    document.documentElement.dataset.discussAuth = loggedIn ? "signed-in" : "signed-out";
+    try {
+      sessionStorage.setItem(AUTH_CACHE_KEY, JSON.stringify({
+        loggedIn,
+        isAdmin: loggedIn ? Boolean(currentSession.isAdmin) : false,
+        checkedAt: Date.now(),
+      }));
+    } catch {
+      // storage can be unavailable
+    }
     if (loggedIn) {
       toolbarAuthBtn.textContent = "Log out";
       toolbarAuthBtn.classList.remove("btn-primary");
@@ -470,7 +508,7 @@
     if (!append) {
       nextOffset = 0;
       allComments = [];
-      showCommentsSkeleton();
+      showCommentsLoading();
     } else if (loadMoreBtn) {
       loadMoreBtn.disabled = true;
     }
@@ -478,6 +516,17 @@
       const data = await fetchJson(
         `/api/discussions/${encodeURIComponent(STUDY_SLUG)}?limit=${PAGE_SIZE}&offset=${nextOffset}`,
       );
+      if (data.viewer && typeof data.viewer.loggedIn === "boolean") {
+        setAuthUi(data.viewer);
+      } else {
+        // Keep the page compatible while an older Worker deployment is still
+        // serving the comments response during rollout.
+        try {
+          setAuthUi(await fetchJson("/api/discuss-auth/me"));
+        } catch {
+          setAuthUi({ loggedIn: false });
+        }
+      }
       const batch = data.comments || [];
       if (initialLastSeen === null) initialLastSeen = lastSeenForSlug();
       allComments = append ? allComments.concat(batch) : batch;
@@ -507,17 +556,6 @@
       loadComments({ append: true }).catch((err) => showAlert("error", readableError(err)));
     });
   }
-
-  const loadSession = async () => {
-    try {
-      setAuthUi(await fetchJson("/api/discuss-auth/me"));
-    } catch (err) {
-      // Reading the discussion needs no session, so a failed check only means
-      // the reader is treated as signed out.
-      setAuthUi({ loggedIn: false });
-    }
-    await loadComments();
-  };
 
   const savedName = (() => {
     try {
@@ -585,5 +623,5 @@
     }
   });
 
-  loadSession().catch((err) => showAlert("error", readableError(err)));
+  loadComments().catch((err) => showAlert("error", readableError(err)));
 })();

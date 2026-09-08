@@ -110,7 +110,7 @@ Or manually in Cloudflare dashboard → Workers Routes:
 |-------|------|---------|
 | `GET /api/discussions/health` | — | Liveness `{ status: "ok" }` (`health` is not a study slug) |
 | `GET /api/discussions/stats` | — | Comment counts and latest activity per study slug (`stats` is reserved) |
-| `GET /api/discussions/:slug` | — | List visible comments for a study |
+| `GET /api/discussions/:slug` | — | List visible comments plus an email-free viewer/session summary for a study |
 | `POST /api/discussions/:slug/comments` | cookie | Post a comment (session required; Turnstile not repeated per post) |
 | `POST /api/discussions/:slug/comments/:id/hide` | admin cookie | Soft-hide another user's comment |
 | `POST /api/discussions/:slug/comments/:id/delete` | author cookie | Soft-hide your own comment |
