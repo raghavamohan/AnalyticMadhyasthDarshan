@@ -10,7 +10,7 @@ import test from 'node:test';
 async function sourceUrl(file) {
   let source = await readFile(file, 'utf8');
   if (path.basename(process.cwd()) === 'worker' && file === path.resolve('src/index.js'))
-    source += '\nexport {submissionStage,aggregateCheckRuns,fetchPrReviewState,buildDashboard,buildDashboardStatus};\n';
+    source += '\nexport {submissionStage,aggregateCheckRuns,fetchPrReviewState,buildDashboard,buildDashboardStatus,githubRequest};\n';
   for (const match of [...source.matchAll(/from ['"]([^'"]+)['"]/g)]) {
     const target = match[1];
     const url = target.startsWith('.')
@@ -283,6 +283,38 @@ if (!discussion) test('callback rejects mismatched state before any GitHub reque
   } finally { globalThis.fetch = original; }
 });
 
+if (!discussion) test('status changes and deletions require the durable receipt service before handlers run',async () => {
+  const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
+  const kv = new Map();
+  const env = {SESSION_SECRET:'fixture-only',SESSIONS:{
+    put:async (key,value) => kv.set(key,value),get:async key => kv.get(key),
+  }};
+  const token = await auth.createSession(env,{login:'alice',userId:1,accessToken:'fixture-only'});
+  const headers={Origin:origin,'Content-Type':'application/json',Cookie:auth.setSessionCookie(token,env).split(';')[0]};
+  const cases=[
+    ['/api/status-change',{slug:'Test-Study',targetStatus:'released',operationId:crypto.randomUUID()}],
+    ['/api/delete-artifact',{slug:'Test-Study',artifactType:'study',operationId:crypto.randomUUID()}],
+  ];
+  for (const [route,body] of cases) {
+    const response=await worker.fetch(new Request('https://api.example'+route,{method:'POST',headers,body:JSON.stringify(body)}),env);
+    await assertErrorEnvelope(response,{status:503,code:'service_unavailable'});
+  }
+});
+
+if (!discussion) test('GitHub writes carry the receipt marker used for operation reconciliation',async () => {
+  const original=globalThis.fetch, id=crypto.randomUUID();
+  let requestBody;
+  try {
+    globalThis.fetch=async (_input,options={}) => {
+      requestBody=JSON.parse(options.body);
+      return Response.json({number:12});
+    };
+    await workerModule.githubRequest('/pulls','POST',{body:'Pull request body'},
+      {GITHUB_TOKEN:'fixture-only',operationId:id});
+    assert.equal(requestBody.body,`Pull request body\n\nPortal-Operation: ${id}`);
+  } finally {globalThis.fetch=original;}
+});
+
 if (!discussion) test('revision routes reject stale source and replay a receipt without another GitHub write',async () => {
   const {storageFixture} = await import('./_test_contributor.mjs');
   const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
@@ -324,10 +356,13 @@ if (!discussion) test('revision routes reject stale source and replay a receipt 
     const stale=await post({...base,operationId:crypto.randomUUID(),sourceSha:'b'.repeat(40)});
     await assertErrorEnvelope(stale,{status:409,code:'conflict'});assert.equal(writes,0);
     const id=crypto.randomUUID(), body={...base,operationId:id,sourceSha:'a'.repeat(40)};
-    const first=await post(body);assert.equal(first.status,200);assert.equal(writes,1);
-    const again=await post({...body,turnstileToken:'fresh-token'});assert.equal(again.status,200);assert.equal(writes,1);
+    const first=await post(body);assert.equal(first.status,200);assert.equal((await first.json()).state,'complete');assert.equal(writes,1);
+    const again=await post({...body,turnstileToken:'fresh-token'});assert.equal(again.status,200);assert.equal((await again.json()).state,'complete');assert.equal(writes,1);
     const checked=await worker.fetch(new Request('https://api.example/api/operation?id='+id,{headers}),env);
-    assert.equal((await checked.json()).success,true);assert.equal(writes,1);
+    const checkedBody=await checked.json();assert.equal(checkedBody.success,true);assert.equal(checkedBody.state,'complete');assert.equal(checkedBody.operationId,id);assert.equal(writes,1);
+    const unusedId=crypto.randomUUID();
+    const notStarted=await worker.fetch(new Request('https://api.example/api/operation?id='+unusedId,{headers}),env);
+    const notStartedBody=await notStarted.json();assert.equal(notStartedBody.state,'notStarted');assert.equal(notStartedBody.operationId,unusedId);assert.equal(notStartedBody.retryAllowed,true);
     const changed=await post({...body,content:'Different content'});const conflict=await assertErrorEnvelope(changed,{status:409,code:'conflict'});assert.equal(conflict.details.uncertain,true);assert.equal(writes,1);
     const missing=await post({...base,sourceSha:'a'.repeat(40)});await assertErrorEnvelope(missing,{status:400,code:'invalid_request'});assert.equal(writes,1);
     const signedOut=await worker.fetch(new Request('https://api.example/api/operation?id='+id),env);await assertErrorEnvelope(signedOut,{status:401,code:'authentication_required'});

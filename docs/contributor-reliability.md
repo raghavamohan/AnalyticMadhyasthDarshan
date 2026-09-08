@@ -50,8 +50,9 @@ without reading every presentation into memory.
 
 ## Submission receipts and deployment
 
-`POST /api/propose`, `/api/submit` and `/api/revise` require a client-generated
-UUIDv4 `operationId`. The browser persists it before sending. Read requests get
+`POST /api/propose`, `/api/submit`, `/api/revise`, `/api/status-change`, and
+`/api/delete-artifact` require a client-generated UUIDv4 `operationId`. The
+browser persists it before sending. Read requests get
 at most one network/gateway retry; contribution POSTs are never automatically
 repeated. Existing authenticated origin, JSON and Turnstile checks remain.
 
@@ -84,7 +85,10 @@ so a concurrent commit fails instead of being overwritten. Update branches start
 from the checked base commit. Presentation uploads retain the existing ownership,
 registry and file validation; binary merging is not provided.
 
-`GET /api/operation?id=…` checks a receipt scoped to the signed-in account. An
+`GET /api/operation?id=…` checks a receipt scoped to the signed-in account and
+returns one explicit state: `notStarted`, `inProgress`, `complete`, or
+`uncertain`. Compatibility flags and completed result fields remain available
+for existing clients. An
 interrupted write is reconciled using an exact `Portal-Operation` marker in the
 GitHub issue/PR or a matching revision commit. A result can be recovered after CI
 adds another commit. A recovered PR missing its workflow label identifies that
@@ -94,8 +98,16 @@ that an issue was not created, because search indexing can lag.
 If a receipt has not reached the server, retry **the same receipt and unchanged
 content**. A delayed original request cannot then create a duplicate. An
 unresolved earlier operation blocks another operation from that account.
-Interrupted branches are retained rather than deleted; their deterministic name
-is `submission-<slug>-<operationId>` and is shown with unresolved results.
+Interrupted branches are retained rather than deleted. Their deterministic names
+are `submission-<slug>-<operationId>`, `status-<slug>-<operationId>`, and
+`deletion-<slug>-<operationId>`; the applicable branch is shown with unresolved
+results.
+
+Status and deletion actions have no editor draft, so the dashboard keeps their
+small receipt and normalized request payload in account-scoped browser storage.
+It never stores a Turnstile token. After reload, **Check action result** recovers
+a completed pull request or preserves an unresolved receipt; **Retry same
+action** is enabled only after the server reports `notStarted`.
 
 GitHub and Cloudflare do not share a transaction. A Worker crash during validation,
 an accepted file update that never reaches PR creation, or an unconfirmed issue
@@ -105,8 +117,7 @@ branch, issue/PR marker and commit history before any administrative repair;
 do not delete the receipt simply because a search is empty. There is no public
 endpoint that clears uncertain receipts. This is conservative duplicate
 prevention, not a claim of exactly-once delivery or automatic recovery from every
-GitHub outage. Status-change and deletion request flows remain separate from
-these three content-submission receipt routes.
+GitHub outage.
 
 ## Verification and maintenance
 

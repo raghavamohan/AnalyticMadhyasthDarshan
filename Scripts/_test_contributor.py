@@ -23,10 +23,25 @@ class ContributorTests(unittest.TestCase):
         result = subprocess.run(['python',str(BASE / 'Scripts/_build_contributor_assets.py'),'--check'],capture_output=True,text=True)
         self.assertEqual(result.returncode,0,result.stdout + result.stderr)
 
+    def test_dashboard_actions_and_openapi_share_the_receipt_contract(self):
+        portal = BeautifulSoup((BASE / 'Studies/submit.html').read_text(encoding='utf-8'),'html.parser')
+        scripts = [script.get('src','').split('?')[0] for script in portal.find_all('script')]
+        self.assertIn('portal/action-operations.js',scripts)
+        for element_id in ['dashboard-operation','dashboard-check-operation','dashboard-retry-operation']:
+            self.assertIsNotNone(portal.find(id=element_id))
+        api = json.loads((BASE / 'openapi/submissions.json').read_text(encoding='utf-8'))
+        schemas = api['components']['schemas']
+        for name in ['StatusChangeRequest','DeleteArtifactRequest']:
+            self.assertIn('operationId',schemas[name]['required'])
+        self.assertEqual(
+            schemas['OperationResponse']['properties']['state']['enum'],
+            ['notStarted','inProgress','complete','uncertain'],
+        )
+
     def test_checked_in_javascript_syntax(self):
         portal = (BASE / 'Studies/submit.html').read_text(encoding='utf-8')
         scripts = re.findall(r'<script(?:\s[^>]*)?>(.*?)</script>', portal, re.S)
-        scripts += [(BASE / 'Studies/portal' / name).read_text(encoding='utf-8') for name in ['drafts.js','contributor.js','preview.js']]
+        scripts += [(BASE / 'Studies/portal' / name).read_text(encoding='utf-8') for name in ['drafts.js','action-operations.js','contributor.js','preview.js']]
         for script in scripts:
             result = subprocess.run(['node', '--check'], input=script, capture_output=True, text=True, encoding='utf-8')
             self.assertEqual(result.returncode, 0, result.stderr)

@@ -160,18 +160,20 @@ still be removed through the study-removal workflow.
 
 When review requests changes on a portal-created `new-study` PR, My Submissions offers **Revise draft**. `GET /api/revision-source` loads the Markdown and `sourceSha` from that PR's head branch, and `POST /api/revise` requires that version before writing back to the same branch. Both routes require the portal submitter marker, an open PR, the `new-study` label, and a same-repository head branch.
 
-Proposals, submissions and revisions also require a UUIDv4 `operationId`, saved
+Proposals, submissions, revisions, status changes, and deletion requests require
+a UUIDv4 `operationId`, saved
 by the browser before sending. `CONTRIBUTOR_OPERATIONS` provides atomic,
 account-scoped receipts through a SQLite-backed Durable Object. Its included
 `contributor-receipts-v1` Wrangler migration is applied by the normal deployment;
 no new secret is needed. A missing binding stops content writes with 503. Keep
-the same receipt after a lost response and use `/api/operation` to check it;
+the same receipt after a lost response and use `/api/operation` to check its
+explicit `notStarted`, `inProgress`, `complete`, or `uncertain` state;
 never create another ID merely because a GitHub search is empty. Existing
 Markdown updates also require the `sourceSha` returned by source loading.
 See [Contributor reliability](../../docs/contributor-reliability.md) for browser
 storage, source conflicts, recovery limits and deployment sequencing.
 
-`/api/delete-artifact` accepts only studies shown in the signed-in contributor's dashboard and only note/presentation filenames present in the durable artifact registry. It deletes a single mapped companion source on the PR branch, unregisters a deleted deck from the presentation pipeline, and removes a note's generated HTML reader when present. Whole-study requests add a short-lived marker that study PR CI recognizes and fulfills through `Scripts/_remove_study.py`, keeping catalogs, proposal metadata, References, and presentation registrations synchronized. No deletion reaches the published branch until a maintainer merges the PR.
+`/api/delete-artifact` accepts only studies shown in the signed-in contributor's dashboard and only note/presentation filenames present in the durable artifact registry. It deletes a single mapped companion source on the PR branch, unregisters a deleted deck from the presentation pipeline, and removes a note's generated HTML reader when present. Whole-study requests add a short-lived marker that study PR CI recognizes and fulfills through `Scripts/_remove_study.py`, keeping catalogs, proposal metadata, References, and presentation registrations synchronized. No deletion reaches the published branch until a maintainer merges the PR. Status and deletion recovery branches use the receipt-derived names `status-<slug>-<operationId>` and `deletion-<slug>-<operationId>` and are retained when an external write cannot be confirmed.
 
 ## Email notifications (optional)
 
