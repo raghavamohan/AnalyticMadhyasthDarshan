@@ -30,7 +30,6 @@ from _study_catalog import (
 )
 
 SITE = "https://analyticmadhyasthdarshan.org"
-WORKER = "https://amd-mcp.raghavamohan.workers.dev"
 LIVE_UA = "AnalyticMadhyasthDarshan-studies-api-test/1.0"
 DOCUMENT_KEYS = ("html", "pdf", "md")
 
@@ -298,13 +297,26 @@ def fetch_live(url: str, *, method: str = "GET", data: bytes | None = None) -> t
     request = urllib.request.Request(url, data=data, method=method, headers=headers)
     try:
         with urllib.request.urlopen(request, timeout=20) as response:
-            return response.status, dict(response.headers.items()), response.read().decode("utf-8")
+            status = response.status
+            header_map = dict(response.headers.items())
+            body = response.read().decode("utf-8")
     except urllib.error.HTTPError as exc:
+        status = exc.code
         body = exc.read().decode("utf-8", errors="replace")
         header_map = dict(exc.headers.items()) if exc.headers else {}
-        return exc.code, header_map, body
     except urllib.error.URLError as exc:
         fail(f"{url} request failed: {exc}")
+    content_type = header_value(header_map, "Content-Type").lower()
+    mitigated = header_value(header_map, "cf-mitigated").lower()
+    if mitigated == "challenge" or "text/html" in content_type:
+        ray = header_value(header_map, "cf-ray") or "missing"
+        fail(
+            f"{url} returned an edge challenge/non-JSON response "
+            f"(HTTP {status}, Content-Type {content_type!r}, cf-ray {ray})"
+        )
+    if not header_value(header_map, "RateLimit-Policy"):
+        fail(f"{url} is missing RateLimit-Policy")
+    return status, header_map, body
 
 
 def header_value(headers: dict, name: str) -> str:
@@ -327,8 +339,6 @@ def check_live() -> None:
     ).encode("utf-8")
     status, _headers, body = fetch_live(f"{SITE}/mcp", method="POST", data=init)
     if status != 200:
-        status, _headers, body = fetch_live(f"{WORKER}/mcp", method="POST", data=init)
-    if status != 200:
         fail(f"MCP initialize returned HTTP {status}: {body[:300]}")
     payload = json.loads(body)
     result = payload.get("result") or {}
@@ -342,8 +352,6 @@ def check_live() -> None:
         {"jsonrpc": "2.0", "id": 2, "method": "tools/list", "params": {}}
     ).encode("utf-8")
     status, _headers, body = fetch_live(f"{SITE}/mcp", method="POST", data=tools_req)
-    if status != 200:
-        status, _headers, body = fetch_live(f"{WORKER}/mcp", method="POST", data=tools_req)
     if status != 200:
         fail(f"MCP tools/list returned HTTP {status}: {body[:300]}")
     names = {tool.get("name") for tool in ((json.loads(body).get("result") or {}).get("tools") or [])}
@@ -362,18 +370,33 @@ def check_live() -> None:
 
     status, _headers, body = fetch_live(f"{SITE}/api/studies?q=ontology")
     if status != 200:
-        status, _headers, body = fetch_live(f"{WORKER}/api/studies?q=ontology")
-    if status != 200:
         fail(f"GET /api/studies returned HTTP {status}: {body[:300]}")
     search = json.loads(body)
     if not search.get("count") or not search.get("studies"):
         fail(f"GET /api/studies?q=ontology returned no hits: {body[:300]}")
     print("OK: live GET /api/studies?q=ontology returns catalog hits.")
 
+    status, _headers, body = fetch_live(f"{SITE}/api/studies?limit=100")
+    if status != 200:
+        fail(f"GET /api/studies?limit=100 returned HTTP {status}: {body[:300]}")
+    complete = json.loads(body)
+    expected_rows = load_json(CATALOG_ALL_PATH)
+    expected_slugs = {row["slug"] for row in expected_rows}
+    live_slugs = {row.get("slug") for row in complete.get("studies") or []}
+    if (
+        complete.get("total") != len(expected_rows)
+        or complete.get("count") != len(expected_rows)
+        or live_slugs != expected_slugs
+    ):
+        fail(
+            "GET /api/studies?limit=100 does not match the complete canonical catalog: "
+            f"expected {len(expected_rows)} rows, got {complete.get('count')} of "
+            f"{complete.get('total')}"
+        )
+    print(f"OK: live catalog returns all {len(expected_rows)} canonical studies.")
+
     slug = "The-Ontology-of-Coexistence"
     status, _headers, body = fetch_live(f"{SITE}/api/studies/{slug}")
-    if status != 200:
-        status, _headers, body = fetch_live(f"{WORKER}/api/studies/{slug}")
     if status != 200:
         fail(f"GET /api/studies/{slug} returned HTTP {status}: {body[:300]}")
     detail = json.loads(body)
@@ -386,8 +409,6 @@ def check_live() -> None:
 
     status, _headers, body = fetch_live(f"{SITE}/api/glossary?q=jeevan")
     if status != 200:
-        status, _headers, body = fetch_live(f"{WORKER}/api/glossary?q=jeevan")
-    if status != 200:
         fail(f"GET /api/glossary returned HTTP {status}: {body[:300]}")
     glossary_hits = json.loads(body)
     ids = {term.get("id") for term in glossary_hits.get("terms") or []}
@@ -396,8 +417,6 @@ def check_live() -> None:
     print("OK: live GET /api/glossary?q=jeevan returns glossary terms.")
 
     status, _headers, body = fetch_live(f"{SITE}/api/start-here")
-    if status != 200:
-        status, _headers, body = fetch_live(f"{WORKER}/api/start-here")
     if status != 200:
         fail(f"GET /api/start-here returned HTTP {status}: {body[:300]}")
     path = json.loads(body)
@@ -408,8 +427,6 @@ def check_live() -> None:
     print("OK: live GET /api/start-here matches the canonical reading path.")
 
     status, _headers, body = fetch_live(f"{SITE}/api/cite/{slug}")
-    if status != 200:
-        status, _headers, body = fetch_live(f"{WORKER}/api/cite/{slug}")
     if status != 200:
         fail(f"GET /api/cite/{slug} returned HTTP {status}: {body[:300]}")
     cite = json.loads(body)
@@ -450,6 +467,12 @@ def main() -> None:
     terms = load_json(glossary)
     if not isinstance(terms, dict) or not terms.get("terms"):
         fail("glossary.json must contain a terms array")
+    satta = next((term for term in terms["terms"] if term.get("id") == "satta"), None)
+    if satta is None:
+        fail("glossary.json must contain satta")
+    satta_text = f"{satta.get('display', '')} {satta.get('definition', '')}"
+    if "Omnipresence" not in satta_text or "Omnipotence" in satta_text:
+        fail("the public satta glossary entry must use Omnipresence consistently")
     print("OK: Studies/glossary.json is present.")
     if "--live" in sys.argv:
         check_live()
