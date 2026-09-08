@@ -53,9 +53,11 @@
     }
     if (url.pathname === '/api/operation') {
       const saved = sessionStorage.getItem('fixture-operation-' + url.searchParams.get('id'));
-      return response(saved ? {...JSON.parse(saved),completed:true} : {success:false,notStarted:true});
+      if (!saved) return response({success:false,operationId:url.searchParams.get('id'),state:'notStarted',notStarted:true,retryAllowed:true});
+      const result=JSON.parse(saved);
+      return response({...result,operationId:url.searchParams.get('id'),state:'complete',completed:true,retryAllowed:false,result});
     }
-    if (['/api/submit','/api/revise','/api/propose'].includes(url.pathname)) {
+    if (['/api/submit','/api/revise','/api/propose','/api/status-change','/api/delete-artifact'].includes(url.pathname)) {
       const data = JSON.parse(options.body), mode = document.getElementById('fixture-submit').value;
       if (mode === 'not-reached') throw new Error('Simulated connection failure before arrival');
       if (mode === 'conflict') return response({success:false,error:'The source changed. Download your draft, load current source and compare.'},409);
@@ -63,7 +65,7 @@
       sessionStorage.setItem('fixture-operation-' + data.operationId,JSON.stringify(result));
       document.getElementById('fixture-payload').textContent = JSON.stringify(data,null,2);
       if (mode === 'lost') throw new Error('Simulated lost response after success');
-      return response(result);
+      return response({...result,operationId:data.operationId,state:'complete',completed:true,retryAllowed:false,result});
     }
     if (url.pathname === '/api/proposal-status') return response({success:true,approved:true,ownedByYou:true,workspaceReady:true,slug:'Test-Study',state:'approved'});
     throw new Error('Fixture blocked unexpected request: ' + url.pathname);

@@ -173,6 +173,14 @@
   Cloudflare Turnstile token. <code>POST /api/notify</code> is a server-to-server
   hook authenticated with a shared secret, not a public client.
 </p>
+<p>
+  Contribution writes also require a client-generated UUIDv4
+  <code>operationId</code>. Check an interrupted proposal, submission, revision,
+  status change, or deletion through <code>GET /api/operation?id=…</code>; its
+  state is <code>notStarted</code>, <code>inProgress</code>,
+  <code>complete</code>, or <code>uncertain</code>. Retry only an unchanged
+  operation whose state is <code>notStarted</code>.
+</p>
 
 <h2>Discussions</h2>
 <p class="muted">

@@ -202,6 +202,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 </style>
 <link rel="stylesheet" href="portal/contributor.css?v=3408cf66f34bf9f7">
 <script src="portal/drafts.js?v=f24389c7c24bcd02"></script>
+<script src="portal/action-operations.js?v=00e1a195cc0baab1"></script>
 </head>
 <body>
 <div class="page">
@@ -238,6 +239,13 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
       </div>
 
       <div id="dashboard-alert" class="alert"></div>
+      <div id="dashboard-operation" class="draft-tools" hidden>
+        <p id="dashboard-operation-status" role="status" aria-live="polite"></p>
+        <div class="draft-buttons">
+          <button type="button" class="auth-btn" id="dashboard-check-operation">Check action result</button>
+          <button type="button" class="auth-btn" id="dashboard-retry-operation" hidden>Retry same action</button>
+        </div>
+      </div>
 
       <div id="dashboard-signed-out">
         <p class="signed-out-lead">Sign in to propose a study, submit a draft, and follow it through review. A free GitHub account tracks your proposals and review history. This is separate from the email sign-in used for study discussions. Reading studies never requires an account.</p>
@@ -833,6 +841,7 @@ async function refreshAuthState() {
       notifyPrefs = {configured:false,email:null,hasEmail:false,enabled:false,loaded:false}; document.getElementById('notify-bar').hidden = true;
     }
     currentUser = data.loggedIn ? data : null;
+    dashboardOperations.auth(currentUser);
     if (currentUser?.notifications) {
       notifyPrefs = {
         configured: Boolean(currentUser.notifications.configured),
@@ -889,6 +898,7 @@ async function refreshAuthState() {
     if (requestId !== authRequest) return;
     try { sessionStorage.removeItem(AUTH_CACHE_KEY); } catch (_) { /* ignore */ }
     currentUser = null; dashboardCache = null; dashboardRequest++;
+    dashboardOperations.auth(null);
     dashboardLoadPromise = null; dashboardLoadAccount = null;
     document.getElementById('auth-user').textContent = 'Could not check sign-in. Refresh to try again; download any unsaved work before leaving.';
     updateAuthUi(false);
@@ -1299,6 +1309,103 @@ document.getElementById('dashboard-filter-clear').addEventListener('click', () =
   renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
 });
 
+function operationResponseState(data) {
+  return data.state || (data.notStarted ? 'notStarted' : data.uncertain ? 'uncertain' : data.completed ? 'complete' : null);
+}
+
+function operationResponseIsCertain(data, status) {
+  const state = operationResponseState(data);
+  return state === 'complete' || (!data.uncertain && state !== 'inProgress' && state !== 'uncertain' && status < 500);
+}
+
+function dashboardActionError(path, data) {
+  return data.error || (path === '/api/status-change'
+    ? 'Could not open the status-change pull request.'
+    : 'Could not open the deletion pull request.');
+}
+
+async function sendDashboardAction(path, payload, buttonEl = null) {
+  const original = buttonEl ? buttonEl.textContent : '';
+  if (buttonEl) { buttonEl.disabled = true; buttonEl.textContent = 'Verifying…'; }
+  try {
+    const turnstileToken = await getInlineTurnstileToken();
+    const requestBody = dashboardOperations.begin(path, payload);
+    if (buttonEl) buttonEl.textContent = 'Opening PR…';
+    const res = await apiFetch(path, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({...requestBody, turnstileToken}),
+    });
+    const data = normalizeApiData(await res.json());
+    const certain = operationResponseIsCertain(data, res.status);
+    dashboardOperations.settle(data, certain);
+    if (!res.ok || !data.success) throw new Error(dashboardActionError(path, data));
+    dashboardCache = null;
+    await loadDashboard({ force: true });
+    const message = path === '/api/status-change'
+      ? 'Status-change pull request opened.'
+      : 'Deletion pull request opened. The files remain available until a maintainer approves and merges it.';
+    showAlert('dashboard', 'success', message + (data.url ? ' <a href="' + escapeHtml(safeGitHubUrl(data.url)) + '" target="_blank" rel="noopener">View on GitHub</a>' : ''));
+    return true;
+  } catch (err) {
+    if (buttonEl) { buttonEl.disabled = false; buttonEl.textContent = original; }
+    dashboardOperations.paint();
+    showAlert('dashboard', 'error', escapeHtml(err.message));
+    return false;
+  }
+}
+
+async function checkDashboardOperation() {
+  const operation = dashboardOperations.current;
+  if (!operation || !currentUser) return;
+  const button = document.getElementById('dashboard-check-operation');
+  button.disabled = true;
+  dashboardOperations.paint('Checking the saved dashboard action receipt…');
+  try {
+    const targetId = operation.blockedBy || operation.id;
+    const response = await apiFetch('/api/operation?id=' + encodeURIComponent(targetId));
+    const data = normalizeApiData(await response.json());
+    if (!response.ok) throw new Error(data.error || 'Could not check the saved action.');
+    const state = operationResponseState(data) || 'inProgress';
+    if (operation.blockedBy && state === 'complete') {
+      dashboardOperations.clear();
+      showAlert('dashboard', 'info', 'The earlier contribution is resolved. The saved dashboard action was not sent; start it again if it is still needed.');
+      dashboardCache = null;
+      await loadDashboard({force:true});
+      return;
+    }
+    if (state === 'complete') {
+      dashboardOperations.settle(data, true);
+      dashboardCache = null;
+      await loadDashboard({force:true});
+      const result = data.result && typeof data.result === 'object' ? data.result : data;
+      showAlert('dashboard', result.success ? 'success' : 'info', result.success
+        ? 'Dashboard action confirmed.' + (result.url ? ' <a href="' + escapeHtml(safeGitHubUrl(result.url)) + '" target="_blank" rel="noopener">View on GitHub</a>' : '')
+        : escapeHtml(result.error || data.error || 'The saved action completed without opening a pull request. You may try again.'));
+      return;
+    }
+    dashboardOperations.settle(data, false);
+    if (state === 'notStarted' && !operation.blockedBy) {
+      dashboardOperations.paint('The server has not recorded this action. Retry the unchanged saved action with the same receipt.');
+    } else {
+      dashboardOperations.paint((data.error || 'The action result is not confirmed yet.') + (data.recoveryBranch ? ' Recovery branch: ' + data.recoveryBranch + '.' : ''));
+    }
+  } catch (error) {
+    dashboardOperations.paint(error.message + ' The receipt remains saved in this browser.');
+  } finally {
+    button.disabled = false;
+  }
+}
+
+async function retryDashboardOperation() {
+  const operation = dashboardOperations.current;
+  if (!operation?.retryAllowed) return;
+  const button = document.getElementById('dashboard-retry-operation');
+  button.disabled = true;
+  await sendDashboardAction(operation.path, operation.payload);
+  button.disabled = false;
+}
+
 async function inlineStatusChange(slug, target, buttonEl) {
   if (!currentUser) { showAlert('dashboard', 'error', 'Sign in with GitHub first.'); return; }
   if (!slug || (target !== 'draft' && target !== 'released')) return;
@@ -1306,25 +1413,7 @@ async function inlineStatusChange(slug, target, buttonEl) {
   if (!window.confirm('Change "' + slug + '" to ' + label + '? A pull request will open for maintainer approval.')) {
     return;
   }
-  const original = buttonEl ? buttonEl.textContent : '';
-  if (buttonEl) { buttonEl.disabled = true; buttonEl.textContent = 'Verifying…'; }
-  try {
-    const turnstileToken = await getInlineTurnstileToken();
-    if (buttonEl) buttonEl.textContent = 'Opening PR…';
-    const res = await apiFetch('/api/status-change', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ slug, targetStatus: target, reason: '', turnstileToken }),
-    });
-    const data = normalizeApiData(await res.json());
-    if (!res.ok || !data.success) throw new Error(data.error || 'Could not open the status-change pull request.');
-    dashboardCache = null;
-    await loadDashboard({ force: true });
-    showAlert('dashboard', 'success', 'Status-change pull request opened.' + (data.url ? ' <a href="' + escapeHtml(data.url) + '" target="_blank" rel="noopener">View on GitHub</a>' : ''));
-  } catch (err) {
-    if (buttonEl) { buttonEl.disabled = false; buttonEl.textContent = original; }
-    showAlert('dashboard', 'error', escapeHtml(err.message));
-  }
+  await sendDashboardAction('/api/status-change', {slug, targetStatus:target, reason:''}, buttonEl);
 }
 
 async function inlineDeleteArtifact(slug, artifactType, fileName, buttonEl) {
@@ -1344,26 +1433,11 @@ async function inlineDeleteArtifact(slug, artifactType, fileName, buttonEl) {
       return;
     }
   }
-  const original = buttonEl ? buttonEl.textContent : '';
-  if (buttonEl) { buttonEl.disabled = true; buttonEl.textContent = 'Opening PR…'; }
-  try {
-    const turnstileToken = await getInlineTurnstileToken();
-    const res = await apiFetch('/api/delete-artifact', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ slug, artifactType, fileName, turnstileToken }),
-    });
-    const data = normalizeApiData(await res.json());
-    if (!res.ok || !data.success) throw new Error(data.error || 'Could not open the deletion pull request.');
-    dashboardCache = null;
-    await loadDashboard({ force: true });
-    showAlert('dashboard', 'success', 'Deletion pull request opened. The files remain available until a maintainer approves and merges it.' +
-      (data.url ? ' <a href="' + escapeHtml(data.url) + '" target="_blank" rel="noopener">View on GitHub</a>' : ''));
-  } catch (err) {
-    if (buttonEl) { buttonEl.disabled = false; buttonEl.textContent = original; }
-    showAlert('dashboard', 'error', escapeHtml(err.message));
-  }
+  await sendDashboardAction('/api/delete-artifact', {slug, artifactType, fileName}, buttonEl);
 }
+
+document.getElementById('dashboard-check-operation').addEventListener('click', checkDashboardOperation);
+document.getElementById('dashboard-retry-operation').addEventListener('click', retryDashboardOperation);
 
 document.getElementById('dashboard-cards').addEventListener('click', (e) => {
   const deleteBtn = e.target.closest('button[data-delete-slug]');
@@ -2339,7 +2413,7 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
       })),
     });
     const data = normalizeApiData(await res.json());
-    await contributor.complete('propose', data, !data.uncertain && res.status < 500);
+    await contributor.complete('propose', data, operationResponseIsCertain(data, res.status));
     if (!res.ok) throw new Error(data.error || 'Unknown error');
     if (data.issueNumber) sessionStorage.setItem(PROPOSAL_STORAGE_KEY, String(data.issueNumber));
     dashboardCache = null;
@@ -2428,7 +2502,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
       body: JSON.stringify(await contributor.begin('submit', isRevision ? '/api/revise' : '/api/submit', payload)),
     });
     const data = normalizeApiData(await res.json());
-    await contributor.complete('submit', data, !data.uncertain && res.status < 500);
+    await contributor.complete('submit', data, operationResponseIsCertain(data, res.status));
     if (!res.ok) throw new Error(data.error || 'Unknown error');
     dashboardCache = null;
     setEditorMode('write');
@@ -2451,7 +2525,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
 });
 
 </script>
-<script src="portal/contributor.js?v=2ad9d366226742bf"></script>
+<script src="portal/contributor.js?v=f9372fedf537f6e1"></script>
 <script>
 (async () => {
   toggleProposalField();
