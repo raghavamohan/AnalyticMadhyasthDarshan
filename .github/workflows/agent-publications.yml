@@ -7,15 +7,25 @@ on:
       - ".agents/skills/**"
       - ".well-known/agent-skills/**"
       - ".well-known/mcp/**"
+      - ".well-known/api-catalog"
+      - "auth.md"
+      - "infra/auth-md-worker/**"
       - "infra/reader-skills/**"
       - "infra/agent-skills-worker/**"
       - "infra/mcp-worker/**"
+      - "infra/api-catalog-worker/**"
+      - "openapi/**"
+      - "api-docs.html"
       - "Studies/start-here.json"
       - "Scripts/_build_agent_skills_index.py"
       - "Scripts/_publish_agent_skills_snippet.py"
       - "Scripts/_publish_mcp_server_card.py"
+      - "Scripts/_publish_api_catalog_snippet.py"
+      - "Scripts/_publish_auth_md_snippet.py"
       - "Scripts/_test_agent_skills.py"
       - "Scripts/_test_mcp_server_card.py"
+      - "Scripts/_test_api_catalog.py"
+      - "Scripts/_test_auth_md.py"
       - "Scripts/_test_studies_api.py"
       - ".github/workflows/agent-publications.yml"
   push:
@@ -24,15 +34,25 @@ on:
       - ".agents/skills/**"
       - ".well-known/agent-skills/**"
       - ".well-known/mcp/**"
+      - ".well-known/api-catalog"
+      - "auth.md"
+      - "infra/auth-md-worker/**"
       - "infra/reader-skills/**"
       - "infra/agent-skills-worker/**"
       - "infra/mcp-worker/**"
+      - "infra/api-catalog-worker/**"
+      - "openapi/**"
+      - "api-docs.html"
       - "Studies/start-here.json"
       - "Scripts/_build_agent_skills_index.py"
       - "Scripts/_publish_agent_skills_snippet.py"
       - "Scripts/_publish_mcp_server_card.py"
+      - "Scripts/_publish_api_catalog_snippet.py"
+      - "Scripts/_publish_auth_md_snippet.py"
       - "Scripts/_test_agent_skills.py"
       - "Scripts/_test_mcp_server_card.py"
+      - "Scripts/_test_api_catalog.py"
+      - "Scripts/_test_auth_md.py"
       - "Scripts/_test_studies_api.py"
       - ".github/workflows/agent-publications.yml"
 
@@ -67,16 +87,20 @@ jobs:
           python Scripts/_test_agent_skills.py
           python Scripts/_test_mcp_server_card.py
           python Scripts/_test_studies_api.py
+          python Scripts/_test_auth_md.py
+          python Scripts/_test_api_catalog.py
 
       - name: Generate Worker bundles
         run: |
           python Scripts/_publish_agent_skills_snippet.py --generate-only
           python Scripts/_publish_mcp_server_card.py --generate-only
+          python Scripts/_publish_auth_md_snippet.py --generate-only
 
       - name: Check generated JavaScript
         run: |
           node --check infra/agent-skills-worker/src/index.js
           node --check infra/mcp-worker/src/index.js
+          node --check infra/auth-md-worker/src/index.js
 
       - name: Deploy Agent Skills Worker
         if: github.event_name != 'pull_request'
@@ -92,13 +116,36 @@ jobs:
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: python Scripts/_publish_mcp_server_card.py
 
+      - name: Deploy Auth.md Worker
+        if: github.event_name != 'pull_request'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: python Scripts/_publish_auth_md_snippet.py
+
+      - name: Deploy API catalog Worker
+        if: github.event_name != 'pull_request'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+        run: python Scripts/_publish_api_catalog_snippet.py
+
+      - name: Synchronize discovery response headers
+        if: github.event_name != 'pull_request'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+        run: python Scripts/_cloudflare_performance.py --apply-security-headers
+
       - name: Verify live publications
         if: github.event_name != 'pull_request'
         run: |
           for attempt in 1 2 3 4 5; do
             if python Scripts/_test_agent_skills.py --live && \
                python Scripts/_test_mcp_server_card.py --live && \
-               python Scripts/_test_studies_api.py --live; then
+               python Scripts/_test_studies_api.py --live && \
+               python Scripts/_test_auth_md.py --live && \
+               python Scripts/_test_api_catalog.py --live; then
               exit 0
             fi
             if [ "$attempt" -eq 5 ]; then

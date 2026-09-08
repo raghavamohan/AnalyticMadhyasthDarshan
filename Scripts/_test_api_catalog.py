@@ -26,7 +26,6 @@ WORKER_CATALOG_PATH = BASE / "infra" / "api-catalog-worker" / "src" / "api-catal
 WORKER_INDEX_PATH = BASE / "infra" / "api-catalog-worker" / "src" / "index.js"
 REQUIRED_RELS = ("service-desc", "service-doc")
 OPTIONAL_RELS = ("status", "describedby")
-AGENT_CARD_HREF = "https://analyticmadhyasthdarshan.org/.well-known/agent-card.json"
 AGENT_SKILLS_HREF = (
     "https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json"
 )
@@ -53,13 +52,11 @@ DYNAMIC_CATALOG_HREFS = {
 HOMEPAGE_LINK_RELS = ("api-catalog", "describedby", "service-desc", "service-doc")
 HOMEPAGE_LINK_HREFS = (
     "/.well-known/api-catalog",
-    "/.well-known/agent-card.json",
     "/.well-known/agent-skills/index.json",
     "/.well-known/mcp/server-card.json",
     "/.well-known/http-message-signatures-directory",
     "/webmcp.js",
     "/auth.md",
-    "/.well-known/oauth-protected-resource",
     "/Studies/catalog-topical.json",
     "/Studies/catalog-formal.json",
     "/Studies/catalog-applied.json",
@@ -81,9 +78,6 @@ HOMEPAGE_LINK_URLS = (
     "https://analyticmadhyasthdarshan.org/Studies/index.html",
 )
 RFC9727_PROFILE = 'profile="https://www.rfc-editor.org/rfc/rfc9727"'
-RESOURCE_METADATA_URL = (
-    "https://analyticmadhyasthdarshan.org/.well-known/oauth-protected-resource"
-)
 LIVE_UA = "AnalyticMadhyasthDarshan-api-catalog-test/1.0"
 HTTP_METHODS = {"get", "post", "put", "patch", "delete"}
 ROUTE_RE = re.compile(
@@ -133,12 +127,45 @@ def check_openapi_runtime_parity(spec_path: Path, runtime_path: Path) -> None:
             f"{spec_path.name} route drift versus {runtime_path.relative_to(BASE)}; "
             f"missing={missing}, extra={extra}"
         )
+    for method, path in sorted(documented):
+        operation = paths[path][method]
+        responses = operation.get("responses") or {}
+        if method == "post":
+            missing_errors = sorted({"403", "415"} - set(responses))
+            if missing_errors:
+                fail(
+                    f"{spec_path.name} POST {path} omits common responses "
+                    f"{missing_errors}"
+                )
+        security = operation.get("security") or []
+        uses_session = any("sessionCookie" in requirement for requirement in security)
+        if uses_session and "401" not in responses:
+            fail(f"{spec_path.name} {method.upper()} {path} omits session 401")
+    if spec_path.name == "submissions.json":
+        for path in ("/api/propose", "/api/revise", "/api/submit"):
+            responses = paths[path]["post"].get("responses") or {}
+            missing_errors = sorted({"409", "413", "429"} - set(responses))
+            if missing_errors:
+                fail(
+                    f"{spec_path.name} POST {path} omits operation responses "
+                    f"{missing_errors}"
+                )
     schemas = ((spec.get("components") or {}).get("schemas") or {})
     serialized = json.dumps(spec)
     refs = set(re.findall(r'#/components/schemas/([A-Za-z0-9_-]+)', serialized))
     unresolved = sorted(refs - set(schemas))
     if unresolved:
         fail(f"{spec_path.name} has unresolved schema references: {unresolved}")
+    component_responses = ((spec.get("components") or {}).get("responses") or {})
+    response_refs = set(
+        re.findall(r'#/components/responses/([A-Za-z0-9_-]+)', serialized)
+    )
+    unresolved_responses = sorted(response_refs - set(component_responses))
+    if unresolved_responses:
+        fail(
+            f"{spec_path.name} has unresolved response references: "
+            f"{unresolved_responses}"
+        )
     print(
         f"OK: {spec_path.name} documents all {len(implemented)} runtime operations."
     )
@@ -179,6 +206,8 @@ def fetch_live(url: str, *, method: str = "GET", data: bytes | None = None) -> t
     }
     if data is not None:
         headers["Content-Type"] = "application/json"
+    if method not in {"GET", "HEAD", "OPTIONS"}:
+        headers["Origin"] = "https://analyticmadhyasthdarshan.org"
     request = urllib.request.Request(url, data=data, method=method, headers=headers)
     try:
         with urllib.request.urlopen(request, timeout=20) as response:
@@ -206,17 +235,15 @@ def check_worker_discovery_hooks() -> None:
         encoding="utf-8"
     )
     for name, src in (("submissions", submissions), ("discussions", discussions)):
-        if "WWW-Authenticate" not in src or "resource_metadata=" not in src:
-            fail(f"{name} worker 401 responses must include WWW-Authenticate resource_metadata")
-        if RESOURCE_METADATA_URL not in src:
-            fail(f"{name} worker must point WWW-Authenticate at the apex PRM")
+        if "WWW-Authenticate" in src or "resource_metadata=" in src:
+            fail(f"{name} worker must not advertise bearer auth for cookie-only APIs")
     if "RESERVED_SLUGS" not in discussions or "'health'" not in discussions:
         fail("discussions worker must reserve health and stats slugs")
     if "router.get('/api/health'" not in submissions:
         fail("submissions worker is missing GET /api/health")
     if "router.get('/api/discussions/health'" not in discussions:
         fail("discussions worker is missing GET /api/discussions/health")
-    print("OK: workers advertise health routes and RFC 6750 WWW-Authenticate on 401.")
+    print("OK: workers advertise health routes and use cookie-only 401 responses.")
 
 
 def check_rfc9727_profile() -> None:
@@ -242,8 +269,8 @@ def check_sitemap_discovery() -> None:
     if missing:
         fail(f"sitemap is missing discovery URLs: {missing}")
     print(
-        "OK: sitemap lists Auth.md, OpenAPI, api-catalog, Agent Card, "
-        "Agent Skills, MCP Server Card, Web Bot Auth, WebMCP, and OAuth well-known URIs."
+        "OK: sitemap lists Auth.md, OpenAPI, api-catalog, Agent Skills, "
+        "MCP Server Card, Web Bot Auth, and WebMCP."
     )
 
 
@@ -314,9 +341,12 @@ def check_live_status_links(catalog: dict) -> None:
     print("OK: catalog status hrefs return {status: ok}.")
 
 
-def check_live_www_authenticate() -> None:
+def check_live_cookie_auth() -> None:
     checks = (
         ("https://api.analyticmadhyasthdarshan.org/api/me/submissions", "GET", None),
+        ("https://api.analyticmadhyasthdarshan.org/api/propose", "POST", b"{}"),
+        ("https://api.analyticmadhyasthdarshan.org/api/revise", "POST", b"{}"),
+        ("https://api.analyticmadhyasthdarshan.org/api/submit", "POST", b"{}"),
         (
             "https://analyticmadhyasthdarshan.org/api/discussions/The-Ontology-of-Coexistence/comments",
             "POST",
@@ -328,11 +358,9 @@ def check_live_www_authenticate() -> None:
         if status != 401:
             fail(f"{method} {url} returned HTTP {status}, expected 401: {body[:200]}")
         www = header_value(headers, "WWW-Authenticate")
-        if "Bearer" not in www or "resource_metadata=" not in www:
-            fail(f"{url} 401 is missing RFC 6750 WWW-Authenticate: {www!r}")
-        if RESOURCE_METADATA_URL not in www:
-            fail(f"{url} WWW-Authenticate does not point at apex PRM: {www!r}")
-    print("OK: unauthenticated write-API 401s advertise Protected Resource Metadata.")
+        if www:
+            fail(f"{url} 401 incorrectly advertises bearer authentication: {www!r}")
+    print("OK: unauthenticated write APIs consistently return cookie-only 401 responses.")
 
 
 class _NoRedirectHandler(urllib.request.HTTPRedirectHandler):
@@ -399,8 +427,6 @@ def main() -> None:
         for entry in linkset
         for link in entry.get("describedby") or []
     }
-    if AGENT_CARD_HREF not in described:
-        fail("api-catalog is missing the A2A Agent Card describedby link")
     if AGENT_SKILLS_HREF not in described:
         fail("api-catalog is missing the Agent Skills Discovery describedby link")
     if MCP_SERVER_CARD_HREF not in described:
@@ -438,7 +464,7 @@ def main() -> None:
         check_live_openapi()
         check_live_homepage_link_headers()
         check_live_status_links(catalog)
-        check_live_www_authenticate()
+        check_live_cookie_auth()
 
 
 if __name__ == "__main__":

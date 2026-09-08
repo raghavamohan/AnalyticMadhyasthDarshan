@@ -2,7 +2,7 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan submission portal API",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token. Browser POST requests also require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store. The machine-only /api/notify endpoint uses its separate secret and JSON without browser cookies or Origin."
   },
   "servers": [
@@ -100,7 +100,9 @@
                 "schema": { "$ref": "#/components/schemas/Ok" }
               }
             }
-          }
+          },
+          "403": { "$ref": "#/components/responses/OriginRejected" },
+          "415": { "$ref": "#/components/responses/JsonRequired" }
         }
       }
     },
@@ -198,7 +200,10 @@
               }
             }
           },
-          "401": { "description": "Not signed in." }
+          "400": { "description": "Invalid JSON or notification preferences." },
+          "401": { "description": "Not signed in." },
+          "403": { "$ref": "#/components/responses/OriginRejected" },
+          "415": { "$ref": "#/components/responses/JsonRequired" }
         }
       }
     },
@@ -222,7 +227,14 @@
         },
         "responses": {
           "200": { "description": "Issue created." },
-          "401": { "description": "Not signed in." }
+          "400": { "description": "Invalid proposal payload." },
+          "401": { "description": "Not signed in." },
+          "403": { "$ref": "#/components/responses/OriginRejected" },
+          "409": { "$ref": "#/components/responses/OperationConflict" },
+          "413": { "$ref": "#/components/responses/PayloadTooLarge" },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "429": { "$ref": "#/components/responses/WriteBudgetExceeded" },
+          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
         }
       }
     },
@@ -275,6 +287,7 @@
         ],
         "responses": {
           "200": { "description": "Markdown source." },
+          "400": { "description": "Missing or invalid slug, artifact type, or filename." },
           "404": { "description": "No published markdown for that slug." }
         }
       }
@@ -296,6 +309,7 @@
         ],
         "responses": {
           "200": { "description": "The complete registry, or one study mapping when slug is supplied." },
+          "400": { "description": "Invalid slug." },
           "404": { "description": "No editable study has that slug." }
         }
       }
@@ -355,7 +369,12 @@
           "200": { "description": "Revision committed to the existing pull request." },
           "400": { "description": "Invalid revision payload." },
           "401": { "description": "Not signed in." },
-          "403": { "description": "The pull request is not owned by the signed-in contributor." }
+          "403": { "description": "Origin rejected, or the pull request is not owned by the signed-in contributor." },
+          "409": { "$ref": "#/components/responses/OperationConflict" },
+          "413": { "$ref": "#/components/responses/PayloadTooLarge" },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "429": { "$ref": "#/components/responses/WriteBudgetExceeded" },
+          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
         }
       }
     },
@@ -379,7 +398,14 @@
         },
         "responses": {
           "200": { "description": "Pull request opened." },
-          "401": { "description": "Not signed in." }
+          "400": { "description": "Invalid submission payload." },
+          "401": { "description": "Not signed in." },
+          "403": { "$ref": "#/components/responses/OriginRejected" },
+          "409": { "$ref": "#/components/responses/OperationConflict" },
+          "413": { "$ref": "#/components/responses/PayloadTooLarge" },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "429": { "$ref": "#/components/responses/WriteBudgetExceeded" },
+          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
         }
       }
     },
@@ -403,7 +429,12 @@
         },
         "responses": {
           "200": { "description": "Pull request opened." },
-          "401": { "description": "Not signed in." }
+          "400": { "description": "Invalid status-change payload." },
+          "401": { "description": "Not signed in." },
+          "403": { "$ref": "#/components/responses/OriginRejected" },
+          "409": { "description": "A status-change pull request is already open." },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
         }
       }
     },
@@ -429,7 +460,10 @@
           "200": { "description": "Deletion pull request opened." },
           "400": { "description": "Invalid or unregistered artifact." },
           "401": { "description": "Not signed in." },
-          "403": { "description": "The study is not owned by the signed-in contributor." }
+          "403": { "description": "Origin rejected, or the study is not owned by the signed-in contributor." },
+          "409": { "description": "Another study or status-change pull request is already open." },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
+          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
         }
       }
     },
@@ -453,7 +487,10 @@
         },
         "responses": {
           "200": { "description": "Sent or skipped (no opt-in)." },
+          "400": { "description": "Invalid JSON or notification payload." },
           "401": { "description": "Missing or wrong X-Notify-Secret." },
+          "403": { "$ref": "#/components/responses/OriginRejected" },
+          "415": { "$ref": "#/components/responses/JsonRequired" },
           "503": { "description": "Notifications are not configured." }
         }
       }
@@ -480,6 +517,7 @@
           "200": {
             "description": "Confirmed result, completed validation failure, uncertain result or not-yet-arrived receipt. A notStarted response permits retry only with the SAME operationId and identical content."
           },
+          "400": { "description": "Missing or invalid operation receipt ID." },
           "401": { "description": "Sign in required." },
           "503": { "description": "Receipt store unavailable; retain browser draft." }
         }
@@ -487,6 +525,14 @@
     }
   },
   "components": {
+    "responses": {
+      "OriginRejected": { "description": "Browser Origin is not trusted." },
+      "JsonRequired": { "description": "Content-Type must be application/json." },
+      "OperationConflict": { "description": "Operation ID conflicts with another payload, the prior result is uncertain, or source state changed." },
+      "PayloadTooLarge": { "description": "Request exceeds the operation payload limit." },
+      "WriteBudgetExceeded": { "description": "Account write budget exceeded; retry later." },
+      "WriteServiceUnavailable": { "description": "A required write-side service is unavailable." }
+    },
     "securitySchemes": {
       "sessionCookie": { "type": "apiKey", "in": "cookie", "name": "amd_session" },
       "notifySecret": { "type": "apiKey", "in": "header", "name": "X-Notify-Secret" }
@@ -801,7 +847,7 @@
           { "required": [ "fileName", "contentBase64" ] }
         ]
       },
-      "StatusChangeRequest": {
+    "StatusChangeRequest": {
         "type": "object",
         "required": [
           "slug",
@@ -809,7 +855,7 @@
           "turnstileToken"
         ],
         "properties": {
-          "slug": { "type": "string" },
+          "slug": { "type": "string", "maxLength": 60, "pattern": "^[A-Za-z0-9-]+$" },
           "targetStatus": { "type": "string", "enum": [ "draft", "released" ] },
           "reason": { "type": "string" },
           "turnstileToken": { "type": "string" }

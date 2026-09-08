@@ -19,13 +19,11 @@ sys.path.insert(0, str(SCRIPTS))
 
 from _common import BASE
 from _publish_dns_aid import (
-    A2A_CAP,
-    A2A_NAME,
     INDEX_CAP,
     INDEX_NAME,
     KEY_CAP,
-    KEY_WELL_KNOWN,
     RECORDS,
+    RETIRED_RECORD_NAMES,
     ZONE,
 )
 
@@ -45,8 +43,8 @@ def check_records_spec() -> None:
     names = {record["name"] for record in RECORDS}
     if INDEX_NAME not in names:
         fail(f"RECORDS must include {INDEX_NAME}")
-    if A2A_NAME not in names:
-        fail(f"RECORDS must include {A2A_NAME}")
+    if any(name in names for name in RETIRED_RECORD_NAMES):
+        fail("RECORDS must not advertise retired A2A discovery")
     if any("_mcp._agents" in record["name"] for record in RECORDS):
         fail("do not advertise _mcp._agents under DNS-AID")
     for record in RECORDS:
@@ -59,27 +57,22 @@ def check_records_spec() -> None:
         value = record["value"]
         if "alpn=" not in value or "port=" not in value:
             fail(f"{record['name']} must set alpn and port")
-        if " cap=" in f" {value}" or " well-known=" in f" {value}":
-            fail(f"{record['name']} must use numeric {KEY_CAP}/{KEY_WELL_KNOWN}, not unregistered names")
+        if " cap=" in f" {value}":
+            fail(f"{record['name']} must use numeric {KEY_CAP}, not an unregistered name")
         if KEY_CAP not in value:
             fail(f"{record['name']} must carry experimental {KEY_CAP} (cap)")
     index_value = next(record["value"] for record in RECORDS if record["name"] == INDEX_NAME)
-    a2a_value = next(record["value"] for record in RECORDS if record["name"] == A2A_NAME)
     if INDEX_CAP not in index_value:
         fail("index cap must point at the RFC 9727 api-catalog")
-    if A2A_CAP not in a2a_value:
-        fail("A2A cap must point at the Agent Card")
-    if 'alpn="a2a"' not in a2a_value:
-        fail('A2A record must set alpn="a2a"')
-    if "mandatory=" not in a2a_value:
-        fail("A2A record must set mandatory=alpn,port")
-    print("OK: DNS-AID records are ServiceMode HTTPS under _agents with alpn, port, and key65400.")
+    print("OK: DNS-AID index is ServiceMode HTTPS with alpn, port, and key65400.")
 
 
 def check_docs() -> None:
     auth = (BASE / "auth.md").read_text(encoding="utf-8")
-    if INDEX_NAME not in auth or A2A_NAME not in auth:
-        fail("auth.md must document _index._agents and _a2a._agents")
+    if INDEX_NAME not in auth:
+        fail("auth.md must document _index._agents")
+    if any(name in auth for name in RETIRED_RECORD_NAMES):
+        fail("auth.md still documents retired A2A DNS discovery")
     if "DNS-AID" not in auth and "DNS for AI Discovery" not in auth:
         fail("auth.md must name DNS-AID")
     docs = (BASE / "api-docs.html").read_text(encoding="utf-8")
@@ -162,13 +155,10 @@ def check_live(resolver: str | None = None) -> None:
             fail(f"{INDEX_NAME} is missing port: {rdata}")
     print(f"OK: live HTTPS {INDEX_NAME} -> {answers[0]}")
 
-    a2a = doh_query(A2A_NAME, "HTTPS", resolver)
-    a2a_answers = _https_answers(a2a)
-    if not a2a_answers:
-        fail(f"DoH HTTPS lookup for {A2A_NAME} returned no ServiceMode record")
-    if _priority(a2a_answers[0]) < 1:
-        fail(f"{A2A_NAME} is AliasMode: {a2a_answers[0]}")
-    print(f"OK: live HTTPS {A2A_NAME} -> {a2a_answers[0]}")
+    for name in RETIRED_RECORD_NAMES:
+        retired = _https_answers(doh_query(name, "HTTPS", resolver))
+        if retired:
+            fail(f"retired DNS-AID record {name} is still published: {retired[0]}")
 
     ds = doh_query(ZONE, "DS", resolver)
     ds_answers = [

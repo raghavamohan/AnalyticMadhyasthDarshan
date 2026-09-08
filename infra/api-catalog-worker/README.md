@@ -34,14 +34,12 @@ A Transform Rule advertises `api-catalog`, `service-desc`, `service-doc`, and
 
 ```powershell
 python Scripts/_publish_api_catalog_snippet.py
-python Scripts/_publish_agent_card_snippet.py
 python Scripts/_publish_agent_skills_snippet.py
 python Scripts/_publish_mcp_server_card.py
 python Scripts/_publish_web_bot_auth.py
 python Scripts/_publish_auth_md_snippet.py
 python Scripts/_cloudflare_performance.py --apply-security-headers
 python Scripts/_test_api_catalog.py --live
-python Scripts/_test_agent_card.py --live
 python Scripts/_test_agent_skills.py --live
 python Scripts/_test_mcp_server_card.py --live
 python Scripts/_test_web_bot_auth.py --live
@@ -50,7 +48,7 @@ python Scripts/_test_auth_md.py --live
 
 Human documentation: [api-docs.html](../../api-docs.html).
 
-Agent Skills and MCP changes are also covered by `agent-publications.yml`: pull
-requests generate and validate both Worker bundles, and merges deploy them and
+Agent Skills, MCP, and Auth.md changes are also covered by `agent-publications.yml`: pull
+requests generate and validate all three Worker bundles, and merges deploy them and
 run their exact live canonical-payload checks. The commands above remain the
 manual full-discovery publication procedure.
