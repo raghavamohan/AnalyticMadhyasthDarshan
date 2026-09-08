@@ -2,17 +2,27 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan submission portal API",
-    "version": "1.3.0",
-    "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token. Browser POST requests also require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store. The machine-only /api/notify endpoint uses its separate secret and JSON without browser cookies or Origin."
+    "version": "1.4.0",
+    "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token. Browser POST requests also require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store. The machine-only /api/notify endpoint uses its separate secret and JSON without browser cookies or Origin. JSON error responses use one envelope: success=false, code, message, requestId, and optional details. The same requestId is returned in the X-Request-ID response header."
   },
   "servers": [
-    { "url": "https://api.analyticmadhyasthdarshan.org" }
+    {
+      "url": "https://api.analyticmadhyasthdarshan.org"
+    }
   ],
   "tags": [
-    { "name": "health" },
-    { "name": "auth" },
-    { "name": "submissions" },
-    { "name": "notify" }
+    {
+      "name": "health"
+    },
+    {
+      "name": "auth"
+    },
+    {
+      "name": "submissions"
+    },
+    {
+      "name": "notify"
+    }
   ],
   "paths": {
     "/api/health": {
@@ -27,7 +37,9 @@
             "description": "Worker is serving requests.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Health" }
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
               }
             }
           }
@@ -45,12 +57,22 @@
           {
             "name": "return_to",
             "in": "query",
-            "schema": { "type": "string", "format": "uri" }
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
           }
         ],
         "responses": {
-          "302": { "description": "Redirect to GitHub authorize." },
-          "503": { "description": "OAuth is not configured." }
+          "302": {
+            "description": "Redirect to GitHub authorize."
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -62,7 +84,9 @@
         "summary": "GitHub OAuth callback",
         "operationId": "githubOAuthCallback",
         "responses": {
-          "302": { "description": "Sets the session cookie and returns to the portal." }
+          "302": {
+            "description": "Sets the session cookie and returns to the portal."
+          }
         }
       }
     },
@@ -78,9 +102,14 @@
             "description": "Signed-in state.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/AuthMe" }
+                "schema": {
+                  "$ref": "#/components/schemas/AuthMe"
+                }
               }
             }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
           }
         }
       }
@@ -97,12 +126,21 @@
             "description": "Session cookie cleared.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Ok" }
+                "schema": {
+                  "$ref": "#/components/schemas/Ok"
+                }
               }
             }
           },
-          "403": { "$ref": "#/components/responses/OriginRejected" },
-          "415": { "$ref": "#/components/responses/JsonRequired" }
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -114,18 +152,27 @@
         "summary": "Dashboard of the signed-in contributor's proposals and study PRs",
         "operationId": "listMySubmissions",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "responses": {
           "200": {
             "description": "Unified proposal and pull-request dashboard.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/SubmissionDashboard" }
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionDashboard"
+                }
               }
             }
           },
-          "401": { "description": "Not signed in." }
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -137,18 +184,27 @@
         "summary": "Current review and CI state for the contributor's open study PRs",
         "operationId": "listMyOpenSubmissionStatuses",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "responses": {
           "200": {
             "description": "Lightweight status refresh for open pull requests.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/SubmissionStatusDashboard" }
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionStatusDashboard"
+                }
               }
             }
           },
-          "401": { "description": "Not signed in." }
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -160,18 +216,27 @@
         "summary": "Email notification preferences",
         "operationId": "getNotificationPrefs",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "responses": {
           "200": {
             "description": "Current preferences.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/NotificationPreferences" }
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationPreferences"
+                }
               }
             }
           },
-          "401": { "description": "Not signed in." }
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       },
       "post": {
@@ -181,13 +246,17 @@
         "summary": "Update email notification preferences",
         "operationId": "setNotificationPrefs",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/NotificationPreferencesUpdate" }
+              "schema": {
+                "$ref": "#/components/schemas/NotificationPreferencesUpdate"
+              }
             }
           }
         },
@@ -196,14 +265,27 @@
             "description": "Updated preferences.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/NotificationPreferences" }
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationPreferences"
+                }
               }
             }
           },
-          "400": { "description": "Invalid JSON or notification preferences." },
-          "401": { "description": "Not signed in." },
-          "403": { "$ref": "#/components/responses/OriginRejected" },
-          "415": { "$ref": "#/components/responses/JsonRequired" }
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -215,26 +297,51 @@
         "summary": "Open a study-proposal GitHub issue",
         "operationId": "proposeStudy",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/ProposeRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/ProposeRequest"
+              }
             }
           }
         },
         "responses": {
-          "200": { "description": "Issue created." },
-          "400": { "description": "Invalid proposal payload." },
-          "401": { "description": "Not signed in." },
-          "403": { "$ref": "#/components/responses/OriginRejected" },
-          "409": { "$ref": "#/components/responses/OperationConflict" },
-          "413": { "$ref": "#/components/responses/PayloadTooLarge" },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "429": { "$ref": "#/components/responses/WriteBudgetExceeded" },
-          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
+          "200": {
+            "description": "Issue created."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -250,12 +357,22 @@
             "name": "issue",
             "in": "query",
             "required": true,
-            "schema": { "type": "integer", "minimum": 1 }
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
           }
         ],
         "responses": {
-          "200": { "description": "Proposal status." },
-          "400": { "description": "Missing or invalid issue number." }
+          "200": {
+            "description": "Proposal status."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -271,24 +388,44 @@
             "name": "slug",
             "in": "query",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "artifactType",
             "in": "query",
-            "schema": { "type": "string", "enum": [ "study", "note" ], "default": "study" }
+            "schema": {
+              "type": "string",
+              "enum": [
+                "study",
+                "note"
+              ],
+              "default": "study"
+            }
           },
           {
             "name": "fileName",
             "in": "query",
             "description": "Registered note filename when artifactType is note.",
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
-          "200": { "description": "Markdown source." },
-          "400": { "description": "Missing or invalid slug, artifact type, or filename." },
-          "404": { "description": "No published markdown for that slug." }
+          "200": {
+            "description": "Markdown source."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -304,13 +441,24 @@
             "name": "slug",
             "in": "query",
             "required": false,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
-          "200": { "description": "The complete registry, or one study mapping when slug is supplied." },
-          "400": { "description": "Invalid slug." },
-          "404": { "description": "No editable study has that slug." }
+          "200": {
+            "description": "The complete registry, or one study mapping when slug is supplied."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -322,14 +470,19 @@
         "summary": "Load Markdown from an owned first-draft pull request",
         "operationId": "getRevisionSource",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "parameters": [
           {
             "name": "pr",
             "in": "query",
             "required": true,
-            "schema": { "type": "integer", "minimum": 1 }
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            }
           }
         ],
         "responses": {
@@ -337,13 +490,24 @@
             "description": "Current Markdown and pull-request identity.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/RevisionSource" }
+                "schema": {
+                  "$ref": "#/components/schemas/RevisionSource"
+                }
               }
             }
           },
-          "400": { "description": "Missing or invalid pull-request number." },
-          "401": { "description": "Not signed in." },
-          "403": { "description": "The pull request is not owned by the signed-in contributor." }
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -355,26 +519,51 @@
         "summary": "Commit revised Markdown to an owned first-draft pull request",
         "operationId": "reviseDraft",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/ReviseRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/ReviseRequest"
+              }
             }
           }
         },
         "responses": {
-          "200": { "description": "Revision committed to the existing pull request." },
-          "400": { "description": "Invalid revision payload." },
-          "401": { "description": "Not signed in." },
-          "403": { "description": "Origin rejected, or the pull request is not owned by the signed-in contributor." },
-          "409": { "$ref": "#/components/responses/OperationConflict" },
-          "413": { "$ref": "#/components/responses/PayloadTooLarge" },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "429": { "$ref": "#/components/responses/WriteBudgetExceeded" },
-          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
+          "200": {
+            "description": "Revision committed to the existing pull request."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -386,26 +575,51 @@
         "summary": "Open a new-study or study-update pull request",
         "operationId": "submitStudy",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/SubmitRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/SubmitRequest"
+              }
             }
           }
         },
         "responses": {
-          "200": { "description": "Pull request opened." },
-          "400": { "description": "Invalid submission payload." },
-          "401": { "description": "Not signed in." },
-          "403": { "$ref": "#/components/responses/OriginRejected" },
-          "409": { "$ref": "#/components/responses/OperationConflict" },
-          "413": { "$ref": "#/components/responses/PayloadTooLarge" },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "429": { "$ref": "#/components/responses/WriteBudgetExceeded" },
-          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
+          "200": {
+            "description": "Pull request opened."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -417,24 +631,45 @@
         "summary": "Open a status-change pull request (Draft ↔ Released)",
         "operationId": "changeStudyStatus",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/StatusChangeRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/StatusChangeRequest"
+              }
             }
           }
         },
         "responses": {
-          "200": { "description": "Pull request opened." },
-          "400": { "description": "Invalid status-change payload." },
-          "401": { "description": "Not signed in." },
-          "403": { "$ref": "#/components/responses/OriginRejected" },
-          "409": { "description": "A status-change pull request is already open." },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
+          "200": {
+            "description": "Pull request opened."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -446,24 +681,45 @@
         "summary": "Open a reviewable pull request to delete an owned study artifact",
         "operationId": "deleteStudyArtifact",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/DeleteArtifactRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/DeleteArtifactRequest"
+              }
             }
           }
         },
         "responses": {
-          "200": { "description": "Deletion pull request opened." },
-          "400": { "description": "Invalid or unregistered artifact." },
-          "401": { "description": "Not signed in." },
-          "403": { "description": "Origin rejected, or the study is not owned by the signed-in contributor." },
-          "409": { "description": "Another study or status-change pull request is already open." },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "503": { "$ref": "#/components/responses/WriteServiceUnavailable" }
+          "200": {
+            "description": "Deletion pull request opened."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "409": {
+            "$ref": "#/components/responses/Conflict"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -475,23 +731,42 @@
         "summary": "Send an approval, decline, or merge email (CI hook)",
         "operationId": "notifyContributor",
         "security": [
-          { "notifySecret": [] }
+          {
+            "notifySecret": []
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/NotifyRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/NotifyRequest"
+              }
             }
           }
         },
         "responses": {
-          "200": { "description": "Sent or skipped (no opt-in)." },
-          "400": { "description": "Invalid JSON or notification payload." },
-          "401": { "description": "Missing or wrong X-Notify-Secret." },
-          "403": { "$ref": "#/components/responses/OriginRejected" },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "503": { "description": "Notifications are not configured." }
+          "200": {
+            "description": "Sent or skipped (no opt-in)."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     },
@@ -503,54 +778,360 @@
         "summary": "Check an account-scoped submission receipt without repeating the write",
         "operationId": "getContributionOperation",
         "security": [
-          { "sessionCookie": [] }
+          {
+            "sessionCookie": []
+          }
         ],
         "parameters": [
           {
             "name": "id",
             "in": "query",
             "required": true,
-            "schema": { "type": "string", "format": "uuid" }
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
           }
         ],
         "responses": {
           "200": {
             "description": "Confirmed result, completed validation failure, uncertain result or not-yet-arrived receipt. A notStarted response permits retry only with the SAME operationId and identical content."
           },
-          "400": { "description": "Missing or invalid operation receipt ID." },
-          "401": { "description": "Sign in required." },
-          "503": { "description": "Receipt store unavailable; retain browser draft." }
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          }
         }
       }
     }
   },
   "components": {
     "responses": {
-      "OriginRejected": { "description": "Browser Origin is not trusted." },
-      "JsonRequired": { "description": "Content-Type must be application/json." },
-      "OperationConflict": { "description": "Operation ID conflicts with another payload, the prior result is uncertain, or source state changed." },
-      "PayloadTooLarge": { "description": "Request exceeds the operation payload limit." },
-      "WriteBudgetExceeded": { "description": "Account write budget exceeded; retry later." },
-      "WriteServiceUnavailable": { "description": "A required write-side service is unavailable." }
+      "BadRequest": {
+        "description": "The request is invalid.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "invalid_request",
+              "message": "The request is invalid.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "AuthenticationRequired": {
+        "description": "Authentication is required.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "authentication_required",
+              "message": "Authentication is required.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "The request is forbidden.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "forbidden",
+              "message": "The request is forbidden.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "The requested resource was not found.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "not_found",
+              "message": "The requested resource was not found.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "MethodNotAllowed": {
+        "description": "The HTTP method is not allowed.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "method_not_allowed",
+              "message": "The HTTP method is not allowed.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "Conflict": {
+        "description": "The request conflicts with current state.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "conflict",
+              "message": "The request conflicts with current state.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "PayloadTooLarge": {
+        "description": "The request payload is too large.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "payload_too_large",
+              "message": "The request payload is too large.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "UnsupportedMediaType": {
+        "description": "Content-Type must be application/json.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "unsupported_media_type",
+              "message": "Content-Type must be application/json.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "The request rate limit was exceeded.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "rate_limited",
+              "message": "The request rate limit was exceeded.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "InternalError": {
+        "description": "The request failed unexpectedly.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "internal_error",
+              "message": "The request failed unexpectedly.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "UpstreamError": {
+        "description": "An upstream service failed.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "upstream_error",
+              "message": "An upstream service failed.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "ServiceUnavailable": {
+        "description": "A required service is unavailable.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "service_unavailable",
+              "message": "A required service is unavailable.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      }
     },
     "securitySchemes": {
-      "sessionCookie": { "type": "apiKey", "in": "cookie", "name": "amd_session" },
-      "notifySecret": { "type": "apiKey", "in": "header", "name": "X-Notify-Secret" }
+      "sessionCookie": {
+        "type": "apiKey",
+        "in": "cookie",
+        "name": "amd_session"
+      },
+      "notifySecret": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Notify-Secret"
+      }
     },
     "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "requestId"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "const": false
+          },
+          "code": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requestId": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 128
+          },
+          "details": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
       "Health": {
         "type": "object",
         "required": [
           "status"
         ],
         "properties": {
-          "status": { "type": "string", "const": "ok" }
+          "status": {
+            "type": "string",
+            "const": "ok"
+          }
         }
       },
       "Ok": {
         "type": "object",
         "properties": {
-          "success": { "type": "boolean" }
+          "success": {
+            "type": "boolean"
+          }
         }
       },
       "AuthMe": {
@@ -559,9 +1140,15 @@
           "loggedIn"
         ],
         "properties": {
-          "loggedIn": { "type": "boolean" },
-          "login": { "type": "string" },
-          "userId": { "type": "integer" }
+          "loggedIn": {
+            "type": "boolean"
+          },
+          "login": {
+            "type": "string"
+          },
+          "userId": {
+            "type": "integer"
+          }
         }
       },
       "SubmissionDashboard": {
@@ -573,13 +1160,22 @@
           "meta"
         ],
         "properties": {
-          "success": { "type": "boolean", "const": true },
-          "login": { "type": "string" },
+          "success": {
+            "type": "boolean",
+            "const": true
+          },
+          "login": {
+            "type": "string"
+          },
           "submissions": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/SubmissionDashboardRow" }
+            "items": {
+              "$ref": "#/components/schemas/SubmissionDashboardRow"
+            }
           },
-          "meta": { "$ref": "#/components/schemas/SubmissionDashboardMeta" }
+          "meta": {
+            "$ref": "#/components/schemas/SubmissionDashboardMeta"
+          }
         }
       },
       "SubmissionDashboardMeta": {
@@ -590,14 +1186,28 @@
           "truncated"
         ],
         "properties": {
-          "timingMs": { "type": "integer", "minimum": 0 },
-          "githubRequests": { "type": "integer", "minimum": 0 },
-          "truncated": { "type": "boolean" },
+          "timingMs": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "githubRequests": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "truncated": {
+            "type": "boolean"
+          },
           "phaseTimingMs": {
             "type": "object",
             "properties": {
-              "base": { "type": "integer", "minimum": 0 },
-              "enrichment": { "type": "integer", "minimum": 0 }
+              "base": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "enrichment": {
+                "type": "integer",
+                "minimum": 0
+              }
             }
           }
         }
@@ -612,17 +1222,47 @@
           "stage"
         ],
         "properties": {
-          "kind": { "type": "string", "enum": [ "proposal", "pull-request" ] },
-          "kindLabel": { "type": "string" },
-          "prType": { "type": [ "string", "null" ] },
-          "issueNumber": { "type": [ "integer", "null" ] },
-          "title": { "type": "string" },
-          "slug": { "type": [ "string", "null" ] },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "proposal",
+              "pull-request"
+            ]
+          },
+          "kindLabel": {
+            "type": "string"
+          },
+          "prType": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "issueNumber": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "slug": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
           "categories": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string"
+            }
           },
-          "stage": { "type": "string", "description": "Current proposal or pull-request workflow stage." },
+          "stage": {
+            "type": "string",
+            "description": "Current proposal or pull-request workflow stage."
+          },
           "catalogStatus": {
             "type": [
               "string",
@@ -636,13 +1276,30 @@
               null
             ]
           },
-          "primaryAction": { "type": [ "object", "null" ] },
+          "primaryAction": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
           "secondaryActions": {
             "type": "array",
-            "items": { "type": "object" }
+            "items": {
+              "type": "object"
+            }
           },
-          "pullRequest": { "type": [ "object", "null" ] },
-          "checks": { "type": [ "object", "null" ] }
+          "pullRequest": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "checks": {
+            "type": [
+              "object",
+              "null"
+            ]
+          }
         },
         "additionalProperties": true
       },
@@ -655,13 +1312,22 @@
           "meta"
         ],
         "properties": {
-          "success": { "type": "boolean", "const": true },
-          "login": { "type": "string" },
+          "success": {
+            "type": "boolean",
+            "const": true
+          },
+          "login": {
+            "type": "string"
+          },
           "statuses": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/SubmissionStatusRow" }
+            "items": {
+              "$ref": "#/components/schemas/SubmissionStatusRow"
+            }
           },
-          "meta": { "$ref": "#/components/schemas/SubmissionDashboardMeta" }
+          "meta": {
+            "$ref": "#/components/schemas/SubmissionDashboardMeta"
+          }
         }
       },
       "SubmissionStatusRow": {
@@ -674,11 +1340,28 @@
           "checks"
         ],
         "properties": {
-          "number": { "type": "integer" },
-          "stage": { "type": "string", "enum": [ "pr-open", "changes_requested" ] },
-          "feedback": { "type": "array", "items": { "type": "object" } },
-          "pullRequest": { "type": "object" },
-          "checks": { "type": "object" }
+          "number": {
+            "type": "integer"
+          },
+          "stage": {
+            "type": "string",
+            "enum": [
+              "pr-open",
+              "changes_requested"
+            ]
+          },
+          "feedback": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "pullRequest": {
+            "type": "object"
+          },
+          "checks": {
+            "type": "object"
+          }
         },
         "additionalProperties": true
       },
@@ -690,17 +1373,36 @@
           "enabled"
         ],
         "properties": {
-          "success": { "type": "boolean", "const": true },
-          "configured": { "type": "boolean", "description": "Whether outbound notification delivery is configured. Present on GET responses." },
-          "email": { "type": [ "string", "null" ], "format": "email" },
-          "enabled": { "type": "boolean" }
+          "success": {
+            "type": "boolean",
+            "const": true
+          },
+          "configured": {
+            "type": "boolean",
+            "description": "Whether outbound notification delivery is configured. Present on GET responses."
+          },
+          "email": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "format": "email"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
         }
       },
       "NotificationPreferencesUpdate": {
         "type": "object",
         "properties": {
-          "email": { "type": "string", "format": "email" },
-          "enabled": { "type": "boolean" }
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "enabled": {
+            "type": "boolean"
+          }
         },
         "minProperties": 1
       },
@@ -715,12 +1417,28 @@
           "sourceSha"
         ],
         "properties": {
-          "success": { "type": "boolean", "const": true },
-          "prNumber": { "type": "integer", "minimum": 1 },
-          "pullRequestUrl": { "type": "string", "format": "uri" },
-          "slug": { "type": "string" },
-          "content": { "type": "string", "description": "UTF-8 Markdown from the pull-request branch." },
-          "sourceSha": { "type": "string" }
+          "success": {
+            "type": "boolean",
+            "const": true
+          },
+          "prNumber": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "pullRequestUrl": {
+            "type": "string",
+            "format": "uri"
+          },
+          "slug": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string",
+            "description": "UTF-8 Markdown from the pull-request branch."
+          },
+          "sourceSha": {
+            "type": "string"
+          }
         }
       },
       "ReviseRequest": {
@@ -734,11 +1452,26 @@
           "sourceSha"
         ],
         "properties": {
-          "prNumber": { "type": "integer", "minimum": 1 },
-          "author": { "type": "string", "minLength": 1 },
-          "content": { "type": "string", "description": "Replacement study Markdown." },
-          "turnstileToken": { "type": "string" },
-          "operationId": { "type": "string", "format": "uuid", "description": "Client-generated UUIDv4 retained across interrupted/retried requests. Reusing it with different content is rejected." },
+          "prNumber": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "author": {
+            "type": "string",
+            "minLength": 1
+          },
+          "content": {
+            "type": "string",
+            "description": "Replacement study Markdown."
+          },
+          "turnstileToken": {
+            "type": "string"
+          },
+          "operationId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Client-generated UUIDv4 retained across interrupted/retried requests. Reusing it with different content is rejected."
+          },
           "sourceSha": {
             "type": "string",
             "pattern": "^[a-f0-9]{40,64}$",
@@ -754,22 +1487,47 @@
           "turnstileToken"
         ],
         "properties": {
-          "slug": { "type": "string", "maxLength": 60, "pattern": "^[A-Za-z0-9-]+$" },
-          "artifactType": { "type": "string", "enum": [ "study", "note", "presentation" ] },
-          "fileName": { "type": "string", "description": "Required for a registered note or presentation; ignored for a complete study deletion." },
-          "turnstileToken": { "type": "string" }
+          "slug": {
+            "type": "string",
+            "maxLength": 60,
+            "pattern": "^[A-Za-z0-9-]+$"
+          },
+          "artifactType": {
+            "type": "string",
+            "enum": [
+              "study",
+              "note",
+              "presentation"
+            ]
+          },
+          "fileName": {
+            "type": "string",
+            "description": "Required for a registered note or presentation; ignored for a complete study deletion."
+          },
+          "turnstileToken": {
+            "type": "string"
+          }
         },
         "allOf": [
           {
             "if": {
               "properties": {
-                "artifactType": { "enum": [ "note", "presentation" ] }
+                "artifactType": {
+                  "enum": [
+                    "note",
+                    "presentation"
+                  ]
+                }
               },
               "required": [
                 "artifactType"
               ]
             },
-            "then": { "required": [ "fileName" ] }
+            "then": {
+              "required": [
+                "fileName"
+              ]
+            }
           }
         ]
       },
@@ -780,10 +1538,25 @@
           "event"
         ],
         "properties": {
-          "login": { "type": "string", "description": "GitHub login, with or without a leading @." },
-          "event": { "type": "string", "enum": [ "approved", "declined", "merged" ] },
-          "title": { "type": "string" },
-          "url": { "type": "string", "format": "uri" }
+          "login": {
+            "type": "string",
+            "description": "GitHub login, with or without a leading @."
+          },
+          "event": {
+            "type": "string",
+            "enum": [
+              "approved",
+              "declined",
+              "merged"
+            ]
+          },
+          "title": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri"
+          }
         }
       },
       "ProposeRequest": {
@@ -798,14 +1571,32 @@
           "operationId"
         ],
         "properties": {
-          "title": { "type": "string" },
-          "category": { "type": "string" },
-          "description": { "type": "string" },
-          "summary": { "type": "string" },
-          "formal": { "type": "boolean" },
-          "familiarity": { "type": "string" },
-          "turnstileToken": { "type": "string" },
-          "operationId": { "type": "string", "format": "uuid", "description": "Client-generated UUIDv4 retained across interrupted/retried requests. Reusing it with different content is rejected." }
+          "title": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string"
+          },
+          "formal": {
+            "type": "boolean"
+          },
+          "familiarity": {
+            "type": "string"
+          },
+          "turnstileToken": {
+            "type": "string"
+          },
+          "operationId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Client-generated UUIDv4 retained across interrupted/retried requests. Reusing it with different content is rejected."
+          }
         }
       },
       "SubmitRequest": {
@@ -817,8 +1608,14 @@
           "operationId"
         ],
         "properties": {
-          "slug": { "type": "string", "maxLength": 60, "pattern": "^[A-Za-z0-9-]+$" },
-          "author": { "type": "string" },
+          "slug": {
+            "type": "string",
+            "maxLength": 60,
+            "pattern": "^[A-Za-z0-9-]+$"
+          },
+          "author": {
+            "type": "string"
+          },
           "artifactType": {
             "type": "string",
             "enum": [
@@ -829,13 +1626,33 @@
             "default": "study",
             "description": "Study Markdown, a companion technical/research note, or a PowerPoint presentation."
           },
-          "fileName": { "type": "string", "description": "Required for note and presentation uploads; the registered destination basename to replace, or a safe new basename ending in .md or .pptx." },
-          "content": { "type": "string", "description": "UTF-8 Markdown content for study and note submissions (2 MB maximum)." },
-          "contentBase64": { "type": "string", "contentEncoding": "base64", "description": "Base64-encoded .pptx content for presentation submissions (10 MB maximum before encoding)." },
-          "isNew": { "type": "boolean" },
-          "proposalIssue": { "type": "integer" },
-          "turnstileToken": { "type": "string" },
-          "operationId": { "type": "string", "format": "uuid", "description": "Client-generated UUIDv4 retained across interrupted/retried requests. Reusing it with different content is rejected." },
+          "fileName": {
+            "type": "string",
+            "description": "Required for note and presentation uploads; the registered destination basename to replace, or a safe new basename ending in .md or .pptx."
+          },
+          "content": {
+            "type": "string",
+            "description": "UTF-8 Markdown content for study and note submissions (2 MB maximum)."
+          },
+          "contentBase64": {
+            "type": "string",
+            "contentEncoding": "base64",
+            "description": "Base64-encoded .pptx content for presentation submissions (10 MB maximum before encoding)."
+          },
+          "isNew": {
+            "type": "boolean"
+          },
+          "proposalIssue": {
+            "type": "integer"
+          },
+          "turnstileToken": {
+            "type": "string"
+          },
+          "operationId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Client-generated UUIDv4 retained across interrupted/retried requests. Reusing it with different content is rejected."
+          },
           "sourceSha": {
             "type": "string",
             "pattern": "^[a-f0-9]{40,64}$",
@@ -843,11 +1660,20 @@
           }
         },
         "oneOf": [
-          { "required": [ "content" ] },
-          { "required": [ "fileName", "contentBase64" ] }
+          {
+            "required": [
+              "content"
+            ]
+          },
+          {
+            "required": [
+              "fileName",
+              "contentBase64"
+            ]
+          }
         ]
       },
-    "StatusChangeRequest": {
+      "StatusChangeRequest": {
         "type": "object",
         "required": [
           "slug",
@@ -855,10 +1681,35 @@
           "turnstileToken"
         ],
         "properties": {
-          "slug": { "type": "string", "maxLength": 60, "pattern": "^[A-Za-z0-9-]+$" },
-          "targetStatus": { "type": "string", "enum": [ "draft", "released" ] },
-          "reason": { "type": "string" },
-          "turnstileToken": { "type": "string" }
+          "slug": {
+            "type": "string",
+            "maxLength": 60,
+            "pattern": "^[A-Za-z0-9-]+$"
+          },
+          "targetStatus": {
+            "type": "string",
+            "enum": [
+              "draft",
+              "released"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "turnstileToken": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "headers": {
+      "RequestId": {
+        "description": "Correlation identifier for this failed request.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 128
         }
       }
     }

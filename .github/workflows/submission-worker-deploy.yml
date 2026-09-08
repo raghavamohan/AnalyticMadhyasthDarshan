@@ -7,6 +7,21 @@ on:
       - "infra/worker/**"
       - "infra/discussions-worker/**"
       - "infra/shared/**"
+      - "openapi/**"
+      - "Studies/submit.html"
+      - "Studies/index.html"
+      - "Studies/portal/**"
+      - "Studies/assets/discuss.js"
+      - "Scripts/requirements-api.txt"
+      - "Scripts/_validate_openapi.py"
+      - "Scripts/_test_api_catalog.py"
+      - "Scripts/_build_contributor_assets.py"
+      - "Scripts/_build_discussion_pages.py"
+      - "Scripts/_discussion_assets.py"
+      - "Scripts/_test_contributor.py"
+      - "Scripts/_test_contributor_harness.js"
+      - "Scripts/_test_portal_security.py"
+      - "Scripts/_verify_studies_index.py"
       - "Scripts/_test_api_worker_routes.mjs"
       - "Scripts/_test_contributor.mjs"
       - "Scripts/_cloudflare_performance.py"
@@ -17,6 +32,21 @@ on:
       - "infra/worker/**"
       - "infra/discussions-worker/**"
       - "infra/shared/**"
+      - "openapi/**"
+      - "Studies/submit.html"
+      - "Studies/index.html"
+      - "Studies/portal/**"
+      - "Studies/assets/discuss.js"
+      - "Scripts/requirements-api.txt"
+      - "Scripts/_validate_openapi.py"
+      - "Scripts/_test_api_catalog.py"
+      - "Scripts/_build_contributor_assets.py"
+      - "Scripts/_build_discussion_pages.py"
+      - "Scripts/_discussion_assets.py"
+      - "Scripts/_test_contributor.py"
+      - "Scripts/_test_contributor_harness.js"
+      - "Scripts/_test_portal_security.py"
+      - "Scripts/_verify_studies_index.py"
       - "Scripts/_test_api_worker_routes.mjs"
       - "Scripts/_test_contributor.mjs"
       - "Scripts/_cloudflare_performance.py"
@@ -30,7 +60,37 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up repository Python dependencies
+        uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+          python-version: "3.13"
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+
+      - name: Install OpenAPI validator
+        run: python -m pip install -r Scripts/requirements-api.txt
+
+      - name: Validate public API contracts and discovery
+        run: |
+          python Scripts/_validate_openapi.py
+          python Scripts/_test_api_catalog.py
+          python Scripts/_build_contributor_assets.py --check
+          python Scripts/_verify_studies_index.py
+          python Scripts/_test_contributor.py
+          python Scripts/_test_portal_security.py
+
   worker:
+    needs: contracts
     runs-on: ubuntu-latest
     strategy:
       matrix:

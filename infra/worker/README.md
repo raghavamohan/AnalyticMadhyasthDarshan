@@ -98,6 +98,12 @@ After deploy, confirm the OAuth app callback URL matches `https://api.analyticma
 
 ## API
 
+JSON errors use the public [`ErrorResponse`](../../openapi/submissions.json)
+contract: `success: false`, stable `code`, human-readable `message`,
+`requestId`, and optional `details`. The same value is returned in the
+`X-Request-ID` header. Legacy endpoint-specific error fields are nested under
+`details`; successful response bodies are unchanged.
+
 ### Request and authentication security
 
 Browser POST requests must send an exact allowed `Origin` and

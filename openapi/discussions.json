@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan discussions API",
-    "version": "1.1.0",
-    "description": "Per-study discussion boards on https://analyticmadhyasthdarshan.org. Readers sign in with an email magic link (no GitHub account required) to post comments. Structured corrections still use GitHub Issues. All POST requests require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store, including comment permissions. Magic links are single-use and expire after 15 minutes."
+    "version": "1.2.0",
+    "description": "Per-study discussion boards on https://analyticmadhyasthdarshan.org. Readers sign in with an email magic link (no GitHub account required) to post comments. Structured corrections still use GitHub Issues. All POST requests require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store, including comment permissions. Magic links are single-use and expire after 15 minutes. JSON error responses use one envelope: success=false, code, message, requestId, and optional details. The same requestId is returned in the X-Request-ID response header."
   },
   "servers": [
     {
@@ -11,14 +11,22 @@
     }
   ],
   "tags": [
-    { "name": "health" },
-    { "name": "threads" },
-    { "name": "auth" }
+    {
+      "name": "health"
+    },
+    {
+      "name": "threads"
+    },
+    {
+      "name": "auth"
+    }
   ],
   "paths": {
     "/api/discussions/health": {
       "get": {
-        "tags": ["health"],
+        "tags": [
+          "health"
+        ],
         "summary": "Liveness",
         "operationId": "getDiscussionsHealth",
         "responses": {
@@ -26,7 +34,9 @@
             "description": "Worker is serving requests.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Health" }
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
               }
             }
           }
@@ -35,7 +45,9 @@
     },
     "/api/discussions/stats": {
       "get": {
-        "tags": ["threads"],
+        "tags": [
+          "threads"
+        ],
         "summary": "Comment counts per study slug",
         "operationId": "listDiscussionStats",
         "responses": {
@@ -43,29 +55,50 @@
             "description": "Thread stats.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/StatsResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/StatsResponse"
+                }
               }
             }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
           }
         }
       }
     },
     "/api/discussions/{slug}": {
       "get": {
-        "tags": ["threads"],
+        "tags": [
+          "threads"
+        ],
         "summary": "Visible comments for a study",
         "operationId": "listComments",
         "parameters": [
-          { "$ref": "#/components/parameters/Slug" },
+          {
+            "$ref": "#/components/parameters/Slug"
+          },
           {
             "name": "limit",
             "in": "query",
-            "schema": { "type": "integer", "minimum": 1, "maximum": 100, "default": 50 }
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            }
           },
           {
             "name": "offset",
             "in": "query",
-            "schema": { "type": "integer", "minimum": 0, "default": 0 }
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "default": 0
+            }
           }
         ],
         "responses": {
@@ -73,109 +106,207 @@
             "description": "Comment list with an email-free viewer/session summary.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/DiscussionResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/DiscussionResponse"
+                }
               }
             }
           },
-          "400": { "description": "Invalid slug." }
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
         }
       }
     },
     "/api/discussions/{slug}/comments": {
       "post": {
-        "tags": ["threads"],
+        "tags": [
+          "threads"
+        ],
         "summary": "Post a comment",
         "operationId": "postComment",
-        "security": [{ "sessionCookie": [] }],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
         "parameters": [
-          { "$ref": "#/components/parameters/Slug" }
+          {
+            "$ref": "#/components/parameters/Slug"
+          }
         ],
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/PostCommentRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/PostCommentRequest"
+              }
             }
           }
         },
         "responses": {
-          "201": { "description": "Comment created." },
-          "400": { "description": "Invalid slug or comment payload." },
-          "401": { "description": "Not signed in." },
-          "403": { "$ref": "#/components/responses/OriginRejected" },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
+          "201": {
+            "description": "Comment created."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
         }
       }
     },
     "/api/discussions/{slug}/comments/{commentId}/hide": {
       "post": {
-        "tags": ["threads"],
+        "tags": [
+          "threads"
+        ],
         "summary": "Hide another user's comment (admin)",
         "operationId": "hideComment",
-        "security": [{ "sessionCookie": [] }],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
         "parameters": [
-          { "$ref": "#/components/parameters/Slug" },
-          { "$ref": "#/components/parameters/CommentId" }
+          {
+            "$ref": "#/components/parameters/Slug"
+          },
+          {
+            "$ref": "#/components/parameters/CommentId"
+          }
         ],
         "responses": {
-          "200": { "description": "Hidden." },
-          "400": { "description": "Invalid slug or comment identifier." },
-          "401": { "description": "Not signed in." },
-          "403": { "description": "Origin rejected, or admin access is required." },
-          "404": { "description": "Comment not found." },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
+          "200": {
+            "description": "Hidden."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
         }
       }
     },
     "/api/discussions/{slug}/comments/{commentId}/delete": {
       "post": {
-        "tags": ["threads"],
+        "tags": [
+          "threads"
+        ],
         "summary": "Hide your own comment",
         "operationId": "deleteComment",
-        "security": [{ "sessionCookie": [] }],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ],
         "parameters": [
-          { "$ref": "#/components/parameters/Slug" },
-          { "$ref": "#/components/parameters/CommentId" }
+          {
+            "$ref": "#/components/parameters/Slug"
+          },
+          {
+            "$ref": "#/components/parameters/CommentId"
+          }
         ],
         "responses": {
-          "200": { "description": "Hidden." },
-          "400": { "description": "Invalid slug or comment identifier." },
-          "401": { "description": "Not signed in." },
-          "403": { "description": "Origin rejected, or the user is not the author." },
-          "404": { "description": "Comment not found." },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
+          "200": {
+            "description": "Hidden."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
         }
       }
     },
     "/api/discuss-auth/magic-link": {
       "post": {
-        "tags": ["auth"],
+        "tags": [
+          "auth"
+        ],
         "summary": "Send a sign-in email",
         "operationId": "requestMagicLink",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
-              "schema": { "$ref": "#/components/schemas/MagicLinkRequest" }
+              "schema": {
+                "$ref": "#/components/schemas/MagicLinkRequest"
+              }
             }
           }
         },
         "responses": {
-          "200": { "description": "Email sent (or verifyUrl in local dev)." },
-          "400": { "description": "Invalid email, return URL, or Turnstile token." },
-          "403": { "$ref": "#/components/responses/OriginRejected" },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "429": { "description": "Too many recent magic-link requests." },
-          "503": { "description": "Email or database service is unavailable." }
+          "200": {
+            "description": "Email sent (or verifyUrl in local dev)."
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
         }
       }
     },
     "/api/discuss-auth/verify": {
       "get": {
-        "tags": ["auth"],
+        "tags": [
+          "auth"
+        ],
         "summary": "Consume a magic-link token and set the session cookie",
         "operationId": "verifyMagicLink",
         "parameters": [
@@ -183,24 +314,31 @@
             "name": "token",
             "in": "query",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           },
           {
             "name": "return_to",
             "in": "query",
-            "schema": { "type": "string", "format": "uri" }
+            "schema": {
+              "type": "string",
+              "format": "uri"
+            }
           }
         ],
         "responses": {
-          "302": { "description": "Redirect back to the discussion page." },
-          "400": { "description": "Missing, invalid, expired, or already-used sign-in token." },
-          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
+          "302": {
+            "description": "Redirect back to the discussion page."
+          }
         }
       }
     },
     "/api/discuss-auth/me": {
       "get": {
-        "tags": ["auth"],
+        "tags": [
+          "auth"
+        ],
         "summary": "Current discussion session",
         "operationId": "getDiscussAuthMe",
         "responses": {
@@ -208,32 +346,293 @@
             "description": "Signed-in state.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/DiscussAuthMe" }
+                "schema": {
+                  "$ref": "#/components/schemas/DiscussAuthMe"
+                }
               }
             }
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
           }
         }
       }
     },
     "/api/discuss-auth/logout": {
       "post": {
-        "tags": ["auth"],
+        "tags": [
+          "auth"
+        ],
         "summary": "Clear session",
         "operationId": "discussLogout",
         "responses": {
-          "200": { "description": "Session cookie cleared." },
-          "403": { "$ref": "#/components/responses/OriginRejected" },
-          "415": { "$ref": "#/components/responses/JsonRequired" },
-          "503": { "$ref": "#/components/responses/ServiceUnavailable" }
+          "200": {
+            "description": "Session cookie cleared."
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          }
         }
       }
     }
   },
   "components": {
     "responses": {
-      "OriginRejected": { "description": "Browser Origin is not trusted." },
-      "JsonRequired": { "description": "Content-Type must be application/json." },
-      "ServiceUnavailable": { "description": "A required database, email, or verification service is unavailable." }
+      "BadRequest": {
+        "description": "The request is invalid.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "invalid_request",
+              "message": "The request is invalid.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "AuthenticationRequired": {
+        "description": "Authentication is required.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "authentication_required",
+              "message": "Authentication is required.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "The request is forbidden.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "forbidden",
+              "message": "The request is forbidden.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "The requested resource was not found.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "not_found",
+              "message": "The requested resource was not found.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "MethodNotAllowed": {
+        "description": "The HTTP method is not allowed.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "method_not_allowed",
+              "message": "The HTTP method is not allowed.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "Conflict": {
+        "description": "The request conflicts with current state.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "conflict",
+              "message": "The request conflicts with current state.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "PayloadTooLarge": {
+        "description": "The request payload is too large.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "payload_too_large",
+              "message": "The request payload is too large.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "UnsupportedMediaType": {
+        "description": "Content-Type must be application/json.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "unsupported_media_type",
+              "message": "Content-Type must be application/json.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "The request rate limit was exceeded.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "rate_limited",
+              "message": "The request rate limit was exceeded.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "InternalError": {
+        "description": "The request failed unexpectedly.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "internal_error",
+              "message": "The request failed unexpectedly.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "UpstreamError": {
+        "description": "An upstream service failed.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "upstream_error",
+              "message": "An upstream service failed.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "ServiceUnavailable": {
+        "description": "A required service is unavailable.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "service_unavailable",
+              "message": "A required service is unavailable.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      }
     },
     "securitySchemes": {
       "sessionCookie": {
@@ -247,21 +646,64 @@
         "name": "slug",
         "in": "path",
         "required": true,
-        "schema": { "type": "string" }
+        "schema": {
+          "type": "string"
+        }
       },
       "CommentId": {
         "name": "commentId",
         "in": "path",
         "required": true,
-        "schema": { "type": "string", "format": "uuid" }
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
       }
     },
     "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "requestId"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "const": false
+          },
+          "code": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requestId": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 128
+          },
+          "details": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
       "Health": {
         "type": "object",
-        "required": ["status"],
+        "required": [
+          "status"
+        ],
         "properties": {
-          "status": { "type": "string", "const": "ok" }
+          "status": {
+            "type": "string",
+            "const": "ok"
+          }
         }
       },
       "StatsResponse": {
@@ -272,9 +714,15 @@
             "items": {
               "type": "object",
               "properties": {
-                "slug": { "type": "string" },
-                "count": { "type": "integer" },
-                "latestAt": { "type": "integer" }
+                "slug": {
+                  "type": "string"
+                },
+                "count": {
+                  "type": "integer"
+                },
+                "latestAt": {
+                  "type": "integer"
+                }
               }
             }
           }
@@ -282,51 +730,113 @@
       },
       "DiscussionViewer": {
         "type": "object",
-        "required": ["loggedIn"],
+        "required": [
+          "loggedIn"
+        ],
         "properties": {
-          "loggedIn": { "type": "boolean" },
-          "isAdmin": { "type": "boolean" }
+          "loggedIn": {
+            "type": "boolean"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          }
         }
       },
       "DiscussionResponse": {
         "type": "object",
-        "required": ["slug", "viewer", "comments"],
+        "required": [
+          "slug",
+          "viewer",
+          "comments"
+        ],
         "properties": {
-          "slug": { "type": "string" },
-          "viewer": { "$ref": "#/components/schemas/DiscussionViewer" },
+          "slug": {
+            "type": "string"
+          },
+          "viewer": {
+            "$ref": "#/components/schemas/DiscussionViewer"
+          },
           "comments": {
             "type": "array",
-            "items": { "type": "object" }
+            "items": {
+              "type": "object"
+            }
           }
         }
       },
       "PostCommentRequest": {
         "type": "object",
-        "required": ["body"],
+        "required": [
+          "body"
+        ],
         "properties": {
-          "body": { "type": "string", "maxLength": 8192 },
-          "title": { "type": "string" },
-          "parentId": { "type": "string", "format": "uuid" }
+          "body": {
+            "type": "string",
+            "maxLength": 8192
+          },
+          "title": {
+            "type": "string"
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid"
+          }
         }
       },
       "MagicLinkRequest": {
         "type": "object",
-        "required": ["email", "displayName", "turnstileToken"],
+        "required": [
+          "email",
+          "displayName",
+          "turnstileToken"
+        ],
         "properties": {
-          "email": { "type": "string", "format": "email" },
-          "displayName": { "type": "string", "maxLength": 80 },
-          "returnTo": { "type": "string", "format": "uri" },
-          "turnstileToken": { "type": "string" }
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "displayName": {
+            "type": "string",
+            "maxLength": 80
+          },
+          "returnTo": {
+            "type": "string",
+            "format": "uri"
+          },
+          "turnstileToken": {
+            "type": "string"
+          }
         }
       },
       "DiscussAuthMe": {
         "type": "object",
-        "required": ["loggedIn"],
+        "required": [
+          "loggedIn"
+        ],
         "properties": {
-          "loggedIn": { "type": "boolean" },
-          "email": { "type": "string" },
-          "displayName": { "type": "string" },
-          "isAdmin": { "type": "boolean" }
+          "loggedIn": {
+            "type": "boolean"
+          },
+          "email": {
+            "type": "string"
+          },
+          "displayName": {
+            "type": "string"
+          },
+          "isAdmin": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "headers": {
+      "RequestId": {
+        "description": "Correlation identifier for this failed request.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 128
         }
       }
     }

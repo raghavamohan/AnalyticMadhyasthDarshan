@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan public study catalog",
-    "version": "1.3.0",
-    "description": "Read-only catalog of topical, formal, and applied studies. Markdown is the source of truth; HTML and PDF are generated. Write APIs (submissions, discussions) are separate and for humans; see /auth.md."
+    "version": "1.4.0",
+    "description": "Read-only catalog of topical, formal, and applied studies. Markdown is the source of truth; HTML and PDF are generated. Write APIs (submissions, discussions) are separate and for humans; see /auth.md. JSON error responses use one envelope: success=false, code, message, requestId, and optional details. The same requestId is returned in the X-Request-ID response header."
   },
   "servers": [
     {
@@ -11,15 +11,25 @@
     }
   ],
   "tags": [
-    { "name": "catalog" },
-    { "name": "search" },
-    { "name": "discovery" },
-    { "name": "cite" }
+    {
+      "name": "catalog"
+    },
+    {
+      "name": "search"
+    },
+    {
+      "name": "discovery"
+    },
+    {
+      "name": "cite"
+    }
   ],
   "paths": {
     "/Studies/catalog-all.json": {
       "get": {
-        "tags": ["catalog"],
+        "tags": [
+          "catalog"
+        ],
         "summary": "Unified catalog",
         "operationId": "getCatalogAll",
         "description": "All topical, formal, and applied rows in one array. Each row includes a collection field.",
@@ -30,7 +40,9 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/CatalogRow" }
+                  "items": {
+                    "$ref": "#/components/schemas/CatalogRow"
+                  }
                 }
               }
             }
@@ -40,7 +52,9 @@
     },
     "/Studies/catalog-topical.json": {
       "get": {
-        "tags": ["catalog"],
+        "tags": [
+          "catalog"
+        ],
         "summary": "Topical catalog",
         "operationId": "getCatalogTopical",
         "responses": {
@@ -50,7 +64,9 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/CatalogRow" }
+                  "items": {
+                    "$ref": "#/components/schemas/CatalogRow"
+                  }
                 }
               }
             }
@@ -60,7 +76,9 @@
     },
     "/Studies/catalog-formal.json": {
       "get": {
-        "tags": ["catalog"],
+        "tags": [
+          "catalog"
+        ],
         "summary": "Formal catalog",
         "operationId": "getCatalogFormal",
         "responses": {
@@ -70,7 +88,9 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/CatalogRow" }
+                  "items": {
+                    "$ref": "#/components/schemas/CatalogRow"
+                  }
                 }
               }
             }
@@ -80,7 +100,9 @@
     },
     "/Studies/catalog-applied.json": {
       "get": {
-        "tags": ["catalog"],
+        "tags": [
+          "catalog"
+        ],
         "summary": "Applied catalog",
         "operationId": "getCatalogApplied",
         "responses": {
@@ -90,7 +112,9 @@
               "application/json": {
                 "schema": {
                   "type": "array",
-                  "items": { "$ref": "#/components/schemas/CatalogRow" }
+                  "items": {
+                    "$ref": "#/components/schemas/CatalogRow"
+                  }
                 }
               }
             }
@@ -100,7 +124,9 @@
     },
     "/Studies/feed.json": {
       "get": {
-        "tags": ["catalog"],
+        "tags": [
+          "catalog"
+        ],
         "summary": "Change feed",
         "operationId": "getStudiesFeed",
         "description": "JSON Feed 1.1 of draft and released studies, newest Edited-on first. Ongoing rows are omitted.",
@@ -109,10 +135,14 @@
             "description": "JSON Feed.",
             "content": {
               "application/feed+json": {
-                "schema": { "type": "object" }
+                "schema": {
+                  "type": "object"
+                }
               },
               "application/json": {
-                "schema": { "type": "object" }
+                "schema": {
+                  "type": "object"
+                }
               }
             }
           }
@@ -121,7 +151,9 @@
     },
     "/Studies/glossary.json": {
       "get": {
-        "tags": ["catalog"],
+        "tags": [
+          "catalog"
+        ],
         "summary": "Shared glossary",
         "operationId": "getGlossary",
         "responses": {
@@ -129,7 +161,9 @@
             "description": "Glossary terms used across studies.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/Glossary" }
+                "schema": {
+                  "$ref": "#/components/schemas/Glossary"
+                }
               }
             }
           }
@@ -138,7 +172,9 @@
     },
     "/api/studies": {
       "get": {
-        "tags": ["search"],
+        "tags": [
+          "search"
+        ],
         "summary": "Search catalog rows",
         "operationId": "searchStudies",
         "description": "Same matching as WebMCP search_studies: substring match on title, slug, description, and category.",
@@ -146,23 +182,41 @@
           {
             "name": "q",
             "in": "query",
-            "schema": { "type": "string" },
+            "schema": {
+              "type": "string"
+            },
             "description": "Search text. Alias: query."
           },
           {
             "name": "collection",
             "in": "query",
-            "schema": { "type": "string", "enum": ["topical", "formal", "applied"] }
+            "schema": {
+              "type": "string",
+              "enum": [
+                "topical",
+                "formal",
+                "applied"
+              ]
+            }
           },
           {
             "name": "status",
             "in": "query",
-            "schema": { "type": "string", "enum": ["ongoing", "draft", "released"] }
+            "schema": {
+              "type": "string",
+              "enum": [
+                "ongoing",
+                "draft",
+                "released"
+              ]
+            }
           },
           {
             "name": "slug",
             "in": "query",
-            "schema": { "type": "string" },
+            "schema": {
+              "type": "string"
+            },
             "description": "Exact catalog directory name."
           }
         ],
@@ -171,16 +225,23 @@
             "description": "Matching studies with absolute HTML, PDF, and Markdown URLs.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/SearchResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/SearchResponse"
+                }
               }
             }
+          },
+          "502": {
+            "$ref": "#/components/responses/UpstreamError"
           }
         }
       }
     },
     "/api/studies/{slug}": {
       "get": {
-        "tags": ["search"],
+        "tags": [
+          "search"
+        ],
         "summary": "One study with heading outline",
         "operationId": "getStudyBySlug",
         "description": "Catalog row plus ## and ### headings from the canonical markdown. Markdown itself is not inlined; use mdUrl or MCP resource studies://study/{slug}.",
@@ -189,7 +250,9 @@
             "name": "slug",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" },
+            "schema": {
+              "type": "string"
+            },
             "description": "Catalog directory name, for example The-Ontology-of-Coexistence."
           }
         ],
@@ -198,19 +261,26 @@
             "description": "Study metadata and heading outline.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/StudyDetail" }
+                "schema": {
+                  "$ref": "#/components/schemas/StudyDetail"
+                }
               }
             }
           },
           "404": {
-            "description": "Unknown slug."
+            "$ref": "#/components/responses/NotFound"
+          },
+          "502": {
+            "$ref": "#/components/responses/UpstreamError"
           }
         }
       }
     },
     "/api/glossary": {
       "get": {
-        "tags": ["catalog"],
+        "tags": [
+          "catalog"
+        ],
         "summary": "Search glossary terms",
         "operationId": "searchGlossary",
         "description": "Substring match on id, display form, match aliases, and definition. Omit q to return every term.",
@@ -218,7 +288,9 @@
           {
             "name": "q",
             "in": "query",
-            "schema": { "type": "string" },
+            "schema": {
+              "type": "string"
+            },
             "description": "Search text. Alias: query."
           }
         ],
@@ -227,16 +299,23 @@
             "description": "Matching glossary terms.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/GlossarySearchResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/GlossarySearchResponse"
+                }
               }
             }
+          },
+          "502": {
+            "$ref": "#/components/responses/UpstreamError"
           }
         }
       }
     },
     "/api/start-here": {
       "get": {
-        "tags": ["catalog"],
+        "tags": [
+          "catalog"
+        ],
         "summary": "Recommended reading path",
         "operationId": "getStartHere",
         "description": "Ordered Start here stages with core and related slugs, one-line reasons, and catalog URLs. Aligns with the studies landing page.",
@@ -245,16 +324,23 @@
             "description": "Reading path.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/StartHere" }
+                "schema": {
+                  "$ref": "#/components/schemas/StartHere"
+                }
               }
             }
+          },
+          "502": {
+            "$ref": "#/components/responses/UpstreamError"
           }
         }
       }
     },
     "/api/cite/{slug}": {
       "get": {
-        "tags": ["cite"],
+        "tags": [
+          "cite"
+        ],
         "summary": "Suggested citation for one study",
         "operationId": "getStudyCitation",
         "description": "Title, slug, status, Edited-on, published document URL, and a suggested citation line. Ongoing rows without a document are not citable. Do not invent timestamps.",
@@ -263,7 +349,9 @@
             "name": "slug",
             "in": "path",
             "required": true,
-            "schema": { "type": "string" }
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -271,12 +359,17 @@
             "description": "Citation payload.",
             "content": {
               "application/json": {
-                "schema": { "$ref": "#/components/schemas/CiteResponse" }
+                "schema": {
+                  "$ref": "#/components/schemas/CiteResponse"
+                }
               }
             }
           },
           "404": {
-            "description": "Unknown slug, or the row has no published document."
+            "$ref": "#/components/responses/NotFound"
+          },
+          "502": {
+            "$ref": "#/components/responses/UpstreamError"
           }
         }
       }
@@ -284,61 +377,178 @@
   },
   "components": {
     "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "required": [
+          "success",
+          "code",
+          "message",
+          "requestId"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "success": {
+            "type": "boolean",
+            "const": false
+          },
+          "code": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_]*$"
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requestId": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 128
+          },
+          "details": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      },
       "CatalogRow": {
         "type": "object",
-        "required": ["slug", "title", "status"],
+        "required": [
+          "slug",
+          "title",
+          "status"
+        ],
         "properties": {
-          "slug": { "type": "string" },
-          "title": { "type": "string" },
-          "category": { "type": "string" },
+          "slug": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
           "categories": {
             "type": "array",
-            "items": { "type": "string" }
+            "items": {
+              "type": "string"
+            }
           },
-          "description": { "type": "string" },
+          "description": {
+            "type": "string"
+          },
           "status": {
             "type": "string",
-            "enum": ["ongoing", "draft", "released"]
+            "enum": [
+              "ongoing",
+              "draft",
+              "released"
+            ]
           },
-          "updated": { "type": "string" },
+          "updated": {
+            "type": "string"
+          },
           "collection": {
             "type": "string",
-            "enum": ["topical", "formal", "applied"],
+            "enum": [
+              "topical",
+              "formal",
+              "applied"
+            ],
             "description": "Present on catalog-all.json rows."
           },
-          "html": { "type": "string", "description": "Relative to /Studies/. Omitted for ongoing rows." },
-          "pdf": { "type": "string" },
-          "md": { "type": "string", "description": "Canonical markdown source. Omitted for ongoing rows." },
-          "discussion": { "type": "string" }
+          "html": {
+            "type": "string",
+            "description": "Relative to /Studies/. Omitted for ongoing rows."
+          },
+          "pdf": {
+            "type": "string"
+          },
+          "md": {
+            "type": "string",
+            "description": "Canonical markdown source. Omitted for ongoing rows."
+          },
+          "discussion": {
+            "type": "string"
+          }
         }
       },
       "SearchStudy": {
         "type": "object",
         "properties": {
-          "slug": { "type": "string" },
-          "title": { "type": "string" },
-          "collection": { "type": "string" },
-          "status": { "type": "string" },
-          "category": { "type": "string" },
-          "description": { "type": "string" },
-          "updated": { "type": ["string", "null"] },
-          "htmlUrl": { "type": ["string", "null"] },
-          "pdfUrl": { "type": ["string", "null"] },
-          "mdUrl": { "type": ["string", "null"] }
+          "slug": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "collection": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "updated": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "htmlUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "pdfUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "mdUrl": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         }
       },
       "SearchResponse": {
         "type": "object",
-        "required": ["count", "studies"],
+        "required": [
+          "count",
+          "studies"
+        ],
         "properties": {
-          "query": { "type": "string" },
-          "collection": { "type": "string" },
-          "status": { "type": "string" },
-          "slug": { "type": ["string", "null"] },
-          "count": { "type": "integer" },
+          "query": {
+            "type": "string"
+          },
+          "collection": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "slug": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "count": {
+            "type": "integer"
+          },
           "studies": {
             "type": "array",
-            "items": { "$ref": "#/components/schemas/SearchStudy" }
+            "items": {
+              "$ref": "#/components/schemas/SearchStudy"
+            }
           }
         }
       },
@@ -350,13 +560,21 @@
             "items": {
               "type": "object",
               "properties": {
-                "id": { "type": "string" },
+                "id": {
+                  "type": "string"
+                },
                 "match": {
                   "type": "array",
-                  "items": { "type": "string" }
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "display": { "type": "string" },
-                "definition": { "type": "string" }
+                "display": {
+                  "type": "string"
+                },
+                "definition": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -365,19 +583,31 @@
       "Heading": {
         "type": "object",
         "properties": {
-          "level": { "type": "integer", "enum": [2, 3] },
-          "heading": { "type": "string" }
+          "level": {
+            "type": "integer",
+            "enum": [
+              2,
+              3
+            ]
+          },
+          "heading": {
+            "type": "string"
+          }
         }
       },
       "StudyDetail": {
         "allOf": [
-          { "$ref": "#/components/schemas/SearchStudy" },
+          {
+            "$ref": "#/components/schemas/SearchStudy"
+          },
           {
             "type": "object",
             "properties": {
               "outline": {
                 "type": "array",
-                "items": { "$ref": "#/components/schemas/Heading" }
+                "items": {
+                  "$ref": "#/components/schemas/Heading"
+                }
               }
             }
           }
@@ -385,22 +615,37 @@
       },
       "GlossarySearchResponse": {
         "type": "object",
-        "required": ["count", "terms"],
+        "required": [
+          "count",
+          "terms"
+        ],
         "properties": {
-          "query": { "type": "string" },
-          "count": { "type": "integer" },
+          "query": {
+            "type": "string"
+          },
+          "count": {
+            "type": "integer"
+          },
           "terms": {
             "type": "array",
             "items": {
               "type": "object",
               "properties": {
-                "id": { "type": "string" },
+                "id": {
+                  "type": "string"
+                },
                 "match": {
                   "type": "array",
-                  "items": { "type": "string" }
+                  "items": {
+                    "type": "string"
+                  }
                 },
-                "display": { "type": "string" },
-                "definition": { "type": "string" }
+                "display": {
+                  "type": "string"
+                },
+                "definition": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -409,25 +654,314 @@
       "StartHere": {
         "type": "object",
         "properties": {
-          "title": { "type": "string" },
-          "intro": { "type": "string" },
-          "stages": { "type": "array", "items": { "type": "object" } },
-          "parallelTrack": { "type": "object" }
+          "title": {
+            "type": "string"
+          },
+          "intro": {
+            "type": "string"
+          },
+          "stages": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "parallelTrack": {
+            "type": "object"
+          }
         }
       },
       "CiteResponse": {
         "allOf": [
-          { "$ref": "#/components/schemas/SearchStudy" },
+          {
+            "$ref": "#/components/schemas/SearchStudy"
+          },
           {
             "type": "object",
             "properties": {
-              "author": { "type": "string" },
-              "editedOn": { "type": ["string", "null"] },
-              "url": { "type": "string" },
-              "citation": { "type": "string" }
+              "author": {
+                "type": "string"
+              },
+              "editedOn": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "url": {
+                "type": "string"
+              },
+              "citation": {
+                "type": "string"
+              }
             }
           }
         ]
+      }
+    },
+    "headers": {
+      "RequestId": {
+        "description": "Correlation identifier for this failed request.",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "minLength": 8,
+          "maxLength": 128
+        }
+      }
+    },
+    "responses": {
+      "BadRequest": {
+        "description": "The request is invalid.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "invalid_request",
+              "message": "The request is invalid.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "AuthenticationRequired": {
+        "description": "Authentication is required.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "authentication_required",
+              "message": "Authentication is required.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "The request is forbidden.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "forbidden",
+              "message": "The request is forbidden.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "NotFound": {
+        "description": "The requested resource was not found.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "not_found",
+              "message": "The requested resource was not found.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "MethodNotAllowed": {
+        "description": "The HTTP method is not allowed.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "method_not_allowed",
+              "message": "The HTTP method is not allowed.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "Conflict": {
+        "description": "The request conflicts with current state.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "conflict",
+              "message": "The request conflicts with current state.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "PayloadTooLarge": {
+        "description": "The request payload is too large.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "payload_too_large",
+              "message": "The request payload is too large.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "UnsupportedMediaType": {
+        "description": "Content-Type must be application/json.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "unsupported_media_type",
+              "message": "Content-Type must be application/json.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "RateLimited": {
+        "description": "The request rate limit was exceeded.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "rate_limited",
+              "message": "The request rate limit was exceeded.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "InternalError": {
+        "description": "The request failed unexpectedly.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "internal_error",
+              "message": "The request failed unexpectedly.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "UpstreamError": {
+        "description": "An upstream service failed.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "upstream_error",
+              "message": "An upstream service failed.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
+      },
+      "ServiceUnavailable": {
+        "description": "A required service is unavailable.",
+        "headers": {
+          "X-Request-ID": {
+            "$ref": "#/components/headers/RequestId"
+          }
+        },
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ErrorResponse"
+            },
+            "example": {
+              "success": false,
+              "code": "service_unavailable",
+              "message": "A required service is unavailable.",
+              "requestId": "01JABCDEFGHJKMNPQRSTVWXYZ12"
+            }
+          }
+        }
       }
     }
   }

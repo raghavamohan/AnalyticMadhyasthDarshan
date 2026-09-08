@@ -1,4 +1,5 @@
 import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
+import { normalizeApiErrorResponse } from '../../shared/api-errors.mjs';
 import { Router } from 'itty-router';
 import {
   allowedOrigins,
@@ -405,6 +406,7 @@ export default {
         });
       }
     }
+    response = await normalizeApiErrorResponse(request, response);
     return privateResponse(response, corsHeaders(request, env));
   },
 };

@@ -215,7 +215,7 @@ const contributor = (() => {
     el(kind + '-operation-status').textContent = 'Checking the saved submission receipt…';
     try {
       const response = await apiFetch('/api/operation?id=' + encodeURIComponent(op.blockedBy || op.id));
-      const data = await response.json();
+      const data = normalizeApiData(await response.json());
       if (account !== identity || states[kind].operation?.id !== op.id) return;
       if (data.uncertain) {
         el(kind + '-operation-status').textContent = (data.error || 'The submission is still being checked.') + ' Receipt: ' + op.id;

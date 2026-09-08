@@ -21,9 +21,9 @@ A2A task operations and agent OAuth access tokens are intentionally not part of
 the supported surface. The decision gates below define when either should be
 added.
 
-## Phase 1 — lock the contract
+## Phase 1 — lock the contract (implemented)
 
-Target: next release.
+Status: complete in the Phase 1 API-contract change; deployment follows merge.
 
 - Make OpenAPI the required review artifact for every route change.
 - Validate all three OpenAPI files in CI with a standards-compliant parser and
@@ -41,6 +41,21 @@ Target: next release.
 Exit criteria: every implemented operation is represented in OpenAPI; every
 documented non-2xx response has a test; canonical discovery files and generated
 Worker payloads compare byte-for-byte.
+
+Implementation notes:
+
+- `Scripts/_validate_openapi.py` validates all three documents with a standards
+  parser and enforces the shared error schema, response components, examples,
+  operation IDs, and summaries.
+- Submission, discussion, and Studies HTTP errors return `success: false`,
+  `code`, `message`, `requestId`, and optional `details`; MCP protocol errors
+  retain their JSON-RPC envelope and carry the request ID in `error.data`.
+- Runtime tests cover the common error statuses and the browser-facing cookie,
+  origin, media-type, privacy, and no-store contracts. Publication tests compare
+  deployed discovery and OpenAPI payloads with their canonical repository files.
+- Both API workflows now run when a runtime, browser client, OpenAPI document,
+  discovery test, or shared contract changes, so a route cannot bypass contract
+  validation.
 
 ## Phase 2 — make writes resilient and predictable
 

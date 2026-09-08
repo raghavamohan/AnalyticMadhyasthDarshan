@@ -703,7 +703,8 @@ DISCUSS_JS = r"""(() => {
     });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
-      throw new Error(data.error || data.message || `Request failed (${response.status})`);
+      const message = typeof data.error === "string" ? data.error : data.error?.message || data.message;
+      throw new Error(message || `Request failed (${response.status})`);
     }
     return data;
   };
