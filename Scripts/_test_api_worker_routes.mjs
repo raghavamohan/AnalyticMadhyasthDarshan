@@ -22,10 +22,50 @@ async function sourceUrl(file) {
 }
 const workerModule = await import(await sourceUrl(path.resolve('src/index.js')));
 const worker = workerModule.default;
+const apiErrors = await import(await sourceUrl(path.resolve('../shared/api-errors.mjs')));
 const discussion = path.basename(process.cwd()) === 'discussions-worker';
 const prefix = discussion ? '/api/discuss-auth' : '/api/auth';
 const origin = 'https://analyticmadhyasthdarshan.org';
 const url = suffix => 'https://api.example' + prefix + suffix;
+
+async function assertErrorEnvelope(response, {status, code, privateHeaders = true} = {}) {
+  assert.equal(response.status, status);
+  assert.match(response.headers.get('Content-Type') || '', /^application\/json\b/i);
+  const payload = await response.json();
+  assert.equal(payload.success, false);
+  assert.equal(payload.code, code);
+  assert.equal(typeof payload.message, 'string');
+  assert.ok(payload.message.length > 0);
+  assert.match(payload.requestId, /^[A-Za-z0-9][A-Za-z0-9._:-]{7,127}$/);
+  assert.equal(response.headers.get('X-Request-ID'), payload.requestId);
+  assert.equal('error' in payload, false);
+  if (privateHeaders) {
+    assert.equal(response.headers.get('Cache-Control'), 'private, no-store');
+    assert.equal(response.headers.get('Pragma'), 'no-cache');
+    assert.equal(response.headers.get('Referrer-Policy'), 'no-referrer');
+    assert.equal(response.headers.get('X-Content-Type-Options'), 'nosniff');
+    const vary = (response.headers.get('Vary') || '').split(',').map(value => value.trim());
+    assert.ok(vary.includes('Origin'));
+    assert.ok(vary.includes('Cookie'));
+  }
+  return payload;
+}
+
+test('shared HTTP errors cover every reusable OpenAPI status', async () => {
+  const cases = new Map([
+    [400, 'invalid_request'], [401, 'authentication_required'], [403, 'forbidden'],
+    [409, 'conflict'], [413, 'payload_too_large'], [415, 'unsupported_media_type'],
+    [429, 'rate_limited'], [503, 'service_unavailable'],
+  ]);
+  for (const [status, code] of cases) {
+    const response = await apiErrors.normalizeApiErrorResponse(
+      new Request('https://api.example/test'),
+      Response.json({success:false,error:`Fixture ${status}`,fixtureStatus:status},{status}),
+    );
+    const payload = await assertErrorEnvelope(response, {status, code, privateHeaders: false});
+    assert.equal(payload.details.fixtureStatus, status);
+  }
+});
 
 if (!discussion) test('dashboard separates workflow state and reports current failed checks',async () => {
   assert.equal(workerModule.submissionStage({labels:[]},{state:'open',changesRequested:true}),'changes_requested');
@@ -132,13 +172,12 @@ if (!discussion) test('full dashboard avoids the historical PR search on the blo
 test('real routes apply write checks and private headers before handlers', async () => {
   for (const headers of [{}, { Origin: 'https://evil.example', 'Content-Type': 'application/json' }]) {
     const response = await worker.fetch(new Request(url('/logout'), { method: 'POST', headers }), {});
-    assert.equal(response.status, 403);
-    assert.equal(response.headers.get('Cache-Control'), 'private, no-store');
+    await assertErrorEnvelope(response, {status: 403, code: 'forbidden'});
   }
   const wrongMediaType = await worker.fetch(new Request(url('/logout'), {
     method: 'POST', headers: { Origin: origin },
   }), {});
-  assert.equal(wrongMediaType.status, 415);
+  await assertErrorEnvelope(wrongMediaType, {status: 415, code: 'unsupported_media_type'});
   const response = await worker.fetch(new Request(url('/logout'), {
     method: 'POST', headers: { Origin: origin, 'Content-Type': 'application/json' },
   }), {});
@@ -160,9 +199,8 @@ test('real routes apply write checks and private headers before handlers', async
     headers: { Origin: origin, 'Content-Type': 'application/json' },
     body: '{}',
   }), {});
-  assert.equal(unauthorized.status, 401);
   assert.equal(unauthorized.headers.get('WWW-Authenticate'), null);
-  assert.equal((await unauthorized.json()).success, false);
+  await assertErrorEnvelope(unauthorized, {status: 401, code: 'authentication_required'});
 
   if (discussion) {
     const malformed = await worker.fetch(new Request(url('/magic-link'), {
@@ -170,7 +208,15 @@ test('real routes apply write checks and private headers before handlers', async
       headers: { Origin: origin, 'Content-Type': 'application/json' },
       body: '{',
     }), { DB: {} });
-    assert.equal(malformed.status, 400);
+    await assertErrorEnvelope(malformed, {status: 400, code: 'invalid_request'});
+
+    const unavailable = await worker.fetch(
+      new Request('https://api.example/api/discussions/stats'), {},
+    );
+    await assertErrorEnvelope(unavailable, {status: 503, code: 'service_unavailable'});
+  } else {
+    const unavailable = await worker.fetch(new Request(url('/github')), {});
+    await assertErrorEnvelope(unavailable, {status: 503, code: 'service_unavailable'});
   }
 });
 
@@ -272,18 +318,18 @@ if (!discussion) test('revision routes reject stale source and replay a receipt 
     const malformed = await worker.fetch(new Request('https://api.example/api/revise', {
       method:'POST', headers, body:'{',
     }), env);
-    assert.equal(malformed.status, 400);
+    await assertErrorEnvelope(malformed, {status:400,code:'invalid_request'});
     const loaded=await worker.fetch(new Request('https://api.example/api/revision-source?pr=7',{headers}),env);
     assert.equal((await loaded.json()).sourceSha,'a'.repeat(40));
     const stale=await post({...base,operationId:crypto.randomUUID(),sourceSha:'b'.repeat(40)});
-    assert.equal(stale.status,409);assert.equal(writes,0);
+    await assertErrorEnvelope(stale,{status:409,code:'conflict'});assert.equal(writes,0);
     const id=crypto.randomUUID(), body={...base,operationId:id,sourceSha:'a'.repeat(40)};
     const first=await post(body);assert.equal(first.status,200);assert.equal(writes,1);
     const again=await post({...body,turnstileToken:'fresh-token'});assert.equal(again.status,200);assert.equal(writes,1);
     const checked=await worker.fetch(new Request('https://api.example/api/operation?id='+id,{headers}),env);
     assert.equal((await checked.json()).success,true);assert.equal(writes,1);
-    const changed=await post({...body,content:'Different content'});assert.equal(changed.status,409);assert.equal((await changed.json()).uncertain,true);assert.equal(writes,1);
-    const missing=await post({...base,sourceSha:'a'.repeat(40)});assert.equal(missing.status,400);assert.equal(writes,1);
-    const signedOut=await worker.fetch(new Request('https://api.example/api/operation?id='+id),env);assert.equal(signedOut.status,401);
+    const changed=await post({...body,content:'Different content'});const conflict=await assertErrorEnvelope(changed,{status:409,code:'conflict'});assert.equal(conflict.details.uncertain,true);assert.equal(writes,1);
+    const missing=await post({...base,sourceSha:'a'.repeat(40)});await assertErrorEnvelope(missing,{status:400,code:'invalid_request'});assert.equal(writes,1);
+    const signedOut=await worker.fetch(new Request('https://api.example/api/operation?id='+id),env);await assertErrorEnvelope(signedOut,{status:401,code:'authentication_required'});
   } finally {globalThis.fetch=original;}
 });

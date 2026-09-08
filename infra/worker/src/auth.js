@@ -21,6 +21,7 @@ export function corsHeaders(request, env) {
   const headers = {
     'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Expose-Headers': 'X-Request-ID, Server-Timing',
     'Access-Control-Allow-Credentials': 'true',
   };
   if (origin && allowed.includes(origin)) {
