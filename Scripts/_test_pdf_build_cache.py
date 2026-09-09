@@ -284,6 +284,15 @@ class PdfBuildCacheTests(unittest.TestCase):
         coherent = workflow.split("\n  coherent-site:\n", 1)[1]
         self.assertIn("needs: [validate, pdfs, presentations]", coherent)
         self.assertIn("if: needs.pdfs.outputs.references_changed == 'true'", coherent)
+        reference_steps = [
+            block
+            for block in workflow.split("      - name: ")[1:]
+            if "Scripts/_publish_reference_artifacts.py" in block
+        ]
+        self.assertEqual(len(reference_steps), 4)
+        for block in reference_steps:
+            self.assertIn("CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}", block)
+            self.assertIn("CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}", block)
 
 
 if __name__ == "__main__":
