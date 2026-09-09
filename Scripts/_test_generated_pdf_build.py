@@ -11,7 +11,7 @@ from unittest.mock import patch
 
 import _generated_pdf_inventory as generated_inventory
 from _bootstrap_proposal_study import ProposalFields, build_proposal_stub_markdown
-from _build_markdown_pdfs import markdown_specs, select_specs
+from _build_markdown_pdfs import document_link_targets, markdown_specs, select_specs
 from _build_studies_index import _presentation_source_paths, catalog_build_id
 from _common import BASE
 from _presentation_pipeline import repo_relative
@@ -81,6 +81,36 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         ), self.specs)
         self.assertEqual(selected, ())
 
+    def test_document_cache_tracks_only_links_used_by_that_document(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / "Studies/A/A.md"
+            source.parent.mkdir(parents=True)
+            source.write_text(
+                "# A\n\n[B](../B/B.pdf) and [source](../../References/Source.pdf)\n",
+                encoding="utf-8",
+            )
+            target = root / "Studies/B/B.html"
+            target.parent.mkdir(parents=True)
+            target.write_text("B", encoding="utf-8")
+            (target.parent / "B.md").write_text("# B", encoding="utf-8")
+            references = root / "References"
+            references.mkdir()
+            (references / "Source.pdf").write_bytes(b"pdf")
+            catalogs = root / "Studies/catalog-topical.json"
+            catalogs.write_text('[{"slug":"B","status":"draft"}]', encoding="utf-8")
+
+            original = document_link_targets(source, root=root)
+            unrelated = root / "Studies/C/C.html"
+            unrelated.parent.mkdir(parents=True)
+            unrelated.write_text("C", encoding="utf-8")
+            self.assertEqual(document_link_targets(source, root=root), original)
+
+            target.unlink()
+            self.assertNotEqual(document_link_targets(source, root=root), original)
+            catalogs.write_text('[{"slug":"B","status":"ongoing"}]', encoding="utf-8")
+            self.assertIn(("catalog:B", "ongoing"), document_link_targets(source, root=root))
+
     def test_catalog_cache_buster_uses_present_pptx_sources(self) -> None:
         sources = _presentation_source_paths()
         self.assertTrue(sources)
@@ -124,7 +154,7 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         self.assertIn("steps.pdf-inputs.outputs.references_changed == 'true'", pdf_job)
 
         deploy_job = workflow.split("\n  publish-and-deploy:\n", 1)[1]
-        self.assertIn("needs: [pdfs, presentations]", deploy_job)
+        self.assertIn("needs: [validate, pdfs, presentations]", deploy_job)
 
     def test_every_master_merge_queues_one_publication(self) -> None:
         workflow = (BASE / ".github/workflows/publish-site.yml").read_text(encoding="utf-8")
@@ -132,6 +162,7 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         self.assertNotIn("paths:", workflow)
         self.assertIn("cancel-in-progress: false", workflow)
         self.assertIn("source_sha:", workflow)
+        self.assertIn("base_sha:", workflow)
         self.assertIn("uses: ./.github/workflows/generated-pdf-publish.yml", workflow)
 
     def test_proposal_bootstrap_syncs_allowlist_and_verifies_before_merge(self) -> None:

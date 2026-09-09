@@ -3,11 +3,17 @@
 from __future__ import annotations
 
 import argparse
+from functools import lru_cache
 import json
+import os
 import shutil
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import unquote, urlparse
+
+import markdown
+from bs4 import BeautifulSoup
 
 from _common import BASE, configure_utf8_stdio
 from _generated_pdf_inventory import GeneratedPdfSpec, generated_pdf_specs, inventory_errors
@@ -17,7 +23,6 @@ from _study_pdf_pipeline import regenerate_pdf, render_status
 from _build_inputs import script_dependencies, file_hash
 from _study_pdf_metadata import get_pdf_study_row
 import hashlib
-import os
 import platform
 
 SHARED_PIPELINE_PATHS = frozenset({
@@ -26,7 +31,6 @@ SHARED_PIPELINE_PATHS = frozenset({
     "Studies/catalog-applied.json",
     "Studies/catalog-formal.json",
     "Studies/catalog-topical.json",
-    "Scripts/_build_markdown_pdfs.py",
     "Scripts/_chrome.js",
     "Scripts/_common.py",
     "Scripts/_convert_to_pdf.py",
@@ -54,6 +58,7 @@ SHARED_PIPELINE_PATHS = frozenset({
 })
 SHARED_PIPELINE_PREFIXES = ("Assets/KaTeX/",)
 FIGURE_SUFFIXES = (".svg", ".png", ".jpg", ".jpeg", ".webp")
+FONT_FAMILIES = ("Segoe UI", "Georgia", "Consolas", "system-ui", "sans-serif", "serif", "monospace")
 
 
 def markdown_specs() -> tuple[GeneratedPdfSpec, ...]:
@@ -111,19 +116,117 @@ def changed_paths(base: str) -> tuple[str, ...]:
     return tuple(line.strip() for line in completed.stdout.splitlines() if line.strip())
 
 
+def _catalog_statuses(root: Path) -> dict[str, str]:
+    statuses: dict[str, str] = {}
+    for path in sorted((root / "Studies").glob("catalog-*.json")):
+        for row in json.loads(path.read_text(encoding="utf-8")):
+            if row.get("slug") and row.get("status"):
+                statuses[str(row["slug"])] = str(row["status"])
+    return statuses
+
+
+def document_link_targets(source: Path, *, root: Path = BASE) -> list[tuple[str, str]]:
+    """Describe only local targets referenced by one Markdown document.
+
+    Link rewriting depends on target existence and on whether a catalog study is
+    still ongoing.  Tracking every HTML/PDF name in the repository made an
+    unrelated new study invalidate every document cache entry.
+    """
+    md_text = source.read_text(encoding="utf-8")
+    html = markdown.markdown(md_text, extensions=["tables", "fenced_code", "smarty"])
+    hrefs = {
+        unquote(str(anchor["href"]))
+        for anchor in BeautifulSoup(html, "html.parser").find_all("a", href=True)
+    }
+    statuses = _catalog_statuses(root)
+    records: dict[str, str] = {}
+    collections = (root / "Studies", root / "Applications")
+    references = root / "References"
+    for href in sorted(hrefs):
+        if not href or href.startswith("#"):
+            continue
+        parsed = urlparse(href)
+        if parsed.scheme or parsed.netloc:
+            continue
+        path_part = unquote(parsed.path)
+        if not path_part:
+            continue
+        candidates = [(source.parent / path_part).resolve()]
+        normalized = path_part.replace("\\", "/")
+        if normalized.startswith("../References/"):
+            candidates.append(
+                (source.parent / normalized.replace("../References/", "../../References/", 1)).resolve()
+            )
+        for candidate in candidates:
+            try:
+                relative = candidate.relative_to(root).as_posix()
+            except ValueError:
+                continue
+            relevant = candidate.is_relative_to(references) or any(
+                candidate.is_relative_to(collection) for collection in collections
+            )
+            if not relevant:
+                continue
+            related = {candidate}
+            if any(candidate.is_relative_to(collection) for collection in collections):
+                related.update(candidate.with_suffix(suffix) for suffix in (".md", ".html", ".pdf"))
+                records[f"catalog:{candidate.parent.name}"] = statuses.get(candidate.parent.name, "missing")
+            for target in related:
+                try:
+                    name = target.relative_to(root).as_posix()
+                except ValueError:
+                    continue
+                records[name] = "file" if target.is_file() else "missing"
+            records.setdefault(relative, "file" if candidate.is_file() else "missing")
+    return sorted(records.items())
+
+
+@lru_cache(maxsize=1)
+def renderer_host_inputs() -> tuple[tuple[str, str], ...]:
+    """Fingerprint the actual host fonts used by Chromium, not the runner image."""
+    records: list[tuple[str, str]] = []
+    executable = shutil.which("fc-match")
+    if executable:
+        for family in FONT_FAMILIES:
+            result = subprocess.run(
+                [executable, "--format=%{file}\\n", family],
+                check=True,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+            )
+            for filename in result.stdout.splitlines():
+                path = Path(filename.strip())
+                if path.is_file():
+                    records.append((f"font:{family}:{path.name}", file_hash(path)))
+    elif platform.system() == "Windows":
+        fonts = Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts"
+        for name in ("segoeui.ttf", "georgia.ttf", "consola.ttf", "arial.ttf", "times.ttf", "cour.ttf"):
+            path = fonts / name
+            if path.is_file():
+                records.append((f"font:{name}", file_hash(path)))
+    if not records:
+        records.extend((
+            ("host-image", f'{os.environ.get("ImageOS", os.name)}:{os.environ.get("ImageVersion", "local")}'),
+            ("platform-version", platform.version()),
+        ))
+    return tuple(sorted(set(records)))
+
+
 def document_fingerprint(spec: GeneratedPdfSpec) -> str:
     dependencies = script_dependencies(BASE, ("_study_pdf_pipeline.py",))
     dependencies.update(SHARED_PIPELINE_PATHS - {name for name in SHARED_PIPELINE_PATHS if name.startswith("Studies/catalog-")})
     dependencies.add(repo_relative(spec.source))
+    dependencies.add("References/r2-artifacts.json")
     # Figures in a document's directory are conservative local dependencies.
     dependencies.update(repo_relative(p) for p in spec.source.parent.iterdir() if p.suffix.lower() in FIGURE_SUFFIXES)
     dependencies.update(repo_relative(p) for p in (BASE / "Assets/KaTeX").rglob("*") if p.is_file())
-    names = subprocess.check_output(["git", "ls-files", "-z", "Studies/**/*.html", "Applications/**/*.html", "References/**"], cwd=BASE).decode().split("\0")
     row = get_pdf_study_row(spec.source.parent.name)
     data = {"files": {name: file_hash(BASE / name) for name in sorted(dependencies) if (BASE / name).is_file()},
-            "targets": sorted(names), "status": row.status.value if row else None, "description": row.description if row else None,
-            "runtime": [sys.version, platform.system(), platform.machine(), os.environ.get("ImageVersion", ""),
-                        subprocess.check_output(["node", "--version"], text=True).strip()]}
+            "targets": document_link_targets(spec.source), "status": row.status.value if row else None,
+            "description": row.description if row else None,
+            "runtime": [sys.version, platform.system(), platform.machine(),
+                        subprocess.check_output(["node", "--version"], text=True).strip(), renderer_host_inputs()]}
     return hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()
 
 

@@ -7,7 +7,9 @@ from __future__ import annotations
 
 import argparse
 import base64
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import json
+import os
 import re
 from pathlib import Path
 import subprocess
@@ -29,6 +31,7 @@ WORKER = "amd-site"
 CANARY = "amd-site-canary"
 SOURCE = BASE / "infra/site-worker/src/index.js"
 AUDIT_USER_AGENT = "AMD-Publication-Audit/1.0"
+DEFAULT_IO_WORKERS = 8
 
 
 class ReleaseNotReady(ValueError):
@@ -57,29 +60,64 @@ def progress(message: str) -> None:
     print(message, flush=True)
 
 
-def put_verified(client, key: str, body: bytes, content_type: str, *, filename: str) -> None:
+def io_workers(total: int) -> int:
+    try:
+        configured = int(os.environ.get("AMD_PUBLICATION_IO_WORKERS", str(DEFAULT_IO_WORKERS)))
+    except ValueError as exc:
+        raise ValueError("AMD_PUBLICATION_IO_WORKERS must be an integer") from exc
+    return max(1, min(total or 1, configured, 32))
+
+
+def put_verified(client, key: str, body: bytes, content_type: str, *, filename: str) -> str:
     checksum = digest(body)
     previous = client.head_object(key)
     if previous:
         if previous.get("x-amz-meta-sha256") != checksum or int(previous.get("content-length", "-1")) != len(body):
             raise ValueError(f"Immutable object collision: {key}")
-        return
+        return "reused"
     headers = client.put_object(key, body, metadata={"sha256": checksum},
         cache_control="public, max-age=31536000, immutable", content_disposition=f'inline; filename="{filename}"', content_type=content_type)
     if headers.get("x-amz-meta-sha256") != checksum or int(headers.get("content-length", "-1")) != len(body):
         raise ValueError(f"Uploaded object did not verify: {key}")
+    return "uploaded"
 
 
 def stage_objects(client, root: Path, manifest: dict) -> None:
     started = time.monotonic()
-    archived = [(path, record) for path, record in manifest['files'].items() if record['archive']]
-    for index, (path, record) in enumerate(archived, 1):
-        if index == 1 or index % 25 == 0 or index == len(archived):
-            progress(f'Staging R2 file {index}/{len(archived)} ({time.monotonic() - started:.0f}s): {path}')
-        put_verified(client, record["key"], (root / "assets" / path.lstrip("/")).read_bytes(), record["type"], filename=Path(path).name)
+    archived_by_key = {}
+    for path, record in manifest['files'].items():
+        if record['archive']:
+            # Content-addressed keys can be shared by duplicate files. Keep the
+            # first path deterministic and never race two PUTs to one key.
+            archived_by_key.setdefault(record['key'], (path, record))
+    archived = list(archived_by_key.values())
+    outcomes = {"reused": 0, "uploaded": 0}
+
+    def stage(item):
+        path, record = item
+        outcome = put_verified(
+            client,
+            record["key"],
+            (root / "assets" / path.lstrip("/")).read_bytes(),
+            record["type"],
+            filename=Path(path).name,
+        )
+        return path, outcome
+
+    progress(f'Staging {len(archived)} immutable R2 files with {io_workers(len(archived))} workers.')
+    with ThreadPoolExecutor(max_workers=io_workers(len(archived))) as executor:
+        futures = [executor.submit(stage, item) for item in archived]
+        for index, future in enumerate(as_completed(futures), 1):
+            path, outcome = future.result()
+            outcomes[outcome] += 1
+            if index == 1 or index % 25 == 0 or index == len(archived):
+                progress(f'Staged R2 file {index}/{len(archived)} ({time.monotonic() - started:.0f}s): {path}')
     progress('All release objects verified; uploading the immutable release manifest.')
     put_verified(client, f'site/releases/{manifest["revision"]}.json', encode(manifest), "application/json", filename="release.json")
-    progress(f'R2 staging complete in {time.monotonic() - started:.0f}s.')
+    progress(
+        f'R2 staging complete in {time.monotonic() - started:.0f}s '
+        f'({outcomes["uploaded"]} uploaded, {outcomes["reused"]} reused).'
+    )
 
 
 def upload_assets(token: str, account: str, worker: str, root: Path, manifest: dict) -> str:
@@ -222,13 +260,13 @@ def audit(base: str, root: Path, manifest: dict, *, origin_base: str | None = No
     audit_retry(require_revision, f'the expected release at {base}')
     # Download every document and discovery surface; HEAD the remaining assets.
     total = len(manifest['files'])
-    for index, (path, record) in enumerate(manifest["files"].items(), 1):
+
+    def audit_one(item):
+        path, record = item
         from urllib.parse import quote
         # Dedicated Markdown services may correctly omit Content-Length on HEAD.
         # Read their complete bytes and verify the checksum as for other documents.
         full = path.endswith((".html", ".pdf", ".json", ".txt", ".md"))
-        if index == 1 or index % 25 == 0 or index == total:
-            progress(f'Auditing URL {index}/{total} ({time.monotonic() - started:.0f}s): {path}')
         request = Request(base.rstrip("/") + quote(path, safe="/") + "?r=" + manifest["revision"],
                           method="GET" if full else "HEAD", headers={'User-Agent': AUDIT_USER_AGENT})
         with audit_retry(lambda: urlopen(request, timeout=60), path) as response:
@@ -253,6 +291,15 @@ def audit(base: str, root: Path, manifest: dict, *, origin_base: str | None = No
                     progress(f'Validated Cloudflare-managed response while preserving release content: {path}')
             if not full and int(response.headers.get("Content-Length", "-1")) != record["bytes"]:
                 raise ValueError(f"Public size mismatch: {path}")
+        return path
+
+    progress(f'Auditing {total} release URLs with {io_workers(total)} workers.')
+    with ThreadPoolExecutor(max_workers=io_workers(total)) as executor:
+        futures = [executor.submit(audit_one, item) for item in manifest["files"].items()]
+        for index, future in enumerate(as_completed(futures), 1):
+            path = future.result()
+            if index == 1 or index % 25 == 0 or index == total:
+                progress(f'Audited URL {index}/{total} ({time.monotonic() - started:.0f}s): {path}')
     progress(f'Audited {total} release URLs at {base} in {time.monotonic() - started:.0f}s.')
 
 
