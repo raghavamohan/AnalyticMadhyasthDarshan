@@ -122,6 +122,65 @@ class ReleaseTests(unittest.TestCase):
                     self.assertEqual(fetch.call_count, 1)
                     sleep.assert_not_called()
 
+    def test_managed_robots_preserves_exact_origin_and_rejects_other_changes(self):
+        origin = b'User-agent: *\nAllow: /\n\nSitemap: https://example.org/sitemap.xml\n'
+        record = {'bytes':len(origin), 'sha256':release.digest(origin)}
+        wrapper = b'# Policy comments\n# BEGIN Cloudflare Managed content\nUser-agent: *\nContent-Signal: search=yes,ai-train=no\nAllow: /\nUser-agent: GPTBot\nDisallow: /\n# END Cloudflare Managed Content\n\n'
+        self.assertTrue(publisher.edge_response_matches('/robots.txt', wrapper + origin + b'\n', record))
+        for altered in [wrapper + origin.replace(b'Allow: /',b'Disallow: /'),
+                        b'Disallow: /\n' + wrapper + origin,
+                        wrapper.replace(b'User-agent:',b'Unexpected:') + origin,
+                        wrapper.replace(b'# END Cloudflare Managed Content',b'') + origin]:
+            self.assertFalse(publisher.edge_response_matches('/robots.txt', altered, record))
+        self.assertFalse(publisher.edge_response_matches('/llms.txt', wrapper + origin, record))
+
+    def test_managed_security_requires_identical_fields_and_verified_source(self):
+        source = b'Contact: https://example.org/security\nExpires: 2027-06-23T23:59:59.000Z\nPreferred-Languages: en\n'
+        record = {'bytes':len(source), 'sha256':release.digest(source)}
+        public = b'Preferred-Languages: en\nExpires: 2027-06-23T23:59:59Z\nContact: https://example.org/security\n'
+        self.assertTrue(publisher.edge_response_matches('/.well-known/security.txt', public, record, source))
+        for altered in [public.replace(b'/security',b'/other'), public.replace(b'2027-',b'2026-'),
+                        public + b'Contact: https://other.example\n', public.replace(b'Expires:',b'Malformed')]:
+            self.assertFalse(publisher.edge_response_matches('/.well-known/security.txt', altered, record, source))
+        self.assertFalse(publisher.edge_response_matches('/.well-known/security.txt', public, record, source+b'\n'))
+        self.assertFalse(publisher.edge_response_matches('/.well-known/security.txt', public, record))
+
+    def test_public_security_audit_checks_the_pinned_release_origin(self):
+        path = '/.well-known/security.txt'
+        source = b'Contact: https://example.org/security\nExpires: 2027-06-23T23:59:59.000Z\n'
+        public = b'Expires: 2027-06-23T23:59:59Z\nContact: https://example.org/security\n'
+        manifest = {'revision':'a'*64,'files':{path:{'bytes':len(source),'sha256':release.digest(source)}}}
+        for origin_body in [source, source.replace(b'/security', b'/other')]:
+            requests = []
+            def respond(request, **kwargs):
+                requests.append(request)
+                body = origin_body if request.full_url.startswith('https://origin.example') else public
+                response = io.BytesIO(body)
+                response.status = 200
+                response.headers = {}
+                return response
+            with patch.object(publisher, 'public_state', return_value={'revision':manifest['revision']}), \
+                 patch.object(publisher, 'urlopen', side_effect=respond):
+                if origin_body == source:
+                    publisher.audit('https://' + publisher.cf.SITE_HOST, self.root, manifest, origin_base='https://origin.example')
+                else:
+                    with self.assertRaisesRegex(ValueError, 'checksum/size'):
+                        publisher.audit('https://' + publisher.cf.SITE_HOST, self.root, manifest, origin_base='https://origin.example')
+            self.assertEqual(requests[-1].full_url, 'https://origin.example' + path + '?r=' + manifest['revision'])
+
+    def test_canary_audit_does_not_accept_managed_security_transformations(self):
+        source = b'Contact: https://example.org/security\nExpires: 2027-06-23T23:59:59.000Z\n'
+        public = source.replace(b'.000Z', b'Z')
+        manifest = {'revision':'a'*64,'files':{'/.well-known/security.txt':{'bytes':len(source),'sha256':release.digest(source)}}}
+        response = io.BytesIO(public)
+        response.status = 200
+        response.headers = {}
+        with patch.object(publisher, 'public_state', return_value={'revision':manifest['revision']}), \
+             patch.object(publisher, 'urlopen', return_value=response) as fetch:
+            with self.assertRaisesRegex(ValueError, 'checksum/size'):
+                publisher.audit('https://canary.example', self.root, manifest, origin_base='https://origin.example')
+            self.assertEqual(fetch.call_count, 1)
+
     def test_audit_waits_for_revision_and_asset_propagation(self):
         body = b'page'
         manifest = {'revision': 'a' * 64, 'files': {'/index.html': {'bytes':len(body), 'sha256':release.digest(body)}}}
