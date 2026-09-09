@@ -103,9 +103,12 @@ index verifier rejects Start here entries whose slug no longer exists.
 
 **PDF regeneration is conditional.** `pdf_regeneration_reason()` rebuilds only
 when the study markdown changed, a figure inside that study's directory changed,
-the PDF pipeline or its shared inputs (requirements, glossary, KaTeX assets,
-Chrome launcher, CNAME) changed. Generated PDFs are absent from Git by design,
-so a missing sibling PDF is not itself a rebuild reason. Companion-only edits
+the PDF pipeline or its shared inputs (requirements, KaTeX assets, Chrome
+launcher, CNAME) changed. The shared glossary affects web reader tooltips only;
+each study's printable glossary is part of its own Markdown, and the renderer
+unwraps web-only tooltip markup before printing. A shared glossary edit therefore
+does not launch or invalidate a PDF build. Generated PDFs are absent from Git, so a
+missing sibling PDF is not itself a rebuild reason. Companion-only edits
 (decks, unrelated research notes) skip the catalog study render.
 
 Every run ends in `verify_studies_index()`, which calls the *same*
@@ -144,8 +147,14 @@ runner's preinstalled Node.js; no PDF rendering runs here:
 | Step | Script | Guards |
 |------|--------|--------|
 | Verify catalog JSON and index shell | `_verify_studies_index.py` | `index.html` ↔ `README.md` ↔ `catalog-*.json` sync |
+| Verify shared glossary tooltips | `_sync_glossary_html.py --check` | tracked generated study HTML ↔ `Studies/glossary.json` sync |
 | Run the enforced test suites | `_run_test_suites.py` | Every discovered non-held `_test_*.py` suite (see §4) |
 | Check agent rules and skills mirrors | `_sync_agent_rules.py --check` | `AGENTS.md` ↔ `.cursor/rules/*.mdc` ↔ skill mirrors |
+
+`_sync_glossary_html.py` refreshes only tooltip wrappers inside generated reader
+`<main>` elements. It does not rerender Markdown, execute Node, or modify reader
+chrome. Run it with `--write` after changing the shared glossary, then rebuild
+the offline manifest because that manifest hashes each reader HTML file.
 
 `_run_test_suites.py` **discovers by denylist**: it runs every `Scripts/_test_*.py`
 except the few named in its `HELD` map, each with a written reason, and prints
@@ -296,6 +305,9 @@ or artifact upload. A study change therefore does not rebuild the normalized ref
 inventory. The repository-wide published-document scan runs through the required
 `verify` job on pull requests; `pdfs` repeats the direct scan only for protected-branch
 and manual publication runs, where deployment must not depend on a separate workflow.
+The Markdown cache excludes `Studies/glossary.json`, and the generated-PDF workflow
+does not include that file in its path filters. The separate HTML-tooltip check
+enforces the reader artifact a shared-glossary edit actually changes.
 
 On a relevant `master` push (or a manual dispatch on `master`), CI builds the full
 publishable Markdown inventory and all manifest-approved reference PDFs in the shared
@@ -693,6 +705,10 @@ Everything `Studies index` runs — fast, no Node, no Chrome, under ten seconds:
 
 ```bash
 python Scripts/_verify_studies_index.py
+```
+
+```bash
+python Scripts/_sync_glossary_html.py --check
 ```
 
 ```bash

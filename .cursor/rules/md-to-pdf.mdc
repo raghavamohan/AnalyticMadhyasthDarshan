@@ -141,6 +141,12 @@ The second form validates SVG figures for all studies.
   resolve both on the site and through the `file://` render that produces the PDF.
   Never rewrite them to an absolute local path: that resolves only for the PDF,
   breaks every formula on the published site, and leaks the build machine's paths
+- **Shared glossary tooltips are reader-only** — `Studies/glossary.json` decorates
+  the published HTML reader, while each study's printable glossary remains in its
+  canonical markdown. `_html_to_pdf.js` unwraps the web-only tooltip markup before
+  printing, so shared-glossary edits must not trigger or invalidate PDF builds.
+  After editing the shared glossary, run `python Scripts/_sync_glossary_html.py --write`
+  and then `python Scripts/_build_reader_offline.py`; do not regenerate study PDFs.
 - **Fenced code and spec blocks** — ` ```text ` and other fenced code use `white-space:
   pre-wrap` so long lines wrap inside the page; verified by `_verify_pdf_fenced_code.py`.
   Prefer a **table** for multi-column formal specs (Petri transitions, type signatures)
@@ -199,7 +205,7 @@ contributor provides only a PDF, maintainers run `Scripts/_pdf_to_study_md.py` o
 `Scripts/_add_study.py … --convert` on a feature branch, **review and fix** the
 converted `.md` (headings, tables, citations, study-specific scope, References), then
 regenerate the PDF with `_regenerate_pdf.py` before opening a study PR. Diagrams,
-math, and glossary tooltips are not recovered from PDF — re-add them in markdown.
+math, and printable glossary content are not recovered from PDF — re-add them in markdown.
 Scanned or image-only PDFs fail fast; do not commit placeholder extractions.
 
 ## Companion deck PDFs — a separate pipeline
