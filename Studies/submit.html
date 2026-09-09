@@ -1153,13 +1153,18 @@ function buildSubmissionFields(item) {
   }
   titleHtml = '<span class="type-badge">' + escapeHtml(mappedWorkspace ? 'Study' : (item.kindLabel || 'Item')) + '</span> ' + titleHtml;
 
-  const stageCell = '<span class="stage-badge ' + stageClass(item.stage) + '">' + escapeHtml(STAGE_LABELS[item.stage] || item.stage) + '</span>';
+  const stageCell = '<span class="stage-badge ' + stageClass(item.stage) + '">' + escapeHtml(item.pullRequest?.draft ? 'Preparing for review' : (STAGE_LABELS[item.stage] || item.stage)) + '</span>';
 
   let catalogCell = '—';
   if (item.catalogStatus === 'pre-catalog') catalogCell = '<span class="catalog-badge stage-pending">Pre-catalog</span>';
   if (item.catalogStatus === 'ongoing') catalogCell = '<span class="catalog-badge stage-pending">Planned</span>';
   if (item.catalogStatus === 'draft') catalogCell = '<span class="catalog-badge catalog-draft">Draft</span>';
   if (item.catalogStatus === 'released') catalogCell = '<span class="catalog-badge catalog-released">Released</span>';
+  if (item.publication) {
+    const publicationLabel = item.publication.state === 'published' ? 'Published' : item.publication.state === 'publishing' ? 'Awaiting publication' : 'Publication not confirmed';
+    const liveStatus = {ongoing:'Planned',draft:'Draft',released:'Released'}[item.publication.status];
+    catalogCell += '<br><small>' + escapeHtml(publicationLabel + (liveStatus ? ' · Public: ' + liveStatus : '')) + '</small>';
+  }
 
   const categories = submissionCategoryValues(item);
   const categoryCell = categories.length ? escapeHtml(categories.join(', ')) : '—';

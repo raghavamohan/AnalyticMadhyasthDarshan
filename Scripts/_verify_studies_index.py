@@ -20,6 +20,7 @@ from _build_discussion_pages import verify_discussion_pages  # noqa: E402
 from _build_sitemap import verify_sitemap_sync  # noqa: E402
 from _study_search import verify_search  # noqa: E402
 from _build_reader_offline import verify_offline  # noqa: E402
+from _publication_inventory import verify_publication_inventory  # noqa: E402
 from _study_catalog import (  # noqa: E402
     verify_all_catalog_sync,
     verify_derived_catalogs_sync,
@@ -39,6 +40,7 @@ def collect_index_errors(*, shell: bool = True, catalog: bool = True) -> list[st
     errors: list[str] = []
     if catalog:
         errors.extend(verify_all_catalog_sync())
+        errors.extend(verify_publication_inventory())
     if shell:
         errors.extend(verify_index_shell_sync())
         errors.extend(verify_catalog_bootstrap_sync())

@@ -17,6 +17,7 @@ permissions:
   issues: write
   pull-requests: write
   actions: write
+  statuses: write
 
 jobs:
   comment:
@@ -70,7 +71,7 @@ jobs:
             const body = [
               '### Proposal approved',
               '',
-              'Thank you — this study proposal is approved. The card on **My Submissions** will show **Preparing workspace** while a verified pre-catalog study directory is created. Submit the draft only after it changes to **Ready for draft**. The study then appears on the public index as **Planned**, without a public read/download link, until your first draft pull request is merged.',
+              'Thank you — this study proposal is approved. The card on **My Submissions** will show **Preparing workspace** while approved proposal metadata is registered. Submit the draft only after it changes to **Ready for draft**. The study then appears on the public index as **Planned**, without a public read/download link, until your first draft pull request is merged.',
               '',
               '#### Recommended: Web Submission Portal',
               '',
@@ -80,7 +81,7 @@ jobs:
               '4. The study slug is fixed from the approved proposal — paste your full markdown draft.',
               '5. Submit the form — a pull request will be opened automatically. Track CI on the same page.',
               '',
-              'CI will verify this issue is approved, register the study in the catalog as **Draft** on merge, and regenerate the PDF on your PR branch.',
+              'CI will verify this issue is approved, register the study in the catalog as **Draft** on merge, and build a verified PDF for review.',
               '',
               '<details>',
               '<summary><strong>Advanced: submit via GitHub (fork and pull request)</strong></summary>',
@@ -121,114 +122,51 @@ jobs:
     env:
       ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue }}
     concurrency:
-      # Serialize bootstrap merges to master so they do not stack with each other
-      # or with a Pages deploy still syncing the ~300 MB site.
-      group: master-bootstrap-push
+      group: proposal-bootstrap-${{ github.event.issue.number || inputs.issue }}
       cancel-in-progress: false
     steps:
       - name: Checkout default branch
         uses: actions/checkout@v7
+        with:
+          ref: master
+          fetch-depth: 0
+
+      - name: Check settings and resume the proposal branch
+        id: workspace
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python Scripts/_bootstrap_ci.py prepare --issue "$ISSUE_NUMBER"
 
       - name: Set up study toolchain
+        if: steps.workspace.outputs.complete != 'true'
         uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
 
-      - name: Bootstrap pre-catalog study directory
+      - name: Bootstrap metadata and Planned catalog row
+        if: steps.workspace.outputs.complete != 'true'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
-        run: python Scripts/_bootstrap_proposal_study.py --issue "$ISSUE_NUMBER" --force
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python Scripts/_bootstrap_proposal_study.py --issue "$ISSUE_NUMBER" --skip-issue-update
 
-      # Pre-catalog proposal stubs are not publishable PDFs, so this should be a
-      # no-op. Keep the allowlist synchronized here as defense in depth if the
-      # inventory rules change later.
       - name: Synchronize generated PDF Worker allowlist
+        if: steps.workspace.outputs.complete != 'true'
         run: python Scripts/_publish_generated_pdf_worker.py --sync-keys
 
-      # Pushes a side branch; nothing reaches master until the merge below, so
-      # `pushed` is what tells the next steps whether there is anything to land.
-      - name: Commit bootstrap artifacts to a branch
+      - name: Commit complete bootstrap outputs
+        if: steps.workspace.outputs.complete != 'true'
         id: commit
         uses: ./.github/actions/commit-artifacts
         with:
-          paths: Studies infra/generated-pdf-worker/src/generated-pdf-keys.js
-          branch: ci/bootstrap-proposal-${{ github.event.issue.number || inputs.issue }}
-          message: "ci: bootstrap pre-catalog proposal study (issue #${{ github.event.issue.number || inputs.issue }})"
+          contract: 'true'
+          message: "ci: prepare proposal workspace"
 
-      # The merge is what lands on master and starts a Pages build, so the wait
-      # belongs here rather than before the branch push.
-      - name: Wait for in-flight GitHub Pages deploy on master
-        if: steps.commit.outputs.pushed == 'true'
+      - name: Verify the exact head, merge, and queue publication
+        if: steps.workspace.outputs.complete != 'true'
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          set -euo pipefail
-          echo "Checking for in-flight pages-build-deployment on master..."
-          for attempt in $(seq 1 30); do
-            count="$(gh run list --workflow=pages-build-deployment --branch=master --limit=1 --json databaseId --jq 'length')"
-            if [ "$count" = "0" ]; then
-              echo "No recent Pages runs on master; continuing after cool-down."
-              break
-            fi
-            status="$(gh run list --workflow=pages-build-deployment --branch=master --limit=1 --json status --jq '.[0].status')"
-            if [ "$status" = "completed" ]; then
-              conclusion="$(gh run list --workflow=pages-build-deployment --branch=master --limit=1 --json conclusion --jq '.[0].conclusion // "unknown"')"
-              echo "Latest Pages run finished ($conclusion)."
-              break
-            fi
-            echo "Pages deploy still $status; waiting 15s ($attempt/30)..."
-            sleep 15
-          done
-          echo "Cool-down before master merge..."
-          sleep 60
-
-      # A pull request opened with GITHUB_TOKEN does not trigger pull_request
-      # workflows. Open it first, then dispatch the required verification on its
-      # exact head branch and wait for success before merging.
-      - name: Open the bootstrap pull request
-        if: steps.commit.outputs.pushed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          BRANCH: ci/bootstrap-proposal-${{ github.event.issue.number || inputs.issue }}
-        run: |
-          set -euo pipefail
-          gh pr create --base master --head "$BRANCH" \
-            --title "ci: bootstrap pre-catalog study for proposal #$ISSUE_NUMBER" \
-            --body "Automated pre-catalog stub for #$ISSUE_NUMBER. The study appears on the public index as Planned, without a public read/download link, until the first draft pull request merges."
-
-      - name: Verify the bootstrap branch
-        if: steps.commit.outputs.pushed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          BRANCH: ci/bootstrap-proposal-${{ github.event.issue.number || inputs.issue }}
-        run: |
-          set -euo pipefail
-          head_sha="$(git rev-parse HEAD)"
-          gh workflow run studies-index-check.yml --ref "$BRANCH"
-          run_id=""
-          for attempt in $(seq 1 30); do
-            run_id="$(gh run list --workflow=studies-index-check.yml --branch="$BRANCH" --commit="$head_sha" --event=workflow_dispatch --limit=1 --json databaseId --jq '.[0].databaseId // empty')"
-            if [ -n "$run_id" ]; then
-              break
-            fi
-            echo "Waiting for the verification run to appear ($attempt/30)..."
-            sleep 2
-          done
-          if [ -z "$run_id" ]; then
-            echo "Verification run did not appear for $BRANCH at $head_sha." >&2
-            exit 1
-          fi
-          gh run watch "$run_id" --exit-status
-
-      # Merge with --merge, never --squash: a squash would carry the artifact
-      # commit's [skip ci] onto master and suppress post-merge workflows.
-      - name: Merge the verified bootstrap pull request
-        if: steps.commit.outputs.pushed == 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-          BRANCH: ci/bootstrap-proposal-${{ github.event.issue.number || inputs.issue }}
-        run: |
-          set -euo pipefail
-          gh pr merge "$BRANCH" --merge --delete-branch
+        run: python Scripts/_bootstrap_ci.py verify-merge --issue "$ISSUE_NUMBER"
 
       - name: Report workspace preparation failure
         if: failure()
@@ -240,11 +178,11 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issueNumber,
-              body: '### Draft workspace needs maintainer attention\n\nWorkspace preparation did not complete, so **My Submissions** will keep the draft action locked. A maintainer should inspect this workflow run and retry it after resolving the error.',
+              body: '### Proposal automation needs maintainer attention\n\nA preparation or publication step failed. Inspect this workflow run and retry after resolving the error. Any workspace already merged remains intact.',
             });
 
       - name: Confirm that the proposal workspace is ready
-        if: success() && steps.commit.outputs.pushed == 'true'
+        if: success()
         uses: actions/github-script@v9
         with:
           script: |
@@ -257,5 +195,5 @@ jobs:
             });
 
       - name: Report when there was nothing to bootstrap
-        if: steps.commit.outputs.pushed != 'true'
+        if: steps.workspace.outputs.complete == 'true'
         run: echo "Bootstrap produced no changes for issue #$ISSUE_NUMBER; nothing to merge."

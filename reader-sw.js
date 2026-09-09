@@ -27,15 +27,17 @@ async function bounded(response,limit) {
   for (const chunk of chunks) { result.set(chunk,offset); offset += chunk.byteLength; }
   return result;
 }
-async function save(path,port) {
+async function save(path,port,release) {
   if (!P.documentPath(path)) throw new Error('Only a published study or companion can be saved.');
-  const response = await fetch('/Studies/offline-manifest.json',{credentials:'omit',cache:'no-store'});
+  if (release != null && !/^[a-f0-9]{64}$/.test(release)) throw new Error('Invalid release version.');
+  const response = await fetch('/Studies/offline-manifest.json' + (release ? '?r=' + release : ''),{credentials:'omit',cache:'no-store'});
   if (!response.ok || response.redirected) throw new Error('The offline catalog could not load. Reconnect and retry.');
   const raw = new TextDecoder().decode(await bounded(response,2000000));
   const manifest = JSON.parse(raw);
   if (manifest.schema !== 1 || !Array.isArray(manifest.documents) || manifest.documents.length > 2000) throw new Error('Offline catalog is invalid.');
   const item = manifest.documents.find(doc => doc.path === path); if (!item) throw new Error('This document is not available for offline saving.');
   P.bundle(item,origin);
+  if (release && item.resources.some(r => new URL(r.url,origin).searchParams.get('r') !== release)) throw new Error('Offline catalog belongs to another release.');
   const current = await entries(true), old = current.find(doc => doc.path === path), registry = await caches.open(P.REGISTRY);
   if (!old && current.length >= 30) throw new Error('Keep up to 30 offline documents. Remove an older saved copy first.');
   // A browser shutdown can interrupt staging. Reclaim only our unreferenced bundles.
@@ -79,7 +81,7 @@ self.addEventListener('message',event => {
       if (!['SAVE','REMOVE'].includes(data.type) || !P.documentPath(data.path)) throw new Error('Invalid offline action.');
       // Serialise every mutation, including concurrent tabs, to protect quotas and replacements.
       const previous = jobs.get('write') || Promise.resolve();
-      const job = previous.catch(() => {}).then(() => data.type === 'SAVE' ? save(data.path,port) : remove(data.path));
+      const job = previous.catch(() => {}).then(() => data.type === 'SAVE' ? save(data.path,port,data.release) : remove(data.path));
       jobs.set('write',job);
       let result;
       try { result = await job; } finally { if (jobs.get('write') === job) jobs.delete('write'); }
@@ -99,7 +101,11 @@ async function cached(request,event) {
     if (request.mode === 'navigate' && item.path !== path && path !== '/Studies/notebook.html') continue;
     if (!P.resource(request.mode === 'navigate' ? new URL(path,origin).href : request.url,item.path,origin)) continue;
     if (!await caches.has(item.cache)) continue;
-    const cache = await caches.open(item.cache), key = request.mode === 'navigate' ? new URL(path,origin) : request;
+    const resource = item.resources.find(value => {
+      const saved = new URL(value,origin);
+      return saved.pathname === path && (!url.searchParams.has('r') || saved.searchParams.get('r') === url.searchParams.get('r'));
+    });
+    const cache = await caches.open(item.cache), key = request.mode === 'navigate' ? new URL(resource || path,origin) : request;
     const hit = await cache.match(key); if (!hit) continue;
     if (request.mode !== 'navigate') return hit;
     const html = (await hit.text()).replace('<html ','<html data-offline-copy="" '), headers = new Headers(hit.headers);

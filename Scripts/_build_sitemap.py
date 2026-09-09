@@ -144,6 +144,9 @@ def collect_sitemap_entries() -> list[tuple[str, str | None, str | None, str | N
 
     for table in CATALOG_TABLES:
         for row in rows_by_table[table]:
+            from _publication_inventory import is_public_status
+            if not is_public_status(row.status):
+                continue
             # Planned studies carry no catalog timestamp. Falling back to file
             # mtime made lastmod track the last local regeneration rather than
             # the last content change, so every rebuild rewrote those entries

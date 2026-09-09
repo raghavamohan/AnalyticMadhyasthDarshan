@@ -315,7 +315,7 @@ def update_github_issue(issue_number: int, slug: str, title: str | None) -> None
     updated = issue_body_with_slug(body, slug)
     if title:
         updated = issue_body_with_title(updated, title)
-    if updated == body and not title:
+    if updated == body and (not title or issue.get('title') == f'Study proposal: {title}'):
         return
     payload: dict[str, str] = {"body": updated}
     if title:

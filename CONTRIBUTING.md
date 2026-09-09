@@ -13,12 +13,12 @@ Read [Studies/README.md](Studies/README.md) for study format, tone, and structur
 | Stage | What you do | What maintainers do |
 |-------|-------------|---------------------|
 | 1. Proposal | Propose via **[My Submissions](Studies/submit.html)** | Review scope and fit |
-| 2. Approval | Wait for **Preparing workspace** to become **Ready for draft** | Label approved proposals; CI bootstraps and verifies a **pre-catalog** stub, then lists it on the index as **Planned** |
+| 2. Approval | Wait for **Preparing workspace** to become **Ready for draft** | Label approved proposals; CI registers and verifies **pre-catalog** metadata, then lists it on the index as **Planned** |
 | 3. Submit draft | Paste full markdown; slug is **locked** from the proposal | Review the pull request; request changes or merge |
-| 4. Catalog (Draft) | Track CI on **My Submissions** | Merge when `study-pr` passes — study appears on the index as **Draft** |
+| 4. Catalog (Draft) | Track CI on **My Submissions** | Merge when required `verify` passes; publication makes the complete Draft live |
 | 5. Release (optional) | Request **Released** when ready | Merge `status-change` PR when content is final |
 
-Approved proposals get a proposal stub (`.md`, `.html`, `.pdf`) in the repository and appear on the public studies index as **Planned** until the first draft PR is merged. Pull requests (not issue attachments) carry the review artifacts; CI regenerates PDFs and updates catalogs.
+Approved proposals get workspace metadata and a **Planned** catalog row, with no public reader, PDF or discussion page. Portal submissions stay in a GitHub draft PR during generation, then become ready for review with generated files and downloadable PDF artifacts. Required CI verifies that exact commit without rewriting it.
 
 The public catalog at [analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org) links to this workflow from **Contribute** (hero buttons and footer on the studies page).
 
@@ -58,7 +58,7 @@ A good proposal states a clear analytic question, names the Madhyasth Darshan te
 
 Maintainers review proposals for overlap, scope, and alignment with [Studies/README.md](Studies/README.md). You will be notified once it is approved — GitHub notifies you on the issue, and you can opt in to email updates from the notification bar on **My Submissions**. If a proposal is not accepted, maintainers add `proposal-declined` and comment on the issue. The proposal issue stays **open** so later draft PRs can link to `Proposal issue: #N`.
 
-When approved, My Submissions first shows **Preparing workspace**. Automation creates `Studies/<Slug>/<Slug>.md` (proposal stub), `.proposal-meta.json`, HTML, and PDF on a branch, verifies that branch, merges it, and then unlocks **Ready for draft**. The study slug is written to the issue as `### Slug` and locked for draft submission. Topical and Formal proposals both appear as **Planned**; neither exposes a public reader or download until the first draft is merged.
+When approved, My Submissions first shows **Preparing workspace**. Automation registers `.proposal-meta.json` and a Planned catalog row through a verified PR, then unlocks **Ready for draft**. The authenticated portal creates a starter from approved metadata on demand. Topical and Formal proposals expose no reader, PDF or discussion page until their first draft is published.
 
 Closing an unpublished proposal issue makes its My Submissions card **Retired**
 and locks first-draft submission for as long as the issue remains closed.
@@ -99,7 +99,7 @@ Enter the study slug so the portal places the file in the matching `Studies/<Slu
 
 The durable inventory lives in `Studies/companion-artifacts.json`. It is generated from the catalog and repository files; after adding, removing, or renaming a note or presentation locally, run `python Scripts/_companion_artifacts.py`. Study PR CI performs the same synchronization before committing generated artifacts.
 
-To change **Draft** ↔ **Released**, use **Change release status** on the same page, or click **Release study** / **Revert to draft** on a merged row. The portal opens a `status-change` pull request; CI runs `_set_study_status.py` on the branch.
+To change **Draft** ↔ **Released**, use **Change release status** on the same page, or click **Release study** / **Revert to draft** on a merged row. The portal opens a `status-change` pull request; preparation runs `_set_study_status.py` before review. Repeated same-status requests leave timestamps unchanged.
 
 ### Rename a study slug or title
 
@@ -107,12 +107,12 @@ The slug is **locked** when a proposal is approved. If the derived slug is too l
 
 For local proposal-issue synchronization, set `GITHUB_TOKEN` and
 `GITHUB_REPOSITORY` before the non-dry-run command. If GitHub authentication is
-unavailable, pass `--skip-issue` and let labeled CI complete the metadata and
+unavailable, pass `--skip-issue` and let post-merge reconciliation complete the
 issue synchronization on the pull-request branch.
 
-1. Run `python Scripts/_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New display title"` on a feature branch. The script moves the directory and the canonical `<Slug>.md` / `.html` / `.pdf` files while preserving companion filenames, then syncs the catalog in place, proposal registry and metadata, the GitHub proposal issue, and `References/` links.
+1. Run `python Scripts/_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New display title" --skip-issue` on a feature branch. The script moves the directory and the canonical `<Slug>.md` / `.html` / `.pdf` files while preserving companion filenames, then syncs the catalog in place, proposal registry and metadata, and `References/` links. Publication reconciles the GitHub proposal issue after merge.
 2. Update any Start here entry in `Scripts/_build_studies_index.py` and every Markdown link or `§` section reference that targets the old slug. Include all affected studies in the same pull request; CI validates both inbound and outbound cross-study references.
-3. Set `Study slug: <New-Slug>` in the PR body and apply the **`study-update`** label. CI can also finish metadata synchronization when it detects one or more canonical study renames in the diff.
+3. Set `Study slug: <New-Slug>` in the PR body and apply the **`study-update`** label. Required CI verifies the committed rename metadata and links without rewriting the branch.
 
 Do **not** rename only the directory without updating the proposal issue and registry; **My Submissions** keys studies by slug and will show duplicate rows if metadata drifts.
 
@@ -121,8 +121,7 @@ Do **not** rename only the directory without updating the proposal issue and reg
 ## Study pull requests (labels, templates, and CI)
 
 Every change under `Studies/` or `Applications/` lands through a labeled pull request.
-CI (`study-pr` / `Scripts/_ci_study_pr.py`) reads the PR **label** and required **body fields**.
-Wrong label or a mistyped slug field fails the check before content review.
+Preparation reads source paths and **body fields**. Labels organize reviews; required `verify` runs on every PR and cannot be skipped by omitting a label.
 
 ### Choose the right template and label
 
@@ -191,28 +190,15 @@ Create these labels in **GitHub → Issues → Labels** (one-time setup):
 ## Maintainer duties
 
 1. **Review proposals** — scope, overlap, fit with collection standards.
-2. **Approve** — add `proposal-approved` when ready (bot bootstraps pre-catalog stub and posts portal instructions).
+2. **Approve** — add `proposal-approved` when ready (bot registers pre-catalog metadata and posts portal instructions).
 3. **Decline** — add `proposal-declined` with a comment when scope does not fit.
 4. **Review PRs** — content quality, citations, quote accuracy; use **Request changes** on GitHub when needed.
-5. **Merge** when the `study-pr` CI check passes.
+5. **Merge** when required `verify` passes. Confirm public deployment separately in My Submissions or the Publish site run.
 6. **Release policy** — only merge `status-change` → `released` when the study is ready for public release without a Draft watermark.
 
-**One check is required; the study pipeline is not.** The default branch (`master`)
-is protected by the *Protect default branch* ruleset — pull request required, no
-force-push, no deletion — and the `verify` check from **Studies index** must pass
-before any merge. That job runs on every pull request and covers the catalog, the
-index shell, the enforced test suites, and the agent-rules mirrors.
+**One aggregate check is required.** The `verify` context includes catalog/reader consistency, lifecycle timestamps, reference integrity, all enforced tests and applicable PDF/presentation builds. A failed applicable study check blocks merging. Fork and local contributors prepare generated files before requesting review.
 
-`study-pr` is **not** required and cannot be: it does not run at all on a pull
-request opened without a study label, so requiring it would strand those PRs. A
-study PR can still be merged with `study-pr` red, so step 5 is a duty, not a gate.
-
-**`master` accepts merge commits only** — squash and rebase are both disallowed,
-and there is nothing to remember or avoid: the buttons are not offered. CI appends
-`[skip ci]` to the artifacts it regenerates on a branch, which is harmless under a
-merge commit because the merge commit's own message is what lands on `master`.
-Squash and rebase each carry that token onto `master` instead and would skip the
-post-merge index check. See [.github/CI.md](.github/CI.md) §5.
+GitHub-token preparation uses an explicit exact-SHA status bridge. Bootstrap still uses merge commits while its artifact action carries a CI-skip token; retain merge-only settings during migration. Public deployment follows the staged procedure in [.github/CI.md](.github/CI.md).
 
 The full pipeline reference — every workflow, what it may write, what it does not check,
 and how to reproduce each check locally — is **[.github/CI.md](.github/CI.md)**.

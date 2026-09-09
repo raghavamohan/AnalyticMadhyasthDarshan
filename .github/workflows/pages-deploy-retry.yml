@@ -21,6 +21,7 @@ concurrency:
 jobs:
   retry:
     if: >-
+      vars.SITE_RELEASES_ENABLED != 'true' &&
       github.event.workflow_run.conclusion == 'failure' &&
       github.event.workflow_run.head_branch == 'master' &&
       github.event.workflow_run.run_attempt == 1

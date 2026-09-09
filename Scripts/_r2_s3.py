@@ -216,6 +216,10 @@ class R2S3Client:
     def delete_object(self, key: str) -> None:
         self._request("DELETE", self._object_path(key))
 
+    def get_object(self, key: str) -> bytes:
+        _, _, body = self._request("GET", self._object_path(key))
+        return body
+
     def list_objects(self, prefix: str) -> list[str]:
         keys: list[str] = []
         continuation = ""

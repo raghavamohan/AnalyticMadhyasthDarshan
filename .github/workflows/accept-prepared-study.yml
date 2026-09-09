@@ -1,0 +1,48 @@
+name: Accept prepared study
+on:
+  workflow_run:
+    workflows: [Prepare study]
+    types: [completed]
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+  statuses: write
+concurrency:
+  group: accept-prepared-study-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: false
+jobs:
+  accept:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check whether this run prepared a payload
+        id: payload
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          present=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RUN_ID/artifacts" --jq 'any(.artifacts[]; .name == "prepared-study" and .expired == false)')
+          echo "present=$present" >> "$GITHUB_OUTPUT"
+      # Trusted default-branch code only. Never execute the producer's code.
+      - uses: actions/checkout@v7
+        if: steps.payload.outputs.present == 'true'
+        with:
+          ref: master
+          fetch-depth: 0
+      - name: Download the completed run's declared payload
+        if: steps.payload.outputs.present == 'true'
+        uses: actions/download-artifact@v7
+        with:
+          name: prepared-study
+          path: ${{ runner.temp }}/prepared-study
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - name: Commit prepared files and queue exact-head verification
+        if: steps.payload.outputs.present == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python Scripts/_prepared_study.py accept "$RUNNER_TEMP/prepared-study/prepared.json"

@@ -9,12 +9,12 @@ shared helper change cannot silently reuse an obsolete build.
 from __future__ import annotations
 
 import argparse
-import ast
 import hashlib
 import json
 import os
 import subprocess
 from pathlib import Path
+from _build_inputs import script_dependencies, file_hash
 
 BASE = Path(__file__).resolve().parent.parent
 FAMILIES = ("markdown", "references", "presentations")
@@ -44,31 +44,6 @@ def tracked_files(root: Path) -> set[str]:
     )
     return {name for name in result.stdout.decode("utf-8").split("\0") if name}
 
-
-def script_dependencies(root: Path, names: tuple[str, ...]) -> set[str]:
-    pending = list(names)
-    found: set[str] = set()
-    while pending:
-        name = pending.pop()
-        relative = "Scripts/" + name
-        path = root / relative
-        if relative in found or not path.is_file():
-            continue
-        found.add(relative)
-        if path.suffix != ".py":
-            continue
-        tree = ast.parse(path.read_text(encoding="utf-8-sig"))
-        for node in ast.walk(tree):
-            if isinstance(node, ast.ImportFrom) and node.module:
-                pending.append(node.module.split(".")[0] + ".py")
-            elif isinstance(node, ast.Import):
-                pending.extend(alias.name.split(".")[0] + ".py" for alias in node.names)
-            elif isinstance(node, ast.Constant) and isinstance(node.value, str):
-                # Subprocess helpers are often not imported as Python modules.
-                candidate = node.value.replace("\\", "/").split("/")[-1]
-                if candidate.startswith("_") and Path(candidate).suffix in {".py", ".js", ".cjs", ".mjs"}:
-                    pending.append(candidate)
-    return found
 
 
 def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
@@ -166,10 +141,6 @@ def git_changed_paths(base: str, root: Path = BASE) -> set[str]:
         raise RuntimeError(f"git diff {base} HEAD failed: {detail}")
     return {line.strip() for line in completed.stdout.splitlines() if line.strip()}
 
-
-def file_hash(path: Path) -> str:
-    with path.open("rb") as handle:
-        return hashlib.file_digest(handle, "sha256").hexdigest()
 
 
 def fingerprint(family: str, root: Path = BASE, *, image: str = "") -> str:

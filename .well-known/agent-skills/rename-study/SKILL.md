@@ -26,31 +26,22 @@ keeps portal, catalog, and My Submissions metadata in sync. This is a
 3. Decide the new **display title** (H1 / catalog / proposal issue title).
 4. Note the proposal issue number if known (also in
    `Studies/<Old-Slug>/.proposal-meta.json` or `Studies/proposal-registry.json`).
-5. Before the non-dry-run command, configure proposal-issue authentication when
-   an issue number is present or auto-resolved:
-
-```powershell
-$env:GITHUB_TOKEN = (gh auth token)
-$env:GITHUB_REPOSITORY = "raghavamohan/AnalyticMadhyasthDarshan"
-```
-
-   If authentication is unavailable, pass `--skip-issue`; labeled CI can finish
-   the issue synchronization on the PR branch. The script checks these variables
-   before making local changes, so missing authentication cannot leave a partial
-   local rename.
+5. Keep proposal-issue changes until merge. Use `--skip-issue` during local
+   preparation; the protected-branch reconciliation job updates the linked issue
+   from merged registry metadata. No GitHub credential is needed for local rename.
 
 ## Core command
 
 Preview first:
 
 ```powershell
-python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title" --dry-run
+python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title" --skip-issue --dry-run
 ```
 
 Then run (from repo root):
 
 ```powershell
-python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title"
+python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title" --skip-issue
 ```
 
 Windows wrapper: `.\Scripts\_rename_study.ps1` (same flags).
@@ -64,7 +55,7 @@ Windows wrapper: `.\Scripts\_rename_study.ps1` (same flags).
 | `--issue N` | Proposal issue number (optional; auto-resolved from meta/registry) |
 | `--dry-run` | Preview without writing |
 | `--metadata-only` | Skip filesystem rename; sync registry/issue/references only (directory already moved) |
-| `--skip-issue` | Do **not** patch the GitHub proposal issue (avoid unless blocked; see My Submissions below) |
+| `--skip-issue` | Keep the GitHub issue unchanged until post-merge reconciliation (normal preparation mode) |
 | `--skip-pdf` | Skip PDF/discussion regeneration (finish with `_regenerate_pdf.py` later) |
 
 ### What the script updates
@@ -112,16 +103,9 @@ My Submissions (`Studies/submit.html` → `GET /api/me/submissions`) joins:
 | GitHub proposal issue | Card **title** (`Study proposal: …`) and body `### Slug` / `### Proposed title` |
 | `Studies/catalog-*.json` | Catalog status (draft / released / ongoing) |
 
-**Do not skip the proposal-issue patch** unless GitHub auth is unavailable.
-If you used `--skip-issue`, finish with either:
-
-```powershell
-# Authentication variables must already be set as described in Before you start.
-python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title" --metadata-only --skip-pdf
-```
-
-or patch the issue with `gh issue edit` so `### Slug`, `### Proposed title`, and
-the issue title all use the new values.
+After merge, `publish-site.yml` reconciles `### Slug`, `### Proposed title`, and
+the issue title. If reconciliation fails, retry the workflow after resolving its
+GitHub permission/API error. Do not patch these fields while the PR is unmerged.
 
 Registry without issue sync → wrong title or (if registry missing) wrong slug on
 the dashboard. Historical merged PRs may still say `Study slug: Old-Slug`; the
@@ -146,9 +130,9 @@ Study slug: New-Slug
 ```
 
 Bare slug only — no notes on that line. Apply label **`study-update`** (exactly
-one study label). CI (`Scripts/_ci_study_pr.py`) detects canonical markdown
-renames (including multiple renames) and runs `_rename_study.py --metadata-only`
-on the branch.
+one study label). Preparation (`Scripts/_ci_study_pr.py`) detects canonical markdown
+renames and runs `_rename_study.py --metadata-only --skip-issue`. Required CI
+validates the prepared commit without changing it.
 
 ## Completion checklist
 
@@ -158,7 +142,7 @@ on the branch.
 - [ ] H1 / display title updated in the study `.md` when the title changed
 - [ ] `**Edited on:**` and catalog **Last updated on** match
 - [ ] `proposal-registry.json` and `.proposal-meta.json` use **New-Slug**
-- [ ] GitHub proposal issue slug + title updated (verify with `gh issue view`)
+- [ ] GitHub proposal issue slug + title scheduled for reconciliation after merge
 - [ ] Start here generator updated if it referenced the old slug
 - [ ] PDF/HTML/discussion regenerated for **New-Slug**
 - [ ] PR labeled `study-update` with `Study slug: New-Slug`

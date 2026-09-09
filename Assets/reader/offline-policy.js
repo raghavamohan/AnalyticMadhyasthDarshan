@@ -13,7 +13,7 @@
   }
   function resource(value,document,origin) {
     const url = new URL(value,origin), base = new URL(origin);
-    if (url.origin !== base.origin || url.hash || url.username || url.password || [...url.searchParams.keys()].some(k => k !== 'v')) return false;
+    if (url.origin !== base.origin || url.hash || url.username || url.password || [...url.searchParams.keys()].some(k => !['v','r'].includes(k)) || (url.searchParams.has('r') && !/^[a-f0-9]{64}$/.test(url.searchParams.get('r')))) return false;
     const path = url.pathname, parent = document.slice(0,document.lastIndexOf('/') + 1);
     return path === document || path === '/Studies/notebook.html'
       || /^\/Assets\/reader\/[a-z-]+\.(js|css)$/.test(path)
@@ -28,12 +28,15 @@
     if (value.resources.some(r => !r || typeof r.url !== 'string' || !resource(r.url,value.path,origin)
       || !/^[a-f0-9]{64}$/.test(r.sha256) || !Number.isInteger(r.bytes) || r.bytes <= 0 || r.bytes > 8000000)) throw new Error('Unsafe or oversized offline resource.');
     if (value.resources.reduce((sum,r) => sum + r.bytes,0) > 20000000 || new Set(value.resources.map(r => r.url)).size !== value.resources.length
-        || !value.resources.some(r => r.url === value.path) || !value.resources.some(r => r.url === '/Studies/notebook.html')) throw new Error('Incomplete offline document bundle.');
+        || !value.resources.some(r => new URL(r.url,origin).pathname === value.path) || !value.resources.some(r => new URL(r.url,origin).pathname === '/Studies/notebook.html')) throw new Error('Incomplete offline document bundle.');
+    const releases = new Set(value.resources.map(r => new URL(r.url,origin).searchParams.get('r')));
+    if (releases.size !== 1) throw new Error('Mixed offline release versions.');
     return value;
   }
   function navigation(url,origin) {
     const parsed = new URL(url,origin);
-    return parsed.origin === new URL(origin).origin && ![...parsed.searchParams.keys()].some(k => !['find','section','pv','v'].includes(k))
+    return parsed.origin === new URL(origin).origin && ![...parsed.searchParams.keys()].some(k => !['find','section','pv','v','r'].includes(k))
+      && (!parsed.searchParams.has('r') || /^[a-f0-9]{64}$/.test(parsed.searchParams.get('r')))
       && (documentPath(parsed.pathname) || parsed.pathname === '/Studies/notebook.html');
   }
   const Core = {PREFIX,REGISTRY,documentPath,key,resource,bundle,navigation,record};

@@ -104,6 +104,7 @@ def _multipart_put(
     token: str,
     modules: dict[str, str],
     metadata: dict,
+    *, method: str = "PUT",
 ) -> dict:
     boundary = uuid.uuid4().hex
     parts: list[bytes] = []
@@ -129,7 +130,7 @@ def _multipart_put(
     request = Request(
         url,
         data=b"".join(parts),
-        method="PUT",
+        method=method,
         headers={
             "Authorization": f"Bearer {token}",
             "Content-Type": f"multipart/form-data; boundary={boundary}",
