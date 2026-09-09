@@ -7,7 +7,7 @@ from pathlib import Path
 
 from _common import APPLICATIONS, BASE, STUDIES
 from _presentation_pipeline import load_manifest, manifest_errors, repo_relative
-from _study_pdf_metadata import StudyStatus, get_pdf_study_row
+from _publication_inventory import public_markdown, public_studies
 
 
 @dataclass(frozen=True)
@@ -20,18 +20,8 @@ class GeneratedPdfSpec:
 
 
 def _publishable_markdown(path: Path) -> bool:
-    # Reusable research schemas are source templates, not reader documents.
-    if path.stem.startswith("Research-Template-"):
-        return False
-    # Companion notes are publishable without catalog status. Canonical study
-    # documents follow the authoritative catalog status: Ongoing/Planned rows
-    # and uncataloged proposal stubs have no public read/download link.
-    if path.stem != path.parent.name:
-        return True
-    row = get_pdf_study_row(path.stem)
-    if row is None:
-        return False
-    return row.status in (StudyStatus.DRAFT, StudyStatus.RELEASED)
+    # Companions inherit publication eligibility from their parent study.
+    return public_markdown(path)
 
 
 def generated_pdf_specs() -> tuple[GeneratedPdfSpec, ...]:
@@ -45,6 +35,9 @@ def generated_pdf_specs() -> tuple[GeneratedPdfSpec, ...]:
 
     manifest = load_manifest()
     for deck in manifest.decks:
+        relative = deck.source.relative_to(BASE).parts
+        if (relative[0], relative[1]) not in public_studies():
+            continue
         specs.append(GeneratedPdfSpec(
             repo_relative(deck.slides_pdf), deck.source, deck.slides_pdf,
             "presentation-slides", deck.id,

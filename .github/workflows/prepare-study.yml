@@ -1,0 +1,44 @@
+name: Prepare study
+
+# Source generation has no Git writes or publishing credentials. The trusted
+# workflow_run consumer accepts only declared files against an unchanged head.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+  pull-requests: read
+concurrency:
+  group: prepare-study-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+jobs:
+  prepare:
+    if: >-
+      github.event.pull_request.draft &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      contains(github.event.pull_request.body, 'Portal-GitHub: @')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Fetch upstream base commit
+        env:
+          BASE_REPO: ${{ github.event.pull_request.base.repo.full_name }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: git fetch "https://github.com/$BASE_REPO.git" "$BASE_SHA:refs/remotes/origin/preparation-base"
+      - uses: ./.github/actions/setup-study-env
+      - name: Prepare study sources and generated outputs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python Scripts/_ci_study_pr.py --base-ref origin/preparation-base
+      - name: Export declared preparation outputs
+        run: python Scripts/_prepared_study.py export "$RUNNER_TEMP/prepared.json"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: prepared-study
+          path: ${{ runner.temp }}/prepared.json
+          retention-days: 3
+          if-no-files-found: error

@@ -94,10 +94,11 @@ def set_study_status(
             target_status = StudyStatus.DRAFT
 
     if target_status == row.status:
-        print(
-            f"Note: {slug} is already {target_status.value} in the catalog; "
-            "refreshing **Edited on:** and catalogs."
-        )
+        errors = verify_timestamp_sync(slug)
+        if errors:
+            raise SystemExit("Existing status metadata is inconsistent:\n" + "\n".join(errors))
+        print(f"{slug} is already {target_status.value}; no changes required.")
+        return
 
     md_path = study_md(slug)
     if not md_path.exists():

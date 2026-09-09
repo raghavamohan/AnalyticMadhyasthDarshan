@@ -207,31 +207,19 @@ def test_branch_input_with_nothing_to_commit_pushes_no_branch() -> None:
 def test_regenerated_pull_request_head_gets_required_verification() -> None:
     study_workflow = STUDY_WORKFLOW.read_text(encoding="utf-8")
     verify_workflow = VERIFY_WORKFLOW.read_text(encoding="utf-8")
-    assert "actions: write" in study_workflow
-    assert "statuses: write" in study_workflow
-    assert "id: commit_artifacts" in study_workflow
-    assert "steps.commit_artifacts.outputs.pushed == 'true'" in study_workflow
-    assert "gh workflow run studies-index-check.yml" in study_workflow
-    assert '-f state=pending' in study_workflow
-    assert '-f context=verify' in study_workflow
-    assert '-f report_sha="$HEAD_SHA"' in study_workflow
-    assert (
-        'VERIFY_WORKFLOW_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/'
-        'actions/workflows/studies-index-check.yml"' in study_workflow
-    )
-    assert '-f target_url="$VERIFY_WORKFLOW_URL"' in study_workflow
-    assert "if ! gh workflow run studies-index-check.yml" in study_workflow
-    assert '-f state=failure' in study_workflow
-    assert "Could not start regenerated-head verification." in study_workflow
-    assert "workflow_dispatch:" in verify_workflow
+    assert "contents: read" in study_workflow
+    assert "commit-artifacts" not in study_workflow
+    assert "statuses: write" not in study_workflow
+    assert "workflow_call:" in study_workflow
+    assert "--check-clean" in study_workflow
+    assert "needs: [checks, study-check]" in verify_workflow
     assert "report_sha:" in verify_workflow
-    assert "statuses: write" in verify_workflow
-    assert "steps.dispatch_target.outputs.sha != ''" in verify_workflow
-    assert "Link regenerated-head status to this verifier run" in verify_workflow
-    assert "Regenerated-head verification is running." in verify_workflow
-    assert verify_workflow.count('-f state=pending') == 1
     assert '-f state="$VERIFY_STATE"' in verify_workflow
     assert '-f context=verify' in verify_workflow
+    writer = (BASE / "Scripts/_prepared_study.py").read_text(encoding="utf-8")
+    assert "payload.get('head') != pr['head']['sha']" in writer
+    assert "'failure', 'Prepared-head verification could not be queued.'" in writer
+
 
 
 def main() -> int:

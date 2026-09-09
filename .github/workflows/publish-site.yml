@@ -1,0 +1,55 @@
+name: Publish site
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Optional exact merged commit to publish
+        type: string
+        required: false
+permissions:
+  contents: read
+concurrency:
+  group: public-site-production
+  cancel-in-progress: false
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: master
+      - uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+      - name: Reconcile proposal metadata from the merged branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python Scripts/_reconcile_proposal_issues.py
+  source:
+    runs-on: ubuntu-latest
+    outputs:
+      sha: ${{ steps.source.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: master
+          fetch-depth: 0
+      - id: source
+        env:
+          REQUESTED_SHA: ${{ inputs.source_sha || github.sha }}
+        run: |
+          set -euo pipefail
+          [[ "$REQUESTED_SHA" =~ ^[a-f0-9]{40}$ ]]
+          git merge-base --is-ancestor "$REQUESTED_SHA" origin/master
+          echo "sha=$REQUESTED_SHA" >> "$GITHUB_OUTPUT"
+  publish:
+    needs: source
+    uses: ./.github/workflows/generated-pdf-publish.yml
+    with:
+      source_sha: ${{ needs.source.outputs.sha }}
+    secrets: inherit

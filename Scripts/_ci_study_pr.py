@@ -710,6 +710,7 @@ def handle_study_update(body: str, base_ref: str) -> None:
                 title,
                 "--metadata-only",
                 "--skip-pdf",
+                "--skip-issue",
             ]
             print("Running:", " ".join(command))
             subprocess.run(command, check=True, cwd=BASE)
@@ -858,10 +859,13 @@ def main() -> None:
     if pull_request is None:
         raise SystemExit("Event does not include pull_request payload.")
 
-    label = active_pr_label(pull_request.get("labels", []))
+    from _validate_study_change import infer_intent
+    paths = subprocess.check_output(['git', 'diff', '--name-only', args.base_ref, 'HEAD'], cwd=BASE, text=True).splitlines()
+    body = resolve_pr_body(pull_request)
+    label = infer_intent(body, paths, args.base_ref)
     if label is None:
         raise SystemExit(
-            "Apply one PR label: `new-study`, `study-update`, or `status-change`."
+            "No study source or lifecycle intent found to prepare."
         )
 
     body = resolve_pr_body(pull_request)
