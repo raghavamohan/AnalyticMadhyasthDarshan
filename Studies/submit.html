@@ -96,6 +96,8 @@ html[data-github-auth="signed-in"]:not([data-github-auth-ready]) #dashboard-sign
 .hub-toolbar{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px;align-items:center;}
 .hub-toolbar .auth-btn.primary{padding:10px 16px;}
 .hub-toolbar-spacer{flex:1;min-width:12px;}
+.dashboard-refresh-status{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin:0;}
+.auth-btn:disabled{opacity:0.65;cursor:progress;}
 .submission-grid{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:12px;}
 .submission-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--warm);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px 12px;font-family:var(--sans);}
 .submission-card--pending{border-left-color:var(--warm);}
@@ -235,7 +237,8 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
       <div class="hub-toolbar" id="hub-toolbar">
         <a class="auth-btn primary" href="?tab=propose">New study proposal</a>
         <span class="hub-toolbar-spacer"></span>
-        <button type="button" class="auth-btn" id="dashboard-refresh-btn" hidden>Refresh</button>
+        <p class="dashboard-refresh-status" id="dashboard-refresh-status" hidden></p>
+        <button type="button" class="auth-btn" id="dashboard-refresh-btn" hidden aria-label="Refresh submissions" title="Reload GitHub review status and the public site">Refresh</button>
       </div>
 
       <div id="dashboard-alert" class="alert"></div>
@@ -811,6 +814,11 @@ function updateAuthUi(loggedIn) {
     authBtn.setAttribute('aria-label', 'Sign in with GitHub');
   }
   document.getElementById('dashboard-refresh-btn').hidden = !loggedIn;
+  if (!loggedIn) {
+    const refreshStatus = document.getElementById('dashboard-refresh-status');
+    refreshStatus.hidden = true;
+    refreshStatus.textContent = '';
+  }
   updateSubmitAvailability();
 }
 
@@ -1143,6 +1151,35 @@ function submissionCardAccentClass(stage) {
   return 'submission-card--closed';
 }
 
+function liveStudyHref(slug) {
+  const study = mappedStudy(slug);
+  const prefix = study && study.root === 'Applications' ? '../Applications/' : '';
+  return prefix + slug + '/' + slug + '.html';
+}
+
+function publicStatusLabel(status) {
+  return {ongoing:'Planned',draft:'Draft',released:'Released'}[status] || '';
+}
+
+function publicationCaption(item) {
+  const pub = item.publication;
+  if (!pub) return '';
+  const liveStatus = publicStatusLabel(pub.status);
+  if (pub.state === 'published') {
+    const label = liveStatus ? 'Live as ' + liveStatus : 'Published';
+    if (item.slug && (pub.status === 'draft' || pub.status === 'released')) {
+      return '<a href="' + escapeHtml(liveStudyHref(item.slug)) + '">' + escapeHtml(label) + '</a>';
+    }
+    return escapeHtml(label);
+  }
+  if (pub.state === 'publishing') {
+    return escapeHtml(liveStatus
+      ? 'Publishing… Public site still shows ' + liveStatus
+      : 'Publishing to the public site…');
+  }
+  return escapeHtml('Could not verify the public site');
+}
+
 function buildSubmissionFields(item) {
   const mappedWorkspace = Boolean(item.slug && mappedStudy(item.slug));
   let titleHtml = escapeHtml(item.title || '');
@@ -1161,9 +1198,7 @@ function buildSubmissionFields(item) {
   if (item.catalogStatus === 'draft') catalogCell = '<span class="catalog-badge catalog-draft">Draft</span>';
   if (item.catalogStatus === 'released') catalogCell = '<span class="catalog-badge catalog-released">Released</span>';
   if (item.publication) {
-    const publicationLabel = item.publication.state === 'published' ? 'Published' : item.publication.state === 'publishing' ? 'Awaiting publication' : 'Publication not confirmed';
-    const liveStatus = {ongoing:'Planned',draft:'Draft',released:'Released'}[item.publication.status];
-    catalogCell += '<br><small>' + escapeHtml(publicationLabel + (liveStatus ? ' · Public: ' + liveStatus : '')) + '</small>';
+    catalogCell += '<br><small>' + publicationCaption(item) + '</small>';
   }
 
   const categories = submissionCategoryValues(item);
@@ -1527,9 +1562,100 @@ async function fetchDashboardPages(path, field) {
   } while (meta.hasMore && Number.isSafeInteger(offset) && offset > 0 && offset <= 1000);
   return {rows, meta};
 }
+function parsePublicationState(state) {
+  return state && state.schema === 1 && /^[a-f0-9]{40}$/.test(state.sourceSha) && /^[a-f0-9]{64}$/.test(state.revision)
+    ? state
+    : null;
+}
+
+async function fetchPublicPublication() {
+  try {
+    const response = await fetch(new URL('/.well-known/publication.json', location.origin), { cache: 'no-store' });
+    if (!response.ok) return null;
+    return parsePublicationState(await response.json());
+  } catch (_) {
+    return null;
+  }
+}
+
+function resolvePublication(item, repositorySha, publicState) {
+  const sourceSha = repositorySha || item.publication?.repositorySha || null;
+  if (publicState) {
+    const status = publicState.studies?.[item.slug]?.status || null;
+    if (sourceSha) {
+      return {
+        state: publicState.sourceSha === sourceSha ? 'published' : 'publishing',
+        revision: publicState.revision,
+        sourceSha: publicState.sourceSha,
+        repositorySha: sourceSha,
+        status,
+      };
+    }
+    if (status === 'draft' || status === 'released') {
+      return {
+        state: 'published',
+        revision: publicState.revision,
+        sourceSha: publicState.sourceSha,
+        repositorySha: null,
+        status,
+      };
+    }
+    if (item.stage === 'merged') {
+      return {
+        state: 'publishing',
+        revision: publicState.revision,
+        sourceSha: publicState.sourceSha,
+        repositorySha: null,
+        status,
+      };
+    }
+  }
+  if (item.publication && item.publication.state && item.publication.state !== 'unknown') {
+    return { ...item.publication, repositorySha: sourceSha };
+  }
+  return {
+    state: 'unknown',
+    revision: item.publication?.revision || null,
+    sourceSha: item.publication?.sourceSha || null,
+    repositorySha: sourceSha,
+    status: item.publication?.status || null,
+  };
+}
+
+function applyPublicPublication(submissions, repositorySha, publicState) {
+  return submissions.map((item) => ({
+    ...item,
+    publication: resolvePublication(item, repositorySha, publicState),
+  }));
+}
+
+function setDashboardRefreshState(state) {
+  const btn = document.getElementById('dashboard-refresh-btn');
+  const status = document.getElementById('dashboard-refresh-status');
+  if (state === 'loading') {
+    btn.disabled = true;
+    btn.setAttribute('aria-busy', 'true');
+    btn.textContent = 'Refreshing…';
+    status.hidden = false;
+    status.textContent = 'Checking GitHub and the public site…';
+    return;
+  }
+  btn.disabled = false;
+  btn.removeAttribute('aria-busy');
+  btn.textContent = 'Refresh';
+  if (state === 'done') {
+    status.hidden = false;
+    status.textContent = 'Updated just now';
+    return;
+  }
+  status.hidden = true;
+  status.textContent = '';
+}
+
 async function loadDashboard(options = {}) {
   if (!currentUser) return;
   const force = Boolean(options.force);
+  const userRefresh = Boolean(options.userRefresh);
   const now = Date.now();
   if (!force && dashboardCache && now - dashboardCacheAt < DASHBOARD_CACHE_MS) {
     renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
@@ -1543,23 +1669,34 @@ async function loadDashboard(options = {}) {
   }
 
   const requestId = ++dashboardRequest, account = currentUser.login;
+  if (userRefresh) setDashboardRefreshState('loading');
   if (!dashboardCache) showDashboardSkeleton();
   document.getElementById('dashboard-empty').hidden = true;
   const pending = (async () => {
     try {
-      const data = await fetchDashboardPages('/api/me/submissions', 'submissions');
+      const [data, publicState] = await Promise.all([
+        fetchDashboardPages('/api/me/submissions', 'submissions'),
+        fetchPublicPublication(),
+      ]);
       if (requestId !== dashboardRequest || currentUser?.login !== account) return;
-      dashboardCache = { submissions: data.rows, truncated: Boolean(data.meta.truncated) };
+      const submissions = applyPublicPublication(data.rows, data.meta.repositorySha || null, publicState);
+      dashboardCache = { submissions, truncated: Boolean(data.meta.truncated) };
       dashboardCacheAt = Date.now();
       ciPollFailures = 0;
       proposalOptionsLoaded = true;
       document.getElementById('dashboard-alert').style.display = 'none';
       renderDashboardCards(dashboardCache.submissions, dashboardCache.truncated);
       scheduleCiPoll(dashboardCache.submissions);
+      if (document.getElementById('dashboard-refresh-btn').getAttribute('aria-busy') === 'true') {
+        setDashboardRefreshState('done');
+      }
     } catch (err) {
       if (requestId !== dashboardRequest || currentUser?.login !== account) return;
       document.querySelectorAll('.skeleton-card').forEach(card => card.remove());
-      showAlert('dashboard', 'error', escapeHtml(err.message) + ' Use Refresh submissions to retry.');
+      if (document.getElementById('dashboard-refresh-btn').getAttribute('aria-busy') === 'true') {
+        setDashboardRefreshState('idle');
+      }
+      showAlert('dashboard', 'error', escapeHtml(err.message) + ' Use Refresh to retry.');
     }
   })();
   dashboardLoadPromise = pending;
@@ -2207,7 +2344,7 @@ document.getElementById('auth-action-btn').addEventListener('click', () => {
   if (currentUser) logout();
   else startGitHubLogin();
 });
-document.getElementById('dashboard-refresh-btn').addEventListener('click', () => loadDashboard({ force: true }));
+document.getElementById('dashboard-refresh-btn').addEventListener('click', () => loadDashboard({ force: true, userRefresh: true }));
 document.getElementById('p-title').addEventListener('input', updateSlugPreview);
 document.getElementById('s-proposal').addEventListener('input', scheduleProposalStatusCheck);
 document.getElementById('s-proposal').addEventListener('change', scheduleProposalStatusCheck);
@@ -2361,6 +2498,9 @@ let dashboardStatusRequest = 0;
 function hasPendingCi(submissions) {
   return (submissions || []).some((item) => item.checks && item.checks.state === 'pending');
 }
+function hasPendingPublication(submissions) {
+  return (submissions || []).some((item) => item.publication && item.publication.state === 'publishing');
+}
 function openDashboardRows(submissions) {
   return (submissions || []).filter((item) =>
     item.pullRequest && (item.stage === 'pr-open' || item.stage === 'changes_requested')
@@ -2419,13 +2559,15 @@ async function pollDashboardStatuses() {
 }
 function scheduleCiPoll(submissions) {
   clearTimeout(ciPollTimer);
-  if (!hasPendingCi(submissions) || document.hidden) return;
+  const pendingCi = hasPendingCi(submissions);
+  const pendingPublication = hasPendingPublication(submissions);
+  if ((!pendingCi && !pendingPublication) || document.hidden) return;
   if (!document.getElementById('dashboard-tab').classList.contains('active')) return;
   const delay = Math.min(120000, 30000 * Math.pow(2, ciPollFailures));
   ciPollTimer = setTimeout(() => {
-    if (currentUser && document.getElementById('dashboard-tab').classList.contains('active')) {
-      pollDashboardStatuses();
-    }
+    if (!currentUser || !document.getElementById('dashboard-tab').classList.contains('active')) return;
+    if (pendingPublication) loadDashboard({ force: true });
+    else pollDashboardStatuses();
   }, delay);
 }
 document.addEventListener('visibilitychange', () => {
@@ -2597,7 +2739,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
 });
 
 </script>
-<script src="portal/contributor.js?v=b161db4e275c3fb0"></script>
+<script src="portal/contributor.js?v=d9892fc1aeb5b68c"></script>
 <script>
 (async () => {
   toggleProposalField();
