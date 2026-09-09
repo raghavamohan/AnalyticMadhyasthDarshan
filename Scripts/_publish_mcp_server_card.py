@@ -9,6 +9,8 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
+import subprocess
 import sys
 import uuid
 from pathlib import Path
@@ -27,7 +29,20 @@ START_HERE_PATH = cf.BASE / "Studies" / "start-here.json"
 COMPATIBILITY_DATE = "2024-03-01"
 
 
-def worker_js(card: dict) -> str:
+def source_revision() -> str:
+    revision = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        cwd=cf.BASE,
+        check=True,
+        capture_output=True,
+        text=True,
+    ).stdout.strip()
+    if not re.fullmatch(r"[0-9a-f]{40}", revision):
+        raise RuntimeError(f"git returned an invalid source revision: {revision!r}")
+    return revision
+
+
+def worker_js(card: dict, revision: str | None = None) -> str:
     body = json.dumps(card, indent=2, ensure_ascii=False) + "\n"
     etag = hashlib.sha256(body.encode("utf-8")).hexdigest()[:16]
     if not RUNTIME_SRC.is_file():
@@ -36,11 +51,15 @@ def worker_js(card: dict) -> str:
         raise FileNotFoundError(START_HERE_PATH)
     runtime = RUNTIME_SRC.read_text(encoding="utf-8").replace("\r\n", "\n")
     start_here = json.loads(START_HERE_PATH.read_text(encoding="utf-8"))
+    revision = revision or source_revision()
+    if not re.fullmatch(r"[0-9a-f]{40}", revision):
+        raise ValueError(f"invalid source revision: {revision!r}")
     preamble = (
         f"const CARD = {json.dumps(card, ensure_ascii=False)};\n"
         f"const CARD_BODY = {json.dumps(body)};\n"
         f"const CARD_ETAG = {json.dumps(etag)};\n"
         f"const START_HERE = {json.dumps(start_here, ensure_ascii=False)};\n"
+        f"const SOURCE_REVISION = {json.dumps(revision)};\n"
     )
     return preamble + runtime
 

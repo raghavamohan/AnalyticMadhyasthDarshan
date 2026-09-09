@@ -192,6 +192,10 @@ whose valid HEAD responses omit `Content-Length`.
 The skills indexes and MCP server card use the same JSON formatting as their
 canonical files. Their dedicated Worker responses must match release checksums;
 the generated-bundle check enforces this response-to-file contract.
+The MCP/Studies Worker pins repository-backed reads to the exact commit that
+produced its deployment and tries that immutable GitHub source before the public
+site fallback. This keeps catalog APIs coherent when the Worker and complete site
+deploy in parallel, even if a same-origin edge still holds the preceding release.
 On the public hostname, Cloudflare-managed `robots.txt` and `security.txt` are
 validated as edge policy documents. The managed robots wrapper must retain the
 exact release body; the security fields, including expiry, must match the
