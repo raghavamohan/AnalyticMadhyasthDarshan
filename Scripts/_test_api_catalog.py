@@ -4,9 +4,11 @@ Run from the repository root:
 
     python Scripts/_test_api_catalog.py
     python Scripts/_test_api_catalog.py --live
+    python Scripts/_test_api_catalog.py --live-catalog-only
 """
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import sys
@@ -415,7 +417,32 @@ def check_live_homepage_link_headers() -> None:
     print("OK: homepage Link headers advertise api-catalog, describedby, service-desc, service-doc.")
 
 
-def main() -> None:
+def run_live_checks(*, catalog_only: bool) -> None:
+    """Check the deployed catalog Worker, optionally followed by cross-owned surfaces."""
+    catalog = check_live_catalog()
+    if catalog_only:
+        return
+    check_live_openapi()
+    check_live_homepage_link_headers()
+    check_live_status_links(catalog)
+    check_live_cookie_auth()
+
+
+def main(argv: list[str] | None = None) -> None:
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    live = parser.add_mutually_exclusive_group()
+    live.add_argument(
+        "--live",
+        action="store_true",
+        help="verify the catalog Worker and every linked live API/discovery surface",
+    )
+    live.add_argument(
+        "--live-catalog-only",
+        action="store_true",
+        help="verify only the API catalog route owned by the catalog Worker",
+    )
+    args = parser.parse_args(argv)
+
     catalog = load_json(CATALOG_PATH)
     worker_catalog = load_json(WORKER_CATALOG_PATH)
     if catalog != worker_catalog:
@@ -480,12 +507,8 @@ def main() -> None:
     check_rfc9727_profile()
     check_worker_discovery_hooks()
     check_sitemap_discovery()
-    if "--live" in sys.argv:
-        catalog = check_live_catalog()
-        check_live_openapi()
-        check_live_homepage_link_headers()
-        check_live_status_links(catalog)
-        check_live_cookie_auth()
+    if args.live or args.live_catalog_only:
+        run_live_checks(catalog_only=args.live_catalog_only)
 
 
 if __name__ == "__main__":
