@@ -65,7 +65,8 @@ and its approval. A ready PR must contain the complete prepared outputs.
 `_ci_study_pr.py` is the preparation router. It infers first draft, update,
 deletion and status change from paths and body fields. It preserves the existing
 single-study restrictions for first drafts/status changes and supports multi-study
-updates. Same-status requests are true no-ops. Rename preparation uses
+updates. Before rendering, it normalizes migrated reference links only in the
+submitted study Markdown files. Same-status requests are true no-ops. Rename preparation uses
 `--skip-issue`; `_reconcile_proposal_issues.py` updates issue titles/slugs from
 merged metadata, independently of site publication.
 
