@@ -2,10 +2,10 @@
 
 **Author:** Raghava Mohan Madhwapathi
 
-**Edited on:** September 9, 2026, 11:45 AM IST
+**Edited on:** September 9, 2026, 4:42 PM IST
 **Status:** Draft
 
-**The question:** What kind of thing is artificial intelligence in Madhyasth Darshan's coexistential ontology, and what follows for knowing, work, and right-use?
+**The question:** What kind of thing is AI in Madhyasth Darshan's coexistential ontology, and what follows for knowing, work, and right-use?
 
 Present systems generate language, classify, plan, and act. This collection already locates the knower in *jeevan*, treats the body as an insentient medium, and distinguishes complete knowledge from accumulated information. This initial draft asks the next question the primary texts do not name as "AI": can a human-made artefact occupy, simulate, or substitute for knowledge-order activity, or is it an instrument whose outputs still require a human knower to mean, evaluate, and fulfil?
 
