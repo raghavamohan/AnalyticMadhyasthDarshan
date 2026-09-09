@@ -398,6 +398,9 @@ jobs:
     if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
     needs: [pdfs, presentations]
     runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      PYTHONUNBUFFERED: '1'
     environment: github-pages
     steps:
       - uses: actions/checkout@v7

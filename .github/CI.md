@@ -173,6 +173,17 @@ The code supports a staged migration. Until `SITE_RELEASES_ENABLED=true`, normal
 publication retains the legacy PDF publisher and stages/audits the new canary.
 The new Worker is not a claim that production has already switched.
 
+The complete-site publisher logs flushed progress for R2 staging, static-asset
+batches, Worker upload and URL audits. The job has a 45-minute limit. Audit requests
+identify themselves as `AMD-Publication-Audit/1.0`, including the initial publication
+endpoint and subsequent GET/HEAD requests. The first hosted canary exposed a 403
+with Cloudflare error 1010 for Python's default user agent; the named audit client
+was accepted. HTTP and checksum failures remain fatal. A retry reuses verified
+immutable objects and already-uploaded static assets.
+The document audit accepts an R2 HTTP 206 only when `Content-Range` covers the
+entire expected object and both its actual byte count and SHA-256 match. A partial,
+truncated, or corrupt response fails the audit.
+
 1. Merge the preparation/verification changes and ensure Actions can create PRs.
    Require the existing `verify` context with strict branch protection. Keep merge
    commits enabled while bootstrap still uses the legacy skip-token action.
