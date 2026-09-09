@@ -202,6 +202,12 @@ whose valid HEAD responses omit `Content-Length`.
 The skills indexes and MCP server card use the same JSON formatting as their
 canonical files. Their dedicated Worker responses must match release checksums;
 the generated-bundle check enforces this response-to-file contract.
+The Agent-facing deployment gate verifies only the live API catalog route owned
+by `amd-api-catalog`. Site-owned OpenAPI documents and homepage headers move with
+the coherent-site release and are covered by that release's checksummed audit;
+testing them before that parallel publication completes creates a false failure.
+The full `_test_api_catalog.py --live` mode remains available for an end-to-end
+post-publication diagnostic.
 The MCP/Studies Worker pins repository-backed reads to the exact commit that
 produced its deployment and tries that immutable GitHub source before the public
 site fallback. This keeps catalog APIs coherent when the Worker and complete site
