@@ -11,6 +11,7 @@ BASE = SCRIPTS.parent
 sys.path.insert(0, str(SCRIPTS))
 
 import _cloudflare_performance as cf
+import _test_api_catalog as api_catalog
 
 
 class CloudflareBotPolicyTests(unittest.TestCase):
@@ -49,6 +50,47 @@ class CloudflareBotPolicyTests(unittest.TestCase):
             "--apply-discussions-rate-limits",
         ):
             self.assertIn(flag, workflow)
+
+    def test_agent_publication_verifies_only_its_api_catalog_route(self) -> None:
+        workflow = (BASE / ".github" / "workflows" / "agent-publications.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn(
+            "python Scripts/_test_api_catalog.py --live-catalog-only",
+            workflow,
+        )
+        self.assertNotIn("python Scripts/_test_api_catalog.py --live; then", workflow)
+
+    def test_catalog_only_mode_excludes_cross_owned_live_surfaces(self) -> None:
+        catalog = {"linkset": []}
+        with (
+            mock.patch.object(api_catalog, "check_live_catalog", return_value=catalog) as worker,
+            mock.patch.object(api_catalog, "check_live_openapi") as openapi,
+            mock.patch.object(api_catalog, "check_live_homepage_link_headers") as homepage,
+            mock.patch.object(api_catalog, "check_live_status_links") as status,
+            mock.patch.object(api_catalog, "check_live_cookie_auth") as auth,
+        ):
+            api_catalog.run_live_checks(catalog_only=True)
+        worker.assert_called_once_with()
+        openapi.assert_not_called()
+        homepage.assert_not_called()
+        status.assert_not_called()
+        auth.assert_not_called()
+
+    def test_full_live_mode_retains_cross_surface_diagnostics(self) -> None:
+        catalog = {"linkset": []}
+        with (
+            mock.patch.object(api_catalog, "check_live_catalog", return_value=catalog),
+            mock.patch.object(api_catalog, "check_live_openapi") as openapi,
+            mock.patch.object(api_catalog, "check_live_homepage_link_headers") as homepage,
+            mock.patch.object(api_catalog, "check_live_status_links") as status,
+            mock.patch.object(api_catalog, "check_live_cookie_auth") as auth,
+        ):
+            api_catalog.run_live_checks(catalog_only=False)
+        openapi.assert_called_once_with()
+        homepage.assert_called_once_with()
+        status.assert_called_once_with(catalog)
+        auth.assert_called_once_with()
 
     def test_public_content_does_not_bypass_training_policy(self) -> None:
         rules = cf.waf_custom_security_rules_spec()
