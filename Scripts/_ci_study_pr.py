@@ -325,14 +325,14 @@ def changed_study_slugs(base_ref: str) -> list[str]:
         # which canonical studies a labelled PR must process.
         if candidate.suffix.lower() == ".pdf":
             continue
-        # Deleted paths cannot be resolved on disk. Read them lexically so a PR
-        # that removes several studies validates every removal, not only the one
-        # named in the body. Existing paths still use the stricter resolver.
-        slug = (
-            slug_from_path_lexical(candidate)
-            if status == "D"
-            else slug_from_repo_relative_path(candidate)
-        )
+        # A deleted companion file still resolves through its surviving
+        # canonical study markdown. A completely removed study cannot resolve
+        # on disk, so recognize only its deleted canonical <Slug>.md as the
+        # lexical fallback. Treating every deleted Studies/<directory>/ path as
+        # a study invents slugs for generated roots such as Studies/search-data.
+        slug = slug_from_repo_relative_path(candidate)
+        if slug is None and status == "D":
+            slug = canonical_study_md_slug(candidate)
         if slug and slug not in seen:
             seen.add(slug)
             slugs.append(slug)
@@ -690,6 +690,13 @@ def handle_study_update(body: str, base_ref: str) -> None:
     if operation == "delete-study":
         slug = resolve_slug(body, base_ref, allow_changed=True)
         reject_other_study_changes(base_ref, {slug}, "study-update")
+        if study_was_removed(base_ref, slug) or registry_row_was_removed(
+            base_ref, slug
+        ):
+            verify_removal_metadata(slug)
+            run_reference_checks(full_repo=True)
+            print(f"Validated already-prepared complete study removal: {slug}")
+            return
         command = [
             sys.executable,
             str(SCRIPTS / "_remove_study.py"),
