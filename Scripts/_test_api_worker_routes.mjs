@@ -151,10 +151,10 @@ if (!discussion) test('full dashboard avoids the historical PR search on the blo
     globalThis.caches={default:{
       match:async request => {
         const url=String(request.url || request);
-        if (url.endsWith('/catalog-maps-v2')) return Response.json({
+        if (url.includes('/catalog-maps-v2?sha=')) return Response.json({
           statuses:{'Test-Study':'draft'},categories:{'Test-Study':['Human']},
         });
-        if (url.endsWith('/proposal-registry')) return Response.json({
+        if (url.includes('/proposal-registry?sha=')) return Response.json({
           version:1,proposals:[{issueNumber:3,slug:'Test-Study',phase:'catalog'}],
         });
         return null;
@@ -170,14 +170,18 @@ if (!discussion) test('full dashboard avoids the historical PR search on the blo
         user:{login:'alice'},html_url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/3',
       }]);
       if (url.includes('/pulls?state=open')) return Response.json([]);
+      if (url.includes('/git/refs/heads/master')) return Response.json({object:{sha:'a'.repeat(40)}});
+      if (url.endsWith('/.well-known/publication.json')) return Response.json({schema:1,revision:'b'.repeat(64),sourceSha:'a'.repeat(40),studies:{'Test-Study':{status:'draft'}}});
       throw new Error('Unexpected full dashboard request: '+url);
     };
     const result=await workerModule.buildDashboard({login:'alice',accessToken:'test'},{});
     assert.equal(result.submissions.length,1);
     assert.equal(result.submissions[0].stage,'merged');
     assert.equal(result.submissions[0].slug,'Test-Study');
-    assert.equal(result.meta.githubRequests,2);
-    assert.equal(calls.length,2);
+    assert.equal(result.meta.githubRequests,3);
+    assert.equal(calls.length,4);
+    assert.equal(calls.filter(url=>url.includes('/git/refs/heads/')).length,1);
+    assert.equal(result.submissions[0].publication.state,'published');
     assert.equal(calls.some(url => url.includes('/search/issues')),false);
   } finally {
     globalThis.fetch=originalFetch;
@@ -391,7 +395,7 @@ if (!discussion) test('revision routes reject stale source and replay a receipt 
     return objects.get(id);
   }};
   const headers={Origin:origin,'Content-Type':'application/json',Cookie:cookie};
-  const pr={state:'open',number:7,labels:[{name:'new-study'}],body:'Slug: Test-Study\nPortal-GitHub: @alice',
+  const pr={state:'open',number:7,node_id:'PR_fixture',draft:false,labels:[{name:'new-study'}],body:'Slug: Test-Study\nPortal-GitHub: @alice',
     head:{ref:'test-branch',sha:'head-sha',repo:{full_name:'raghavamohan/AnalyticMadhyasthDarshan'}},html_url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/7'};
   let writes=0, latestMessage='';
   const original=globalThis.fetch;
@@ -399,8 +403,9 @@ if (!discussion) test('revision routes reject stale source and replay a receipt 
     const url=String(input);
     if (url.includes('/siteverify')) return Response.json({success:true});
     if (url.endsWith('/pulls/7')) return Response.json(pr);
+    if (url.endsWith('/graphql')) {assert.match(JSON.parse(options.body).query,/convertPullRequestToDraft/);pr.draft=true;return Response.json({data:{convertPullRequestToDraft:{pullRequest:{id:pr.node_id}}}});}
     if (url.includes('/contents/Studies/Test-Study/Test-Study.md')) {
-      if (options.method==='PUT') {writes++;latestMessage=JSON.parse(options.body).message;return Response.json({content:{sha:'b'.repeat(40)}});}
+      if (options.method==='PUT') {assert.equal(pr.draft,true);writes++;latestMessage=JSON.parse(options.body).message;return Response.json({content:{sha:'b'.repeat(40)}});}
       return Response.json({content:btoa('# Test study\n\nSource text'),sha:'a'.repeat(40)});
     }
     if (url.includes('/search/issues')) return Response.json({items:[],total_count:0});

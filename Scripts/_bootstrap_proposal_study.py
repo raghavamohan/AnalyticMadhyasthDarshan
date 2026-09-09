@@ -1,6 +1,6 @@
 """Bootstrap a pre-catalog study directory after proposal approval.
 
-Creates Studies/<Slug>/<Slug>.md (proposal stub), .proposal-meta.json, HTML, and PDF.
+Creates proposal metadata and a Planned catalog row; no public reader or PDF.
 Registers the study on the public index as Planned (ongoing catalog status).
 
 Usage:
@@ -15,7 +15,6 @@ import argparse
 import json
 import os
 import re
-import subprocess
 import sys
 import urllib.error
 import urllib.request
@@ -115,6 +114,10 @@ def fields_from_issue(issue_number: int) -> ProposalFields:
     if not repo:
         raise SystemExit("GITHUB_REPOSITORY is not set.")
     issue = gh_request(f"/repos/{repo}/issues/{issue_number}")
+    if issue.get("state") != "open" or "proposal-approved" not in {
+        label["name"] for label in issue.get("labels", [])
+    }:
+        raise SystemExit(f"Issue #{issue_number} must still be open and proposal-approved.")
     body = issue.get("body") or ""
     title = proposed_title_from_issue_title(issue.get("title") or "")
     if not title:
@@ -187,6 +190,7 @@ def write_proposal_meta(fields: ProposalFields, edited_at: datetime) -> None:
         "title": fields.title,
         "category": fields.category,
         "description": fields.description,
+        "summary": fields.summary,
         "formal": fields.formal,
         "proposalIssue": fields.issue_number,
         "submitter": fields.submitter,
@@ -196,30 +200,6 @@ def write_proposal_meta(fields: ProposalFields, edited_at: datetime) -> None:
     path = proposal_meta_path(fields.slug)
     path.parent.mkdir(parents=True, exist_ok=True)
     write_text_lf(path, json.dumps(meta, indent=2) + "\n")
-
-
-def regenerate_proposal_artifacts(md_path: Path) -> None:
-    from _convert_to_pdf import convert_to_html
-    from _verify_study_svgs import verify_study_svgs
-
-    md_path = md_path.resolve()
-    verify_study_svgs(md_path)
-    html_path = md_path.with_suffix(".html")
-    build_pdf_path = md_path.with_name(f"{md_path.stem}.build.pdf")
-    convert_to_html(md_path, is_draft=True, include_web_chrome=True)
-    subprocess.run(
-        [
-            "node",
-            str(SCRIPTS / "_html_to_pdf.js"),
-            str(html_path),
-            "Draft",
-            str(build_pdf_path),
-        ],
-        check=True,
-        cwd=BASE,
-    )
-    pdf_path = md_path.with_suffix(".pdf")
-    build_pdf_path.replace(pdf_path)
 
 
 def upsert_registry_entry(fields: ProposalFields) -> None:
@@ -338,6 +318,11 @@ def bootstrap_proposal(
     if state == "published":
         print(f"{fields.slug} is already published for this proposal; skipping bootstrap.")
         return
+    if state == "pre-catalog":
+        if not dry_run:
+            sync_pre_catalog_proposals_to_catalog()
+        print(f"{fields.slug} workspace already exists; preserving its authoring inputs.")
+        return
 
     dest_dir = study_dir(fields.slug)
     dest_md = study_md(fields.slug)
@@ -350,14 +335,11 @@ def bootstrap_proposal(
     edited_at = now_ist()
     stub = build_proposal_stub_markdown(fields, edited_at)
     if dry_run:
-        print(f"Would write {dest_md}")
-        print(stub[:400], "...")
+        print(f"Would register proposal metadata and a Planned catalog row for {fields.slug}")
         return
 
     dest_dir.mkdir(parents=True, exist_ok=True)
-    write_text_lf(dest_md, stub)
     write_proposal_meta(fields, edited_at)
-    regenerate_proposal_artifacts(dest_md)
     upsert_registry_entry(fields)
     sync_pre_catalog_proposals_to_catalog()
     print(f"Bootstrapped pre-catalog proposal at {dest_dir}")

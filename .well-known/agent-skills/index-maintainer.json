@@ -55,7 +55,7 @@
       "type": "skill-md",
       "description": "Rename a study slug and/or display title using Scripts/_rename_study.py — moves the study directory, syncs catalogs, proposal-registry, GitHub proposal issue, References paths, and regenerated PDF/HTML; Start here and cross-study links are verified for same-PR updates. Use when renaming a study, changing a catalog slug, fixing a too-long slug, or updating My Submissions after a rename.",
       "url": "/.well-known/agent-skills/rename-study/SKILL.md",
-      "digest": "sha256:64b60fb07814eb69cb7755d538fa5caac2174d0aa10f0f021d39a27323e268b1"
+      "digest": "sha256:3a8ac23e7b10de2688aaef389979e0b86e52ef7fbd52082788f3d1b281046145"
     },
     {
       "name": "review-study",

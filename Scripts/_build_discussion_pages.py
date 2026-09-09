@@ -1279,6 +1279,9 @@ def write_shared_assets() -> list[Path]:
 
 
 def write_discussion_page(row: StudyRow) -> Path | None:
+    if row.status == StudyStatus.ONGOING:
+        remove_discussion_page(row)
+        return None
     path = discussion_output_path(row)
     if path is None:
         return None
@@ -1328,6 +1331,8 @@ def verify_discussion_pages() -> list[str]:
         errors.append("Discussion comments must not wait on a separate session request")
     for table in CATALOG_TABLES:
         for row in load_catalog_rows(table):
+            if row.status == StudyStatus.ONGOING:
+                continue
             path = discussion_output_path(row)
             if path is None:
                 continue

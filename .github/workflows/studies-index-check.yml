@@ -1,139 +1,96 @@
 name: Studies index
 
-# Deliberately unfiltered. This job is the repository's cheap, always-run guard:
-# Python only, no Node, no Chrome, ~1 minute with a warm pip cache.
-#
-# It used to carry two verbatim copies of a fifteen-entry `paths:` list, one per
-# trigger, which was easy to half-edit and easy to outgrow. It had already been
-# outgrown: the suites this job now runs read `infra/`, `.agents/skills/`,
-# `.well-known/`, `AGENTS.md` and `Studies/glossary.json`, none of which any
-# filter listed -- so the PRs most likely to break them were the ones that would
-# not have triggered the check.
-#
-# Running unconditionally also makes this the one workflow that reports on every
-# pull request, which is what a required status check needs. `study-pr.yml`
-# cannot be required: it omits the `opened` trigger by design, so a PR opened
-# without a study label produces no run at all and the check would sit pending
-# forever.
-
+# One unfiltered, required aggregate. Labels never decide whether a study is checked.
 on:
+  pull_request:
+    types: [opened, synchronize, reopened, edited, ready_for_review]
+  push:
+    branches: [master, main]
   workflow_dispatch:
     inputs:
       report_sha:
-        description: >-
-          Optional regenerated PR-head SHA whose required verify commit status
-          this dispatch must complete.
+        description: Exact prepared or bootstrap commit to verify
         required: false
         type: string
-  pull_request:
-  push:
-    branches:
-      - master
-      - main
-
+      pr_number:
+        description: PR number for prepared study lifecycle intent (omit for bootstrap)
+        required: false
+        type: string
 permissions:
   contents: read
+  pull-requests: read
   statuses: write
-
 jobs:
-  verify:
+  checks:
+    permissions:
+      contents: read
+      pull-requests: read
     runs-on: ubuntu-latest
+    outputs:
+      head: ${{ steps.source.outputs.head }}
+      base: ${{ steps.source.outputs.base }}
     steps:
-      - name: Validate regenerated PR-head status target
-        if: github.event_name == 'workflow_dispatch' && inputs.report_sha != ''
-        id: dispatch_target
-        shell: bash
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.report_sha || github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Resolve exact source and lifecycle intent
+        id: source
         env:
+          GITHUB_TOKEN: ${{ github.token }}
           REPORT_SHA: ${{ inputs.report_sha }}
-        run: |
-          set -euo pipefail
-          if [[ ! "$REPORT_SHA" =~ ^[0-9a-f]{40}$ ]]; then
-            echo "::error title=Invalid report SHA::report_sha must be a full lowercase Git commit SHA."
-            exit 1
-          fi
-          echo "sha=$REPORT_SHA" >> "$GITHUB_OUTPUT"
-
-      # The study workflow can only link its queued status to this workflow's
-      # runs page. As soon as the dispatched verifier starts, point that same
-      # required status at this exact run so a pending PR never appears idle.
-      - name: Link regenerated-head status to this verifier run
-        if: steps.dispatch_target.outputs.sha != ''
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPORT_SHA: ${{ steps.dispatch_target.outputs.sha }}
-        shell: bash
-        run: |
-          set -euo pipefail
-          RUN_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$REPORT_SHA" \
-            -f state=pending \
-            -f context=verify \
-            -f description="Regenerated-head verification is running." \
-            -f target_url="$RUN_URL"
-
-      - name: Checkout
-        uses: actions/checkout@v7
-
-      - name: Confirm regenerated PR head
-        if: steps.dispatch_target.outputs.sha != ''
-        shell: bash
-        env:
-          REPORT_SHA: ${{ steps.dispatch_target.outputs.sha }}
-        run: |
-          set -euo pipefail
-          CHECKED_OUT_SHA="$(git rev-parse HEAD)"
-          if [ "$REPORT_SHA" != "$CHECKED_OUT_SHA" ]; then
-            echo "::error title=Verification ref moved::Expected $REPORT_SHA but checked out $CHECKED_OUT_SHA."
-            exit 1
-          fi
-
-      # Verification only — no PDF rendering, so Node and Chrome are not installed.
-      - name: Set up study toolchain
-        uses: ./.github/actions/setup-study-env
+          PR_NUMBER: ${{ inputs.pr_number }}
+        run: python Scripts/_verify_ci_context.py
+      - uses: ./.github/actions/setup-study-env
         with:
           node: 'false'
-
+      - name: Verify study lifecycle without writes
+        if: github.event_name == 'pull_request' || inputs.pr_number != ''
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          BASE_SHA: ${{ steps.source.outputs.base }}
+        run: python Scripts/_validate_study_change.py --base-ref "$BASE_SHA" --body-file "$RUNNER_TEMP/verified-pr-body.txt"
       - name: Verify catalog JSON and index shell
         run: python Scripts/_verify_studies_index.py
-
       - name: Verify shared glossary tooltips in generated study HTML
         run: python Scripts/_sync_glossary_html.py --check
-
-      # Runs every Scripts/_test_*.py except the few held back in that script's
-      # HELD map, each with a written reason. Discovery is a denylist on purpose:
-      # only four of twenty-one suites used to be wired in here by name, and the
-      # other seventeen were enforced by nothing because adding a test file did
-      # not add it to CI. A new suite is now enforced the moment it lands.
-      #
-      # Covers, among others: the study-PR router (_test_ci_study_pr), the PDF
-      # date-pinning patches (_test_pdf_metadata), the commit-artifacts shell --
-      # the only part of CI that writes to a branch, and unreachable from the two
-      # labelled workflows that use it -- and the LF-write guard, which reads the
-      # source because this Linux runner cannot reproduce the Windows CRLF bug.
       - name: Run the enforced test suites
         run: python Scripts/_run_test_suites.py
-
-      # CLAUDE.md makes this sync mandatory after editing AGENTS.md or any
-      # SKILL.md, and nothing verified it, so the mirrors could drift silently.
       - name: Check agent rules and skills mirrors are in sync
         run: python Scripts/_sync_agent_rules.py --check
-
-      # workflow_dispatch check suites are not attached to a pull request even
-      # when --ref names its head branch. Complete the pending commit status that
-      # study-pr.yml placed on the exact regenerated SHA, so branch rules see the
-      # required `verify` result on the current PR head.
-      - name: Report regenerated PR-head verification
-        if: always() && steps.dispatch_target.outputs.sha != ''
+      - name: Require clean verification checkout
+        run: python Scripts/_generated_artifacts.py --check-clean
+  study-check:
+    needs: checks
+    uses: ./.github/workflows/study-pr.yml
+    with:
+      source_sha: ${{ needs.checks.outputs.head }}
+      base_sha: ${{ needs.checks.outputs.base }}
+  verify:
+    permissions:
+      contents: read
+      statuses: write
+    if: always()
+    needs: [checks, study-check]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every applicable check to succeed
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPORT_SHA: ${{ steps.dispatch_target.outputs.sha }}
+          CHECKS: ${{ needs.checks.result }}
+          STUDY: ${{ needs.study-check.result }}
+        run: test "$CHECKS" = success && test "$STUDY" = success
+      # GITHUB_TOKEN writes still need an explicit status on the prepared SHA.
+      # This bridge is limited to bot preparation and bootstrap; review is pure.
+      - name: Report exact prepared-head verification
+        if: always() && github.event_name == 'workflow_dispatch' && inputs.report_sha != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPORT_SHA: ${{ inputs.report_sha }}
           VERIFY_STATE: ${{ job.status == 'success' && 'success' || 'failure' }}
-        shell: bash
         run: |
-          set -euo pipefail
-          RUN_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          [[ "$REPORT_SHA" =~ ^[0-9a-f]{40}$ ]] || exit 1
           gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$REPORT_SHA" \
-            -f state="$VERIFY_STATE" \
-            -f context=verify \
-            -f description="Regenerated PR-head verification $VERIFY_STATE." \
-            -f target_url="$RUN_URL"
+            -f state="$VERIFY_STATE" -f context=verify \
+            -f description="Complete prepared-head verification $VERIFY_STATE." \
+            -f target_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"

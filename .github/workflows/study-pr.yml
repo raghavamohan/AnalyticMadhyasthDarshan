@@ -1,112 +1,80 @@
-name: Study PR
+name: Study check
 
-# Do not trigger on pull_request edited — body/checklist edits must not rerun
-# the full PDF pipeline (Puppeteer). Use synchronize (new commits) or labeled
-# (first application of new-study / study-update / status-change).
-#
-# `opened` is intentionally omitted. The job requires a study label (see `if`
-# below), so creating a PR with its label fires BOTH `opened` and `labeled`,
-# spawning two artifact writers on the same commit. With cancel-in-progress,
-# one can be interrupted after pushing but before it hands the regenerated head
-# to the required-check bridge below. Triggering on `labeled` alone yields one
-# run for the create-with-label flow; `synchronize` and `reopened` cover later
-# commits and reopens.
-
+# Called by the unfiltered required verifier. Never commits or publishes.
 on:
-  pull_request:
-    types:
-      - synchronize
-      - reopened
-      - labeled
-
+  workflow_call:
+    inputs:
+      source_sha:
+        type: string
+        required: true
+      base_sha:
+        type: string
+        required: true
 permissions:
-  actions: write
-  contents: write
-  pull-requests: write
-  statuses: write
-  # Rename handling patches the linked proposal issue's slug and title.
-  issues: write
-
-concurrency:
-  group: study-pr-${{ github.event.pull_request.number }}
-  cancel-in-progress: true
-
+  contents: read
 jobs:
-  study-pr:
-    if: |
-      contains(github.event.pull_request.labels.*.name, 'new-study') ||
-      contains(github.event.pull_request.labels.*.name, 'study-update') ||
-      contains(github.event.pull_request.labels.*.name, 'status-change')
+  markdown:
     runs-on: ubuntu-latest
+    outputs:
+      presentations_changed: ${{ steps.plan.outputs.presentations_changed }}
     steps:
-      # checkout v7 refuses to check out a fork's head under pull_request_target
-      # or workflow_run. This job checks out exactly that head, and is only safe
-      # because it triggers on plain `pull_request`, where the token is read-only
-      # for a fork. Switching this workflow to pull_request_target would not just
-      # be a privilege escalation -- the checkout itself would stop working.
-      - name: Checkout PR branch
-        uses: actions/checkout@v7
+      - uses: actions/checkout@v7
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          ref: ${{ inputs.source_sha }}
           fetch-depth: 0
-
-      - name: Fetch base branch
-        run: git fetch origin ${{ github.event.pull_request.base.ref }}:refs/remotes/origin/${{ github.event.pull_request.base.ref }}
-
-      # Referenced by owner/repo/path@ref rather than `./`, because the checkout
-      # above deliberately targets the PR head — which for a fork PR is the
-      # fork's tree. A relative `uses:` would look for the action there and fail
-      # with "Can't find 'action.yml'" on any fork whose branch predates it.
-      # Resolving from master also stops a study PR from altering the toolchain
-      # its own required check runs on. Pipeline changes to these actions are
-      # still exercised by studies-index-check.yml, which uses the local path.
-      - name: Set up study toolchain
-        uses: raghavamohan/AnalyticMadhyasthDarshan/.github/actions/setup-study-env@master
-
-      - name: Check study PR router
-        run: python Scripts/_test_ci_study_pr.py
-
-      - name: Run study PR pipeline
+          persist-credentials: false
+      - name: Plan affected build families from the exact upstream base
+        id: plan
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python Scripts/_ci_study_pr.py --base-ref origin/${{ github.event.pull_request.base.ref }}
-
-      - name: Commit regenerated artifacts
-        id: commit_artifacts
-        uses: raghavamohan/AnalyticMadhyasthDarshan/.github/actions/commit-artifacts@master
+          BASE_SHA: ${{ inputs.base_sha }}
+        run: python Scripts/_pdf_build_cache.py --keys --changed-since "$BASE_SHA" --github-output "$GITHUB_OUTPUT"
+      - uses: ./.github/actions/setup-study-env
         with:
-          paths: Studies References Applications infra/generated-pdf-worker/src/generated-pdf-keys.js
-          message: "ci: regenerate study artifacts"
-
-      # The artifact commit carries the CI-skip token, so it becomes the PR head
-      # without a pull_request check suite of its own. A workflow_dispatch run
-      # executes the right verifier at that ref, but its check suite is not
-      # associated with the pull request. Publish a pending commit status first;
-      # the dispatched workflow replaces it with success/failure after checking
-      # the exact SHA. This keeps the required `verify` context attached to the
-      # latest PR head instead of stranding the merge.
-      - name: Queue verification for regenerated PR head
-        if: steps.commit_artifacts.outputs.pushed == 'true'
+          node: ${{ steps.plan.outputs.markdown_changed == 'true' && 'true' || 'false' }}
+      - name: Render and verify affected Markdown PDFs
+        if: steps.plan.outputs.markdown_changed == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_SHA: ${{ inputs.base_sha }}
+        run: python Scripts/_build_markdown_pdfs.py --changed-since "$BASE_SHA" --output-root "$RUNNER_TEMP/study-review-pdfs"
+      - name: Verify affected reference sources
+        if: steps.plan.outputs.references_changed == 'true'
         run: |
-          set -euo pipefail
-          HEAD_SHA="$(git rev-parse HEAD)"
-          RUN_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-          VERIFY_WORKFLOW_URL="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/workflows/studies-index-check.yml"
-          gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$HEAD_SHA" \
-            -f state=pending \
-            -f context=verify \
-            -f description="Waiting for regenerated-head verification to start." \
-            -f target_url="$VERIFY_WORKFLOW_URL"
-          if ! gh workflow run studies-index-check.yml --ref "$HEAD_REF" \
-            -f report_sha="$HEAD_SHA"; then
-            gh api --method POST "repos/$GITHUB_REPOSITORY/statuses/$HEAD_SHA" \
-              -f state=failure \
-              -f context=verify \
-              -f description="Could not start regenerated-head verification." \
-              -f target_url="$RUN_URL"
-            exit 1
-          fi
+          python Scripts/_reference_artifacts.py --check
+          python Scripts/_rewrite_manifest_reference_links.py --check
+      - name: Require committed generated outputs to match
+        run: python Scripts/_generated_artifacts.py --check-clean
+      - uses: actions/upload-artifact@v6
+        if: steps.plan.outputs.markdown_changed == 'true'
+        with:
+          name: study-review-pdfs
+          path: ${{ runner.temp }}/study-review-pdfs
+          retention-days: 14
+          if-no-files-found: error
+  presentations:
+    needs: markdown
+    if: needs.markdown.outputs.presentations_changed == 'true'
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          persist-credentials: false
+      - uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+      - uses: actions/cache@v6
+        with:
+          path: ${{ runner.temp }}\presentation-renderers
+          key: presentation-renderer-${{ runner.os }}-${{ hashFiles('Scripts/presentation-pipeline.json') }}
+      - name: Install exact production renderer
+        shell: pwsh
+        run: ./Scripts/_install_presentation_renderer.ps1 -Profile libreoffice-production -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
+      - name: Build and verify presentations
+        shell: pwsh
+        run: python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root "$env:RUNNER_TEMP\presentation-review-pdfs"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: presentation-review-pdfs
+          path: ${{ runner.temp }}\presentation-review-pdfs
+          retention-days: 14
+          if-no-files-found: error

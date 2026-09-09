@@ -31,7 +31,7 @@
         if (event.data?.progress) { progress?.(event.data.progress); return; }
         clearTimeout(timer); channel.port1.close(); event.data?.error ? reject(new Error(event.data.error)) : resolve(event.data.result);
       };
-      reg.active.postMessage({type,path},[channel.port2]);
+      reg.active.postMessage({type,path,release:window.AMD_RELEASE},[channel.port2]);
     });
   }
   function description(item) {

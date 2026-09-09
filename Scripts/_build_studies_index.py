@@ -1960,6 +1960,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const discussLinkHtml = s => {
+    if (!isAvail(s)) return "";
     const href = studyDiscussionHref(s);
     const { count } = discussStatsFor(s.slug);
     const unread = isDiscussUnread(s.slug);
@@ -2213,6 +2214,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const studyDiscussionHref = s => {
+    if (!isAvail(s)) return `#study-${s.slug}`;
     const base = s.discussion || `${s.slug}/discussion.html`;
     const versionQuery = pdfVersionQuery(s.updated);
     if (!DISCUSS_ASSET_VERSION) return `${base}${versionQuery}`;
@@ -2240,7 +2242,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const discussHref = studyDiscussionHref(s);
     const titleInner = readable
       ? `<a href="${htmlHref}">${s.t}</a>`
-      : `<a href="${discussHref}">${s.t}</a>`;
+      : `<span>${s.t}</span>`;
     const cardClass = !avail ? "is-planned" : (s.status === "released" ? "is-released is-available" : "is-draft is-available");
     const badgeClass = !avail ? "planned" : (s.status === "released" ? "released" : "draft");
     const badgeLabel = !avail ? "In progress" : (s.status === "released" ? "Released" : "Draft");
@@ -2494,7 +2496,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
           studyLink.title = "Read the study";
         } else {
           studyLink.href = studyDiscussionHref(study);
-          studyLink.title = "Open discussion";
+          studyLink.title = "View planned study";
         }
       });
 
@@ -2512,6 +2514,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
       const action = own("[data-study-action]")[0];
       if (action) {
+        action.hidden = !isAvail(study);
         action.href = studyDiscussionHref(study);
         action.textContent = START_HERE_ACTION_WORDS[status];
       }
@@ -2902,6 +2905,8 @@ def _updated_date_only(updated: str | None) -> str:
 def _card_discuss_link_html(entry: dict, version_query: str) -> str:
     """Initial (pre-stats) discussion link: no comment count badge, matching the
     JS `discussLinkHtml` before `/api/discussions/stats` resolves."""
+    if entry["status"] == "ongoing":
+        return ""
     href = _card_discussion_href(entry, version_query)
     title = entry["title"]
     return (
@@ -3042,6 +3047,8 @@ def normalize_shell_text(text: str) -> str:
 
 
 def strip_build_time_data(content: str) -> str:
+    # Planned Start-here links point to their catalog card, not a reader.
+    content = re.sub(r'href="#study-([A-Za-z0-9-]+)"', r'href="\1/discussion.html"', content)
     result = re.sub(
         r'(<script type="application/json" id="catalog-bootstrap">)\s*.*?\s*(</script>)',
         rf"\1\n{CATALOG_BOOTSTRAP_PLACEHOLDER}\n\2",
@@ -3125,7 +3132,11 @@ def render_start_here_status(html: str, rows: list[StudyRow]) -> str:
             return match.group(0)
         return f"{head}{key}{mid}{START_HERE_STATUS_WORDS[key]}{tail}"
 
-    return START_HERE_PILL_RE.sub(rewrite, html)
+    html = START_HERE_PILL_RE.sub(rewrite, html)
+    for slug, key in status_by_slug.items():
+        if key == "planned":
+            html = html.replace(f'href="{slug}/discussion.html"', f'href="#study-{slug}"')
+    return html
 
 
 def verify_start_here_sync() -> list[str]:

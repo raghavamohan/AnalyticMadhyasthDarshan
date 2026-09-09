@@ -334,6 +334,10 @@ def rewrite_local_links_for_site(
                             reference_url = f"{reference_url}#{fragment}"
                         return f'href="{reference_url}"'
                 if candidate.is_relative_to(studies) or candidate.is_relative_to(applications):
+                    from _study_pdf_metadata import get_pdf_study_row
+                    target_row = get_pdf_study_row(candidate.parent.name)
+                    if target_row and target_row.status == StudyStatus.ONGOING:
+                        return f'href="{site_root}/Studies/index.html#study-{target_row.slug}"'
                     source_markdown = candidate.with_suffix(".md")
                     published_html = candidate.with_suffix(".html")
                     if source_markdown.is_file():

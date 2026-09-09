@@ -920,7 +920,7 @@ Human contributors follow the Web Submission Portal flow in [CONTRIBUTING.md](CO
 Agents and other direct-repo contributors must follow the same underlying shape as a plain git
 workflow: **never commit a `Studies/` or `Applications/` change directly to the default branch.** Every study
 addition, edit, removal, or status change lands through a pull request that CI
-(`.github/workflows/study-pr.yml` → `Scripts/_ci_study_pr.py`) can process.
+(`.github/workflows/studies-index-check.yml` → required `verify`) validates without writes.
 
 The pipeline itself — every workflow, its trigger, what it may write, what it does **not**
 check, and how to reproduce each check locally — is documented in
@@ -931,7 +931,7 @@ check, and how to reproduce each check locally — is documented in
 1. **Create a feature branch** before touching any file under `Studies/` or
    `Applications/`. Do not commit study
    changes on `master`/`main`.
-2. **Single or multi-study pull requests supported** — `Scripts/_ci_study_pr.py` automatically resolves and processes all changed study slugs in the PR diff (or reads the primary `Study slug:` field from the PR body). When a PR touches multiple studies (e.g. cross-study terminology updates, section-reference repairs, shared reference updates, or multi-study reviews), CI validates timestamp sync, generates and verifies affected PDFs, and runs reference checks for every changed study. Generated PDFs are CI artifacts, not Git changes. When a changed study adds, removes, or renumbers a heading, CI also validates cross-study `§` references both entering and leaving every changed markdown source; update referring studies in the **same** multi-study `study-update` PR.
+2. **Single or multi-study pull requests supported** — `Scripts/_validate_study_change.py` automatically resolves and processes all changed study slugs in the PR diff (or reads the primary `Study slug:` field from the PR body). When a PR touches multiple studies (e.g. cross-study terminology updates, section-reference repairs, shared reference updates, or multi-study reviews), CI validates timestamp sync, generates and verifies affected PDFs, and runs reference checks for every changed study. Generated PDFs are CI artifacts, not Git changes. When a changed study adds, removes, or renumbers a heading, CI also validates cross-study `§` references both entering and leaving every changed markdown source; update referring studies in the **same** multi-study `study-update` PR.
 3. **Run local verification before pushing** — the same checks CI runs, so the PR is expected to
    pass on first push:
    - `python Scripts/_quote_tool.py verify --study <Slug>` if you quoted a local source
@@ -956,7 +956,8 @@ check, and how to reproduce each check locally — is documented in
    **Study state is not pull-request state.** `Draft`, `Target status: draft`,
    "submit draft", and "draft submission" describe the study's lifecycle status
    (catalog status and PDF watermark). They do **not** request GitHub's draft-PR
-   state. Open study PRs as ready for review by default, including PRs that add or
+   state. The portal temporarily uses a GitHub draft PR while generated files are being
+   prepared, then marks it ready. Agents open study PRs as ready for review by default, including PRs that add or
    restore a Draft study. Use a GitHub draft PR (`gh pr create --draft`) only when
    the user explicitly asks for a **GitHub draft PR** because the PR work itself is
    incomplete; never infer it from the study's status.
@@ -1001,13 +1002,11 @@ normal labeled PR. PDF is never accepted as the canonical study source in the re
 
 ### Renaming a study slug
 
-Renaming is a **`study-update`** PR, not a silent directory move. When the diff renames
-one or more canonical `Studies/<Old>/<Old>.md` (or `Applications/`) sources,
-`_ci_study_pr.py` invokes `Scripts/_rename_study.py --metadata-only` for each rename to
-sync `proposal-registry.json`, `.proposal-meta.json`, and the linked GitHub proposal
-issue slug **and title**. Moving a figure or companion file between study directories is
-not misclassified as a study rename. The PR must set `Study slug: <New-Slug>` to one of
-the new slugs and include registry/meta updates (or let CI write them on the branch).
+Renaming is a **`study-update`** PR. Before review, run the lifecycle script with
+`--skip-issue` and include the directory, catalog, registry and metadata changes.
+Preparation uses the same flag. Issue slug/title reconciliation runs from merged
+metadata in `publish-site.yml`; never let an unmerged rename alter contributor-facing
+issue metadata. The PR names one new slug and includes all cross-study repairs.
 
 The catalog JSON order is the display-order source of truth; renaming preserves the row's
 position. Canonical `<Old>.md` / `.html` files take the new stem; the R2 PDF key
@@ -1023,41 +1022,28 @@ Agent skill (full checklist, Start here, My Submissions):
 For local/maintainer runs before opening the PR:
 
 ```powershell
-python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title"
+python Scripts/_rename_study.py --from Old-Slug --to New-Slug --title "New display title" --skip-issue
 ```
 
 Keep slugs at or under **60 characters**. The portal rejects longer slugs at proposal time.
 
 ### Why this matters
 
-`Scripts/_ci_study_pr.py` re-derives the slug, re-syncs the catalog timestamp from the study's
-`**Edited on:**`, generates and verifies the PDF, runs reference checks when the bibliography changed, and
-verifies timestamp/catalog sync — all keyed to the PR's label and body field. Committing directly
-to the default branch skips every one of those checks and is how catalogs, timestamps, and PDFs
-drift out of sync with the source `.md`.
+The required `verify` aggregate runs on every PR. It checks source/catalog metadata,
+timestamps, reference integrity, generated files and applicable document builds.
+It infers lifecycle intent from paths/body fields; a missing label cannot bypass it.
+Generated drift fails the checked commit. Review jobs never commit repairs or receive
+publication secrets. Local/fork contributors prepare generated files before review.
 
-CI **commits regenerated tracked artifacts such as HTML back to the branch**, but never
-generated PDFs. It can push only for a branch in this
-repository. GitHub gives a pull request from a fork a read-only token regardless of the
-workflow's `permissions:` block, so on a fork the push is impossible: `commit-artifacts`
-detects that case and fails with the commands to run locally instead. Contributors working
-from a fork must therefore regenerate tracked artifacts themselves — step 3 above is not
-optional for them. The protected-branch generated-PDF workflow publishes verified PDFs to R2
-and audits the public paths after merge.
+Portal preparation happens in a separate read-only build. A trusted default-branch
+consumer validates its output contract and unchanged source SHA before adding one
+non-force artifact commit. Bot preparation and bootstrap explicitly dispatch the full
+required verifier with `report_sha`; failure to dispatch must fail that exact status.
 
-When CI pushes those tracked artifacts, the bot commit becomes the PR's new head without a
-normal `pull_request` check suite. The study workflow must publish a pending `verify` status on
-that exact SHA and dispatch the Studies index workflow with the SHA as `report_sha`; the
-dispatched verifier validates its checkout and replaces the status with success or failure.
-Do not replace this with a bare `workflow_dispatch`: its run can pass without attaching a
-required check to the PR head, leaving the PR permanently pending. See [.github/CI.md](.github/CI.md)
-§2.1 and §5.
-
-The default-branch ruleset requires the `verify` check from **Studies index**, which
-runs on every pull request. It does **not** require `study-pr`, which cannot be
-required because it does not run at all on a PR opened without a study label. So a red
-or skipped `study-pr` does not block a merge: verify locally (step 3) rather than
-relying on CI to stop a bad push. See [.github/CI.md](.github/CI.md) §5.
+After merge, the serialized publication workflow stages and audits a complete site
+revision. It publishes the catalog, reader and matching PDF through one release
+manifest; public status is separate from repository authoring readiness. The legacy
+host remains during the staged migration described in [.github/CI.md](.github/CI.md).
 
 ### Completion check
 
