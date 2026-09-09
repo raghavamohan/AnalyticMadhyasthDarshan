@@ -79,6 +79,57 @@ test('Studies API 502 uses the common HTTP error envelope', async () => {
   }
 });
 
+test('Studies API reads immutable deployment data before the public-site fallback', async () => {
+  const original = globalThis.fetch;
+  const calls = [];
+  try {
+    globalThis.fetch = async input => {
+      calls.push(String(input));
+      return Response.json([
+        {slug:'One',title:'One',status:'draft',collection:'topical'},
+      ]);
+    };
+    const worker = await loadWorker('source-order');
+    const response = await worker.fetch(new Request(
+      'https://analyticmadhyasthdarshan.org/api/studies?limit=1',
+    ));
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).studies[0].slug, 'One');
+    const revision = source.match(/const SOURCE_REVISION = "([0-9a-f]{40})";/)?.[1];
+    assert.ok(revision);
+    assert.equal(
+      calls[0],
+      `https://raw.githubusercontent.com/raghavamohan/AnalyticMadhyasthDarshan/${revision}/Studies/catalog-all.json`,
+    );
+  } finally {
+    globalThis.fetch = original;
+  }
+});
+
+test('Studies API retains the public site as an availability fallback', async () => {
+  const original = globalThis.fetch;
+  const calls = [];
+  try {
+    globalThis.fetch = async input => {
+      calls.push(String(input));
+      if (calls.length === 1) return new Response('unavailable', {status: 503});
+      return Response.json([
+        {slug:'Fallback',title:'Fallback',status:'draft',collection:'topical'},
+      ]);
+    };
+    const worker = await loadWorker('source-fallback');
+    const response = await worker.fetch(new Request(
+      'https://analyticmadhyasthdarshan.org/api/studies?limit=1',
+    ));
+    assert.equal(response.status, 200);
+    assert.equal((await response.json()).studies[0].slug, 'Fallback');
+    assert.match(calls[0], /^https:\/\/raw\.githubusercontent\.com\//);
+    assert.equal(calls[1], 'https://analyticmadhyasthdarshan.org/Studies/catalog-all.json');
+  } finally {
+    globalThis.fetch = original;
+  }
+});
+
 test('Studies API pagination is bounded and advertises the edge quota', async () => {
   const original = globalThis.fetch;
   try {

@@ -1,6 +1,6 @@
 const ORIGIN = "https://analyticmadhyasthdarshan.org";
 const GITHUB_RAW =
-  "https://raw.githubusercontent.com/raghavamohan/AnalyticMadhyasthDarshan/master";
+  `https://raw.githubusercontent.com/raghavamohan/AnalyticMadhyasthDarshan/${SOURCE_REVISION}`;
 const PROTOCOL_VERSIONS = ["2025-06-18", "2025-03-26", "2024-11-05"];
 const DEFAULT_PROTOCOL = PROTOCOL_VERSIONS[0];
 const CITATION_AUTHOR = "Raghav Mohan";
@@ -259,7 +259,11 @@ function validateCatalogInput(input) {
 }
 
 async function fetchJson(path) {
-  const urls = [`${ORIGIN}${path}`, `${GITHUB_RAW}${path}`];
+  // A catalog-changing merge deploys this Worker and the complete site in
+  // parallel. Pin the primary read to this Worker's immutable source commit so
+  // a same-origin edge copy from the preceding site release cannot make the API
+  // publish an older catalog. The public site remains the availability fallback.
+  const urls = [`${GITHUB_RAW}${path}`, `${ORIGIN}${path}`];
   let lastError = null;
   for (const url of urls) {
     try {
