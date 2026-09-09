@@ -33,6 +33,14 @@ def check(path: Path, expected: str, *, require_generated: bool) -> None:
     print(f"OK: {path.relative_to(BASE)} matches canonical inputs byte-for-byte.")
 
 
+def check_public_body(source: str, constant: str, path: Path) -> None:
+    """The routed response must match the file included in the site release."""
+    body, _ = json.JSONDecoder().raw_decode(source.split(f'const {constant} = ', 1)[1])
+    if not isinstance(body, str) or body.encode('utf-8') != path.read_bytes():
+        fail(f'{constant} response differs from release file {path.relative_to(BASE)}')
+    print(f'OK: {constant} response matches release file bytes.')
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(
         description="Validate generated discovery Worker bundles."
@@ -48,18 +56,23 @@ def main() -> None:
     maintainer_index = json.loads(
         agent_skills.MAINTAINER_INDEX_PATH.read_text(encoding="utf-8")
     )
+    skills_source = agent_skills.worker_js(
+        agent_index,
+        maintainer_index,
+        agent_skills.load_published_skills(),
+    )
+    check_public_body(skills_source, 'INDEX', agent_skills.INDEX_PATH)
+    check_public_body(skills_source, 'MAINTAINER_INDEX', agent_skills.MAINTAINER_INDEX_PATH)
     check(
         agent_skills.WORKER_SRC,
-        agent_skills.worker_js(
-            agent_index,
-            maintainer_index,
-            agent_skills.load_published_skills(),
-        ),
+        skills_source,
         require_generated=args.require_generated,
     )
+    card_source = mcp.worker_js(json.loads(mcp.CARD_PATH.read_text(encoding="utf-8")))
+    check_public_body(card_source, 'CARD_BODY', mcp.CARD_PATH)
     check(
         mcp.WORKER_SRC,
-        mcp.worker_js(json.loads(mcp.CARD_PATH.read_text(encoding="utf-8"))),
+        card_source,
         require_generated=args.require_generated,
     )
     check(

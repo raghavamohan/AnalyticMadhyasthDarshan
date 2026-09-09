@@ -13,7 +13,10 @@ from pathlib import Path
 import subprocess
 import time
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 import uuid
+from datetime import datetime, timezone
+from urllib.parse import urlsplit
 
 import _cloudflare_performance as cf
 from _common import BASE
@@ -26,6 +29,28 @@ WORKER = "amd-site"
 CANARY = "amd-site-canary"
 SOURCE = BASE / "infra/site-worker/src/index.js"
 AUDIT_USER_AGENT = "AMD-Publication-Audit/1.0"
+
+
+class ReleaseNotReady(ValueError):
+    """The deployment endpoint has not yet switched to the expected revision."""
+
+
+def audit_retry(operation, description: str):
+    """Allow bounded edge propagation without retrying corrupt content or access denial."""
+    delays = (2, 4, 8, 10, 10)
+    for attempt in range(len(delays) + 1):
+        try:
+            return operation()
+        except (HTTPError, ReleaseNotReady) as error:
+            if isinstance(error, HTTPError):
+                if error.code not in {404, 502, 503, 504}:
+                    raise
+                error.close()
+            if attempt == len(delays):
+                raise
+            delay = delays[attempt]
+            progress(f'Waiting for {description}: {error}; retry {attempt + 1}/{len(delays)} in {delay}s.')
+            time.sleep(delay)
 
 
 def progress(message: str) -> None:
@@ -137,21 +162,76 @@ def public_state(base: str) -> dict:
         return json.loads(response.read())
 
 
-def audit(base: str, root: Path, manifest: dict) -> None:
+def edge_response_matches(path: str, body: bytes, record: dict, expected: bytes | None = None) -> bool:
+    """Validate the two documented Cloudflare-managed document transformations."""
+    if path == '/robots.txt':
+        try:
+            body.decode('utf-8')
+        except UnicodeError:
+            return False
+        begin = b'# BEGIN Cloudflare Managed content'
+        end = b'# END Cloudflare Managed Content'
+        if body.count(begin) != 1 or body.count(end) != 1:
+            return False
+        prefix, rest = body.split(begin)
+        if end not in rest:
+            return False
+        managed, origin = rest.split(end)
+        if any(line.strip() and not line.lstrip().startswith(b'#') for line in prefix.splitlines()):
+            return False
+        directives = [line.strip().lower() for line in managed.splitlines() if line.strip() and not line.lstrip().startswith(b'#')]
+        if not any(line.startswith(b'user-agent:') for line in directives):
+            return False
+        if any(not line.startswith((b'user-agent:', b'content-signal:', b'allow:', b'disallow:')) for line in directives):
+            return False
+        # The managed policy belongs to zone configuration. The original site's
+        # bytes must still be present intact, apart from wrapper blank lines.
+        origin = origin.strip(b'\r\n')
+        return any(len(candidate) == record['bytes'] and digest(candidate) == record['sha256']
+                   for candidate in (origin, origin + b'\n', origin + b'\r\n'))
+    if path != '/.well-known/security.txt' or expected is None:
+        return False
+    if len(expected) != record['bytes'] or digest(expected) != record['sha256']:
+        return False
+    def fields(raw):
+        result = {}
+        for line in raw.decode('utf-8').splitlines():
+            if not line.strip() or line.lstrip().startswith('#'):
+                continue
+            key, value = line.split(':', 1)
+            key, value = key.strip().lower(), value.strip()
+            if key == 'expires':
+                stamp = datetime.fromisoformat(value.replace('Z', '+00:00'))
+                if stamp.tzinfo is None:
+                    raise ValueError('security.txt expiry must include its time zone')
+                value = stamp.astimezone(timezone.utc).isoformat()
+            result.setdefault(key, []).append(value)
+        return {key: sorted(values) for key, values in result.items()}
+    try:
+        return fields(body) == fields(expected)
+    except (UnicodeError, ValueError):
+        return False
+
+
+def audit(base: str, root: Path, manifest: dict, *, origin_base: str | None = None) -> None:
     started = time.monotonic()
     progress(f'Checking active release at {base}/.well-known/publication.json.')
-    if public_state(base)["revision"] != manifest["revision"]:
-        raise ValueError("The endpoint is serving another release")
+    def require_revision():
+        if public_state(base)["revision"] != manifest["revision"]:
+            raise ReleaseNotReady("The endpoint is serving another release")
+    audit_retry(require_revision, f'the expected release at {base}')
     # Download every document and discovery surface; HEAD the remaining assets.
     total = len(manifest['files'])
     for index, (path, record) in enumerate(manifest["files"].items(), 1):
         from urllib.parse import quote
-        full = path.endswith((".html", ".pdf", ".json", ".txt"))
+        # Dedicated Markdown services may correctly omit Content-Length on HEAD.
+        # Read their complete bytes and verify the checksum as for other documents.
+        full = path.endswith((".html", ".pdf", ".json", ".txt", ".md"))
         if index == 1 or index % 25 == 0 or index == total:
             progress(f'Auditing URL {index}/{total} ({time.monotonic() - started:.0f}s): {path}')
         request = Request(base.rstrip("/") + quote(path, safe="/") + "?r=" + manifest["revision"],
                           method="GET" if full else "HEAD", headers={'User-Agent': AUDIT_USER_AGENT})
-        with urlopen(request, timeout=60) as response:
+        with audit_retry(lambda: urlopen(request, timeout=60), path) as response:
             # R2 can describe an entire object as a range even for a plain GET.
             # Accept it only when the range covers every expected byte; partial
             # responses must not pass the complete-release audit.
@@ -162,7 +242,15 @@ def audit(base: str, root: Path, manifest: dict) -> None:
             if full:
                 body = response.read()
                 if len(body) != record['bytes'] or digest(body) != record["sha256"]:
-                    raise ValueError(f"Public checksum/size mismatch: {path}")
+                    expected = None
+                    managed_host = urlsplit(base).hostname == cf.SITE_HOST
+                    if managed_host and path == '/.well-known/security.txt' and origin_base:
+                        source = Request(origin_base.rstrip('/') + path + '?r=' + manifest['revision'], headers={'User-Agent': AUDIT_USER_AGENT})
+                        with audit_retry(lambda: urlopen(source, timeout=60), path + ' release origin') as original:
+                            expected = original.read()
+                    if not managed_host or not edge_response_matches(path, body, record, expected):
+                        raise ValueError(f"Public checksum/size mismatch: {path}")
+                    progress(f'Validated Cloudflare-managed response while preserving release content: {path}')
             if not full and int(response.headers.get("Content-Length", "-1")) != record["bytes"]:
                 raise ValueError(f"Public size mismatch: {path}")
     progress(f'Audited {total} release URLs at {base} in {time.monotonic() - started:.0f}s.')
@@ -171,7 +259,9 @@ def audit(base: str, root: Path, manifest: dict) -> None:
 def audit_public_if_active(token: str, zone: str, root: Path, manifest: dict) -> None:
     routes = cf.list_worker_routes(token, zone)
     if any(route.get('pattern') == f'{cf.SITE_HOST}/*' and route.get('script') == WORKER for route in routes):
-        audit(f'https://{cf.SITE_HOST}', root, manifest)
+        account = _zone_account_id(token, zone)
+        origin = f'https://{WORKER}.{_workers_subdomain(token, account)}.workers.dev'
+        audit(f'https://{cf.SITE_HOST}', root, manifest, origin_base=origin)
 
 
 def activate_version(token: str, account: str, version: str) -> None:

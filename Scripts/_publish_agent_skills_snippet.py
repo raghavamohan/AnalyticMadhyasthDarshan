@@ -28,10 +28,10 @@ COMPATIBILITY_DATE = "2024-03-01"
 
 
 def worker_js(index: dict, maintainer_index: dict, skills: dict[str, str]) -> str:
-    body = json.dumps(index, separators=(",", ":"), ensure_ascii=False)
+    body = json.dumps(index, indent=2, ensure_ascii=False) + "\n"
     maintainer_body = json.dumps(
-        maintainer_index, separators=(",", ":"), ensure_ascii=False
-    )
+        maintainer_index, indent=2, ensure_ascii=False
+    ) + "\n"
     etag = hashlib.sha256(body.encode("utf-8")).hexdigest()[:16]
     maintainer_etag = hashlib.sha256(maintainer_body.encode("utf-8")).hexdigest()[:16]
     skill_entries = ",\n".join(

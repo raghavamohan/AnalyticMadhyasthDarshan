@@ -180,6 +180,24 @@ endpoint and subsequent GET/HEAD requests. The first hosted canary exposed a 403
 with Cloudflare error 1010 for Python's default user agent; the named audit client
 was accepted. HTTP and checksum failures remain fatal. A retry reuses verified
 immutable objects and already-uploaded static assets.
+The audit allows five short retries for an old active revision or HTTP
+404/502/503/504 while a Worker deployment propagates. Persistent failures and
+access denial still fail; incorrect sizes and checksums are never retried.
+Markdown is downloaded and checksummed, including dedicated agent-skills routes
+whose valid HEAD responses omit `Content-Length`.
+The skills indexes and MCP server card use the same JSON formatting as their
+canonical files. Their dedicated Worker responses must match release checksums;
+the generated-bundle check enforces this response-to-file contract.
+On the public hostname, Cloudflare-managed `robots.txt` and `security.txt` are
+validated as edge policy documents. The managed robots wrapper must retain the
+exact release body; the security fields, including expiry, must match the
+checksummed release origin, allowing field ordering and equivalent timestamp
+formatting. Other checksum differences remain fatal. Keep the zone's managed
+crawler preferences enabled; do not remove them to make a release audit pass.
+Revision-pinned responses use `Cache-Control: no-transform`: email obfuscation,
+JavaScript detection and automatic analytics injection must not alter the bytes
+whose hashes the offline reader verifies. Canonical URLs retain their existing
+edge behavior; zone-wide security, crawler and analytics settings stay enabled.
 The document audit accepts an R2 HTTP 206 only when `Content-Range` covers the
 entire expected object and both its actual byte count and SHA-256 match. A partial,
 truncated, or corrupt response fails the audit.
