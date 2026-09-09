@@ -116,10 +116,12 @@ def build(output: Path, artifact_root: Path | None, *, root: Path = BASE, source
     pdfs = verify_artifacts(generated_pdf_specs(), artifact_root) if artifact_root else []
     for pdf in pdfs:
         files["/" + pdf.spec.key] = pdf.path
-    # Also bind the release to the toolchain and actual compiled bytes, so a
-    # renderer rebuild of one source commit has a distinct immutable revision.
+    # Bind the immutable revision to the toolchain and actual compiled bytes.
+    # ``sourceSha`` remains monotonic publication provenance, but excluding it
+    # here lets a CI-only commit advance that pointer without repinning every
+    # HTML page or creating duplicate content-addressed objects.
     inputs = {path: digest(file.read_bytes()) for path, file in files.items()}
-    revision = digest(encode({"source": source_sha, "inputs": inputs, "builder": digest(Path(__file__).read_bytes())}))
+    revision = digest(encode({"inputs": inputs, "builder": digest(Path(__file__).read_bytes())}))
     available = set(files)
     bodies = {path: file.read_bytes() for path, file in files.items()}
     for path, body in list(bodies.items()):

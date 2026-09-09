@@ -311,6 +311,27 @@ def audit_public_if_active(token: str, zone: str, root: Path, manifest: dict) ->
         audit(f'https://{cf.SITE_HOST}', root, manifest, origin_base=origin)
 
 
+def audit_publication_marker(base: str, manifest: dict) -> None:
+    """Verify a source-pointer-only deployment without redownloading unchanged assets."""
+    progress(f'Checking publication marker at {base}/.well-known/publication.json.')
+
+    def require_marker():
+        state = public_state(base)
+        if (state.get("revision"), state.get("sourceSha")) != (
+            manifest["revision"], manifest["sourceSha"]
+        ):
+            raise ReleaseNotReady("The endpoint is serving another publication marker")
+
+    audit_retry(require_marker, f'the expected publication marker at {base}')
+    progress(f'Publication marker verified at {base}.')
+
+
+def audit_public_marker_if_active(token: str, zone: str, manifest: dict) -> None:
+    routes = cf.list_worker_routes(token, zone)
+    if any(route.get('pattern') == f'{cf.SITE_HOST}/*' and route.get('script') == WORKER for route in routes):
+        audit_publication_marker(f'https://{cf.SITE_HOST}', manifest)
+
+
 def activate_version(token: str, account: str, version: str) -> None:
     cf._api_request("POST", f"/accounts/{account}/workers/scripts/{WORKER}/deployments", token,
                     {"strategy": "percentage", "versions": [{"version_id": version, "percentage": 100}]})
@@ -324,6 +345,48 @@ def assert_forward(previous: dict, candidate: dict) -> None:
     check = subprocess.run(["git", "merge-base", "--is-ancestor", previous["sourceSha"], candidate["sourceSha"]], cwd=BASE)
     if check.returncode:
         raise ValueError("An older or unrelated release cannot replace the active revision; use explicit rollback.")
+
+
+def advance_source_pointer(
+    token: str,
+    zone: str,
+    account: str,
+    subdomain: str,
+    client,
+    root: Path,
+    manifest: dict,
+    prior: list[dict],
+    active: dict,
+    *,
+    promote: bool,
+) -> None:
+    """Advance publication provenance when the immutable site bytes are unchanged."""
+    production = f"https://{WORKER}.{subdomain}.workers.dev"
+    progress(
+        f'Public bytes are unchanged at revision {manifest["revision"]}; '
+        f'advancing source pointer to {manifest["sourceSha"]}.'
+    )
+    deploy(token, account, CANARY, client, root, manifest, version_only=False)
+    audit_publication_marker(f"https://{CANARY}.{subdomain}.workers.dev", manifest)
+    if not promote:
+        print("Source pointer verified on canary. Production has not been promoted.")
+        return
+    current = public_state(production)
+    if (current.get("revision"), current.get("sourceSha")) != (
+        active.get("revision"), active.get("sourceSha")
+    ):
+        raise ValueError("Active publication moved during source-pointer preparation; retry against current state")
+    version = deploy(token, account, WORKER, client, root, manifest, version_only=True)
+    previous_version = prior[0]["versions"][0]["version_id"]
+    activate_version(token, account, version)
+    try:
+        audit_publication_marker(production, manifest)
+        audit_public_marker_if_active(token, zone, manifest)
+    except Exception:
+        activate_version(token, account, previous_version)
+        raise
+    record_source_deployment(client, manifest, version)
+    print(f'Advanced publication source to {manifest["sourceSha"]} without changing public bytes.')
 
 
 def publish(root: Path, *, promote: bool) -> None:
@@ -347,6 +410,12 @@ def publish(root: Path, *, promote: bool) -> None:
     if active:
         assert_forward(active, manifest)
         if active["revision"] == manifest["revision"]:
+            if active.get("sourceSha") != manifest["sourceSha"]:
+                advance_source_pointer(
+                    token, zone, account, subdomain, client, root, manifest,
+                    prior, active, promote=promote,
+                )
+                return
             audit(f"https://{WORKER}.{subdomain}.workers.dev", root, manifest)
             audit_public_if_active(token, zone, root, manifest)
             record_deployment(client, manifest, prior[0]['versions'][0]['version_id'])
@@ -382,6 +451,12 @@ def record_deployment(client, manifest: dict, version: str) -> None:
     if not client.head_object(key):
         receipt = {'revision':manifest['revision'], 'sourceSha':manifest['sourceSha'], 'version':version}
         put_verified(client,key,encode(receipt),'application/json',filename='deployment.json')
+
+
+def record_source_deployment(client, manifest: dict, version: str) -> None:
+    key = f'site/source-deployments/{manifest["sourceSha"]}.json'
+    receipt = {'revision': manifest['revision'], 'sourceSha': manifest['sourceSha'], 'version': version}
+    put_verified(client, key, encode(receipt), 'application/json', filename='source-deployment.json')
 
 
 def rollback(revision: str) -> None:

@@ -115,9 +115,11 @@ Closed/declined issue #420 must not be used as a bootstrap test.
 ## Complete website releases
 
 `_site_release.py` builds a disposable assets tree and `release.json`, binding the
-source commit, actual file SHA-256/size, PDF source hashes, publication status and
-output contract to one revision. The source checkout is never transformed in place.
-Private metadata, tooling, Planned readers and ignored local files are excluded.
+actual file SHA-256/size, PDF source hashes, publication status and output contract
+to one immutable content revision. The source commit remains separate publication
+provenance, so a CI-only commit can advance `sourceSha` without assigning new URLs
+to unchanged bytes. The source checkout is never transformed in place. Private
+metadata, tooling, Planned readers and ignored local files are excluded.
 
 Own-site files are staged at `site/objects/<sha256>` in the generated-PDF bucket.
 Release manifests live at `site/releases/<revision>.json`. Existing objects must
@@ -144,6 +146,14 @@ Worker version. A deployment receipt supports explicit rollback:
 ```powershell
 python Scripts/_publish_site_release.py --rollback <retained-revision>
 ```
+
+When the candidate content revision is already active but `sourceSha` advanced,
+the publisher deploys and verifies the new publication marker on canary, rechecks
+production, then promotes the marker-only Worker version. It skips immutable R2
+staging and the three complete URL audits because their checksummed content is
+unchanged. Production and the public route still verify both revision and source
+SHA, and a failed marker check restores the previous Worker version. Source-SHA
+receipts are stored separately from content-revision rollback receipts.
 
 Rollback requires the corresponding retained Cloudflare Worker version. The first
 rollout deliberately has **no automatic garbage collection**: publication never

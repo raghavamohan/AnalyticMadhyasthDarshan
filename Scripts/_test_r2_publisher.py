@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import os
 import tempfile
+import threading
 import unittest
 import uuid
 from unittest.mock import patch
@@ -23,6 +24,7 @@ from _publish_generated_pdfs import (
 from _publish_reference_artifacts import (
     _object_matches_manifest,
     _source_path as reference_source_path,
+    verify_rows as verify_reference_rows,
 )
 from _presentation_pipeline import load_manifest
 from _r2_s3 import R2S3Client, load_r2_config
@@ -238,6 +240,26 @@ class PublisherTests(unittest.TestCase):
         self.assertFalse(
             _object_matches_manifest({**headers, "content-length": "124"}, source)
         )
+
+    def test_reference_verification_checks_independent_objects_concurrently(self) -> None:
+        rows = [
+            {"target": {"r2_key": key}, "source": {"bytes": 1, "sha256": key}}
+            for key in ("a", "b")
+        ]
+
+        class ConcurrentClient:
+            def __init__(self):
+                self.barrier = threading.Barrier(2)
+                self.calls: list[str] = []
+
+            def head_object(self, key: str):
+                self.calls.append(key)
+                self.barrier.wait(timeout=2)
+                return {"content-length": "1", "x-amz-meta-sha256": key}
+
+        client = ConcurrentClient()
+        verify_reference_rows(client, rows)
+        self.assertEqual(set(client.calls), {"a", "b"})
 
 
 @unittest.skipUnless(os.environ.get("AMD_RUN_LIVE_R2_TEST") == "1", "live R2 test not enabled")
