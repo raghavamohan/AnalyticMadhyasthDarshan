@@ -26,7 +26,6 @@ ROOT_SCRIPTS = {
 COMMON_INPUTS = {
     "Scripts/_pdf_build_cache.py", "requirements.txt", "CNAME",
     ".github/actions/setup-study-env/action.yml",
-    ".github/workflows/generated-pdf-publish.yml",
 }
 IMAGE_SUFFIXES = {".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
 PDF_RENDERER_INPUTS = {
@@ -36,6 +35,7 @@ PDF_RENDERER_INPUTS = {
     "Scripts/_render_katex_math.js",
 }
 GLOSSARY_INPUT = "Studies/glossary.json"
+REFERENCE_MANIFEST = "References/r2-artifacts.json"
 
 
 def tracked_files(root: Path) -> set[str]:
@@ -45,9 +45,39 @@ def tracked_files(root: Path) -> set[str]:
     return {name for name in result.stdout.decode("utf-8").split("\0") if name}
 
 
+def reference_build_inputs(root: Path) -> set[str]:
+    """Return only files consumed by the public reference-PDF batch."""
+    selected = {REFERENCE_MANIFEST}
+    manifest_path = root / REFERENCE_MANIFEST
+    if not manifest_path.is_file():
+        return selected
+    try:
+        artifacts = json.loads(manifest_path.read_text(encoding="utf-8")).get("artifacts", [])
+    except (json.JSONDecodeError, OSError):
+        return selected
+    for row in artifacts:
+        target = row.get("target") or {}
+        if target.get("storage") != "r2-public" or not str(target.get("r2_key", "")).lower().endswith(".pdf"):
+            continue
+        for name in ((row.get("generation") or {}).get("source_markdown"),):
+            if not isinstance(name, str) or not name.startswith("References/"):
+                continue
+            selected.add(name)
+            parent = (root / name).parent
+            if Path(name).suffix.lower() == ".md" and parent.is_dir():
+                selected.update(
+                    path.relative_to(root).as_posix()
+                    for path in parent.iterdir()
+                    if path.is_file() and path.suffix.lower() in IMAGE_SUFFIXES
+                )
+    return selected
+
+
 
 def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
     selected = COMMON_INPUTS | script_dependencies(root, ROOT_SCRIPTS[family])
+    if family == "references":
+        selected.update(reference_build_inputs(root))
     for name in tracked:
         path = Path(name)
         suffix = path.suffix.lower()
@@ -86,8 +116,6 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
                 ):
                     selected.add(name)
                 selected.add("Scripts/presentation-pipeline.json")
-            elif name.startswith("References/") and suffix in ({".md", ".html", ".pdf"} | IMAGE_SUFFIXES):
-                selected.add(name)
     return selected
 
 
@@ -121,10 +149,8 @@ def affected_families(
                 continue
             elif suffix in ({".md", ".json"} | IMAGE_SUFFIXES):
                 affected.add("markdown")
-        if name.startswith("References/") and suffix in ({".md", ".html", ".pdf"} | IMAGE_SUFFIXES):
-            affected.add("references")
-            if name == "References/r2-artifacts.json":
-                affected.add("markdown")
+        if name == REFERENCE_MANIFEST:
+            affected.update({"markdown", "references"})
     return affected
 
 

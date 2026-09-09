@@ -13,6 +13,9 @@ on:
       source_sha:
         required: false
         type: string
+      base_sha:
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -22,8 +25,28 @@ concurrency:
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
+  validate:
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha || github.sha }}
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+      - name: Validate the exact publication commit
+        run: |
+          python Scripts/_verify_studies_index.py
+          python Scripts/_sync_glossary_html.py --check
+          python Scripts/_sync_agent_rules.py --check
+          python Scripts/_run_test_suites.py
+
   pdfs:
     runs-on: ubuntu-latest
+    outputs:
+      references_changed: ${{ steps.pdf-inputs.outputs.references_changed }}
     steps:
       - name: Checkout complete history
         uses: actions/checkout@v7
@@ -35,10 +58,9 @@ jobs:
         id: pdf-inputs
         shell: bash
         env:
-          EVENT_NAME: ${{ github.event_name }}
-          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha || inputs.base_sha }}
         run: |
-          if [[ "$EVENT_NAME" == "pull_request" ]]; then
+          if [[ -n "$BASE_SHA" ]]; then
             python Scripts/_pdf_build_cache.py --keys --changed-since "$BASE_SHA" --github-output "$GITHUB_OUTPUT"
           else
             python Scripts/_pdf_build_cache.py --keys --github-output "$GITHUB_OUTPUT"
@@ -57,7 +79,7 @@ jobs:
       - name: Restore complete reference PDF build
         if: >-
           github.event_name != 'workflow_dispatch' &&
-          (github.event_name != 'pull_request' || steps.pdf-inputs.outputs.references_changed == 'true')
+          steps.pdf-inputs.outputs.references_changed == 'true'
         id: reference-cache
         uses: actions/cache/restore@v6
         with:
@@ -92,7 +114,7 @@ jobs:
             ${{ (
               ((github.event_name != 'pull_request' || steps.pdf-inputs.outputs.markdown_changed == 'true') &&
                steps.markdown-cache.outputs.cache-hit != 'true') ||
-              ((github.event_name != 'pull_request' || steps.pdf-inputs.outputs.references_changed == 'true') &&
+              (steps.pdf-inputs.outputs.references_changed == 'true' &&
                steps.reference-cache.outputs.cache-hit != 'true')
             ) && 'true' || 'false' }}
 
@@ -132,7 +154,7 @@ jobs:
       - name: Build and verify normalized reference PDFs
         if: >-
           steps.reference-cache.outputs.cache-hit != 'true' &&
-          (github.event_name != 'pull_request' || steps.pdf-inputs.outputs.references_changed == 'true')
+          steps.pdf-inputs.outputs.references_changed == 'true'
         run: >-
           python Scripts/_build_reference_pdfs.py --all
           --output-root "$RUNNER_TEMP/generated-reference-pdfs"
@@ -140,13 +162,12 @@ jobs:
       - name: Recheck restored reference PDFs against the manifest
         if: >-
           steps.reference-cache.outputs.cache-hit == 'true' &&
-          (github.event_name != 'pull_request' || steps.pdf-inputs.outputs.references_changed == 'true')
+          steps.pdf-inputs.outputs.references_changed == 'true'
         run: >-
           python Scripts/_build_reference_pdfs.py --verify-only
           --output-root "$RUNNER_TEMP/generated-reference-pdfs"
 
       - name: Verify reference manifest and Markdown delivery links
-        if: github.event_name != 'pull_request' || steps.pdf-inputs.outputs.references_changed == 'true'
         run: |
           python Scripts/_reference_artifacts.py --check
           python Scripts/_rewrite_manifest_reference_links.py --check
@@ -160,7 +181,7 @@ jobs:
         run: python Scripts/_verify_published_document_links.py
 
       - name: Upload verified reference PDFs
-        if: github.event_name != 'pull_request' || steps.pdf-inputs.outputs.references_changed == 'true'
+        if: steps.pdf-inputs.outputs.references_changed == 'true'
         uses: actions/upload-artifact@v6
         with:
           name: generated-reference-pdfs
@@ -183,14 +204,20 @@ jobs:
           key: pdf-markdown-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.markdown }}
 
       - name: Seal complete verified reference build
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.reference-cache.outputs.cache-hit != 'true'
+        if: >-
+          github.ref == 'refs/heads/master' && github.event_name != 'pull_request' &&
+          steps.pdf-inputs.outputs.references_changed == 'true' &&
+          steps.reference-cache.outputs.cache-hit != 'true'
         run: >-
           python Scripts/_pdf_build_cache.py --seal references
           --root "$RUNNER_TEMP/generated-reference-pdfs"
           --fingerprint "${{ steps.pdf-inputs.outputs.references }}"
 
       - name: Save complete verified reference build
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.reference-cache.outputs.cache-hit != 'true'
+        if: >-
+          github.ref == 'refs/heads/master' && github.event_name != 'pull_request' &&
+          steps.pdf-inputs.outputs.references_changed == 'true' &&
+          steps.reference-cache.outputs.cache-hit != 'true'
         uses: actions/cache/save@v6
         with:
           path: ${{ runner.temp }}/generated-reference-pdfs
@@ -311,7 +338,7 @@ jobs:
       github.ref == 'refs/heads/master' &&
       (github.event_name == 'push' || github.event_name == 'workflow_dispatch') &&
       vars.SITE_RELEASES_ENABLED != 'true'
-    needs: [pdfs, presentations]
+    needs: [validate, pdfs, presentations]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -353,7 +380,8 @@ jobs:
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
         run: python Scripts/_publish_generated_pdfs.py --delete-removed-since "${{ github.event.before }}"
 
-      - name: Publish private originals and rights-approved references to R2
+      - name: Publish changed private originals and rights-approved references to R2
+        if: needs.pdfs.outputs.references_changed == 'true'
         env:
           R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
           R2_REGION: ${{ vars.R2_REGION }}
@@ -362,9 +390,16 @@ jobs:
           AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: |
-          python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root "$RUNNER_TEMP/generated-pdfs"
-          python Scripts/_publish_reference_artifacts.py --verify-approved
+        run: python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root "$RUNNER_TEMP/generated-pdfs"
+
+      - name: Verify rights-approved references already in R2
+        env:
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          R2_REGION: ${{ vars.R2_REGION }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+        run: python Scripts/_publish_reference_artifacts.py --verify-approved
 
       - name: Deploy Worker and attach guarded production routes
         env:
@@ -396,7 +431,7 @@ jobs:
 
   coherent-site:
     if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-    needs: [pdfs, presentations]
+    needs: [validate, pdfs, presentations]
     runs-on: ubuntu-latest
     timeout-minutes: 45
     env:
@@ -410,12 +445,6 @@ jobs:
       - uses: ./.github/actions/setup-study-env
         with:
           node: 'false'
-      - name: Validate the exact publication commit
-        run: |
-          python Scripts/_verify_studies_index.py
-          python Scripts/_sync_glossary_html.py --check
-          python Scripts/_sync_agent_rules.py --check
-          python Scripts/_run_test_suites.py
       - uses: actions/download-artifact@v7
         with:
           pattern: generated-*-pdfs
@@ -428,6 +457,25 @@ jobs:
         with:
           name: site-release-manifest
           path: ${{ runner.temp }}/site-release/release.json
+      - name: Publish changed private originals and rights-approved references to R2
+        if: needs.pdfs.outputs.references_changed == 'true'
+        env:
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          R2_REGION: ${{ vars.R2_REGION }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+        run: python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root "$RUNNER_TEMP/generated-pdfs"
+
+      - name: Verify rights-approved references already in R2
+        env:
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          R2_REGION: ${{ vars.R2_REGION }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+        run: python Scripts/_publish_reference_artifacts.py --verify-approved
+
       - name: Stage, audit, and promote the release
         env:
           R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
@@ -440,8 +488,6 @@ jobs:
           CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
           PROMOTE: ${{ vars.SITE_RELEASES_ENABLED }}
         run: |
-          python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root "$RUNNER_TEMP/generated-pdfs"
-          python Scripts/_publish_reference_artifacts.py --verify-approved
           args=()
           if [ "$PROMOTE" = "true" ]; then args+=(--promote); fi
           python Scripts/_publish_site_release.py --release-root "$RUNNER_TEMP/site-release" "${args[@]}"
