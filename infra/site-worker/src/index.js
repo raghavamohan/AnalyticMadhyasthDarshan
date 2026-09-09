@@ -18,7 +18,7 @@ function canonicalPath(pathname, files) {
 function headersFor(record, revision, immutable) {
   return new Headers({'Content-Type':record.type,'Content-Length':String(record.bytes),
     'ETag':`"${record.sha256}"`,'X-AMD-Release':revision,'X-AMD-SHA256':record.sha256,
-    'Cache-Control':immutable ? 'public, max-age=31536000, immutable' : 'public, max-age=0, must-revalidate',
+    'Cache-Control':immutable ? 'public, max-age=31536000, immutable, no-transform' : 'public, max-age=0, must-revalidate',
     'X-Content-Type-Options':'nosniff','Accept-Ranges':'bytes'});
 }
 
@@ -120,7 +120,7 @@ export async function handle(request, env, current = RELEASE) {
     const response=await servePdf(request,env.GENERATED_PDFS,record.key);
     const headers=new Headers(response.headers);
     headers.set('X-AMD-Release',manifest.revision);
-    headers.set('Cache-Control',revision?'public, max-age=31536000, immutable':'public, max-age=0, must-revalidate');
+    headers.set('Cache-Control',revision?'public, max-age=31536000, immutable, no-transform':'public, max-age=0, must-revalidate');
     return new Response(response.body,{status:response.status,headers});
   }
   if (request.method==='OPTIONS') return new Response(null,{status:204,headers:{Allow:'GET, HEAD, OPTIONS'}});
