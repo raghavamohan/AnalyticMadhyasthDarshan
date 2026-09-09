@@ -138,9 +138,9 @@ This paper should not redo [Why Humans Are Not Just Material](../Why-Humans-Are-
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](../References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: happiness and knowledge (p. 115; §1 opening); constitutional completeness (p. 91; §1.2); brain and *jeevan* (pp. 83, 288–289; §1.3); science, knowledge, and wisdom (p. 170; §1.4); production, use, and right-use (Ch. 4; §1.5).
-- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](../References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: four orders (PDF pp. 179–180, 236–237; §1 opening); body-identification and *jeevan*'s purpose, quoted in §1.3 (Ch. 7, PDF pp. 91–92); threefold knowledge (p. 116; §1.4).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](../References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: constitutional completeness (pp. 36–37; §1.2); three areas of understanding (p. 40; §1.4).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan – Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: happiness and knowledge (p. 115; §1 opening); constitutional completeness (p. 91; §1.2); brain and *jeevan* (pp. 83, 288–289; §1.3); science, knowledge, and wisdom (p. 170; §1.4); production, use, and right-use (Ch. 4; §1.5).
+- **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: four orders (PDF pp. 179–180, 236–237; §1 opening); body-identification and *jeevan*'s purpose, quoted in §1.3 (Ch. 7, PDF pp. 91–92); threefold knowledge (p. 116; §1.4).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: constitutional completeness (pp. 36–37; §1.2); three areas of understanding (p. 40; §1.4).
 - **KD** — Nagraj, A. *Manav Karm Darshan*. [Working English translation](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Cited: physical, intellectual, and coexistential knowledge (pp. 3–4; §1.3); contents of complete knowledge (§3.5, p. 69; §1.4). Working translation; check quoted wording against the Hindi.
 
 ### Related studies in this collection
@@ -153,7 +153,7 @@ This paper should not redo [Why Humans Are Not Just Material](../Why-Humans-Are-
 
 ### Advaita Vedanta
 
-- **DDV** — [*Drig-Drishya-Viveka*](../References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf), attributed to Shankara or Bharati Tirtha, translated by Swami Nikhilananda. Cited: seer and seen (vv. 1–5; §2).
+- **DDV** — [*Drig-Drishya-Viveka*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf), attributed to Shankara or Bharati Tirtha, translated by Swami Nikhilananda. Cited: seer and seen (vv. 1–5; §2).
 
 ### Modern philosophy and AI research
 
