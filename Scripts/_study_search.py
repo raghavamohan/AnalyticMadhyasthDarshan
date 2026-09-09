@@ -127,6 +127,19 @@ def manifest_content(documents: dict[Path, dict]) -> str:
     return serialize({"schema": 1, "documents": sorted(records, key=lambda doc: (doc["title"].casefold(), doc["key"]))})
 
 
+def backfill_fresh_search_documents(documents: dict[Path, dict]) -> None:
+    """Create missing shards when a current reader predates its catalog publication."""
+    for source, metadata in documents.items():
+        path = shard_path(metadata)
+        reader = source.with_suffix(".html")
+        if path.is_file() or not reader.is_file():
+            continue
+        data = document_data(source, reader.read_text(encoding="utf-8"))
+        if data["version"] != digest(source.read_bytes()) or not data["passages"]:
+            continue
+        write_text_lf(path, serialize(data))
+
+
 def write_search_catalog() -> None:
     documents = eligible_documents()
     DATA.mkdir(parents=True, exist_ok=True)
@@ -137,6 +150,7 @@ def write_search_catalog() -> None:
             if path.is_symlink() or path.resolve().parent != DATA.resolve():
                 raise ValueError(f"Unsafe search artifact: {path}")
             path.unlink()
+    backfill_fresh_search_documents(documents)
     manifest = manifest_content(documents)
     write_text_lf(DATA / "manifest.json", manifest)
     write_text_lf(BASE / "Studies/search.html", search_page(digest(manifest.encode("utf-8"))[:16]))
