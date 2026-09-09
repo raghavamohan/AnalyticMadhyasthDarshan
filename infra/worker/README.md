@@ -139,7 +139,7 @@ now checks and deploys both API Workers when either or their shared guard change
 | `POST /api/me/notifications` | cookie | Update notification `email` / `enabled`; requires `sourceVersion` |
 | `POST /api/propose` | cookie + Turnstile | Create a `study-proposal` issue **as the signed-in user** |
 | `GET /api/proposal-status?issue=N` | optional | Approval/declined/closed status, locked slug, `workspaceReady`, and `ownedByYou` when signed in |
-| `GET /api/study-artifacts?slug=Slug` | — | Durable editable-study mapping, including every registered note and presentation; omit `slug` for a paginated mapping |
+| `GET /api/study-artifacts?slug=Slug` | — | Durable editable-study mapping, including every registered note and presentation; omit `slug` for a paginated mapping. My Submissions loads this API instead of the unpublished `Studies/companion-artifacts.json` file. |
 | `GET /api/study-source?slug=Slug` | — | Current published study Markdown or a registered note/presentation source token selected with `artifactType` and `fileName` |
 | `GET /api/revision-source?pr=N` | cookie | Load the signed-in contributor's open first-draft PR Markdown for an in-place revision |
 | `POST /api/revise` | cookie + Turnstile | Commit revised Markdown to the same owned first-draft PR branch and rerun CI |
