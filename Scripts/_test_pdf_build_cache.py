@@ -50,6 +50,10 @@ class PdfBuildCacheTests(unittest.TestCase):
             "Studies/A/A.html": "<main>A</main>\n",
             "Studies/A/Deck.pptx": "deck bytes",
             "Studies/catalog-topical.json": "[]",
+            "Studies/glossary.json": (
+                '{"terms":[{"id":"satta","match":["satta"],'
+                '"display":"satta","definition":"Omnipresence."}]}\n'
+            ),
             "Studies/submit.html": "portal",
             "References/r2-artifacts.json": "{}",
             "References/Source.md": "reference source",
@@ -80,6 +84,8 @@ class PdfBuildCacheTests(unittest.TestCase):
             path.write_bytes(value.encode("utf-8"))
         self.git("init", "-q")
         self.git("add", ".")
+        self.git("-c", "user.name=Fixture", "-c", "user.email=fixture@example.test",
+                 "commit", "-qm", "fixture")
 
     def git(self, *args: str) -> None:
         subprocess.run(["git", *args], cwd=self.root, check=True, capture_output=True)
@@ -147,6 +153,37 @@ class PdfBuildCacheTests(unittest.TestCase):
         self.assertEqual(
             affected_families({"References/Source.md"}, self.root),
             {"references"},
+        )
+
+    def test_shared_glossary_is_reader_only(self) -> None:
+        path = self.root / "Studies/glossary.json"
+        initial = self.keys()
+        path.write_text(
+            '{"terms":[{"id":"satta","match":["satta"],'
+            '"display":"Space","definition":"Updated tooltip."}]}\n',
+            encoding="utf-8",
+        )
+        self.assertEqual(self.keys(), initial)
+        self.assertEqual(
+            affected_families(
+                {"Studies/glossary.json"},
+                self.root,
+            ),
+            set(),
+        )
+
+        path.write_text(
+            '{"terms":[{"id":"satta","match":["satta","space"],'
+            '"display":"Space","definition":"Updated tooltip."}]}\n',
+            encoding="utf-8",
+        )
+        self.assertEqual(self.keys(), initial)
+        self.assertEqual(
+            affected_families(
+                {"Studies/glossary.json"},
+                self.root,
+            ),
+            set(),
         )
 
     def test_addition_removal_and_link_target_names_invalidate(self) -> None:

@@ -334,13 +334,16 @@ def test_pdf_rebuild_when_pipeline_changes() -> None:
         "Scripts/_render_katex_math.js",
         "Scripts/_glossary_tooltips.py",
         "Scripts/package-lock.json",
-        "Studies/glossary.json",
         "Assets/KaTeX/fonts/KaTeX_Main-Regular.woff2",
         "requirements.txt",
         "CNAME",
     ):
         reason = _reason([("M", path)])
         assert reason and "pipeline changed" in reason, path
+
+
+def test_shared_glossary_does_not_rebuild_pdf() -> None:
+    assert _reason([("M", "Studies/glossary.json")]) is None
 
 
 def test_pdf_skipped_for_companion_only_changes() -> None:

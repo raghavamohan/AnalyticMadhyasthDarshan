@@ -96,6 +96,9 @@ jobs:
       - name: Verify catalog JSON and index shell
         run: python Scripts/_verify_studies_index.py
 
+      - name: Verify shared glossary tooltips in generated study HTML
+        run: python Scripts/_sync_glossary_html.py --check
+
       # Runs every Scripts/_test_*.py except the few held back in that script's
       # HELD map, each with a written reason. Discovery is a denylist on purpose:
       # only four of twenty-one suites used to be wired in here by name, and the

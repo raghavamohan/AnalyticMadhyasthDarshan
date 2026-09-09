@@ -186,7 +186,6 @@ def references_changed(base_ref: str) -> bool:
 PDF_PIPELINE_PATHS = (
     "CNAME",
     "requirements.txt",
-    "Studies/glossary.json",
     "Scripts/_chrome.js",
     "Scripts/_common.py",
     "Scripts/_convert_to_pdf.py",
