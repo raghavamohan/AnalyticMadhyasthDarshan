@@ -11,6 +11,7 @@ import json
 import re
 from pathlib import Path
 import subprocess
+import time
 from urllib.request import Request, urlopen
 import uuid
 
@@ -24,6 +25,11 @@ from _site_release import digest, encode, validate_bundle
 WORKER = "amd-site"
 CANARY = "amd-site-canary"
 SOURCE = BASE / "infra/site-worker/src/index.js"
+AUDIT_USER_AGENT = "AMD-Publication-Audit/1.0"
+
+
+def progress(message: str) -> None:
+    print(message, flush=True)
 
 
 def put_verified(client, key: str, body: bytes, content_type: str, *, filename: str) -> None:
@@ -40,10 +46,15 @@ def put_verified(client, key: str, body: bytes, content_type: str, *, filename: 
 
 
 def stage_objects(client, root: Path, manifest: dict) -> None:
-    for path, record in manifest["files"].items():
-        if record["archive"]:
-            put_verified(client, record["key"], (root / "assets" / path.lstrip("/")).read_bytes(), record["type"], filename=Path(path).name)
+    started = time.monotonic()
+    archived = [(path, record) for path, record in manifest['files'].items() if record['archive']]
+    for index, (path, record) in enumerate(archived, 1):
+        if index == 1 or index % 25 == 0 or index == len(archived):
+            progress(f'Staging R2 file {index}/{len(archived)} ({time.monotonic() - started:.0f}s): {path}')
+        put_verified(client, record["key"], (root / "assets" / path.lstrip("/")).read_bytes(), record["type"], filename=Path(path).name)
+    progress('All release objects verified; uploading the immutable release manifest.')
     put_verified(client, f'site/releases/{manifest["revision"]}.json', encode(manifest), "application/json", filename="release.json")
+    progress(f'R2 staging complete in {time.monotonic() - started:.0f}s.')
 
 
 def upload_assets(token: str, account: str, worker: str, root: Path, manifest: dict) -> str:
@@ -58,11 +69,16 @@ def upload_assets(token: str, account: str, worker: str, root: Path, manifest: d
                 raise ValueError(f"Static asset exceeds 25 MiB: {key}")
             files[key] = (digest(raw)[:32], raw, record["type"])
     payload = {"manifest": {key: {"hash": value[0], "size": len(value[1])} for key, value in files.items()}}
+    progress(f'Opening static-asset upload session for {worker}: {len(files)} files.')
     result = cf._api_request("POST", f"/accounts/{account}/workers/scripts/{worker}/assets-upload-session", token, payload)["result"]
     upload_token = result["jwt"]
     completion = upload_token if not result.get("buckets") else None
     by_hash = {value[0]: value for value in files.values()}
-    for bucket in result.get("buckets", []):
+    buckets = result.get('buckets', [])
+    progress(f'{worker}: {len(buckets)} asset upload batches required; unchanged assets are reused.')
+    for index, bucket in enumerate(buckets, 1):
+        size = sum(len(by_hash[checksum][1]) for checksum in bucket)
+        progress(f'Uploading asset batch {index}/{len(buckets)}: {len(bucket)} files, {size / 1048576:.1f} MiB.')
         boundary = uuid.uuid4().hex
         parts = []
         for checksum in bucket:
@@ -76,6 +92,7 @@ def upload_assets(token: str, account: str, worker: str, root: Path, manifest: d
         if not uploaded.get("success"):
             raise ValueError("Static asset upload failed")
         completion = uploaded.get("result", {}).get("jwt") or completion
+        progress(f'Asset batch {index}/{len(buckets)} accepted.')
     if not completion:
         raise ValueError("Asset upload did not return a completion token")
     return completion
@@ -94,6 +111,7 @@ def deploy(token: str, account: str, worker: str, client, root: Path, manifest: 
                     {"type": "r2_bucket", "name": "GENERATED_PDFS", "bucket_name": client.bucket()},
                     {"type": "r2_bucket", "name": "REFERENCE_PDFS", "bucket_name": reference_bucket_name()}]}
     endpoint = f"{cf.API_BASE}/accounts/{account}/workers/scripts/{worker}"
+    progress(f'Uploading Worker modules and asset binding for {worker}.')
     result = _multipart_put(endpoint + ("/versions" if version_only else ""), token,
         {"index.js": SOURCE.read_text(encoding="utf-8"), "release.js": "export default " + encode(manifest).decode() + ";\n",
          "pdf.js": WORKER_SOURCE.read_text(encoding="utf-8"), "generated-pdf-keys.js": KEYS_SOURCE.read_text(encoding="utf-8")},
@@ -109,30 +127,45 @@ def deploy(token: str, account: str, worker: str, client, root: Path, manifest: 
         version = result['result']['id']
     if not version:
         raise ValueError('Worker upload did not resolve a deployment version')
+    progress(f'{worker}: uploaded version {version}.')
     return version
 
 
 def public_state(base: str) -> dict:
-    with urlopen(base.rstrip("/") + "/.well-known/publication.json", timeout=30) as response:
+    request = Request(base.rstrip("/") + "/.well-known/publication.json", headers={'User-Agent': AUDIT_USER_AGENT})
+    with urlopen(request, timeout=30) as response:
         return json.loads(response.read())
 
 
 def audit(base: str, root: Path, manifest: dict) -> None:
+    started = time.monotonic()
+    progress(f'Checking active release at {base}/.well-known/publication.json.')
     if public_state(base)["revision"] != manifest["revision"]:
         raise ValueError("The endpoint is serving another release")
     # Download every document and discovery surface; HEAD the remaining assets.
-    for path, record in manifest["files"].items():
+    total = len(manifest['files'])
+    for index, (path, record) in enumerate(manifest["files"].items(), 1):
         from urllib.parse import quote
         full = path.endswith((".html", ".pdf", ".json", ".txt"))
-        request = Request(base.rstrip("/") + quote(path, safe="/") + "?r=" + manifest["revision"], method="GET" if full else "HEAD")
+        if index == 1 or index % 25 == 0 or index == total:
+            progress(f'Auditing URL {index}/{total} ({time.monotonic() - started:.0f}s): {path}')
+        request = Request(base.rstrip("/") + quote(path, safe="/") + "?r=" + manifest["revision"],
+                          method="GET" if full else "HEAD", headers={'User-Agent': AUDIT_USER_AGENT})
         with urlopen(request, timeout=60) as response:
-            if response.status != 200:
-                raise ValueError(f"Release URL failed: {path}")
-            if full and digest(response.read()) != record["sha256"]:
-                raise ValueError(f"Public checksum mismatch: {path}")
+            # R2 can describe an entire object as a range even for a plain GET.
+            # Accept it only when the range covers every expected byte; partial
+            # responses must not pass the complete-release audit.
+            complete_range = (full and response.status == 206
+                              and response.headers.get('Content-Range') == f'bytes 0-{record["bytes"] - 1}/{record["bytes"]}')
+            if response.status != 200 and not complete_range:
+                raise ValueError(f"Release URL failed: {path} (expected complete content, got HTTP {response.status})")
+            if full:
+                body = response.read()
+                if len(body) != record['bytes'] or digest(body) != record["sha256"]:
+                    raise ValueError(f"Public checksum/size mismatch: {path}")
             if not full and int(response.headers.get("Content-Length", "-1")) != record["bytes"]:
                 raise ValueError(f"Public size mismatch: {path}")
-    print(f'Audited {len(manifest["files"])} release URLs at {base}')
+    progress(f'Audited {total} release URLs at {base} in {time.monotonic() - started:.0f}s.')
 
 
 def audit_public_if_active(token: str, zone: str, root: Path, manifest: dict) -> None:
@@ -157,10 +190,12 @@ def assert_forward(previous: dict, candidate: dict) -> None:
 
 
 def publish(root: Path, *, promote: bool) -> None:
+    progress(f'Validating release bundle at {root}.')
     manifest = validate_bundle(root)
     from _generated_pdf_inventory import generated_pdf_specs
     if set(manifest["pdfs"]) != {"/" + spec.key for spec in generated_pdf_specs()}:
         raise ValueError("Publication requires the complete verified PDF inventory")
+    progress(f'Release {manifest["revision"]}: {len(manifest["files"])} files from {manifest["sourceSha"]}.')
     cf.load_repo_env()
     token = cf.cloudflare_api_token()
     if not token:
@@ -169,6 +204,7 @@ def publish(root: Path, *, promote: bool) -> None:
     account = _zone_account_id(token, zone)
     subdomain = _workers_subdomain(token, account)
     client = R2S3Client(load_r2_config())
+    progress('Checking current production deployment before staging.')
     prior = deployments(token, account)
     active = public_state(f"https://{WORKER}.{subdomain}.workers.dev") if prior else None
     if active:

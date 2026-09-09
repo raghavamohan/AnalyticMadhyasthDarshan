@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import io
 from pathlib import Path
 import shutil
 import subprocess
@@ -9,6 +10,8 @@ import tempfile
 import unittest
 from contextlib import ExitStack
 from unittest.mock import patch
+from urllib.parse import urlsplit
+from urllib.error import HTTPError
 
 import _site_release as release
 import _publish_site_release as publisher
@@ -71,6 +74,52 @@ class ReleaseTests(unittest.TestCase):
                 self.assertFalse(release.eligible_static(path,published))
         self.assertTrue(release.eligible_static('Studies/A/A.html',published))
         self.assertTrue(release.eligible_static('Assets/reader/reader.js',published))
+
+    def test_audit_identifies_itself_on_publication_get_and_asset_get_head_requests(self):
+        manifest = self.build()
+        requests = []
+        def respond(request, **kwargs):
+            self.assertEqual(request.get_header('User-agent'), publisher.AUDIT_USER_AGENT)
+            requests.append(request)
+            path = urlsplit(request.full_url).path
+            if path == '/.well-known/publication.json':
+                body = release.encode({'revision': manifest['revision']})
+            else:
+                self.assertIn('r=' + manifest['revision'], request.full_url)
+                body = (self.root / 'bundle/assets' / path.lstrip('/')).read_bytes()
+            response = io.BytesIO(body)
+            response.status = 200
+            response.headers = {'Content-Length': str(len(body))}
+            return response
+        with patch.object(publisher, 'urlopen', side_effect=respond):
+            publisher.audit('https://canary.example', self.root / 'bundle', manifest)
+        self.assertEqual(len(requests), len(manifest['files']) + 1)
+        self.assertEqual({request.get_method() for request in requests}, {'GET', 'HEAD'})
+
+    def test_rejected_audit_request_still_fails_closed(self):
+        with patch.object(publisher, 'urlopen', side_effect=HTTPError('https://canary.example', 403, 'Forbidden', {}, None)):
+            with self.assertRaises(HTTPError):
+                publisher.audit('https://canary.example', self.root, {'revision': 'a' * 64, 'files': {}})
+
+    def test_full_r2_range_requires_complete_size_and_checksum(self):
+        body = b'PDF content'
+        path = '/Studies/A/A.pdf'
+        manifest = {'revision': 'a' * 64, 'files': {path: {'bytes': len(body), 'sha256': release.digest(body)}}}
+        complete = f'bytes 0-{len(body) - 1}/{len(body)}'
+        for content_range, returned, valid in [(complete, body, True), ('bytes 0-2/11', body[:3], False),
+                                                (complete, body[:-1], False), (complete, b'bad content', False),
+                                                (None, body, False)]:
+            with self.subTest(content_range=content_range, returned=returned):
+                response = io.BytesIO(returned)
+                response.status = 206
+                response.headers = {'Content-Range': content_range}
+                with patch.object(publisher, 'public_state', return_value={'revision': manifest['revision']}), \
+                     patch.object(publisher, 'urlopen', return_value=response):
+                    if valid:
+                        publisher.audit('https://canary.example', self.root, manifest)
+                    else:
+                        with self.assertRaises(ValueError):
+                            publisher.audit('https://canary.example', self.root, manifest)
 
     def test_html_pinning_preserves_canonical_external_and_reference_urls(self):
         data = b'''<html><head lang="en"><link rel="canonical" href="/Studies/A/A.html"></head><a href="/Studies/A/A.html?find=a&amp;section=b#c">A</a><a href="https://example.org/x">X</a><a href="/References/a.pdf">R</a></html>'''
