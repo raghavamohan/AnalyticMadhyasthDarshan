@@ -257,7 +257,7 @@ class PdfBuildCacheTests(unittest.TestCase):
             if "uses: actions/cache/save@v6" in block:
                 self.assertIn("github.ref == 'refs/heads/master'", block)
                 self.assertIn("github.event_name != 'pull_request'", block)
-            if "uses: actions/cache/restore@v6" in block:
+            if "uses: actions/cache/restore@v6" in block and "document-pdf-cache" not in block:
                 self.assertNotIn("restore-keys:", block)
                 self.assertTrue("github.event_name == 'push'" in block or
                                 "github.event_name != 'workflow_dispatch'" in block)

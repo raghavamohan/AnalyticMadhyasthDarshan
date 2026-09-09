@@ -185,7 +185,7 @@ class ProposalBootstrapSafetyTests(unittest.TestCase):
             StudyTable.TOPICAL,
             StudyTable.FORMAL,
         ])
-        self.assertFalse(writes[0][2])
+        self.assertTrue(writes[0][2])
         self.assertTrue(writes[1][2])
         self.assertEqual(writes[1][1][0].status, StudyStatus.ONGOING)
         self.assertEqual(writes[1][1][0].table, StudyTable.FORMAL)

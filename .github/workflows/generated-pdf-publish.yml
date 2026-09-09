@@ -8,144 +8,11 @@ name: Generated PDF publish
 # fingerprints. Manual runs deliberately bypass the build caches.
 
 on:
-  workflow_dispatch:
-  pull_request:
-    paths:
-      - "Studies/**/*.md"
-      - "Studies/**/*.svg"
-      - "Studies/**/*.png"
-      - "Studies/**/*.jpg"
-      - "Studies/**/*.jpeg"
-      - "Studies/**/*.webp"
-      - "Studies/catalog-*.json"
-      - "Applications/**/*.md"
-      - "Applications/**/*.svg"
-      - "Applications/**/*.png"
-      - "Applications/**/*.jpg"
-      - "Applications/**/*.jpeg"
-      - "Applications/**/*.webp"
-      - "References/**/*.html"
-      - "References/**/*.md"
-      - "References/r2-artifacts.json"
-      - "Assets/KaTeX/**"
-      - "CNAME"
-      - "requirements.txt"
-      - "Scripts/_build_markdown_pdfs.py"
-      - "Scripts/_pdf_build_cache.py"
-      - "Scripts/_build_reference_pdf.py"
-      - "Scripts/_build_reference_pdfs.py"
-      - "Scripts/_chrome.js"
-      - "Scripts/_common.py"
-      - "Scripts/_convert_to_pdf.py"
-      - "Scripts/_discussion_assets.py"
-      - "Scripts/_safe_study_html.py"
-      - "Scripts/_study_reader.py"
-      - "Scripts/_study_passages.py"
-      - "Scripts/_study_search.py"
-      - "Scripts/_build_reader_offline.py"
-      - "Scripts/_pdf_resource_policy.cjs"
-      - "Scripts/_generated_pdf_inventory.py"
-      - "Scripts/_glossary_tooltips.py"
-      - "Scripts/_html_to_pdf.js"
-      - "Scripts/_pdf_metadata.py"
-      - "Scripts/_normalize_reference_html.py"
-      - "Scripts/_reference_artifacts.py"
-      - "Scripts/_hydrate_references.py"
-      - "Scripts/_reference_store.py"
-      - "Scripts/_rewrite_manifest_reference_links.py"
-      - "Scripts/_publish_reference_artifacts.py"
-      - "Scripts/_render_katex_math.js"
-      - "Scripts/_study_pdf_metadata.py"
-      - "Scripts/_study_pdf_pipeline.py"
-      - "Scripts/_verify_pdf_diagrams.py"
-      - "Scripts/_verify_pdf_fenced_code.py"
-      - "Scripts/_verify_pdf_math.py"
-      - "Scripts/_verify_pdf_outline.py"
-      - "Scripts/_verify_study_svgs.py"
-      - "Scripts/_verify_published_document_links.py"
-      - "Scripts/_verify_reference_delivery.py"
-      - "Scripts/package.json"
-      - "Scripts/package-lock.json"
-      - ".github/actions/setup-study-env/action.yml"
-      - ".github/workflows/generated-pdf-publish.yml"
-  push:
-    branches: [master]
-    paths:
-      # Keep this list source-specific. Root portal/catalog files such as
-      # Studies/submit.html and Studies/companion-artifacts.json do not affect
-      # generated PDFs and must not launch the full protected-branch publish.
-      - "Studies/**/*.md"
-      - "Studies/**/*.svg"
-      - "Studies/**/*.png"
-      - "Studies/**/*.jpg"
-      - "Studies/**/*.jpeg"
-      - "Studies/**/*.webp"
-      - "Studies/**/*.pptx"
-      - "Studies/catalog-*.json"
-      - "Applications/**/*.md"
-      - "Applications/**/*.svg"
-      - "Applications/**/*.png"
-      - "Applications/**/*.jpg"
-      - "Applications/**/*.jpeg"
-      - "Applications/**/*.webp"
-      - "Applications/**/*.pptx"
-      - "References/**/*.html"
-      - "References/**/*.md"
-      - "References/**/*.pdf"
-      - "References/r2-artifacts.json"
-      - "Assets/KaTeX/**"
-      - "CNAME"
-      - "requirements.txt"
-      - "Scripts/_build_deck_notes_pdf.py"
-      - "Scripts/_build_markdown_pdfs.py"
-      - "Scripts/_pdf_build_cache.py"
-      - "Scripts/_build_reference_pdf.py"
-      - "Scripts/_build_reference_pdfs.py"
-      - "Scripts/_build_presentations.py"
-      - "Scripts/_chrome.js"
-      - "Scripts/_common.py"
-      - "Scripts/_convert_to_pdf.py"
-      - "Scripts/_discussion_assets.py"
-      - "Scripts/_safe_study_html.py"
-      - "Scripts/_study_reader.py"
-      - "Scripts/_study_passages.py"
-      - "Scripts/_study_search.py"
-      - "Scripts/_build_reader_offline.py"
-      - "Scripts/_pdf_resource_policy.cjs"
-      - "Scripts/_generated_pdf_inventory.py"
-      - "Scripts/_glossary_tooltips.py"
-      - "Scripts/_html_to_pdf.js"
-      - "Scripts/_install_presentation_renderer.ps1"
-      - "Scripts/_pdf_metadata.py"
-      - "Scripts/_normalize_reference_html.py"
-      - "Scripts/_pptx_to_pdf.py"
-      - "Scripts/_presentation_pipeline.py"
-      - "Scripts/_publish_generated_pdf_worker.py"
-      - "Scripts/_publish_generated_pdfs.py"
-      - "Scripts/_r2_s3.py"
-      - "Scripts/_reference_artifacts.py"
-      - "Scripts/_hydrate_references.py"
-      - "Scripts/_reference_store.py"
-      - "Scripts/_rewrite_manifest_reference_links.py"
-      - "Scripts/_publish_reference_artifacts.py"
-      - "Scripts/_render_katex_math.js"
-      - "Scripts/_study_pdf_metadata.py"
-      - "Scripts/_study_pdf_pipeline.py"
-      - "Scripts/_verify_generated_pdf_delivery.py"
-      - "Scripts/_verify_pdf_diagrams.py"
-      - "Scripts/_verify_pdf_fenced_code.py"
-      - "Scripts/_verify_pdf_math.py"
-      - "Scripts/_verify_pdf_outline.py"
-      - "Scripts/_verify_presentations.py"
-      - "Scripts/_verify_study_svgs.py"
-      - "Scripts/_verify_published_document_links.py"
-      - "Scripts/_verify_reference_delivery.py"
-      - "Scripts/package.json"
-      - "Scripts/package-lock.json"
-      - "Scripts/presentation-pipeline.json"
-      - "infra/generated-pdf-worker/**"
-      - ".github/actions/setup-study-env/action.yml"
-      - ".github/workflows/generated-pdf-publish.yml"
+  workflow_call:
+    inputs:
+      source_sha:
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -156,17 +23,12 @@ concurrency:
 
 jobs:
   pdfs:
-    # Portal PRs are already regenerated and verified by study-pr.yml. The
-    # portal marker is present when the PR is opened, before its study label is
-    # applied, so it avoids racing the separate `labeled` workflow event.
-    if: >-
-      github.event_name != 'pull_request' ||
-      !contains(github.event.pull_request.body, 'Portal-GitHub: @')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout complete history
         uses: actions/checkout@v7
         with:
+          ref: ${{ inputs.source_sha || github.sha }}
           fetch-depth: 0
 
       - name: Fingerprint and plan PDF build inputs
@@ -234,6 +96,14 @@ jobs:
                steps.reference-cache.outputs.cache-hit != 'true')
             ) && 'true' || 'false' }}
 
+      - name: Restore reusable document builds
+        if: github.event_name != 'pull_request'
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ runner.temp }}/document-pdf-cache
+          key: pdf-documents-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.markdown }}
+          restore-keys: pdf-documents-v1-${{ runner.os }}-
+
       - name: Build and verify Markdown-derived PDFs
         if: >-
           steps.markdown-cache.outputs.cache-hit != 'true' &&
@@ -247,7 +117,7 @@ jobs:
           if [[ "$EVENT_NAME" == "pull_request" ]]; then
             python Scripts/_build_markdown_pdfs.py --changed-since "origin/$BASE_REF" --output-root "$OUTPUT_ROOT"
           else
-            python Scripts/_build_markdown_pdfs.py --all --output-root "$OUTPUT_ROOT"
+            python Scripts/_build_markdown_pdfs.py --all --output-root "$OUTPUT_ROOT" --cache-root "$RUNNER_TEMP/document-pdf-cache"
           fi
 
       - name: Upload verified Markdown PDFs
@@ -326,12 +196,22 @@ jobs:
           path: ${{ runner.temp }}/generated-reference-pdfs
           key: pdf-references-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.references }}
 
+      - name: Save reusable protected-branch document builds
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.markdown-cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@v6
+        with:
+          path: ${{ runner.temp }}/document-pdf-cache
+          key: pdf-documents-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.markdown }}
+
   presentations:
     if: github.event_name != 'pull_request'
     runs-on: windows-2025
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha || github.sha }}
+          fetch-depth: 0
 
       - name: Fingerprint presentation build inputs
         id: pdf-inputs
@@ -429,13 +309,15 @@ jobs:
   publish-and-deploy:
     if: >-
       github.ref == 'refs/heads/master' &&
-      (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
+      (github.event_name == 'push' || github.event_name == 'workflow_dispatch') &&
+      vars.SITE_RELEASES_ENABLED != 'true'
     needs: [pdfs, presentations]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
+          ref: ${{ inputs.source_sha || github.sha }}
           fetch-depth: 0
 
       - name: Set up publisher dependencies
@@ -511,3 +393,52 @@ jobs:
         run: |
           python Scripts/_verify_generated_pdf_delivery.py --public --all --artifact-root "$RUNNER_TEMP/generated-pdfs"
           python Scripts/_verify_reference_delivery.py --public --artifact-root "$RUNNER_TEMP/generated-pdfs"
+
+  coherent-site:
+    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+    needs: [pdfs, presentations]
+    runs-on: ubuntu-latest
+    environment: github-pages
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha || github.sha }}
+          fetch-depth: 0
+      - uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+      - name: Validate the exact publication commit
+        run: |
+          python Scripts/_verify_studies_index.py
+          python Scripts/_sync_glossary_html.py --check
+          python Scripts/_sync_agent_rules.py --check
+          python Scripts/_run_test_suites.py
+      - uses: actions/download-artifact@v7
+        with:
+          pattern: generated-*-pdfs
+          path: ${{ runner.temp }}/generated-pdfs
+          merge-multiple: true
+      - name: Build the complete release bundle
+        run: python Scripts/_site_release.py --artifact-root "$RUNNER_TEMP/generated-pdfs" --output-root "$RUNNER_TEMP/site-release"
+      - name: Retain the reviewable release manifest
+        uses: actions/upload-artifact@v6
+        with:
+          name: site-release-manifest
+          path: ${{ runner.temp }}/site-release/release.json
+      - name: Stage, audit, and promote the release
+        env:
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
+          R2_REGION: ${{ vars.R2_REGION }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+          PROMOTE: ${{ vars.SITE_RELEASES_ENABLED }}
+        run: |
+          python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root "$RUNNER_TEMP/generated-pdfs"
+          python Scripts/_publish_reference_artifacts.py --verify-approved
+          args=()
+          if [ "$PROMOTE" = "true" ]; then args+=(--promote); fi
+          python Scripts/_publish_site_release.py --release-root "$RUNNER_TEMP/site-release" "${args[@]}"

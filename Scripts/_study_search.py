@@ -17,6 +17,7 @@ from bs4 import BeautifulSoup
 from _common import BASE, write_text_lf, favicon_link_tags
 from _study_passages import clean_text, search_text
 from _study_pdf_metadata import StudyStatus, iter_pdf_study_rows
+from _publication_inventory import public_markdown
 
 DATA = BASE / "Studies" / "search-data"
 ASSETS = BASE / "Assets" / "reader"
@@ -35,13 +36,15 @@ def eligible_documents() -> dict[Path, dict]:
         ["git", "ls-files", "-z", "Studies/**/*.md", "Applications/**/*.md"], cwd=BASE,
     ).decode("utf-8").split("\0"))
     found = {}
-    for row in iter_pdf_study_rows():
+    rows = list(iter_pdf_study_rows())
+    published = {(row.collection,row.slug) for row in rows if row.status in {StudyStatus.DRAFT,StudyStatus.RELEASED}}
+    for row in rows:
         if row.status == StudyStatus.ONGOING:
             continue
         parent = BASE / row.collection / row.slug
         for source in sorted(parent.glob("*.md")):
             relative = source.relative_to(BASE).as_posix()
-            if relative not in tracked or source.stem.startswith("Research-Template-"):
+            if relative not in tracked or not public_markdown(source, root=BASE, studies=published):
                 continue
             canonical = source.stem == row.slug
             found[source] = {

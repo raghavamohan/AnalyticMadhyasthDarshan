@@ -177,7 +177,7 @@ async function listOpenPullRequests(env, userToken = null, stats = null) {
 }
 
 async function githubRawFile(path, env, stats = null) {
-  const branch = defaultBranch(env);
+  const branch = await repositorySnapshot(env,stats);
   const url = `https://api.github.com/repos/${REPO}/contents/${path}?ref=${branch}`;
   if (stats) stats.githubRequests += 1;
   const response = await fetch(url, {
@@ -193,6 +193,31 @@ async function githubRawFile(path, env, stats = null) {
   return response.text();
 }
 
+async function repositorySnapshot(env,stats = null) {
+  if (!env.repositorySnapshot) env.repositorySnapshot = githubRequest(`/git/refs/heads/${defaultBranch(env)}`,'GET',null,env,null,stats)
+    .then(ref => {if (!/^[a-f0-9]{40}$/.test(ref.object?.sha || '')) throw new Error('Invalid repository snapshot.');return ref.object.sha;});
+  return env.repositorySnapshot;
+}
+
+async function publicationState(env) {
+  try {
+    const response = await fetch('https://analyticmadhyasthdarshan.org/.well-known/publication.json',{cache:'no-store'});
+    if (!response.ok) return null;
+    const state = await response.json();
+    return state.schema === 1 && /^[a-f0-9]{40}$/.test(state.sourceSha) && /^[a-f0-9]{64}$/.test(state.revision) ? state : null;
+  } catch (_) { return null; }
+}
+
+async function markForPreparation(pr,env) {
+  if (pr.draft) return;
+  if (!pr.node_id) throw new Error('The pull request could not be prepared for revision.');
+  const response = await fetch('https://api.github.com/graphql',{method:'POST',headers:{
+    Authorization:`Bearer ${env.GITHUB_TOKEN}`,'Content-Type':'application/json','User-Agent':'Cloudflare-Worker-Submission-Portal'},
+    body:JSON.stringify({query:'mutation($id:ID!){convertPullRequestToDraft(input:{pullRequestId:$id}){pullRequest{id}}}',variables:{id:pr.node_id}})});
+  const result = await response.json();
+  if (!response.ok || result.errors) throw new Error('Could not return the pull request to draft before preparation.');
+}
+
 function normalizeCategoryValues(raw) {
   const values = Array.isArray(raw) ? raw : String(raw || '').split(',');
   return Array.from(new Set(values.map((value) => String(value).trim()).filter(Boolean)));
@@ -200,7 +225,7 @@ function normalizeCategoryValues(raw) {
 
 async function fetchCatalogMaps(env, stats) {
   const cache = caches.default;
-  const cacheRequest = new Request(CATALOG_CACHE_KEY);
+  const cacheRequest = new Request(CATALOG_CACHE_KEY + '?sha=' + await repositorySnapshot(env,stats));
   const cached = await cache.match(cacheRequest);
   if (cached) {
     const parsed = await cached.json();
@@ -242,7 +267,7 @@ async function fetchCatalogSlugMap(env, stats) {
 
 async function fetchCompanionArtifacts(env, stats = null) {
   const cache = caches.default;
-  const cacheRequest = new Request(COMPANION_ARTIFACTS_CACHE_KEY);
+  const cacheRequest = new Request(COMPANION_ARTIFACTS_CACHE_KEY + '?sha=' + await repositorySnapshot(env,stats));
   const cached = await cache.match(cacheRequest);
   if (cached) return cached.json();
 
@@ -265,7 +290,7 @@ function companionStudy(registry, slug) {
 // markdown path: applied studies live under Applications/, not Studies/.
 async function fetchAppliedSlugSet(env, stats) {
   const cache = caches.default;
-  const cacheRequest = new Request(APPLIED_SLUGS_CACHE_KEY);
+  const cacheRequest = new Request(APPLIED_SLUGS_CACHE_KEY + '?sha=' + await repositorySnapshot(env,stats));
   const cached = await cache.match(cacheRequest);
   if (cached) {
     const parsed = await cached.json();
@@ -683,7 +708,7 @@ function parseSlugFromIssueBody(issue) {
 
 async function fetchProposalRegistry(env, stats) {
   const cache = caches.default;
-  const cacheRequest = new Request(PROPOSAL_REGISTRY_CACHE_KEY);
+  const cacheRequest = new Request(PROPOSAL_REGISTRY_CACHE_KEY + '?sha=' + await repositorySnapshot(env,stats));
   const cached = await cache.match(cacheRequest);
   if (cached) {
     return cached.json();
@@ -1572,6 +1597,13 @@ async function buildDashboard(session, env, options = {}) {
   });
   const enrichmentFinished = Date.now();
 
+  const [published,sourceSha] = await Promise.all([publicationState(env),repositorySnapshot(env,stats)]);
+  for (const item of pageSubmissions) {
+    item.publication = {state:!published ? 'unknown' : published.sourceSha === sourceSha ? 'published' : 'publishing',
+      revision:published?.revision || null, sourceSha:published?.sourceSha || null,
+      status:published?.studies?.[item.slug]?.status || null};
+  }
+
   const truncated = proposalList.truncated || openPullList.truncated;
 
   return {
@@ -2076,8 +2108,16 @@ router.get('/api/study-source', async (request, env) => {
       return jsonResponse(request, env, { success: false, error: 'Choose study, note, or presentation.' }, 400);
     }
     let content = '', sourceSha;
+    const catalog = await fetchCatalogSlugMap(env,{githubRequests:0});
+    if (artifactType === 'study' && catalog.get(slug) === 'ongoing') {
+      const session = requireSession(await getSession(request,env));
+      await assertStudyOwnedBySession(session,slug,env);
+      const meta = JSON.parse(await githubRawFile(filePath.replace(/[^/]+$/,'.proposal-meta.json'),env));
+      content = `# ${meta.title}\n\n**Author:** ${session.login}\n\n**Status:** Draft\n\n## Study question\n\n${meta.summary || meta.description || ''}\n\n## References\n\n`;
+      return jsonResponse(request,env,{success:true,slug,artifactType,fileName:`${slug}.md`,content,starter:true});
+    }
     try {
-      const file = await githubRequest(`/contents/${filePath}?ref=${encodeURIComponent(defaultBranch(env))}`, 'GET', null, env);
+      const file = await githubRequest(`/contents/${filePath}?ref=${await repositorySnapshot(env)}`, 'GET', null, env);
       if (markdown) content = decodeBase64Content(file.content);
       sourceSha = file.sha;
     } catch (e) {
@@ -2190,6 +2230,7 @@ router.post('/api/revise', async (request, env) => {
       env
     );
     assertSourceVersion(data.sourceSha, fileData.sha);
+    await markForPreparation(pr,env);
     await githubRequest(`/contents/${target.filePath}`, 'PUT', {
       message: `Revise ${target.slug} via My Submissions`,
       content: artifact.encodedContent,
@@ -2284,8 +2325,7 @@ router.post('/api/submit', async (request, env) => {
     const filePath = artifact.filePath;
     const base = defaultBranch(env);
 
-    const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env);
-    const baseSha = baseRef.object.sha;
+    const baseSha = await repositorySnapshot(env);
 
     if (!isNew) {
       let sourceFile;
@@ -2332,6 +2372,7 @@ router.post('/api/submit', async (request, env) => {
       }
 
       const pr = await githubRequest('/pulls', 'POST', {
+        draft: true,
         title: prTitle,
         head: branchName,
         base,
@@ -2472,6 +2513,7 @@ router.post('/api/delete-artifact', async (request, env) => {
         ? `Remove study: ${slug}`
         : `Remove ${artifactType}: ${targetName}`;
       const pr = await githubRequest('/pulls', 'POST', {
+        draft: true,
         title,
         head: branchName,
         base,
@@ -2587,6 +2629,7 @@ router.post('/api/status-change', async (request, env) => {
       ].join('\n');
 
       const pr = await githubRequest('/pulls', 'POST', {
+        draft: true,
         title: `Status change: ${slug} → ${targetStatus}`,
         head: branchName,
         base,
@@ -2691,6 +2734,7 @@ async function forwardContributionOperation(request, env) {
 
 export default {
   async fetch(request, env, ctx) {
+    env = {...env}; // Promise and cache identity belong to this request only.
     let response = rejectUnsafeWrite(request, allowedOrigins(env), { machinePath: '/api/notify' });
     if (!response) {
       try {

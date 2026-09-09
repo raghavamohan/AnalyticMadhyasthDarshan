@@ -15,6 +15,11 @@ Scripts/_reference_cache/
 /tmp/fresh-reference-cache/
 /tmp/rights-text/
 /tmp/pdfs/
+/tmp/site-release-*/
+/tmp/ci-suites.log
+/tmp/ci-*.log
+/tmp/ci-*.py
+/tmp/ci-tools/
 .tmp.driveupload/
 .tmp.drivedownload/
 *.html

@@ -800,6 +800,8 @@ def row_md_href(row: StudyRow) -> str | None:
 
 
 def row_discussion_href(row: StudyRow) -> str | None:
+    if row.status == StudyStatus.ONGOING:
+        return None
     if row.table == StudyTable.APPLIED:
         return application_discussion_href(row.slug)
     return study_discussion_href(row.slug)
@@ -924,7 +926,7 @@ def sync_pre_catalog_proposals_to_catalog(*, rebuild_index: bool = True) -> list
         write_studies_catalog(
             synchronized[table],
             table,
-            rebuild_index=rebuild_index and table == StudyTable.FORMAL,
+            rebuild_index=rebuild_index,
         )
     return synchronized[StudyTable.TOPICAL]
 

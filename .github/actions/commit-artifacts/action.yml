@@ -9,7 +9,12 @@ inputs:
     description: >-
       Space-separated paths to stage. Paths that do not exist are ignored, so a
       caller can list optional directories such as Applications.
-    required: true
+    required: false
+    default: ''
+  contract:
+    description: Use the shared study lifecycle output contract instead of paths.
+    required: false
+    default: 'false'
   message:
     description: Commit message. '[skip ci]' is appended automatically.
     required: true
@@ -43,6 +48,7 @@ runs:
         # issues), which is why the fork check below tests for non-empty first.
         HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
         THIS_REPO: ${{ github.repository }}
+        OUTPUT_CONTRACT: ${{ inputs.contract }}
       run: |
         set -euo pipefail
         git config user.name "github-actions[bot]"
@@ -60,9 +66,13 @@ runs:
         fi
 
         staged=0
+        if [ "${OUTPUT_CONTRACT:-false}" = "true" ]; then
+          python Scripts/_generated_artifacts.py --stage
+          staged=1
+        fi
         for path in ${{ inputs.paths }}; do
-          if [ -e "$path" ]; then
-            git add "$path"
+          if [ -e "$path" ] || git ls-files --error-unmatch -- "$path" >/dev/null 2>&1; then
+            git add -A -- "$path"
             staged=1
           else
             echo "Skipping absent path: $path"
@@ -105,9 +115,12 @@ runs:
         fi
 
         git commit -m "${{ inputs.message }} [skip ci]"
+        if [ "${OUTPUT_CONTRACT:-false}" = "true" ]; then
+          python Scripts/_generated_artifacts.py --check-clean
+        fi
         if [ -n "${BRANCH:-}" ]; then
           git push -u origin HEAD
         else
-          git push
+          git push -u origin HEAD
         fi
         echo "pushed=true" >> "$out_file"
