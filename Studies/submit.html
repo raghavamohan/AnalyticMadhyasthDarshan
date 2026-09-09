@@ -242,6 +242,9 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
       </div>
 
       <div id="dashboard-alert" class="alert"></div>
+      <div class="form-group turnstile-wrap" id="dashboard-turnstile-wrap">
+        <div id="inline-turnstile"></div>
+      </div>
       <div id="dashboard-operation" class="draft-tools" hidden>
         <p id="dashboard-operation-status" role="status" aria-live="polite"></p>
         <div class="draft-buttons">
@@ -518,8 +521,6 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
       </form>
     </div>
   </section>
-
-  <div id="inline-turnstile" style="position:absolute;left:-9999px;top:-9999px;" aria-hidden="true"></div>
 
 </div>
 
@@ -2034,16 +2035,36 @@ function resetTurnstile(form) {
 }
 
 const TURNSTILE_SITEKEY = '0x4AAAAAADoBfrNV5lPeJQWO';
+const INLINE_TURNSTILE_TIMEOUT_MS = 60000;
 let inlineTurnstileWidgetId = null;
 let inlineTurnstilePending = null;
 
-function getInlineTurnstileToken() {
-  if (!window.turnstile) {
-    return Promise.reject(new Error('Verification is still loading. Try again in a moment.'));
-  }
+function whenTurnstileReady(timeoutMs = 15000) {
+  if (window.turnstile) return Promise.resolve(window.turnstile);
+  return new Promise((resolve, reject) => {
+    const started = Date.now();
+    const timer = setInterval(() => {
+      if (window.turnstile) {
+        clearInterval(timer);
+        resolve(window.turnstile);
+        return;
+      }
+      if (Date.now() - started > timeoutMs) {
+        clearInterval(timer);
+        reject(new Error('Verification is still loading. Try again in a moment.'));
+      }
+    }, 50);
+  });
+}
+
+async function getInlineTurnstileToken() {
   if (inlineTurnstilePending) {
-    return Promise.reject(new Error('A verification is already in progress.'));
+    throw new Error('A verification is already in progress.');
   }
+  const api = await whenTurnstileReady();
+  const container = document.getElementById('inline-turnstile');
+  if (!container) throw new Error('Could not run verification.');
+  container.scrollIntoView({ block: 'nearest' });
   return new Promise((resolve, reject) => {
     let settled = false;
     const timer = setTimeout(() => {
@@ -2051,7 +2072,7 @@ function getInlineTurnstileToken() {
       settled = true;
       inlineTurnstilePending = null;
       reject(new Error('Verification timed out. Please try again.'));
-    }, 30000);
+    }, INLINE_TURNSTILE_TIMEOUT_MS);
     const finish = (fn, value) => {
       if (settled) return;
       settled = true;
@@ -2065,18 +2086,24 @@ function getInlineTurnstileToken() {
     };
     try {
       if (inlineTurnstileWidgetId === null) {
-        inlineTurnstileWidgetId = turnstile.render('#inline-turnstile', {
+        inlineTurnstileWidgetId = api.render(container, {
           sitekey: TURNSTILE_SITEKEY,
           action: 'turnstile-spin-v1',
-          size: 'invisible',
+          execution: 'execute',
+          appearance: 'execute',
           callback: (token) => { if (inlineTurnstilePending) inlineTurnstilePending.resolve(token); },
-          'error-callback': () => { if (inlineTurnstilePending) inlineTurnstilePending.reject(new Error('Verification failed. Please try again.')); },
+          'error-callback': (code) => {
+            const detail = code ? ' (' + code + ')' : '';
+            if (inlineTurnstilePending) {
+              inlineTurnstilePending.reject(new Error('Verification failed' + detail + '. Please try again.'));
+            }
+          },
           'expired-callback': () => { if (inlineTurnstilePending) inlineTurnstilePending.reject(new Error('Verification expired. Please try again.')); },
         });
       } else {
-        turnstile.reset(inlineTurnstileWidgetId);
+        api.reset(inlineTurnstileWidgetId);
       }
-      turnstile.execute(inlineTurnstileWidgetId);
+      api.execute(container);
     } catch (err) {
       finish(reject, err instanceof Error ? err : new Error('Could not run verification.'));
     }

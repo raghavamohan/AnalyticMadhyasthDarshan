@@ -80,5 +80,10 @@
     document.getElementById('fixture-account').value=account;
     document.getElementById('fixture-account').onchange=async event => {account=event.target.value;sessionStorage.setItem('fixture-account',account);await refreshAuthState();};
     for(const form of document.querySelectorAll('form')) {const input=document.createElement('input');input.type='hidden';input.name='cf-turnstile-response';input.value='fixture';form.append(input);}
+    window.turnstile = {
+      render(el, opts) { this._opts = opts; return 'fixture-widget'; },
+      reset() {},
+      execute() { queueMicrotask(() => this._opts?.callback?.('fixture-token')); },
+    };
   });
 })();
