@@ -178,7 +178,12 @@ storage, source conflicts, recovery limits and deployment sequencing.
 
 Dashboard and unfiltered artifact-list routes accept bounded `limit` / `offset`
 pagination and return `total`, `limit`, `offset`, `hasMore`, and `nextOffset` in
-`meta`; the dashboard also supports validated stage and category filters. JSON
+`meta`; the dashboard also supports validated stage and category filters. Each
+dashboard row includes `publication`, which compares GitHub's default-branch SHA
+(`meta.repositorySha`) with `/.well-known/publication.json`. That fetch identifies
+itself as `AMD-Submission-Portal/1.0` and times out rather than stalling the page;
+an unavailable or challenged endpoint is `unknown`, never a claim that the study
+is live. JSON
 request bodies are limited to 64 KiB for ordinary writes and 18 MB for submission
 and revision envelopes; individual Markdown and decoded presentation limits remain
 2 MB and 10 MB. All API responses advertise the shared edge policy through

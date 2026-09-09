@@ -1522,6 +1522,14 @@
           "truncated": {
             "type": "boolean"
           },
+          "repositorySha": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{40}$",
+            "description": "Git SHA of the repository default branch used for this dashboard page. Compare with publication.sourceSha to tell a live release from a merge that is still publishing."
+          },
           "phaseTimingMs": {
             "type": "object",
             "properties": {
@@ -1625,6 +1633,53 @@
               "released",
               null
             ]
+          },
+          "publication": {
+            "type": "object",
+            "required": [
+              "state"
+            ],
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": [
+                  "published",
+                  "publishing",
+                  "unknown"
+                ],
+                "description": "published when the public site source SHA matches the repository snapshot; publishing when the site lags that snapshot; unknown when publication.json could not be read."
+              },
+              "revision": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "sourceSha": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "repositorySha": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "status": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "enum": [
+                  "ongoing",
+                  "draft",
+                  "released",
+                  null
+                ]
+              }
+            }
           },
           "primaryAction": {
             "type": [
