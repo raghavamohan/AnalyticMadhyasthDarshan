@@ -595,12 +595,11 @@ async function loadCompanionRegistry() {
   if (companionRegistry) return companionRegistry;
   if (companionRegistryPromise) return companionRegistryPromise;
   companionRegistryPromise = (async () => {
-    const res = await fetch('companion-artifacts.json', { cache: 'no-cache' });
-    const data = normalizeApiData(await res.json());
-    if (!res.ok || !Array.isArray(data.studies)) {
-      throw new Error(data.error || 'Could not load the study file registry.');
+    const data = await fetchDashboardPages('/api/study-artifacts', 'studies');
+    if (!Array.isArray(data.rows)) {
+      throw new Error('Could not load the study file registry.');
     }
-    companionRegistry = data.studies;
+    companionRegistry = data.rows;
     populateStudySlugOptions();
     refreshMappedArtifactControls();
     if (dashboardCache && Array.isArray(dashboardCache.submissions)) {
@@ -728,6 +727,20 @@ async function apiFetch(path, options = {}) {
     } finally { clearTimeout(timeout); }
   }
 }
+async function readResponseJson(response) {
+  const text = await response.text();
+  if (!text) return {};
+  try {
+    return JSON.parse(text);
+  } catch (_) {
+    const snippet = text.replace(/\s+/g, ' ').trim().slice(0, 160);
+    throw new Error(
+      snippet
+        ? 'The server returned a non-JSON response (' + response.status + '): ' + snippet
+        : 'The server returned an empty non-JSON response (' + response.status + ').'
+    );
+  }
+}
 function normalizeApiData(data) {
   if (!data || typeof data !== 'object') return {};
   const details = data.details && typeof data.details === 'object' ? data.details : {};
@@ -845,7 +858,7 @@ async function refreshAuthState() {
   const requestId = ++authRequest;
   try {
     const res = await apiFetch('/api/auth/me');
-    const data = normalizeApiData(await res.json());
+    const data = normalizeApiData(await readResponseJson(res));
     if (requestId !== authRequest) return;
     if (!res.ok) throw new Error('Could not check sign-in. Refresh to try again.');
     cacheAuthState(data);
@@ -962,7 +975,7 @@ async function loadNotifyPrefs() {
   const identity = currentUser.login;
   try {
     const res = await apiFetch('/api/me/notifications');
-    const data = normalizeApiData(await res.json());
+    const data = normalizeApiData(await readResponseJson(res));
     if (currentUser?.login !== identity) return;
     if (res.ok && data.success) {
       notifyPrefs = { configured: Boolean(data.configured), email: data.email || null, hasEmail: Boolean(data.email), enabled: Boolean(data.enabled), sourceVersion: data.sourceVersion, loaded: true };
@@ -985,7 +998,7 @@ async function saveNotifyPrefs(update) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({...update, sourceVersion: notifyPrefs.sourceVersion}),
     });
-    const data = normalizeApiData(await res.json());
+    const data = normalizeApiData(await readResponseJson(res));
     if (currentUser?.login !== identity) return;
     if (!res.ok || !data.success) {
       if (res.status === 409) await loadNotifyPrefs();
@@ -1392,7 +1405,7 @@ async function sendDashboardAction(path, payload, buttonEl = null) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({...requestBody, turnstileToken}),
     });
-    const data = normalizeApiData(await res.json());
+    const data = normalizeApiData(await readResponseJson(res));
     const certain = operationResponseIsCertain(data, res.status);
     dashboardOperations.settle(data, certain);
     if (!res.ok || !data.success) throw new Error(responseError(data, res, dashboardActionError(path, data)));
@@ -1415,7 +1428,7 @@ async function loadArtifactSourceVersion(slug, artifactType = 'study', fileName 
   const params = new URLSearchParams({slug, artifactType});
   if (fileName) params.set('fileName', fileName);
   const response = await apiFetch('/api/study-source?' + params.toString());
-  const data = normalizeApiData(await response.json());
+  const data = normalizeApiData(await readResponseJson(response));
   if (!response.ok || !data.success || !data.sourceSha) {
     throw new Error(data.error || 'Could not load the current source version.');
   }
@@ -1431,7 +1444,7 @@ async function checkDashboardOperation() {
   try {
     const targetId = operation.blockedBy || operation.id;
     const response = await apiFetch('/api/operation?id=' + encodeURIComponent(targetId));
-    const data = normalizeApiData(await response.json());
+    const data = normalizeApiData(await readResponseJson(response));
     if (!response.ok) throw new Error(data.error || 'Could not check the saved action.');
     const state = operationResponseState(data) || 'inProgress';
     if (operation.blockedBy && state === 'complete') {
@@ -1554,8 +1567,8 @@ async function fetchDashboardPages(path, field) {
   do {
     const separator = path.includes('?') ? '&' : '?';
     const res = await apiFetch(path + separator + 'limit=100&offset=' + offset);
-    const data = normalizeApiData(await res.json());
-    if (!res.ok || !data.success) throw new Error(data.error || 'Could not load submissions');
+    const data = normalizeApiData(await readResponseJson(res));
+    if (!res.ok || !data.success) throw new Error(data.error || 'Could not load ' + field);
     rows.push(...(Array.isArray(data[field]) ? data[field] : []));
     meta = data.meta || {};
     offset = Number(meta.nextOffset);
@@ -1927,7 +1940,7 @@ async function loadStudySource(opts = {}) {
     const params = new URLSearchParams({ slug, artifactType });
     if (fileName) params.set('fileName', fileName);
     const res = await apiFetch('/api/study-source?' + params.toString());
-    const data = normalizeApiData(await res.json());
+    const data = normalizeApiData(await readResponseJson(res));
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not load the current Markdown.');
     if (!contributor.matches(ticket)) return false;
     contributor.source(data);
@@ -1960,7 +1973,7 @@ async function loadRevisionSource(opts = {}) {
   const ticket = contributor.ticket();
   try {
     const res = await apiFetch('/api/revision-source?pr=' + encodeURIComponent(prNumber));
-    const data = normalizeApiData(await res.json());
+    const data = normalizeApiData(await readResponseJson(res));
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not load the pull-request draft.');
     if (!contributor.matches(ticket)) return false;
     document.getElementById('s-slug').value = data.slug;
@@ -2221,7 +2234,7 @@ async function checkProposalStatus() {
   showProposalStatus('loading', 'Checking proposal approval status…');
   try {
     const res = await apiFetch('/api/proposal-status?issue=' + issueNumber);
-    const data = normalizeApiData(await res.json());
+    const data = normalizeApiData(await readResponseJson(res));
     if (currentUser?.login !== identity || document.getElementById('s-mode').value !== 'new' || Number(document.getElementById('s-proposal').value) !== issueNumber) return;
     if (!res.ok || !data.success) throw new Error(data.error || 'Could not check proposal status');
     if (data.declined) {
@@ -2612,7 +2625,7 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
         turnstileToken,
       })),
     });
-    const data = normalizeApiData(await res.json());
+    const data = normalizeApiData(await readResponseJson(res));
     await contributor.complete('propose', data, operationResponseIsCertain(data, res.status));
     if (!res.ok) throw new Error(responseError(data, res, 'Unknown error'));
     if (data.issueNumber) sessionStorage.setItem(PROPOSAL_STORAGE_KEY, String(data.issueNumber));
@@ -2715,7 +2728,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(await contributor.begin('submit', isRevision ? '/api/revise' : '/api/submit', payload)),
     });
-    const data = normalizeApiData(await res.json());
+    const data = normalizeApiData(await readResponseJson(res));
     await contributor.complete('submit', data, operationResponseIsCertain(data, res.status));
     if (!res.ok) throw new Error(responseError(data, res, 'Unknown error'));
     dashboardCache = null;
@@ -2739,7 +2752,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
 });
 
 </script>
-<script src="portal/contributor.js?v=d9892fc1aeb5b68c"></script>
+<script src="portal/contributor.js?v=e74ecfa58afcbf10"></script>
 <script>
 (async () => {
   toggleProposalField();

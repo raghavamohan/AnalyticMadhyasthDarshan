@@ -322,7 +322,7 @@ const contributor = (() => {
     el(kind + '-operation-status').textContent = 'Checking the saved submission receipt…';
     try {
       const response = await apiFetch('/api/operation?id=' + encodeURIComponent(op.blockedBy || op.id));
-      const data = normalizeApiData(await response.json());
+      const data = normalizeApiData(await readResponseJson(response));
       if (account !== identity || states[kind].operation?.id !== op.id) return;
       const operationState = data.state || (data.notStarted ? 'notStarted' : data.uncertain ? 'uncertain' : data.completed ? 'complete' : null);
       if (operationState === 'uncertain' || operationState === 'inProgress') {
