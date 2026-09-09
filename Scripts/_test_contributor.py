@@ -35,6 +35,12 @@ class ContributorTests(unittest.TestCase):
         self.assertIn('Could not verify the public site', portal)
         self.assertNotIn('Publication not confirmed', portal)
 
+    def test_update_form_loads_artifacts_from_the_submissions_api(self):
+        portal = (BASE / 'Studies/submit.html').read_text(encoding='utf-8')
+        self.assertIn("/api/study-artifacts", portal)
+        self.assertNotIn("fetch('companion-artifacts.json'", portal)
+        self.assertIn('async function readResponseJson', portal)
+
     def test_dashboard_actions_and_openapi_share_the_receipt_contract(self):
         portal = BeautifulSoup((BASE / 'Studies/submit.html').read_text(encoding='utf-8'),'html.parser')
         scripts = [script.get('src','').split('?')[0] for script in portal.find_all('script')]
