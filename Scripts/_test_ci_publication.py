@@ -4,13 +4,18 @@ import json
 from pathlib import Path
 import subprocess
 import tempfile
+from types import SimpleNamespace
 import unittest
 from unittest.mock import patch
 
 import _bootstrap_ci as bootstrap
+import _ci_study_pr as ci
 import _generated_artifacts as contract
 import _prepared_study as prepared
+import _rewrite_manifest_reference_links as reference_links
+import _validate_study_change as validation
 from _validate_study_change import infer_intent
+from _study_catalog import StudyStatus
 
 
 class PreparationTests(unittest.TestCase):
@@ -19,6 +24,73 @@ class PreparationTests(unittest.TestCase):
         self.assertEqual(infer_intent('Proposal issue: #12', ['Studies/A/A.md'], 'base'),'new-study')
         self.assertEqual(infer_intent('Target status: released', [], 'base'),'status-change')
         self.assertIsNone(infer_intent('', ['Assets/icon.svg'], 'base'))
+
+    def test_unprepared_source_is_allowed_only_for_same_repository_portal_draft(self):
+        body = 'Proposal issue: #12\nPortal-GitHub: @author\n'
+        event = {'pull_request': {'draft': True, 'head': {'repo': {'full_name': 'owner/repo'}}}}
+        self.assertTrue(validation.is_portal_preparation(event, body, 'owner/repo'))
+        self.assertFalse(validation.is_portal_preparation(event, body, 'fork/repo'))
+        self.assertFalse(validation.is_portal_preparation(
+            {'pull_request': {**event['pull_request'], 'draft': False}}, body, 'owner/repo'))
+        self.assertFalse(validation.is_portal_preparation(event, 'Proposal issue: #12\n', 'owner/repo'))
+
+    def test_unprepared_portal_first_draft_rechecks_registered_approval(self):
+        with tempfile.TemporaryDirectory() as directory:
+            source = Path(directory) / 'A.md'
+            source.write_text('# A\n', encoding='utf-8')
+            ongoing = SimpleNamespace(status=StudyStatus.ONGOING)
+            common = [
+                patch.object(validation, 'detect_study_renames', return_value=[]),
+                patch.object(validation, 'changed_markdown_slugs', return_value=['A']),
+                patch.object(validation, 'changed_study_slugs', return_value=['A']),
+                patch.object(validation, 'iter_pdf_study_rows', return_value=[]),
+                patch.object(validation, 'old_text', return_value='[]'),
+                patch.object(validation, 'get_study_row', return_value=(ongoing, None)),
+                patch.object(validation, 'study_md', return_value=source),
+                patch.object(validation, 'registry_row_for_slug', return_value={'issueNumber': 12}),
+                patch.object(validation, 'gh_request', return_value={
+                    'state': 'open', 'labels': [{'name': 'proposal-approved'}]}),
+                patch.object(validation, 'cross_study_section_errors', return_value=[]),
+                patch.object(validation, 'references_changed', return_value=False),
+                patch.object(validation, 'study_references_changed', return_value=False),
+                patch.dict(validation.os.environ, {'GITHUB_REPOSITORY': 'owner/repo'}),
+            ]
+            for mocked in common:
+                mocked.start()
+                self.addCleanup(mocked.stop)
+            with self.assertRaisesRegex(ValueError, 'prepare its first draft'):
+                validation.validate('base', 'Proposal issue: #12\n')
+            validation.validate(
+                'base',
+                'Proposal issue: #12\n',
+                allow_unprepared_new_study=True,
+            )
+            validation.registry_row_for_slug.return_value = {'issueNumber': 13}
+            with self.assertRaisesRegex(ValueError, 'linked approval does not match'):
+                validation.validate(
+                    'base',
+                    'Proposal issue: #12\n',
+                    allow_unprepared_new_study=True,
+                )
+
+    def test_preparation_rewrites_only_changed_study_markdown(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            changed = root / 'Studies/A/A.md'
+            unchanged = root / 'Studies/B/B.md'
+            changed.parent.mkdir(parents=True)
+            unchanged.parent.mkdir(parents=True)
+            link = '[source](../../References/Book.pdf)\n'
+            changed.write_text(link, encoding='utf-8')
+            unchanged.write_text(link, encoding='utf-8')
+            with patch.object(ci, 'BASE', root), \
+                 patch.object(ci, 'changed_paths', return_value=(
+                     ('A', 'Studies/A/A.md'), ('M', 'Scripts/tool.py'))), \
+                 patch.object(reference_links, 'delivery_map', return_value={
+                     'References/Book.pdf': 'https://cdn.example/Book.pdf'}):
+                self.assertEqual(ci.rewrite_changed_reference_links('base'), 1)
+            self.assertIn('https://cdn.example/Book.pdf', changed.read_text(encoding='utf-8'))
+            self.assertEqual(unchanged.read_text(encoding='utf-8'), link)
 
     def test_accept_requires_exact_head_open_draft_and_same_repository(self):
         pr={'number':1,'state':'open','draft':True,'head':{'sha':'a'*40,'repo':{'full_name':'owner/repo'}},'base':{'ref':'master'}}

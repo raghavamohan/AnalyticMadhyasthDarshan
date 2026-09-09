@@ -56,7 +56,7 @@ Select any linked title to open the full study in your browser.
 | *Free Will Choice and Agency* <!-- slug: Free-Will-Choice-And-Agency --> | Philosophy of Mind | Whether human conduct is free or determined: definite conduct in the lower orders versus achieved selection at the knowledge order, compared with debates on free will and determinism | Ongoing |
 | *Health Body and Restraint* <!-- slug: Health-Body-And-Restraint --> | Health, Axiology | The jeevan-body relationship in health: ahar-vihar, restraint (sanyam), and well-being as the health-restraint dimension of universal orderliness | Ongoing |
 | *God Divinity and the Sacred* <!-- slug: God-Divinity-And-The-Sacred --> | Philosophy of Religion | How Madhyasth Darshan reframes God and the divine: satta as omnipresence and the awakened (divya) human, compared with theism, Advaita Vedanta's Ishvara, and secular critiques of religion | Ongoing |
-| *Artificial Intelligence and Coexistence* <!-- slug: Artificial-Intelligence-And-Coexistence --> | Philosophy of Mind | Where artificial intelligence belongs in coexistence: whether a machine can know or evaluate, and how AI as a material instrument is to be used in the knowledge order | Ongoing |
+| [Artificial Intelligence and Coexistence](Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.html) · [Discuss](Artificial-Intelligence-And-Coexistence/discussion.html) | Philosophy of Mind | Where artificial intelligence belongs in coexistence: whether a machine can know or evaluate, and how AI as a material instrument is to be used in the knowledge order | Draft<br>Last updated on: Sep 9, 2026, 11:45 AM IST |
 <!-- /studies-catalog -->
 
 ### Formal studies

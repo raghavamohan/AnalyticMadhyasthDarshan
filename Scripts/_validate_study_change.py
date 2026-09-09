@@ -34,7 +34,41 @@ def old_text(base: str, path: str) -> str | None:
     return result.stdout if result.returncode == 0 else None
 
 
-def validate(base: str, body: str = '', *, check_approval: bool = True) -> None:
+def first_draft_approval_errors(slug: str, body: str) -> list[str]:
+    issue = parse_body_field(body, r'^Proposal issue:\s*#?(\d+)')
+    if not issue:
+        return [f'{slug}: first draft requires Proposal issue: #N in the PR body.']
+    errors = []
+    registered = registry_row_for_slug(slug)
+    if not registered or str(registered.get('issueNumber')) != issue:
+        errors.append(f'{slug}: linked approval does not match the registered proposal.')
+    proposal = gh_request(f'/repos/{os.environ["GITHUB_REPOSITORY"]}/issues/{issue}')
+    if proposal.get('state') != 'open' or 'proposal-approved' not in {
+        label['name'] for label in proposal.get('labels', [])
+    }:
+        errors.append(f'{slug}: proposal #{issue} must be open and approved.')
+    return errors
+
+
+def is_portal_preparation(event: dict, body: str, repository: str) -> bool:
+    """Identify the incomplete source commit that the trusted preparer will replace."""
+    pull_request = event.get('pull_request') or {}
+    head_repo = (pull_request.get('head') or {}).get('repo') or {}
+    return bool(
+        repository
+        and pull_request.get('draft')
+        and head_repo.get('full_name') == repository
+        and re.search(r'^Portal-GitHub:\s*@', body, re.M | re.I)
+    )
+
+
+def validate(
+    base: str,
+    body: str = '',
+    *,
+    check_approval: bool = True,
+    allow_unprepared_new_study: bool = False,
+) -> None:
     renames = {new: old for old, new in detect_study_renames(base)}
     for new, old in renames.items():
         located = get_study_row(new)
@@ -56,7 +90,11 @@ def validate(base: str, body: str = '', *, check_approval: bool = True) -> None:
         md = study_md(slug)
         if row.status == StudyStatus.ONGOING:
             if slug in canonical and md.exists():
-                errors.append(f'{slug}: Planned source changed; prepare its first draft before review.')
+                if allow_unprepared_new_study:
+                    if check_approval:
+                        errors.extend(first_draft_approval_errors(slug, body))
+                else:
+                    errors.append(f'{slug}: Planned source changed; prepare its first draft before review.')
             continue
         errors.extend(verify_timestamp_sync(slug))
         if slug in canonical and md.exists():
@@ -65,16 +103,7 @@ def validate(base: str, body: str = '', *, check_approval: bool = True) -> None:
             if old and old != current and parse_edited_on(old) == parse_edited_on(current):
                 errors.append(f'{slug}: changed canonical content requires a new Edited on timestamp.')
         if check_approval and slug not in renames and slug not in base_public:
-            issue = parse_body_field(body, r'^Proposal issue:\s*#?(\d+)')
-            if not issue:
-                errors.append(f'{slug}: first draft requires Proposal issue: #N in the PR body.')
-            else:
-                registered = registry_row_for_slug(slug)
-                if not registered or str(registered.get('issueNumber')) != issue:
-                    errors.append(f'{slug}: linked approval does not match the registered proposal.')
-                proposal = gh_request(f'/repos/{os.environ["GITHUB_REPOSITORY"]}/issues/{issue}')
-                if proposal.get('state') != 'open' or 'proposal-approved' not in {label['name'] for label in proposal.get('labels', [])}:
-                    errors.append(f'{slug}: proposal #{issue} must be open and approved.')
+            errors.extend(first_draft_approval_errors(slug, body))
     errors.extend(cross_study_section_errors(list(canonical)))
     target = parse_body_field(body, r'^Target status:\s*(\w+)')
     if target:
@@ -100,4 +129,12 @@ if __name__ == '__main__':
     args = parser.parse_args()
     event = json.loads(open(os.environ['GITHUB_EVENT_PATH'], encoding='utf-8').read()) if os.environ.get('GITHUB_EVENT_PATH') else {}
     body = open(args.body_file, encoding='utf-8').read() if args.body_file else (event.get('pull_request', {}).get('body') or '')
-    validate(args.base_ref, body)
+    validate(
+        args.base_ref,
+        body,
+        allow_unprepared_new_study=is_portal_preparation(
+            event,
+            body,
+            os.environ.get('GITHUB_REPOSITORY', ''),
+        ),
+    )
