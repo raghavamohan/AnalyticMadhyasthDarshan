@@ -6,17 +6,18 @@ The whole family is generated from one geometry, so every variant is the same ma
 
 ## Akhand Samaj icon family
 
-The companion Akhand Samaj family carries the Jeevan visual language outward. A
-central **atma** nucleus orders four concentric faculty bands — **buddhi**, **chitta**,
-**vritti**, and **mun**, from the centre outward. Their harmony becomes publicly
-evident in the four-part outer ring: clockwise from the right-hand segment,
-**resolution**, **prosperity**, **fearlessness**, and **coexistence**. The four visible
-joints express relationship, mutual fulfilment, complementarity, and the continuity
-of an undivided society. Concave segment ends cradle each joint as a ball-and-cup
-connection rather than presenting the outer ring as four unrelated broken arcs.
+The companion Akhand Samaj family is the public mark of undivided society. A
+central **atma** nucleus sits inside an **ordered rounded square**. The four
+mid-side joints, clockwise from the top, are **resolution**, **prosperity**,
+**fearlessness**, and **coexistence** — the human goals as they become evident
+in living. The square distinguishes this family from the circular Jeevan cycle.
 
-The four orders of nature are not assigned to these segments; they remain a distinct
-conceptual set. The segmented ring represents the four human goals only.
+The four faculty bands of *jeevan* (buddhi, chitta, vritti, mun) are not drawn
+here; they belong to the Jeevan family. The four orders of nature are a distinct
+conceptual set and are not assigned to these joints.
+
+Large placements use the full ordered square (cut C). Browser tabs and other
+placements below about 48 px use a heavier cut of the same figure (cut D).
 
 `artifact-themes.json` assigns icon families to website artifacts. Site generators
 use primary assignments for visible identity marks; related assignments are reserved
@@ -57,7 +58,7 @@ Link tags are emitted by `Scripts/_common.py` → `favicon_link_tags()`.
 | `akhand-samaj-watermark-blue.svg` / `.png` | Full-strength navy source for document automation |
 | `akhand-samaj-watermark-blue-10.png` | Ready-to-use 10% opacity document watermark |
 | `akhand-samaj-compact.svg` / `.png` | Simplified tile for placements around 48–96 px |
-| `akhand-samaj-favicon.svg` / `.png` | Small-scale browser and interface mark with four optimized faculty bands |
+| `akhand-samaj-favicon.svg` / `.png` | Small-scale browser and interface mark (cut D of the ordered square) |
 | `akhand-samaj-favicon-16.png`, `-32.png`, `-48.png`, `.ico` | Browser favicon assets |
 | `akhand-samaj-app-icon.svg` / `.png` | Full-bleed app icon master and 1024 px export |
 | `akhand-samaj-apple-touch-icon.png` | 180 px touch/home-screen icon |
@@ -75,7 +76,7 @@ Link tags are emitted by `Scripts/_common.py` → `favicon_link_tags()`.
 
 Full palette: deep blue `#1A5276` · light blue `#B8DAF3` · warm gold `#D5A477` · warm brown `#8B5E34` · ivory `#F7F4EF` · charcoal `#2A241C`.
 
-The Akhand Samaj outer ring distinguishes its four goals with four related golden
+The Akhand Samaj joints distinguish the four goals with four related golden
 tones. Dark fields use `#E8BD92`, `#D5A477`, `#C18A5A`, and `#A66E42`; light
 fields use the deeper counterparts `#C58E5D`, `#B77B48`, `#A36A39`, and
 `#8B5E34`. The progression is an identifying sequence, not a hierarchy among the
@@ -83,14 +84,18 @@ four goals.
 
 ## Minimum sizes and the small-scale fallback
 
-- Full radial symbol (four faculty nodes legible): 48 px digital or 14 mm print.
-- Framed badge: 72 px digital or 20 mm print.
-- Full Akhand Samaj symbol (four faculty bands legible): 96 px digital or 24 mm print.
-- Akhand Samaj compact tile: 48 px digital or 14 mm print.
-- Below 48 px, use `akhand-samaj-favicon.svg`; it retains atma, four slim faculty
-  bands, the four golden goal segments, and their ball-and-cup joints. At 16 px,
-  the faculty bands read as a concentric texture rather than four countable lines.
-- **Below 48 px**, the four nodes turn illegible, so `jeevan-favicon.svg` and the raster favicons use a deliberately *simplified* mark — the two-tone projection/reflection loop and the atma nucleus, without the faculty nodes. It reads as a faithful silhouette of the full symbol rather than a blurred copy.
+- Full radial Jeevan symbol (four faculty nodes legible): 48 px digital or 14 mm print.
+- Framed Jeevan badge: 72 px digital or 20 mm print.
+- Full Akhand Samaj ordered square (cut C): 64 px digital or 16 mm print.
+- Akhand Samaj compact tile (cut D): 48 px digital or 14 mm print.
+- Below 48 px, use `akhand-samaj-favicon.svg` (cut D). At 16 px the four joints
+  read as thickenings on the square rather than four countable colours; the
+  silhouette is atma inside a rounded square.
+- **Below 48 px**, the four Jeevan faculty nodes turn illegible, so `jeevan-favicon.svg`
+  and the Jeevan raster favicons under `Assets/Icons/favicon-*.png` use a
+  deliberately *simplified* mark — the two-tone projection/reflection loop and
+  the atma nucleus, without the faculty nodes. The published *site* favicon is
+  the Akhand Samaj set, not this Jeevan fallback.
 
 For watermarks, place the unframed navy mark behind content at roughly 8–12% opacity (`jeevan-watermark-blue-10.png` is pre-set to 10%). Use the unframed mark, not the filled badge, so no rectangular field shows through at low opacity.
 
@@ -105,7 +110,9 @@ $env:NODE_PATH = "$PWD\Scripts\node_modules"; node Assets\Icons\build-icons.js A
 Puppeteer comes from the PDF pipeline's pinned `Scripts/node_modules`; ImageMagick
 is an additional icon-build prerequisite and is not installed by this repository.
 
-Build the Akhand Samaj family separately:
+Build the Akhand Samaj family separately. The script also copies `akhand-samaj-favicon.ico`
+and `akhand-samaj-apple-touch-icon.png` to the repository root as `favicon.ico` and
+`apple-touch-icon.png` for browsers that request those well-known URLs:
 
 ```powershell
 $env:NODE_PATH = "$PWD\Scripts\node_modules"; node Assets\Icons\build-akhand-samaj-icons.js Assets\Icons
