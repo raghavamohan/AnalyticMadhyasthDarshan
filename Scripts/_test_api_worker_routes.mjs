@@ -52,6 +52,45 @@ async function assertErrorEnvelope(response, {status, code, privateHeaders = tru
   return payload;
 }
 
+async function withDashboardPublicationFetch(publicationResponse, run, repositorySha = 'a'.repeat(40)) {
+  const originalFetch = globalThis.fetch;
+  const originalCaches = globalThis.caches;
+  try {
+    globalThis.caches = {default:{
+      match:async request => {
+        const url=String(request.url || request);
+        if (url.includes('/catalog-maps-v2?sha=')) return Response.json({
+          statuses:{'Test-Study':'draft'},categories:{'Test-Study':['Human']},
+        });
+        if (url.includes('/proposal-registry?sha=')) return Response.json({
+          version:1,proposals:[{issueNumber:3,slug:'Test-Study',phase:'catalog'}],
+        });
+        return null;
+      },
+      put:async () => {},
+    }};
+    globalThis.fetch = async (input) => {
+      const url = String(input);
+      if (url.includes('/issues?creator=alice')) return Response.json([{
+        number:3,state:'closed',title:'Study proposal: Test Study',
+        body:'### Slug\n\nTest-Study\n\n### Category\n\nHuman',
+        labels:[{name:'study-proposal'},{name:'proposal-approved'}],
+        user:{login:'alice'},html_url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/3',
+      }]);
+      if (url.includes('/pulls?state=open')) return Response.json([]);
+      if (url.includes('/git/refs/heads/master')) return Response.json({object:{sha:repositorySha}});
+      if (url.endsWith('/.well-known/publication.json')) return publicationResponse();
+      throw new Error('Unexpected full dashboard request: '+url);
+    };
+    const result = await workerModule.buildDashboard({login:'alice',accessToken:'test'},{});
+    await run(result);
+  } finally {
+    globalThis.fetch = originalFetch;
+    if (originalCaches === undefined) delete globalThis.caches;
+    else globalThis.caches = originalCaches;
+  }
+}
+
 test('shared HTTP errors cover every reusable OpenAPI status', async () => {
   const cases = new Map([
     [400, 'invalid_request'], [401, 'authentication_required'], [403, 'forbidden'],
@@ -161,8 +200,8 @@ if (!discussion) test('full dashboard avoids the historical PR search on the blo
       },
       put:async () => {},
     }};
-    globalThis.fetch=async input => {
-      const url=String(input);calls.push(url);
+    globalThis.fetch=async (input, init={}) => {
+      const url=String(input);calls.push({url, init});
       if (url.includes('/issues?creator=alice')) return Response.json([{
         number:3,state:'closed',title:'Study proposal: Test Study',
         body:'### Slug\n\nTest-Study\n\n### Category\n\nHuman',
@@ -180,14 +219,42 @@ if (!discussion) test('full dashboard avoids the historical PR search on the blo
     assert.equal(result.submissions[0].slug,'Test-Study');
     assert.equal(result.meta.githubRequests,3);
     assert.equal(calls.length,4);
-    assert.equal(calls.filter(url=>url.includes('/git/refs/heads/')).length,1);
+    assert.equal(calls.filter(call=>call.url.includes('/git/refs/heads/')).length,1);
     assert.equal(result.submissions[0].publication.state,'published');
-    assert.equal(calls.some(url => url.includes('/search/issues')),false);
+    assert.equal(result.submissions[0].publication.status,'draft');
+    assert.equal(result.submissions[0].publication.repositorySha,'a'.repeat(40));
+    assert.equal(result.meta.repositorySha,'a'.repeat(40));
+    const publicationCall = calls.find(call => call.url.endsWith('/.well-known/publication.json'));
+    assert.equal(publicationCall.init.headers['User-Agent'],'AMD-Submission-Portal/1.0');
+    assert.equal(calls.some(call => call.url.includes('/search/issues')),false);
   } finally {
     globalThis.fetch=originalFetch;
     if (originalCaches === undefined) delete globalThis.caches;
     else globalThis.caches=originalCaches;
   }
+});
+
+if (!discussion) test('dashboard treats a blocked publication endpoint as unknown, never published', async () => {
+  await withDashboardPublicationFetch(
+    () => new Response('<!DOCTYPE html>challenge', {status: 403, headers: {'Content-Type': 'text/html'}}),
+    result => {
+      assert.equal(result.submissions[0].publication.state, 'unknown');
+      assert.equal(result.submissions[0].publication.status, null);
+      assert.equal(result.meta.repositorySha, 'a'.repeat(40));
+    },
+  );
+});
+
+if (!discussion) test('dashboard reports publishing when the public source SHA lags GitHub', async () => {
+  await withDashboardPublicationFetch(
+    () => Response.json({schema:1,revision:'b'.repeat(64),sourceSha:'c'.repeat(40),studies:{'Test-Study':{status:'draft'}}}),
+    result => {
+      assert.equal(result.submissions[0].publication.state, 'publishing');
+      assert.equal(result.submissions[0].publication.status, 'draft');
+      assert.equal(result.submissions[0].publication.sourceSha, 'c'.repeat(40));
+      assert.equal(result.submissions[0].publication.repositorySha, 'a'.repeat(40));
+    },
+  );
 });
 
 test('real routes apply write checks and private headers before handlers', async () => {
