@@ -9,8 +9,10 @@ import unittest
 from unittest.mock import patch
 
 import _bootstrap_ci as bootstrap
+import _ci_study_pr as ci
 import _generated_artifacts as contract
 import _prepared_study as prepared
+import _rewrite_manifest_reference_links as reference_links
 import _validate_study_change as validation
 from _validate_study_change import infer_intent
 from _study_catalog import StudyStatus
@@ -70,6 +72,25 @@ class PreparationTests(unittest.TestCase):
                     'Proposal issue: #12\n',
                     allow_unprepared_new_study=True,
                 )
+
+    def test_preparation_rewrites_only_changed_study_markdown(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            changed = root / 'Studies/A/A.md'
+            unchanged = root / 'Studies/B/B.md'
+            changed.parent.mkdir(parents=True)
+            unchanged.parent.mkdir(parents=True)
+            link = '[source](../../References/Book.pdf)\n'
+            changed.write_text(link, encoding='utf-8')
+            unchanged.write_text(link, encoding='utf-8')
+            with patch.object(ci, 'BASE', root), \
+                 patch.object(ci, 'changed_paths', return_value=(
+                     ('A', 'Studies/A/A.md'), ('M', 'Scripts/tool.py'))), \
+                 patch.object(reference_links, 'delivery_map', return_value={
+                     'References/Book.pdf': 'https://cdn.example/Book.pdf'}):
+                self.assertEqual(ci.rewrite_changed_reference_links('base'), 1)
+            self.assertIn('https://cdn.example/Book.pdf', changed.read_text(encoding='utf-8'))
+            self.assertEqual(unchanged.read_text(encoding='utf-8'), link)
 
     def test_accept_requires_exact_head_open_draft_and_same_repository(self):
         pr={'number':1,'state':'open','draft':True,'head':{'sha':'a'*40,'repo':{'full_name':'owner/repo'}},'base':{'ref':'master'}}

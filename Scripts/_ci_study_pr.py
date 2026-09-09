@@ -177,6 +177,31 @@ def changed_paths(base_ref: str) -> tuple[tuple[str, str], ...]:
     return tuple(entries)
 
 
+def rewrite_changed_reference_links(base_ref: str) -> int:
+    """Normalize migrated links in submitted study sources before rendering them."""
+    from _rewrite_manifest_reference_links import delivery_map, rewrite_file
+
+    mapping = delivery_map()
+    replacements = 0
+    for status, name in changed_paths(base_ref):
+        relative = Path(name)
+        if (
+            status == "D"
+            or relative.suffix.lower() != ".md"
+            or len(relative.parts) < 3
+            or relative.parts[0] not in STUDY_ROOTS
+        ):
+            continue
+        source = BASE / relative
+        if not source.is_file():
+            continue
+        changed = rewrite_file(source, mapping, write=True)
+        if changed:
+            replacements += changed
+            print(f"Rewrote {changed} migrated reference link(s) in {name}.")
+    return replacements
+
+
 def references_changed(base_ref: str) -> bool:
     return any(path.startswith("References/") for _status, path in changed_paths(base_ref))
 
@@ -871,6 +896,7 @@ def main() -> None:
     body = resolve_pr_body(pull_request)
     print(f"Study PR type: {label}")
 
+    rewrite_changed_reference_links(args.base_ref)
     HANDLERS[label](body, args.base_ref)
 
     # Keep My Submissions' durable study -> note/deck inventory in the same PR.
