@@ -49,6 +49,20 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
     def test_catalog_publication_code_selects_no_pdf(self) -> None:
         self.assertEqual(select_specs(("Scripts/_study_catalog.py",), self.specs), ())
 
+    def test_shared_glossary_change_selects_no_pdf(self) -> None:
+        self.assertEqual(select_specs(("Studies/glossary.json",), self.specs), ())
+
+        workflow = (BASE / ".github/workflows/generated-pdf-publish.yml").read_text(
+            encoding="utf-8"
+        )
+        self.assertNotIn('- "Studies/glossary.json"', workflow)
+
+        renderer = (BASE / "Scripts/_html_to_pdf.js").read_text(encoding="utf-8")
+        self.assertLess(
+            renderer.index("await removeWebOnlyGlossaryTooltips(page);"),
+            renderer.index("await page.pdf({"),
+        )
+
     def test_presentation_only_change_selects_no_markdown_output(self) -> None:
         selected = select_specs((
             "Studies/The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pptx",

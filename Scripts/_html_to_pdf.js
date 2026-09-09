@@ -164,6 +164,17 @@ async function renderMermaidDiagrams(page) {
   );
 }
 
+async function removeWebOnlyGlossaryTooltips(page) {
+  // Shared glossary tooltips are reader chrome, not printable study content.
+  // Each study's own Markdown glossary remains in the document. Unwrapping
+  // here keeps PDF bytes and pagination independent of Studies/glossary.json.
+  await page.evaluate(() => {
+    document.querySelectorAll('.term-tip-wrap').forEach(wrapper => {
+      wrapper.replaceWith(document.createTextNode(wrapper.textContent || ''));
+    });
+  });
+}
+
 const args = process.argv.slice(2);
 // Relative input paths resolve against the current working directory; the
 // default points at the workspace's Studies folder.
@@ -233,6 +244,7 @@ function buildFooterTemplate(editedOnDate) {
 
   await page.setJavaScriptEnabled(true);
   await renderMermaidDiagrams(page);
+  await removeWebOnlyGlossaryTooltips(page);
 
   // Only translation documents print the date in their footer, so only they need
   // it read from the page. The PDF's metadata date no longer comes from here.

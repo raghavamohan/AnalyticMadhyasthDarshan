@@ -17,9 +17,13 @@ operational ownership all exist.
 | Discussion API | Comments and moderation | Human email magic link, first-party cookie, Turnstile |
 | Notification hook | CI-to-worker email events | Shared secret |
 
-A2A task operations and agent OAuth access tokens are intentionally not part of
-the supported surface. The decision gates below define when either should be
-added.
+A2A task operations, agent OAuth access tokens, and native mobile store clients
+are intentionally not part of the supported surface. The decision gates below
+define when A2A or agent OAuth should be added. Native Android/iOS applications
+are out of scope on the [website plan](website-improvement-plan.md); do not add
+bearer write tokens or a second origin policy in order to support a store app.
+Browser PWA install, JSON Feed/Atom, and discussion reply mail stay on the
+existing first-party cookie and public-read contracts.
 
 ## Phase 1 — lock the contract (implemented)
 
@@ -132,7 +136,11 @@ email, or publication drift from one request ID and dashboard.
 
 ## Phase 4 — versioning and client usability
 
-Target: once external clients depend on the API.
+Target: once an external client depends on the API. A browser PWA, the catalog
+Recently updated UI, and ordinary feed readers using `feed.json` / Atom do
+**not** by themselves start this phase. Pull ETags forward earlier if SITE-02
+caching needs them. Do not treat a hypothetical store app as the external
+client that unlocks bearer writes.
 
 - Adopt a compatibility policy: additive changes remain within a major version;
   removals or semantic changes require a versioned base path and deprecation
@@ -164,8 +172,8 @@ Agent Card, require:
 ### Agent OAuth
 
 Implement an OAuth authorization server only when a non-browser client needs
-delegated write access. Before publishing authorization-server or protected-
-resource metadata, require:
+delegated write access. A native store application is not that client. Before
+publishing authorization-server or protected-resource metadata, require:
 
 - a concrete client and scope model with least-privilege permissions;
 - implemented authorization and token endpoints, revocation, expiration,
@@ -179,11 +187,29 @@ Until those gates are met, Auth.md remains the authoritative statement that
 reads are public and writes use interactive human sessions or the private
 notification secret.
 
+### Discussion watch / reply mail (website-first)
+
+Add authenticated discussion preference and report routes only when
+[website DIS-01](website-improvement-plan.md) is scheduled, after discussion
+session revocation (OPS-01). Keep the existing magic-link cookie. Document any
+new route in `openapi/discussions.json` before deploy. This is not agent OAuth
+and not a mobile push platform.
+
+### Catalog feed siblings (website-first)
+
+An Atom (or RSS) sibling of `Studies/feed.json` is an additive catalog resource
+for SITE-02. Generate it from the same catalog writer, add it to
+`openapi/studies.json` and `_verify_studies_index.py`, and keep JSON Feed as the
+canonical machine feed. No new Worker is required.
+
 ## Delivery order
 
 1. Keep the deployed Phase 1 contract/error checks green.
 2. Complete the remaining Phase 2 resilience and predictability work.
 3. Establish Phase 3 telemetry and objectives.
-4. Add Phase 4 versioning and client tooling when an external consumer exists.
-5. Revisit A2A or agent OAuth only in response to a validated use case and an
-   identified operator.
+4. When SITE-02 ships, document Atom/feed discovery in OpenAPI and catalog
+   verification. Add ETags for catalogs and feeds if caching needs them.
+5. Add Phase 4 versioning and generated clients when a non-browser consumer
+   other than today’s MCP/WebMCP readers depends on the API.
+6. Revisit A2A or agent OAuth only in response to a validated use case and an
+   identified operator. A native store app is not that use case.

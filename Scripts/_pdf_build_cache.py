@@ -35,6 +35,7 @@ PDF_RENDERER_INPUTS = {
     "Scripts/_pdf_resource_policy.cjs",
     "Scripts/_render_katex_math.js",
 }
+GLOSSARY_INPUT = "Studies/glossary.json"
 
 
 def tracked_files(root: Path) -> set[str]:
@@ -101,8 +102,12 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
             if name in PDF_RENDERER_INPUTS:
                 selected.add(name)
             if family == "markdown":
-                if name.startswith(("Studies/", "Applications/")) and not name.startswith("Studies/search-data/") and name != "Studies/offline-manifest.json" and suffix in (
-                    {".md", ".json"} | IMAGE_SUFFIXES
+                if (
+                    name.startswith(("Studies/", "Applications/"))
+                    and name != GLOSSARY_INPUT
+                    and not name.startswith("Studies/search-data/")
+                    and name != "Studies/offline-manifest.json"
+                    and suffix in ({".md", ".json"} | IMAGE_SUFFIXES)
                 ):
                     selected.add(name)
                 selected.add("Scripts/presentation-pipeline.json")
@@ -111,7 +116,10 @@ def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
     return selected
 
 
-def affected_families(changed_paths: set[str], root: Path = BASE) -> set[str]:
+def affected_families(
+    changed_paths: set[str],
+    root: Path = BASE,
+) -> set[str]:
     """Return build families whose current inputs intersect a Git diff.
 
     Deleted source files are classified by path because they no longer appear in
@@ -132,6 +140,10 @@ def affected_families(changed_paths: set[str], root: Path = BASE) -> set[str]:
         if name.startswith(("Studies/", "Applications/")):
             if suffix == ".pptx":
                 affected.add("presentations")
+            elif name == GLOSSARY_INPUT:
+                # The shared glossary supplies web-reader tooltips only. Each
+                # study's printable glossary lives in its canonical Markdown.
+                continue
             elif suffix in ({".md", ".json"} | IMAGE_SUFFIXES):
                 affected.add("markdown")
         if name.startswith("References/") and suffix in ({".md", ".html", ".pdf"} | IMAGE_SUFFIXES):

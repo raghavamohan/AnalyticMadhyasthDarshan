@@ -42,9 +42,27 @@ SKIP_CLASSES = frozenset(
         "skip-link",
         "mermaid",
         "study-reading-key",
+        "katex",
+        "katex-display",
     }
 )
 REFERENCES_HEADING_RE = re.compile(r"^(?:\d+\.\s*)?references$", re.IGNORECASE)
+VOID_TAGS = frozenset({
+    "area", "base", "br", "col", "embed", "hr", "img", "input", "link",
+    "meta", "param", "source", "track", "wbr",
+})
+MAIN_RE = re.compile(
+    r'(?P<open><main\b(?=[^>]*\bid="main")[^>]*>)'
+    r'(?P<body>.*?)'
+    r'(?P<close></main>)',
+    re.IGNORECASE | re.DOTALL,
+)
+TOOLTIP_WRAPPER_RE = re.compile(
+    r'<span\b(?=[^>]*\bclass="term-tip-wrap")[^>]*>'
+    r'<button\b(?=[^>]*\bclass="term-tip")[^>]*>'
+    r'(?P<text>[^<]*)</button></span>',
+    re.IGNORECASE,
+)
 
 
 def load_glossary(path: Path | None = None) -> list[dict[str, object]]:
@@ -93,8 +111,8 @@ def _wrap_term(match: re.Match[str], term_id: str, definition: str) -> str:
     )
     return (
         f'<span class="term-tip-wrap">'
-        f'<button type="button" class="term-tip" data-term="{term_id}" '
-        f'data-definition="{attr_def}">{text}</button>'
+        f'<button class="term-tip" data-definition="{attr_def}" '
+        f'data-term="{term_id}" type="button">{text}</button>'
         f"</span>"
     )
 
@@ -146,14 +164,14 @@ class _GlossaryHTMLParser(HTMLParser):
     def __init__(self, patterns: list[tuple[re.Pattern[str], str, str]]) -> None:
         super().__init__(convert_charrefs=False)
         self.patterns = patterns
-        self._skip_stack: list[bool] = []
+        self._skip_stack: list[tuple[str, bool]] = []
         self._seen_term_ids: set[str] = set()
         self._h2_text: list[str] | None = None
         self._tooltips_disabled = False
         self.parts: list[str] = []
 
     def _skip_active(self) -> bool:
-        return any(self._skip_stack)
+        return any(skip for _tag, skip in self._skip_stack)
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         if tag == "h2":
@@ -163,12 +181,13 @@ class _GlossaryHTMLParser(HTMLParser):
         attr_map = {k: (v or "") for k, v in attrs}
         class_names = set(attr_map.get("class", "").split())
         skip = tag in SKIP_TAGS or bool(class_names.intersection(SKIP_CLASSES))
-        self._skip_stack.append(skip)
+        if tag not in VOID_TAGS:
+            self._skip_stack.append((tag, skip))
 
-        attr_text = "".join(
-            f' {name}="{attr_map[name].replace(chr(34), "&quot;")}"' for name in attr_map
-        )
-        self.parts.append(f"<{tag}{attr_text}>")
+        # Preserve existing generated HTML byte-for-byte when refreshing only
+        # tooltip wrappers. Reconstructing a tag from parsed attributes would
+        # decode entities and reorder or normalize unrelated markup.
+        self.parts.append(self.get_starttag_text() or f"<{tag}>")
 
     def handle_endtag(self, tag: str) -> None:
         self.parts.append(f"</{tag}>")
@@ -178,20 +197,11 @@ class _GlossaryHTMLParser(HTMLParser):
             )
             self._tooltips_disabled = bool(REFERENCES_HEADING_RE.fullmatch(heading))
             self._h2_text = None
-        if self._skip_stack:
+        if self._skip_stack and self._skip_stack[-1][0] == tag:
             self._skip_stack.pop()
 
     def handle_startendtag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
-        attr_map = {k: (v or "") for k, v in attrs}
-        class_names = set(attr_map.get("class", "").split())
-        skip = tag in SKIP_TAGS or bool(class_names.intersection(SKIP_CLASSES))
-        self._skip_stack.append(skip)
-        attr_text = "".join(
-            f' {name}="{attr_map[name].replace(chr(34), "&quot;")}"' for name in attr_map
-        )
-        self.parts.append(f"<{tag}{attr_text}/>")
-        if self._skip_stack:
-            self._skip_stack.pop()
+        self.parts.append(self.get_starttag_text() or f"<{tag}/>")
 
     def handle_data(self, data: str) -> None:
         if self._h2_text is not None:
@@ -213,6 +223,15 @@ class _GlossaryHTMLParser(HTMLParser):
             self._h2_text.append(f"&#{name};")
         self.parts.append(f"&#{name};")
 
+    def handle_comment(self, data: str) -> None:
+        self.parts.append(f"<!--{data}-->")
+
+    def handle_decl(self, decl: str) -> None:
+        self.parts.append(f"<!{decl}>")
+
+    def handle_pi(self, data: str) -> None:
+        self.parts.append(f"<?{data}>")
+
 
 def apply_glossary_tooltips(html_body: str, terms: list[dict[str, object]]) -> str:
     patterns = _compile_patterns(terms)
@@ -222,6 +241,38 @@ def apply_glossary_tooltips(html_body: str, terms: list[dict[str, object]]) -> s
     parser.feed(html_body)
     parser.close()
     return "".join(parser.parts)
+
+
+def refresh_document_tooltips(
+    document_html: str,
+    terms: list[dict[str, object]],
+) -> str:
+    """Refresh shared glossary wrappers inside a generated study's main body.
+
+    This deliberately leaves the rest of the generated reader untouched. It is
+    therefore cheap enough for glossary-only changes and does not require the
+    Node/KaTeX/Chrome PDF toolchain.
+    """
+    main = MAIN_RE.search(document_html)
+    if main is None:
+        return document_html
+    refreshed = refresh_body_tooltips(main.group("body"), terms)
+    return (
+        document_html[:main.start()]
+        + main.group("open")
+        + refreshed
+        + main.group("close")
+        + document_html[main.end():]
+    )
+
+
+def refresh_body_tooltips(
+    html_body: str,
+    terms: list[dict[str, object]],
+) -> str:
+    """Remove generated tooltip wrappers and apply the current registry once."""
+    unwrapped = TOOLTIP_WRAPPER_RE.sub(lambda match: match.group("text"), html_body)
+    return apply_glossary_tooltips(unwrapped, terms)
 
 
 def wrap_tables_for_scroll(html_body: str) -> str:

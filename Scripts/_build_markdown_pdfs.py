@@ -18,7 +18,6 @@ from _study_pdf_pipeline import regenerate_pdf, render_status
 SHARED_PIPELINE_PATHS = frozenset({
     "CNAME",
     "requirements.txt",
-    "Studies/glossary.json",
     "Studies/catalog-applied.json",
     "Studies/catalog-formal.json",
     "Studies/catalog-topical.json",
