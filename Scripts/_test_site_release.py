@@ -47,7 +47,7 @@ class ReleaseTests(unittest.TestCase):
                       '/Studies/A/A.html': b'<html><head></head><body>A</body></html>',
                       '/Assets/a.css': b'body { color: black }'}
 
-    def build(self, output='bundle'):
+    def build(self, output='bundle', source_sha='a'*40):
         sources = {}
         for name, body in self.files.items():
             path = self.source / name.lstrip('/')
@@ -55,7 +55,7 @@ class ReleaseTests(unittest.TestCase):
             path.write_bytes(body)
             sources[name] = path
         with patch.object(release, 'static_sources', return_value=sources):
-            return release.build(self.root / output, None, root=self.source, source_sha='a'*40)
+            return release.build(self.root / output, None, root=self.source, source_sha=source_sha)
 
     def test_unchanged_release_is_deterministic_and_source_is_untouched(self):
         first = self.build()
@@ -63,6 +63,10 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(first, second)
         self.assertEqual((self.source / 'index.html').read_bytes(), self.files['/index.html'])
         self.assertIn(('?r=' + first['revision']).encode(), (self.root/'bundle/assets/index.html').read_bytes())
+        source_only = self.build('source-only', source_sha='b'*40)
+        self.assertEqual(source_only['revision'], first['revision'])
+        self.assertEqual(source_only['files'], first['files'])
+        self.assertEqual(source_only['sourceSha'], 'b'*40)
         self.files['/Studies/A/A.html'] = b'<html><head></head><body>Changed</body></html>'
         self.assertNotEqual(first['revision'], self.build('third')['revision'])
 
@@ -308,6 +312,68 @@ class ReleaseTests(unittest.TestCase):
             with self.assertRaisesRegex(OSError,'production audit'):
                 publisher.publish(self.root/'bundle',promote=True)
             self.assertEqual([call.args[2] for call in activate.call_args_list],['candidate-version','previous-version'])
+
+    def test_source_only_advance_skips_r2_staging_and_full_url_audits(self):
+        manifest = self.build(source_sha='b'*40)
+        active = {'revision': manifest['revision'], 'sourceSha': 'a'*40}
+        old_version = [{'versions': [{'version_id': 'previous-version'}]}]
+        with ExitStack() as stack:
+            for name, value in [('load_repo_env', None), ('cloudflare_api_token', 'token'), ('resolve_zone_id', 'zone')]:
+                stack.enter_context(patch.object(publisher.cf, name, return_value=value))
+            for name, value in [('_zone_account_id', 'account'), ('_workers_subdomain', 'subdomain'),
+                                ('load_r2_config', {}), ('R2S3Client', FakeStore()),
+                                ('deployments', old_version), ('public_state', active), ('assert_forward', None)]:
+                stack.enter_context(patch.object(publisher, name, return_value=value))
+            stack.enter_context(patch('_generated_pdf_inventory.generated_pdf_specs', return_value=()))
+            deploy = stack.enter_context(patch.object(
+                publisher, 'deploy', side_effect=['canary-version', 'candidate-version']
+            ))
+            marker = stack.enter_context(patch.object(publisher, 'audit_publication_marker'))
+            public_marker = stack.enter_context(patch.object(publisher, 'audit_public_marker_if_active'))
+            stage = stack.enter_context(patch.object(publisher, 'stage_objects'))
+            audit = stack.enter_context(patch.object(publisher, 'audit'))
+            activate = stack.enter_context(patch.object(publisher, 'activate_version'))
+            receipt = stack.enter_context(patch.object(publisher, 'record_source_deployment'))
+            publisher.publish(self.root/'bundle', promote=True)
+
+        self.assertEqual([call.args[2] for call in deploy.call_args_list], [publisher.CANARY, publisher.WORKER])
+        self.assertEqual([call.args[2] for call in activate.call_args_list], ['candidate-version'])
+        self.assertEqual(marker.call_count, 2)
+        public_marker.assert_called_once()
+        stage.assert_not_called()
+        audit.assert_not_called()
+        receipt.assert_called_once()
+
+    def test_source_only_advance_rolls_back_failed_production_marker(self):
+        manifest = self.build(source_sha='b'*40)
+        active = {'revision': manifest['revision'], 'sourceSha': 'a'*40}
+        old_version = [{'versions': [{'version_id': 'previous-version'}]}]
+        with ExitStack() as stack:
+            for name, value in [('load_repo_env', None), ('cloudflare_api_token', 'token'), ('resolve_zone_id', 'zone')]:
+                stack.enter_context(patch.object(publisher.cf, name, return_value=value))
+            for name, value in [('_zone_account_id', 'account'), ('_workers_subdomain', 'subdomain'),
+                                ('load_r2_config', {}), ('R2S3Client', FakeStore()),
+                                ('deployments', old_version), ('public_state', active), ('assert_forward', None)]:
+                stack.enter_context(patch.object(publisher, name, return_value=value))
+            stack.enter_context(patch('_generated_pdf_inventory.generated_pdf_specs', return_value=()))
+            stack.enter_context(patch.object(
+                publisher, 'deploy', side_effect=['canary-version', 'candidate-version']
+            ))
+            stack.enter_context(patch.object(
+                publisher, 'audit_publication_marker', side_effect=[None, OSError('marker failed')]
+            ))
+            stack.enter_context(patch.object(publisher, 'audit_public_marker_if_active'))
+            activate = stack.enter_context(patch.object(publisher, 'activate_version'))
+            receipt = stack.enter_context(patch.object(publisher, 'record_source_deployment'))
+
+            with self.assertRaisesRegex(OSError, 'marker failed'):
+                publisher.publish(self.root/'bundle', promote=True)
+
+        self.assertEqual(
+            [call.args[2] for call in activate.call_args_list],
+            ['candidate-version', 'previous-version'],
+        )
+        receipt.assert_not_called()
 
     def test_same_source_different_bytes_does_not_silently_replace_release(self):
         with self.assertRaisesRegex(ValueError,'different bytes'):
