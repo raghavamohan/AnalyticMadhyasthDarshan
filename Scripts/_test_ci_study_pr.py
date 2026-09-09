@@ -239,6 +239,8 @@ def test_portal_study_deletion_runs_supported_lifecycle() -> None:
     originals = {
         "resolve_slug": ci.resolve_slug,
         "reject_other_study_changes": ci.reject_other_study_changes,
+        "study_was_removed": ci.study_was_removed,
+        "registry_row_was_removed": ci.registry_row_was_removed,
         "verify_removal_metadata": ci.verify_removal_metadata,
         "run_reference_checks": ci.run_reference_checks,
         "subprocess_run": ci.subprocess.run,
@@ -246,6 +248,8 @@ def test_portal_study_deletion_runs_supported_lifecycle() -> None:
     try:
         ci.resolve_slug = lambda *_args, **_kwargs: "Remove-Me"
         ci.reject_other_study_changes = lambda *_args, **_kwargs: calls.append(("scope", None))
+        ci.study_was_removed = lambda *_args, **_kwargs: False
+        ci.registry_row_was_removed = lambda *_args, **_kwargs: False
         ci.verify_removal_metadata = lambda slug: calls.append(("verify", slug))
         ci.run_reference_checks = lambda **kwargs: calls.append(("references", kwargs))
         ci.subprocess.run = lambda command, **_kwargs: calls.append(("run", command))
@@ -256,6 +260,8 @@ def test_portal_study_deletion_runs_supported_lifecycle() -> None:
     finally:
         ci.resolve_slug = originals["resolve_slug"]
         ci.reject_other_study_changes = originals["reject_other_study_changes"]
+        ci.study_was_removed = originals["study_was_removed"]
+        ci.registry_row_was_removed = originals["registry_row_was_removed"]
         ci.verify_removal_metadata = originals["verify_removal_metadata"]
         ci.run_reference_checks = originals["run_reference_checks"]
         ci.subprocess.run = originals["subprocess_run"]
@@ -263,6 +269,43 @@ def test_portal_study_deletion_runs_supported_lifecycle() -> None:
     run_command = next(value for name, value in calls if name == "run")
     assert str(run_command[1]).endswith("_remove_study.py")
     assert run_command[-2:] == ["Remove-Me", "--yes"]
+    assert ("verify", "Remove-Me") in calls
+    assert ("references", {"full_repo": True}) in calls
+
+
+def test_portal_study_deletion_validates_already_prepared_removal() -> None:
+    calls: list[tuple[str, object]] = []
+    originals = {
+        "resolve_slug": ci.resolve_slug,
+        "reject_other_study_changes": ci.reject_other_study_changes,
+        "study_was_removed": ci.study_was_removed,
+        "registry_row_was_removed": ci.registry_row_was_removed,
+        "verify_removal_metadata": ci.verify_removal_metadata,
+        "run_reference_checks": ci.run_reference_checks,
+        "subprocess_run": ci.subprocess.run,
+    }
+    try:
+        ci.resolve_slug = lambda *_args, **_kwargs: "Remove-Me"
+        ci.reject_other_study_changes = lambda *_args, **_kwargs: calls.append(("scope", None))
+        ci.study_was_removed = lambda *_args, **_kwargs: True
+        ci.registry_row_was_removed = lambda *_args, **_kwargs: False
+        ci.verify_removal_metadata = lambda slug: calls.append(("verify", slug))
+        ci.run_reference_checks = lambda **kwargs: calls.append(("references", kwargs))
+        ci.subprocess.run = lambda command, **_kwargs: calls.append(("run", command))
+        ci.handle_study_update(
+            "Study slug: Remove-Me\nOperation: delete-study\n",
+            "origin/master",
+        )
+    finally:
+        ci.resolve_slug = originals["resolve_slug"]
+        ci.reject_other_study_changes = originals["reject_other_study_changes"]
+        ci.study_was_removed = originals["study_was_removed"]
+        ci.registry_row_was_removed = originals["registry_row_was_removed"]
+        ci.verify_removal_metadata = originals["verify_removal_metadata"]
+        ci.run_reference_checks = originals["run_reference_checks"]
+        ci.subprocess.run = originals["subprocess_run"]
+
+    assert not any(name == "run" for name, _value in calls)
     assert ("verify", "Remove-Me") in calls
     assert ("references", {"full_repo": True}) in calls
 
@@ -291,6 +334,22 @@ def test_changed_study_slugs_ignores_generated_pdf_only_changes() -> None:
     ]
     got = _with_diff(entries, lambda: ci.changed_study_slugs("origin/master"))
     assert got == []
+
+
+def test_changed_study_slugs_ignores_deleted_generated_root_artifacts() -> None:
+    entries = [
+        ("D", "Studies/Removed-One/Removed-One.md"),
+        ("M", "Studies/search-data/manifest.json"),
+        ("D", "Studies/search-data/study-deadbeef.json"),
+    ]
+    got = _with_diff(entries, lambda: ci.changed_study_slugs("origin/master"))
+    assert got == ["Removed-One"]
+
+
+def test_changed_study_slugs_includes_deleted_companion_from_existing_study() -> None:
+    entries = [("D", f"Studies/{REAL_SLUG}/Research-Note.md")]
+    got = _with_diff(entries, lambda: ci.changed_study_slugs("origin/master"))
+    assert got == [REAL_SLUG]
 
 
 def test_single_purpose_labels_reject_other_study_changes() -> None:
