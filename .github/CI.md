@@ -58,6 +58,9 @@ This is separate from a study's Draft/Released status. Revising an existing PR
 returns it to draft before committing source. Once preparation is accepted,
 the PR becomes ready for review; the required gate still controls merging.
 Local and fork contributors generate their files before opening a ready PR.
+The read-only gate recognizes this incomplete state only for a same-repository
+draft PR carrying the portal marker, and still rechecks the registered proposal
+and its approval. A ready PR must contain the complete prepared outputs.
 
 `_ci_study_pr.py` is the preparation router. It infers first draft, update,
 deletion and status change from paths and body fields. It preserves the existing
