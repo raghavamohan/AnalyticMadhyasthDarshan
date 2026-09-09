@@ -97,6 +97,22 @@ class InventoryTests(unittest.TestCase):
         search.write_search_catalog()
         self.assertEqual((search.DATA / 'manifest.json').read_bytes(), before)
 
+    def test_catalog_publication_backfills_shards_from_fresh_readers(self):
+        documents = search.eligible_documents()
+        for source in documents:
+            version = search.digest(source.read_bytes())
+            rendered = (
+                f'<html lang="en"><head><meta name="amd-source-version" '
+                f'content="{version}"/></head><body><h1>Test</h1><main id="main">'
+                + annotate_passages('<h2 id="s">Section</h2><p>Fresh reader text.</p>')
+                + '</main></body></html>'
+            )
+            source.with_suffix('.html').write_text(rendered, encoding='utf-8')
+        self.assertFalse(any(search.shard_path(metadata).exists() for metadata in documents.values()))
+        search.write_search_catalog()
+        self.assertTrue(all(search.shard_path(metadata).is_file() for metadata in documents.values()))
+        self.assertEqual(search.verify_search(), [])
+
     def test_edits_change_one_shard_and_source_versions_are_checked(self):
         self.build()
         docs = search.eligible_documents()

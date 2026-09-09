@@ -111,19 +111,24 @@ def _is_pre_catalog_placeholder(path: Path) -> bool:
     return "**Status:**" not in path.read_text(encoding="utf-8")
 
 
+def rewrite_file(path: Path, mapping: dict[str, str], *, write: bool) -> int:
+    original = path.read_text(encoding="utf-8")
+    updated, replacements = rewrite_text(original, mapping, path)
+    if replacements and write:
+        write_text_lf(path, updated)
+    return replacements
+
+
 def run(*, write: bool) -> tuple[int, list[Path]]:
     mapping = delivery_map()
     count = 0
     changed_paths: list[Path] = []
     for path in markdown_paths():
-        original = path.read_text(encoding="utf-8")
-        updated, replacements = rewrite_text(original, mapping, path)
+        replacements = rewrite_file(path, mapping, write=write)
         if not replacements:
             continue
         changed_paths.append(path)
         count += replacements
-        if write:
-            write_text_lf(path, updated)
     action = "Rewrote" if write else "Would rewrite"
     print(f"{action} {count} migrated reference link(s) in {len(changed_paths)} file(s).")
     for path in changed_paths:

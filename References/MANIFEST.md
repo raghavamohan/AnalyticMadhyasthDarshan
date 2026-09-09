@@ -63,6 +63,8 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 
 | [A-State-Dynamic-Model-Of-Coexistence.pdf](../Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) | MVD, SB, JV, AVD, KD | present |
 
+| [Artificial-Intelligence-And-Coexistence.pdf](../Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf) | MVD, SB, JV | TBD |
+
 ## By tag
 
 For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that quote verification checks against. Companion `.md` extracts are for analysis only — do not edit them by hand, and do not link them from Studies bibliographies.
