@@ -399,6 +399,8 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
         run: python Scripts/_publish_reference_artifacts.py --verify-approved
 
       - name: Deploy Worker and attach guarded production routes
@@ -465,6 +467,8 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
         run: python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root "$RUNNER_TEMP/generated-pdfs"
 
       - name: Verify rights-approved references already in R2
@@ -474,6 +478,8 @@ jobs:
           R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
           R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
           AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
         run: python Scripts/_publish_reference_artifacts.py --verify-approved
 
       - name: Stage, audit, and promote the release
