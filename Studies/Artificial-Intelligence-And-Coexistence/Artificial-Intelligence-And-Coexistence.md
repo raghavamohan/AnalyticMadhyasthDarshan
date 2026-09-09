@@ -2,8 +2,8 @@
 
 **Author:** Raghava Mohan Madhwapathi
 
-**Edited on:** September 9, 2026, 4:42 PM IST
-**Status:** Draft
+**Edited on:** September 9, 2026, 5:21 PM IST
+**Status:** Released
 
 **The question:** What kind of thing is AI in Madhyasth Darshan's coexistential ontology, and what follows for knowing, work, and right-use?
 
