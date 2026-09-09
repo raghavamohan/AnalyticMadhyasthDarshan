@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import json
 import os
@@ -22,6 +23,7 @@ from _reference_artifacts import (
 )
 
 DEFAULT_BUCKET = "amd-reference-archive"
+REFERENCE_VERIFY_WORKERS = 8
 
 
 def bucket_name() -> str:
@@ -176,24 +178,31 @@ def upload_rows(client: R2S3Client, rows: list[dict], artifact_root: Path | None
 
 
 def verify_rows(client: R2S3Client, rows: list[dict]) -> None:
-    errors: list[str] = []
-    for row in rows:
+    def verify_row(row: dict) -> list[str]:
+        row_errors: list[str] = []
         key = row["target"]["r2_key"]
         source = row["source"]
         headers = client.head_object(key)
         if headers is None:
-            errors.append(f"missing R2 object: {key}")
-            continue
+            return [f"missing R2 object: {key}"]
         if headers.get("x-amz-meta-sha256") != source["sha256"]:
-            errors.append(f"checksum metadata differs from manifest: {key}")
+            row_errors.append(f"checksum metadata differs from manifest: {key}")
         try:
             size = int(headers.get("content-length", "-1"))
         except ValueError:
             size = -1
         if size != source["bytes"]:
-            errors.append(f"size differs from manifest: {key}")
+            row_errors.append(f"size differs from manifest: {key}")
+        return row_errors
+
+    errors: list[str] = []
+    workers = max(1, min(REFERENCE_VERIFY_WORKERS, len(rows) or 1))
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = [executor.submit(verify_row, row) for row in rows]
+        for future in as_completed(futures):
+            errors.extend(future.result())
     if errors:
-        raise RuntimeError("R2 verification failed:\n  - " + "\n  - ".join(errors))
+        raise RuntimeError("R2 verification failed:\n  - " + "\n  - ".join(sorted(errors)))
     print(f"Verified {len(rows)} uploaded reference artifact(s).")
 
 
