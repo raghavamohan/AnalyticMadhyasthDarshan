@@ -34,7 +34,9 @@ writes continue through the existing Cloudflare Worker and GitHub.
   markdown-it share tested common syntax; unusual Markdown can differ. Review
   the generated CI artifacts before approving publication.
 - A submission's workflow state is shown separately from Draft/Released
-  publication status. Cards state who acts next and display bounded reviewer
+  catalog status and from whether the public site has caught up. Refresh reloads
+  GitHub and `/.well-known/publication.json`, with a visible busy state. Cards
+  state who acts next and display bounded reviewer
   feedback and failed-check summaries, with links to full reviews and logs.
   In-place portal revision continues to cover owned first-draft PRs; other PR
   branches can be edited on GitHub.

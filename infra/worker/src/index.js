@@ -64,6 +64,9 @@ const PROPOSAL_REGISTRY_CACHE_KEY = 'https://amd-submissions.internal/proposal-r
 const COMPANION_ARTIFACTS_PATH = 'Studies/companion-artifacts.json';
 const COMPANION_ARTIFACTS_CACHE_KEY = 'https://amd-submissions.internal/companion-artifacts';
 const CHECK_POOL_SIZE = 5;
+const PUBLICATION_STATE_URL = 'https://analyticmadhyasthdarshan.org/.well-known/publication.json';
+const PUBLICATION_USER_AGENT = 'AMD-Submission-Portal/1.0';
+const PUBLICATION_FETCH_MS = 5000;
 const DASHBOARD_STAGES = new Set([
   'pending', 'preparing', 'accepted', 'declined', 'retired',
   'pr-open', 'changes_requested', 'merged', 'pr-closed', 'closed',
@@ -199,13 +202,46 @@ async function repositorySnapshot(env,stats = null) {
   return env.repositorySnapshot;
 }
 
+function parsePublicationState(state) {
+  return state && state.schema === 1 && /^[a-f0-9]{40}$/.test(state.sourceSha) && /^[a-f0-9]{64}$/.test(state.revision)
+    ? state
+    : null;
+}
+
+function publicationForItem(published, repositorySha, slug) {
+  return {
+    state: !published ? 'unknown' : published.sourceSha === repositorySha ? 'published' : 'publishing',
+    revision: published?.revision || null,
+    sourceSha: published?.sourceSha || null,
+    repositorySha: repositorySha || null,
+    status: published?.studies?.[slug]?.status || null,
+  };
+}
+
 async function publicationState(env) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), PUBLICATION_FETCH_MS);
   try {
-    const response = await fetch('https://analyticmadhyasthdarshan.org/.well-known/publication.json',{cache:'no-store'});
+    // Identify this read the same way the publisher audit does. An empty or
+    // default client is blocked with Cloudflare 1010, which would otherwise
+    // make every My Submissions card report "Publication not confirmed".
+    const response = await fetch(PUBLICATION_STATE_URL, {
+      cache: 'no-store',
+      signal: controller.signal,
+      headers: {
+        Accept: 'application/json',
+        'User-Agent': PUBLICATION_USER_AGENT,
+      },
+    });
     if (!response.ok) return null;
-    const state = await response.json();
-    return state.schema === 1 && /^[a-f0-9]{40}$/.test(state.sourceSha) && /^[a-f0-9]{64}$/.test(state.revision) ? state : null;
-  } catch (_) { return null; }
+    const contentType = response.headers.get('Content-Type') || '';
+    if (!contentType.toLowerCase().includes('application/json')) return null;
+    return parsePublicationState(await response.json());
+  } catch (_) {
+    return null;
+  } finally {
+    clearTimeout(timer);
+  }
 }
 
 async function markForPreparation(pr,env) {
@@ -1599,9 +1635,7 @@ async function buildDashboard(session, env, options = {}) {
 
   const [published,sourceSha] = await Promise.all([publicationState(env),repositorySnapshot(env,stats)]);
   for (const item of pageSubmissions) {
-    item.publication = {state:!published ? 'unknown' : published.sourceSha === sourceSha ? 'published' : 'publishing',
-      revision:published?.revision || null, sourceSha:published?.sourceSha || null,
-      status:published?.studies?.[item.slug]?.status || null};
+    item.publication = publicationForItem(published, sourceSha, item.slug);
   }
 
   const truncated = proposalList.truncated || openPullList.truncated;
@@ -1613,6 +1647,7 @@ async function buildDashboard(session, env, options = {}) {
       timingMs: Date.now() - started,
       githubRequests: stats.githubRequests,
       truncated,
+      repositorySha: sourceSha,
       ...paginationMeta(filteredSubmissions.length, limit, offset),
       phaseTimingMs: {
         base: baseFinished - started,

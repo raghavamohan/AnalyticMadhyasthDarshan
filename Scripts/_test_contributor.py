@@ -23,6 +23,18 @@ class ContributorTests(unittest.TestCase):
         result = subprocess.run(['python',str(BASE / 'Scripts/_build_contributor_assets.py'),'--check'],capture_output=True,text=True)
         self.assertEqual(result.returncode,0,result.stdout + result.stderr)
 
+    def test_dashboard_refresh_checks_public_publication(self):
+        portal = (BASE / 'Studies/submit.html').read_text(encoding='utf-8')
+        soup = BeautifulSoup(portal, 'html.parser')
+        refresh = soup.find(id='dashboard-refresh-btn')
+        self.assertEqual(refresh.get('aria-label'), 'Refresh submissions')
+        self.assertIsNotNone(soup.find(id='dashboard-refresh-status'))
+        self.assertIn('/.well-known/publication.json', portal)
+        self.assertIn("userRefresh: true", portal)
+        self.assertIn('Refreshing…', portal)
+        self.assertIn('Could not verify the public site', portal)
+        self.assertNotIn('Publication not confirmed', portal)
+
     def test_dashboard_actions_and_openapi_share_the_receipt_contract(self):
         portal = BeautifulSoup((BASE / 'Studies/submit.html').read_text(encoding='utf-8'),'html.parser')
         scripts = [script.get('src','').split('?')[0] for script in portal.find_all('script')]

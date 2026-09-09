@@ -8,7 +8,13 @@ function renderContributorFeedback(item) {
     : ['approved','preparing'].includes(stage) ? 'Automation: preparing the study workspace. Refresh to check progress.'
     : stage === 'pending' ? 'Maintainer: review the proposal. You can add context on the GitHub issue.'
     : stage === 'pr-open' ? (item.checks?.state === 'pending' ? 'Automation: checks are running. Maintainer review follows; no resubmission is needed.' : 'Maintainer: review and merge the pull request. You can follow the conversation on GitHub.')
-    : stage === 'merged' ? 'Publication follows the merge. Check the study link; its Draft or Released status is shown separately.'
+    : stage === 'merged' ? (
+      item.publication?.state === 'published'
+        ? 'The study is live. Open the public page from Publication, or use Manage files for later updates.'
+        : item.publication?.state === 'publishing'
+          ? 'The public site is still publishing this merge. Use Refresh to check.'
+          : 'Publication follows the merge. Use Refresh to check the public site.'
+    )
     : 'Open the GitHub conversation for the decision and any suggested next steps.';
   let result = '<div class="contributor-feedback"><p><strong>Next action:</strong> ' + escapeHtml(next) + '</p>';
   for (const review of (item.feedback || []).slice(0,5)) {
