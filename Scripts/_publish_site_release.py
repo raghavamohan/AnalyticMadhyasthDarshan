@@ -13,6 +13,7 @@ from pathlib import Path
 import subprocess
 import time
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 import uuid
 
 import _cloudflare_performance as cf
@@ -26,6 +27,28 @@ WORKER = "amd-site"
 CANARY = "amd-site-canary"
 SOURCE = BASE / "infra/site-worker/src/index.js"
 AUDIT_USER_AGENT = "AMD-Publication-Audit/1.0"
+
+
+class ReleaseNotReady(ValueError):
+    """The deployment endpoint has not yet switched to the expected revision."""
+
+
+def audit_retry(operation, description: str):
+    """Allow bounded edge propagation without retrying corrupt content or access denial."""
+    delays = (2, 4, 8, 10, 10)
+    for attempt in range(len(delays) + 1):
+        try:
+            return operation()
+        except (HTTPError, ReleaseNotReady) as error:
+            if isinstance(error, HTTPError):
+                if error.code not in {404, 502, 503, 504}:
+                    raise
+                error.close()
+            if attempt == len(delays):
+                raise
+            delay = delays[attempt]
+            progress(f'Waiting for {description}: {error}; retry {attempt + 1}/{len(delays)} in {delay}s.')
+            time.sleep(delay)
 
 
 def progress(message: str) -> None:
@@ -140,18 +163,22 @@ def public_state(base: str) -> dict:
 def audit(base: str, root: Path, manifest: dict) -> None:
     started = time.monotonic()
     progress(f'Checking active release at {base}/.well-known/publication.json.')
-    if public_state(base)["revision"] != manifest["revision"]:
-        raise ValueError("The endpoint is serving another release")
+    def require_revision():
+        if public_state(base)["revision"] != manifest["revision"]:
+            raise ReleaseNotReady("The endpoint is serving another release")
+    audit_retry(require_revision, f'the expected release at {base}')
     # Download every document and discovery surface; HEAD the remaining assets.
     total = len(manifest['files'])
     for index, (path, record) in enumerate(manifest["files"].items(), 1):
         from urllib.parse import quote
-        full = path.endswith((".html", ".pdf", ".json", ".txt"))
+        # Dedicated Markdown services may correctly omit Content-Length on HEAD.
+        # Read their complete bytes and verify the checksum as for other documents.
+        full = path.endswith((".html", ".pdf", ".json", ".txt", ".md"))
         if index == 1 or index % 25 == 0 or index == total:
             progress(f'Auditing URL {index}/{total} ({time.monotonic() - started:.0f}s): {path}')
         request = Request(base.rstrip("/") + quote(path, safe="/") + "?r=" + manifest["revision"],
                           method="GET" if full else "HEAD", headers={'User-Agent': AUDIT_USER_AGENT})
-        with urlopen(request, timeout=60) as response:
+        with audit_retry(lambda: urlopen(request, timeout=60), path) as response:
             # R2 can describe an entire object as a range even for a plain GET.
             # Accept it only when the range covers every expected byte; partial
             # responses must not pass the complete-release audit.

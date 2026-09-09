@@ -101,6 +101,57 @@ class ReleaseTests(unittest.TestCase):
             with self.assertRaises(HTTPError):
                 publisher.audit('https://canary.example', self.root, {'revision': 'a' * 64, 'files': {}})
 
+    def test_markdown_without_length_is_downloaded_and_checksum_verified(self):
+        path = '/.well-known/agent-skills/add-study/SKILL.md'
+        body = b'# Skill\n'
+        manifest = {'revision': 'a' * 64, 'files': {path: {'bytes': len(body), 'sha256': release.digest(body)}}}
+        for returned in [body, b'# Wrong\n']:
+            with self.subTest(returned=returned):
+                response = io.BytesIO(returned)
+                response.status = 200
+                response.headers = {}
+                with patch.object(publisher, 'public_state', return_value={'revision': manifest['revision']}), \
+                     patch.object(publisher, 'urlopen', return_value=response) as fetch, \
+                     patch.object(publisher.time, 'sleep') as sleep:
+                    if returned == body:
+                        publisher.audit('https://site.example', self.root, manifest)
+                    else:
+                        with self.assertRaisesRegex(ValueError, 'checksum/size'):
+                            publisher.audit('https://site.example', self.root, manifest)
+                    self.assertEqual(fetch.call_args.args[0].get_method(), 'GET')
+                    self.assertEqual(fetch.call_count, 1)
+                    sleep.assert_not_called()
+
+    def test_audit_waits_for_revision_and_asset_propagation(self):
+        body = b'page'
+        manifest = {'revision': 'a' * 64, 'files': {'/index.html': {'bytes':len(body), 'sha256':release.digest(body)}}}
+        response = io.BytesIO(body)
+        response.status = 200
+        response.headers = {}
+        with patch.object(publisher, 'public_state', side_effect=[{'revision':'b'*64}, {'revision':'a'*64}]), \
+             patch.object(publisher, 'urlopen', side_effect=[HTTPError('https://site.example/index.html',404,'Not Found',{},None), response]) as fetch, \
+             patch.object(publisher.time, 'sleep') as sleep:
+            publisher.audit('https://site.example', self.root, manifest)
+        self.assertEqual(fetch.call_count, 2)
+        self.assertEqual([call.args[0] for call in sleep.call_args_list], [2,2])
+
+    def test_audit_propagation_retries_are_bounded_and_fail_closed(self):
+        for code in [404,502,503,504,403]:
+            def unavailable(*args, **kwargs):
+                raise HTTPError('https://site.example',code,'Unavailable',{},None)
+            with self.subTest(code=code), \
+                 patch.object(publisher, 'urlopen', side_effect=unavailable) as fetch, \
+                 patch.object(publisher.time, 'sleep') as sleep:
+                with self.assertRaises(HTTPError):
+                    publisher.audit('https://site.example', self.root, {'revision':'a'*64,'files':{}})
+                self.assertEqual(fetch.call_count, 1 if code == 403 else 6)
+                self.assertEqual(sleep.call_count, 0 if code == 403 else 5)
+        with patch.object(publisher, 'public_state', return_value={'revision':'b'*64}) as state, \
+             patch.object(publisher.time, 'sleep'):
+            with self.assertRaises(publisher.ReleaseNotReady):
+                publisher.audit('https://site.example', self.root, {'revision':'a'*64,'files':{}})
+            self.assertEqual(state.call_count, 6)
+
     def test_full_r2_range_requires_complete_size_and_checksum(self):
         body = b'PDF content'
         path = '/Studies/A/A.pdf'

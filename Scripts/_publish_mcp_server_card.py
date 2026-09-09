@@ -28,7 +28,7 @@ COMPATIBILITY_DATE = "2024-03-01"
 
 
 def worker_js(card: dict) -> str:
-    body = json.dumps(card, separators=(",", ":"), ensure_ascii=False)
+    body = json.dumps(card, indent=2, ensure_ascii=False) + "\n"
     etag = hashlib.sha256(body.encode("utf-8")).hexdigest()[:16]
     if not RUNTIME_SRC.is_file():
         raise FileNotFoundError(RUNTIME_SRC)
