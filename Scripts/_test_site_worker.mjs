@@ -16,9 +16,14 @@ const get=(path,init)=>handle(new Request('https://example.test'+path,init),env,
 let response=await get('/Studies/A/A.html');
 assert.equal(await response.text(),'new');assert.equal(response.headers.get('X-AMD-Release'),revision);
 assert.match(response.headers.get('Cache-Control'),/must-revalidate/);
+assert.doesNotMatch(response.headers.get('Cache-Control'),/no-transform/);
+response=await get('/Studies/A/A.html?r='+revision);
+assert.equal(await response.text(),'new');
+assert.match(response.headers.get('Cache-Control'),/immutable, no-transform/);
 response=await get('/Studies/A/A.html?r='+old);
 assert.equal(await response.text(),'old');assert.equal(response.headers.get('X-AMD-Release'),old);
 assert.match(response.headers.get('Cache-Control'),/immutable/);
+assert.match(response.headers.get('Cache-Control'),/no-transform/);
 assert.equal((await get('/Studies/Planned/Planned.html')).status,404);
 assert.equal((await get('/Studies/Retired/Retired.html')).status,404);
 assert.equal(await (await get('/Studies/Retired/Retired.html?r='+old)).text(),'old');

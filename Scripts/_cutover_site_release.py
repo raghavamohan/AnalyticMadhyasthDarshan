@@ -36,7 +36,8 @@ def cutover(root: Path, *, apply: bool) -> None:
         urls = [f'https://{cf.SITE_HOST}{path}' for path in manifest['files']]
         for offset in range(0, len(urls), 30):
             cf.purge_cache_files(token, zone, urls[offset:offset + 30])
-        audit(f'https://{cf.SITE_HOST}', root, manifest)
+        audit(f'https://{cf.SITE_HOST}', root, manifest,
+              origin_base=f'https://{WORKER}.{subdomain}.workers.dev')
     except Exception:
         for route in cf.list_worker_routes(token, zone):
             if route['pattern'] in patterns:
