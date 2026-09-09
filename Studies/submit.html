@@ -1180,11 +1180,14 @@ function publicationCaption(item) {
   if (!pub) return '';
   const liveStatus = publicStatusLabel(pub.status);
   if (pub.state === 'published') {
-    const label = liveStatus ? 'Live as ' + liveStatus : 'Published';
-    if (item.slug && (pub.status === 'draft' || pub.status === 'released')) {
-      return '<a href="' + escapeHtml(liveStudyHref(item.slug)) + '">' + escapeHtml(label) + '</a>';
+    if (liveStatus) {
+      const label = 'Live as ' + liveStatus;
+      if (item.slug && (pub.status === 'draft' || pub.status === 'released')) {
+        return '<a href="' + escapeHtml(liveStudyHref(item.slug)) + '">' + escapeHtml(label) + '</a>';
+      }
+      return escapeHtml(label);
     }
-    return escapeHtml(label);
+    return escapeHtml(item.retired ? 'Removed from public site' : 'Not yet published');
   }
   if (pub.state === 'publishing') {
     return escapeHtml(liveStatus

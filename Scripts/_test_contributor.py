@@ -33,7 +33,43 @@ class ContributorTests(unittest.TestCase):
         self.assertIn("userRefresh: true", portal)
         self.assertIn('Refreshing…', portal)
         self.assertIn('Could not verify the public site', portal)
+        self.assertIn("item.retired ? 'Removed from public site' : 'Not yet published'", portal)
+        self.assertNotIn("liveStatus ? 'Live as ' + liveStatus : 'Published'", portal)
         self.assertNotIn('Publication not confirmed', portal)
+
+    def test_publication_caption_distinguishes_removed_from_never_published(self):
+        portal = (BASE / 'Studies/submit.html').read_text(encoding='utf-8')
+        functions = []
+        for name in ('publicStatusLabel', 'publicationCaption'):
+            match = re.search(
+                rf'^function {name}\([^)]*\) \{{.*?^\}}$',
+                portal,
+                re.MULTILINE | re.DOTALL,
+            )
+            self.assertIsNotNone(match, name)
+            functions.append(match.group(0))
+        script = '\n'.join([
+            "const escapeHtml = value => String(value);",
+            "const liveStudyHref = slug => '/Studies/' + slug;",
+            *functions,
+            "const base = {slug:'Example',publication:{state:'published',status:null}};",
+            "console.log(JSON.stringify({",
+            "  retired:publicationCaption({...base,retired:true}),",
+            "  preparing:publicationCaption({...base,retired:false}),",
+            "  released:publicationCaption({...base,publication:{state:'published',status:'released'}}),",
+            "}));",
+        ])
+        result = subprocess.run(
+            ['node', '-e', script],
+            capture_output=True,
+            text=True,
+            encoding='utf-8',
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        captions = json.loads(result.stdout)
+        self.assertEqual(captions['retired'], 'Removed from public site')
+        self.assertEqual(captions['preparing'], 'Not yet published')
+        self.assertIn('Live as Released', captions['released'])
 
     def test_update_form_loads_artifacts_from_the_submissions_api(self):
         portal = (BASE / 'Studies/submit.html').read_text(encoding='utf-8')
