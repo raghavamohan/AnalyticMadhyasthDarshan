@@ -73,7 +73,8 @@ class ReleaseTests(unittest.TestCase):
     def test_planned_and_internal_files_are_excluded(self):
         published = {('Studies','A')}
         for path in ['Studies/Planned/Planned.html','Studies/Planned/discussion.html','Studies/proposal-registry.json',
-                     'Studies/A/.proposal-meta.json','.env','Scripts/_publish_site_release.py','Studies/A/Research-Template-X.md']:
+                     'Studies/companion-artifacts.json','Studies/README.md','Studies/A/.proposal-meta.json','.env',
+                     'Scripts/_publish_site_release.py','Studies/A/Research-Template-X.md']:
             with self.subTest(path=path):
                 self.assertFalse(release.eligible_static(path,published))
         self.assertTrue(release.eligible_static('Studies/A/A.html',published))

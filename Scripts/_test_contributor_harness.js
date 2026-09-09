@@ -12,7 +12,9 @@
   };
   window.fetch = async (input, options={}) => {
     const url = new URL(typeof input === 'string' ? input : input.url,location.href);
-    if (url.pathname.endsWith('/companion-artifacts.json')) return response(registry);
+    if (url.pathname === '/api/study-artifacts' || url.pathname.endsWith('/companion-artifacts.json')) {
+      return response({success:true,studies:registry.studies,meta:{hasMore:false,nextOffset:null,total:registry.studies.length,limit:100,offset:0}});
+    }
     if (!url.pathname.startsWith('/api/') && url.origin === location.origin) return realFetch(input,options);
     if (url.pathname === '/api/auth/me') {
       if (document.referrer.endsWith('/Studies/index.html')) {
