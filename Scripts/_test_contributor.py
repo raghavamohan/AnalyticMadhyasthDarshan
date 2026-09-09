@@ -41,6 +41,20 @@ class ContributorTests(unittest.TestCase):
         self.assertNotIn("fetch('companion-artifacts.json'", portal)
         self.assertIn('async function readResponseJson', portal)
 
+    def test_dashboard_turnstile_can_show_a_managed_challenge(self):
+        portal = (BASE / 'Studies/submit.html').read_text(encoding='utf-8')
+        soup = BeautifulSoup(portal, 'html.parser')
+        wrap = soup.find(id='dashboard-turnstile-wrap')
+        widget = wrap.find(id='inline-turnstile') if wrap else None
+        self.assertIsNotNone(widget)
+        self.assertIsNone(widget.get('aria-hidden'))
+        self.assertIsNone(widget.get('style'))
+        self.assertNotIn('left:-9999px', portal)
+        self.assertNotIn("size: 'invisible'", portal)
+        self.assertIn("execution: 'execute'", portal)
+        self.assertIn("appearance: 'execute'", portal)
+        self.assertIn('function whenTurnstileReady', portal)
+
     def test_dashboard_actions_and_openapi_share_the_receipt_contract(self):
         portal = BeautifulSoup((BASE / 'Studies/submit.html').read_text(encoding='utf-8'),'html.parser')
         scripts = [script.get('src','').split('?')[0] for script in portal.find_all('script')]
