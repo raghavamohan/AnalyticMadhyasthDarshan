@@ -28,7 +28,7 @@ from _common import (
     study_md,
     write_text_lf,
 )
-from _glossary_tooltips import apply_glossary_tooltips, load_glossary, wrap_tables_for_scroll
+from _glossary_tooltips import load_glossary, refresh_body_tooltips, wrap_tables_for_scroll
 from _reference_artifacts import public_delivery_url
 from _study_pdf_metadata import (
     ONGOING_DESC_PREFIX_RE,
@@ -934,15 +934,14 @@ def convert_to_html(
         html_body = add_section_ids(html_body)
         html_body = insert_study_contents(html_body)
         html_body = wrap_tables_for_scroll(html_body)
-        try:
-            glossary_terms = load_glossary()
-            html_body = apply_glossary_tooltips(html_body, glossary_terms)
-        except (OSError, ValueError, json.JSONDecodeError):
-            pass
     if has_latex_math:
         html_body = restore_latex_math(html_body, math_segments)
         html_body = render_latex_math(html_body)
     if include_web_chrome:
+        try:
+            html_body = refresh_body_tooltips(html_body, load_glossary())
+        except (OSError, ValueError, json.JSONDecodeError):
+            pass
         html_body = insert_study_reading_key(html_body)
         html_body = annotate_passages(html_body)
 
