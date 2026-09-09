@@ -55,8 +55,14 @@ class PdfBuildCacheTests(unittest.TestCase):
                 '"display":"satta","definition":"Omnipresence."}]}\n'
             ),
             "Studies/submit.html": "portal",
-            "References/r2-artifacts.json": "{}",
+            "References/r2-artifacts.json": (
+                '{"artifacts":[{"kind":"normalized-reference-pdf",'
+                '"repo_path":"References/Source.pdf",'
+                '"generation":{"source_markdown":"References/Source.md"},'
+                '"target":{"storage":"r2-public","r2_key":"References/Source.pdf"}}]}'
+            ),
             "References/Source.md": "reference source",
+            "References/README.md": "reference catalog only",
             "Assets/KaTeX/fonts/font.woff2": "font bytes",
             "Assets/reader/reader.css": "@media screen { body { color: black; } }",
             "Assets/reader/reader.js": "// browser reader",
@@ -77,6 +83,7 @@ class PdfBuildCacheTests(unittest.TestCase):
             "Assets/reader/reader-features.js": "// browser previews",
             "Studies/search-data/manifest.json": "{}",
             "infra/worker/src/index.js": "portal worker",
+            ".github/workflows/generated-pdf-publish.yml": "workflow orchestration",
         })
         for name, value in fixtures.items():
             path = self.root / name
@@ -101,6 +108,7 @@ class PdfBuildCacheTests(unittest.TestCase):
             "Studies/catalog-topical.json": {"markdown"},
             "Studies/A/Deck.pptx": {"presentations"},
             "References/Source.md": {"references"},
+            "References/README.md": set(),
             "References/r2-artifacts.json": {"markdown", "references"},
             "Scripts/_safe_study_html.py": {"markdown"},
             "Scripts/_study_pdf_metadata.py": {"markdown"},
@@ -132,6 +140,7 @@ class PdfBuildCacheTests(unittest.TestCase):
             "Studies/A/A.html": set(),
             "Studies/submit.html": set(),
             "infra/worker/src/index.js": set(),
+            ".github/workflows/generated-pdf-publish.yml": set(),
         }
         for name, expected in cases.items():
             with self.subTest(path=name):
@@ -153,6 +162,10 @@ class PdfBuildCacheTests(unittest.TestCase):
         self.assertEqual(
             affected_families({"References/Source.md"}, self.root),
             {"references"},
+        )
+        self.assertEqual(
+            affected_families({"References/README.md"}, self.root),
+            set(),
         )
 
     def test_shared_glossary_is_reader_only(self) -> None:
@@ -262,12 +275,15 @@ class PdfBuildCacheTests(unittest.TestCase):
                 self.assertTrue("github.event_name == 'push'" in block or
                                 "github.event_name != 'workflow_dispatch'" in block)
         publication = workflow.split("\n  publish-and-deploy:\n", 1)[1]
-        self.assertIn("needs: [pdfs, presentations]", publication)
+        self.assertIn("needs: [validate, pdfs, presentations]", publication)
         self.assertIn("github.ref == 'refs/heads/master'", publication)
         self.assertIn("--check-r2-coverage", publication)
         self.assertIn("--check-reference-r2-coverage", publication)
         self.assertIn("--deploy-canary", publication)
         self.assertIn("--public --all", publication)
+        coherent = workflow.split("\n  coherent-site:\n", 1)[1]
+        self.assertIn("needs: [validate, pdfs, presentations]", coherent)
+        self.assertIn("if: needs.pdfs.outputs.references_changed == 'true'", coherent)
 
 
 if __name__ == "__main__":
