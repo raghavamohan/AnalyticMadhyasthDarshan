@@ -17,6 +17,7 @@ ROOT_OUTPUTS = {
     ".github/ISSUE_TEMPLATE/study-feedback.yml",
     "infra/generated-pdf-worker/src/generated-pdf-keys.js",
     "Scripts/presentation-pipeline.json",
+    "Scripts/companion-pipeline.json",  # Writer separately restricts this to retirement/relocation.
     "Scripts/social-cards.json",
 }
 STUDIES_OUTPUTS = {

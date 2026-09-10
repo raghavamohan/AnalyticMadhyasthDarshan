@@ -66,13 +66,11 @@ Three PDFs serve different purposes; do not conflate them:
 | `<Deck>-notes.pdf` | Slide + read-aloud script per page | The presenter, while delivering |
 | `Presenters-Companion-<Name>.pdf` | Script **plus** primary-text background and Q&A | Pre-session study |
 
-`_build_deck_notes_pdf.py` reads notes from the `.pptx` (so it always reflects the
-deck) and slide images from `<Deck>.pdf`, regenerating that PDF if it is missing or
-older than the deck. It composes pages rather than using PowerPoint's notes-pages
-export because `ExportAsFixedFormat` — the only API accepting
-`ppPrintOutputNotesPages` — is unavailable in this environment, and native notes
-pages silently clip scripts that overflow the placeholder. Long scripts continue
-onto a `CONTINUED` page instead of being truncated.
+The staged `_build_presentations.py` is the normal entry point: it generates
+the slides PDF before composing notes from the same PPTX and those slide images,
+then verifies/replaces the pair. Local mtimes or missing ignored PDFs do not
+determine CI selection. Long scripts continue onto a `CONTINUED` page instead
+of being truncated. Use the lower-level notes builder only for diagnostics.
 
 ## Workflow
 
@@ -87,7 +85,9 @@ onto a `CONTINUED` page instead of being truncated.
    Keep coaching / stage directions out of that section — put prep material under
    Primary-text background and Likely questions. The builder extracts each delivery
    section into `.notes.json` when `--pptx` is supplied. Register the companion and
-   deck mapping in `Scripts/companion-pipeline.json`.
+   deck mapping in `Scripts/companion-pipeline.json`. New sources must be declared
+   once, with a registered deck under the same parent study; missing, duplicate,
+   unsafe and cross-study mappings fail verification.
 4. Rebuild artifacts from repo root:
 
    ```powershell
@@ -100,7 +100,7 @@ onto a `CONTINUED` page instead of being truncated.
    python Scripts/_build_presenters_companion.py Studies/<Slug>/Presenters-Companion-<Name>.md --pdf
    ```
 
-   Notes sync only:
+   Diagnostic notes sync from an already regenerated JSON (do not hand-edit JSON):
 
    ```powershell
    python Scripts/_sync_pptx_speaker_notes.py Studies/<Slug>/<Deck>.pptx Studies/<Slug>/Presenters-Companion-<Name>.notes.json
@@ -118,7 +118,7 @@ onto a `CONTINUED` page instead of being truncated.
    and verifies slide count, complete scripts, layout and fonts before replacement.
 
    All three PDFs are generated artifacts ignored by Git and published through
-   the R2 workflow. The companion markdown, DOCX, notes JSON, and PPTX remain tracked.
+   protected coherent-site publication after merge. The companion markdown, DOCX, notes JSON, and PPTX remain tracked.
 
 6. Companion-only edits do **not** refresh the study's `**Edited on:**` or catalog
    timestamps. Mark Edited-on checklist items N/A in the PR when the study `.md`
@@ -146,3 +146,12 @@ onto a `CONTINUED` page instead of being truncated.
 - [ ] Generated PDFs were not added to Git
 - [ ] `study-update` PR uses `Study slug: <Slug>` (bare slug); Edited-on N/A when
       the study markdown was not changed
+
+## Finish with the shared CI workflow
+
+Complete [manage-studies: shared finish](../manage-studies/SKILL.md#shared-finish-before-review)
+after this skill's targeted renders. Use `_finalize_study_artifacts.py --study
+<Slug>` for changed canonical metadata, or omit `--study` for companion-only
+changes and retirement. Commit the tracked outputs, validate the committed
+HEAD with `_validate_study_change.py` and the same PR body, and let protected
+coherent-site publication handle changed artifacts after merge.

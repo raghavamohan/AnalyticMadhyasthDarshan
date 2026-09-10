@@ -386,6 +386,10 @@ def rename_study(
     if not metadata_only:
         rename_study_files(old_slug, new_slug, dry_run=dry_run)
 
+    from _companion_lifecycle import rename_paths
+    count = rename_paths(old_slug, new_slug, root=BASE, dry_run=dry_run)
+    if count:
+        print(f"{'Would update' if dry_run else 'Updated'} {count} deck/companion manifest paths")
     update_catalog_row(old_slug, new_slug, title, dry_run=dry_run)
     update_registry(old_slug, new_slug, title, resolved_issue, dry_run=dry_run)
     update_proposal_meta_file(old_slug, new_slug, title, resolved_issue, dry_run=dry_run)

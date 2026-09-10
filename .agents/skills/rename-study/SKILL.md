@@ -63,6 +63,8 @@ Windows wrapper: `.\Scripts\_rename_study.ps1` (same flags).
 - Canonical tracked files: `<Old>.md` / `.html` → `<New>.*`; the ignored local
   PDF and its R2 key use `<New>.pdf`; prefix-named
   companion decks and notes move with the folder **without** changing basename
+- Paths in both `presentation-pipeline.json` and `companion-pipeline.json`; deck
+  IDs and companion basenames stay unchanged, including metadata-only retries
 - Topical/formal/applied catalog row (slug + title), preserving its display position
 - `Studies/proposal-registry.json` and the new study/application `.proposal-meta.json`
 - `References/README.md` and `References/MANIFEST.md` study PDF/HTML paths and labels
@@ -119,7 +121,7 @@ catalog or registry so they do not create a second ghost row.
 ```powershell
 python Scripts/_check_references.py --study <New-Slug>
 python Scripts/_regenerate_pdf.py <New-Slug>
-python Scripts/_verify_studies_index.py
+python Scripts/_finalize_study_artifacts.py --study <New-Slug>
 ```
 
 2. Open a **`study-update`** PR (template
@@ -155,3 +157,12 @@ validates the prepared commit without changing it.
 - PDF regen: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
 - Index / Start here: [refine-studies-index](../refine-studies-index/SKILL.md)
 - Rules: [AGENTS.md](../../../AGENTS.md) §1, §2, §3, §7; [CONTRIBUTING.md](../../../CONTRIBUTING.md) (slug rename)
+
+## Finish with the shared CI workflow
+
+Complete [manage-studies: shared finish](../manage-studies/SKILL.md#shared-finish-before-review)
+after this skill's targeted renders. Use `_finalize_study_artifacts.py --study
+<Slug>` for changed canonical metadata, or omit `--study` for companion-only
+changes and retirement. Commit the tracked outputs, validate the committed
+HEAD with `_validate_study_change.py` and the same PR body, and let protected
+coherent-site publication handle changed artifacts after merge.

@@ -269,6 +269,11 @@ def test_remove_study_cleans_metadata_after_directory_and_catalog_are_gone() -> 
             ),
             encoding="utf-8",
         )
+        companion_manifest = scripts / 'companion-pipeline.json'
+        companion_manifest.write_text(json.dumps({'schema': 1, 'companions': [
+            {'markdown': 'Applications/Removed-App/Presenters-Companion-Deck.md', 'deck': 'removed'},
+            {'markdown': 'Studies/Keep/Presenters-Companion-Deck.md', 'deck': 'keep'},
+        ]}), encoding='utf-8')
 
         with swapped(
             remove,
@@ -281,6 +286,7 @@ def test_remove_study_cleans_metadata_after_directory_and_catalog_are_gone() -> 
         ):
             remove.remove_study("Removed-App", dry_run=True, assume_yes=True)
             assert len(json.loads(registry.read_text(encoding="utf-8"))["proposals"]) == 2
+            assert len(json.loads(companion_manifest.read_bytes())['companions']) == 2
             remove.remove_study("Removed-App", dry_run=False, assume_yes=True)
 
         data = json.loads(registry.read_text(encoding="utf-8"))
@@ -289,6 +295,7 @@ def test_remove_study_cleans_metadata_after_directory_and_catalog_are_gone() -> 
         assert [deck["source"] for deck in manifest_data["decks"]] == [
             "Studies/Keep/Deck.pptx"
         ]
+        assert [row['deck'] for row in json.loads(companion_manifest.read_bytes())['companions']] == ['keep']
 
 
 def test_remove_study_unregisters_its_presentations() -> None:
