@@ -25,7 +25,6 @@ WORKER_ROUTE = f"{cf.SITE_HOST}/.well-known/mcp/*"
 WORKER_SRC = cf.BASE / "infra" / "mcp-worker" / "src" / "index.js"
 RUNTIME_SRC = cf.BASE / "infra" / "mcp-worker" / "src" / "runtime.js"
 CARD_PATH = cf.BASE / ".well-known" / "mcp" / "server-card.json"
-COMPATIBILITY_DATE = "2024-03-01"
 
 
 def worker_js(card: dict, revision: str | None = None) -> str:
@@ -121,6 +120,14 @@ def generate_worker_source() -> str:
     return js
 
 
+def deployment_metadata() -> dict:
+    """Use the same runtime contract for API uploads and local Wrangler tests."""
+    import tomllib
+    config = tomllib.loads((cf.BASE / 'infra/mcp-worker/wrangler.toml').read_text(encoding='utf-8'))
+    return {'main_module': 'index.js', 'compatibility_date': config['compatibility_date'],
+            'compatibility_flags': config.get('compatibility_flags', [])}
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -147,7 +154,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"Uploading worker {WORKER_NAME!r} to account {account}...")
     from _worker_deployment import deploy_source
     result = deploy_source(token, account, WORKER_NAME, js,
-                           {"main_module": "index.js", "compatibility_date": COMPATIBILITY_DATE}, multipart_put)
+                           deployment_metadata(), multipart_put)
     print(json.dumps(result.get("result") or result, indent=2)[:2000])
     try:
         cf._api_request(

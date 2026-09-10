@@ -54,6 +54,9 @@ jobs:
 
   publish:
     needs: source
+    permissions:
+      contents: read
+      actions: read
     uses: ./.github/workflows/generated-pdf-publish.yml
     with:
       source_sha: ${{ needs.source.outputs.sha }}
