@@ -105,8 +105,8 @@ def load_manifest(path: Path = MANIFEST_PATH) -> PresentationManifest:
         raise ValueError("productionProfile must name a rendererProfiles entry")
 
     raw_decks = data.get("decks")
-    if not isinstance(raw_decks, list) or not raw_decks:
-        raise ValueError("presentation manifest requires at least one deck")
+    if not isinstance(raw_decks, list):
+        raise ValueError("presentation manifest requires a decks array (which may be empty)")
     decks: list[DeckSpec] = []
     for index, raw in enumerate(raw_decks):
         prefix = f"decks[{index}]"

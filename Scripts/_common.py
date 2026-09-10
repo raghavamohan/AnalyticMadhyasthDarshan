@@ -137,9 +137,10 @@ def study_dir(slug: str) -> Path:
 
     Applied studies live under Applications/<slug>/; every other study under
     Studies/<slug>/. Resolve to Applications/ only when that applied source
-    already exists on disk, so brand-new studies still default to Studies/.
+    or its approved proposal metadata exists, so planned applied workspaces keep
+    their collection before their first canonical Markdown is submitted.
     """
-    if (APPLICATIONS / slug / f"{slug}.md").is_file():
+    if (APPLICATIONS / slug / f"{slug}.md").is_file() or (APPLICATIONS / slug / '.proposal-meta.json').is_file():
         return APPLICATIONS / slug
     return STUDIES / slug
 

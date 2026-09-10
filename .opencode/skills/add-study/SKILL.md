@@ -1,10 +1,10 @@
 ---
 name: add-study
 description: >-
-  Register a new study in Studies/ using Scripts/_add_study.py or
+  Register a topical/formal study in Studies/ or an applied study in Applications/ using Scripts/_add_study.py or
   _add_study.ps1 — sets metadata, updates catalogs, and generates PDF. Use when
   adding a study, registering a paper, creating an Ongoing placeholder, importing
-  a PDF, or adding a Formal study.
+  a PDF, or adding a Formal or Applied study.
 ---
 
 # Add a study
@@ -16,10 +16,11 @@ description: >-
    Reference implementations: `Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md` (ontology, open problems);
    `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md` (comparative anthropology, critique closings).
 3. Write `Studies/<Slug>/<Slug>.md` with author block, or prepare an external PDF for maintainer conversion (`--convert`).
-4. Choose catalog table: **topical** (default) or **formal** (`--formal`).
-   This registration CLI does not provide an applied-table switch; do not invent
-   `--applied` or hand-edit catalogs to bypass it. Existing applied studies use
-   the shared update/status/rename/retirement workflows.
+4. Choose the approved catalog table: **topical** (default), **formal** (`--formal`),
+   or **applied** (`--applied`). Applied sources go under `Applications/<Slug>/`.
+   The flags are mutually exclusive; registration refuses a slug already used
+   by another collection. Proposal bootstrap and first-draft CI preserve this
+   selection. Windows wrapper: `-Applied`.
 5. A first public draft requires the linked open `proposal-approved` issue and
    matching `proposal-registry.json` entry. Preserve the approved slug and
    proposal metadata; use `new-study` with `Proposal issue: #N` and `Slug: <Slug>`.

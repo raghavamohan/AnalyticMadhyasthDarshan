@@ -11,14 +11,18 @@
       ],
       "presentations": [
         "A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pptx"
-      ]
+      ],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "Aesthetics",
       "title": "Aesthetics",
       "root": "Studies",
       "notes": [],
-      "presentations": []
+      "presentations": [],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "Axiology-Value-Theory",
@@ -27,28 +31,36 @@
       "notes": [],
       "presentations": [
         "Axiology-Value-Theory-Madhyasth-Darshan.pptx"
-      ]
+      ],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "Ethics-And-Morals-In-Human-Beings",
       "title": "Ethics and Morals in Human Beings",
       "root": "Studies",
       "notes": [],
-      "presentations": []
+      "presentations": [],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "Family-Relationships-And-Values",
       "title": "Family Relationships and Values",
       "root": "Studies",
       "notes": [],
-      "presentations": []
+      "presentations": [],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "How-To-Form-Self-Sustaining-Organizations",
       "title": "How to Form Self-Sustaining Organizations",
       "root": "Studies",
       "notes": [],
-      "presentations": []
+      "presentations": [],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "How-Undivided-Society-Is-Established",
@@ -57,21 +69,27 @@
       "notes": [],
       "presentations": [
         "How-Undivided-Society-Is-Established.pptx"
-      ]
+      ],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "Human-Behavior-And-Society",
       "title": "Human Behavior and Society",
       "root": "Studies",
       "notes": [],
-      "presentations": []
+      "presentations": [],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "Nature-Of-Time",
       "title": "Nature of Time",
       "root": "Studies",
       "notes": [],
-      "presentations": []
+      "presentations": [],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "Spiritual-Practice-And-Realization",
@@ -80,7 +98,9 @@
       "notes": [
         "Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session.md"
       ],
-      "presentations": []
+      "presentations": [],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "The-Epistemology-of-Coexistence",
@@ -102,7 +122,9 @@
       "presentations": [
         "Epistemology-in-Comparison-MD-Advaita-Philosophy-Science.pptx",
         "The-Epistemology-of-Coexistence-Madhyasth-Darshan.pptx"
-      ]
+      ],
+      "presenters": [],
+      "presenterDecks": {}
     },
     {
       "slug": "The-Ontology-of-Coexistence",
@@ -115,7 +137,13 @@
       "presentations": [
         "Coexistence-in-Comparison-MD-vs-Advaita-Philosophy-Science.pptx",
         "The-Ontology-of-Existence-Madhyasth-Darshan.pptx"
-      ]
+      ],
+      "presenters": [
+        "Presenters-Companion-Ontology-of-Existence.md"
+      ],
+      "presenterDecks": {
+        "Presenters-Companion-Ontology-of-Existence.md": "The-Ontology-of-Existence-Madhyasth-Darshan.pptx"
+      }
     },
     {
       "slug": "Why-Humans-Are-Not-Just-Material",
@@ -124,7 +152,9 @@
       "notes": [],
       "presentations": [
         "Why-Humans-Are-Not-Just-Material.pptx"
-      ]
+      ],
+      "presenters": [],
+      "presenterDecks": {}
     }
   ]
 }

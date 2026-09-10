@@ -1,6 +1,29 @@
 # CI implementation and remaining plan
 
-Updated 10 September 2026 after production deployment of [#459](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/459), source `63e68a03c536e94ed6559172581d7f635afbf77f`. This is the current status of the September review of #440–#456 and the earlier seven remaining steps. See [CI.md](CI.md) for the operating contract and dependency graph.
+Updated 10 September 2026 with the lifecycle completion implementation following
+merged #461 and #462. Production CI migration evidence below remains attributed
+to #459, source `63e68a03c536e94ed6559172581d7f635afbf77f`; new local acceptance
+does not supersede that deployed evidence. See [CI.md](CI.md) for the operating
+contract and [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md) for the operation/acceptance matrix.
+
+## Lifecycle completion after #462
+
+- Shared preparation/finalization and selective companion deletion are merged.
+- Implemented Applied proposal/registration/first-draft routing, including revisions.
+- Added presenter submissions, SVG/raster bundles, bulk companion removal and
+  corresponding version checks, receipts, ownership declarations and API schema.
+- Added companion rename/move and restoration from merged history, with scripts,
+  skills and parent/ownership protection. Empty global deck inventories are valid.
+- Corrected same-status no-op instructions and synchronized skill mirrors.
+- Added required, scoped browser acceptance. Six local browser scenarios pass,
+  including recovery that previously overwrote a saved companion draft. Local
+  lifecycle tests also cover Applied registration, final-deck removal, relocation,
+  restoration and exact-source binary permissions.
+
+These changes advance R2's repeatable local coverage. The deployed lifecycle,
+offline and controlled recovery matrix remains open; R1 and R3–R8 below are
+unchanged. Next for this implementation: merge its PR, verify site/Worker
+deployment, then execute the remaining deployed acceptance matrix.
 
 The F1–F15 implementation is merged and running in production. Both the site and Agent-facing Workers deployments passed. The initial migration/build-receipt bootstrap is complete. Strict slide-PDF byte reproducibility remains unfinished within F6; broader operational acceptance and the follow-ups below are also still open. A green deployment does not establish that every lifecycle, offline, recovery, or renderer scenario has been exercised.
 

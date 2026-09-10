@@ -1144,7 +1144,8 @@
 
       const slidesLink = own("[data-study-slides]")[0];
       if (slidesLink) {
-        const presentationPdf = item.dataset.presentationPdf;
+        const registered = PRESENTATIONS[item.dataset.studySlug] || [];
+        const presentationPdf = registered.find(deck => deck.href === item.dataset.presentationPdf)?.href || registered[0]?.href;
         if (presentationPdf) {
           slidesLink.hidden = false;
           slidesLink.href = `${presentationPdf}?cb=${CATALOG_BUILD_ID}`;

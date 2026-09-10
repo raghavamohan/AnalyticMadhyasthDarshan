@@ -20,6 +20,7 @@ Scripts/_reference_cache/
 /tmp/ci-*.log
 /tmp/ci-*.py
 /tmp/ci-tools/
+/tmp/lifecycle-acceptance/
 .tmp.driveupload/
 .tmp.drivedownload/
 *.html

@@ -203,8 +203,8 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 @media (prefers-color-scheme:dark){html:not([data-theme="light"]) .action-btn.danger{color:#f28b82;border-color:#712b26;background:#351b18;}html:not([data-theme="light"]) .action-btn.danger:hover{background:#471815;}}
 </style>
 <link rel="stylesheet" href="portal/contributor.css?v=3408cf66f34bf9f7">
-<script src="portal/drafts.js?v=f24389c7c24bcd02"></script>
-<script src="portal/action-operations.js?v=695538fa19fd4606"></script>
+<script src="portal/drafts.js?v=286c8589d5b22036"></script>
+<script src="portal/action-operations.js?v=a47adc3274b5ea82"></script>
 </head>
 <body>
 <div class="page">
@@ -369,9 +369,9 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
           </select>
         </div>
 
-        <div class="form-group checkbox-group">
-          <input type="checkbox" id="p-formal">
-          <label for="p-formal">Register in the Formal Studies table (instead of Topical Studies)</label>
+        <div class="form-group">
+          <label for="p-collection">Catalog table</label>
+          <select id="p-collection"><option value="topical">Topical Studies</option><option value="formal">Formal Studies</option><option value="applied">Applied Studies</option></select>
         </div>
 
         <div class="form-group turnstile-wrap">
@@ -432,6 +432,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
             <option value="study">Study Markdown (.md)</option>
             <option value="note">Technical or research note (.md)</option>
             <option value="presentation">Study presentation (.pptx)</option>
+            <option value="presenter">Presenter’s Companion (.md)</option>
           </select>
           <div class="help-text" id="s-artifact-help" style="margin-top:6px;"></div>
         </div>
@@ -474,11 +475,29 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
           <input type="number" id="s-proposal" min="1" step="1" placeholder="Approved proposal issue #" style="margin-top:8px;" hidden>
         </div>
 
+        <div class="form-group" id="s-presenter-deck-group" hidden>
+          <label for="s-presenter-deck">Presentation for these presenter notes *</label>
+          <select id="s-presenter-deck"><option value="">Select a presentation…</option></select>
+        </div>
         <div class="form-group" id="s-file-group">
           <label for="s-file" id="s-file-label">Upload Markdown file (optional)</label>
           <div class="help-text" id="s-file-help">Choose a UTF-8 <code>.md</code> file to load it into the editor, where you can review or revise it before submitting.</div>
           <input type="file" id="s-file" accept=".md,text/markdown,text/plain">
           <span class="file-status" id="s-file-status" role="status" aria-live="polite"></span>
+        </div>
+        <div class="form-group" id="s-attachments-group">
+          <label for="s-assets">Figures for this document (optional)</label>
+          <input type="file" id="s-assets" multiple accept=".svg,.png,.jpg,.jpeg,.webp,.gif">
+          <div class="help-text">Use the same filenames as the document’s relative image links. Up to 20 figures, 2 MB each; all attachments together up to 3 MB.</div>
+          <span id="s-assets-status" class="file-status" role="status" aria-live="polite"></span>
+          <button type="button" id="s-clear-assets" class="action-btn">Clear attached figures</button>
+        </div>
+        <div class="form-group" id="s-deck-presenter-group" hidden>
+          <label for="s-deck-presenter">Presenter’s Companion Markdown (optional)</label>
+          <input type="file" id="s-deck-presenter" accept=".md">
+          <div class="help-text">Attach a Presenters-Companion-Name.md with the deck when its delivery notes change. That Markdown owns the deck’s speaker notes.</div>
+          <span id="s-deck-presenter-status" class="file-status" role="status" aria-live="polite"></span>
+          <button type="button" id="s-clear-presenter" class="action-btn">Clear attached presenter document</button>
         </div>
 
         <div class="form-group" id="s-editor-group">
@@ -549,7 +568,17 @@ let revisionLoadedForPr = null;
 
 const MAX_MARKDOWN_BYTES = 2 * 1024 * 1024;
 const MAX_PRESENTATION_BYTES = 10 * 1024 * 1024;
+let uploadedAssets = [];
+let uploadedPresenter = null;
 const ARTIFACT_CONFIG = {
+  presenter: {
+    accept: '.md,text/markdown,text/plain',
+    fileLabel: 'Upload Presenter’s Companion (.md)',
+    fileHelp: 'Use Presenters-Companion-Name.md with numbered # Slide N sections and a ## Delivering the slide section for each slide.',
+    contentLabel: 'Presenter’s Companion Markdown *',
+    authorHelp: 'Your contributor name for this submission.',
+    leadUpdate: 'Add or update delivery notes, background and Q&A for a presentation in this study.',
+  },
   study: {
     accept: '.md,text/markdown,text/plain',
     fileLabel: 'Upload study Markdown (optional)',
@@ -655,7 +684,7 @@ function refreshMappedArtifactControls() {
   }
 
   const files = study
-    ? artifactType === 'note' ? (study.notes || []) : (study.presentations || [])
+    ? artifactType === 'note' ? (study.notes || []) : artifactType === 'presenter' ? (study.presenters || []) : (study.presentations || [])
     : [];
   target.innerHTML = '';
   const placeholder = document.createElement('option');
@@ -677,12 +706,26 @@ function refreshMappedArtifactControls() {
   if (Array.from(target.options).some((option) => option.value === previous)) {
     target.value = previous;
   }
-  document.getElementById('s-target-label').textContent = artifactType === 'note'
+  if (artifactType === 'presenter') {
+    const decks = document.getElementById('s-presenter-deck');
+    const selected = study?.presenterDecks?.[target.value] || decks.dataset.savedValue || decks.value;
+    decks.innerHTML = '<option value="">Select a presentation…</option>';
+    (study?.presentations || []).forEach(name => {
+      const option = document.createElement('option'); option.value = name; option.textContent = name; decks.appendChild(option);
+    });
+    decks.value = selected;
+    decks.disabled = Boolean(study?.presenterDecks?.[target.value]);
+    document.getElementById('s-target-label').textContent = 'Presenter’s Companion to update *';
+    const add = Array.from(target.options).find(option => option.value === '__new__');
+    if (add) add.textContent = 'Add a Presenter’s Companion…';
+  }
+  document.getElementById('s-target-label').textContent = artifactType === 'presenter' ? 'Presenter’s Companion to update *' : artifactType === 'note'
     ? 'Technical/research note to update *'
     : 'Presentation to update *';
+  const kind = artifactType === 'note' ? 'note' : artifactType === 'presenter' ? 'presenter companion' : 'presentation';
   document.getElementById('s-target-help').textContent = files.length
-    ? `${files.length} existing ${artifactType === 'note' ? 'note' : 'presentation'}${files.length === 1 ? '' : 's'} registered for this study.`
-    : `No ${artifactType === 'note' ? 'notes' : 'presentations'} are registered yet; choose “Add new”.`;
+    ? `${files.length} existing ${kind}${files.length === 1 ? '' : 's'} registered for this study.`
+    : `No ${kind}s are registered yet; choose “Add new”.`;
 }
 
 const STAGE_LABELS = {
@@ -855,7 +898,7 @@ function cacheAuthState(data) {
 }
 
 let authRequest = 0;
-async function refreshAuthState() {
+async function refreshAuthState(initialContext = Promise.resolve()) {
   const requestId = ++authRequest;
   try {
     const res = await apiFetch('/api/auth/me');
@@ -882,7 +925,7 @@ async function refreshAuthState() {
       };
     }
     const authenticatedLogin = currentUser?.login || null;
-    const contributorRestore = contributor.auth(currentUser);
+    const contributorRestore = Promise.resolve(initialContext).then(() => contributor.auth(currentUser));
     const userEl = document.getElementById('auth-user');
     if (currentUser) {
       try { sessionStorage.removeItem(LOGIN_PENDING_KEY); } catch (e) { /* ignore */ }
@@ -921,8 +964,8 @@ async function refreshAuthState() {
       if (mode === 'update' && !document.getElementById('s-content').value) {
         if (selectedArtifactType() === 'study') loadStudySource({silent:true});
         const target = document.getElementById('s-target').value;
-        if (selectedArtifactType() === 'note' && target && target !== '__new__') loadStudySource({artifactType:'note',fileName:target,silent:true});
-        if (selectedArtifactType() === 'presentation' && target && target !== '__new__') loadStudySource({artifactType:'presentation',fileName:target,silent:true});
+        if (['note', 'presenter'].includes(selectedArtifactType()) && target && target !== '__new__') loadStudySource({artifactType:selectedArtifactType(),fileName:target,silent:true});
+        if (selectedArtifactType() === 'presentation' && target && target !== '__new__' && !contributor.sourceSha) loadStudySource({artifactType:'presentation',fileName:target,silent:true});
       }
     }
   } catch (err) {
@@ -1079,6 +1122,7 @@ function renderArtifactGroup(label, kind, files, slug, artifactType, blocked) {
       '<span class="artifact-kind" aria-hidden="true">' + escapeHtml(kind) + '</span>' +
       '<span class="artifact-name">' + escapeHtml(file) + '</span>' +
       '<span class="artifact-actions">' +
+      (artifactType !== 'study' && !blocked ? '<label><input type="checkbox" data-select-companion="' + escapeHtml(file) + '" data-select-kind="' + artifactType + '"> Select</label>' : '') +
       artifactAction(slug, artifactType, artifactType === 'study' ? '' : file, blocked, actionLabel) +
       artifactDeleteAction(slug, artifactType, artifactType === 'study' ? '' : file, blocked) +
       '</span>' +
@@ -1093,23 +1137,27 @@ function renderSubmissionFiles(item) {
   if (!study) return '';
   const notes = Array.isArray(study.notes) ? study.notes : [];
   const presentations = Array.isArray(study.presentations) ? study.presentations : [];
-  const fileCount = 1 + notes.length + presentations.length;
+  const presenters = Array.isArray(study.presenters) ? study.presenters : [];
+  const fileCount = 1 + notes.length + presentations.length + presenters.length;
   const blocked = Boolean(item.studyPrBlocked || item.statusChangeBlocked);
   const groups = [
     renderArtifactGroup('Study document', 'MD', [item.slug + '.md'], item.slug, 'study', blocked),
     renderArtifactGroup('Technical and research notes', 'MD', notes, item.slug, 'note', blocked),
     renderArtifactGroup('Presentations', 'PPTX', presentations, item.slug, 'presentation', blocked),
+    renderArtifactGroup('Presenter’s Companions', 'MD', presenters, item.slug, 'presenter', blocked),
   ].join('');
   const addActions = blocked
     ? '<p class="artifact-blocked">New file updates are available after the open study change is completed.</p>'
     : '<div class="artifact-add-actions">' +
       '<a class="action-btn" href="' + escapeHtml(artifactUpdateUrl(item.slug, 'note', '__new__')) + '">Add note</a>' +
       '<a class="action-btn" href="' + escapeHtml(artifactUpdateUrl(item.slug, 'presentation', '__new__')) + '">Add presentation</a>' +
+      '<a class="action-btn" href="' + escapeHtml(artifactUpdateUrl(item.slug, 'presenter', '__new__')) + '">Add presenter notes</a>' +
       '</div>';
   return '<details class="submission-files">' +
     '<summary>Manage files <span class="artifact-count">' + fileCount + ' file' + (fileCount === 1 ? '' : 's') +
     '</span><span class="artifact-summary-hint">Edit, add or delete</span></summary>' +
-    '<div class="artifact-groups">' + groups + addActions + '</div></details>';
+    '<div class="artifact-groups">' + groups + addActions +
+    (!blocked ? '<button type="button" class="action-btn" data-delete-selected="' + escapeHtml(item.slug) + '">Delete selected companions</button>' : '') + '</div></details>';
 }
 
 function renderActionButtons(item) {
@@ -1508,7 +1556,7 @@ async function inlineStatusChange(slug, target, buttonEl) {
 
 async function inlineDeleteArtifact(slug, artifactType, fileName, buttonEl) {
   if (!currentUser) { showAlert('dashboard', 'error', 'Sign in with GitHub first.'); return; }
-  if (!slug || !['study', 'note', 'presentation'].includes(artifactType)) return;
+  if (!slug || !['study', 'note', 'presentation', 'presenter'].includes(artifactType)) return;
   const displayName = artifactType === 'study' ? slug : fileName;
   const impact = artifactType === 'study'
     ? 'This requests deletion of the entire study, including every note, presentation, figure, and published reader associated with it.'
@@ -1532,6 +1580,21 @@ async function inlineDeleteArtifact(slug, artifactType, fileName, buttonEl) {
     showAlert('dashboard', 'error', escapeHtml(error.message));
   }
 }
+
+document.addEventListener('click', async event => {
+  const button = event.target.closest('[data-delete-selected]');
+  if (!button) return;
+  const slug = button.dataset.deleteSelected;
+  const selections = Array.from(button.closest('.submission-files').querySelectorAll('[data-select-companion]:checked'))
+    .map(input => ({artifactType:input.dataset.selectKind, fileName:input.dataset.selectCompanion}));
+  if (!selections.length) { showAlert('dashboard', 'error', 'Select one or more companions.'); return; }
+  if (!window.confirm('Request deletion of these companions?\n\n' + selections.map(item => item.fileName).join('\n') +
+    '\n\nSelected presentations include their linked Presenter’s Companion. The parent study stays.')) return;
+  try {
+    for (const item of selections) item.sourceSha = await loadArtifactSourceVersion(slug, item.artifactType, item.fileName);
+    await sendDashboardAction('/api/delete-artifact', {slug, artifactType:'companions', artifacts:selections}, button);
+  } catch (error) { showAlert('dashboard', 'error', escapeHtml(error.message)); }
+});
 
 document.getElementById('dashboard-check-operation').addEventListener('click', checkDashboardOperation);
 document.getElementById('dashboard-retry-operation').addEventListener('click', retryDashboardOperation);
@@ -1784,6 +1847,8 @@ function updateSubmitAvailability() {
   const mode = document.getElementById('s-mode').value;
   const revisionReady = mode !== 'revise' || revisionLoadedForPr === document.getElementById('s-pr').value;
   btn.disabled = contributionBusy || !currentUser || (mode === 'new' && !proposalWorkspaceReady) || !revisionReady;
+  const owner = mappedStudy(document.getElementById('s-slug').value.trim())?.presenterDecks?.[document.getElementById('s-target').value];
+  document.getElementById('s-presenter-deck').disabled = contributionBusy || !currentUser || Boolean(owner);
 }
 
 function selectedArtifactType() {
@@ -1819,6 +1884,10 @@ function updateArtifactUi(opts = {}) {
   document.getElementById('s-author-help').textContent = config.authorHelp;
   document.getElementById('s-content-label').textContent = config.contentLabel || '';
   document.getElementById('s-editor-group').hidden = isPresentation;
+  document.getElementById('s-presenter-deck-group').hidden = artifactType !== 'presenter';
+  document.getElementById('s-presenter-deck').required = artifactType === 'presenter';
+  document.getElementById('s-deck-presenter-group').hidden = !isPresentation || isRevision;
+  document.getElementById('s-attachments-group').hidden = isPresentation;
   document.getElementById('s-editor-guide').hidden = artifactType !== 'study';
   document.getElementById('s-format-checklist').hidden = artifactType !== 'study';
   content.required = !isPresentation;
@@ -1857,7 +1926,48 @@ function arrayBufferToBase64(buffer) {
   return btoa(binary);
 }
 
+function paintAttachments() {
+  document.getElementById('s-assets-status').textContent = uploadedAssets.map(file => file.fileName).join(', ');
+  document.getElementById('s-deck-presenter-status').textContent = uploadedPresenter?.fileName || '';
+}
+
+async function attachmentVersion(fileName, artifactType) {
+  const params = new URLSearchParams({slug:document.getElementById('s-slug').value.trim(), artifactType, fileName});
+  if (document.getElementById('s-mode').value === 'revise') params.set('pr', document.getElementById('s-pr').value);
+  const response = await apiFetch('/api/study-source?' + params);
+  if (response.status === 404) return null;
+  const data = normalizeApiData(await readResponseJson(response));
+  if (!response.ok || !data.success) throw new Error(responseError(data, response, 'Could not load the attachment version.'));
+  return data.sourceSha || null;
+}
+
+async function attachFiles(input, presenter = false) {
+  const ticket = contributor.ticket();
+  const files = Array.from(input.files || []);
+  if (!files.length) return;
+  if (!document.getElementById('s-slug').value.trim()) throw new Error('Select a study before attaching files.');
+  if (files.length > 20 || files.some(file => file.size > MAX_MARKDOWN_BYTES) || files.reduce((n, file) => n + file.size, 0) > 3 * 1024 * 1024) {
+    throw new Error('Use at most 20 attachments, 2 MB each and 3 MB in total.');
+  }
+  await contributor.checkpoint();
+  const loaded = [];
+  for (const file of files) {
+    if (presenter ? !/^Presenters-Companion-[A-Za-z0-9][A-Za-z0-9-]*\.md$/.test(file.name)
+      : !/^[A-Za-z0-9][A-Za-z0-9_-]*\.(svg|png|jpg|jpeg|webp|gif)$/i.test(file.name)) {
+      throw new Error('Use supported figure filenames or Presenters-Companion-Name.md.');
+    }
+    const bytes = await file.arrayBuffer();
+    const sourceSha = await attachmentVersion(file.name, presenter ? 'presenter' : 'asset');
+    loaded.push({fileName:file.name, sourceSha,
+      ...(presenter ? {content:new TextDecoder('utf-8', {fatal:true}).decode(bytes)} : {contentBase64:arrayBufferToBase64(bytes)})});
+  }
+  if (!contributor.matches(ticket)) return;
+  if (presenter) uploadedPresenter = loaded[0]; else uploadedAssets = loaded;
+  paintAttachments(); scheduleDraftSave();
+}
+
 function validArtifactFilename(artifactType, fileName) {
+  if (artifactType === 'presenter') return /^Presenters-Companion-[A-Za-z0-9][A-Za-z0-9-]*\.md$/.test(fileName);
   if (artifactType === 'study') return /\.md$/i.test(fileName);
   const target = document.getElementById('s-target').value;
   if (target && target !== '__new__') {
@@ -1925,8 +2035,8 @@ async function handleArtifactFile(file) {
 
 async function loadStudySource(opts = {}) {
   const artifactType = opts.artifactType || selectedArtifactType();
-  if (!['study', 'note', 'presentation'].includes(artifactType)) return false;
-  const fileName = opts.fileName || '';
+  if (!['study', 'note', 'presentation', 'presenter'].includes(artifactType)) return false;
+  const fileName = opts.fileName || (artifactType === 'study' ? '' : document.getElementById('s-target').value);
   const slug = document.getElementById('s-slug').value.trim();
   const statusEl = document.getElementById('s-load-source-status');
   const showStatus = (msg) => { statusEl.style.display = 'block'; statusEl.textContent = msg; };
@@ -2132,14 +2242,14 @@ let proposeConfirmed = false;
 function showProposeReview() {
   const review = document.getElementById('propose-review');
   const v = (id) => document.getElementById(id).value.trim();
-  const formal = document.getElementById('p-formal').checked;
+  const collection = document.getElementById('p-collection').value;
   const rows = [
     ['Title', v('p-title')],
     ['Category', v('p-category')],
     ['Description', v('p-desc')],
     ['Summary', v('p-summary')],
     ['Familiarity', document.getElementById('p-fam').value],
-    ['Catalog', formal ? 'Formal Studies' : 'Topical Studies'],
+    ['Catalog', collection[0].toUpperCase() + collection.slice(1) + ' Studies'],
   ];
   const dl = rows.map(([k, val]) => '<dt>' + escapeHtml(k) + '</dt><dd>' + escapeHtml(val || '—') + '</dd>').join('');
   review.innerHTML = '<h3>Review your proposal</h3><dl>' + dl + '</dl>' +
@@ -2157,7 +2267,7 @@ function resetProposeConfirm() {
   document.getElementById('p-submit-btn').textContent = 'Review proposal';
 }
 
-['p-title', 'p-category', 'p-desc', 'p-summary', 'p-fam', 'p-formal'].forEach((id) => {
+['p-title', 'p-category', 'p-desc', 'p-summary', 'p-fam', 'p-collection'].forEach((id) => {
   const el = document.getElementById(id);
   if (!el) return;
   const reset = () => { if (proposeConfirmed) resetProposeConfirm(); };
@@ -2329,7 +2439,7 @@ function goToDashboard(forceRefresh) {
   return Promise.resolve();
 }
 
-function applyQueryParams() {
+async function applyQueryParams() {
   const params = new URLSearchParams(window.location.search);
   const tab = params.get('tab') || 'dashboard';
   const authError = params.get('auth_error');
@@ -2363,12 +2473,12 @@ function applyQueryParams() {
       setProposalValue(params.get('proposal'));
     }
     if (isUpdate && params.get('target')) {
-      loadCompanionRegistry().then(() => {
+      await loadCompanionRegistry().then(() => {
         refreshMappedArtifactControls();
         const target = document.getElementById('s-target');
         if (Array.from(target.options).some((option) => option.value === params.get('target'))) {
           target.value = params.get('target');
-          target.dispatchEvent(new Event('change'));
+          refreshMappedArtifactControls();
         }
       }).catch(() => { /* status is shown beside the study slug */ });
     }
@@ -2405,9 +2515,9 @@ document.getElementById('s-target').addEventListener('change', async () => {
   if (!await contributor.change()) return;
   const target = document.getElementById('s-target').value;
   updateArtifactUi();
-  if (target && target !== '__new__' && selectedArtifactType() === 'note' && !document.getElementById('s-content').value)
-    loadStudySource({artifactType:'note', fileName:target});
-  if (target && target !== '__new__' && selectedArtifactType() === 'presentation')
+  if (target && target !== '__new__' && ['note', 'presenter'].includes(selectedArtifactType()) && !document.getElementById('s-content').value)
+    loadStudySource({artifactType:selectedArtifactType(), fileName:target});
+  if (target && target !== '__new__' && selectedArtifactType() === 'presentation' && !contributor.sourceSha)
     loadStudySource({artifactType:'presentation', fileName:target, silent:true});
 });
 
@@ -2417,6 +2527,21 @@ document.getElementById('s-file').addEventListener('change', async (event) => {
   } catch (err) {
     setFileStatus(err.message, 'error');
   }
+});
+document.getElementById('s-assets').addEventListener('change', event => {
+  attachFiles(event.target).catch(error => showAlert('submit', 'error', escapeHtml(error.message)));
+});
+document.getElementById('s-deck-presenter').addEventListener('change', event => {
+  attachFiles(event.target, true).catch(error => showAlert('submit', 'error', escapeHtml(error.message)));
+});
+document.getElementById('s-presenter-deck').addEventListener('change', () => {
+  document.getElementById('s-presenter-deck').dataset.savedValue = ''; scheduleDraftSave();
+});
+document.getElementById('s-clear-assets').addEventListener('click', () => {
+  uploadedAssets = []; document.getElementById('s-assets').value = ''; paintAttachments(); scheduleDraftSave();
+});
+document.getElementById('s-clear-presenter').addEventListener('click', () => {
+  uploadedPresenter = null; document.getElementById('s-deck-presenter').value = ''; paintAttachments(); scheduleDraftSave();
 });
 
 const proposalSelect = document.getElementById('s-proposal-select');
@@ -2536,7 +2661,7 @@ function scheduleDraftSave() { contributor.schedule('submit'); }
 function scheduleProposeDraftSave() { contributor.schedule('propose'); }
 ['s-content','s-author'].forEach(id => document.getElementById(id).addEventListener('input',scheduleDraftSave));
 ['p-title','p-desc','p-summary'].forEach(id => document.getElementById(id).addEventListener('input',scheduleProposeDraftSave));
-['p-category','p-fam','p-formal'].forEach(id => document.getElementById(id).addEventListener('change',scheduleProposeDraftSave));
+['p-category','p-fam','p-collection'].forEach(id => document.getElementById(id).addEventListener('change',scheduleProposeDraftSave));
 
 let ciPollTimer = null;
 let ciPollFailures = 0;
@@ -2654,7 +2779,7 @@ document.getElementById('propose-form').addEventListener('submit', async (e) => 
         description: document.getElementById('p-desc').value,
         summary: document.getElementById('p-summary').value,
         familiarity: document.getElementById('p-fam').value,
-        formal: document.getElementById('p-formal').checked,
+        collection: document.getElementById('p-collection').value,
         turnstileToken,
       })),
     });
@@ -2698,11 +2823,11 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   const fileInput = document.getElementById('s-file');
   const selectedFile = fileInput.files && fileInput.files[0];
   const targetFileName = document.getElementById('s-target').value;
-  if ((artifactType === 'note' || artifactType === 'presentation') && !targetFileName) {
+  if (['note', 'presentation', 'presenter'].includes(artifactType) && !targetFileName) {
     showAlert('submit', 'error', 'Select an existing companion file or choose “Add new”.');
     return;
   }
-  if (artifactType === 'note' && targetFileName === '__new__' && !selectedFile && !contributor.fileName) {
+  if (['note', 'presenter'].includes(artifactType) && targetFileName === '__new__' && !selectedFile && !contributor.fileName) {
     showAlert('submit', 'error', 'Choose the technical or research note .md file to upload.');
     return;
   }
@@ -2749,10 +2874,13 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
     payload.contentBase64 = uploadedPresentation.contentBase64;
   } else {
     payload.content = document.getElementById('s-content').value;
-    if (artifactType === 'note') {
+    if (artifactType === 'note' || artifactType === 'presenter') {
       payload.fileName = targetFileName === '__new__' ? (selectedFile?.name || contributor.fileName) : targetFileName;
     }
   }
+  payload.assets = artifactType === 'presentation' ? [] : uploadedAssets;
+  if (artifactType === 'presentation' && uploadedPresenter) payload.presenter = uploadedPresenter;
+  if (artifactType === 'presenter') payload.deckFileName = document.getElementById('s-presenter-deck').value;
   if (isNew) payload.proposalIssue = Number(document.getElementById('s-proposal').value);
   if (isRevision) payload.prNumber = Number(document.getElementById('s-pr').value);
   try {
@@ -2785,14 +2913,14 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
 });
 
 </script>
-<script src="portal/contributor.js?v=e74ecfa58afcbf10"></script>
+<script src="portal/contributor.js?v=5bb5b1c8a86e25e2"></script>
 <script>
 (async () => {
   toggleProposalField();
   const params = new URLSearchParams(location.search);
   const draft = params.get('draft');
   if (draft && /^[a-zA-Z0-9-]{1,80}$/.test(draft)) document.getElementById('p-draft-id').value = draft;
-  applyQueryParams();
+  const initialContext = applyQueryParams();
   if (currentUser) {
     document.getElementById('auth-user').innerHTML = 'Signed in as <strong>@' + escapeHtml(currentUser.login) + '</strong>';
     renderNotifyBar();
@@ -2801,7 +2929,7 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   updateAuthUi(Boolean(currentUser));
   const registryLoad = loadCompanionRegistry().catch(() => {});
   updateSlugPreview();
-  await Promise.all([registryLoad, refreshAuthState()]);
+  await Promise.all([registryLoad, refreshAuthState(initialContext)]);
 })();
 </script>
 <script>
