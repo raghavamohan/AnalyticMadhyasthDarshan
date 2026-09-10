@@ -20,7 +20,7 @@
       "type": "skill-md",
       "description": "Add a technical or research note beside an existing study, including SVG, raster, Mermaid and math dependencies; generate its HTML/PDF and refresh the companion/publication inventory using the same scripts and checks as CI. Use for new Technical-Note-* or Research-Note-* companion Markdown documents.",
       "url": "/.well-known/agent-skills/add-technical-note/SKILL.md",
-      "digest": "sha256:4fa1a09c835fd4b10b992bfe52d726a86f3ce88af6f1a5a1f4cfee9acc49ca86"
+      "digest": "sha256:74f8f4f7edea79d4cffffe14e688c86f08b846b8254e07d07b2b3291b82e5b77"
     },
     {
       "name": "check-references",
@@ -41,7 +41,7 @@
       "type": "skill-md",
       "description": "Manage study registration, content updates, Draft/Released transitions, rename and retirement, and route new or updated decks and technical notes. Use for study lifecycle work under Studies/ or Applications/ and for finalizing tracked artifacts with the same producers and checks as CI preparation.",
       "url": "/.well-known/agent-skills/manage-studies/SKILL.md",
-      "digest": "sha256:8d5913c415bf254420cc8e677a252ef84befa4e65d3192d929ac924d758efb5a"
+      "digest": "sha256:5f1b1afc19662179cf660c06a134dd3b64911629b6ad1f6f7967617b181f0c6e"
     },
     {
       "name": "refine-studies-index",
@@ -62,7 +62,14 @@
       "type": "skill-md",
       "description": "Remove a study from Studies/ or Applications/ using Scripts/_remove_study.py or _remove_study.ps1 — deletes the complete directory and updates catalogs, proposal metadata, and References. Use when retiring a study, deleting a paper, removing an Ongoing placeholder, or cleaning up a study slug.",
       "url": "/.well-known/agent-skills/remove-study/SKILL.md",
-      "digest": "sha256:391d3bf4776af048e5286e33e57310dd79ecd53836ce305446c1470ccf677391"
+      "digest": "sha256:0b82366d70469be341e616e349dc98cf16265a317232eab66f85fa6516264219"
+    },
+    {
+      "name": "remove-study-companions",
+      "type": "skill-md",
+      "description": "Remove one or more technical/research notes, presentation decks or presenter companions while preserving the parent study, catalog and proposal metadata. Use for companion-only deletion; runs Scripts/_remove_study_companions.py and the shared finalizer, including cleanup of each selected companion's owned outputs.",
+      "url": "/.well-known/agent-skills/remove-study-companions/SKILL.md",
+      "digest": "sha256:e46c757528d09cb57c27ea6848ec9371c77157faff888c3702de814773e5fc3f"
     },
     {
       "name": "rename-study",
@@ -104,14 +111,14 @@
       "type": "skill-md",
       "description": "Update a study Presenter's Companion (slide-by-slide delivery notes) under Studies/ or Applications/: keep the companion markdown as source of truth, rebuild DOCX/PDF, and sync PowerPoint speaker notes from a JSON map. Use when the teaching deck gains/loses slides, companion notes drift from the deck, or regenerating Presenters-Companion-*.docx/.pdf/.notes.json.",
       "url": "/.well-known/agent-skills/update-presenters-companion/SKILL.md",
-      "digest": "sha256:7ccf9581d44d23915549499563f6b4585b6f3c16b3fd8107a57ea5d2f92a3602"
+      "digest": "sha256:c3a5f1f31d8533d66b3d29344a9aa9dcfb96eb7193b083d65744cbee9b529ae2"
     },
     {
       "name": "update-study-presentation",
       "type": "skill-md",
       "description": "Update an existing study companion PowerPoint deck under Studies/ or Applications/, preserve its established design, regenerate its slides PDF and read-aloud notes PDF, and verify every format. Use for PPTX content edits, figure replacements, slide additions or removals, slide reordering, presentation reviews that require fixes, and PPTX-to-PDF refreshes. The PPTX is the source of truth; this repository does not use a slides-YAML generation workflow.",
       "url": "/.well-known/agent-skills/update-study-presentation/SKILL.md",
-      "digest": "sha256:af68b253f1585d19026138045eff744ae1725b6630f6aee5c57c4e4fc8d8dd85"
+      "digest": "sha256:bbf635aee1f4d521dd6dcfa34c70fcf018c823166b87b14514be7ef5a02d17e9"
     }
   ]
 }

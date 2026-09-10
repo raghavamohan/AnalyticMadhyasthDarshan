@@ -290,6 +290,14 @@ against a registered deck under the same study. Ordinary notes use the automatic
 Markdown inventory. Rename and retirement scripts maintain both companion/deck
 manifests; finalization refreshes public inventory and My Submissions metadata.
 
+Removing selected companions uses
+[remove-study-companions](.agents/skills/remove-study-companions/SKILL.md) and
+`Scripts/_remove_study_companions.py`; the same scoped cleanup runs in CI
+preparation. Deleting a deck also removes its declared presenter-companion chain.
+Deleting a note or deck never invokes whole-study retirement. Shared figures,
+canonical study files, catalog/proposal metadata and parent timestamps remain
+unless separately edited. Repair inbound links in the same PR.
+
 Deck and companion edits are companion-only changes: they use the `study-update` label
 but do **not** refresh the study's `**Edited on:**` or catalog timestamps (§1, §7).
 

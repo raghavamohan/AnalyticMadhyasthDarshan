@@ -1512,6 +1512,8 @@ async function inlineDeleteArtifact(slug, artifactType, fileName, buttonEl) {
   const displayName = artifactType === 'study' ? slug : fileName;
   const impact = artifactType === 'study'
     ? 'This requests deletion of the entire study, including every note, presentation, figure, and published reader associated with it.'
+    : artifactType === 'presentation'
+    ? 'This requests deletion of "' + displayName + '", its presentation PDFs, and any linked Presenter\'s Companion files. The study and other companions are kept.'
     : 'This requests deletion of "' + displayName + '" from the study.';
   if (!window.confirm(impact + '\n\nA pull request will open for maintainer approval. Nothing is deleted until that pull request is merged.')) {
     return;

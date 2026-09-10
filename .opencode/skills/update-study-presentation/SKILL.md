@@ -241,3 +241,10 @@ after this skill's targeted renders. Use `_finalize_study_artifacts.py --study
 changes and retirement. Commit the tracked outputs, validate the committed
 HEAD with `_validate_study_change.py` and the same PR body, and let protected
 coherent-site publication handle changed artifacts after merge.
+
+## Companion-only deletion
+
+To remove one or more notes/decks while keeping their parent study, use
+[remove-study-companions](../remove-study-companions/SKILL.md).
+The whole-study `_remove_study.py` command is exclusively for retirement of the
+study and all its companions; it is not a companion-removal command.

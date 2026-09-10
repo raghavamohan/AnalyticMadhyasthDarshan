@@ -2544,6 +2544,8 @@ router.post('/api/delete-artifact', async (request, env) => {
       const operation = `delete-${artifactType}`;
       const summary = artifactType === 'study'
         ? `Remove the complete study \`${slug}\` and all files in its study directory.`
+        : artifactType === 'presentation'
+        ? `Remove presentation \`${targetName}\`, its generated PDFs, and any linked Presenter's Companion files from \`${slug}\`. Keep the study and other companions.`
         : `Remove ${artifactType} \`${targetName}\` from \`${slug}\`.`;
       const prBody = [
         `Study slug: ${slug}`,

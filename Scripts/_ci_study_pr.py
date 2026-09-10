@@ -702,6 +702,9 @@ def handle_study_update(body: str, base_ref: str) -> None:
         print(f"Prepared complete study removal: {slug}")
         return
 
+    from _remove_study_companions import prepare_deleted
+    prepare_deleted(changed_paths(base_ref), base_ref)
+
     renames = detect_study_renames(base_ref)
     rename_targets = {new_slug for _old_slug, new_slug in renames}
     rename_sources = {old_slug for old_slug, _new_slug in renames}
