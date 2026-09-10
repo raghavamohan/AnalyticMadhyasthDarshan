@@ -1,38 +1,82 @@
 name: Generated PDF publish
 
-# Pull requests build affected Markdown-derived artifacts without credentials or
-# publication. Protected-branch runs build the complete Markdown + presentation
-# inventory, publish only after all build jobs pass, refresh the Worker binding/routes,
-# and audit every public URL.
-# Complete verified build families are reused only on exact source/toolchain
-# fingerprints. Manual runs deliberately bypass the build caches.
-
+# One graph selects output keys from verified active-publication receipts.
+# Unchanged families do not start renderer jobs or transfer PDF ZIPs.
 on:
   workflow_call:
     inputs:
       source_sha:
-        required: false
+        required: true
         type: string
-      base_sha:
+      force_rebuild:
         required: false
-        type: string
-
+        type: boolean
+        default: false
 permissions:
   contents: read
-
-concurrency:
-  group: generated-pdf-publish-${{ github.ref }}
-  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+  actions: read
 
 jobs:
-  validate:
+  plan:
     if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    outputs:
+      reference_pdfs: ${{ steps.reuse.outputs.reference_pdfs || steps.plan.outputs.reference_pdfs }}
+      markdown: ${{ steps.reuse.outputs.markdown || steps.plan.outputs.markdown }}
+      presentations: ${{ steps.reuse.outputs.presentations || steps.plan.outputs.presentations }}
+      references: ${{ steps.reuse.outputs.references || steps.plan.outputs.references }}
+      any_build: ${{ steps.reuse.outputs.any_build || steps.plan.outputs.any_build }}
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ inputs.source_sha || github.sha }}
+          ref: ${{ inputs.source_sha }}
           fetch-depth: 0
+          persist-credentials: false
+      - uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+      - name: Plan against verified active publication
+        id: plan
+        env:
+          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
+          R2_REGION: ${{ vars.R2_REGION }}
+          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+          FORCE: ${{ inputs.force_rebuild }}
+        run: |
+          args=()
+          if [ "$FORCE" = "true" ]; then args+=(--force); fi
+          python Scripts/_publication_plan.py --output "$RUNNER_TEMP/publication-plan.json" --github-output "$GITHUB_OUTPUT" "${args[@]}"
+      - name: Reuse verified builds from the merged same-repository PR
+        id: reuse
+        if: ${{ !inputs.force_rebuild }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python Scripts/_review_artifacts.py --import-plan "$RUNNER_TEMP/publication-plan.json" --root "$RUNNER_TEMP/reviewed-pdfs"
+      - uses: actions/upload-artifact@v6
+        if: steps.reuse.outputs.review_used == 'true'
+        with:
+          name: generated-reviewed-pdfs
+          path: ${{ runner.temp }}/reviewed-pdfs
+          if-no-files-found: error
+          retention-days: 7
+      - uses: actions/upload-artifact@v6
+        with:
+          name: publication-plan
+          path: ${{ runner.temp }}/publication-plan.json
+          if-no-files-found: error
+          retention-days: 14
+
+  validate:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
       - uses: ./.github/actions/setup-study-env
         with:
           node: 'false'
@@ -41,457 +85,144 @@ jobs:
           python Scripts/_verify_studies_index.py
           python Scripts/_sync_glossary_html.py --check
           python Scripts/_sync_agent_rules.py --check
-          python Scripts/_run_test_suites.py
-
-  pdfs:
-    runs-on: ubuntu-latest
-    outputs:
-      references_changed: ${{ steps.pdf-inputs.outputs.references_changed }}
-    steps:
-      - name: Checkout complete history
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ inputs.source_sha || github.sha }}
-          fetch-depth: 0
-
-      - name: Fingerprint and plan PDF build inputs
-        id: pdf-inputs
-        shell: bash
-        env:
-          BASE_SHA: ${{ github.event.pull_request.base.sha || inputs.base_sha }}
-        run: |
-          if [[ -n "$BASE_SHA" ]]; then
-            python Scripts/_pdf_build_cache.py --keys --changed-since "$BASE_SHA" --github-output "$GITHUB_OUTPUT"
-          else
-            python Scripts/_pdf_build_cache.py --keys --github-output "$GITHUB_OUTPUT"
-          fi
-
-      # Only complete protected-branch builds populate these caches. PR Markdown
-      # builds select a subset, so must never be stored as a complete inventory.
-      - name: Restore complete Markdown PDF build
-        if: github.event_name == 'push'
-        id: markdown-cache
-        uses: actions/cache/restore@v6
-        with:
-          path: ${{ runner.temp }}/generated-markdown-pdfs
-          key: pdf-markdown-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.markdown }}
-
-      - name: Restore complete reference PDF build
-        if: >-
-          github.event_name != 'workflow_dispatch' &&
-          steps.pdf-inputs.outputs.references_changed == 'true'
-        id: reference-cache
-        uses: actions/cache/restore@v6
-        with:
-          path: ${{ runner.temp }}/generated-reference-pdfs
-          key: pdf-references-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.references }}
-
-      - name: Verify restored Markdown build checksums
-        if: steps.markdown-cache.outputs.cache-hit == 'true'
-        run: >-
-          python Scripts/_pdf_build_cache.py --verify markdown
-          --root "$RUNNER_TEMP/generated-markdown-pdfs"
-          --fingerprint "${{ steps.pdf-inputs.outputs.markdown }}"
-
-      - name: Verify restored reference build checksums
-        if: steps.reference-cache.outputs.cache-hit == 'true'
-        run: >-
-          python Scripts/_pdf_build_cache.py --verify references
-          --root "$RUNNER_TEMP/generated-reference-pdfs"
-          --fingerprint "${{ steps.pdf-inputs.outputs.references }}"
-
-      # Markdown and normalized-reference rendering use the same pinned
-      # Python/Node/Chrome toolchain. Keep them in one job so npm ci and the
-      # Puppeteer cache restore happen once per workflow run.
-      - name: Set up PDF toolchain
-        if: >-
-          github.event_name != 'pull_request' ||
-          steps.pdf-inputs.outputs.markdown_changed == 'true' ||
-          steps.pdf-inputs.outputs.references_changed == 'true'
-        uses: ./.github/actions/setup-study-env
-        with:
-          node: >-
-            ${{ (
-              ((github.event_name != 'pull_request' || steps.pdf-inputs.outputs.markdown_changed == 'true') &&
-               steps.markdown-cache.outputs.cache-hit != 'true') ||
-              (steps.pdf-inputs.outputs.references_changed == 'true' &&
-               steps.reference-cache.outputs.cache-hit != 'true')
-            ) && 'true' || 'false' }}
-
-      - name: Restore reusable document builds
-        if: github.event_name != 'pull_request'
-        uses: actions/cache/restore@v6
-        with:
-          path: ${{ runner.temp }}/document-pdf-cache
-          key: pdf-documents-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.markdown }}
-          restore-keys: pdf-documents-v1-${{ runner.os }}-
-
-      - name: Build and verify Markdown-derived PDFs
-        if: >-
-          steps.markdown-cache.outputs.cache-hit != 'true' &&
-          (github.event_name != 'pull_request' || steps.pdf-inputs.outputs.markdown_changed == 'true')
-        shell: bash
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          BASE_REF: ${{ github.base_ref }}
-          OUTPUT_ROOT: ${{ runner.temp }}/generated-markdown-pdfs
-        run: |
-          if [[ "$EVENT_NAME" == "pull_request" ]]; then
-            python Scripts/_build_markdown_pdfs.py --changed-since "origin/$BASE_REF" --output-root "$OUTPUT_ROOT"
-          else
-            python Scripts/_build_markdown_pdfs.py --all --output-root "$OUTPUT_ROOT" --cache-root "$RUNNER_TEMP/document-pdf-cache"
-          fi
-
-      - name: Upload verified Markdown PDFs
-        if: github.event_name != 'pull_request' || steps.pdf-inputs.outputs.markdown_changed == 'true'
-        uses: actions/upload-artifact@v6
-        with:
-          name: generated-markdown-pdfs
-          path: ${{ runner.temp }}/generated-markdown-pdfs
-          if-no-files-found: error
-          retention-days: 7
-
-      - name: Build and verify normalized reference PDFs
-        if: >-
-          steps.reference-cache.outputs.cache-hit != 'true' &&
-          steps.pdf-inputs.outputs.references_changed == 'true'
-        run: >-
-          python Scripts/_build_reference_pdfs.py --all
-          --output-root "$RUNNER_TEMP/generated-reference-pdfs"
-
-      - name: Recheck restored reference PDFs against the manifest
-        if: >-
-          steps.reference-cache.outputs.cache-hit == 'true' &&
-          steps.pdf-inputs.outputs.references_changed == 'true'
-        run: >-
-          python Scripts/_build_reference_pdfs.py --verify-only
-          --output-root "$RUNNER_TEMP/generated-reference-pdfs"
-
-      - name: Verify reference manifest and Markdown delivery links
-        run: |
           python Scripts/_reference_artifacts.py --check
           python Scripts/_rewrite_manifest_reference_links.py --check
+          python Scripts/_run_test_suites.py
+          python Scripts/_generated_artifacts.py --check-clean
 
-      # Every pull request already runs this exact repository scan through
-      # Scripts/_test_published_document_links.py in the required verify job.
-      # Keep the direct gate for protected-branch and manual publication runs,
-      # which can deploy independently of that workflow.
-      - name: Verify published document link policy
-        if: github.event_name != 'pull_request'
-        run: python Scripts/_verify_published_document_links.py
-
-      - name: Upload verified reference PDFs
-        if: steps.pdf-inputs.outputs.references_changed == 'true'
-        uses: actions/upload-artifact@v6
-        with:
-          name: generated-reference-pdfs
-          path: ${{ runner.temp }}/generated-reference-pdfs
-          if-no-files-found: error
-          retention-days: 7
-
-      - name: Seal complete verified Markdown build
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.markdown-cache.outputs.cache-hit != 'true'
-        run: >-
-          python Scripts/_pdf_build_cache.py --seal markdown
-          --root "$RUNNER_TEMP/generated-markdown-pdfs"
-          --fingerprint "${{ steps.pdf-inputs.outputs.markdown }}"
-
-      - name: Save complete verified Markdown build
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.markdown-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v6
-        with:
-          path: ${{ runner.temp }}/generated-markdown-pdfs
-          key: pdf-markdown-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.markdown }}
-
-      - name: Seal complete verified reference build
-        if: >-
-          github.ref == 'refs/heads/master' && github.event_name != 'pull_request' &&
-          steps.pdf-inputs.outputs.references_changed == 'true' &&
-          steps.reference-cache.outputs.cache-hit != 'true'
-        run: >-
-          python Scripts/_pdf_build_cache.py --seal references
-          --root "$RUNNER_TEMP/generated-reference-pdfs"
-          --fingerprint "${{ steps.pdf-inputs.outputs.references }}"
-
-      - name: Save complete verified reference build
-        if: >-
-          github.ref == 'refs/heads/master' && github.event_name != 'pull_request' &&
-          steps.pdf-inputs.outputs.references_changed == 'true' &&
-          steps.reference-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v6
-        with:
-          path: ${{ runner.temp }}/generated-reference-pdfs
-          key: pdf-references-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.references }}
-
-      - name: Save reusable protected-branch document builds
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.markdown-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v6
-        with:
-          path: ${{ runner.temp }}/document-pdf-cache
-          key: pdf-documents-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.markdown }}
-
-  presentations:
-    if: github.event_name != 'pull_request'
-    runs-on: windows-2025
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ inputs.source_sha || github.sha }}
-          fetch-depth: 0
-
-      - name: Fingerprint presentation build inputs
-        id: pdf-inputs
-        shell: pwsh
-        run: python Scripts/_pdf_build_cache.py --keys --github-output "$env:GITHUB_OUTPUT"
-
-      - name: Restore complete presentation PDF build
-        if: github.event_name != 'workflow_dispatch'
-        id: presentation-cache
-        uses: actions/cache/restore@v6
-        with:
-          path: ${{ runner.temp }}\generated-presentation-pdfs
-          key: pdf-presentations-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.presentations }}
-
-      - name: Verify restored presentation build checksums
-        if: steps.presentation-cache.outputs.cache-hit == 'true'
-        shell: pwsh
-        run: >-
-          python Scripts/_pdf_build_cache.py --verify presentations
-          --root "$env:RUNNER_TEMP\generated-presentation-pdfs"
-          --fingerprint "${{ steps.pdf-inputs.outputs.presentations }}"
-
-      - name: Set up Python toolchain
-        uses: ./.github/actions/setup-study-env
-        with:
-          node: 'false'
-
-      - name: Restore pinned LibreOffice installer
-        if: steps.presentation-cache.outputs.cache-hit != 'true'
-        uses: actions/cache@v6
-        with:
-          path: ${{ runner.temp }}\presentation-renderers
-          key: presentation-renderer-${{ runner.os }}-${{ hashFiles('Scripts/presentation-pipeline.json') }}
-
-      - name: Install exact LibreOffice production renderer
-        if: steps.presentation-cache.outputs.cache-hit != 'true'
-        shell: pwsh
-        run: >-
-          ./Scripts/_install_presentation_renderer.ps1
-          -Profile libreoffice-production
-          -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
-
-      - name: Require deck fonts
-        if: steps.presentation-cache.outputs.cache-hit != 'true'
-        shell: pwsh
-        run: |
-          $missing = @(
-            'C:\Windows\Fonts\calibri.ttf',
-            'C:\Windows\Fonts\calibrib.ttf',
-            'C:\Windows\Fonts\calibrii.ttf',
-            'C:\Windows\Fonts\cambriab.ttf'
-          ) | Where-Object { -not (Test-Path -LiteralPath $_) }
-          if ($missing) {
-            throw "Required presentation fonts are absent: $($missing -join ', ')"
-          }
-
-      - name: Build and verify all presentation PDFs
-        if: steps.presentation-cache.outputs.cache-hit != 'true'
-        shell: pwsh
-        run: >-
-          python Scripts/_build_presentations.py --all
-          --profile libreoffice-production
-          --output-root "$env:RUNNER_TEMP\generated-presentation-pdfs"
-
-      - name: Recheck restored presentation PDFs against their sources
-        if: steps.presentation-cache.outputs.cache-hit == 'true'
-        shell: pwsh
-        run: >-
-          python Scripts/_verify_presentations.py
-          --output-root "$env:RUNNER_TEMP\generated-presentation-pdfs"
-
-      - name: Upload verified presentation PDFs
-        uses: actions/upload-artifact@v6
-        with:
-          name: generated-presentation-pdfs
-          path: ${{ runner.temp }}\generated-presentation-pdfs
-          if-no-files-found: error
-          retention-days: 7
-
-      - name: Seal complete verified presentation build
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.presentation-cache.outputs.cache-hit != 'true'
-        shell: pwsh
-        run: >-
-          python Scripts/_pdf_build_cache.py --seal presentations
-          --root "$env:RUNNER_TEMP\generated-presentation-pdfs"
-          --fingerprint "${{ steps.pdf-inputs.outputs.presentations }}"
-
-      - name: Save complete verified presentation build
-        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && steps.presentation-cache.outputs.cache-hit != 'true'
-        uses: actions/cache/save@v6
-        with:
-          path: ${{ runner.temp }}\generated-presentation-pdfs
-          key: pdf-presentations-v1-${{ runner.os }}-${{ steps.pdf-inputs.outputs.presentations }}
-
-  publish-and-deploy:
-    if: >-
-      github.ref == 'refs/heads/master' &&
-      (github.event_name == 'push' || github.event_name == 'workflow_dispatch') &&
-      vars.SITE_RELEASES_ENABLED != 'true'
-    needs: [validate, pdfs, presentations]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v7
-        with:
-          ref: ${{ inputs.source_sha || github.sha }}
-          fetch-depth: 0
-
-      - name: Set up publisher dependencies
-        uses: ./.github/actions/setup-study-env
-        with:
-          node: 'false'
-
-      - name: Download all verified PDF artifacts
-        uses: actions/download-artifact@v7
-        with:
-          pattern: generated-*-pdfs
-          path: ${{ runner.temp }}/generated-pdfs
-          merge-multiple: true
-
-      - name: Publish complete verified inventory to R2
-        env:
-          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
-          R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
-          R2_REGION: ${{ vars.R2_REGION }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: python Scripts/_publish_generated_pdfs.py --artifact-root "$RUNNER_TEMP/generated-pdfs" --all
-
-      - name: Delete generated PDFs retired by this push
-        if: github.event_name == 'push'
-        env:
-          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
-          R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
-          R2_REGION: ${{ vars.R2_REGION }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-        run: python Scripts/_publish_generated_pdfs.py --delete-removed-since "${{ github.event.before }}"
-
-      - name: Publish changed private originals and rights-approved references to R2
-        if: needs.pdfs.outputs.references_changed == 'true'
-        env:
-          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
-          R2_REGION: ${{ vars.R2_REGION }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root "$RUNNER_TEMP/generated-pdfs"
-
-      - name: Verify rights-approved references already in R2
-        env:
-          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
-          R2_REGION: ${{ vars.R2_REGION }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: python Scripts/_publish_reference_artifacts.py --verify-approved
-
-      - name: Deploy Worker and attach guarded production routes
-        env:
-          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
-          R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
-          R2_REGION: ${{ vars.R2_REGION }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: |
-          python Scripts/_publish_generated_pdf_worker.py --check
-          python Scripts/_publish_generated_pdf_worker.py --check-r2-coverage
-          python Scripts/_publish_generated_pdf_worker.py --check-reference-r2-coverage
-          python Scripts/_publish_generated_pdf_worker.py --deploy-canary
-          python Scripts/_verify_generated_pdf_delivery.py --workers-dev --all --artifact-root "$RUNNER_TEMP/generated-pdfs"
-          python Scripts/_verify_reference_delivery.py --workers-dev --artifact-root "$RUNNER_TEMP/generated-pdfs"
-          python Scripts/_publish_generated_pdf_worker.py --deploy-production
-          python Scripts/_publish_generated_pdf_worker.py --apply-routes
-          python Scripts/_publish_generated_pdf_worker.py --apply-reference-routes
-
-      - name: Audit every public generated PDF
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: |
-          python Scripts/_verify_generated_pdf_delivery.py --public --all --artifact-root "$RUNNER_TEMP/generated-pdfs"
-          python Scripts/_verify_reference_delivery.py --public --artifact-root "$RUNNER_TEMP/generated-pdfs"
-
-  coherent-site:
-    if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
-    needs: [validate, pdfs, presentations]
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
-    env:
-      PYTHONUNBUFFERED: '1'
-    environment: github-pages
+  pdfs:
+    needs: plan
+    if: needs.plan.outputs.markdown == 'true' || needs.plan.outputs.reference_pdfs == 'true'
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
         with:
-          ref: ${{ inputs.source_sha || github.sha }}
+          ref: ${{ inputs.source_sha }}
           fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@v7
+        with:
+          name: publication-plan
+          path: ${{ runner.temp }}
+      - uses: ./.github/actions/setup-study-env
+        with:
+          node: ${{ needs.plan.outputs.markdown == 'true' && 'true' || 'false' }}
+      - name: Restore reusable protected document builds
+        if: needs.plan.outputs.markdown == 'true' && !inputs.force_rebuild
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ runner.temp }}/document-pdf-cache
+          key: pdf-documents-v2-${{ runner.os }}-${{ inputs.source_sha }}
+          restore-keys: pdf-documents-v2-${{ runner.os }}-
+      - name: Build selected Markdown PDFs
+        if: needs.plan.outputs.markdown == 'true'
+        run: python Scripts/_build_markdown_pdfs.py --plan "$RUNNER_TEMP/publication-plan.json" --output-root "$RUNNER_TEMP/generated-pdfs" --cache-root "$RUNNER_TEMP/document-pdf-cache"
+      - name: Stage selected approved reference PDFs
+        if: needs.plan.outputs.reference_pdfs == 'true'
+        run: python Scripts/_build_reference_pdfs.py --plan "$RUNNER_TEMP/publication-plan.json" --output-root "$RUNNER_TEMP/generated-pdfs"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: generated-markdown-pdfs
+          path: ${{ runner.temp }}/generated-pdfs
+          if-no-files-found: warn
+          retention-days: 7
+      - uses: actions/cache/save@v6
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && needs.plan.outputs.markdown == 'true'
+        with:
+          path: ${{ runner.temp }}/document-pdf-cache
+          key: pdf-documents-v2-${{ runner.os }}-${{ inputs.source_sha }}
+
+  presentations:
+    needs: plan
+    if: needs.plan.outputs.presentations == 'true'
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/download-artifact@v7
+        with:
+          name: publication-plan
+          path: ${{ runner.temp }}
+      - uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+      - uses: actions/cache@v6
+        with:
+          path: ${{ runner.temp }}\presentation-renderers
+          key: presentation-renderer-${{ runner.os }}-${{ hashFiles('Scripts/presentation-pipeline.json') }}
+      - name: Install exact production renderer
+        shell: pwsh
+        run: ./Scripts/_install_presentation_renderer.ps1 -Profile libreoffice-production -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
+      - name: Build selected deck pairs
+        shell: pwsh
+        run: python Scripts/_build_presentations.py --plan "$env:RUNNER_TEMP\publication-plan.json" --profile libreoffice-production --output-root "$env:RUNNER_TEMP\generated-pdfs"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: generated-presentation-pdfs
+          path: ${{ runner.temp }}\generated-pdfs
+          if-no-files-found: error
+          retention-days: 7
+
+  coherent-site:
+    needs: [plan, validate, pdfs, presentations]
+    if: >-
+      always() && github.ref == 'refs/heads/master' && github.event_name != 'pull_request' && needs.plan.result == 'success' && needs.validate.result == 'success' &&
+      (needs.pdfs.result == 'success' || needs.pdfs.result == 'skipped') &&
+      (needs.presentations.result == 'success' || needs.presentations.result == 'skipped')
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    environment: github-pages
+    env:
+      PYTHONUNBUFFERED: '1'
+      R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+      R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
+      R2_REGION: ${{ vars.R2_REGION }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
       - uses: ./.github/actions/setup-study-env
         with:
           node: 'false'
       - uses: actions/download-artifact@v7
         with:
+          name: publication-plan
+          path: ${{ runner.temp }}
+      - uses: actions/download-artifact@v7
+        if: needs.plan.outputs.any_build == 'true'
+        with:
           pattern: generated-*-pdfs
-          path: ${{ runner.temp }}/generated-pdfs
-          merge-multiple: true
-      - name: Build the complete release bundle
-        run: python Scripts/_site_release.py --artifact-root "$RUNNER_TEMP/generated-pdfs" --output-root "$RUNNER_TEMP/site-release"
-      - name: Retain the reviewable release manifest
-        uses: actions/upload-artifact@v6
+          path: ${{ runner.temp }}/downloaded-pdfs
+      - name: Combine partial builds and preserve every deck proof
+        if: needs.plan.outputs.any_build == 'true'
+        run: python Scripts/_review_artifacts.py --merge-downloads "$RUNNER_TEMP/downloaded-pdfs" --root "$RUNNER_TEMP/generated-pdfs"
+      - name: Publish selected reference objects
+        if: needs.plan.outputs.references == 'true'
+        run: python Scripts/_publish_reference_artifacts.py --upload-approved --plan "$RUNNER_TEMP/publication-plan.json" --artifact-root "$RUNNER_TEMP/generated-pdfs"
+      - name: Verify approved reference objects before promotion
+        run: python Scripts/_publish_reference_artifacts.py --verify-approved
+      - name: Build release using new PDFs and verified R2 records
+        run: python Scripts/_site_release.py --plan "$RUNNER_TEMP/publication-plan.json" --artifact-root "$RUNNER_TEMP/generated-pdfs" --output-root "$RUNNER_TEMP/site-release"
+      - uses: actions/upload-artifact@v6
         with:
           name: site-release-manifest
-          path: ${{ runner.temp }}/site-release/release.json
-      - name: Publish changed private originals and rights-approved references to R2
-        if: needs.pdfs.outputs.references_changed == 'true'
-        env:
-          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
-          R2_REGION: ${{ vars.R2_REGION }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: python Scripts/_publish_reference_artifacts.py --upload-approved --artifact-root "$RUNNER_TEMP/generated-pdfs"
-
-      - name: Verify rights-approved references already in R2
-        env:
-          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
-          R2_REGION: ${{ vars.R2_REGION }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: python Scripts/_publish_reference_artifacts.py --verify-approved
-
+          path: |
+            ${{ runner.temp }}/site-release/release.json
+            ${{ runner.temp }}/site-release/build-receipt.json
+          if-no-files-found: error
+          retention-days: 14
       - name: Stage, audit, and promote the release
         env:
-          R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
-          R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
-          R2_REGION: ${{ vars.R2_REGION }}
-          R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-          AMD_REFERENCE_R2_BUCKET: ${{ vars.REFERENCE_R2_BUCKET_NAME }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
           PROMOTE: ${{ vars.SITE_RELEASES_ENABLED }}
         run: |
           args=()

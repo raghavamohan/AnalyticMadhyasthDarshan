@@ -93,10 +93,12 @@ class PreparationTests(unittest.TestCase):
             self.assertEqual(unchanged.read_text(encoding='utf-8'), link)
 
     def test_accept_requires_exact_head_open_draft_and_same_repository(self):
-        pr={'number':1,'state':'open','draft':True,'head':{'sha':'a'*40,'repo':{'full_name':'owner/repo'}},'base':{'ref':'master'}}
+        pr={'number':1,'state':'open','draft':True,'head':{'sha':'a'*40,'repo':{'full_name':'owner/repo'}},'base':{'ref':'master','sha':'b'*40}}
         payload={'schema':1,'pr':1,'repository':'owner/repo','head':'a'*40,'files':{'sitemap.xml':base64.b64encode(b'new').decode(),'Studies/A/discussion.html':None}}
+        from _verification_identity import intent_hash
+        payload.update(base=pr['base']['sha'], intent=intent_hash(pr))
         self.assertEqual(prepared.validate(payload,pr,'owner/repo'),{'sitemap.xml':b'new','Studies/A/discussion.html':None})
-        for change in [{'head':'b'*40},{'repository':'fork/repo'},{'pr':2},
+        for change in [{'head':'b'*40},{'base':'c'*40},{'intent':'changed'},{'repository':'fork/repo'},{'pr':2},
                        {'files':{'.github/workflows/escalate.yml':base64.b64encode(b'bad').decode()}},
                        {'files':{'Studies/../.env':None}}]:
             with self.subTest(change=change),self.assertRaises(ValueError):

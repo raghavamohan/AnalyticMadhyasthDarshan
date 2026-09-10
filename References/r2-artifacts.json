@@ -284,7 +284,8 @@
       "generation": {
         "build_path": "tmp/reference-build/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.pdf",
         "original_html": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.html",
-        "source_markdown": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.md"
+        "source_markdown": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.md",
+        "source_sha256": "8992a063b6e92cec0f9953d05366880a3bebbfa5032e0f1770c375bd5f824b18"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Comparative-Philosophy/AV-Shankara-Stanford-Encyclopedia.pdf",
@@ -373,7 +374,8 @@
       "generation": {
         "build_path": "tmp/reference-build/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.pdf",
         "original_html": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.html",
-        "source_markdown": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.md"
+        "source_markdown": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.md",
+        "source_sha256": "9d44f564129e650244fc50573c9beca8ba57f8bbbf893965b47cfffe07d6095b"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Comparative-Philosophy/Poorvam-Sadharanikarana-Rasa.pdf",
@@ -847,7 +849,8 @@
         "original_html": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html",
         "pages": 12,
         "source_markdown": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.md",
-        "text_sha256": "8dc4507fc299b049262fa86a222d4dc02240957703bd55c26f03ffc9fd6b5b54"
+        "text_sha256": "8dc4507fc299b049262fa86a222d4dc02240957703bd55c26f03ffc9fd6b5b54",
+        "source_sha256": "fe449f81fb7deb3074e592a1e58848cc9bd6e6d8cc7a2576af6b43c47beae09c"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
@@ -993,7 +996,8 @@
       "generation": {
         "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Aesthetics-of-Everyday.pdf",
         "original_html": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.html",
-        "source_markdown": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.md"
+        "source_markdown": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.md",
+        "source_sha256": "9b5ed22102854b6cfc648010f53b413826a2e59cd06589fe6b568661750ae7fe"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Modern-Philosophy/SEP-Aesthetics-of-Everyday.pdf",
@@ -1057,7 +1061,8 @@
       "generation": {
         "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.pdf",
         "original_html": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.html",
-        "source_markdown": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.md"
+        "source_markdown": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.md",
+        "source_sha256": "07f30826ca338445d029df3fe56963030eb1d2d1311ffb3b5cc499fd2a1a0c86"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Modern-Philosophy/SEP-Concept-of-the-Aesthetic.pdf",
@@ -1121,7 +1126,8 @@
       "generation": {
         "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Definition-of-Art.pdf",
         "original_html": "References/Modern-Philosophy/SEP-Definition-of-Art.html",
-        "source_markdown": "References/Modern-Philosophy/SEP-Definition-of-Art.md"
+        "source_markdown": "References/Modern-Philosophy/SEP-Definition-of-Art.md",
+        "source_sha256": "9d55548aec8a840e34abcc974316f48e9307180d361b8ba59c8b6985aaa046fd"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Modern-Philosophy/SEP-Definition-of-Art.pdf",
@@ -1185,7 +1191,8 @@
       "generation": {
         "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Environmental-Aesthetics.pdf",
         "original_html": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.html",
-        "source_markdown": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.md"
+        "source_markdown": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.md",
+        "source_sha256": "0dd998c63122811bc676764b7371f9bf45566c791d9c1056000ae0a1aa0ca3cb"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Modern-Philosophy/SEP-Environmental-Aesthetics.pdf",
@@ -1249,7 +1256,8 @@
       "generation": {
         "build_path": "tmp/reference-build/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.pdf",
         "original_html": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.html",
-        "source_markdown": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.md"
+        "source_markdown": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.md",
+        "source_sha256": "2e7a0f575fa9a11a54bdcae5e70d3d71377fa06f1d6ab61688415492a5827f5d"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Modern-Philosophy/SEP-Kant-Aesthetics-Teleology.pdf",
@@ -1449,7 +1457,8 @@
       "generation": {
         "build_path": "tmp/reference-build/Science/Carroll-2010-Energy-Is-Not-Conserved.pdf",
         "original_html": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.html",
-        "source_markdown": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.md"
+        "source_markdown": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.md",
+        "source_sha256": "720e7e15a437c1c3ad43c7c5ca55f0d4551e9abb8a8ff0aef4a7a04ef8bc7b5a"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Science/Carroll-2010-Energy-Is-Not-Conserved.pdf",

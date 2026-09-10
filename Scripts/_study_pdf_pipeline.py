@@ -30,19 +30,30 @@ def render_status(md_path: Path) -> StudyStatus:
     raise ValueError(f"**Status:** missing in {md_path}")
 
 
-def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
+def regenerate_pdf(md_path: Path, status: StudyStatus, *, refresh_web: bool = True) -> None:
+    """CI builds use a sibling intermediate, leaving published readers untouched."""
+    html_path = md_path.with_suffix('.html') if refresh_web else md_path.with_suffix('.render.html')
+    try:
+        _regenerate_pdf(md_path, status, html_path, refresh_web)
+    finally:
+        if not refresh_web:
+            html_path.unlink(missing_ok=True)
+
+
+def _regenerate_pdf(md_path: Path, status: StudyStatus, html_path: Path, refresh_web: bool) -> None:
     if status == StudyStatus.ONGOING:
         return
 
     verify_study_svgs(md_path)
 
-    html_path = md_path.with_suffix(".html")
     pdf_path = md_path.with_suffix(".pdf")
     build_pdf_path = md_path.with_name(f"{md_path.stem}.build.pdf")
     convert_to_html(
         md_path,
         is_draft=status == StudyStatus.DRAFT,
         include_web_chrome=True,
+        output_path=html_path,
+        update_search=refresh_web,
     )
 
     html_to_pdf_cmd = ["node", str(SCRIPTS / "_html_to_pdf.js"), str(html_path)]
@@ -61,5 +72,5 @@ def regenerate_pdf(md_path: Path, status: StudyStatus) -> None:
     normalize_study_pdf(md_path, pdf_path)
     verify_study_pdf_diagrams(md_path, pdf_path)
     verify_study_pdf_fenced_code(md_path, pdf_path)
-    verify_study_pdf_math(md_path, pdf_path)
+    verify_study_pdf_math(md_path, pdf_path, html_path=html_path)
     verify_study_pdf_outline(md_path, pdf_path)

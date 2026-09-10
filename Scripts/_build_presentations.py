@@ -69,6 +69,8 @@ def main(argv: list[str] | None = None) -> int:
     )
     selection = parser.add_mutually_exclusive_group(required=True)
     selection.add_argument("--all", action="store_true", help="Build every manifested deck")
+    selection.add_argument('--plan', type=Path, help='Build only decks selected by the publication graph')
+    selection.add_argument('--changed-since', metavar='GIT_REF')
     selection.add_argument("--deck", action="append", metavar="ID", help="Build one deck id; repeatable")
     destination = parser.add_mutually_exclusive_group(required=True)
     destination.add_argument(
@@ -96,7 +98,21 @@ def main(argv: list[str] | None = None) -> int:
     errors = manifest_errors(manifest)
     if errors:
         raise SystemExit("Presentation manifest errors:\n  - " + "\n  - ".join(errors))
-    specs = manifest.decks if args.all else tuple(manifest.deck(value) for value in args.deck)
+    if args.plan:
+        from _publication_plan import validate_plan
+        plan = validate_plan(json.loads(args.plan.read_bytes()))
+        ids = {plan['nodes'][key]['deck'] for key in plan['build'] if plan['nodes'][key]['family'] == 'presentations' and key not in plan.get('reviewArtifacts', {})}
+        specs = tuple(deck for deck in manifest.decks if deck.id in ids)
+    elif args.changed_since:
+        from _artifact_graph import affected_outputs
+        from _pdf_build_cache import git_changed_paths
+        keys = affected_outputs(git_changed_paths(args.changed_since), base=args.changed_since)
+        specs = tuple(deck for deck in manifest.decks if repo_relative(deck.slides_pdf) in keys or repo_relative(deck.notes_pdf) in keys)
+    else:
+        specs = manifest.decks if args.all else tuple(manifest.deck(value) for value in args.deck)
+    if not specs:
+        print('No presentation outputs selected.')
+        return 0
     profile = renderer_profile_for_engine(None, args.profile)
     destination_root = BASE if args.in_place else args.output_root.expanduser().resolve()
 

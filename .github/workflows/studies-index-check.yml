@@ -1,11 +1,10 @@
 name: Studies index
+run-name: verify / ${{ inputs.verification_key || github.event.pull_request.head.sha || github.sha }}
 
 # One unfiltered, required aggregate. Labels never decide whether a study is checked.
 on:
   pull_request:
     types: [opened, synchronize, reopened, edited, ready_for_review]
-  push:
-    branches: [master, main]
   workflow_dispatch:
     inputs:
       report_sha:
@@ -16,12 +15,47 @@ on:
         description: PR number for prepared study lifecycle intent (omit for bootstrap)
         required: false
         type: string
+      verification_key:
+        description: Exact head, upstream base, and lifecycle intent identity
+        required: false
+        type: string
+concurrency:
+  group: verify-${{ inputs.verification_key || github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
+  actions: read
   pull-requests: read
   statuses: write
 jobs:
+  context:
+    permissions:
+      contents: read
+      pull-requests: read
+      statuses: write
+    runs-on: ubuntu-latest
+    outputs:
+      ready: ${{ steps.source.outputs.ready }}
+      identity: ${{ steps.source.outputs.identity }}
+      head: ${{ steps.source.outputs.head }}
+      base: ${{ steps.source.outputs.base }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.report_sha || github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Resolve exact source and lifecycle intent
+        id: source
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REPORT_SHA: ${{ inputs.report_sha }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+          VERIFICATION_KEY: ${{ inputs.verification_key }}
+        run: python Scripts/_verify_ci_context.py
   checks:
+    needs: context
+    if: needs.context.outputs.ready == 'true'
     permissions:
       contents: read
       pull-requests: read
@@ -41,6 +75,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           REPORT_SHA: ${{ inputs.report_sha }}
           PR_NUMBER: ${{ inputs.pr_number }}
+          VERIFICATION_KEY: ${{ needs.context.outputs.identity }}
         run: python Scripts/_verify_ci_context.py
       - uses: ./.github/actions/setup-study-env
         with:
@@ -62,17 +97,19 @@ jobs:
       - name: Require clean verification checkout
         run: python Scripts/_generated_artifacts.py --check-clean
   study-check:
-    needs: checks
+    needs: context
+    if: needs.context.outputs.ready == 'true'
     uses: ./.github/workflows/study-pr.yml
     with:
-      source_sha: ${{ needs.checks.outputs.head }}
-      base_sha: ${{ needs.checks.outputs.base }}
+      source_sha: ${{ needs.context.outputs.head }}
+      base_sha: ${{ needs.context.outputs.base }}
   verify:
     permissions:
       contents: read
+      pull-requests: read
       statuses: write
-    if: always()
-    needs: [checks, study-check]
+    if: always() && (needs.context.result != 'success' || needs.context.outputs.ready == 'true')
+    needs: [context, checks, study-check]
     runs-on: ubuntu-latest
     steps:
       - name: Require every applicable check to succeed
@@ -80,6 +117,18 @@ jobs:
           CHECKS: ${{ needs.checks.result }}
           STUDY: ${{ needs.study-check.result }}
         run: test "$CHECKS" = success && test "$STUDY" = success
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.context.outputs.head }}
+          fetch-depth: 2
+          persist-credentials: false
+      - name: Reject a moved head, upstream base, or lifecycle intent before success
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          REPORT_SHA: ${{ inputs.report_sha }}
+          PR_NUMBER: ${{ inputs.pr_number }}
+          VERIFICATION_KEY: ${{ needs.context.outputs.identity }}
+        run: python Scripts/_verify_ci_context.py
       # GITHUB_TOKEN writes still need an explicit status on the prepared SHA.
       # This bridge is limited to bot preparation and bootstrap; review is pure.
       - name: Report exact prepared-head verification

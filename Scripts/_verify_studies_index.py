@@ -41,6 +41,8 @@ def collect_index_errors(*, shell: bool = True, catalog: bool = True) -> list[st
     if catalog:
         errors.extend(verify_all_catalog_sync())
         errors.extend(verify_publication_inventory())
+        from _build_social_cards import verify_social_cards
+        errors.extend(verify_social_cards())
     if shell:
         errors.extend(verify_index_shell_sync())
         errors.extend(verify_catalog_bootstrap_sync())

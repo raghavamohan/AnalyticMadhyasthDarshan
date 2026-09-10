@@ -7,6 +7,7 @@ both bot writers and by their post-commit cleanliness check.
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path, PurePosixPath
 import subprocess
 
@@ -16,6 +17,7 @@ ROOT_OUTPUTS = {
     ".github/ISSUE_TEMPLATE/study-feedback.yml",
     "infra/generated-pdf-worker/src/generated-pdf-keys.js",
     "Scripts/presentation-pipeline.json",
+    "Scripts/social-cards.json",
 }
 STUDIES_OUTPUTS = {
     "README.md", "index.html", "catalog-topical.json", "catalog-formal.json",
@@ -35,6 +37,19 @@ def permits(name: str, *, deleted: bool = False) -> bool:
         return path.name in STUDIES_OUTPUTS
     if name.startswith("Studies/search-data/"):
         return path.suffix == ".json"
+    if name.startswith('Assets/Social/') and len(path.parts) == 3:
+        return path.suffix == '.png'
+    if path.suffix in {'.docx', '.json', '.pptx'} and path.parts[0] in {'Studies', 'Applications'}:
+        # Only the trusted default branch's declared companion chain may supply
+        # these binary/JSON outputs across the preparation writer boundary.
+        companions = BASE / 'Scripts/companion-pipeline.json'
+        decks = BASE / 'Scripts/presentation-pipeline.json'
+        if companions.is_file() and decks.is_file():
+            by_id = {item['id']: item['source'] for item in json.loads(decks.read_bytes()).get('decks', [])}
+            for item in json.loads(companions.read_bytes()).get('companions', []):
+                source = PurePosixPath(item['markdown'])
+                if name in {str(source.with_suffix('.docx')), str(source.with_suffix('.notes.json')), by_id.get(item['deck'])}:
+                    return True
     if len(path.parts) >= 3 and path.parts[0] in {"Studies", "Applications"}:
         # Lifecycle removal may delete every tracked authoring input. Generation
         # may only create/update text readers, canonical sources and metadata.

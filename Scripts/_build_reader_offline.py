@@ -80,7 +80,7 @@ def allowed_resource(url: str, document: str) -> bool:
     if re.fullmatch(r'/Assets/(reader/[a-z-]+\.(js|css)|Mermaid/mermaid\.min\.js|KaTeX/fonts/[A-Za-z0-9_-]+\.woff2|Icons/[A-Za-z0-9_.-]+\.(svg|png|ico))', path):
         return True
     parent = document.rsplit('/', 1)[0] + '/'
-    return path.startswith(parent) and bool(re.fullmatch(r'[A-Za-z0-9_.-]+\.(svg|png|jpg|jpeg|webp)', path[len(parent):]))
+    return path.startswith(parent) and bool(re.fullmatch(r'[A-Za-z0-9_.-]+\.(svg|png|jpg|jpeg|webp|gif|avif)', path[len(parent):]))
 
 
 def artifacts(*, reuse: bool = True) -> tuple[str, str]:

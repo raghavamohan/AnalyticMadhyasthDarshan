@@ -12,10 +12,13 @@ on:
         required: true
 permissions:
   contents: read
+  actions: read
 jobs:
-  markdown:
-    runs-on: ubuntu-latest
+  plan:
+    runs-on: ubuntu-24.04
     outputs:
+      markdown_changed: ${{ steps.plan.outputs.markdown_changed }}
+      references_changed: ${{ steps.plan.outputs.references_changed }}
       presentations_changed: ${{ steps.plan.outputs.presentations_changed }}
     steps:
       - uses: actions/checkout@v7
@@ -23,41 +26,69 @@ jobs:
           ref: ${{ inputs.source_sha }}
           fetch-depth: 0
           persist-credentials: false
-      - name: Plan affected build families from the exact upstream base
+      - uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+      - name: Plan affected outputs from the exact upstream base
         id: plan
         env:
           BASE_SHA: ${{ inputs.base_sha }}
         run: python Scripts/_pdf_build_cache.py --keys --changed-since "$BASE_SHA" --github-output "$GITHUB_OUTPUT"
+  markdown:
+    needs: plan
+    if: needs.plan.outputs.markdown_changed == 'true' || needs.plan.outputs.references_changed == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
       - uses: ./.github/actions/setup-study-env
         with:
-          node: ${{ steps.plan.outputs.markdown_changed == 'true' && 'true' || 'false' }}
+          node: 'false'
+      - name: Restore verified preparation PDFs for this exact source
+        id: prepared
+        if: needs.plan.outputs.markdown_changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASE_SHA: ${{ inputs.base_sha }}
+        run: python Scripts/_review_artifacts.py --prepared-base "$BASE_SHA" --root "$RUNNER_TEMP/study-review-pdfs"
+      - uses: ./.github/actions/setup-study-env
+        if: steps.prepared.outputs.render == 'true'
+        with:
+          node: 'true'
       - name: Render and verify affected Markdown PDFs
-        if: steps.plan.outputs.markdown_changed == 'true'
+        if: needs.plan.outputs.markdown_changed == 'true'
         env:
           BASE_SHA: ${{ inputs.base_sha }}
         run: python Scripts/_build_markdown_pdfs.py --changed-since "$BASE_SHA" --output-root "$RUNNER_TEMP/study-review-pdfs"
       - name: Verify affected reference sources
-        if: steps.plan.outputs.references_changed == 'true'
+        if: needs.plan.outputs.references_changed == 'true'
         run: |
           python Scripts/_reference_artifacts.py --check
           python Scripts/_rewrite_manifest_reference_links.py --check
       - name: Require committed generated outputs to match
         run: python Scripts/_generated_artifacts.py --check-clean
+      - name: Export verified review inputs and output checksums
+        if: needs.plan.outputs.markdown_changed == 'true'
+        run: python Scripts/_review_artifacts.py --root "$RUNNER_TEMP/study-review-pdfs"
       - uses: actions/upload-artifact@v6
-        if: steps.plan.outputs.markdown_changed == 'true'
+        if: needs.plan.outputs.markdown_changed == 'true'
         with:
           name: study-review-pdfs
           path: ${{ runner.temp }}/study-review-pdfs
           retention-days: 14
           if-no-files-found: error
   presentations:
-    needs: markdown
-    if: needs.markdown.outputs.presentations_changed == 'true'
+    needs: plan
+    if: needs.plan.outputs.presentations_changed == 'true'
     runs-on: windows-2025
     steps:
       - uses: actions/checkout@v7
         with:
           ref: ${{ inputs.source_sha }}
+          fetch-depth: 0
           persist-credentials: false
       - uses: ./.github/actions/setup-study-env
         with:
@@ -71,7 +102,10 @@ jobs:
         run: ./Scripts/_install_presentation_renderer.ps1 -Profile libreoffice-production -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
       - name: Build and verify presentations
         shell: pwsh
-        run: python Scripts/_build_presentations.py --all --profile libreoffice-production --output-root "$env:RUNNER_TEMP\presentation-review-pdfs"
+        run: python Scripts/_build_presentations.py --changed-since "${{ inputs.base_sha }}" --profile libreoffice-production --output-root "$env:RUNNER_TEMP\presentation-review-pdfs"
+      - name: Export verified presentation proof
+        shell: pwsh
+        run: python Scripts/_review_artifacts.py --root "$env:RUNNER_TEMP/presentation-review-pdfs"
       - uses: actions/upload-artifact@v6
         with:
           name: presentation-review-pdfs

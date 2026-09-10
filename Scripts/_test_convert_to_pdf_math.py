@@ -14,6 +14,7 @@ from __future__ import annotations
 import sys
 import tempfile
 from pathlib import Path
+from unittest.mock import patch
 
 SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
@@ -128,6 +129,21 @@ def test_reference_analysis_markdown_rewrites_to_manifest_pdf() -> None:
     assert expected in rewritten, rewritten
 
 
+def test_deck_link_does_not_depend_on_ignored_pdf_presence() -> None:
+    from _generated_pdf_inventory import generated_pdf_specs
+    deck = next(spec for spec in generated_pdf_specs() if spec.kind == 'presentation-slides')
+    source = BASE / 'Studies/Aesthetics/Aesthetics.html'
+    href = '../../' + deck.key + '#page=2'
+    original_is_file = Path.is_file
+    results = []
+    for present in (False, True):
+        with patch.object(Path, 'is_file', lambda path: present if path.resolve() == deck.output.resolve()
+                          else original_is_file(path)):
+            results.append(rewrite_local_links_for_site(f'<a href="{href}">Slides</a>', source))
+    assert results[0] == results[1], results
+    assert site_base_url().rstrip('/') + '/' + deck.key + '#page=2' in results[0], results
+
+
 def main() -> int:
     tests = [
         test_set_braces_survive,
@@ -139,6 +155,7 @@ def main() -> int:
         test_external_only_archived_reference_rewrites_to_canonical_url,
         test_cross_study_pdf_rewrites_to_html_even_when_pdf_is_not_local,
         test_reference_analysis_markdown_rewrites_to_manifest_pdf,
+        test_deck_link_does_not_depend_on_ignored_pdf_presence,
     ]
     failed = 0
     for test in tests:
