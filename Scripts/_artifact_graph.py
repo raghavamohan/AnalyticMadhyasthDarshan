@@ -151,6 +151,15 @@ def print_inputs(root: Path = BASE) -> set[str]:
     return inputs
 
 
+def presentation_inputs(root: Path = BASE) -> set[str]:
+    # Selection imports do not render decks. Traversing them would pull the
+    # entire publication graph (including Markdown and web builders) back into
+    # every deck's rendering contract. Follow actual renderer helpers instead.
+    selection = frozenset({'_artifact_graph.py', '_publication_plan.py', '_pdf_build_cache.py'})
+    return script_dependencies(root, ('_build_presentations.py',), stop=selection) | {
+        'requirements.txt', 'Scripts/_install_presentation_renderer.ps1', 'Scripts/render-contract.json'}
+
+
 def node(output: str, family: str, producer: str, inputs: set[str], metadata: dict,
          root: Path, **extra) -> dict:
     records = {name: file_hash(root / name) if (root / name).is_file() else 'missing' for name in sorted(inputs)}
@@ -179,8 +188,7 @@ def build_graph(root: Path = BASE) -> dict[str, dict]:
     manifest = read_json(root / 'Scripts/presentation-pipeline.json', {})
     profile = manifest.get('productionProfile')
     renderer = manifest.get('rendererProfiles', {}).get(profile)
-    deck_inputs = script_dependencies(root, ('_build_presentations.py',)) | {
-        'requirements.txt', 'Scripts/_install_presentation_renderer.ps1', 'Scripts/render-contract.json'}
+    deck_inputs = presentation_inputs(root)
     for deck in manifest.get('decks', []):
         if tuple(Path(deck['source']).parts[:2]) not in public:
             continue
@@ -282,10 +290,23 @@ def explain(current: dict, previous: dict | None) -> list[str]:
 if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--changed-print-since', required=True)
+    selection = parser.add_mutually_exclusive_group(required=True)
+    selection.add_argument('--changed-print-since')
+    selection.add_argument('--changed-presentation-tools-since')
     args = parser.parse_args()
-    changed = subprocess.check_output(['git', 'diff', '--name-only', args.changed_print_since, 'HEAD'],
+    base = args.changed_print_since or args.changed_presentation_tools_since
+    changed = subprocess.check_output(['git', 'diff', '--name-only', base, 'HEAD'],
                                       cwd=BASE, text=True).splitlines()
     # This cheap smoke selector needs only stdlib: it inspects print tooling,
     # not source documents, and shares the graph's exact print dependency set.
-    print('true' if set(changed).intersection(print_inputs()) else 'false')
+    if args.changed_print_since:
+        selected = bool(set(changed).intersection(print_inputs() | {
+            'Scripts/_verify_pdf_reproducible.py', '.github/workflows/pdf-pipeline-smoke.yml'}))
+    else:
+        selected = bool(set(changed).intersection(presentation_inputs() | {
+            'Scripts/_verify_presentation_reproducible.py', '.github/workflows/presentation-pipeline-smoke.yml'}))
+        if 'Scripts/presentation-pipeline.json' in changed:
+            old = json.loads(subprocess.check_output(['git', 'show', f'{base}:Scripts/presentation-pipeline.json'], cwd=BASE))
+            current = read_json(BASE / 'Scripts/presentation-pipeline.json', {})
+            selected |= any(old.get(key) != current.get(key) for key in ('productionProfile', 'rendererProfiles'))
+    print('true' if selected else 'false')

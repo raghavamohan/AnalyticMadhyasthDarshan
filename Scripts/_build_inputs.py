@@ -3,11 +3,13 @@ import ast
 import hashlib
 from pathlib import Path
 
-def script_dependencies(root: Path, names: tuple[str, ...]) -> set[str]:
+def script_dependencies(root: Path, names: tuple[str, ...], *, stop: frozenset[str] = frozenset()) -> set[str]:
     pending = list(names)
     found: set[str] = set()
     while pending:
         name = pending.pop()
+        if name in stop:
+            continue
         relative = "Scripts/" + name
         path = root / relative
         if relative in found or not path.is_file():

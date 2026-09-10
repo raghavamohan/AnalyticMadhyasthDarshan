@@ -150,6 +150,14 @@ class ArtifactGraphTests(unittest.TestCase):
         self.write('Assets/KaTeX/font.woff2', 'new font')
         self.assertEqual(self.changed(), {'Studies/A/A.pdf', 'Studies/A/Note.pdf', 'Studies/B/B.pdf'})
 
+    def test_real_deck_renderer_closure_excludes_planning_and_web_dependencies(self):
+        inputs = graph.presentation_inputs()
+        self.assertTrue({'Scripts/_pptx_to_pdf.py', 'Scripts/_build_deck_notes_pdf.py',
+                         'Scripts/_verify_presentations.py'} <= inputs)
+        self.assertFalse(inputs.intersection({'Scripts/_artifact_graph.py', 'Scripts/_publication_plan.py',
+            'Scripts/_pdf_build_cache.py', 'Scripts/_html_to_pdf.js', 'Scripts/_site_release.py',
+            'Scripts/_build_studies_index.py', 'Scripts/_study_reader.py'}))
+
     def test_active_receipt_carries_pending_work_across_failed_merges(self):
         store = Store()
         receipt = {'schema': 1, 'artifacts': {}}
