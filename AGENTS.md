@@ -403,6 +403,16 @@ deck, research notes, figures the study does not embed) **skips** regeneration a
 logs why. `Scripts/_ci_study_pr.py` holds that rule as `pdf_regeneration_reason()`;
 `Scripts/_test_ci_study_pr.py` covers every branch of it.
 
+`Scripts/_artifact_graph.py` is the shared dependency selector for PRs and protected
+publication. Publication compares against the active deployment's verified build
+receipt, never the previous push. It reuses unchanged R2 outputs without transferring
+them through Actions, and builds only selected outputs. Reviewed same-repository
+PR artifacts may be reused when their complete input/output proofs match. See
+[the CI dependency graph](.github/CI.md). Catalog title, description, status or
+category changes also require `python Scripts/_build_social_cards.py`; its input
+and output seals skip unchanged cards and are checked by the index verifier.
+
+
 Regenerate all studies:
 
 ```powershell
@@ -580,7 +590,12 @@ the slides PDF.
 Read-aloud scripts flow one way: `Presenters-Companion-<Name>.md` (source of truth) →
 `.notes.json` → `Scripts/_sync_pptx_speaker_notes.py` → the `.pptx` notes pane →
 `<Deck>-notes.pdf`. Edit the markdown, never the notes pane directly. Rebuild the
-companion DOCX/PDF with `Scripts/_build_presenters_companion.py`.
+companion DOCX/PDF with `Scripts/_build_presenters_companion.py`. The published
+companion PDF has one producer: the canonical Markdown/Chrome pipeline, also used
+by CI. `Scripts/companion-pipeline.json` declares source ownership; run
+`python Scripts/_verify_companion_outputs.py` to check DOCX, notes JSON and deck
+notes against the companion. Unchanged DOCX/notes rebuilds preserve file bytes.
+
 
 Keep `<Deck>.pdf` slides-only. Its filename is referenced from
 `Scripts/_build_studies_index.py` and the generated `Studies/index.html`

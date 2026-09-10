@@ -20,7 +20,7 @@
       || /^\/Assets\/Mermaid\/mermaid\.min\.js$/.test(path)
       || /^\/Assets\/KaTeX\/fonts\/[A-Za-z0-9_-]+\.woff2$/.test(path)
       || /^\/Assets\/Icons\/[A-Za-z0-9_.-]+\.(svg|png|ico)$/.test(path)
-      || (path.startsWith(parent) && /^[A-Za-z0-9_.-]+\.(svg|png|jpg|jpeg|webp)$/.test(path.slice(parent.length)));
+      || (path.startsWith(parent) && /^[A-Za-z0-9_.-]+\.(svg|png|jpg|jpeg|webp|gif|avif)$/.test(path.slice(parent.length)));
   }
   function bundle(value,origin) {
     if (!value || !documentPath(value.path) || typeof value.title !== 'string' || value.title.length > 250
@@ -29,7 +29,12 @@
       || !/^[a-f0-9]{64}$/.test(r.sha256) || !Number.isInteger(r.bytes) || r.bytes <= 0 || r.bytes > 8000000)) throw new Error('Unsafe or oversized offline resource.');
     if (value.resources.reduce((sum,r) => sum + r.bytes,0) > 20000000 || new Set(value.resources.map(r => r.url)).size !== value.resources.length
         || !value.resources.some(r => new URL(r.url,origin).pathname === value.path) || !value.resources.some(r => new URL(r.url,origin).pathname === '/Studies/notebook.html')) throw new Error('Incomplete offline document bundle.');
-    const releases = new Set(value.resources.map(r => new URL(r.url,origin).searchParams.get('r')));
+    const releases = new Set(value.resources.filter(r => {
+      const url = new URL(r.url,origin);
+      const asset = !url.pathname.endsWith('.html') && url.searchParams.get('v') === r.sha256;
+      if (asset && !url.searchParams.has('r')) return false;
+      return true;
+    }).map(r => new URL(r.url,origin).searchParams.get('r')));
     if (releases.size !== 1) throw new Error('Mixed offline release versions.');
     return value;
   }

@@ -24,6 +24,9 @@ class FakeStore:
         self.calls = 0
         self.fail_at = fail_at
 
+    def bucket(self):
+        return 'test-generated'
+
     def head_object(self, key):
         return self.objects.get(key)
 
@@ -62,13 +65,82 @@ class ReleaseTests(unittest.TestCase):
         second = self.build('second')
         self.assertEqual(first, second)
         self.assertEqual((self.source / 'index.html').read_bytes(), self.files['/index.html'])
-        self.assertIn(('?r=' + first['revision']).encode(), (self.root/'bundle/assets/index.html').read_bytes())
+        self.assertIn(b"searchParams.get('r')", (self.root/'bundle/assets/index.html').read_bytes())
+        self.assertNotIn(first['revision'].encode(), (self.root/'bundle/assets/index.html').read_bytes())
         source_only = self.build('source-only', source_sha='b'*40)
         self.assertEqual(source_only['revision'], first['revision'])
         self.assertEqual(source_only['files'], first['files'])
         self.assertEqual(source_only['sourceSha'], 'b'*40)
         self.files['/Studies/A/A.html'] = b'<html><head></head><body>Changed</body></html>'
-        self.assertNotEqual(first['revision'], self.build('third')['revision'])
+        third = self.build('third')
+        self.assertNotEqual(first['revision'], third['revision'])
+        self.assertEqual(first['files']['/index.html'], third['files']['/index.html'])
+        self.assertEqual(first['files']['/Assets/a.css'], third['files']['/Assets/a.css'])
+
+    def test_content_revert_reuses_immutable_manifest(self):
+        store = FakeStore()
+        first = self.build('a')
+        publisher.stage_objects(store, self.root/'a', first)
+        original = self.files['/index.html']
+        self.files['/index.html'] += b'changed'
+        middle = self.build('b', source_sha='b'*40)
+        publisher.stage_objects(store, self.root/'b', middle)
+        self.files['/index.html'] = original
+        restored = self.build('c', source_sha='c'*40)
+        calls = store.calls
+        publisher.stage_objects(store, self.root/'c', restored)
+        self.assertEqual(first['revision'], restored['revision'])
+        self.assertEqual(store.calls, calls)
+        self.assertNotIn('sourceSha', release.content_manifest(restored))
+
+    def test_partial_bundle_reuses_pdf_without_local_body_and_rechecks_remote(self):
+        import _publication_plan as planner
+        key = 'Studies/A/A.pdf'
+        sha = release.digest(b'verified PDF')
+        node = {'family': 'markdown', 'fingerprint': 'f'*64, 'inputs': {},
+                'metadata': {}, 'producer': 'test', 'schema': 1}
+        record = {'key': f'site/objects/{sha}', 'sha256': sha, 'bytes': 12,
+                  'type': 'application/pdf', 'archive': True}
+        pdf = {'sourceSha256': 'b'*64, 'sha256': sha, 'kind': 'markdown'}
+        receipt = {'schema': 1, 'artifacts': {key: {'node': node, 'record': record, 'pdf': pdf}}}
+        store = FakeStore()
+        store.objects[record['key']] = {'x-amz-meta-sha256': sha, 'content-length': '12'}
+        plan = planner.create_plan({key: node}, {'buildReceiptKey': planner.receipt_key(receipt)},
+                                   receipt, store, store, source_sha='a'*40)
+        plan_path = self.root/'plan.json'
+        plan_path.write_bytes(release.encode(plan))
+        page = self.source/'index.html'
+        page.write_bytes(self.files['/index.html'])
+        bundle = self.root/'partial'
+        with patch.object(release, 'static_sources', return_value={'/index.html': page}), \
+             patch.object(planner, 'build_graph', return_value={key: node}), \
+             patch('_generated_pdf_inventory.generated_pdf_specs', return_value=()):
+            manifest = release.build(bundle, self.root/'absent-render-job', root=self.source,
+                                     source_sha='a'*40, plan_path=plan_path)
+            self.assertFalse((bundle/'assets'/key).exists())
+            self.assertEqual(release.validate_bundle(bundle), manifest)
+            publisher.stage_objects(store, bundle, manifest)
+            store.objects.pop(record['key'])
+            with self.assertRaisesRegex(ValueError, 'disappeared during publication'):
+                publisher.stage_objects(store, bundle, manifest)
+
+    def test_deployment_receipts_allow_repeat_source_deployments(self):
+        store = FakeStore()
+        manifest = self.build()
+        publisher.record_source_deployment(store, manifest, 'one')
+        publisher.record_source_deployment(store, manifest, 'one')
+        publisher.record_source_deployment(store, manifest, 'two')
+        self.assertEqual(store.calls, 2)
+
+    def test_runtime_fingerprint_tracks_delivery_modules_and_bindings(self):
+        store = FakeStore()
+        original = publisher.runtime_fingerprint(store)
+        file = self.root/'worker.js'
+        file.write_bytes(publisher.SOURCE.read_bytes() + b'\n// changed runtime\n')
+        with patch.object(publisher, 'SOURCE', file):
+            self.assertNotEqual(original, publisher.runtime_fingerprint(store))
+        with patch.object(store, 'bucket', return_value='other-bucket'):
+            self.assertNotEqual(original, publisher.runtime_fingerprint(store))
 
     def test_planned_and_internal_files_are_excluded(self):
         published = {('Studies','A')}
@@ -88,9 +160,10 @@ class ReleaseTests(unittest.TestCase):
             requests.append(request)
             path = urlsplit(request.full_url).path
             if path == '/.well-known/publication.json':
-                body = release.encode({'revision': manifest['revision']})
+                body = release.encode({'revision': manifest['revision'], 'sourceSha': manifest['sourceSha']})
             else:
-                self.assertIn('r=' + manifest['revision'], request.full_url)
+                expected = ('v=' + manifest['files'][path]['sha256'] if path.endswith('.css') else 'r=' + manifest['revision'])
+                self.assertIn(expected, request.full_url)
                 body = (self.root / 'bundle/assets' / path.lstrip('/')).read_bytes()
             response = io.BytesIO(body)
             response.status = 200
@@ -240,10 +313,23 @@ class ReleaseTests(unittest.TestCase):
         data = b'''<html><head lang="en"><link rel="canonical" href="/Studies/A/A.html"></head><a href="/Studies/A/A.html?find=a&amp;section=b#c">A</a><a href="https://example.org/x">X</a><a href="/References/a.pdf">R</a></html>'''
         output = release.pin_html(data,'/index.html','b'*64,{'/Studies/A/A.html','/References/a.pdf'}).decode()
         self.assertIn('rel="canonical" href="/Studies/A/A.html"',output)
-        self.assertIn('find=a&amp;section=b&amp;r=' + 'b'*64 + '#c',output)
+        self.assertIn('find=a&amp;section=b#c',output)
         self.assertIn('href="/References/a.pdf"',output)
         self.assertIn('href="https://example.org/x"',output)
         self.assertIn('window.AMD_RELEASE',output)
+
+    def test_asset_changes_only_recompile_their_consumers(self):
+        self.files['/Assets/font.woff2'] = b'font'
+        self.files['/Assets/a.css'] = b'body{src:url("/Assets/font.woff2")}'
+        self.files['/index.html'] = b'<html><head><link href="/Assets/a.css" rel="stylesheet"></head><body>Home</body></html>'
+        first = self.build('a')
+        css = (self.root / 'a/assets/Assets/a.css').read_bytes()
+        self.assertIn(('v=' + release.digest(b'font')).encode(), css)
+        self.assertIn(('v=' + release.digest(css)).encode(), (self.root / 'a/assets/index.html').read_bytes())
+        self.files['/Assets/font.woff2'] = b'changed-font'
+        second = self.build('b')
+        self.assertNotEqual(first['files']['/index.html'], second['files']['/index.html'])
+        self.assertEqual(first['files']['/Studies/A/A.html'], second['files']['/Studies/A/A.html'])
 
     def test_corrupt_bundle_and_traversal_fail_before_upload(self):
         self.build()
@@ -316,7 +402,8 @@ class ReleaseTests(unittest.TestCase):
 
     def test_source_only_advance_skips_r2_staging_and_full_url_audits(self):
         manifest = self.build(source_sha='b'*40)
-        active = {'revision': manifest['revision'], 'sourceSha': 'a'*40}
+        active = {'revision': manifest['revision'], 'sourceSha': 'a'*40,
+                  'runtimeFingerprint': publisher.runtime_fingerprint(FakeStore())}
         old_version = [{'versions': [{'version_id': 'previous-version'}]}]
         with ExitStack() as stack:
             for name, value in [('load_repo_env', None), ('cloudflare_api_token', 'token'), ('resolve_zone_id', 'zone')]:
@@ -345,9 +432,40 @@ class ReleaseTests(unittest.TestCase):
         audit.assert_not_called()
         receipt.assert_called_once()
 
+    def test_same_content_with_changed_runtime_requires_full_canary_audit(self):
+        manifest = self.build(source_sha='b'*40)
+        active = {'revision': manifest['revision'], 'sourceSha': 'a'*40, 'runtimeFingerprint': 'old-runtime'}
+        with ExitStack() as stack:
+            for name, value in [('load_repo_env', None), ('cloudflare_api_token', 'token'), ('resolve_zone_id', 'zone')]:
+                stack.enter_context(patch.object(publisher.cf, name, return_value=value))
+            for name, value in [('_zone_account_id', 'account'), ('_workers_subdomain', 'subdomain'),
+                                ('load_r2_config', {}), ('R2S3Client', FakeStore()),
+                                ('deployments', [{'versions': [{'version_id': 'old'}]}]),
+                                ('public_state', active), ('assert_forward', None)]:
+                stack.enter_context(patch.object(publisher, name, return_value=value))
+            stack.enter_context(patch('_generated_pdf_inventory.generated_pdf_specs', return_value=()))
+            stage = stack.enter_context(patch.object(publisher, 'stage_objects'))
+            deploy = stack.enter_context(patch.object(publisher, 'deploy', return_value='canary'))
+            audit = stack.enter_context(patch.object(publisher, 'audit'))
+            shortcut = stack.enter_context(patch.object(publisher, 'advance_source_pointer'))
+            publisher.publish(self.root / 'bundle', promote=False)
+            stage.assert_called_once()
+            deploy.assert_called_once()
+            audit.assert_called_once()
+            shortcut.assert_not_called()
+
+    def test_marker_audit_requires_expected_runtime_and_build_receipt(self):
+        marker = {'revision': 'a'*64, 'sourceSha': 'b'*40, 'runtimeFingerprint': 'c'*64, 'buildReceiptKey': 'receipt'}
+        for field in ('runtimeFingerprint', 'buildReceiptKey'):
+            with patch.object(publisher, 'public_state', return_value={**marker, field: 'stale'}), \
+                 patch.object(publisher, 'audit_retry', side_effect=lambda operation, _: operation()):
+                with self.assertRaises(publisher.ReleaseNotReady):
+                    publisher.audit_publication_marker('https://canary.example', marker)
+
     def test_source_only_advance_rolls_back_failed_production_marker(self):
         manifest = self.build(source_sha='b'*40)
-        active = {'revision': manifest['revision'], 'sourceSha': 'a'*40}
+        active = {'revision': manifest['revision'], 'sourceSha': 'a'*40,
+                  'runtimeFingerprint': publisher.runtime_fingerprint(FakeStore())}
         old_version = [{'versions': [{'version_id': 'previous-version'}]}]
         with ExitStack() as stack:
             for name, value in [('load_repo_env', None), ('cloudflare_api_token', 'token'), ('resolve_zone_id', 'zone')]:

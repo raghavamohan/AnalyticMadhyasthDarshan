@@ -1165,10 +1165,11 @@ function submissionCardAccentClass(stage) {
   return 'submission-card--closed';
 }
 
-function liveStudyHref(slug) {
+function liveStudyHref(slug, revision) {
   const study = mappedStudy(slug);
   const prefix = study && study.root === 'Applications' ? '../Applications/' : '';
-  return prefix + slug + '/' + slug + '.html';
+  const href = prefix + slug + '/' + slug + '.html';
+  return /^[a-f0-9]{64}$/.test(revision || '') ? href + '?r=' + revision : href;
 }
 
 function publicStatusLabel(status) {
@@ -1183,7 +1184,7 @@ function publicationCaption(item) {
     if (liveStatus) {
       const label = 'Live as ' + liveStatus;
       if (item.slug && (pub.status === 'draft' || pub.status === 'released')) {
-        return '<a href="' + escapeHtml(liveStudyHref(item.slug)) + '">' + escapeHtml(label) + '</a>';
+        return '<a data-publication-live href="' + escapeHtml(liveStudyHref(item.slug, pub.revision)) + '">' + escapeHtml(label) + '</a>';
       }
       return escapeHtml(label);
     }
@@ -1223,7 +1224,7 @@ function buildSubmissionFields(item) {
 
   let ciCell = '—';
   if (item.checks && item.checks.state) {
-    const label = item.checks.state === 'success' ? 'Passed' : item.checks.state === 'failure' ? 'Failed' : 'Pending';
+    const label = item.checks.state === 'failure' ? 'Failed' : item.checks.phase === 'preparing' ? 'Preparing' : item.checks.state === 'success' ? 'Passed' : 'Verifying';
     ciCell = '<a href="' + escapeHtml(item.checks.url || '#') + '" target="_blank" rel="noopener"><span class="ci-badge ' + ciClass(item.checks.state) + '">' + label + '</span></a>';
   }
 

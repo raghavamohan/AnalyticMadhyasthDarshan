@@ -19,6 +19,8 @@ from __future__ import annotations
 
 import argparse
 import html
+import json
+import hashlib
 import subprocess
 import sys
 import tempfile
@@ -224,63 +226,70 @@ def card_path(slug: str) -> Path:
     return SOCIAL_DIR / f"{slug}.png"
 
 
-def build(slug_filter: str | None = None, *, check_only: bool = False) -> int:
-    SOCIAL_DIR.mkdir(parents=True, exist_ok=True)
-    missing: list[str] = []
-    built = 0
+CARD_MANIFEST = SCRIPTS / 'social-cards.json'
 
-    if slug_filter is None:
-        target = SOCIAL_DIR / DEFAULT_CARD
-        if check_only:
-            if not target.is_file():
-                missing.append(DEFAULT_CARD)
-        else:
-            render_card(
-                target,
-                eyebrow="Analytic Madhyasth Darshan",
-                title="Studies of Madhyasth Darshan",
-                blurb=(
-                    "Comparative studies of Madhyasth Darshan read against the sciences, "
-                    "Advaita Vedanta, and modern philosophy."
-                ),
-                status=None,
-                cats="Open and independent",
-            )
-            built += 1
-            print(f"  {DEFAULT_CARD}")
 
+def card_contracts() -> dict:
+    cards = {DEFAULT_CARD: dict(eyebrow="Analytic Madhyasth Darshan", title="Studies of Madhyasth Darshan",
+              blurb="Comparative studies of Madhyasth Darshan read against the sciences, Advaita Vedanta, and modern philosophy.",
+              status=None, cats="Open and independent")}
     for row in _catalog_rows():
-        if slug_filter and row.slug != slug_filter:
-            continue
-        target = card_path(row.slug)
-        if check_only:
-            if not target.is_file():
-                missing.append(target.name)
-            continue
-        # StudyRow.category is a single string that may itself list several
-        # categories; it is the display value the catalog card already uses.
-        cats = str(row.category or "").strip() or "Madhyasth Darshan"
-        render_card(
-            target,
-            eyebrow="A study in the collection",
-            title=row.title,
-            blurb=row.description,
-            status=row.status.value if row.status else None,
-            cats=_truncate(cats, 60),
-        )
-        built += 1
-        print(f"  {target.name}")
+        cards[card_path(row.slug).name] = dict(eyebrow="A study in the collection", title=row.title,
+            blurb=row.description, status=row.status.value if row.status else None,
+            cats=_truncate(str(row.category or '').strip() or 'Madhyasth Darshan', 60))
+    return cards
 
+
+def card_fingerprint(fields: dict) -> str:
+    from _build_inputs import file_hash
+    dependencies = {name: file_hash(SCRIPTS / name) for name in
+                    ('_build_social_cards.py', '_html_to_png.js', '_chrome.js', 'package.json', 'package-lock.json')}
+    return hashlib.sha256(json.dumps({'fields': fields, 'renderer': dependencies}, sort_keys=True).encode()).hexdigest()
+
+
+def verify_social_cards() -> list[str]:
+    from _build_inputs import file_hash
+    records = json.loads(CARD_MANIFEST.read_bytes()).get('cards', {}) if CARD_MANIFEST.is_file() else {}
+    errors = []
+    for name, fields in card_contracts().items():
+        path, record = SOCIAL_DIR / name, records.get(name, {})
+        if (not path.is_file() or record.get('fingerprint') != card_fingerprint(fields)
+                or record.get('sha256') != file_hash(path)):
+            errors.append(f'Stale social card: {name}; run python Scripts/_build_social_cards.py')
+    return errors
+
+
+def build(slug_filter: str | None = None, *, check_only: bool = False) -> int:
+    from _build_inputs import file_hash
     if check_only:
-        if missing:
-            print(f"Missing {len(missing)} social card(s):")
-            for name in missing:
-                print(f"  {name}")
-            return 1
-        print("All social cards present.")
-        return 0
-
-    print(f"Rendered {built} social card(s) into {SOCIAL_DIR.relative_to(BASE).as_posix()}")
+        errors = verify_social_cards()
+        print('\n'.join(errors) if errors else 'Social card inputs and output checksums are current.')
+        return int(bool(errors))
+    SOCIAL_DIR.mkdir(parents=True, exist_ok=True)
+    records = json.loads(CARD_MANIFEST.read_bytes()).get('cards', {}) if CARD_MANIFEST.is_file() else {}
+    contracts = card_contracts()
+    built = 0
+    for name, fields in contracts.items():
+        if slug_filter and name != slug_filter + '.png':
+            continue
+        target = SOCIAL_DIR / name
+        key = card_fingerprint(fields)
+        old = records.get(name, {})
+        if old.get('fingerprint') == key and target.is_file() and old.get('sha256') == file_hash(target):
+            continue
+        render_card(target, **fields)
+        records[name] = {'fingerprint': key, 'sha256': file_hash(target)}
+        built += 1
+        print(f'  {name}', flush=True)
+    # Remove only previously registered generator-owned cards after retirement.
+    for name in set(records) - set(contracts):
+        target = SOCIAL_DIR / name
+        if target.is_symlink() or target.resolve().parent != SOCIAL_DIR.resolve():
+            raise ValueError(f'Unsafe retired social card: {name}')
+        target.unlink(missing_ok=True)
+        del records[name]
+    CARD_MANIFEST.write_bytes((json.dumps({'schema': 1, 'cards': records}, sort_keys=True, indent=2) + '\n').encode())
+    print(f'Rendered {built} changed social cards.')
     return 0
 
 
@@ -290,7 +299,7 @@ def main() -> None:
     parser.add_argument(
         "--check",
         action="store_true",
-        help="Report cards that are missing without rendering anything",
+        help="Verify source fingerprints and generated PNG checksums without rendering",
     )
     args = parser.parse_args()
     sys.exit(build(args.slug, check_only=args.check))

@@ -10,6 +10,7 @@ import hashlib
 import json
 import re
 import subprocess
+from contextlib import contextmanager
 from pathlib import Path
 
 from bs4 import BeautifulSoup
@@ -21,6 +22,35 @@ from _publication_inventory import public_markdown
 
 DATA = BASE / "Studies" / "search-data"
 ASSETS = BASE / "Assets" / "reader"
+_batch_depth = 0
+_catalog_pending = False
+
+
+def flush_search_updates():
+    global _batch_depth, _catalog_pending
+    if _catalog_pending:
+        depth, _batch_depth, _catalog_pending = _batch_depth, 0, False
+        try:
+            write_search_catalog()
+        finally:
+            _batch_depth = depth
+
+
+@contextmanager
+def batch_search_updates():
+    """Finalize search and offline closures once after a successful batch."""
+    global _batch_depth, _catalog_pending
+    _batch_depth += 1
+    succeeded = False
+    try:
+        yield
+        succeeded = True
+    finally:
+        _batch_depth -= 1
+        if not _batch_depth:
+            pending, _catalog_pending = _catalog_pending, False
+            if succeeded and pending:
+                write_search_catalog()
 
 
 def digest(data: bytes) -> str:
@@ -141,6 +171,10 @@ def backfill_fresh_search_documents(documents: dict[Path, dict]) -> None:
 
 
 def write_search_catalog() -> None:
+    global _catalog_pending
+    if _batch_depth:
+        _catalog_pending = True
+        return
     documents = eligible_documents()
     DATA.mkdir(parents=True, exist_ok=True)
     expected = {shard_path(metadata) for metadata in documents.values()}

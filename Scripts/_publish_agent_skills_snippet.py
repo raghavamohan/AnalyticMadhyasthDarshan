@@ -212,13 +212,9 @@ def main(argv: list[str] | None = None) -> int:
     zone = cf.resolve_zone_id(token, cf.cloudflare_zone_id())
     account = resolve_account_id(token)
     print(f"Uploading worker {WORKER_NAME!r} to account {account}...")
-    result = multipart_put(
-        f"{cf.API_BASE}/accounts/{account}/workers/scripts/{WORKER_NAME}",
-        token,
-        "index.js",
-        js,
-        {"main_module": "index.js", "compatibility_date": COMPATIBILITY_DATE},
-    )
+    from _worker_deployment import deploy_source
+    result = deploy_source(token, account, WORKER_NAME, js,
+                           {"main_module": "index.js", "compatibility_date": COMPATIBILITY_DATE}, multipart_put)
     print(json.dumps(result.get("result") or result, indent=2)[:2000])
     try:
         cf._api_request(

@@ -90,7 +90,7 @@
       "type": "skill-md",
       "description": "Update a study Presenter's Companion (slide-by-slide delivery notes) under Studies/ or Applications/: keep the companion markdown as source of truth, rebuild DOCX/PDF, and sync PowerPoint speaker notes from a JSON map. Use when the teaching deck gains/loses slides, companion notes drift from the deck, or regenerating Presenters-Companion-*.docx/.pdf/.notes.json.",
       "url": "/.well-known/agent-skills/update-presenters-companion/SKILL.md",
-      "digest": "sha256:3e0a7c701d69561e54988a1e744cba75fd294e3947174274a27f9e836b74b143"
+      "digest": "sha256:2b479eeb323608d481c874241be06b782e7ac00c48edeac2c78c8ed16fcacf54"
     },
     {
       "name": "update-study-presentation",

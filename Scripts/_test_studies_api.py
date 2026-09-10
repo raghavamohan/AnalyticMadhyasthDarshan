@@ -191,9 +191,9 @@ def check_start_here(rows: list[dict]) -> None:
     print("OK: Studies/start-here.json matches catalog slugs and the landing-page path.")
 
 
-def check_live_start_here(payload: dict) -> None:
+def check_live_start_here(payload: dict, expected: dict | None = None) -> None:
     """Verify the enriched API path without mistaking enrichment for drift."""
-    expected = load_json(STUDIES / "start-here.json")
+    expected = expected if expected is not None else load_json(STUDIES / "start-here.json")
     if not isinstance(expected, dict):
         fail("Studies/start-here.json must be an object")
     for key in ("title", "intro"):
@@ -380,7 +380,14 @@ def check_live() -> None:
     if status != 200:
         fail(f"GET /api/studies?limit=100 returned HTTP {status}: {body[:300]}")
     complete = json.loads(body)
-    expected_rows = load_json(CATALOG_ALL_PATH)
+    marker_status, _, marker_body = fetch_live(f'{SITE}/.well-known/publication.json')
+    if marker_status != 200:
+        fail('Cannot read active publication for the live API audit')
+    revision = json.loads(marker_body)['revision']
+    catalog_status, _, catalog_body = fetch_live(f'{SITE}/Studies/catalog-all.json?r={revision}')
+    if catalog_status != 200:
+        fail('Cannot read the active published catalog')
+    expected_rows = json.loads(catalog_body)
     expected_slugs = {row["slug"] for row in expected_rows}
     live_slugs = {row.get("slug") for row in complete.get("studies") or []}
     if (
@@ -420,7 +427,10 @@ def check_live() -> None:
     if status != 200:
         fail(f"GET /api/start-here returned HTTP {status}: {body[:300]}")
     path = json.loads(body)
-    check_live_start_here(path)
+    path_status, _, path_body = fetch_live(f'{SITE}/Studies/start-here.json?r={revision}')
+    if path_status != 200:
+        fail('Cannot read the published reading path')
+    check_live_start_here(path, json.loads(path_body))
     cores = [stage.get("core", {}).get("slug") for stage in path.get("stages") or []]
     if "The-Ontology-of-Coexistence" not in cores:
         fail(f"GET /api/start-here missing ontology core: {body[:400]}")
@@ -434,7 +444,7 @@ def check_live() -> None:
         fail(f"GET /api/cite/{slug} citation is incomplete: {body[:300]}")
     print(f"OK: live GET /api/cite/{slug} returns a citation line.")
 
-    rows = load_json(CATALOG_ALL_PATH)
+    rows = expected_rows
     ongoing = next((row for row in rows if row.get("status") == "ongoing"), None)
     if ongoing:
         ongoing_slug = ongoing["slug"]

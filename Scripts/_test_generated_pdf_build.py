@@ -26,12 +26,12 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
     def test_exact_companion_markdown_selects_one_output(self) -> None:
         source = next(spec.source for spec in self.specs if spec.source.name.startswith("Technical-Note-"))
         rel = repo_relative(source)
-        selected = select_specs((rel,), self.specs)
+        selected = select_specs((rel,), self.specs, base='HEAD')
         self.assertEqual([spec.source for spec in selected], [source])
 
     def test_study_figure_selects_markdown_outputs_in_that_directory(self) -> None:
         directory = "Studies/The-Ontology-of-Coexistence/"
-        selected = select_specs((directory + "figure.svg",), self.specs)
+        selected = select_specs((directory + "1-orders-planes.svg",), self.specs)
         self.assertTrue(selected)
         self.assertTrue(all(spec.key.startswith(directory) for spec in selected))
 
@@ -54,10 +54,12 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         source = BASE / 'Studies/catalog-topical.json'
         current = source.read_text(encoding='utf-8')
         import json
-        before = [row for row in json.loads(current) if row['status'] != 'ongoing']
-        with patch.object(builder.subprocess,'run') as run:
-            run.return_value.returncode = 0
-            run.return_value.stdout = json.dumps(before)
+        from _artifact_graph import catalogs
+        after = {**catalogs(BASE), ('Studies', 'New-Approved-Proposal'): {'slug': 'New-Approved-Proposal', 'status': 'ongoing'}}
+        with patch.object(builder.subprocess,'run') as run, patch('_artifact_graph.catalogs', return_value=after):
+            from types import SimpleNamespace
+            run.side_effect = lambda args, **kwargs: SimpleNamespace(returncode=0, stdout=json.dumps(
+                json.loads((BASE / args[-1].split(':', 1)[1]).read_bytes())))
             selected = select_specs(('Studies/catalog-topical.json',),self.specs,base='base')
         self.assertEqual(selected,())
 
@@ -150,11 +152,11 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         self.assertEqual(pdf_job.count("uses: ./.github/actions/setup-study-env"), 1)
         self.assertIn("github.event_name != 'pull_request'", pdf_job)
         self.assertNotIn("Portal-GitHub: @", pdf_job)
-        self.assertIn("--changed-since \"$BASE_SHA\"", pdf_job)
-        self.assertIn("steps.pdf-inputs.outputs.references_changed == 'true'", pdf_job)
+        self.assertIn('--plan "$RUNNER_TEMP/publication-plan.json"', pdf_job)
+        self.assertIn("needs.plan.outputs.reference_pdfs == 'true'", pdf_job)
 
-        deploy_job = workflow.split("\n  publish-and-deploy:\n", 1)[1]
-        self.assertIn("needs: [validate, pdfs, presentations]", deploy_job)
+        deploy_job = workflow.split("\n  coherent-site:\n", 1)[1]
+        self.assertIn("needs: [plan, validate, pdfs, presentations]", deploy_job)
 
     def test_every_master_merge_queues_one_publication(self) -> None:
         workflow = (BASE / ".github/workflows/publish-site.yml").read_text(encoding="utf-8")
@@ -162,7 +164,7 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         self.assertNotIn("paths:", workflow)
         self.assertIn("cancel-in-progress: false", workflow)
         self.assertIn("source_sha:", workflow)
-        self.assertIn("base_sha:", workflow)
+        self.assertNotIn("github.event.before", workflow)
         self.assertIn("uses: ./.github/workflows/generated-pdf-publish.yml", workflow)
 
     def test_proposal_bootstrap_syncs_allowlist_and_verifies_before_merge(self) -> None:

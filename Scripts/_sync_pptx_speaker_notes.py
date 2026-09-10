@@ -59,7 +59,14 @@ def sync_speaker_notes(pptx: Path, notes: dict[int, str]) -> None:
             + ", ".join(str(i) for i in extras)
         )
 
+    if all(slide.has_notes_slide and ' '.join(slide.notes_slide.notes_text_frame.text.split()) == ' '.join(notes[idx].split())
+           for idx, slide in enumerate(prs.slides, 1)):
+        print('Speaker notes already match; the PPTX bytes are unchanged.')
+        return
+
     for idx, slide in enumerate(prs.slides, 1):
+        if slide.has_notes_slide and ' '.join(slide.notes_slide.notes_text_frame.text.split()) == ' '.join(notes[idx].split()):
+            continue
         notes_slide = slide.notes_slide
         tf = notes_slide.notes_text_frame
         tf.clear()

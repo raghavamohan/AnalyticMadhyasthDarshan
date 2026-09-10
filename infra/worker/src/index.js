@@ -1150,14 +1150,11 @@ function summarizePullRequestFromSearch(item) {
 }
 
 async function aggregateCheckRuns(sha, env, stats) {
-  const data = await githubRequest(
-    `/commits/${sha}/check-runs?per_page=100`,
-    'GET',
-    null,
-    env,
-    null,
-    stats
-  );
+  const [data, commitStatus] = await Promise.all([
+    githubRequest(`/commits/${sha}/check-runs?per_page=100`, 'GET', null, env, null, stats),
+    githubRequest(`/commits/${sha}/status`, 'GET', null, env, null, stats),
+  ]);
+  const verification = (commitStatus.statuses || []).find(item => item.context === 'verify');
   // Keep the latest attempt of each named check; an old failed rerun must not
   // mask its replacement. Include every current check, not only study-pr.
   const latest = new Map();
@@ -1165,13 +1162,27 @@ async function aggregateCheckRuns(sha, env, stats) {
     const key = `${run.app?.id || ''}:${run.name}`;
     if (!latest.has(key) || Number(run.id) > Number(latest.get(key).id)) latest.set(key, run);
   }
-  const relevant = [...latest.values()];
+  const authoritativeRun = (verification?.target_url || '').match(/\/actions\/runs\/(\d+)/)?.[1];
+  const verificationJob = name => ['verify','context','checks'].includes(name) || name.startsWith('study-check / ');
+  const relevant = [...latest.values()].filter(run => {
+    if (!authoritativeRun || !verificationJob(run.name)) return true;
+    const runId = (run.html_url || run.details_url || '').match(/\/actions\/runs\/(\d+)/)?.[1];
+    return !runId || runId === authoritativeRun;
+  });
   const failures = relevant.filter(run => ['failure','cancelled','timed_out','action_required','startup_failure','stale'].includes(run.conclusion));
   const details = failures.slice(0,8).map(run => ({name:run.name, conclusion:run.conclusion,
     title:String(run.output?.title || '').slice(0,300), summary:String(run.output?.summary || '').slice(0,2000), url:run.html_url || run.details_url}));
-  const state = failures.length ? 'failure' : !relevant.length || data.total_count > 100 || relevant.some(run => run.status !== 'completed') ? 'pending'
+  let state = failures.length ? 'failure' : !relevant.length || data.total_count > 100 || relevant.some(run => run.status !== 'completed') ? 'pending'
     : relevant.every(run => ['success','skipped','neutral'].includes(run.conclusion)) ? 'success' : 'pending';
-  return {state, summary:failures[0]?.name || relevant[0]?.name || null, details};
+  let phase = null;
+  if (verification) {
+    if (verification.state === 'pending') {
+      phase = /^Preparing /.test(verification.description || '') ? 'preparing' : 'verifying';
+      if (!failures.length) state = 'pending';
+    } else if (verification.state === 'failure' || verification.state === 'error') state = 'failure';
+    else if (verification.state === 'success') phase = 'verified';
+  }
+  return {state, phase, summary:failures[0]?.name || verification?.description || relevant[0]?.name || null, details};
 }
 
 function portalUrl(params) {
@@ -1613,6 +1624,7 @@ async function buildDashboard(session, env, options = {}) {
     row.pullRequest = summary;
     row.checks = checkSummary ? {
       state: checkSummary.state,
+      phase: checkSummary.phase,
       url: `${summary.url}/checks`,
       summary: checkSummary.summary,
       details: checkSummary.details,
@@ -1694,6 +1706,7 @@ async function buildDashboardStatus(session, env, options = {}) {
       pullRequest,
       checks: checkSummary ? {
         state: checkSummary.state,
+      phase: checkSummary.phase,
         url: `${pullRequest.url}/checks`,
         summary: checkSummary.summary,
         details: checkSummary.details,

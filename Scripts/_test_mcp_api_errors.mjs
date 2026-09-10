@@ -7,6 +7,9 @@ import test from 'node:test';
 
 const bundlePath = path.resolve('infra/mcp-worker/src/index.js');
 const source = await readFile(bundlePath, 'utf8');
+const publication = 'a'.repeat(64);
+const withPublication = handler => async input => String(input).endsWith('/.well-known/publication.json')
+  ? Response.json({revision: publication}) : handler(input);
 
 async function loadWorker(tag) {
   const taggedSource = `${source}\n// test instance: ${tag}\n`;
@@ -39,7 +42,7 @@ async function assertHttpError(response, status, code) {
 test('Studies API 404 uses the common HTTP error envelope', async () => {
   const original = globalThis.fetch;
   try {
-    globalThis.fetch = async () => Response.json([]);
+    globalThis.fetch = withPublication(async () => Response.json([]));
     const worker = await loadWorker('not-found');
     const response = await worker.fetch(
       new Request('https://analyticmadhyasthdarshan.org/api/studies/Unknown-Study'),
@@ -79,65 +82,45 @@ test('Studies API 502 uses the common HTTP error envelope', async () => {
   }
 });
 
-test('Studies API reads immutable deployment data before the public-site fallback', async () => {
+test('Studies API binds the catalog to the active published revision', async () => {
   const original = globalThis.fetch;
   const calls = [];
   try {
     globalThis.fetch = async input => {
       calls.push(String(input));
-      return Response.json([
-        {slug:'One',title:'One',status:'draft',collection:'topical'},
-      ]);
+      if (calls.length === 1) return Response.json({revision: publication});
+      return Response.json([{slug:'One', title:'One', status:'draft', collection:'topical', html:'One/One.html'}]);
     };
-    const worker = await loadWorker('source-order');
-    const response = await worker.fetch(new Request(
-      'https://analyticmadhyasthdarshan.org/api/studies?limit=1',
-    ));
+    const worker = await loadWorker('publication-authority');
+    const response = await worker.fetch(new Request('https://analyticmadhyasthdarshan.org/api/studies?limit=1'));
     assert.equal(response.status, 200);
-    assert.equal((await response.json()).studies[0].slug, 'One');
-    const revision = source.match(/const SOURCE_REVISION = "([0-9a-f]{40})";/)?.[1];
-    assert.ok(revision);
-    assert.equal(
-      calls[0],
-      `https://raw.githubusercontent.com/raghavamohan/AnalyticMadhyasthDarshan/${revision}/Studies/catalog-all.json`,
-    );
-  } finally {
-    globalThis.fetch = original;
-  }
+    assert.equal((await response.json()).studies[0].htmlUrl,
+      `https://analyticmadhyasthdarshan.org/Studies/One/One.html?r=${publication}`);
+    assert.deepEqual(calls, ['https://analyticmadhyasthdarshan.org/.well-known/publication.json',
+      `https://analyticmadhyasthdarshan.org/Studies/catalog-all.json?r=${publication}`]);
+  } finally { globalThis.fetch = original; }
 });
 
-test('Studies API retains the public site as an availability fallback', async () => {
+test('An unavailable publication fails closed without reading Git HEAD', async () => {
   const original = globalThis.fetch;
   const calls = [];
   try {
-    globalThis.fetch = async input => {
-      calls.push(String(input));
-      if (calls.length === 1) return new Response('unavailable', {status: 503});
-      return Response.json([
-        {slug:'Fallback',title:'Fallback',status:'draft',collection:'topical'},
-      ]);
-    };
-    const worker = await loadWorker('source-fallback');
-    const response = await worker.fetch(new Request(
-      'https://analyticmadhyasthdarshan.org/api/studies?limit=1',
-    ));
-    assert.equal(response.status, 200);
-    assert.equal((await response.json()).studies[0].slug, 'Fallback');
-    assert.match(calls[0], /^https:\/\/raw\.githubusercontent\.com\//);
-    assert.equal(calls[1], 'https://analyticmadhyasthdarshan.org/Studies/catalog-all.json');
-  } finally {
-    globalThis.fetch = original;
-  }
+    globalThis.fetch = async input => { calls.push(String(input)); return new Response('unavailable', {status:503}); };
+    const worker = await loadWorker('no-git-fallback');
+    const response = await worker.fetch(new Request('https://analyticmadhyasthdarshan.org/api/studies'));
+    await assertHttpError(response, 502, 'upstream_error');
+    assert.deepEqual(calls, ['https://analyticmadhyasthdarshan.org/.well-known/publication.json']);
+  } finally { globalThis.fetch = original; }
 });
 
 test('Studies API pagination is bounded and advertises the edge quota', async () => {
   const original = globalThis.fetch;
   try {
-    globalThis.fetch = async () => Response.json([
+    globalThis.fetch = withPublication(async () => Response.json([
       {slug:'One',title:'One',status:'draft',collection:'topical'},
       {slug:'Two',title:'Two',status:'draft',collection:'topical'},
       {slug:'Three',title:'Three',status:'released',collection:'formal'},
-    ]);
+    ]));
     const worker = await loadWorker('pagination');
     const response = await worker.fetch(new Request(
       'https://analyticmadhyasthdarshan.org/api/studies?limit=1&offset=1',

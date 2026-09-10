@@ -1,0 +1,1 @@
+{"schema":1,"markdown":{"platform":"ubuntu-24.04-x64","python":"3.12","node":"20","chrome":"Scripts/package.json#pdfRender.chrome","fonts":"ubuntu-24.04-defaults-v1"},"presentations":{"platform":"windows-2025-x64","renderer":"Scripts/presentation-pipeline.json#productionProfile","fonts":"windows-2025-office-fonts-v1"}}

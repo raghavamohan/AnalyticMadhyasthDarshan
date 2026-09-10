@@ -350,6 +350,17 @@ def rewrite_local_links_for_site(
                         if fragment:
                             url = f"{url}#{fragment}"
                         return f'href="{url}"'
+                    if candidate.suffix.lower() == '.pdf':
+                        # Deck PDFs have no same-stem Markdown. Their declared
+                        # PPTX source, not a restored ignored PDF, establishes
+                        # the published link's existence.
+                        from _generated_pdf_inventory import generated_pdf_specs
+                        if any(spec.output.resolve() == candidate and spec.source.is_file()
+                               for spec in generated_pdf_specs()):
+                            url = f'{site_root}/{candidate.relative_to(BASE).as_posix()}'
+                            if fragment:
+                                url += '#' + fragment
+                            return f'href="{url}"'
             except (OSError, ValueError):
                 raise
 
@@ -888,8 +899,10 @@ def convert_to_html(
     *,
     is_draft: bool = False,
     include_web_chrome: bool = False,
+    output_path: Path | None = None,
+    update_search: bool = True,
 ) -> Path:
-    output_path = input_path.with_suffix(".html")
+    output_path = output_path or input_path.with_suffix(".html")
     verify_study_svgs(input_path)
     md_text_raw = input_path.read_text(encoding="utf-8")
     md_text = strip_status_for_pdf(md_text_raw) if STATUS_MD_RE.search(md_text_raw) else md_text_raw
@@ -1645,7 +1658,7 @@ def convert_to_html(
 </html>"""
 
     write_text_lf(output_path, full_html)
-    if include_web_chrome:
+    if include_web_chrome and update_search:
         from _study_search import write_search_document
         write_search_document(input_path, full_html)
     return output_path
