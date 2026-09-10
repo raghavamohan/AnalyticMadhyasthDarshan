@@ -13,8 +13,6 @@ import subprocess
 import sys
 import threading
 
-from _common import write_text_lf
-
 BASE = Path(__file__).resolve().parents[1]
 BROWSER_INPUTS = {'Studies/submit.html', 'Scripts/_serve_contributor_fixture.py',
                   'Scripts/_test_contributor_harness.js', 'Scripts/_lifecycle_browser_acceptance.js',
@@ -27,6 +25,8 @@ def needs_browser(base: str) -> bool:
 
 
 def run(output: Path, *, browser: bool = True, browser_only: bool = False) -> bool:
+    # Scope selection runs before pip/npm setup; keep its import path stdlib-only.
+    from _common import write_text_lf
     output.mkdir(parents=True, exist_ok=True)
     report = {'environment':'isolated fixtures', 'generatedAt':datetime.now(timezone.utc).isoformat(),
               'sourceSha':subprocess.check_output(['git','rev-parse','HEAD'],cwd=BASE,text=True).strip(),

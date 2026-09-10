@@ -4,6 +4,7 @@ from contextlib import ExitStack
 import json
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 import unittest
 from unittest.mock import patch
@@ -64,7 +65,7 @@ class LifecycleExtensions(unittest.TestCase):
         return subprocess.check_output(['git','-c','user.name=Fixture','-c','user.email=fixture@example.test',*args], cwd=self.root, stderr=subprocess.PIPE).decode().strip()
 
     def parent(self, family='Studies', slug='A'):
-        path = self.write(f'{family}/{slug}/{slug}.md', f'# {slug}\n\n**Author:** Fixture\n\n**Edited on:** September 10, 2026, 9:00 AM IST\n\n**Status:** Draft\n')
+        path = self.write(f'{family}/{slug}/{slug}.md', f'# {slug}\n\n**Author:** Fixture\n\n**Edited on:** January 1, 2020, 9:00 AM IST\n\n**Status:** Draft\n')
         return path.parent
 
     def deck(self):
@@ -148,7 +149,7 @@ class LifecycleExtensions(unittest.TestCase):
         self.assertEqual(before,self.snapshot())
         move.relocate('A','Technical-Note-One.md','A','Technical-Note-Two.md',root=self.root)
         self.assertIn('Technical-Note-Two.html',(parent/'A.md').read_text())
-        self.assertNotIn('9:00 AM',(parent/'A.md').read_text())
+        self.assertNotIn('January 1, 2020',(parent/'A.md').read_text())
         before = self.snapshot()
         with self.assertRaises(ValueError): move.relocate('A','Technical-Note-Two.md','A','A.md',root=self.root)
         self.assertEqual(before,self.snapshot())
@@ -231,6 +232,26 @@ class LifecycleExtensions(unittest.TestCase):
         manifests['presentation-pipeline.json']['decks'].append({**manifests['presentation-pipeline.json']['decks'][0], 'id':'overlap'})
         from _companion_lifecycle import output_contract
         with self.assertRaises(ValueError): output_contract(manifests)
+
+    def test_scope_selection_works_before_dependency_installation(self):
+        repository = Path(__file__).resolve().parents[1]
+        result = subprocess.run([sys.executable,'-S',str(repository/'Scripts/_run_lifecycle_acceptance.py'),
+                                 '--scope','--base-ref','HEAD'],cwd=repository,capture_output=True,text=True)
+        self.assertEqual(result.returncode,0,result.stderr)
+        self.assertEqual(result.stdout.strip(),'browser=false')
+
+    def test_guided_slides_links_follow_remaining_inventory(self):
+        import _build_studies_index as index
+        html = '<article data-study-slug="A" data-presentation-pdf="A/Old.pdf"><a data-study-slides href="A/Old.pdf">Slides</a></article>'
+        with patch.object(index,'presentation_links_by_slug',return_value={}):
+            removed = index.render_start_here_presentations(html)
+            self.assertIn('data-presentation-pdf=""',removed)
+            self.assertIn('href="#" hidden',removed)
+        with patch.object(index,'presentation_links_by_slug',return_value={'A':[{'href':'A/Other.pdf'}]}):
+            updated = index.render_start_here_presentations(html)
+            self.assertNotIn('Old.pdf',updated)
+            self.assertIn('data-presentation-pdf="A/Other.pdf"',updated)
+            self.assertIn('data-study-slides href="A/Other.pdf"',updated)
 
 
 if __name__ == '__main__':
