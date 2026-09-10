@@ -1,0 +1,24 @@
+name: Complete prepared study
+on:
+  workflow_run:
+    workflows: [Studies index]
+    types: [completed]
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  ready:
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'workflow_dispatch' &&
+      github.event.workflow_run.head_repository.full_name == github.repository
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: master
+          persist-credentials: false
+      - name: Mark the verified exact head and intent ready for review
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python Scripts/_verification_identity.py

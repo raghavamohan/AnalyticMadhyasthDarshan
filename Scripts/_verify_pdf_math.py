@@ -51,14 +51,14 @@ def katex_faces(faces: set[str]) -> set[str]:
     return {face for face in faces if "KaTeX" in face}
 
 
-def verify_study_pdf_math(md_path: Path, pdf_path: Path) -> None:
+def verify_study_pdf_math(md_path: Path, pdf_path: Path, *, html_path: Path | None = None) -> None:
     """Fail when the HTML rendered maths but the PDF embeds no KaTeX face.
 
     Keyed on the generated HTML rather than the markdown: a bare ``$`` in prose
     matches a naive markdown scan, whereas KaTeX output in the HTML means maths
     was genuinely rendered and must survive into the PDF.
     """
-    html_path = md_path.with_suffix(".html")
+    html_path = html_path or md_path.with_suffix(".html")
     occurrences = html_katex_occurrences(html_path)
     if occurrences == 0:
         return

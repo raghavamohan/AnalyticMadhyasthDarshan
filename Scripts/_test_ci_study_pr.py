@@ -377,12 +377,12 @@ def _reason(entries) -> str | None:
 
 def test_pdf_rebuild_when_markdown_changes() -> None:
     reason = _reason([("M", f"Studies/{REAL_SLUG}/{REAL_SLUG}.md")])
-    assert reason and "markdown changed" in reason
+    assert reason and f"Studies/{REAL_SLUG}/{REAL_SLUG}.md" in reason
 
 
 def test_pdf_rebuild_when_study_figure_changes() -> None:
     reason = _reason([("M", f"Studies/{REAL_SLUG}/1-orders-planes.svg")])
-    assert reason and "figure changed" in reason
+    assert reason and "1-orders-planes.svg" in reason
 
 
 def test_pdf_rebuild_when_pipeline_changes() -> None:
@@ -398,7 +398,7 @@ def test_pdf_rebuild_when_pipeline_changes() -> None:
         "CNAME",
     ):
         reason = _reason([("M", path)])
-        assert reason and "pipeline changed" in reason, path
+        assert reason and path in reason, path
 
 
 def test_shared_glossary_does_not_rebuild_pdf() -> None:

@@ -31,21 +31,25 @@ def public_rows() -> list[dict]:
     ]
 
 
-def build_all(output_root: Path, *, verify_only: bool = False) -> None:
+def build_all(output_root: Path, *, verify_only: bool = False, selected: set[str] | None = None,
+              regenerate: bool = False) -> None:
     manifest = load_manifest()
     errors = manifest_errors(manifest)
     if errors:
         raise ValueError("reference manifest is invalid:\n  - " + "\n  - ".join(errors))
     rows = public_rows()
+    if selected is not None:
+        rows = [row for row in rows if row['target']['r2_key'] in selected]
     if not rows:
-        raise ValueError("reference manifest contains no normalized PDF rows")
+        print('No public reference PDFs need staging.')
+        return
     artifact_root = output_root.resolve()
     store = ReferenceStore()
     for row in rows:
         expected = artifact_root / row["repo_path"]
         if verify_only:
             pdf_path = expected
-        elif row.get("kind") == "normalized-reference-pdf":
+        elif regenerate and row.get("kind") == "normalized-reference-pdf":
             markdown_path = BASE / row["generation"]["source_markdown"]
             _, pdf_path = build(markdown_path, artifact_root / "References")
         else:
@@ -68,10 +72,9 @@ def build_all(output_root: Path, *, verify_only: bool = False) -> None:
                     f"{row['repo_path']} (expected {expected_signature}, actual {actual_signature})"
                 )
             if actual_size != source["bytes"] or actual_hash != source["sha256"]:
-                print(
-                    "Note: generated PDF bytes differ across renderer host platforms; "
-                    f"content signature matches for {row['repo_path']} "
-                    f"(bytes {actual_size}, sha256 {actual_hash})."
+                raise ValueError(
+                    f"Generated PDF bytes differ from the approved immutable artifact: {row['repo_path']}. "
+                    "Review and register the new bytes before publication; a text-only match is insufficient."
                 )
         else:
             if actual_size != source["bytes"]:
@@ -94,11 +97,18 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--all", action="store_true")
+    mode.add_argument('--plan', type=Path)
     mode.add_argument("--verify-only", action="store_true", help="Verify a restored complete build without rendering or downloading")
     parser.add_argument("--output-root", type=Path, required=True)
+    parser.add_argument('--regenerate', action='store_true', help='Rebuild normalized PDFs and require exact approved bytes')
     args = parser.parse_args()
     try:
-        build_all(args.output_root, verify_only=args.verify_only)
+        selected = None
+        if args.plan:
+            import json
+            from _publication_plan import validate_plan
+            selected = set(validate_plan(json.loads(args.plan.read_bytes()))['build'])
+        build_all(args.output_root, verify_only=args.verify_only, selected=selected, regenerate=args.regenerate)
         return 0
     except (OSError, RuntimeError, ValueError) as exc:
         print(f"Reference PDF batch build failed: {exc}", file=sys.stderr)

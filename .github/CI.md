@@ -1,275 +1,100 @@
-# Continuous integration — maintainer reference
+# Continuous integration and publication
 
-The review gate checks an immutable commit. Preparation produces reviewable
-files before review. Publication stages a complete website revision before it
-can replace the live revision. Study-authoring rules remain in
-[AGENTS.md](../AGENTS.md); contributor instructions are in
-[CONTRIBUTING.md](../CONTRIBUTING.md).
+The required `verify` gate reviews an immutable source commit. Preparation creates reviewable tracked files. Protected publication builds changed or missing outputs, then audits a complete coherent release. The finding cross-reference is [CI-IMPLEMENTATION.md](CI-IMPLEMENTATION.md).
 
-## Workflows and ownership
+## Dependency and ownership graph
 
-| Workflow | Trigger | Responsibility | Writes |
-|---|---|---|---|
-| [Studies index](workflows/studies-index-check.yml) | Every PR, master/main push, explicit prepared-SHA dispatch | Required `verify` aggregate: metadata, generated files, tests, applicable document builds | Only final commit status for explicit bot dispatch |
-| [Study check](workflows/study-pr.yml) | Reusable workflow called by the aggregate | Build affected Markdown PDFs and presentations; fail on generated-file drift | Temporary build outputs only |
-| [Prepare study](workflows/prepare-study.yml) | Open/synchronize/reopen of same-repository portal draft PR | Run lifecycle generators and export declared changes | Artifact only; token is read-only |
-| [Accept prepared study](workflows/accept-prepared-study.yml) | Successful preparation run | Validate payload and current PR head; commit prepared files; queue exact-SHA verification; mark ready | One non-force commit on the same PR branch |
-| [Proposal approved](workflows/proposal-approved.yml) | Approval label or explicit issue dispatch | Create metadata and a Planned catalog row through a verified PR | Bootstrap branch, PR, issue instructions |
-| [Publish site](workflows/publish-site.yml) | Every master push; explicit merged-SHA dispatch | Serialize publication and reconcile merged issue metadata | Publication services; no Git writes |
-| [Generated PDF publish](workflows/generated-pdf-publish.yml) | Reusable publication workflow | Build/cache complete PDF families; stage and audit the complete site | R2 and Workers, only from master |
-| [Submission portal Worker](workflows/submission-worker-deploy.yml) | Relevant PR/master paths | Test and bundle APIs; deploy only from master | API Workers |
-| PDF/presentation smoke | Relevant tooling paths or manual dispatch | Additional reproducibility checks | Temporary outputs only |
-| Portal notifications | Issue labels and closed PR metadata | Contributor notifications | No checkout of PR code |
-| Pages deploy retry | Failed legacy Pages run | Transitional retry; disabled by `SITE_RELEASES_ENABLED=true` | Rerun only |
-
-## Required review gate
-
-Keep **`verify`**, with the GitHub Actions integration, as the required context.
-It runs unconditionally and succeeds only when both `checks` and `study-check`
-succeed. A failed, cancelled, or skipped dependency fails the aggregate.
-Presentation work inside `study-check` may skip only when its source planner
-finds no presentation inputs changed. Labels organize reviews and notifications;
-they never switch validation off. Strict/up-to-date branch protection is recommended
-so the verified upstream base remains relevant at merge.
-
-`_verify_ci_context.py` checks out the exact PR head and fetches the upstream
-repository's exact base SHA, including for forks. Explicit prepared-head runs
-also require the live PR head to match the requested SHA. A moved ref fails.
-Body edits trigger cheap validation of current intent; document selection remains
-based on paths and source inputs.
-
-The read-only lifecycle validator checks source/catalog timestamps and status,
-first-draft approval, complete removals, and cross-study section references.
-The index verifier checks catalog JSON, README, index bootstrap, Start here,
-sitemap, LLM catalogs, search and offline manifests. The glossary check and agent
-mirror check remain required. `_run_test_suites.py` discovers all `_test_*.py`
-suites except the explicit, explained `HELD` entries; adding a suite adds it to CI.
-
-Document builds use the repository's pinned renderers and existing SVG, math,
-diagram, fenced-code, outline, layout and presentation verifiers. Review PDFs
-are downloadable Actions artifacts. `_generated_artifacts.py --check-clean`
-then rejects tracked or untracked generated drift. No validation job pushes a
-repair, changes a timestamp, patches an issue, or receives publishing secrets.
-
-## Preparing portal submissions
-
-The portal opens a **GitHub draft PR** while generated files are incomplete.
-This is separate from a study's Draft/Released status. Revising an existing PR
-returns it to draft before committing source. Once preparation is accepted,
-the PR becomes ready for review; the required gate still controls merging.
-Local and fork contributors generate their files before opening a ready PR.
-The read-only gate recognizes this incomplete state only for a same-repository
-draft PR carrying the portal marker, and still rechecks the registered proposal
-and its approval. A ready PR must contain the complete prepared outputs.
-
-`_ci_study_pr.py` is the preparation router. It infers first draft, update,
-deletion and status change from paths and body fields. It preserves the existing
-single-study restrictions for first drafts/status changes and supports multi-study
-updates. Before rendering, it normalizes migrated reference links only in the
-submitted study Markdown files. Same-status requests are true no-ops. Rename preparation uses
-`--skip-issue`; `_reconcile_proposal_issues.py` updates issue titles/slugs from
-merged metadata, independently of site publication.
-
-Preparation runs with a read-only token, no saved checkout credential and no
-Cloudflare secrets. Its payload is untrusted. The `workflow_run` consumer checks
-the producer workflow, source SHA, same-repository open draft PR, upstream branch,
-file count, decoded byte limit and output contract. It executes only default-branch
-code, validates paths/symlinks, and rechecks the PR immediately before a normal
-non-force push. A newer contributor commit makes acceptance fail safely.
-
-The output contract includes all catalog fan-out: Studies JSON/README/index,
-discussion/search/offline files, root sitemap/LLM files, feedback issue template,
-companion registry and generated-PDF key module. Lifecycle source and metadata
-updates and complete deletions are supported. Unexpected files fail before staging;
-ignored PDFs are never committed. Bootstrap uses the same contract.
-
-GitHub-token writes still require an explicit verification dispatch. The trusted
-writer posts pending `verify` on its exact commit and dispatches the full aggregate
-with `report_sha` and `pr_number`. Dispatch failure becomes a failed status. Review
-jobs themselves have no status-writing token. Bootstrap uses the same exact-SHA
-status, waits for success and merges using `--match-head-commit`.
-
-## Proposal approval
-
-Approval registers `.proposal-meta.json`, the registry and a Planned row. It creates
-no public Markdown reader, HTML stub, PDF or discussion page. Existing historical
-Markdown stubs remain authoring records; their HTML/discussion outputs are removed.
-The authenticated portal can create a starter from approved metadata on demand.
-
-`_publication_inventory.py` supplies shared public eligibility. Only Draft/Released
-parents enter reader/PDF/search/site inventories. Sitemap and landing-page links
-obey the same status rule. Links from published papers to Planned studies resolve
-to their catalog cards. Publication validation rejects Planned reader files.
-
-Bootstrap rechecks that the issue is open and approved, preserves existing author
-inputs on retries, resumes its branch, and refuses a previously closed-unmerged PR.
-It requires Actions PR creation to be enabled in repository settings. Where the
-workflow token cannot read administrative settings, the PR-create endpoint remains
-the authoritative policy check and failure explains the required setting.
-
-There is no Pages wait. After merge, bootstrap explicitly dispatches publication
-for the merge SHA because token-created merges do not guarantee another push run.
-A retry after merge also requeues publication without rewriting the workspace.
-Closed/declined issue #420 must not be used as a bootstrap test.
-
-## Complete website releases
-
-`_site_release.py` builds a disposable assets tree and `release.json`, binding the
-actual file SHA-256/size, PDF source hashes, publication status and output contract
-to one immutable content revision. The source commit remains separate publication
-provenance, so a CI-only commit can advance `sourceSha` without assigning new URLs
-to unchanged bytes. The source checkout is never transformed in place. Private
-metadata, tooling, Planned readers and ignored local files are excluded.
-
-Own-site files are staged at `site/objects/<sha256>` in the generated-PDF bucket.
-Release manifests live at `site/releases/<revision>.json`. Existing objects must
-match their checksum and length; collisions fail. The manifest is uploaded only
-after every object verifies. Partial uploads cannot change the active deployment.
-References retain their separate rights/storage manifest and bucket. Large,
-Git-retained references use bounded static-asset segments, never the generated-PDF
-R2 bucket; the Worker streams them with range support.
-
-The publisher uploads Workers Static Assets, deploys `amd-site-canary`, and audits
-every listed URL (GET/checksum for documents and discovery; HEAD/size for other
-assets). Only then can it upload/promote a version of `amd-site`. Worker code,
-static assets and the embedded release manifest move as one deployment. Canonical
-URLs require revalidation; compiled reader links, dynamic fetches and saved offline
-bundles carry the release query `r=<revision>`. Older open pages can fetch retained
-files from their own manifest while new navigation receives the current revision.
-
-Publication is serialized and rechecks the active revision immediately before
-promotion. An older/unrelated source commit cannot replace a newer release.
-Different output bytes for an already-published source commit also fail: record
-renderer changes in a new commit. Post-promotion failure restores the previous
-Worker version. A deployment receipt supports explicit rollback:
-
-```powershell
-python Scripts/_publish_site_release.py --rollback <retained-revision>
+```mermaid
+flowchart TD
+  md[Study or companion Markdown] --> reader[HTML reader and passage shard]
+  md --> pdf[Markdown PDF]
+  fig[Embedded images / recursive SVG and CSS resources] --> reader
+  fig --> pdf
+  links[Used link metadata: status / source availability / reference delivery] --> reader
+  links --> pdf
+  print[Pinned print scripts / Chrome / packages / fonts contract] --> pdf
+  glossary[Shared glossary / web helpers] --> reader
+  companion[Companion Markdown] --> docx[DOCX]
+  companion --> notes[Delivery notes JSON]
+  notes --> pptx[PPTX speaker notes]
+  pptx --> deck[Slides PDF and notes PDF]
+  engine[Pinned presentation manifest and renderer] --> deck
+  catalog[Catalog and proposal data] --> landing[Index / README / discussion pages]
+  catalog --> discovery[Sitemap / feeds / LLM files / reading path]
+  catalog --> social[Social cards: title / description / status / categories]
+  reader --> search[Search catalog]
+  search --> offline[Offline resource closures]
+  reader --> offline
+  static[Other public HTML / Markdown / JSON / assets] --> assets[Compiled static files]
+  reader --> assets
+  landing --> assets
+  discovery --> assets
+  social --> assets
+  offline --> assets
+  refs[Approved reference manifest] --> refstore[Reference R2 or retained Git assets]
+  assets --> release[Immutable release manifest]
+  pdf --> release
+  deck --> release
+  refstore --> release
+  release --> canary[Worker / assets / manifest: canary audit]
+  canary --> live[Production activation and audit]
+  live --> api[MCP and Studies API read active publication]
 ```
 
-When the candidate content revision is already active but `sourceSha` advanced,
-the publisher deploys and verifies the new publication marker on canary, rechecks
-production, then promotes the marker-only Worker version. It skips immutable R2
-staging and the three complete URL audits because their checksummed content is
-unchanged. Production and the public route still verify both revision and source
-SHA, and a failed marker check restores the previous Worker version. Source-SHA
-receipts are stored separately from content-revision rollback receipts.
+`_artifact_graph.py` is the executable PDF/reference graph. Each output records its producer, consumed input hashes and selected metadata. `_publication_plan.py` compares it with the active deployment's protected build receipt. Static files are always inventoried; their compiled content hashes determine uploads independently of PDF jobs.
 
-Rollback requires the corresponding retained Cloudflare Worker version. The first
-rollout deliberately has **no automatic garbage collection**: publication never
-deletes immutable objects. Removal immediately drops canonical routes from the new
-manifest; retained revision URLs remain available for rollback/offline continuity.
-Review a retention/withdrawal policy before adding destructive maintenance.
+| Change | Regenerate | Upload |
+|---|---|---|
+| Study Markdown / embedded figure | That reader, passage shard and PDF; metadata fan-out when needed | Changed files and new PDF bytes |
+| Unused figure / unrelated study body | No unrelated PDF | Only changed public bytes |
+| Companion Markdown | Its reader/PDF; declared DOCX/notes/deck source chain must be synchronized | Changed companion outputs; deck pair if PPTX changes |
+| PPTX including notes/order | Its slides and notes together | New pair and affected catalog cache-buster |
+| Catalog title/description/category | Catalog fan-out and affected social card | Changed files; no PDF unless printed link behavior changes |
+| Draft/Released/Planned status | Lifecycle source/reader/PDF and catalog; affected incoming links | Changed outputs; retired paths omitted from new manifest |
+| Glossary / reader CSS or JS / portal UI | Required web outputs and offline closures | Changed web bytes; no PDF |
+| Print pipeline / renderer / fonts contract | Affected Markdown PDFs | Verified new bytes |
+| Reference source/approval | Maintainer reviews/registers exact normalized PDF bytes first | Selected approved objects |
+| Unrelated CI/docs change | No document build | Source receipt advance if public bytes/runtime are unchanged |
+| Worker source/bindings/config | Worker validation | Only changed active Worker fingerprints |
 
-`/.well-known/publication.json` exposes the active source SHA, release revision and
-study statuses. The portal reads repository catalogs/registry from **one Git SHA
-per request**, caches by SHA, and shows publication confirmation separately from
-authoring readiness. An unavailable endpoint is unknown, never a claim of success.
+Ignored PDFs are never input hashes. Their absence from a checkout is expected. A missing or mismatched **published R2 object** selects repair. Deck pairs remain atomic in repair and review reuse.
 
-## Caches and rendering cost
+Reproducibility smoke jobs use the graph's rendering-tool inputs. Ordinary PPTX changes run only their selected deck pair in review; they do not start the all-decks repeat-render smoke job. Renderer, toolchain and smoke-harness changes retain repeat-render verification. Planning helpers are excluded from renderer import traversal so they cannot pull unrelated web/Markdown builders into every deck's inputs.
 
-Complete Markdown, presentation and reference caches retain exact family checksums
-and source/renderer fingerprints. Only protected-branch builds save caches. PRs do
-not create trusted publication caches. Restored artifacts are verified against
-their current sources before upload.
+## Preparation and required verification
 
-Within a cold Markdown family, each document has a separate sealed PDF cache keyed
-by source, local figures, transitive rendering code, fonts, own status/description,
-link-target inventory and runtime. Editing one paper can reuse unchanged papers.
-The restored directory may use a prefix fallback; each PDF still needs its exact
-document key and checksum, and full verification runs after assembly. Renderer
-changes invalidate affected keys. Shared glossary and screen-only reader asset
-bytes do not themselves invalidate PDFs. No generated output depends on the clock.
+`studies-index-check.yml` runs on every PR without path/label filtering, plus explicit bot dispatches. Its context job fetches the live PR and binds head, upstream base and lifecycle body into one verification identity. Ready sources run catalog/lifecycle/tests and document checks concurrently. Markdown and presentations have independent jobs after their shared plan. `verify` requires every applicable job and rechecks the live identity before success. Strict/up-to-date branch protection keeps the upstream base relevant at merge.
 
-## Rollout and recovery
+Portal submissions start as GitHub draft PRs. The context job reports Preparing while tracked artifacts are incomplete. `prepare-study.yml` has no write credentials or Cloudflare secrets. Its payload is untrusted. The default-branch `accept-prepared-study.yml` consumer validates producer, repository, head/base/intent, path and size limits, then performs one non-force commit. The writer dispatches verification idempotently. `complete-prepared-study.yml` marks ready only after that exact verification succeeds. New source/base/intent requires validation again. Local and fork contributors prepare their generated files before opening a ready PR.
 
-The code supports a staged migration. Until `SITE_RELEASES_ENABLED=true`, normal
-publication retains the legacy PDF publisher and stages/audits the new canary.
-The new Worker is not a claim that production has already switched.
+Review artifacts carry input graphs and byte checksums. `_review_artifacts.py` accepts only successful allowlisted runs from a merged same-repository PR or its verified preparation parent. Other heads, forks, changed inputs, expired artifacts, unsafe ZIP paths and bad checksums cannot establish reuse. Structural PDF checks run again in the consuming checkout without rendering. Missing proofs cause builds; partial deck proofs are discarded. Combined job outputs preserve all deck provenance and reject conflicting files.
 
-The complete-site publisher logs flushed progress for R2 staging, static-asset
-batches, Worker upload and URL audits. The job has a 45-minute limit. Audit requests
-identify themselves as `AMD-Publication-Audit/1.0`, including the initial publication
-endpoint and subsequent GET/HEAD requests. The first hosted canary exposed a 403
-with Cloudflare error 1010 for Python's default user agent; the named audit client
-was accepted. HTTP and checksum failures remain fatal. A retry reuses verified
-immutable objects and already-uploaded static assets.
-The audit allows five short retries for an old active revision or HTTP
-404/502/503/504 while a Worker deployment propagates. Persistent failures and
-access denial still fail; incorrect sizes and checksums are never retried.
-Markdown is downloaded and checksummed, including dedicated agent-skills routes
-whose valid HEAD responses omit `Content-Length`.
-The skills indexes and MCP server card use the same JSON formatting as their
-canonical files. Their dedicated Worker responses must match release checksums;
-the generated-bundle check enforces this response-to-file contract.
-The Agent-facing deployment gate verifies only the live API catalog route owned
-by `amd-api-catalog`. Site-owned OpenAPI documents and homepage headers move with
-the coherent-site release and are covered by that release's checksummed audit;
-testing them before that parallel publication completes creates a false failure.
-The full `_test_api_catalog.py --live` mode remains available for an end-to-end
-post-publication diagnostic.
-The MCP/Studies Worker pins repository-backed reads to the exact commit that
-produced its deployment and tries that immutable GitHub source before the public
-site fallback. This keeps catalog APIs coherent when the Worker and complete site
-deploy in parallel, even if a same-origin edge still holds the preceding release.
-On the public hostname, Cloudflare-managed `robots.txt` and `security.txt` are
-validated as edge policy documents. The managed robots wrapper must retain the
-exact release body; the security fields, including expiry, must match the
-checksummed release origin, allowing field ordering and equivalent timestamp
-formatting. Other checksum differences remain fatal. Keep the zone's managed
-crawler preferences enabled; do not remove them to make a release audit pass.
-Revision-pinned responses use `Cache-Control: no-transform`: email obfuscation,
-JavaScript detection and automatic analytics injection must not alter the bytes
-whose hashes the offline reader verifies. Canonical URLs retain their existing
-edge behavior; zone-wide security, crawler and analytics settings stay enabled.
-The document audit accepts an R2 HTTP 206 only when `Content-Range` covers the
-entire expected object and both its actual byte count and SHA-256 match. A partial,
-truncated, or corrupt response fails the audit.
+`_ci_study_pr.py` batches global search/offline finalization and generates changed social cards. Required gates check lifecycle/catalogs, readers/search/offline, social seals, declared companion ownership, references and agent mirrors. `_run_test_suites.py` discovers every `_test_*.py` except its explicit documented hold list. Verification never pushes repairs or changes timestamps. Labels organize review; they do not disable validation.
 
-1. Merge the preparation/verification changes and ensure Actions can create PRs.
-   Require the existing `verify` context with strict branch protection. Keep merge
-   commits enabled while bootstrap still uses the legacy skip-token action.
-2. Let `Publish site` build a complete release and audit its canary. Resolve all
-   failures. Record the manifest and current routes before migration.
-3. Set `SITE_RELEASES_ENABLED=true` and dispatch `Publish site` on master. This
-   disables legacy publishing/Pages retry and promotes the audited Worker without
-   changing public routes. Stop legacy Pages automatic builds by changing its
-   build source to GitHub Actions; retain the old deployment for migration recovery.
-4. Rebuild the same release bundle from its exact source and verified PDF artifacts.
-   Run `_cutover_site_release.py --release-root <bundle>` to audit the production
-   workers.dev endpoint and review route ownership, then add `--apply`. The command
-   installs the site route, removes legacy PDF/reference overrides, purges affected canonical
-   URLs and audits the public hostname. Failure restores the changed route entries.
-5. Confirm public revision, Read/Download status, ranges, API routing and an open old
-   reader across the next deployment. Preserve release objects and prior versions.
+## Protected publication and storage
 
-Required existing credentials: Cloudflare API token/zone, generated R2 endpoint,
-bucket and keys, plus the reference bucket variable. The Cloudflare token needs
-Workers Scripts, Workers Routes and cache-purge permissions. The direct-assets API
-uses its short-lived upload JWT, not an R2 credential.
-See [Cloudflare direct uploads](https://developers.cloudflare.com/workers/static-assets/direct-upload/)
-and [GitHub Actions permissions](https://docs.github.com/en/rest/actions/permissions).
+Every master merge queues `publish-site.yml`; token-created proposal merges dispatch it explicitly. Publication reads `/.well-known/publication.json` and its immutable build receipt. Failed reads fail closed. The previous push diff and an Actions cache are not evidence of live state. The plan explains build/reuse per output. Empty families skip renderer jobs and PDF transfers. Matching reviewed artifacts can satisfy builds. Other Markdown builds use a protected cache checked against actual host fonts/runtime; presentations assert their pinned renderer. One master validation job checks the exact candidate.
 
-## Local verification
+| R2 key | Ownership |
+|---|---|
+| `site/objects/<sha256>` | Immutable own-site bytes |
+| `site/assets/<public-path>/<sha256>.json` | Retained path/MIME binding for an asset |
+| `site/releases/<revision>.json` | Content manifest without mutable source/runtime provenance |
+| `site/builds/<sha256>.json` | Verified input/output receipt embedded in the active marker |
+| `site/source-deployments/<sourceSha>/<version>.json` | Immutable deployment provenance |
 
-```powershell
-python Scripts/_verify_studies_index.py
-python Scripts/_sync_glossary_html.py --check
-python Scripts/_sync_agent_rules.py --check
-python Scripts/_run_test_suites.py
-python Scripts/_validate_study_change.py --base-ref origin/master
-python Scripts/_build_markdown_pdfs.py --changed-since origin/master --output-root tmp/pdfs/review
-python Scripts/_site_release.py --artifact-root tmp/pdfs/complete --output-root tmp/site-release-review
-python Scripts/_site_release.py --output-root tmp/site-release-review --verify
-```
+References retain their separate manifest/bucket or Git storage. Large retained reference files use bounded static-asset segments. Unchanged generated PDFs use verified R2 records without downloading their bodies into build artifacts. The publisher independently reloads the protected receipt, checks hash/size metadata, stages objects, then writes the immutable content manifest and receipt. Partial staging cannot change production. No normal publication deletes objects or changes routes.
 
-After reader-asset changes, regenerate published HTML with `_convert_to_pdf.py`,
-then rebuild search/offline/catalog outputs. These controls do not change study
-content timestamps. After canonical Markdown edits, follow the full timestamp and
-PDF rules in AGENTS.md. A second generator pass must produce no diff.
+Assets have their own SHA-256 URLs; CSS rewrites only dependency URLs. Canonical HTML redirects to `?r=<revision>`. A shared navigation script carries that revision into navigation and data requests without embedding the release hash in every file. Live dashboard links retain the separately verified publication revision. Offline bundles permit revision-bound documents plus independently hashed assets, verifying checksums for both. Historical assets require matching path/MIME records.
 
-New regression suites cover output-contract deletions/forbidden writes, exact-head
-acceptance, bootstrap recovery, deterministic packaging, path exclusion, failed
-uploads, immutable collisions, historical revision reads, ranges, cache headers and
-retirement. API fixtures check one repository snapshot and draft-before-revision
-ordering. Smoke and end-to-end deployment checks complement these fixtures.
+The publisher stages `amd-site-canary`, audits all release URLs (full checksums for documents, size for other assets, including hashed delivery), rechecks the active state and activates production. Production audit failure restores the prior version. Source-pointer-only updates require unchanged content **and** delivery runtime/bindings, and still verify the exact marker. Runtime changes take full canary/public audits. A → B → A content changes reuse A's manifest with separate newer source provenance.
+
+## Worker ownership, rollout and recovery
+
+Each API/discovery Worker compares its executable/configuration fingerprint with its **active Cloudflare version annotation**, including after rollback. Frontend changes can run compatibility tests without uploading unchanged backends. Shared headers and API edge policy belong only to serialized `edge-policy.yml`.
+
+The first publication after migration has no prior build receipt. Generated PDFs need a verified reviewed artifact or cold build; approved R2 references with matching metadata are reused immediately. That deployment establishes the durable baseline used by later merges, including after failed or superseded runs. Stable rendering contracts are declared in `Scripts/render-contract.json`; the local render cache additionally records actual runtime/font bytes. Renderer or font changes intended for publication must update the contract in a new commit.
+
+Retry a failed publication for the intended master SHA. `force_rebuild=true` on the publication dispatch bypasses review/cache reuse. It does not waive byte checks, reference approval or canary gates. Different bytes for an already published source require a new pinned-contract commit. Rollback uses `_publish_site_release.py --rollback <retained-revision>` to activate a retained complete deployment; failed rollback auditing restores the previous version.
+
+Proposal approval registers Planned metadata with no public reader/PDF. Bootstrap rechecks open/approved state and uses exact-SHA verification and merge. It does not wait for Pages. Proposal issue reconciliation runs independently of publication. Closed/declined issue #420 must not be used as a fixture.

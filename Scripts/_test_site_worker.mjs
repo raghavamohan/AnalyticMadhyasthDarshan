@@ -43,4 +43,23 @@ const publication=await (await get('/.well-known/publication.json')).json();
 assert.equal(publication.sourceSha,current.sourceSha);assert.equal(publication.studies.A.status,'released');
 env.ASSETS.fetch=async()=>new Response('absent',{status:404});
 assert.equal((await get('/Studies/A/A.html')).status,503);
+// New packaging redirects canonical HTML once, then serves stable bytes at the
+// selected release. Retained legacy manifests still use their baked-in pins.
+current.deliveryVersion=2;
+response=await get('/Studies/A/A.html?find=term');
+assert.equal(response.status,302);
+assert.equal(new URL(response.headers.get('Location')).searchParams.get('r'),revision);
+assert.equal(new URL(response.headers.get('Location')).searchParams.get('find'),'term');
+assert.equal(response.headers.get('Cache-Control'),'no-store');
+const asset={...record,type:'text/css'};
+env.GENERATED_PDFS.get=async key=>{
+  if(key===`site/assets/Assets/old.css/${checksum}.json`)return {json:async()=>({schema:1,path:'/Assets/old.css',record:asset})};
+  if(key===record.key)return {body:'old'};
+  return null;
+};
+response=await get('/Assets/old.css?v='+checksum);
+assert.equal(await response.text(),'old');
+assert.match(response.headers.get('Cache-Control'),/immutable/);
+assert.equal((await get('/Assets/other.js?v='+checksum)).status,404,'Content hashes cannot change the path or MIME type of an asset');
+assert.equal((await get('/Studies/A/A.html?v='+checksum)).status,400);
 console.log('Site Worker revision, range, cache, retirement and incomplete-release tests passed.');

@@ -33,15 +33,20 @@ def export(path: Path) -> None:
         files[name] = None if deleted else base64.b64encode(target.read_bytes()).decode()
     payload = {'schema': 1, 'pr': pr['number'], 'head': pr['head']['sha'],
                'repository': pr['head']['repo']['full_name'], 'files': files}
+    from _verification_identity import intent_hash
+    payload.update(base=pr['base']['sha'], intent=intent_hash(pr))
     path.write_bytes(json.dumps(payload, ensure_ascii=False).encode())
 
 
 def validate(payload: dict, pr: dict, repo: str) -> dict[str, bytes | None]:
+    from _verification_identity import intent_hash
     if (payload.get('schema') != 1 or payload.get('repository') != repo
             or payload.get('pr') != pr['number'] or pr['state'] != 'open' or not pr['draft']
             or pr['head']['repo']['full_name'] != repo or pr['base']['ref'] != 'master'
             or payload.get('head') != pr['head']['sha'] or not re.fullmatch(r'[a-f0-9]{40}', payload.get('head', ''))):
         raise ValueError('Preparation is stale, or does not belong to this open draft PR.')
+    if not pr['base'].get('sha') or payload.get('base') != pr['base']['sha'] or payload.get('intent') != intent_hash(pr):
+        raise ValueError('Preparation base or lifecycle intent changed; prepare again.')
     if not isinstance(payload.get('files'), dict) or len(payload['files']) > 5000:
         raise ValueError('Invalid preparation file inventory.')
     files = {}
@@ -72,6 +77,16 @@ def accept(path: Path) -> None:
     if not isinstance(number, int) or number <= 0:
         raise ValueError('Invalid PR number.')
     pr = gh('api', f'repos/{repo}/pulls/{number}')
+    if pr['head']['sha'] != payload.get('head'):
+        current = gh('api', f"repos/{repo}/commits/{pr['head']['sha']}")
+        trailer = f"AMD-Prepared-From: {payload.get('head')}"
+        if (trailer in current.get('commit', {}).get('message', '').splitlines()
+                and payload.get('head') in {item['sha'] for item in current.get('parents', [])}
+                and pr['head']['repo']['full_name'] == repo and pr.get('state') == 'open'):
+            from _verification_identity import intent_hash, dispatch
+            if payload.get('base') == pr['base']['sha'] and payload.get('intent') == intent_hash(pr):
+                dispatch(repo, pr)
+                return
     files = validate(payload, pr, repo)
     branch = pr['head']['ref']
     git(BASE, 'check-ref-format', '--branch', branch)
@@ -93,18 +108,16 @@ def accept(path: Path) -> None:
                 git(checkout, 'add', '-A', '--', *files)
             if git(checkout, 'diff', '--cached', '--name-only'):
                 git(checkout, '-c', 'user.name=github-actions[bot]', '-c', 'user.email=41898282+github-actions[bot]@users.noreply.github.com',
-                    'commit', '-m', 'Prepare study artifacts for review')
+                    'commit', '-m', 'Prepare study artifacts for review\n\nAMD-Prepared-From: ' + payload['head'])
             head = git(checkout, 'rev-parse', 'HEAD')
             live = gh('api', f'repos/{repo}/pulls/{number}')
             validate(payload, live, repo)
             git(checkout, 'push', 'origin', f'HEAD:refs/heads/{branch}')
         finally:
             git(BASE, 'worktree', 'remove', '--force', str(checkout))
-    status(repo, head, 'pending', 'Prepared source is waiting for complete verification.')
     try:
-        command('gh', 'workflow', 'run', 'studies-index-check.yml', '--repo', repo, '--ref', branch,
-                '-f', f'report_sha={head}', '-f', f'pr_number={number}')
-        command('gh', 'pr', 'ready', str(number), '--repo', repo)
+        from _verification_identity import dispatch
+        dispatch(repo, gh('api', f'repos/{repo}/pulls/{number}'))
     except Exception:
         status(repo, head, 'failure', 'Prepared-head verification could not be queued.')
         raise

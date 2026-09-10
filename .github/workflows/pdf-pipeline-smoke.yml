@@ -1,16 +1,6 @@
 name: PDF pipeline smoke
 
-# Exercises the parts of the toolchain that no other workflow reaches.
-# studies-index-check.yml runs setup-study-env with node:false, and study-pr.yml
-# only fires on labelled study PRs — so the Node/npm/Chrome path and the
-# reproducibility of the PDF output itself were previously unverified until a real
-# study PR came along. This runs on demand, and automatically when the pipeline
-# it covers is touched.
-#
-# Uses the local `./.github/actions/...` path on purpose: unlike study-pr.yml this
-# never checks out a fork, so a PR that changes the action is tested against its
-# own version.
-
+# Reproducibility runs only when the shared print dependency graph changes.
 on:
   workflow_dispatch:
     inputs:
@@ -23,30 +13,6 @@ on:
         required: false
         default: '2'
   pull_request:
-    paths:
-      - "Scripts/_convert_to_pdf.py"
-      - "Scripts/_discussion_assets.py"
-      - "Scripts/_safe_study_html.py"
-      - "Scripts/_study_reader.py"
-      - "Scripts/_study_passages.py"
-      - "Scripts/_study_search.py"
-      - "Scripts/_build_reader_offline.py"
-      - "Scripts/_verify_study_svgs.py"
-      - "Scripts/_pdf_resource_policy.cjs"
-      - "Scripts/_html_to_pdf.js"
-      - "Scripts/_pdf_metadata.py"
-      - "Scripts/_regenerate_pdf.py"
-      - "Scripts/_study_pdf_metadata.py"
-      - "Scripts/_study_pdf_pipeline.py"
-      - "Scripts/_verify_pdf_reproducible.py"
-      - "Scripts/package.json"
-      - "Scripts/package-lock.json"
-      # markdown renders the HTML every PDF is printed from and pypdf rewrites
-      # the metadata that makes it reproducible, so a version change here can
-      # move PDF bytes. This is the only check that would notice.
-      - "requirements.txt"
-      - ".github/actions/setup-study-env/action.yml"
-      - ".github/workflows/pdf-pipeline-smoke.yml"
 
 permissions:
   contents: read
@@ -56,8 +22,31 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      changed: ${{ steps.inputs.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Select smoke from shared print dependencies
+        id: inputs
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          EVENT: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT" = workflow_dispatch ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=$(python Scripts/_artifact_graph.py --changed-print-since "$BASE_SHA")" >> "$GITHUB_OUTPUT"
+          fi
   reproducible:
-    runs-on: ubuntu-latest
+    needs: plan
+    if: needs.plan.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -75,9 +64,7 @@ jobs:
           SLUGS: ${{ github.event.inputs.slugs }}
         run: python Scripts/_verify_pdf_reproducible.py --runs "$RUNS" $SLUGS
 
-      # The pipeline writes in place, so the run leaves regenerated artifacts in
-      # the workspace. Nothing is ever committed or pushed — this is informational
-      # only, to make it obvious in the log which files a failing run touched.
+      # Only ignored PDFs are written; published readers and global catalogs stay intact.
       - name: Show what the run modified
         if: always()
         run: git status --short

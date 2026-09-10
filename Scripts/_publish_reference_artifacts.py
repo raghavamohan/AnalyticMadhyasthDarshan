@@ -257,6 +257,7 @@ def main() -> int:
         type=Path,
         help="Root containing CI-built PDF artifacts at their repository paths.",
     )
+    parser.add_argument('--plan', type=Path, help='Upload only reference objects selected by the publication plan')
     args = parser.parse_args()
 
     try:
@@ -276,9 +277,14 @@ def main() -> int:
                 raise RuntimeError(f"reference bucket does not exist: {name}")
             probe_s3_access(s3_client(name))
         elif args.upload_approved:
+            rows = _uploadable_rows(include_review_required=False)
+            if args.plan:
+                from _publication_plan import validate_plan
+                selected = set(validate_plan(json.loads(args.plan.read_bytes()))['build'])
+                rows = [row for row in rows if row['target']['r2_key'] in selected]
             upload_rows(
                 s3_client(name),
-                _uploadable_rows(include_review_required=False),
+                rows,
                 args.artifact_root,
             )
         elif args.upload_all_reviewed:

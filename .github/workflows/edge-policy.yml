@@ -1,0 +1,25 @@
+name: Shared edge policy
+on:
+  push:
+    branches: [master]
+    paths: [Scripts/_cloudflare_performance.py, .github/workflows/edge-policy.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: shared-edge-policy
+  cancel-in-progress: false
+jobs:
+  policy:
+    if: github.ref == 'refs/heads/master'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+      - uses: ./.github/actions/setup-study-env
+        with:
+          node: 'false'
+      - name: Apply shared security headers and API edge policy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+        run: python Scripts/_cloudflare_performance.py --apply-security-headers --apply-portal-edge-security --apply-discussions-rate-limits

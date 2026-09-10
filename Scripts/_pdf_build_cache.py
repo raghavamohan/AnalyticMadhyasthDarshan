@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Fingerprint PDF build inputs and verify exact, complete build-cache trees.
 
-Standard library only: cache lookup happens before installing rendering tools.
+Uses the shared consumed-input graph after installing Python dependencies.
 Keys describe source bytes and paths, never HEAD or the current time. Python
 imports and literal helper-script references are followed conservatively so a
 shared helper change cannot silently reuse an obsolete build.
@@ -18,26 +18,6 @@ from _build_inputs import script_dependencies, file_hash
 
 BASE = Path(__file__).resolve().parent.parent
 FAMILIES = ("markdown", "references", "presentations")
-ROOT_SCRIPTS = {
-    "markdown": ("_build_markdown_pdfs.py",),
-    "references": ("_build_reference_pdfs.py",),
-    "presentations": ("_build_presentations.py",),
-}
-COMMON_INPUTS = {
-    "Scripts/_pdf_build_cache.py", "requirements.txt", "CNAME",
-    ".github/actions/setup-study-env/action.yml",
-}
-IMAGE_SUFFIXES = {".svg", ".png", ".jpg", ".jpeg", ".gif", ".webp"}
-PDF_RENDERER_INPUTS = {
-    "Scripts/_chrome.js",
-    "Scripts/_html_to_pdf.js",
-    "Scripts/_pdf_resource_policy.cjs",
-    "Scripts/_render_katex_math.js",
-}
-GLOSSARY_INPUT = "Studies/glossary.json"
-REFERENCE_MANIFEST = "References/r2-artifacts.json"
-
-
 def tracked_files(root: Path) -> set[str]:
     result = subprocess.run(
         ["git", "ls-files", "-z"], cwd=root, check=True, capture_output=True,
@@ -45,113 +25,16 @@ def tracked_files(root: Path) -> set[str]:
     return {name for name in result.stdout.decode("utf-8").split("\0") if name}
 
 
-def reference_build_inputs(root: Path) -> set[str]:
-    """Return only files consumed by the public reference-PDF batch."""
-    selected = {REFERENCE_MANIFEST}
-    manifest_path = root / REFERENCE_MANIFEST
-    if not manifest_path.is_file():
-        return selected
-    try:
-        artifacts = json.loads(manifest_path.read_text(encoding="utf-8")).get("artifacts", [])
-    except (json.JSONDecodeError, OSError):
-        return selected
-    for row in artifacts:
-        target = row.get("target") or {}
-        if target.get("storage") != "r2-public" or not str(target.get("r2_key", "")).lower().endswith(".pdf"):
-            continue
-        for name in ((row.get("generation") or {}).get("source_markdown"),):
-            if not isinstance(name, str) or not name.startswith("References/"):
-                continue
-            selected.add(name)
-            parent = (root / name).parent
-            if Path(name).suffix.lower() == ".md" and parent.is_dir():
-                selected.update(
-                    path.relative_to(root).as_posix()
-                    for path in parent.iterdir()
-                    if path.is_file() and path.suffix.lower() in IMAGE_SUFFIXES
-                )
-    return selected
-
-
-
 def input_paths(family: str, root: Path, tracked: set[str]) -> set[str]:
-    selected = COMMON_INPUTS | script_dependencies(root, ROOT_SCRIPTS[family])
-    if family == "references":
-        selected.update(reference_build_inputs(root))
-    for name in tracked:
-        path = Path(name)
-        suffix = path.suffix.lower()
-        # These assets are linked as screen-only CSS and browser JS. PDF
-        # loading disables reader scripts; neither can affect printed output.
-        if name.startswith("Assets/") and name not in {
-            "Assets/reader/reader.css", "Assets/reader/reader.js", "Assets/reader/search.css",
-            "Assets/reader/search.js", "Assets/reader/reader-features.js",
-            "Assets/reader/notes-core.js", "Assets/reader/study-tools.js", "Assets/reader/study-tools.css",
-            "Assets/reader/offline-client.js", "Assets/reader/offline-policy.js",
-            "Assets/Mermaid/mermaid.min.js", "Assets/Mermaid/LICENSE", "Assets/Mermaid/vendor.json", "Assets/Mermaid/.gitattributes",
-            "Assets/reader/notes-core.js", "Assets/reader/study-tools.js", "Assets/reader/study-tools.css",
-            "Assets/reader/offline-client.js", "Assets/reader/offline-policy.js",
-            "Assets/Mermaid/mermaid.min.js", "Assets/Mermaid/LICENSE", "Assets/Mermaid/vendor.json",
-        }:
-            selected.add(name)
-        if family == "presentations":
-            if name == "Scripts/presentation-pipeline.json" or (
-                name.startswith(("Studies/", "Applications/")) and suffix == ".pptx"
-            ) or name == "Scripts/_install_presentation_renderer.ps1":
-                selected.add(name)
-        else:
-            if name in {"Scripts/package.json", "Scripts/package-lock.json", "References/r2-artifacts.json"}:
-                selected.add(name)
-            # The renderer's local JS dependencies are explicit. Unrelated Node
-            # tests and portal utilities must not invalidate PDF build families.
-            if name in PDF_RENDERER_INPUTS:
-                selected.add(name)
-            if family == "markdown":
-                if (
-                    name.startswith(("Studies/", "Applications/"))
-                    and name != GLOSSARY_INPUT
-                    and not name.startswith("Studies/search-data/")
-                    and name != "Studies/offline-manifest.json"
-                    and suffix in ({".md", ".json"} | IMAGE_SUFFIXES)
-                ):
-                    selected.add(name)
-                selected.add("Scripts/presentation-pipeline.json")
-    return selected
+    from _artifact_graph import build_graph
+    return {path for item in build_graph(root).values() if item['family'] == family for path in item['inputs']}
 
 
-def affected_families(
-    changed_paths: set[str],
-    root: Path = BASE,
-) -> set[str]:
-    """Return build families whose current inputs intersect a Git diff.
-
-    Deleted source files are classified by path because they no longer appear in
-    ``git ls-files`` at HEAD.  Imported pipeline helpers are discovered from the
-    current dependency graph, so unrelated scripts do not become global rebuild
-    switches.
-    """
-    normalized = {name.replace("\\", "/") for name in changed_paths}
-    tracked = tracked_files(root)
-    affected = {
-        family
-        for family in FAMILIES
-        if normalized & input_paths(family, root, tracked)
-    }
-    for name in normalized:
-        path = Path(name)
-        suffix = path.suffix.lower()
-        if name.startswith(("Studies/", "Applications/")):
-            if suffix == ".pptx":
-                affected.add("presentations")
-            elif name == GLOSSARY_INPUT:
-                # The shared glossary supplies web-reader tooltips only. Each
-                # study's printable glossary lives in its canonical Markdown.
-                continue
-            elif suffix in ({".md", ".json"} | IMAGE_SUFFIXES):
-                affected.add("markdown")
-        if name == REFERENCE_MANIFEST:
-            affected.update({"markdown", "references"})
-    return affected
+def affected_families(changed_paths: set[str], root: Path = BASE, *, base: str | None = None) -> set[str]:
+    from _artifact_graph import affected_outputs, build_graph
+    nodes = build_graph(root)
+    selected = affected_outputs(changed_paths, root=root, base=base, nodes=nodes)
+    return {nodes[key]['family'] for key in selected}
 
 
 def git_changed_paths(base: str, root: Path = BASE) -> set[str]:
@@ -170,19 +53,10 @@ def git_changed_paths(base: str, root: Path = BASE) -> set[str]:
 
 
 def fingerprint(family: str, root: Path = BASE, *, image: str = "") -> str:
-    tracked = tracked_files(root)
-    inputs = input_paths(family, root, tracked)
-    records = []
-    for name in sorted(inputs):
-        path = root / name
-        records.append((name, file_hash(path) if path.is_file() else "missing"))
-    # Cross-document link rewriting depends on the existence of HTML/PDF paths,
-    # not their generated bytes. Include tracked names without invalidating a
-    # study build for an unrelated edit to a reader's HTML or the portal.
-    targets = sorted(name for name in tracked if name.startswith(("Studies/", "Applications/", "References/"))
-                     and Path(name).suffix.lower() in {".html", ".pdf"}) if family == "markdown" else []
-    payload = {"schema": 1, "family": family, "image": image, "files": records, "targets": targets}
-    return hashlib.sha256(json.dumps(payload, sort_keys=True).encode("utf-8")).hexdigest()
+    from _artifact_graph import build_graph, fingerprint as content_fingerprint
+    # The runner image label is deliberately not a rendering contract.
+    return content_fingerprint({key: item['fingerprint'] for key, item in build_graph(root).items()
+                                if item['family'] == family})
 
 
 def manifest_name(family: str) -> str:
@@ -229,7 +103,7 @@ def main() -> int:
         image = f"{os.environ.get('ImageOS', os.name)}:{os.environ.get('ImageVersion', 'local')}"
         lines = [f"{family}={fingerprint(family, image=image)}" for family in FAMILIES]
         affected = (
-            affected_families(git_changed_paths(args.changed_since))
+            affected_families(git_changed_paths(args.changed_since), base=args.changed_since)
             if args.changed_since
             else set(FAMILIES)
         )

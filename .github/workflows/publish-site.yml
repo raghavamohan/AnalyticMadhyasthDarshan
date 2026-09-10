@@ -8,6 +8,10 @@ on:
         description: Optional exact merged commit to publish
         type: string
         required: false
+      force_rebuild:
+        description: Rebuild all artifacts; normal manual runs reuse verified outputs
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -34,7 +38,6 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       sha: ${{ steps.source.outputs.sha }}
-      base_sha: ${{ steps.source.outputs.base_sha }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -43,20 +46,16 @@ jobs:
       - id: source
         env:
           REQUESTED_SHA: ${{ inputs.source_sha || github.sha }}
-          PUSH_BASE_SHA: ${{ github.event.before }}
         run: |
           set -euo pipefail
           [[ "$REQUESTED_SHA" =~ ^[a-f0-9]{40}$ ]]
           git merge-base --is-ancestor "$REQUESTED_SHA" origin/master
           echo "sha=$REQUESTED_SHA" >> "$GITHUB_OUTPUT"
-          if [[ "${{ github.event_name }}" == "push" && "$PUSH_BASE_SHA" =~ ^[a-f0-9]{40}$ ]]; then
-            git merge-base --is-ancestor "$PUSH_BASE_SHA" "$REQUESTED_SHA"
-            echo "base_sha=$PUSH_BASE_SHA" >> "$GITHUB_OUTPUT"
-          fi
+
   publish:
     needs: source
     uses: ./.github/workflows/generated-pdf-publish.yml
     with:
       source_sha: ${{ needs.source.outputs.sha }}
-      base_sha: ${{ needs.source.outputs.base_sha }}
+      force_rebuild: ${{ inputs.force_rebuild || false }}
     secrets: inherit

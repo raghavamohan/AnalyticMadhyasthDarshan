@@ -1,6 +1,4 @@
 const ORIGIN = "https://analyticmadhyasthdarshan.org";
-const GITHUB_RAW =
-  `https://raw.githubusercontent.com/raghavamohan/AnalyticMadhyasthDarshan/${SOURCE_REVISION}`;
 const PROTOCOL_VERSIONS = ["2025-06-18", "2025-03-26", "2024-11-05"];
 const DEFAULT_PROTOCOL = PROTOCOL_VERSIONS[0];
 const CITATION_AUTHOR = "Raghav Mohan";
@@ -258,32 +256,26 @@ function validateCatalogInput(input) {
   return {...input, query, q: query, collection, status, slug};
 }
 
-async function fetchJson(path) {
-  // A catalog-changing merge deploys this Worker and the complete site in
-  // parallel. Pin the primary read to this Worker's immutable source commit so
-  // a same-origin edge copy from the preceding site release cannot make the API
-  // publish an older catalog. The public site remains the availability fallback.
-  const urls = [`${GITHUB_RAW}${path}`, `${ORIGIN}${path}`];
-  let lastError = null;
-  for (const url of urls) {
-    try {
-      const response = await fetch(url, {
-        headers: {
-          Accept: "application/json",
-          "User-Agent": "amd-mcp-catalog-fetch/1.3",
-        },
-      });
-      if (!response.ok) {
-        lastError = new Error(`${url} returned HTTP ${response.status}`);
-        continue;
-      }
-      const data = await response.json();
-      return data;
-    } catch (err) {
-      lastError = err;
-    }
-  }
-  throw lastError || new Error(`failed to fetch ${path}`);
+async function publicationRevision() {
+  const response = await fetch(`${ORIGIN}/.well-known/publication.json`, {
+    headers: {Accept: "application/json", "User-Agent": "amd-mcp-catalog-fetch/2"},
+    cache: "no-store",
+  });
+  if (!response.ok) throw new Error(`Publication state unavailable: HTTP ${response.status}`);
+  const state = await response.json();
+  if (!/^[a-f0-9]{64}$/.test(state.revision || "")) throw new Error("Invalid publication revision");
+  return state.revision;
+}
+
+async function fetchJson(path, revision) {
+  const active = revision || await publicationRevision();
+  const url = new URL(path, ORIGIN);
+  url.searchParams.set("r", active);
+  const response = await fetch(url, {
+    headers: {Accept: "application/json", "User-Agent": "amd-mcp-catalog-fetch/2"},
+  });
+  if (!response.ok) throw new Error(`${path} at published revision returned HTTP ${response.status}`);
+  return response.json();
 }
 
 async function fetchText(urls) {
@@ -312,33 +304,24 @@ async function fetchText(urls) {
 }
 
 async function loadCatalogs() {
-  try {
-    const rows = await fetchJson("/Studies/catalog-all.json");
-    if (Array.isArray(rows)) {
-      return rows.map((row) => normalizeRow(row, row.collection));
-    }
-  } catch (_err) {
-    // Fall back to the three collection files if catalog-all is not live yet.
-  }
-  let loadedCollections = 0;
-  const parts = await Promise.all(
-    CATALOG_SOURCES.map(async ([path, collection]) => {
-      try {
-        const rows = await fetchJson(path);
-        if (!Array.isArray(rows)) {
-          return [];
-        }
-        loadedCollections += 1;
-        return rows.map((row) => normalizeRow(row, collection));
-      } catch (_err) {
-        return [];
+  const revision = await publicationRevision();
+  const rows = await fetchJson("/Studies/catalog-all.json", revision);
+  if (!Array.isArray(rows)) throw new Error("Published catalog is invalid.");
+  const result = rows.map(raw => {
+    const row = normalizeRow(raw, raw.collection);
+    Object.defineProperty(row, "publicationRevision", {value: revision});
+    for (const key of ['htmlUrl', 'pdfUrl', 'mdUrl']) {
+      if (!row[key]) continue;
+      const url = new URL(row[key]);
+      if (url.origin === ORIGIN) {
+        url.searchParams.set('r', revision);
+        row[key] = url.href;
       }
-    })
-  );
-  if (loadedCollections === 0) {
-    throw new Error("No study catalog source is available.");
-  }
-  return parts.flat();
+    }
+    return row;
+  });
+  Object.defineProperty(result, 'publicationRevision', {value: revision});
+  return result;
 }
 
 function filterStudies(rows, input) {
@@ -380,23 +363,10 @@ function studySummary(row) {
 }
 
 function markdownUrls(row) {
-  const urls = [];
-  if (row.mdUrl) {
-    urls.push(row.mdUrl);
-  }
-  if (row.md) {
-    urls.push(`${GITHUB_RAW}/Studies/${row.md}`);
-    if (String(row.md).startsWith("../")) {
-      urls.push(`${GITHUB_RAW}/${String(row.md).slice(3)}`);
-    }
-  }
-  if (row.slug) {
-    urls.push(`${ORIGIN}/Studies/${row.slug}/${row.slug}.md`);
-    urls.push(`${GITHUB_RAW}/Studies/${row.slug}/${row.slug}.md`);
-    urls.push(`${ORIGIN}/Applications/${row.slug}/${row.slug}.md`);
-    urls.push(`${GITHUB_RAW}/Applications/${row.slug}/${row.slug}.md`);
-  }
-  return [...new Set(urls.filter(Boolean))];
+  const url = new URL(row.mdUrl || `/${row.collection === 'applied' ? 'Applications' : 'Studies'}/${row.slug}/${row.slug}.md`, ORIGIN);
+  if (url.origin !== ORIGIN || !row.publicationRevision) return [];
+  url.searchParams.set("r", row.publicationRevision);
+  return [url.href];
 }
 
 function extractOutline(markdown) {
@@ -504,15 +474,12 @@ function studyRef(rows, slug, extra) {
   return { ...base, ...(extra || {}) };
 }
 
-async function loadStartHere() {
-  if (typeof START_HERE !== "undefined") {
-    return START_HERE;
-  }
-  return fetchJson("/Studies/start-here.json");
+async function loadStartHere(revision) {
+  return fetchJson("/Studies/start-here.json", revision);
 }
 
 async function startHerePayload(rows) {
-  const path = await loadStartHere();
+  const path = await loadStartHere(rows.publicationRevision);
   const stages = (path.stages || []).map((stage) => ({
     number: stage.number,
     domain: stage.domain,

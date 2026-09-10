@@ -16,6 +16,10 @@ def main() -> None:
     if report and (not re.fullmatch(r'[a-f0-9]{40}', report) or report != head):
         raise ValueError('Checked-out commit differs from the exact requested SHA.')
     pr = event.get('pull_request')
+    # Intent and draft state can change without changing the source SHA.
+    if pr and os.environ.get('GITHUB_TOKEN'):
+        os.environ['GH_TOKEN'] = os.environ['GITHUB_TOKEN']
+        pr = gh('api', f"repos/{repo}/pulls/{pr['number']}")
     number = os.environ.get('PR_NUMBER', '')
     if number:
         if not re.fullmatch(r'[1-9][0-9]*', number):
@@ -28,9 +32,20 @@ def main() -> None:
         base = pr['base']['sha']
         subprocess.run(['git', 'fetch', f'https://github.com/{repo}.git', base], check=True)
         body = pr.get('body') or ''
+        from _verification_identity import verification_key, is_preparing
+        key = verification_key(pr)
+        if os.environ.get('VERIFICATION_KEY') and os.environ['VERIFICATION_KEY'] != key:
+            raise ValueError('PR base or lifecycle intent changed after verification was queued.')
+        preparing = is_preparing(pr, report)
+        output('ready', 'false' if preparing else 'true')
+        output('identity', key)
+        if preparing:
+            from _bootstrap_ci import status
+            status(repo, head, 'pending', 'Preparing generated study files before verification.')
     else:
         base = subprocess.check_output(['git', 'rev-parse', 'HEAD^'], text=True).strip()
         body = ''
+        output('ready', 'true')
     Path(os.environ['RUNNER_TEMP'], 'verified-pr-body.txt').write_text(body, encoding='utf-8', newline='\n')
     output('head', head)
     output('base', base)

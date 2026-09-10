@@ -157,13 +157,14 @@ if (!discussion) test('dashboard status uses the open-PR head and enriches witho
       if (url.includes('/commits/head-sha/check-runs')) return Response.json({
         check_runs:[{id:1,name:'Study PR',app:{id:1},status:'completed',conclusion:'success'}],total_count:1,
       });
+      if (url.endsWith('/commits/head-sha/status')) return Response.json({statuses:[]});
       throw new Error('Unexpected dashboard status request: '+url);
     };
     const result=await workerModule.buildDashboardStatus({login:'alice',accessToken:'test'},{});
     assert.equal(result.statuses.length,1);
     assert.equal(result.statuses[0].stage,'changes_requested');
     assert.equal(result.statuses[0].checks.state,'success');
-    assert.equal(result.meta.githubRequests,3);
+    assert.equal(result.meta.githubRequests,4);
     assert.equal(calls.some(url => new URL(url).pathname.endsWith('/pulls/7')),false);
 
     const auth=await import(await sourceUrl(path.resolve('src/auth.js')));

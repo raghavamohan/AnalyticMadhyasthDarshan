@@ -414,6 +414,7 @@ def register_normalized_pdf(source_html: Path, pdf_path: Path) -> None:
         "target": _normalized_pdf_target(html_row, pdf_repo_path),
         "generation": {
             "source_markdown": markdown_path.relative_to(BASE).as_posix(),
+            "source_sha256": _sha256(markdown_path),
             "original_html": html_repo_path,
             "build_path": build_rel,
             **generated_pdf_signature(pdf_path),
@@ -597,6 +598,12 @@ def manifest_errors(data: dict, *, require_local_sources: bool = False) -> list[
             and (entry.get("target") or {}).get("storage") == "r2-public"
         ):
             generation = entry.get("generation") or {}
+            markdown_source = BASE / str(generation.get('source_markdown', ''))
+            if not re.fullmatch(r'[a-f0-9]{64}', str(generation.get('source_sha256', ''))):
+                errors.append(f'{normalized}: generation.source_sha256 must bind the approved Markdown')
+            else:
+                if not markdown_source.is_file() or _sha256(markdown_source) != generation['source_sha256']:
+                    errors.append(f'{normalized}: normalized Markdown changed; rebuild and register its approved PDF')
             if not isinstance(generation.get("pages"), int) or generation.get("pages", 0) <= 0:
                 errors.append(f"{normalized}: generation.pages must be positive")
             if not re.fullmatch(r"[0-9a-f]{64}", str(generation.get("text_sha256", ""))):
@@ -650,16 +657,15 @@ def manifest_errors(data: dict, *, require_local_sources: bool = False) -> list[
                         f"{normalized}: generated content signature mismatch "
                         f"(manifest {expected}, local {signature})"
                     )
-            else:
-                actual_size = local.stat().st_size
-                if actual_size != source.get("bytes"):
-                    errors.append(
-                        f"{normalized}: size mismatch "
-                        f"(manifest {source.get('bytes')}, local {actual_size})"
-                    )
-                actual_hash = _sha256(local)
-                if actual_hash != source.get("sha256"):
-                    errors.append(f"{normalized}: SHA-256 mismatch")
+            actual_size = local.stat().st_size
+            if actual_size != source.get("bytes"):
+                errors.append(
+                    f"{normalized}: size mismatch "
+                    f"(manifest {source.get('bytes')}, local {actual_size})"
+                )
+            actual_hash = _sha256(local)
+            if actual_hash != source.get("sha256"):
+                errors.append(f"{normalized}: SHA-256 mismatch")
 
     if artifacts != sorted(artifacts, key=lambda item: item.get("repo_path", "")):
         errors.append("artifacts must be sorted by repo_path")
