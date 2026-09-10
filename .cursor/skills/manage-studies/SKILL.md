@@ -1,108 +1,139 @@
 ---
 name: manage-studies
 description: >-
-  Add, remove, or change Draft/Released status of studies in this repo using
-  Scripts/_add_study.py, _remove_study.py, and _set_study_status.py. Use when
-  registering a new study, retiring a study, releasing or reverting draft status,
-  updating study catalogs, or when the user asks to manage studies in
-  Studies/ or Applications/.
+  Manage study registration, content updates, Draft/Released transitions,
+  rename and retirement, and route new or updated decks and technical notes.
+  Use for study lifecycle work under Studies/ or Applications/ and for finalizing
+  tracked artifacts with the same producers and checks as CI preparation.
 ---
 
 # Manage studies
 
-Orchestration skill for the study lifecycle. Read the focused skill for your task:
+Use the focused skill for authoring, then complete the shared finish below.
+[AGENTS.md](../../../AGENTS.md) governs timestamps, prose, references and PRs;
+[CI.md](../../../.github/CI.md) describes verification and publication.
 
-| Task | Skill |
-|------|-------|
-| Register or add a study | [add-study](../add-study/SKILL.md) |
-| Remove a study | [remove-study](../remove-study/SKILL.md) |
-| Draft ↔ Released | [set-study-status](../set-study-status/SKILL.md) |
-| Rename slug / sync proposal metadata | [rename-study](../rename-study/SKILL.md) |
-| Regenerate PDF / fix diagrams | [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) |
-| Update teaching deck (PPTX) | [update-study-presentation](../update-study-presentation/SKILL.md) |
-| Update Presenter's Companion notes | [update-presenters-companion](../update-presenters-companion/SKILL.md) |
-| Audit / download references | [download-references](../download-references/SKILL.md) |
+| Task | Skill / shared entry point |
+|------|----------------------------|
+| Register a study or first draft | [add-study](../add-study/SKILL.md), `_add_study.py` |
+| Edit canonical study content | [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md), `_regenerate_pdf.py <Slug>` |
+| Draft ↔ Released | [set-study-status](../set-study-status/SKILL.md), `_set_study_status.py` |
+| Retire a study / planned placeholder | [remove-study](../remove-study/SKILL.md), `_remove_study.py` |
+| Rename study and companion paths | [rename-study](../rename-study/SKILL.md), `_rename_study.py --skip-issue` |
+| Add a presentation deck | [add-study-presentation](../add-study-presentation/SKILL.md) |
+| Edit slides, notes, or slide order | [update-study-presentation](../update-study-presentation/SKILL.md), `_build_presentations.py` |
+| Add a technical/research note and figures | [add-technical-note](../add-technical-note/SKILL.md) |
+| Update a Presenter's Companion | [update-presenters-companion](../update-presenters-companion/SKILL.md) |
+| Edit landing page/catalog copy | [refine-studies-index](../refine-studies-index/SKILL.md) |
+| Audit citations / mirrors | [check-references](../check-references/SKILL.md), [download-references](../download-references/SKILL.md) |
 
-## Repository model
+## Sources and states
 
-- **Source of truth:** `Studies/<Slug>/<Slug>.md` for topical/formal studies;
-  `Applications/<Slug>/<Slug>.md` for applied studies
-- **Published output:** tracked sibling `<Slug>.html`; the matching `<Slug>.pdf`
-  is generated for verification, ignored by Git, and served from Cloudflare R2
-- **Companion deck artifacts** (generated; a study folder may hold more than one deck): `<Deck>.pptx` is the source of truth, and it produces `<Deck>.pdf` (slides only — what the index links), `<Deck>-notes.pdf` (slide plus read-aloud script per page, for the presenter), and alongside them `Presenters-Companion-<Name>.md` → `.notes.json` / `.docx` / `.pdf` (script plus background and Q&A). Deck-only changes never touch `**Edited on:**` or catalog timestamps.
-- **Catalogs:** `Studies/index.html` (JSON + card UI shell), `Studies/README.md` (markdown tables; updated by scripts)
-- **Index shell source:** `Scripts/_build_studies_index.py` (`INDEX_TEMPLATE`) — edit template, run `python Scripts/_build_studies_index.py`, verify with `python Scripts/_verify_studies_index.py`
-- **Citations:** `References/README.md`, `References/MANIFEST.md` (add/remove only)
+Canonical study sources are `Studies/<Slug>/<Slug>.md` (topical/formal) or
+`Applications/<Slug>/<Slug>.md` (applied). Tracked HTML readers are generated
+from those sources. Generated study/application PDFs are ignored by Git and
+served through the coherent site's R2 release. Missing local PDFs are expected.
 
-## Study states
+| State | Public catalog / artifacts |
+|-------|----------------------------|
+| Ongoing / Planned | No public read/download links or PDF; approved proposals may have internal MD/HTML stubs |
+| Draft | Reader and PDF with Draft watermark |
+| Released | Reader and PDF without watermark |
 
-| State | Catalog | PDF |
-|-------|---------|-----|
-| Ongoing / Planned | Italic, no public link | None for catalog-only placeholders; approved proposals may retain an internal stub PDF |
-| Draft | Linked + Draft status | Draft watermark |
-| Released | Linked + Released status | No watermark |
+PPTX is the visible-slide source. `presentation-pipeline.json` declares every
+deck's slides/notes PDF pair. `companion-pipeline.json` declares each Presenter's
+Companion MD → DOCX/notes JSON → PPTX notes chain. Ordinary technical/research
+notes use the Markdown pipeline and automatic inventory, without a presenter
+mapping. Neither companions nor figures acquire catalog rows of their own.
 
-## Before you start
+## Prepare the affected outputs
 
-Create a feature branch before touching anything under `Studies/` or `Applications/` — never commit study
-changes directly to the default branch. See [AGENTS.md](../../../AGENTS.md) §7 for the full
-branch/PR-label/template workflow; this skill covers file-level correctness only.
+Work from the repository root on a feature branch. Install repository Python
+requirements and the pinned Node/Chrome dependencies when rendering Markdown;
+deck rendering also needs the manifest's exact production renderer and fonts.
+Use the lifecycle scripts' `--dry-run` when useful; inspect `--help` for each
+command instead of assuming flags are interchangeable.
 
-## Prerequisites
+Refresh the canonical study's `Edited on` using real IST time when its Markdown
+changes, including Status, citations or links. The add/status scripts set it;
+manual edits follow AGENTS §1. Companion-only changes leave the parent's date
+alone. Choose an explicit requested Draft/Released state; do not toggle to
+discover the current state.
 
-From repo root (PowerShell):
+| Changed input | Required rendering |
+|---------------|--------------------|
+| Canonical MD, status or an embedded figure/resource | Regenerate each consuming study with `_regenerate_pdf.py <Slug>` |
+| Technical/research-note MD or its embedded resources | Regenerate that note by Markdown path |
+| PPTX, including notes-only or order-only edits | `_build_presentations.py --deck <ID> --in-place` builds and verifies both PDFs atomically |
+| Presenter's Companion MD | `_build_presenters_companion.py <md> --pdf --pptx <deck>`; rebuild the deck pair if PPTX notes changed |
+| Shared glossary | `_sync_glossary_html.py --write`, then `_build_reader_offline.py`; no PDF render |
+| Catalog/landing-page copy, unused image, skill or web-only change | Finalize affected tracked web artifacts; no PDF render unless a consumed print input also changed |
 
-```powershell
-pip install -r requirements.txt
-Set-Location Scripts
-npm ci
-npx puppeteer browsers install chrome
-Set-Location ..
-```
+The shared `_artifact_graph.py` follows embedded resources, including an image
+referenced inside an SVG. An unused file beside a study does not invalidate its
+PDF. A linked document's body change does not change the referring PDF's printed
+URL. Changing an external SVG used to author a slide requires updating the image
+inside the PPTX; the deck renderer consumes the PPTX, not that loose source image.
 
-## Which script?
+## Shared finish before review
 
-```
-New study or catalog entry?     → _add_study.py
-Delete study entirely?          → _remove_study.py
-Finalize or revert draft?       → _set_study_status.py
-Rename slug (directory move)?   → [rename-study](../rename-study/SKILL.md) (`_rename_study.py`; study-update PR)
-Edit body text only?            → edit .md, then [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
-Edit slides or slide order?     → [update-study-presentation](../update-study-presentation/SKILL.md); regenerate `<Deck>.pdf` then `<Deck>-notes.pdf`
-Edit read-aloud scripts only?   → [update-presenters-companion](../update-presenters-companion/SKILL.md); re-sync notes, then rebuild `<Deck>-notes.pdf`
-Quote check before PR?          → `python Scripts/_quote_tool.py verify --study <Slug>`
-```
+1. After the targeted renders, finalize tracked artifacts:
 
-Always run scripts from the **repository root**. The lifecycle entry points
-`_add_study.py`, `_remove_study.py`, `_rename_study.py`, and `_set_study_status.py` support
-`--dry-run`; check `--help` rather than assuming unrelated commands do.
+   ```powershell
+   python Scripts/_finalize_study_artifacts.py --study <Slug>
+   ```
 
-## After any study change
+   Pass `--study` for each canonical Markdown whose metadata/catalog needs sync,
+   including a registered first draft; repeat it for multiple studies. Omit it
+   for companion-only changes, retirement, or catalog/shell-only changes:
 
-Confirm before finishing:
+   ```powershell
+   python Scripts/_finalize_study_artifacts.py
+   ```
 
-- [ ] `**Edited on:**` in `.md` matches catalog **Last updated on** (abbreviated month in catalog)
-- [ ] `**Status:**` in `.md` matches catalog Draft/Released (if published)
-- [ ] PDF regenerated when content or status changed (pinned Node dependencies and Chrome installed under `Scripts/`)
-- [ ] Generated PDF was not added to Git; R2 publication is handled by the protected-branch workflow
-- [ ] `Studies/catalog-*.json` and `Studies/README.md` table rows stay in sync (use `write_studies_catalog` via scripts — never hand-edit JSON)
-- [ ] When headings, slugs, or removals affect another study, update all inbound/
-  outbound cross-study links and `§` references in the same multi-study
-  `study-update` PR; refresh and regenerate every markdown source changed
-- [ ] After landing-page UI changes: `INDEX_TEMPLATE` updated in `_build_studies_index.py`, shell rebuilt, `python Scripts/_verify_studies_index.py` passes
-- [ ] Change is on a feature branch (not the default branch); the PR to open carries exactly one
-  of `new-study` / `study-update` / `status-change` and the body field that label requires —
-  [AGENTS.md](../../../AGENTS.md) §7
+   This reuses CI preparation's catalog synchronization, index, companion
+   inventory, generated-PDF keys, social cards, search and offline builders. It
+   checks index/inventory freshness and declared companion DOCX/JSON/PPTX
+   consistency. It does not render PDFs, invent source timestamps or publish.
+   A repeat on unchanged inputs must leave no diff.
 
-**Agent rules:** [AGENTS.md](../../../AGENTS.md) — §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline), §7 (submission process: branches, PR labels, templates).
+2. Run applicable reference and quote checks from AGENTS §6–§7. Review source,
+   HTML, catalog, registry, manifests and generated discovery diffs. Commit them
+   together, including companion DOCX/notes JSON/PPTX when applicable; never add
+   generated study/application PDFs. Run `git diff --check` before committing.
 
-## Study writing standards
+3. Write the PR body using the matching template, then validate the **committed
+   HEAD** against the current base with that same body:
 
-When editing study **body text**, follow [AGENTS.md](../../../AGENTS.md):
+   ```powershell
+   python Scripts/_validate_study_change.py --base-ref origin/master --body-file <PR-body-file>
+   python Scripts/_verify_studies_index.py
+   python Scripts/_verify_companion_outputs.py
+   ```
 
-- §4 — prose style (no `[Text]` tags, `**Step N —**`, `**Verdict:**`, or honesty qualifiers)
-- §5 — shared approach on the landing page; study-specific scope where the argument needs it
+   The first command compares commits, not uncommitted edits. First drafts also
+   need `GITHUB_REPOSITORY` and an authenticated `GITHUB_TOKEN` for the read-only
+   approval check against the linked open `proposal-approved` issue. Never print
+   credentials. Fix failures, recommit, and repeat the affected checks.
 
-Reference implementations: `Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md`, `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md`.
+   To inspect CI's affected PDF families after committing:
+   `python Scripts/_pdf_build_cache.py --keys --changed-since origin/master`.
+   CI uses the same graph for targeted Markdown and presentation builds; missing
+   ignored PDFs alone do not request regeneration.
 
-Contributor overview: [Studies/README.md](../../../Studies/README.md), [CONTRIBUTING.md](../../../CONTRIBUTING.md)
+4. Open a ready-for-review PR with the appropriate `new-study`, `study-update`
+   or `status-change` label and bare slug/status fields from AGENTS §7. A new
+   technical note or deck uses `study-update`. Companion-only timestamp items
+   are N/A. Labels organize the PR; required `verify` infers scope from the
+   committed changes and intent, so a missing label does not bypass validation.
+
+Local contributors prepare outputs before review. Portal source submissions use
+the separate Draft-PR preparation/acceptance workflow; its preparation calls
+this same finalizer, and its required verifier checks the accepted commit
+without repair writes. Study Draft status does not mean a GitHub draft PR.
+
+After merge, `publish-site.yml` compares the merged dependency graph with the
+active publication receipt, reuses matching artifacts, builds/uploads changed
+ones, checks the staged revision and promotes a coherent release. Normal skill
+work ends with this protected workflow; do not run the standalone R2 publisher
+or patch public pointers to publish a study independently.

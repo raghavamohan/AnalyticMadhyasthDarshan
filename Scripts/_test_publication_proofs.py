@@ -111,7 +111,9 @@ class PublicationProofTests(unittest.TestCase):
                      'The-Ontology-of-Existence-Madhyasth-Darshan.pptx']:
             self.assertTrue(permits(prefix + name), name)
         self.assertFalse(permits(prefix + 'Unregistered.pptx'))
-        self.assertFalse(permits('Scripts/companion-pipeline.json'))
+        # Its contents are separately checked against trusted ownership before
+        # acceptance; path permission alone cannot redefine binary write access.
+        self.assertTrue(permits('Scripts/companion-pipeline.json'))
 
     def test_no_redundant_dispatch_for_same_successful_verification(self):
         pr = {'number': 1, 'head': {'sha': 'a'*40, 'ref': 'branch'}, 'base': {'sha': 'b'*40}}

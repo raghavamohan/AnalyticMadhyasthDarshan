@@ -17,6 +17,13 @@ description: >-
    `Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md` (comparative anthropology, critique closings).
 3. Write `Studies/<Slug>/<Slug>.md` with author block, or prepare an external PDF for maintainer conversion (`--convert`).
 4. Choose catalog table: **topical** (default) or **formal** (`--formal`).
+   This registration CLI does not provide an applied-table switch; do not invent
+   `--applied` or hand-edit catalogs to bypass it. Existing applied studies use
+   the shared update/status/rename/retirement workflows.
+5. A first public draft requires the linked open `proposal-approved` issue and
+   matching `proposal-registry.json` entry. Preserve the approved slug and
+   proposal metadata; use `new-study` with `Proposal issue: #N` and `Slug: <Slug>`.
+   Local registration prepares files; it does not substitute for approval.
 
 ## Recommended: register from markdown
 
@@ -82,7 +89,7 @@ silently retain a document.
 
 ## PDF import
 
-**Stub import (default):** copies the PDF and writes a placeholder `.md` for manual expansion.
+**Stub import (default):** copies the PDF and writes a placeholder `.md` for manual expansion. This is staging only, not a publication-ready study. Finish a real Markdown source and regenerate through the canonical pipeline before review.
 
 **Converted import (`--convert`):** runs layout-aware extraction (`_pdf_to_md.py`) into a real
 draft `.md`. Maintainer must review before regenerating PDF:
@@ -101,7 +108,7 @@ If you edit body text later:
 1. Refresh `**Edited on:**` per `AGENTS.md` §1
 2. Regenerate PDF: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) (`python Scripts/_regenerate_pdf.py <Slug>`)
 
-Or use `_set_study_status.py` / `_add_study.py --force --skip-pdf` only for metadata sync — not for body edits without timestamp update.
+Use `_finalize_study_artifacts.py --study <Slug>` to synchronize the catalog from authored metadata. `--skip-pdf` and `--no-check-timestamps` are intermediate/diagnostic flags: finish the targeted render and normal checks before review.
 
 ## Completion checklist
 
@@ -117,3 +124,12 @@ Or use `_set_study_status.py` / `_add_study.py --force --skip-pdf` only for meta
 - Overview: [manage-studies](../manage-studies/SKILL.md)
 - Remove: [remove-study](../remove-study/SKILL.md)
 - Release: [set-study-status](../set-study-status/SKILL.md)
+
+## Finish with the shared CI workflow
+
+Complete [manage-studies: shared finish](../manage-studies/SKILL.md#shared-finish-before-review)
+after this skill's targeted renders. Use `_finalize_study_artifacts.py --study
+<Slug>` for changed canonical metadata, or omit `--study` for companion-only
+changes and retirement. Commit the tracked outputs, validate the committed
+HEAD with `_validate_study_change.py` and the same PR body, and let protected
+coherent-site publication handle changed artifacts after merge.

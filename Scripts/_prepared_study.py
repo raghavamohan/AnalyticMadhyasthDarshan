@@ -59,6 +59,9 @@ def validate(payload: dict, pr: dict, repo: str) -> dict[str, bytes | None]:
         if total > 100_000_000:
             raise ValueError('Preparation exceeds 100 MB.')
         files[name] = raw
+    if 'Scripts/companion-pipeline.json' in files:
+        from _companion_lifecycle import validate_prepared_manifest
+        validate_prepared_manifest(files['Scripts/companion-pipeline.json'], root=BASE)
     return files
 
 

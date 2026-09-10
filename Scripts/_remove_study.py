@@ -261,8 +261,10 @@ def remove_study(
         slug,
         dry_run=True,
     )
+    from _companion_lifecycle import remove_companions
+    companion_count = remove_companions(slug, root=BASE, dry_run=True)
 
-    if table is None and not existing_paths and registry_row is None and not deck_count:
+    if table is None and not existing_paths and registry_row is None and not deck_count and not companion_count:
         known = known_study_slugs()
         hint = f"\nKnown studies: {', '.join(known)}" if known else ""
         raise SystemExit(f"Study not found: {slug}{hint}")
@@ -295,6 +297,8 @@ def remove_study(
                 f"Would remove {deck_count} deck entr{'y' if deck_count == 1 else 'ies'} "
                 f"from {PRESENTATION_MANIFEST_PATH}"
             )
+        if companion_count:
+            print(f"Would remove {companion_count} presenter-companion mapping(s)")
         print("\nDry run — no files changed.")
         return
 
@@ -302,6 +306,7 @@ def remove_study(
         print("Cancelled.")
         return
 
+    remove_companions(slug, root=BASE)
     deck_count = remove_presentation_manifest_entries(
         slug,
         dry_run=False,

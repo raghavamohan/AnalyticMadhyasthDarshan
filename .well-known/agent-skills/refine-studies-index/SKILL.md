@@ -104,6 +104,7 @@ Run from the repository root:
 
 ```powershell
 python Scripts/_build_studies_index.py
+python Scripts/_finalize_study_artifacts.py
 python Scripts/_verify_studies_index.py
 python -m py_compile Scripts/_build_studies_index.py
 git diff --check

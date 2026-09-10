@@ -16,7 +16,7 @@ description: >-
 
 - Treat the existing `.pptx` as the source of truth and update it in place.
 - Do not create presentation YAML or derive slides mechanically from study markdown.
-- Use the installed Presentations skill and its artifact-tool template-following workflow.
+- Use the available presentation authoring skill and preserve the existing template. The repository staged builder remains the authority for published PDFs.
 - Preserve the deck's typography, palette, spacing, layouts, footers, notes, and visual language unless the user asks for a redesign.
 - Base substantive changes on the companion study and cited sources. Keep visible copy concise and suitable for teaching; avoid editorial or production commentary unless it serves the audience.
 
@@ -38,7 +38,7 @@ unless the requested work calls for changing them.
 
 1. Confirm the work is on a feature branch. Any change under `Studies/` or `Applications/` requires a `study-update` pull request under [AGENTS.md](../../../AGENTS.md) §7.
 2. Inspect and render the complete source deck before editing.
-3. Map requested changes to inherited slides and objects; edit with artifact-tool rather than `python-pptx` or direct OOXML mutation.
+3. Map requested changes to inherited slides and objects; use the available authoring tools while preserving source structure and notes ownership.
 4. Render every final slide and run the Presentations skill's overflow check. Inspect changed slides at full size and review the complete deck for flow and consistency.
 5. Replace the canonical `.pptx` only after the edited copy passes QA.
 6. Find the deck's ID in `Scripts/presentation-pipeline.json`, then run the staged
@@ -67,9 +67,9 @@ unless the requested work calls for changing them.
    The notes command must follow the slides command because it takes its slide images
    from the slides PDF. Repository decks absent from the manifest fail closed.
 
-   Slides and notes PDFs are generated artifacts ignored by Git. Publish verified
-   outputs with `Scripts/_publish_generated_pdfs.py`, or leave publication to the
-   protected-branch generated-PDF workflow.
+   Slides and notes PDFs are ignored by Git. Protected `publish-site.yml`
+   publishes verified changed outputs as part of the coherent release after merge.
+   Do not invoke the standalone publisher from this authoring workflow.
 
 8. The builder verifies all machine-checkable invariants. Visually
    inspect changed pages in both PDFs.
@@ -154,10 +154,10 @@ Renumbering is not optional and not confined to the slides you touched:
 
 Notes flow one way *only where a Presenter's Companion exists*:
 `Presenters-Companion-<Name>.md` → `.notes.json` →
-`Scripts/_sync_pptx_speaker_notes.py` → the `.pptx` notes pane. Today only
-`The-Ontology-of-Coexistence` has one, so for every other deck the notes pane
-in the `.pptx` is itself the source of truth and is edited directly. Check
-which case you are in before editing a note — see [AGENTS.md](../../../AGENTS.md) §3.
+`Scripts/_sync_pptx_speaker_notes.py` → the `.pptx` notes pane. Inspect
+`Scripts/companion-pipeline.json` to determine ownership. For decks without a
+declared companion, notes in the PPTX are authored directly. Do not hard-code
+which study has a companion. Notes-only changes still rebuild the full PDF pair.
 
 ## The three deck PDFs
 
@@ -170,10 +170,10 @@ interchangeable; never regenerate one over another's path.
 | `<Deck>-notes.pdf` | Slide plus that slide's read-aloud script, one page per slide | The presenter, while delivering |
 | `Presenters-Companion-<Name>.pdf` | Script **plus** primary-text background and Q&A | Pre-session study |
 
-`<Deck>.pdf` must stay slides-only. Its filename is referenced from
-`Scripts/_build_studies_index.py` and the generated `Studies/index.html`
-(`data-presentation-pdf`, `data-study-link`), so renaming it means editing the
-generator and the generated index together.
+`<Deck>.pdf` must stay slides-only. Output paths come from
+`Scripts/presentation-pipeline.json`; update that authored manifest and finalize
+the generated index when a path changes. Do not patch generated HTML links by hand.
+For a new deck, follow [add-study-presentation](../add-study-presentation/SKILL.md).
 
 ## Notes on the PDF tooling
 
@@ -204,7 +204,7 @@ are a separate pipeline and are not produced by `_regenerate_pdf.py`.
 
 - Reuse existing study figures when they support the slide.
 - Keep study SVG files valid UTF-8 and follow [AGENTS.md](../../../AGENTS.md) §3 for special characters.
-- Use `Scripts/_svg_to_png.js <input.svg> <output.png>` when a raster copy is needed for embedding.
+- Use `Scripts/_svg_to_png.js <input.svg> <output.png>` when a raster copy is needed for embedding. Update the embedded PPTX image after editing its source SVG; a loose image change does not update the deck.
 - Run `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md` after changing an SVG referenced by the study markdown.
 
 ## Metadata and completion
@@ -232,3 +232,12 @@ Before finishing, confirm:
 
 When the Presenter's Companion markdown or notes JSON also needs to track the
 deck, use [update-presenters-companion](../update-presenters-companion/SKILL.md).
+
+## Finish with the shared CI workflow
+
+Complete [manage-studies: shared finish](../manage-studies/SKILL.md#shared-finish-before-review)
+after this skill's targeted renders. Use `_finalize_study_artifacts.py --study
+<Slug>` for changed canonical metadata, or omit `--study` for companion-only
+changes and retirement. Commit the tracked outputs, validate the committed
+HEAD with `_validate_study_change.py` and the same PR body, and let protected
+coherent-site publication handle changed artifacts after merge.

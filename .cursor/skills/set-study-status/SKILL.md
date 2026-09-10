@@ -9,7 +9,7 @@ description: >-
 
 # Set study status (Draft ↔ Released)
 
-Only for **published** studies (linked in the catalog with a PDF). Ongoing/Planned
+Only for catalog studies whose current status is **Draft or Released**. A missing ignored local PDF does not make a study unpublished. Ongoing/Planned
 entries cannot use this script — register the first draft with
 [add-study](../add-study/SKILL.md) first.
 
@@ -22,7 +22,7 @@ python Scripts/_set_study_status.py <Slug> --status released
 python Scripts/_set_study_status.py <Slug> --status draft
 ```
 
-Toggle current status:
+Toggle only when the user explicitly requests a toggle:
 
 ```powershell
 python Scripts/_set_study_status.py <Slug>
@@ -37,6 +37,10 @@ Windows wrapper:
 Preview: `--dry-run`
 Catalog/metadata only (no PDF): `--skip-pdf`
 Skip sync check: `--no-check-timestamps`
+
+The last two flags are for intermediate/diagnostic work. Complete the targeted
+render and normal checks before review. Do not rerun the status setter merely
+to finalize other artifacts: it refreshes the timestamp even for the same status.
 
 ## What the script does
 
@@ -57,7 +61,7 @@ Skip sync check: `--no-check-timestamps`
 |-----------|--------|
 | Study finalized, ready for readers | `--status released` |
 | Reopen for major revision | `--status draft` |
-| Unsure of current state | run without `--status` to toggle |
+| Unsure of current state | Read canonical Status/catalog metadata; choose the requested explicit target |
 
 ## Manual PDF regen (if `--skip-pdf` was used)
 
@@ -77,3 +81,12 @@ See [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md) (`python Scripts/_r
 - Add new study: [add-study](../add-study/SKILL.md)
 - Regenerate PDF: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md)
 - Rules: [AGENTS.md](../../../AGENTS.md) §1 (Edited on), §2 (catalog sync), §3 (PDF pipeline)
+
+## Finish with the shared CI workflow
+
+Complete [manage-studies: shared finish](../manage-studies/SKILL.md#shared-finish-before-review)
+after this skill's targeted renders. Use `_finalize_study_artifacts.py --study
+<Slug>` for changed canonical metadata, or omit `--study` for companion-only
+changes and retirement. Commit the tracked outputs, validate the committed
+HEAD with `_validate_study_change.py` and the same PR body, and let protected
+coherent-site publication handle changed artifacts after merge.

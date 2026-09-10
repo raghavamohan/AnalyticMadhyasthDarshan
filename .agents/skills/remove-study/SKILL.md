@@ -44,14 +44,16 @@ Use the slug without extension (e.g. `The-Ontology-of-Coexistence`).
    the paper block from `References/MANIFEST.md`, and its By-tag citations while
    preserving citations to other studies
 5. Removes every deck sourced from the retired study from
-   `Scripts/presentation-pipeline.json`
+   `Scripts/presentation-pipeline.json`, and presenter ownership rows from
+   `Scripts/companion-pipeline.json`
 
 Ongoing placeholders (italic, no public PDF) are supported — their directory,
 catalog row, and proposal-registry row are removed.
 
 The command also supports **metadata-only cleanup** when an earlier removal
 already deleted the directory and catalog row but left the slug in
-`Studies/proposal-registry.json` or `Scripts/presentation-pipeline.json`. In
+`Studies/proposal-registry.json`, `Scripts/presentation-pipeline.json` or
+`Scripts/companion-pipeline.json`. In
 that case, use the same slug with `--dry-run` first and then `--yes`; the tool
 removes only the surviving metadata and does not rewrite reference catalogs.
 
@@ -62,12 +64,16 @@ removes only the surviving metadata and does not rewrite reference catalogs.
    its timestamp/catalog row and regenerate its PDF.
 2. **Update Start here** if `INDEX_TEMPLATE` names the slug; rebuild the index.
    CI rejects unknown Start here slugs.
-3. **Verify** catalogs and references with `python Scripts/_verify_studies_index.py`
-   and `python Scripts/_check_references.py`
+3. **Finalize** with `python Scripts/_finalize_study_artifacts.py`, then check references
+   with `python Scripts/_check_references.py`
 4. **Commit** deletions and catalog updates on a feature branch
 5. **Open a ready-for-review pull request** with the `study-update` template and
    label. Keep the retired directory name as the bare `Study slug: <Slug>` value;
    mark Edited-on and quote-verification checklist items N/A.
+
+Retirement removes public inventory/keys on the next coherent publication; it
+does not purge historical R2 objects or the reference library. Storage retention
+and garbage collection are separate operator policy.
 
 A single `study-update` PR may remove multiple studies. Name one retired slug in
 the PR body; CI derives and validates every deleted study directory from the diff.
@@ -82,3 +88,12 @@ the PR body; CI derives and validates every deleted study directory from the dif
 - Overview: [manage-studies](../manage-studies/SKILL.md)
 - Add: [add-study](../add-study/SKILL.md)
 - Rules: [AGENTS.md](../../../AGENTS.md) §2 (catalog sync when removing published studies)
+
+## Finish with the shared CI workflow
+
+Complete [manage-studies: shared finish](../manage-studies/SKILL.md#shared-finish-before-review)
+after this skill's targeted renders. Use `_finalize_study_artifacts.py --study
+<Slug>` for changed canonical metadata, or omit `--study` for companion-only
+changes and retirement. Commit the tracked outputs, validate the committed
+HEAD with `_validate_study_change.py` and the same PR body, and let protected
+coherent-site publication handle changed artifacts after merge.

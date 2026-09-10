@@ -18,7 +18,7 @@ beside a study, using the pipeline governed by [AGENTS.md](../../../AGENTS.md) �
 | Want | Use |
 |------|-----|
 | Catalog study PDF/HTML from `Studies/<Slug>/<Slug>.md` or `Applications/<Slug>/<Slug>.md` | `python Scripts/_regenerate_pdf.py <Slug>` |
-| Unwatermarked companion-note PDF/HTML | `python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note.md` |
+| Unwatermarked companion-note PDF/HTML | `python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note-Example.md` |
 | Deck slides PDF (`<Deck>.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — staged `_build_presentations.py --deck <ID> --in-place` |
 | Deck read-aloud notes PDF (`<Deck>-notes.pdf`) | [update-study-presentation](../update-study-presentation/SKILL.md) — same staged build produces the notes PDF |
 | Presenter's Companion DOCX/PDF | [update-presenters-companion](../update-presenters-companion/SKILL.md) |
@@ -66,17 +66,23 @@ pass its markdown path instead; it renders without a watermark.
 0. `_verify_study_svgs.py` — fail if referenced SVG figures are missing, not UTF-8, or malformed XML
 1. `_convert_to_pdf.py` — markdown → HTML; ` ```mermaid ` → `<div class="mermaid">`
 2. `_html_to_pdf.js` — render Mermaid to SVG, then Puppeteer → PDF
-3. `_pdf_metadata.py` — pin PDF dates and tagged-structure node IDs so identical markdown yields byte-identical output
+3. `_pdf_metadata.py` pins PDF dates; `_html_to_pdf.js` canonicalizes tagged-structure IDs before watermarking
 4. `_verify_pdf_diagrams.py` — fail if raw Mermaid syntax remains in the PDF
 5. `_verify_pdf_fenced_code.py` — fail if fenced ` ```text ` / code lines are clipped in the PDF
 6. `_verify_pdf_math.py` — fail if rendered KaTeX output has no embedded KaTeX font
 7. `_verify_pdf_outline.py` — fail if the PDF has no sidebar bookmarks when the markdown has two or more `##` headings
 
-Output is **reproducible**: re-running on unchanged markdown produces a byte-identical
-PDF. Generated PDFs under `Studies/` and `Applications/` are ignored by Git and
-published to Cloudflare R2; the sibling HTML remains tracked. In CI, a `study-update` PR that
-touches only companion files (a deck, research notes, figures the study does not embed)
-skips PDF regeneration entirely.
+Output is **reproducible within the pinned toolchain**. Generated PDFs under
+`Studies/` and `Applications/` are ignored by Git; sibling HTML remains tracked.
+CI's shared `_artifact_graph.py` selects each consuming document independently.
+A note edit rebuilds that note, a deck edit builds its slides/notes pair, and a
+figure only rebuilds documents that embed it. Companion-only changes skip the
+canonical study PDF, not all PDF generation. Missing ignored PDFs and shared
+glossary changes are not reasons to rebuild the canonical PDF.
+
+For a new note, follow [add-technical-note](../add-technical-note/SKILL.md) for
+naming, inventory and registration. Include nested SVG resources in the PR and
+render every Markdown consumer of a changed embedded figure.
 
 The pipeline **keeps** the companion `.html` (web read view with toolbar and Mermaid);
 it is not deleted after PDF generation.
@@ -123,7 +129,7 @@ flowchart TD
 
 - [ ] Referenced SVG figures pass `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md`
 - [ ] Target markdown's sibling `.pdf` and `.html` updated
-- [ ] Generated PDF was not added to Git; publish through the R2 workflow when needed
+- [ ] Generated PDF was not added to Git; protected coherent-site publication handles the changed outputs after merge
 - [ ] For a catalog study, the sibling `<Slug>.html` remains the published read view
 - [ ] No raw `flowchart TD` / `graph LR` visible in PDF when Mermaid blocks exist
 - [ ] KaTeX output embeds its font when the HTML contains rendered math
@@ -139,3 +145,12 @@ flowchart TD
 - `.cursor/rules/md-to-pdf.mdc` — Cursor mirror
 - `.cursor/rules/study-edited-on.mdc` — timestamps when content changed
 - `.cursor/rules/study-submission-process.mdc` — Cursor mirror of §7
+
+## Finish with the shared CI workflow
+
+Complete [manage-studies: shared finish](../manage-studies/SKILL.md#shared-finish-before-review)
+after this skill's targeted renders. Use `_finalize_study_artifacts.py --study
+<Slug>` for changed canonical metadata, or omit `--study` for companion-only
+changes and retirement. Commit the tracked outputs, validate the committed
+HEAD with `_validate_study_change.py` and the same PR body, and let protected
+coherent-site publication handle changed artifacts after merge.
