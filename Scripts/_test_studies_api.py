@@ -287,7 +287,8 @@ def check_openapi() -> None:
     print("OK: openapi/studies.json documents catalog read endpoints.")
 
 
-def fetch_live(url: str, *, method: str = "GET", data: bytes | None = None) -> tuple[int, dict, str]:
+def fetch_live(url: str, *, method: str = "GET", data: bytes | None = None,
+               require_rate_policy: bool = True) -> tuple[int, dict, str]:
     headers = {
         "User-Agent": LIVE_UA,
         "Accept": "application/json",
@@ -314,7 +315,7 @@ def fetch_live(url: str, *, method: str = "GET", data: bytes | None = None) -> t
             f"{url} returned an edge challenge/non-JSON response "
             f"(HTTP {status}, Content-Type {content_type!r}, cf-ray {ray})"
         )
-    if not header_value(header_map, "RateLimit-Policy"):
+    if require_rate_policy and not header_value(header_map, "RateLimit-Policy"):
         fail(f"{url} is missing RateLimit-Policy")
     return status, header_map, body
 
@@ -380,11 +381,14 @@ def check_live() -> None:
     if status != 200:
         fail(f"GET /api/studies?limit=100 returned HTTP {status}: {body[:300]}")
     complete = json.loads(body)
-    marker_status, _, marker_body = fetch_live(f'{SITE}/.well-known/publication.json')
+    # The static site does not advertise the API Worker's edge quota.
+    marker_status, _, marker_body = fetch_live(
+        f'{SITE}/.well-known/publication.json', require_rate_policy=False)
     if marker_status != 200:
         fail('Cannot read active publication for the live API audit')
     revision = json.loads(marker_body)['revision']
-    catalog_status, _, catalog_body = fetch_live(f'{SITE}/Studies/catalog-all.json?r={revision}')
+    catalog_status, _, catalog_body = fetch_live(
+        f'{SITE}/Studies/catalog-all.json?r={revision}', require_rate_policy=False)
     if catalog_status != 200:
         fail('Cannot read the active published catalog')
     expected_rows = json.loads(catalog_body)
@@ -427,7 +431,8 @@ def check_live() -> None:
     if status != 200:
         fail(f"GET /api/start-here returned HTTP {status}: {body[:300]}")
     path = json.loads(body)
-    path_status, _, path_body = fetch_live(f'{SITE}/Studies/start-here.json?r={revision}')
+    path_status, _, path_body = fetch_live(
+        f'{SITE}/Studies/start-here.json?r={revision}', require_rate_policy=False)
     if path_status != 200:
         fail('Cannot read the published reading path')
     check_live_start_here(path, json.loads(path_body))
