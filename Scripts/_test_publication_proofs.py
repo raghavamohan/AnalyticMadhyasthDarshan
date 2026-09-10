@@ -194,6 +194,78 @@ class PublicationProofTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Unexpected'):
                 review.merge_outputs(downloads, output)
 
+    def test_single_artifact_download_preserves_repository_roots(self):
+        from types import SimpleNamespace
+        keys = [self.key, 'Applications/B/B.pdf', 'References/C/C.pdf']
+        # A single match is flat in download-artifact@v7. Cover Markdown-only
+        # output with no root metadata as well as a mixed reviewed bundle.
+        for layout in ['flat', 'wrapped']:
+            for selected in [keys[:1], keys[1:2], keys[2:], keys]:
+                with self.subTest(layout=layout, selected=selected):
+                    downloads = self.root / layout / str(len(selected)) / selected[0].split('/')[0]
+                    directory = downloads if layout == 'flat' else downloads / 'generated-reviewed-pdfs'
+                    output = downloads.parent / (downloads.name + '-merged')
+                    for key in selected:
+                        target = directory / key
+                        target.parent.mkdir(parents=True)
+                        target.write_bytes(self.body)
+                    with patch('_generated_pdf_inventory.generated_pdf_specs', return_value=tuple(
+                            SimpleNamespace(key=key) for key in keys[:2])), \
+                         patch('_reference_artifacts.load_manifest', return_value={'artifacts': [
+                             {'repo_path': keys[2], 'target': {'storage': 'r2-public'}}]}):
+                        review.merge_outputs(downloads, output)
+                    self.assertEqual({path.relative_to(output).as_posix() for path in output.rglob('*.pdf')}, set(selected))
+                    for key in selected:
+                        self.assertEqual((output / key).read_bytes(), self.body)
+
+    def test_single_reviewed_bundle_preserves_deck_provenance(self):
+        from types import SimpleNamespace
+        downloads, output = self.root / 'downloads', self.root / 'merged'
+        pair = ['Studies/A/Deck.pdf', 'Studies/A/Deck-notes.pdf']
+        for key in pair:
+            target = downloads / key
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(self.body)
+        provenance = {'schemaVersion': 1, 'rendererProfile': 'pinned', 'artifacts': [{'id': 'a'}]}
+        (downloads / 'presentation-build-provenance.json').write_bytes(json.dumps(provenance).encode())
+        for name in [review.PROOF, 'markdown-build-provenance.json']:
+            (downloads / name).write_bytes(b'{}')
+        with patch('_generated_pdf_inventory.generated_pdf_specs', return_value=tuple(SimpleNamespace(key=k) for k in pair)), \
+             patch('_reference_artifacts.load_manifest', return_value={'artifacts': []}):
+            review.merge_outputs(downloads, output)
+        self.assertEqual(json.loads((output / 'presentation-build-provenance.json').read_bytes()), provenance)
+        self.assertEqual({p.relative_to(output).as_posix() for p in output.rglob('*') if p.is_file()},
+                         set(pair) | {'presentation-build-provenance.json'})
+
+    def test_flat_download_rejects_unexpected_and_mixed_paths(self):
+        from types import SimpleNamespace
+        for bad in ['untrusted.py', 'Studies/A/Unknown.pdf', 'A/A.pdf', 'generated-other-pdfs/' + self.key]:
+            with self.subTest(path=bad), tempfile.TemporaryDirectory() as temp:
+                downloads, output = Path(temp) / 'downloads', Path(temp) / 'merged'
+                target = downloads / self.key
+                target.parent.mkdir(parents=True)
+                target.write_bytes(self.body)
+                target = downloads / bad
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(b'bad')
+                with patch('_generated_pdf_inventory.generated_pdf_specs', return_value=(SimpleNamespace(key=self.key),)), \
+                     patch('_reference_artifacts.load_manifest', return_value={'artifacts': []}), \
+                     self.assertRaisesRegex(ValueError, 'Unexpected artifact output'):
+                    review.merge_outputs(downloads, output)
+
+    def test_download_cannot_overwrite_conflicting_pdf(self):
+        from types import SimpleNamespace
+        downloads, output = self.root / 'downloads', self.root / 'merged'
+        for root, body in [(downloads, self.body), (output, b'different')]:
+            target = root / self.key
+            target.parent.mkdir(parents=True)
+            target.write_bytes(body)
+        with patch('_generated_pdf_inventory.generated_pdf_specs', return_value=(SimpleNamespace(key=self.key),)), \
+             patch('_reference_artifacts.load_manifest', return_value={'artifacts': []}), \
+             self.assertRaisesRegex(ValueError, 'Conflicting generated output'):
+            review.merge_outputs(downloads, output)
+        self.assertEqual((output / self.key).read_bytes(), b'different')
+
     def test_batch_search_finalizes_once_and_never_after_failed_batch(self):
         import _study_search as search
         with patch.object(search, 'eligible_documents', return_value={}) as final, \
