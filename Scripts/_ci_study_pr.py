@@ -19,8 +19,6 @@ from functools import lru_cache
 from pathlib import Path
 
 from _common import BASE, STUDIES, slug_from_repo_relative_path, study_md, write_text_lf
-from _companion_artifacts import write_registry as sync_companion_artifacts  # noqa: E402
-from _publish_generated_pdf_worker import sync_keys as sync_generated_pdf_keys  # noqa: E402
 
 from _verify_studies_index import collect_index_errors  # noqa: E402
 from _check_references import run_checks, print_report  # noqa: E402
@@ -915,21 +913,8 @@ def main() -> None:
         regenerate_pdf(source, render_status(source))
     from _verify_companion_outputs import prepare as prepare_companions
     prepare_companions(companion_sources)
-    if companion_sources:
-        from _build_studies_index import write_index_html
-        write_index_html()
-
-    # Keep My Submissions' durable study -> note/deck inventory in the same PR.
-    # This is generated after lifecycle handling so additions, removals, renames,
-    # and status changes all see their final repository paths.
-    sync_companion_artifacts()
-    # The delivery Worker uses an explicit generated-PDF allowlist. Keep it in
-    # the same artifact commit whenever a study lifecycle change alters the
-    # inventory, rather than discovering drift only during post-merge deploy.
-    sync_generated_pdf_keys()
-    from _build_social_cards import build as build_social_cards
-    build_social_cards()
-    verify_studies_index()
+    from _finalize_study_artifacts import finalize
+    finalize()
     print("Study PR pipeline completed successfully.")
 
 

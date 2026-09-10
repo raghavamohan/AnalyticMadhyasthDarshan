@@ -22,7 +22,7 @@ Works with **Cursor**, **OpenCode**, and **ZCode** (skills live in
 - After editing `## References` or any `../References/...` link in a study
 - After `download-references` or manual adds under `References/`
 - Before committing bibliography or reference-file changes
-- CI runs this automatically on labeled study PRs (see [AGENTS.md](../../../AGENTS.md) §6)
+- Required CI infers affected studies/references from committed changes; labels do not control whether validation can be bypassed (see [AGENTS.md](../../../AGENTS.md) §6–§7).
 
 ## Quick command
 

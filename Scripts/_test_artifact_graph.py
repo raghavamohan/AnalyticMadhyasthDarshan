@@ -63,6 +63,25 @@ class ArtifactGraphTests(unittest.TestCase):
         self.write('Studies/A/Note.md', '# Revised note')
         self.assertEqual(self.changed(), {'Studies/A/Note.pdf'})
 
+    def test_new_technical_note_and_its_nested_svg_only_select_the_note(self):
+        self.write('Studies/A/Technical-Note-Example.md', '# Note\n\n![Diagram](note.svg)')
+        self.write('Studies/A/note.svg', '<svg><image href="note-detail.png"/></svg>')
+        self.write('Studies/A/note-detail.png', 'first image')
+        self.assertEqual(self.changed(), {'Studies/A/Technical-Note-Example.pdf'})
+        self.before = graph.build_graph(self.root)
+        self.write('Studies/A/note-detail.png', 'updated image')
+        self.assertEqual(self.changed(), {'Studies/A/Technical-Note-Example.pdf'})
+
+    def test_new_deck_registration_only_selects_its_pair(self):
+        path = self.root / 'Scripts/presentation-pipeline.json'
+        manifest = json.loads(path.read_bytes())
+        manifest['decks'].append({'id': 'second', 'source': 'Studies/A/Second.pptx',
+                                 'slidesPdf': 'Studies/A/Second.pdf', 'notesPdf': 'Studies/A/Second-notes.pdf',
+                                 'requiredFonts': ['Example']})
+        self.write('Studies/A/Second.pptx', 'new deck')
+        self.write('Scripts/presentation-pipeline.json', json.dumps(manifest))
+        self.assertEqual(self.changed(), {'Studies/A/Second.pdf', 'Studies/A/Second-notes.pdf'})
+
     def test_deck_edit_selects_just_its_two_outputs(self):
         self.write('Studies/A/Deck.pptx', 'changed notes or order')
         self.assertEqual(self.changed(), {'Studies/A/Deck.pdf', 'Studies/A/Deck-notes.pdf'})

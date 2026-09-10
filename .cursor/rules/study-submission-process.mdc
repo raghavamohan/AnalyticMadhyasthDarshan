@@ -31,9 +31,23 @@ check, and how to reproduce each check locally — is documented in
    - `python Scripts/_quote_tool.py verify --study <Slug>` if you quoted a local source
    - `python Scripts/_check_references.py --study <Slug>` (drop `--study` if `References/` itself
      changed)
-   - `python Scripts/_regenerate_pdf.py <Slug>` (regenerates PDF/HTML and runs the SVG/diagram/
-     fenced-code/math/outline verifiers)
-   - `python Scripts/_verify_studies_index.py` if a catalog or the index shell changed
+   - Render only affected consumers: `_regenerate_pdf.py <Slug>` for canonical
+     Markdown, `_regenerate_pdf.py <note-path>` for notes, and
+     `_build_presentations.py --deck <ID> --in-place` for any PPTX change. These
+     invoke the same Markdown or staged deck checks as CI; companion-only edits
+     do not require the canonical study PDF.
+   - Run `python Scripts/_finalize_study_artifacts.py` after targeted renders.
+     Add `--study <Slug>` (repeatable) when canonical metadata/catalog needs sync.
+     It shares preparation's catalog, index, companion registry, PDF keys, social,
+     search/offline builders and checks; it does not render PDFs or publish.
+   - Commit tracked outputs, then run
+     `python Scripts/_validate_study_change.py --base-ref origin/master --body-file <PR-body-file>`
+     using the intended PR body. This validates committed HEAD, not the working
+     tree. First drafts require repository/token environment variables for the
+     linked proposal's read-only approval check. Run `_verify_studies_index.py`
+     and `_verify_companion_outputs.py` for generated freshness.
+   - The shared finish and dependency rules live in
+     [manage-studies](.agents/skills/manage-studies/SKILL.md#shared-finish-before-review).
 4. **Push the branch and open a pull request** using the matching template in
    [.github/PULL_REQUEST_TEMPLATE/](.github/PULL_REQUEST_TEMPLATE/) (or the chooser
    [.github/pull_request_template.md](.github/pull_request_template.md)) and apply
@@ -151,8 +165,8 @@ host remains during the staged migration described in [.github/CI.md](.github/CI
   rename/removal repairs are included in the same multi-study PR
 - [ ] Study status and GitHub PR readiness were handled independently; the PR is ready for
   review unless a GitHub draft PR was explicitly requested for incomplete PR work
-- [ ] Local verification (`_quote_tool.py verify`, `_check_references.py`, `_regenerate_pdf.py`,
-  `_verify_studies_index.py` as applicable) run and passing before push
+- [ ] Targeted Markdown/deck rendering, shared finalization, applicable quote/reference
+  checks and committed-HEAD lifecycle/freshness verification pass before push
 - [ ] Non-study changes (Scripts/, rules, skills, infra) are not carrying a study label
 
 ---
