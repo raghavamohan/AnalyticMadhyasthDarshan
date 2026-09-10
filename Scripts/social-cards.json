@@ -1,0 +1,117 @@
+{
+  "cards": {
+    "A-State-Dynamic-Model-Of-Coexistence.png": {
+      "fingerprint": "949a9f619c1a8e10df9a8b538f0ec724e827019e11423fe7756fce8ef57bd868",
+      "sha256": "b98858083d85f3e29b0375e4bc42a3756ec58154e25fbaf0575f148f7866d849"
+    },
+    "Aesthetics.png": {
+      "fingerprint": "c60620ad3f5431d84b2d42cb4dba09e549460406cbf31ee26e6e85d6ca690e15",
+      "sha256": "98268a20e6d52ae4a252b4790392b40aad63458cd0293514794b8954642bd333"
+    },
+    "Axiology-Value-Theory.png": {
+      "fingerprint": "5721b33bd44b83897ea77b1da29c478bb81d18668238d305c37319da3f97f2b7",
+      "sha256": "0bff1e3ec62f736041a1055cf38ce188f7362793e6fe8671c20d709b4a843224"
+    },
+    "Chitta-Brain-And-Memory.png": {
+      "fingerprint": "ad4e5a68279c77f2bb6e80fb5cc9955928985b54739fd7be0800b873abfc9543",
+      "sha256": "e6b046cba65f67d04dad7e8728907952e3bb9efd86a98d5c836c4cce618a9dcd"
+    },
+    "Death-Continuity-And-Rebirth.png": {
+      "fingerprint": "ad2a77f353faf4b523da13d79d6bd5a5cbecd5b5b6555f7bcd82bef2e8214942",
+      "sha256": "ca4981439f77104f9456509fc7fc7433197186b327ddf1fc2f419e0c8514a00c"
+    },
+    "Education-And-Sanskar.png": {
+      "fingerprint": "b77b4c8539071e63343641d34c19c551136a589752838dc9c49d3776a722fbc8",
+      "sha256": "566c5858cb362c004218a289402b0a40014974fb198092180ca509564bc55885"
+    },
+    "Ethics-And-Morals-In-Human-Beings.png": {
+      "fingerprint": "c782696516ed160d461078bffcad16bf5b8ac7a1dac7badfb7a09eacec273481",
+      "sha256": "2070bd296182225b738e988d172ade6b15162b7fa434402252bac26b15b62385"
+    },
+    "Family-Relationships-And-Values.png": {
+      "fingerprint": "8a1cb361318d160e038ca3409500d24d28e207edb6f86785478f825baf27dda4",
+      "sha256": "9ae60273ed31e2a924980e020a2ef7ef0d6586455b45ee3ef13af719e3bf542a"
+    },
+    "Free-Will-Choice-And-Agency.png": {
+      "fingerprint": "325ad18af1f802ba175449fba7e252540a1847cd9959c6fb39ffba04a99e3537",
+      "sha256": "ad87237e7610667869162482721d73d5465982afc11f28a02654bf599f7af492"
+    },
+    "God-Divinity-And-The-Sacred.png": {
+      "fingerprint": "11605c06a6140ed20dc4751f8a78f682d7a3e9a51220df1760ebdd1e0bc72aa6",
+      "sha256": "c2709889e2b15bc2e33106f2e1fd67c12227d967049b225270dd9a98250eb122"
+    },
+    "Governance-Justice-And-Undivided-Society.png": {
+      "fingerprint": "cec0bc40f8534170baafb6fe17385cfdae1b2cab73fadc8d2becbc6941cca71c",
+      "sha256": "bc5b6112b60582a6a40fefb7f018c4022fc45dec2e2983d454d1fe281ed182a7"
+    },
+    "Health-Body-And-Restraint.png": {
+      "fingerprint": "6850f77a3361259c206101a5529348040960f2725696fb00ffa181c5ba6f5b36",
+      "sha256": "1bf18896764c256bc22fa9bf4625f446f4de9b1f82c0e838a555e0565b8b0d0f"
+    },
+    "How-To-Form-Self-Sustaining-Organizations.png": {
+      "fingerprint": "e341bdd0ea07ded5f9266d501a62f4bf8a4fabe52188ee650fc01876e2417a45",
+      "sha256": "a57e6c93a454ee18b105b262f6e1f4a256703407c8729f9c817e465d3b535270"
+    },
+    "How-Undivided-Society-Is-Established.png": {
+      "fingerprint": "79fc389f68275f4843ee9920001896db3fd3ea6e27881a011690f2a26a2a65e3",
+      "sha256": "05346e84e76890c04b0b46a9e8143c909a7802135ddbb62c186f63c389a2405b"
+    },
+    "Human-Behavior-And-Society.png": {
+      "fingerprint": "b8ee4b271bf00f391f020d0c81eba7b28c0ef16cb6c4fdd41deb3e7189100f95",
+      "sha256": "59d38273001345411f33446059c080fa7566a7f435989c051b7c324691c39be4"
+    },
+    "Language-Meaning-And-Definition.png": {
+      "fingerprint": "7536665135cb051c6f206cfb305f0db555225ca29788f06417a14cf327e70ad1",
+      "sha256": "5f6e90837cdaef050a8c2b08e74bcdc4192f5eec84dad1f34c5d5c3399af4022"
+    },
+    "Methodology-And-Hermeneutics.png": {
+      "fingerprint": "f844cb9c1fa84c4f2c2899ad81f5c0279117785ffada3af03b654797f8cf4a37",
+      "sha256": "63fea7246b440a0bb16d77dbb7b13c630bbff1b34964a629027e05eff381a350"
+    },
+    "Nature-Ecology-And-Right-Use.png": {
+      "fingerprint": "32abfd98a32447c14bda3d6146b0acee9bf9257e139bfca962fa25987fcf442c",
+      "sha256": "76d399520db118134c4a7c8922b4788d84916854c9d464e3a16e4f2c0ea5a648"
+    },
+    "Nature-Of-Time.png": {
+      "fingerprint": "ed4b069e3b366e528781253e1781d774aa85863aaf4d999b3939f320a2723ef8",
+      "sha256": "4fe9eb1deb3a1c45e35071d73bafe26e563d3e8919746ca9eef5a9a836b31431"
+    },
+    "Philosophy-Of-Mind-And-Jeevan.png": {
+      "fingerprint": "a2ee45e3b56da035aca8cb69271b1f3efcac93a28c7368bdd62938f66d3ac82a",
+      "sha256": "21bffec139327baf1e7eb88e9aa312358fd108695e47fba734f060dbd556c4cf"
+    },
+    "Prosperity-Economics-And-Right-Use.png": {
+      "fingerprint": "defda3ba645b7fa57209c7bb6f9e3ef1b8976e280dc62b6e2d3750166c8a3f02",
+      "sha256": "ef509f7a07ba943491f6ce5e8e4818d7b12fffc9586343c150e551a7a7c0514e"
+    },
+    "Science-Technology-And-Human-Purpose.png": {
+      "fingerprint": "375adcab0268f4e7a5c2c87557b6f95b0f70219d5d18135e04a07cdca5b47931",
+      "sha256": "68a9e8ccd45ce278a3188ae9799c649b81fd3c5cd1aa0e283a1ab05990b211f0"
+    },
+    "Spiritual-Practice-And-Realization.png": {
+      "fingerprint": "615d3c6b157835359f56519ec80115cc84220ea5fe55d1c114ad0db998208263",
+      "sha256": "40d0cb9c0ab68d23a9f7a0afd93b4be527445a0a131d164fd0dd77756de71ea1"
+    },
+    "The-Epistemology-of-Coexistence.png": {
+      "fingerprint": "84aa1e364deb4ad873baf2bb664d3368500a5031dc8d0843f8847b86d7f8a409",
+      "sha256": "9f5fc25c8d438917d0c5f4cdb744c18ddececf788e20af361851fd2bc2534984"
+    },
+    "The-Ontology-of-Coexistence.png": {
+      "fingerprint": "625fcd22e3e64f26d8d78c676ac2d0ab0cc944215152c10ce17e3383ca693870",
+      "sha256": "9da1a6d8275f55cac65ea32d8ff4422dc904597baf002cd66396bf876491768b"
+    },
+    "Why-Humans-Are-Not-Just-Material.png": {
+      "fingerprint": "137399da2a4b61a06faba3db9af365a3bff9f4f3285ae56830a331befb055ed7",
+      "sha256": "af17b79e3518179d88eab1260828061741e63be568d1f25dd92e9ff5f8f04409"
+    },
+    "Work-Action-And-Karma.png": {
+      "fingerprint": "7e4712153609d5d5841ed465f79d36d4ffe75bfdd64f6f8df56c7b3c97e26881",
+      "sha256": "0d2f2d185fd520320ada5717eacdcc5d0c902cd3709b9e5cc19dba59fc3ac91f"
+    },
+    "og-default.png": {
+      "fingerprint": "1bd0d9100b692ba8b350bf8263ffa7419baa52a571e9f92beaa2b1118b23d9a4",
+      "sha256": "916dec53915302f1e9d1db6cb95448c0eb9457754e0c8e04dbfde6877d8fb10e"
+    }
+  },
+  "schema": 1
+}

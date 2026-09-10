@@ -51,11 +51,12 @@ must use the **current** deck numbering.
 | Script | Role |
 |--------|------|
 | `Scripts/_build_presenters_companion.py` | Markdown → DOCX; optional PDF; optional PPTX notes sync |
-| `Scripts/_docx_to_pdf.py` | DOCX → PDF via Word COM (Windows) |
+| `Scripts/_study_pdf_pipeline.py` | Canonical Markdown → HTML/PDF owner, including companion PDFs |
+| `Scripts/_verify_companion_outputs.py` | Check declared Markdown/DOCX/JSON/PPTX freshness |
 | `Scripts/_sync_pptx_speaker_notes.py` | Write notes JSON into a `.pptx` notes pane |
 | `Scripts/_build_deck_notes_pdf.py` | Deck → `<Deck>-notes.pdf`: slide image plus that slide's read-aloud script, one page per slide |
 
-Dependencies: `python-docx`, `python-pptx`, `pymupdf`, and on Windows `pywin32` for Word/PowerPoint COM.
+Dependencies: the repository Python requirements and pinned Chrome/Node toolchain. The published companion PDF is rendered from Markdown through the same pipeline locally and in CI; Word COM is not its producer.
 
 Three PDFs serve different purposes; do not conflate them:
 
@@ -84,8 +85,9 @@ onto a `CONTINUED` page instead of being truncated.
    spoken script the presenter can read aloud nearly verbatim (first person or
    direct address to the audience; cover the slide’s visible claims in order).
    Keep coaching / stage directions out of that section — put prep material under
-   Primary-text background and Likely questions. Copy each delivery script into
-   `.notes.json` for slides `1..N` so PowerPoint presenter view matches.
+   Primary-text background and Likely questions. The builder extracts each delivery
+   section into `.notes.json` when `--pptx` is supplied. Register the companion and
+   deck mapping in `Scripts/companion-pipeline.json`.
 4. Rebuild artifacts from repo root:
 
    ```powershell
@@ -108,15 +110,12 @@ onto a `CONTINUED` page instead of being truncated.
    read-aloud notes PDF:
 
    ```powershell
-   python Scripts/_pptx_to_pdf.py Studies/<Slug>/<Deck>.pptx
+   python Scripts/_build_presentations.py --deck <Presentation-ID> --in-place
+   python Scripts/_verify_companion_outputs.py
    ```
 
-   ```powershell
-   python Scripts/_build_deck_notes_pdf.py Studies/<Slug>/<Deck>.pptx
-   ```
-
-   Confirm PPTX slide count equals deck-PDF page count. Run the notes PDF **after**
-   the deck PDF, since it takes its slide images from it.
+   The staged builder generates both outputs with the pinned production renderer
+   and verifies slide count, complete scripts, layout and fonts before replacement.
 
    All three PDFs are generated artifacts ignored by Git and published through
    the R2 workflow. The companion markdown, DOCX, notes JSON, and PPTX remain tracked.

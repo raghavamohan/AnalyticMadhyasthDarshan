@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import subprocess
 import tempfile
 import unittest
@@ -12,7 +13,6 @@ from unittest.mock import patch
 import _build_reference_pdfs as reference_builder
 from _pdf_build_cache import (
     BASE,
-    COMMON_INPUTS,
     FAMILIES,
     affected_families,
     fingerprint,
@@ -26,65 +26,36 @@ class PdfBuildCacheTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
-        fixtures = {name: "# fixture\n" for name in COMMON_INPUTS}
-        fixtures.update({
-            "Scripts/_build_markdown_pdfs.py": (
-                "from _shared import value\n"
-                "from _study_pdf_metadata import metadata\n"
-                "helper = '_convert_to_pdf.py'\n"
-            ),
-            "Scripts/_convert_to_pdf.py": "from _safe_study_html import clean\n",
-            "Scripts/_safe_study_html.py": "clean = True\n",
-            "Scripts/_study_pdf_metadata.py": "metadata = True\n",
-            "Scripts/_study_catalog.py": "def serialize_catalog(): return 'catalog only'\n",
-            "Scripts/_build_reference_pdfs.py": "from _shared import value\n",
-            "Scripts/_shared.py": "value = 1\n",
-            "Scripts/_build_presentations.py": "from _presentation_pipeline import value\n",
-            "Scripts/_presentation_pipeline.py": "value = 1\n",
-            "Scripts/package-lock.json": "{}",
-            "Scripts/_html_to_pdf.js": "// renderer\n",
-            "Scripts/_pdf_helper.mjs": "// ESM helper\n",
-            "Scripts/presentation-pipeline.json": "{}",
-            "Studies/A/A.md": "# A\n",
-            "Studies/A/figure.svg": "<svg/>\n",
-            "Studies/A/A.html": "<main>A</main>\n",
-            "Studies/A/Deck.pptx": "deck bytes",
-            "Studies/catalog-topical.json": "[]",
-            "Studies/glossary.json": (
-                '{"terms":[{"id":"satta","match":["satta"],'
-                '"display":"satta","definition":"Omnipresence."}]}\n'
-            ),
-            "Studies/submit.html": "portal",
-            "References/r2-artifacts.json": (
-                '{"artifacts":[{"kind":"normalized-reference-pdf",'
-                '"repo_path":"References/Source.pdf",'
-                '"generation":{"source_markdown":"References/Source.md"},'
-                '"target":{"storage":"r2-public","r2_key":"References/Source.pdf"}}]}'
-            ),
-            "References/Source.md": "reference source",
-            "References/README.md": "reference catalog only",
-            "Assets/KaTeX/fonts/font.woff2": "font bytes",
-            "Assets/reader/reader.css": "@media screen { body { color: black; } }",
-            "Assets/reader/reader.js": "// browser reader",
-            "Assets/reader/notes-core.js": "browser only",
-            "Assets/reader/study-tools.js": "browser only",
-            "Assets/reader/study-tools.css": "browser only",
-            "Assets/reader/offline-client.js": "browser only",
-            "Assets/reader/offline-policy.js": "browser only",
-            "Assets/Mermaid/mermaid.min.js": "browser only",
-            "Assets/Mermaid/LICENSE": "browser only",
-            "Assets/Mermaid/vendor.json": "browser only",
-            "Assets/Mermaid/.gitattributes": "browser only",
-            "Studies/offline-manifest.json": "browser only",
-            "reader-sw.js": "browser only",
-
-            "Assets/reader/search.js": "// browser search",
-            "Assets/reader/search.css": "/* search screen styles */",
-            "Assets/reader/reader-features.js": "// browser previews",
-            "Studies/search-data/manifest.json": "{}",
-            "infra/worker/src/index.js": "portal worker",
-            ".github/workflows/generated-pdf-publish.yml": "workflow orchestration",
-        })
+        fixtures = {
+            'CNAME': 'example.test', 'requirements.txt': 'dependencies',
+            'Scripts/_study_pdf_pipeline.py': 'from _convert_to_pdf import convert\nfrom _study_pdf_metadata import metadata\n',
+            'Scripts/_convert_to_pdf.py': 'from _safe_study_html import clean\n',
+            'Scripts/_safe_study_html.py': 'clean = True',
+            'Scripts/_study_pdf_metadata.py': 'metadata = True',
+            'Scripts/_study_catalog.py': 'catalog only',
+            'Scripts/_build_reference_pdfs.py': 'approved immutable staging',
+            'Scripts/_build_presentations.py': 'from _presentation_pipeline import value',
+            'Scripts/_presentation_pipeline.py': 'value = 1',
+            'Scripts/package-lock.json': '{}',
+            'Scripts/_html_to_pdf.js': '// renderer',
+            'Scripts/presentation-pipeline.json': json.dumps({'productionProfile': 'pinned',
+                'rendererProfiles': {'pinned': {'version': '1'}}, 'decks': [{'id': 'a',
+                'source': 'Studies/A/Deck.pptx', 'slidesPdf': 'Studies/A/Deck.pdf',
+                'notesPdf': 'Studies/A/Deck-notes.pdf'}]}),
+            'Studies/A/A.md': '# A\n\n![figure](figure.svg)\n',
+            'Studies/A/figure.svg': '<svg/>', 'Studies/A/A.html': '<main>A</main>',
+            'Studies/A/Deck.pptx': 'deck bytes',
+            'Studies/catalog-topical.json': '[{"slug":"A","status":"draft"}]',
+            'Studies/glossary.json': '{"terms":[]}', 'Studies/submit.html': 'portal',
+            'References/r2-artifacts.json': json.dumps({'artifacts': [{
+                'kind': 'normalized-reference-pdf', 'state': 'r2-published',
+                'repo_path': 'References/Source.pdf', 'source': {'sha256': 'a'*64, 'bytes': 123},
+                'generation': {'source_markdown': 'References/Source.md'},
+                'target': {'storage': 'r2-public', 'r2_key': 'References/Source.pdf'}}]}),
+            'References/Source.md': 'reference source', 'References/README.md': 'catalog',
+            'Assets/KaTeX/fonts/font.woff2': 'font bytes',
+            'Assets/reader/reader.js': '// browser only', 'reader-sw.js': '// offline only',
+        }
         for name, value in fixtures.items():
             path = self.root / name
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -103,44 +74,15 @@ class PdfBuildCacheTests(unittest.TestCase):
     def test_only_affected_build_families_are_invalidated(self) -> None:
         initial = self.keys()
         cases = {
-            "Studies/A/A.md": {"markdown"},
-            "Studies/A/figure.svg": {"markdown"},
-            "Studies/catalog-topical.json": {"markdown"},
-            "Studies/A/Deck.pptx": {"presentations"},
-            "References/Source.md": {"references"},
-            "References/README.md": set(),
-            "References/r2-artifacts.json": {"markdown", "references"},
-            "Scripts/_safe_study_html.py": {"markdown"},
-            "Scripts/_study_pdf_metadata.py": {"markdown"},
-            "Scripts/_study_catalog.py": set(),
-            "Scripts/_shared.py": {"markdown", "references"},
-            "Scripts/package-lock.json": {"markdown", "references"},
-            "Scripts/_html_to_pdf.js": {"markdown", "references"},
-            "Scripts/_pdf_helper.mjs": set(),
-            "requirements.txt": set(FAMILIES),
-            "Assets/KaTeX/fonts/font.woff2": set(FAMILIES),
-            "Assets/reader/reader.css": set(),
-            "Assets/reader/reader.js": set(),
-            "Assets/reader/notes-core.js": set(),
-            "Assets/reader/study-tools.js": set(),
-            "Assets/reader/study-tools.css": set(),
-            "Assets/reader/offline-client.js": set(),
-            "Assets/reader/offline-policy.js": set(),
-            "Assets/Mermaid/mermaid.min.js": set(),
-            "Assets/Mermaid/LICENSE": set(),
-            "Assets/Mermaid/vendor.json": set(),
-            "Assets/Mermaid/.gitattributes": set(),
-            "Studies/offline-manifest.json": set(),
-            "reader-sw.js": set(),
-
-            "Assets/reader/search.js": set(),
-            "Assets/reader/search.css": set(),
-            "Assets/reader/reader-features.js": set(),
-            "Studies/search-data/manifest.json": set(),
-            "Studies/A/A.html": set(),
-            "Studies/submit.html": set(),
-            "infra/worker/src/index.js": set(),
-            ".github/workflows/generated-pdf-publish.yml": set(),
+            'Studies/A/A.md': {'markdown'}, 'Studies/A/figure.svg': {'markdown'},
+            'Studies/A/Deck.pptx': {'presentations'}, 'References/Source.md': {'references'},
+            'Scripts/_build_reference_pdfs.py': {'references'},
+            'Scripts/_safe_study_html.py': {'markdown'}, 'Scripts/_study_pdf_metadata.py': {'markdown'},
+            'Scripts/_html_to_pdf.js': {'markdown'}, 'requirements.txt': {'markdown', 'presentations'},
+            'Assets/KaTeX/fonts/font.woff2': {'markdown'},
+            'References/README.md': set(), 'Scripts/_study_catalog.py': set(),
+            'Assets/reader/reader.js': set(), 'reader-sw.js': set(),
+            'Studies/A/A.html': set(), 'Studies/submit.html': set(),
         }
         for name, expected in cases.items():
             with self.subTest(path=name):
@@ -151,7 +93,7 @@ class PdfBuildCacheTests(unittest.TestCase):
                 self.assertEqual({family for family in FAMILIES if actual[family] != initial[family]}, expected)
                 path.write_bytes(original)
         self.assertEqual(self.keys(), initial)
-        self.assertTrue(all(self.keys("new-runner-image")[family] != initial[family] for family in FAMILIES))
+        self.assertEqual(self.keys("new-runner-image"), initial)
 
     def test_change_plan_excludes_catalog_only_code(self) -> None:
         self.assertEqual(affected_families({"Scripts/_study_catalog.py"}, self.root), set())
@@ -211,7 +153,7 @@ class PdfBuildCacheTests(unittest.TestCase):
         target = self.root / "Studies/A/Note.html"
         target.write_bytes(b"reader")
         self.git("add", "Studies/A/Note.html")
-        self.assertNotEqual(self.keys()["markdown"], original["markdown"])
+        self.assertEqual(self.keys()["markdown"], original["markdown"])
         before_removal = self.keys()
         self.git("rm", "--cached", "Studies/A/A.md")
         (self.root / "Studies/A/A.md").unlink()
@@ -265,35 +207,18 @@ class PdfBuildCacheTests(unittest.TestCase):
                 reference_builder.build_all(artifact_root, verify_only=True)
 
     def test_workflow_limits_cache_writes_and_keeps_publication_gates(self) -> None:
-        workflow = (BASE / ".github/workflows/generated-pdf-publish.yml").read_text(encoding="utf-8")
-        for block in workflow.split("      - name: ")[1:]:
-            if "uses: actions/cache/save@v6" in block:
-                self.assertIn("github.ref == 'refs/heads/master'", block)
-                self.assertIn("github.event_name != 'pull_request'", block)
-            if "uses: actions/cache/restore@v6" in block and "document-pdf-cache" not in block:
-                self.assertNotIn("restore-keys:", block)
-                self.assertTrue("github.event_name == 'push'" in block or
-                                "github.event_name != 'workflow_dispatch'" in block)
-        publication = workflow.split("\n  publish-and-deploy:\n", 1)[1]
-        self.assertIn("needs: [validate, pdfs, presentations]", publication)
-        self.assertIn("github.ref == 'refs/heads/master'", publication)
-        self.assertIn("--check-r2-coverage", publication)
-        self.assertIn("--check-reference-r2-coverage", publication)
-        self.assertIn("--deploy-canary", publication)
-        self.assertIn("--public --all", publication)
-        coherent = workflow.split("\n  coherent-site:\n", 1)[1]
-        self.assertIn("needs: [validate, pdfs, presentations]", coherent)
-        self.assertIn("if: needs.pdfs.outputs.references_changed == 'true'", coherent)
-        reference_steps = [
-            block
-            for block in workflow.split("      - name: ")[1:]
-            if "Scripts/_publish_reference_artifacts.py" in block
-        ]
-        self.assertEqual(len(reference_steps), 4)
-        for block in reference_steps:
-            self.assertIn("CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}", block)
-            self.assertIn("CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}", block)
+        workflow = (BASE / '.github/workflows/generated-pdf-publish.yml').read_text(encoding='utf-8')
+        self.assertIn("if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'", workflow)
+        coherent = workflow.split('\n  coherent-site:\n', 1)[1]
+        self.assertIn('needs: [plan, validate, pdfs, presentations]', coherent)
+        self.assertIn("needs.validate.result == 'success'", coherent)
+        self.assertIn('--verify-approved', coherent)
+        self.assertIn('--plan "$RUNNER_TEMP/publication-plan.json"', coherent)
+        self.assertIn('_publish_site_release.py', coherent)
+        self.assertIn('secrets.CLOUDFLARE_API_TOKEN', coherent)
+        self.assertNotIn('publish-and-deploy:', workflow)
+        self.assertIn("needs.plan.outputs.any_build == 'true'", coherent)
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     unittest.main()

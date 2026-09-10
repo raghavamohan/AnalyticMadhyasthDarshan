@@ -142,13 +142,9 @@ def main() -> int:
     catalog = json.loads(CATALOG_PATH.read_text(encoding="utf-8"))
     js = worker_js(catalog)
     print(f"Uploading worker {WORKER_NAME!r} to account {account}...")
-    result = multipart_put(
-        f"{cf.API_BASE}/accounts/{account}/workers/scripts/{WORKER_NAME}",
-        token,
-        "index.js",
-        js,
-        {"main_module": "index.js", "compatibility_date": COMPATIBILITY_DATE},
-    )
+    from _worker_deployment import deploy_source
+    result = deploy_source(token, account, WORKER_NAME, js,
+                           {"main_module": "index.js", "compatibility_date": COMPATIBILITY_DATE}, multipart_put)
     print(json.dumps(result.get("result") or result, indent=2)[:2000])
     try:
         cf._api_request(

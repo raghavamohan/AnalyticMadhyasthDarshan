@@ -14,9 +14,8 @@ one of each is what makes this test meaningful:
 * a **Draft** study passes through pdf-lib for the watermark, which rewrites the
   info dict into a compressed stream, so its dates are pinned there instead.
 
-Note this rewrites each study's generated `.pdf` and `.html` in place — the
-pipeline has no out-of-tree mode. That is harmless in CI. Locally, restore with
-`git checkout -- Studies/<Slug>` afterwards if you have nothing else in flight.
+This writes ignored PDFs and disposable sibling HTML intermediates. Published
+readers, search shards and offline catalogs remain unchanged.
 
 Examples (from repo root):
 
@@ -110,7 +109,7 @@ def check_slug(slug: str, runs: int = 2) -> tuple[bool, str]:
 
     outputs: list[bytes] = []
     for _ in range(max(2, runs)):
-        regenerate_pdf(md_path, status)
+        regenerate_pdf(md_path, status, refresh_web=False)
         outputs.append(pdf_path.read_bytes())
 
     digests = [hashlib.sha256(buf).hexdigest() for buf in outputs]

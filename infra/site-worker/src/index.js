@@ -33,7 +33,8 @@ function rangeFor(header, size) {
 }
 
 async function staticResponse(request, env, key, record, revision, historical) {
-  const headers = headersFor(record,revision,new URL(request.url).searchParams.has('r'));
+  const query = new URL(request.url).searchParams;
+  const headers = headersFor(record,revision,query.has('r') || /^[a-f0-9]{64}$/.test(query.get('v') || ''));
   const ifMatch = request.headers.get('If-Match');
   if (ifMatch && !ifMatch.split(',').some(e=>e.trim()===headers.get('ETag') || e.trim()==='*')) return new Response(null,{status:412,headers});
   if ((request.headers.get('If-None-Match') || '').split(',').some(e => e.trim().replace(/^W\//,'') === headers.get('ETag') || e.trim() === '*')) return new Response(null,{status:304,headers});
@@ -98,10 +99,27 @@ export async function handle(request, env, current = RELEASE) {
   const url=new URL(request.url);
   if (url.pathname.startsWith('/api/')) return fetch(request);
   if (url.pathname === '/.well-known/publication.json') {
-    return new Response(request.method==='HEAD'?null:JSON.stringify({schema:1,revision:current.revision,sourceSha:current.sourceSha,studies:current.studies}),
+    return new Response(request.method==='HEAD'?null:JSON.stringify({schema:1,revision:current.revision,sourceSha:current.sourceSha,runtimeFingerprint:current.runtimeFingerprint,buildReceiptKey:current.buildReceiptKey,studies:current.studies}),
       {headers:{'Content-Type':'application/json','Cache-Control':'no-store','X-AMD-Release':current.revision,'Access-Control-Allow-Origin':'*'}});
   }
   let manifest=current;
+  const assetHash=url.searchParams.get('v');
+  if (/^[a-f0-9]{64}$/.test(assetHash || '') && !url.pathname.startsWith('/References/')) {
+    const assetPath=canonicalPath(url.pathname,{});
+    if (!assetPath || !/\.(css|js|svg|png|jpg|jpeg|gif|webp|avif|ico|woff2?|ttf)$/.test(assetPath)) return fail(400,'Invalid immutable asset path');
+    let asset=current.files[assetPath];
+    if (!asset || asset.sha256!==assetHash) {
+      const binding=await env.GENERATED_PDFS.get(`site/assets/${assetPath.slice(1)}/${assetHash}.json`);
+      if (!binding) return fail(404,'Asset version is no longer retained');
+      const data=await binding.json();
+      if (data.schema!==1 || data.path!==assetPath) return fail(503,'Invalid asset binding');
+      asset=data.record;
+    }
+    if (!asset || !asset.archive || asset.sha256!==assetHash || asset.key!==`site/objects/${assetHash}`) return fail(503,'Invalid asset record');
+    if (request.method==='OPTIONS') return new Response(null,{status:204,headers:{Allow:'GET, HEAD, OPTIONS'}});
+    if (!['GET','HEAD'].includes(request.method)) return fail(405,'Method Not Allowed');
+    return staticResponse(request,env,assetPath,asset,current.revision,asset!==current.files[assetPath]);
+  }
   const revision=url.searchParams.get('r');
   if (revision && !/^[a-f0-9]{64}$/.test(revision)) return fail(400,'Invalid release');
   if (revision && revision !== current.revision && !url.pathname.startsWith('/References/')) {
@@ -116,6 +134,12 @@ export async function handle(request, env, current = RELEASE) {
   const record=manifest.files[key];
   if (!record || !/^[a-f0-9]{64}$/.test(record.sha256) || record.key!==`site/objects/${record.sha256}` || (manifest!==current && !record.archive)) return fail(404,'Not published');
   if (!['GET','HEAD','OPTIONS'].includes(request.method)) return fail(405,'Method Not Allowed');
+  // Stable HTML obtains its release from this explicit URL. The redirect is
+  // uncached; both retained reader navigation and offline saves remain pinned.
+  if (!revision && manifest.deliveryVersion >= 2 && key.endsWith('.html') && record.archive && request.method!=='OPTIONS') {
+    url.searchParams.set('r',manifest.revision);
+    return new Response(null,{status:302,headers:{Location:url.href,'Cache-Control':'no-store','X-AMD-Release':manifest.revision}});
+  }
   if (record.archive && key.endsWith('.pdf')) {
     const response=await servePdf(request,env.GENERATED_PDFS,record.key);
     const headers=new Headers(response.headers);

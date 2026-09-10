@@ -17,7 +17,7 @@ jobs:
       github.event.pull_request.draft &&
       github.event.pull_request.head.repo.full_name == github.repository &&
       contains(github.event.pull_request.body, 'Portal-GitHub: @')
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v7
         with:
@@ -42,3 +42,11 @@ jobs:
           path: ${{ runner.temp }}/prepared.json
           retention-days: 3
           if-no-files-found: error
+      - name: Export verified preparation PDFs for exact-input reuse
+        run: python Scripts/_review_artifacts.py --from-local --root "$RUNNER_TEMP/prepared-review-pdfs"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: prepared-review-pdfs
+          path: ${{ runner.temp }}/prepared-review-pdfs
+          if-no-files-found: error
+          retention-days: 14

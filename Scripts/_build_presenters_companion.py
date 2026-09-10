@@ -34,7 +34,6 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Inches, Pt
 
-from _docx_to_pdf import convert_docx_to_pdf
 from _sync_pptx_speaker_notes import load_notes, sync_speaker_notes
 
 
@@ -97,7 +96,23 @@ def build_docx(md: Path, docx: Path) -> int:
         i += 1
 
     docx.parent.mkdir(parents=True, exist_ok=True)
-    doc.save(docx)
+    # Office ZIP timestamps are not source data. Preserve a byte-identical
+    # existing document and normalize ZIP metadata when its content changes.
+    import io
+    import zipfile
+    buffer = io.BytesIO()
+    doc.save(buffer)
+    with zipfile.ZipFile(buffer) as package:
+        parts = {name: package.read(name) for name in package.namelist()}
+    if docx.is_file():
+        with zipfile.ZipFile(docx) as previous:
+            if parts == {name: previous.read(name) for name in previous.namelist()}:
+                return slide_count
+    with zipfile.ZipFile(docx, 'w', compression=zipfile.ZIP_DEFLATED) as package:
+        for name, body in sorted(parts.items()):
+            info = zipfile.ZipInfo(name, date_time=(2000, 1, 1, 0, 0, 0))
+            info.compress_type = zipfile.ZIP_DEFLATED
+            package.writestr(info, body)
     return slide_count
 
 
@@ -125,7 +140,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--pdf",
         action="store_true",
-        help="Also export a PDF beside the DOCX via Word COM",
+        help="Also render the published PDF through the canonical Markdown/Chrome pipeline",
     )
     parser.add_argument(
         "--pdf-output",
@@ -159,7 +174,11 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.pdf or args.pdf_output is not None:
         pdf = (args.pdf_output or docx.with_suffix(".pdf")).expanduser().resolve()
-        convert_docx_to_pdf(docx, pdf)
+        from _study_pdf_pipeline import regenerate_pdf, render_status
+        import shutil
+        regenerate_pdf(md, render_status(md))
+        if pdf != md.with_suffix('.pdf'):
+            shutil.copy2(md.with_suffix('.pdf'), pdf)
         print(f"Wrote {pdf} ({pdf.stat().st_size} bytes)")
 
     if args.pptx is not None:
@@ -168,12 +187,10 @@ def main(argv: list[str] | None = None) -> int:
             if args.notes is not None
             else default_notes_path(md)
         )
-        if not notes_path.is_file():
-            raise SystemExit(
-                f"--pptx requires notes JSON, but none found at {notes_path}. "
-                "Pass --notes <path> or create <companion>.notes.json."
-            )
-        notes = load_notes(notes_path)
+        from _verify_companion_outputs import delivery_notes
+        import json
+        notes = delivery_notes(md)
+        notes_path.write_bytes((json.dumps(notes, ensure_ascii=False, indent=2) + '\n').encode('utf-8'))
         sync_speaker_notes(args.pptx, notes)
         print(
             f"Updated speaker notes for {len(notes)} slides in "

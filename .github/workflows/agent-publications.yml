@@ -30,7 +30,7 @@ on:
       - "Scripts/_build_studies_index.py"
       - "Scripts/_build_sitemap.py"
       - "Scripts/_verify_studies_index.py"
-      - "Scripts/_cloudflare_performance.py"
+      - "Scripts/_worker_deployment.py"
       - "Scripts/_build_contributor_assets.py"
       - "Scripts/_build_discussion_pages.py"
       - "Scripts/_discussion_assets.py"
@@ -77,7 +77,7 @@ on:
       - "Scripts/_build_studies_index.py"
       - "Scripts/_build_sitemap.py"
       - "Scripts/_verify_studies_index.py"
-      - "Scripts/_cloudflare_performance.py"
+      - "Scripts/_worker_deployment.py"
       - "Scripts/_build_contributor_assets.py"
       - "Scripts/_build_discussion_pages.py"
       - "Scripts/_discussion_assets.py"
@@ -148,46 +148,35 @@ jobs:
           node Scripts/_test_mcp_api_errors.mjs
 
       - name: Deploy Agent Skills Worker
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: python Scripts/_publish_agent_skills_snippet.py
 
       - name: Deploy MCP Worker
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: python Scripts/_publish_mcp_server_card.py
 
       - name: Deploy Auth.md Worker
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: python Scripts/_publish_auth_md_snippet.py
 
       - name: Deploy API catalog Worker
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
         run: python Scripts/_publish_api_catalog_snippet.py
 
-      - name: Synchronize Agent API edge policy
-        if: github.event_name != 'pull_request'
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
-        run: >-
-          python Scripts/_cloudflare_performance.py
-          --apply-security-headers
-          --apply-portal-edge-security
-          --apply-discussions-rate-limits
-
       - name: Verify live publications
-        if: github.event_name != 'pull_request'
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
         run: |
           # OpenAPI files belong to the parallel coherent-site publication.
           # Verify only the route this workflow deploys in the final command.

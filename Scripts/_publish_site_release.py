@@ -95,6 +95,11 @@ def stage_objects(client, root: Path, manifest: dict) -> None:
 
     def stage(item):
         path, record = item
+        if path in manifest.get('reusedPdfs', []):
+            from _publication_plan import object_matches
+            if not object_matches(client, record):
+                raise ValueError(f'Reused PDF disappeared during publication: {path}; replan to repair it')
+            return path, 'reused'
         outcome = put_verified(
             client,
             record["key"],
@@ -112,8 +117,21 @@ def stage_objects(client, root: Path, manifest: dict) -> None:
             outcomes[outcome] += 1
             if index == 1 or index % 25 == 0 or index == len(archived):
                 progress(f'Staged R2 file {index}/{len(archived)} ({time.monotonic() - started:.0f}s): {path}')
+    # Duplicate bytes share one object, but every public path owns its own MIME
+    # binding. Keep these separate from object-key deduplication above.
+    from _release_assets import is_asset, asset_record_key
+    def bind_asset(item):
+        path, record = item
+        put_verified(client, asset_record_key(path, record['sha256']),
+                     encode({'schema': 1, 'path': path, 'record': record}),
+                     'application/json', filename='asset-record.json')
+    with ThreadPoolExecutor(max_workers=io_workers(len(archived))) as executor:
+        list(executor.map(bind_asset, ((path, record) for path, record in manifest['files'].items()
+                                     if record['archive'] and is_asset(path))))
     progress('All release objects verified; uploading the immutable release manifest.')
-    put_verified(client, f'site/releases/{manifest["revision"]}.json', encode(manifest), "application/json", filename="release.json")
+    from _site_release import content_manifest
+    put_verified(client, f'site/releases/{manifest["revision"]}.json', encode(content_manifest(manifest)), "application/json", filename="release.json")
+    store_build_receipt(client, root, manifest)
     progress(
         f'R2 staging complete in {time.monotonic() - started:.0f}s '
         f'({outcomes["uploaded"]} uploaded, {outcomes["reused"]} reused).'
@@ -194,6 +212,17 @@ def deploy(token: str, account: str, worker: str, client, root: Path, manifest: 
     return version
 
 
+def runtime_fingerprint(client) -> str:
+    """Version the complete delivery contract independently of public file bytes."""
+    modules = {name: digest(path.read_bytes()) for name, path in {
+        'site': SOURCE, 'pdf': WORKER_SOURCE, 'keys': KEYS_SOURCE,
+        'edge-policy': BASE / 'Scripts/_cloudflare_performance.py',
+    }.items()}
+    return digest(encode({'schema': 1, 'modules': modules,
+        'compatibilityDate': '2026-09-09', 'htmlHandling': 'none', 'runWorkerFirst': True,
+        'generatedBucket': client.bucket(), 'referenceBucket': reference_bucket_name()}))
+
+
 def public_state(base: str) -> dict:
     request = Request(base.rstrip("/") + "/.well-known/publication.json", headers={'User-Agent': AUDIT_USER_AGENT})
     with urlopen(request, timeout=30) as response:
@@ -255,7 +284,9 @@ def audit(base: str, root: Path, manifest: dict, *, origin_base: str | None = No
     started = time.monotonic()
     progress(f'Checking active release at {base}/.well-known/publication.json.')
     def require_revision():
-        if public_state(base)["revision"] != manifest["revision"]:
+        state = public_state(base)
+        if any(state.get(key) != manifest[key] for key in
+               ('revision', 'sourceSha', 'runtimeFingerprint', 'buildReceiptKey') if manifest.get(key)):
             raise ReleaseNotReady("The endpoint is serving another release")
     audit_retry(require_revision, f'the expected release at {base}')
     # Download every document and discovery surface; HEAD the remaining assets.
@@ -267,7 +298,10 @@ def audit(base: str, root: Path, manifest: dict, *, origin_base: str | None = No
         # Dedicated Markdown services may correctly omit Content-Length on HEAD.
         # Read their complete bytes and verify the checksum as for other documents.
         full = path.endswith((".html", ".pdf", ".json", ".txt", ".md"))
-        request = Request(base.rstrip("/") + quote(path, safe="/") + "?r=" + manifest["revision"],
+        from _release_assets import is_asset
+        query = ('?v=' + record['sha256'] if manifest.get('deliveryVersion') == 2 and is_asset(path)
+                 else '?r=' + manifest['revision'])
+        request = Request(base.rstrip("/") + quote(path, safe="/") + query,
                           method="GET" if full else "HEAD", headers={'User-Agent': AUDIT_USER_AGENT})
         with audit_retry(lambda: urlopen(request, timeout=60), path) as response:
             # R2 can describe an entire object as a range even for a plain GET.
@@ -317,9 +351,8 @@ def audit_publication_marker(base: str, manifest: dict) -> None:
 
     def require_marker():
         state = public_state(base)
-        if (state.get("revision"), state.get("sourceSha")) != (
-            manifest["revision"], manifest["sourceSha"]
-        ):
+        if any(state.get(key) != manifest[key] for key in
+               ('revision', 'sourceSha', 'runtimeFingerprint', 'buildReceiptKey') if manifest.get(key)):
             raise ReleaseNotReady("The endpoint is serving another publication marker")
 
     audit_retry(require_marker, f'the expected publication marker at {base}')
@@ -372,9 +405,8 @@ def advance_source_pointer(
         print("Source pointer verified on canary. Production has not been promoted.")
         return
     current = public_state(production)
-    if (current.get("revision"), current.get("sourceSha")) != (
-        active.get("revision"), active.get("sourceSha")
-    ):
+    if any(current.get(key) != active.get(key) for key in
+           ('revision', 'sourceSha', 'runtimeFingerprint', 'buildReceiptKey')):
         raise ValueError("Active publication moved during source-pointer preparation; retry against current state")
     version = deploy(token, account, WORKER, client, root, manifest, version_only=True)
     previous_version = prior[0]["versions"][0]["version_id"]
@@ -404,12 +436,27 @@ def publish(root: Path, *, promote: bool) -> None:
     account = _zone_account_id(token, zone)
     subdomain = _workers_subdomain(token, account)
     client = R2S3Client(load_r2_config())
+    if manifest.get('buildReceiptKey'):
+        from _publication_plan import validate_plan, verify_reuse_authority, receipt_for_release, receipt_key
+        plan = validate_plan(json.loads((root / 'publication-plan.json').read_bytes()))
+        if plan['sourceSha'] != manifest['sourceSha']:
+            raise ValueError('Publication receipt belongs to another source commit')
+        for key, proof in plan.get('reviewArtifacts', {}).items():
+            if manifest['files'].get('/' + key, {}).get('sha256') != proof['sha256']:
+                raise ValueError(f'Reviewed PDF differs from the release: {key}')
+        verify_reuse_authority(client, plan)
+        receipt = receipt_for_release(manifest, plan)
+        if manifest['buildReceiptKey'] != receipt_key(receipt) or receipt != json.loads((root / 'build-receipt.json').read_bytes()):
+            raise ValueError('Build receipt differs from verified release outputs')
+    manifest['runtimeFingerprint'] = runtime_fingerprint(client)
     progress('Checking current production deployment before staging.')
     prior = deployments(token, account)
     active = public_state(f"https://{WORKER}.{subdomain}.workers.dev") if prior else None
     if active:
         assert_forward(active, manifest)
-        if active["revision"] == manifest["revision"]:
+        if (active["revision"] == manifest["revision"]
+                and active.get('runtimeFingerprint') == manifest['runtimeFingerprint']):
+            store_build_receipt(client, root, manifest)
             if active.get("sourceSha") != manifest["sourceSha"]:
                 advance_source_pointer(
                     token, zone, account, subdomain, client, root, manifest,
@@ -429,8 +476,10 @@ def publish(root: Path, *, promote: bool) -> None:
         return
     # The workflow serializes promotion. Re-read state to reject a superseded
     # candidate before changing production, even after a long staging run.
-    if active and public_state(f"https://{WORKER}.{subdomain}.workers.dev")["revision"] != active["revision"]:
-        raise ValueError("Active release moved during staging; retry against current publication state")
+    if active:
+        current = public_state(f"https://{WORKER}.{subdomain}.workers.dev")
+        if any(current.get(key) != active.get(key) for key in ('revision', 'sourceSha', 'runtimeFingerprint')):
+            raise ValueError("Active release moved during staging; retry against current publication state")
     version = deploy(token, account, WORKER, client, root, manifest, version_only=bool(prior))
     if prior:
         activate_version(token, account, version)
@@ -446,16 +495,26 @@ def publish(root: Path, *, promote: bool) -> None:
     print(f'Published coherent site release {manifest["revision"]}')
 
 
+def store_build_receipt(client, root: Path, manifest: dict) -> None:
+    if manifest.get('buildReceiptKey'):
+        put_verified(client, manifest['buildReceiptKey'], (root / 'build-receipt.json').read_bytes(),
+                     'application/json', filename='build-receipt.json')
+
+
 def record_deployment(client, manifest: dict, version: str) -> None:
     key = f'site/deployments/{manifest["revision"]}.json'
     if not client.head_object(key):
         receipt = {'revision':manifest['revision'], 'sourceSha':manifest['sourceSha'], 'version':version}
         put_verified(client,key,encode(receipt),'application/json',filename='deployment.json')
+    record_source_deployment(client, manifest, version)
 
 
 def record_source_deployment(client, manifest: dict, version: str) -> None:
-    key = f'site/source-deployments/{manifest["sourceSha"]}.json'
-    receipt = {'revision': manifest['revision'], 'sourceSha': manifest['sourceSha'], 'version': version}
+    # A source may be deployed more than once. A version receipt is immutable;
+    # retrying the same version reuses it, while another deployment cannot collide.
+    key = f'site/source-deployments/{manifest["sourceSha"]}/{version}.json'
+    receipt = {'revision': manifest['revision'], 'sourceSha': manifest['sourceSha'], 'version': version,
+               'runtimeFingerprint': manifest.get('runtimeFingerprint')}
     put_verified(client, key, encode(receipt), 'application/json', filename='source-deployment.json')
 
 
@@ -470,6 +529,7 @@ def rollback(revision: str) -> None:
     client = R2S3Client(load_r2_config())
     manifest = json.loads(client.get_object(f'site/releases/{revision}.json'))
     receipt = json.loads(client.get_object(f'site/deployments/{revision}.json'))
+    manifest['sourceSha'] = receipt['sourceSha']
     if manifest.get('revision') != revision or receipt.get('revision') != revision or not receipt.get('version'):
         raise ValueError('Retained release or deployment receipt is invalid.')
     prior = deployments(token, account)[0]['versions'][0]['version_id']

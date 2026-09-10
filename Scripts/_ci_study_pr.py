@@ -242,20 +242,14 @@ def pdf_regeneration_reason(base_ref: str, slug: str) -> str | None:
     costs a full Puppeteer render and (before the output was made reproducible)
     pushed a fresh multi-megabyte blob for no change in content.
     """
+    from _artifact_graph import document_node, affected_outputs
     md_path = study_md(slug)
-    changed = changed_paths(base_ref)
-    md_rel = md_path.relative_to(BASE).as_posix()
-    study_dir = md_path.parent.relative_to(BASE).as_posix()
-
-    for _status, path in changed:
-        if path == md_rel:
-            return "the study markdown changed"
-        # Only figures inside the study's own directory can appear in its PDF.
-        if path.startswith(f"{study_dir}/") and path.lower().endswith((".svg", ".png", ".jpg", ".jpeg")):
-            return f"a figure changed ({path})"
-        if path in PDF_PIPELINE_PATHS or path.startswith(PDF_PIPELINE_PREFIXES):
-            return f"the PDF pipeline changed ({path})"
-    return None
+    item = document_node(md_path)
+    paths = {path for _status, path in changed_paths(base_ref)}
+    if item['output'] not in affected_outputs(paths, base=base_ref, nodes={item['output']: item}):
+        return None
+    relevant = sorted(paths.intersection(item['inputs']))
+    return 'consumed PDF inputs changed: ' + ', '.join(relevant or ['referenced target or publication status'])
 
 
 def only_generated_html_changed(base_ref: str, slug: str) -> bool:
@@ -856,6 +850,8 @@ def handle_status_change(body: str, base_ref: str) -> None:
 
 
 def verify_studies_index() -> None:
+    from _study_search import flush_search_updates
+    flush_search_updates()
     # collect_index_errors() is shared with _verify_studies_index.py, which the
     # master-push check runs. Calling a hand-picked subset of the verifiers here
     # is exactly what let a stale Studies/index.html pass a study PR and turn
@@ -906,6 +902,23 @@ def main() -> None:
     rewrite_changed_reference_links(args.base_ref)
     HANDLERS[label](body, args.base_ref)
 
+    # A companion source submitted through the portal needs its own prepared
+    # reader/PDF and declared delivery chain, without touching the study date.
+    from _artifact_graph import build_graph, affected_outputs
+    from _study_pdf_pipeline import render_status
+    graph = build_graph()
+    selected = affected_outputs(set(paths), base=args.base_ref, nodes=graph)
+    companion_sources = {graph[key]['source'] for key in selected if graph[key]['family'] == 'markdown'
+                         and Path(graph[key]['source']).stem != Path(graph[key]['source']).parent.name}
+    for name in sorted(companion_sources):
+        source = BASE / name
+        regenerate_pdf(source, render_status(source))
+    from _verify_companion_outputs import prepare as prepare_companions
+    prepare_companions(companion_sources)
+    if companion_sources:
+        from _build_studies_index import write_index_html
+        write_index_html()
+
     # Keep My Submissions' durable study -> note/deck inventory in the same PR.
     # This is generated after lifecycle handling so additions, removals, renames,
     # and status changes all see their final repository paths.
@@ -914,9 +927,13 @@ def main() -> None:
     # the same artifact commit whenever a study lifecycle change alters the
     # inventory, rather than discovering drift only during post-merge deploy.
     sync_generated_pdf_keys()
+    from _build_social_cards import build as build_social_cards
+    build_social_cards()
     verify_studies_index()
     print("Study PR pipeline completed successfully.")
 
 
 if __name__ == "__main__":
-    main()
+    from _study_search import batch_search_updates
+    with batch_search_updates():
+        main()

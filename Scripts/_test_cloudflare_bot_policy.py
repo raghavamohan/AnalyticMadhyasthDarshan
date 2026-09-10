@@ -40,8 +40,8 @@ class CloudflareBotPolicyTests(unittest.TestCase):
         self.assertIn('starts_with(http.request.uri.path, "/api/")', expression)
         self.assertIn('starts_with(http.request.uri.path, "/mcp")', expression)
 
-    def test_agent_publication_deploy_converges_edge_policy(self) -> None:
-        workflow = (BASE / ".github" / "workflows" / "agent-publications.yml").read_text(
+    def test_one_workflow_owns_shared_edge_policy(self) -> None:
+        workflow = (BASE / ".github" / "workflows" / "edge-policy.yml").read_text(
             encoding="utf-8"
         )
         for flag in (
@@ -50,6 +50,11 @@ class CloudflareBotPolicyTests(unittest.TestCase):
             "--apply-discussions-rate-limits",
         ):
             self.assertIn(flag, workflow)
+
+        for name in ('agent-publications.yml', 'submission-worker-deploy.yml'):
+            other = (BASE / '.github/workflows' / name).read_text(encoding='utf-8')
+            self.assertNotIn('--apply-security-headers', other)
+            self.assertNotIn('--apply-portal-edge-security', other)
 
     def test_agent_publication_verifies_only_its_api_catalog_route(self) -> None:
         workflow = (BASE / ".github" / "workflows" / "agent-publications.yml").read_text(

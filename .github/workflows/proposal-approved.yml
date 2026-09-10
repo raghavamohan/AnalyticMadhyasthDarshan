@@ -142,13 +142,17 @@ jobs:
         if: steps.workspace.outputs.complete != 'true'
         uses: ./.github/actions/setup-study-env
         with:
-          node: 'false'
+          node: 'true'
 
       - name: Bootstrap metadata and Planned catalog row
         if: steps.workspace.outputs.complete != 'true'
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python Scripts/_bootstrap_proposal_study.py --issue "$ISSUE_NUMBER" --skip-issue-update
+
+      - name: Build only changed proposal share cards
+        if: steps.workspace.outputs.complete != 'true'
+        run: python Scripts/_build_social_cards.py
 
       - name: Synchronize generated PDF Worker allowlist
         if: steps.workspace.outputs.complete != 'true'

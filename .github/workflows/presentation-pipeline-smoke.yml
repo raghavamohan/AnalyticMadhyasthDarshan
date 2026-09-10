@@ -7,23 +7,7 @@ name: Presentation pipeline smoke
 on:
   workflow_dispatch:
   pull_request:
-    paths:
-      - "Studies/**/*.pptx"
-      - "Applications/**/*.pptx"
-      - "Scripts/_build_deck_notes_pdf.py"
-      - "Scripts/_build_presentations.py"
-      - "Scripts/_check_deck_layout.py"
-      - "Scripts/_common.py"
-      - "Scripts/_install_presentation_renderer.ps1"
-      - "Scripts/_pptx_to_pdf.py"
-      - "Scripts/_presentation_pipeline.py"
-      - "Scripts/_test_presentation_pipeline.py"
-      - "Scripts/_verify_presentation_reproducible.py"
-      - "Scripts/_verify_presentations.py"
-      - "Scripts/presentation-pipeline.json"
-      - "requirements.txt"
-      - ".github/actions/setup-study-env/action.yml"
-      - ".github/workflows/presentation-pipeline-smoke.yml"
+    types: [opened, synchronize, reopened, ready_for_review]
 
 permissions:
   contents: read
@@ -33,11 +17,36 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    outputs:
+      changed: ${{ steps.tools.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - id: tools
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          MANUAL: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          changed=true
+          if [ "$MANUAL" != "true" ]; then
+            changed=$(python Scripts/_artifact_graph.py --changed-presentation-tools-since "$BASE_SHA")
+          fi
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
   libreoffice-production:
+    needs: plan
+    if: needs.plan.outputs.changed == 'true'
     runs-on: windows-2025
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
 
       - name: Set up Python toolchain
         uses: ./.github/actions/setup-study-env
