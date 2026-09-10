@@ -115,9 +115,22 @@ def check_live() -> None:
     print("OK: live /.well-known/mcp/server-card.json is MCP Server Card JSON.")
 
 
+def check_runtime_configuration() -> None:
+    from _publish_mcp_server_card import deployment_metadata
+    metadata = deployment_metadata()
+    flags = metadata.get('compatibility_flags', [])
+    # Cloudflare rejects RequestInit.cache under the older pinned date unless
+    # this flag is explicitly enabled. Node fetch mocks cannot catch that.
+    if ('cache_option_disabled' in flags or
+            metadata['compatibility_date'] < '2024-11-11' and 'cache_option_enabled' not in flags):
+        fail('MCP publication fetch requires Cloudflare cache: no-store support')
+    print('OK: deployed MCP runtime supports uncached publication-marker requests.')
+
+
 def main() -> None:
     check_card(load_card())
     check_homepage_link()
+    check_runtime_configuration()
     if "--live" in sys.argv:
         check_live()
 
