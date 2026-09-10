@@ -12,6 +12,11 @@ import {
 import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
 import { normalizeApiErrorResponse } from '../../shared/api-errors.mjs';
 import {
+  observedResponse,
+  operationIdFor as observedOperationIdFor,
+  readinessStatus,
+} from '../../shared/api-observability.mjs';
+import {
   paginationMeta,
   parsePagination,
   readJsonWithin,
@@ -72,6 +77,39 @@ const DASHBOARD_STAGES = new Set([
   'pending', 'preparing', 'accepted', 'declined', 'retired',
   'pr-open', 'changes_requested', 'merged', 'pr-closed', 'closed',
 ]);
+const OBSERVABILITY_ROUTES = Object.freeze([
+  ['GET', '/api/health', 'getHealth', 'none'],
+  ['GET', '/api/auth/github', 'startGitHubOAuth', 'github_oauth'],
+  ['GET', '/api/auth/callback', 'githubOAuthCallback', 'github_oauth'],
+  ['GET', '/api/auth/me', 'getAuthMe', 'kv'],
+  ['POST', '/api/auth/logout', 'logout', 'kv'],
+  ['GET', '/api/me/submissions', 'listMySubmissions', 'github_api'],
+  ['GET', '/api/me/submissions/status', 'listMyOpenSubmissionStatuses', 'github_api'],
+  ['GET', '/api/me/notifications', 'getNotificationPrefs', 'kv'],
+  ['POST', '/api/me/notifications', 'setNotificationPrefs', 'kv'],
+  ['POST', '/api/notify', 'notifyContributor', 'resend'],
+  ['POST', '/api/propose', 'proposeStudy', 'github_api'],
+  ['GET', '/api/proposal-status', 'getProposalStatus', 'github_api'],
+  ['GET', '/api/study-artifacts', 'listStudyArtifacts', 'github_api'],
+  ['GET', '/api/study-source', 'getStudySource', 'github_api'],
+  ['GET', '/api/revision-source', 'getRevisionSource', 'github_api'],
+  ['POST', '/api/revise', 'reviseDraft', 'github_api'],
+  ['POST', '/api/submit', 'submitStudy', 'github_api'],
+  ['POST', '/api/delete-artifact', 'deleteStudyArtifact', 'github_api'],
+  ['POST', '/api/status-change', 'changeStudyStatus', 'github_api'],
+  ['GET', '/api/operation', 'getContributionOperation', 'durable_object'],
+].map(([method, path, operationId, dependency]) => ({method, path, operationId, dependency})));
+
+function submissionReadiness(env) {
+  return readinessStatus('submissions', {
+    githubApi: { configured: Boolean(env.GITHUB_TOKEN), required: true },
+    githubOAuth: { configured: Boolean(env.GITHUB_CLIENT_ID && env.GITHUB_CLIENT_SECRET), required: true },
+    sessions: { configured: Boolean(env.SESSIONS && env.SESSION_SECRET), required: true },
+    contributionReceipts: { configured: Boolean(env.CONTRIBUTOR_OPERATIONS), required: true },
+    turnstile: { configured: Boolean(env.TURNSTILE_SECRET_KEY), required: true },
+    email: { configured: Boolean(env.RESEND_API_KEY), required: false },
+  });
+}
 function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
   const headers = {
     ...corsHeaders(request, env),
@@ -1772,7 +1810,7 @@ function assertStatusChangeAllowed(slug, targetStatus, catalogMap, prItems) {
 
 router.options('*', (request, env) => new Response(null, { headers: corsHeaders(request, env) }));
 
-router.get('/api/health', (request, env) => jsonResponse(request, env, { status: 'ok' }));
+router.get('/api/health', (request, env) => jsonResponse(request, env, submissionReadiness(env)));
 
 router.get('/api/auth/github', async (request, env) => {
   if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.SESSION_SECRET || !env.SESSIONS) {
@@ -2847,6 +2885,7 @@ async function forwardContributionOperation(request, env) {
 
 export default {
   async fetch(request, env, ctx) {
+    const startedAt = Date.now();
     env = {...env}; // Promise and cache identity belong to this request only.
     let response = rejectUnsafeWrite(request, allowedOrigins(env), { machinePath: '/api/notify' });
     if (!response) {
@@ -2864,6 +2903,17 @@ export default {
       }
     }
     response = await normalizeApiErrorResponse(request, response);
-    return privateResponse(withRateLimitPolicy(response), corsHeaders(request, env));
+    response = privateResponse(withRateLimitPolicy(response), corsHeaders(request, env));
+    const operationId = observedOperationIdFor(request, OBSERVABILITY_ROUTES);
+    const route = OBSERVABILITY_ROUTES.find(item => item.operationId === operationId);
+    return observedResponse({
+      env,
+      request,
+      response,
+      service: 'submissions',
+      operationId,
+      dependency: route?.dependency || 'none',
+      startedAt,
+    });
   },
 };

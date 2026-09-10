@@ -113,7 +113,7 @@ contract: `success: false`, stable `code`, human-readable `message`,
 
 | Route | Auth | Purpose |
 |-------|------|---------|
-| `GET /api/discussions/health` | — | Liveness `{ status: "ok" }` (`health` is not a study slug) |
+| `GET /api/discussions/health` | — | Liveness and dependency readiness (`ok` or `degraded`; `health` is not a study slug) |
 | `GET /api/discussions/stats` | — | Paginated comment counts and latest activity per study slug (`stats` is reserved) |
 | `GET /api/discussions/:slug` | — | Paginated visible comments plus an email-free viewer/session summary for a study |
 | `POST /api/discussions/:slug/comments` | cookie | Post a comment (session required; Turnstile not repeated per post) |

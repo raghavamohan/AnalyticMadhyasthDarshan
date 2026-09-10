@@ -3,9 +3,9 @@
 Serves the [SEP-1649](https://github.com/modelcontextprotocol/modelcontextprotocol/issues/1649)
 MCP Server Card at
 `https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json`
-and a thin Streamable HTTP runtime at `/mcp`, plus `GET /api/studies`,
-`GET /api/studies/{slug}`, `GET /api/glossary`, `GET /api/start-here`, and
-`GET /api/cite/{slug}`.
+and a thin Streamable HTTP runtime at `/mcp`, plus
+`GET /api/studies/health`, `GET /api/studies`, `GET /api/studies/{slug}`,
+`GET /api/glossary`, `GET /api/start-here`, and `GET /api/cite/{slug}`.
 
 The canonical card remains at [`.well-known/mcp/server-card.json`](../../.well-known/mcp/server-card.json).
 The Worker source is [`src/runtime.js`](src/runtime.js); the publish script
@@ -22,6 +22,10 @@ The plain Studies HTTP endpoints use the shared JSON error envelope documented
 in [`openapi/studies.json`](../../openapi/studies.json), with the same
 `requestId` in the `X-Request-ID` header. MCP errors retain their required
 JSON-RPC shape and add that correlation value at `error.data.requestId`.
+Successful and empty responses carry the same correlation header. The Worker
+also exposes `GET /api/studies/health` for publication readiness and writes the
+shared privacy-safe `amd_api_metrics` observation schema described in
+[`docs/api-operations.md`](../../docs/api-operations.md).
 Study search, study listing, and glossary reads accept bounded `limit` / `offset`
 pagination (50 by default, 100 maximum) and report `total`, `limit`, `offset`,
 `hasMore`, and `nextOffset`; the corresponding MCP tools expose the same controls.

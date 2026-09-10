@@ -116,7 +116,7 @@ def check_live() -> None:
 
 
 def check_runtime_configuration() -> None:
-    from _publish_mcp_server_card import deployment_metadata
+    from _publish_mcp_server_card import deployment_metadata, observability_settings
     metadata = deployment_metadata()
     flags = metadata.get('compatibility_flags', [])
     # Cloudflare rejects RequestInit.cache under the older pinned date unless
@@ -129,8 +129,20 @@ def check_runtime_configuration() -> None:
     if ('global_fetch_strictly_public' not in flags or
             'global_fetch_private_origin' in flags):
         fail('MCP publication fetch must reach the public site Worker, not the private origin')
+    bindings = metadata.get('bindings', [])
+    if {'name': 'API_METRICS', 'type': 'analytics_engine', 'dataset': 'amd_api_metrics'} not in bindings:
+        fail('MCP deployment metadata is missing the shared Analytics Engine binding')
+    if {'name': 'CF_VERSION_METADATA', 'type': 'version_metadata'} not in bindings:
+        fail('MCP deployment metadata is missing Worker version metadata')
+    observability = observability_settings()
+    logs = observability.get('logs', {})
+    if not observability.get('enabled') or not logs.get('enabled') or not logs.get('persist'):
+        fail('MCP deployment must persist Worker logs')
+    if not logs.get('redact_query_string'):
+        fail('MCP Worker logs must redact query strings')
     print('OK: deployed MCP runtime supports uncached publication-marker requests.')
     print('OK: deployed MCP runtime routes publication reads through the public site Worker.')
+    print('OK: deployed MCP runtime carries metrics and version bindings.')
 
 
 def main() -> None:

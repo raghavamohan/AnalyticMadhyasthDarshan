@@ -161,6 +161,70 @@ function withEdgeRatePolicy(response) {
   });
 }
 
+function withRequestId(request, response) {
+  const headers = new Headers(response.headers);
+  if (!headers.has("X-Request-ID")) {
+    headers.set("X-Request-ID", crypto.randomUUID());
+  }
+  headers.delete("Content-Length");
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
+function recordApiRequest(env, request, response, operationId, dependency, startedAt) {
+  try {
+    const latencyMs = Math.max(0, Date.now() - startedAt);
+    const statusFamily = `${Math.floor(response.status / 100)}xx`;
+    const retryOutcome = request.method === "GET" || request.method === "HEAD"
+      ? "not_applicable"
+      : response.status === 429
+        ? "throttled"
+        : response.status >= 500
+          ? "uncertain"
+          : response.status >= 400
+            ? "rejected"
+            : "accepted";
+    const versionId = String(env?.CF_VERSION_METADATA?.id || "unknown").slice(0, 96);
+    const event = {
+      event: "api_request",
+      schema: 1,
+      service: "studies",
+      operationId,
+      requestId: response.headers.get("X-Request-ID"),
+      method: request.method,
+      status: response.status,
+      statusFamily,
+      latencyMs,
+      dependency,
+      retryOutcome,
+      versionId,
+    };
+    console.log(JSON.stringify(event));
+    env?.API_METRICS?.writeDataPoint({
+      indexes: ["studies"],
+      blobs: ["v1", "studies", operationId, request.method, statusFamily, dependency, retryOutcome, versionId],
+      doubles: [1, latencyMs, response.status],
+    });
+  } catch (error) {
+    console.warn(JSON.stringify({
+      event: "api_observation_error",
+      schema: 1,
+      service: "studies",
+      operationId,
+      errorType: String(error?.name || "Error").slice(0, 96),
+    }));
+  }
+}
+
+function observeResponse(env, request, response, operationId, dependency, startedAt) {
+  const identified = withRequestId(request, response);
+  recordApiRequest(env, request, identified, operationId, dependency, startedAt);
+  return identified;
+}
+
 function absoluteFromStudies(href) {
   if (!href) {
     return null;
@@ -971,6 +1035,30 @@ async function handleStudiesApi(request) {
   }
 }
 
+async function handleStudiesHealth(request) {
+  if (request.method === "OPTIONS") return emptyResponse(204);
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return emptyResponse(405, { allow: "GET, HEAD, OPTIONS" });
+  }
+  let publication = "degraded";
+  try {
+    await publicationRevision();
+    publication = "ready";
+  } catch (_error) {
+    // Status remains reachable when the publication origin is unavailable.
+  }
+  const payload = {
+    status: publication === "ready" ? "ok" : "degraded",
+    service: "studies",
+    schemaVersion: 1,
+    checks: {
+      publication: { status: publication, required: true },
+    },
+  };
+  if (request.method === "HEAD") return emptyResponse(200, jsonHeaders());
+  return jsonResponse(200, payload);
+}
+
 async function handleStudyBySlug(request, slug) {
   if (request.method === "OPTIONS") {
     return emptyResponse(204);
@@ -1086,23 +1174,33 @@ const capturePath = pattern => path => {
 };
 const STUDIES_API_ROUTES = Object.freeze([
   {
+    method: "get", path: "/api/studies/health",
+    operationId: "getStudiesHealth", dependency: "publication",
+    match: exactPath("/api/studies/health"), handle: request => handleStudiesHealth(request),
+  },
+  {
     method: "get", path: "/api/studies",
+    operationId: "searchStudies", dependency: "publication",
     match: exactPath("/api/studies"), handle: request => handleStudiesApi(request),
   },
   {
     method: "get", path: "/api/studies/{slug}",
+    operationId: "getStudyBySlug", dependency: "publication",
     match: capturePath(/^\/api\/studies\/([A-Za-z0-9-]+)$/), handle: handleStudyBySlug,
   },
   {
     method: "get", path: "/api/glossary",
+    operationId: "searchGlossary", dependency: "publication",
     match: exactPath("/api/glossary"), handle: request => handleGlossary(request),
   },
   {
     method: "get", path: "/api/start-here",
+    operationId: "getStartHere", dependency: "publication",
     match: exactPath("/api/start-here"), handle: request => handleStartHere(request),
   },
   {
     method: "get", path: "/api/cite/{slug}",
+    operationId: "getStudyCitation", dependency: "publication",
     match: capturePath(/^\/api\/cite\/([A-Za-z0-9-]+)$/), handle: handleCite,
   },
 ]);
@@ -1111,21 +1209,32 @@ export const STUDIES_API_OPERATIONS = Object.freeze(
 );
 
 export default {
-  async fetch(request) {
+  async fetch(request, env) {
+    const startedAt = Date.now();
     const url = new URL(request.url);
     const path = url.pathname.replace(/\/+$/, "") || "/";
+    let response;
+    let operationId = "unmatchedRequest";
+    let dependency = "none";
     if (path === "/.well-known/mcp/server-card.json" || path === "/.well-known/mcp.json") {
-      return respondCard(request);
-    }
-    if (path === "/mcp") {
-      return withEdgeRatePolicy(await handleMcp(request));
-    }
-    for (const route of STUDIES_API_ROUTES) {
-      const params = route.match(path);
-      if (params) {
-        return withEdgeRatePolicy(await route.handle(request, ...params));
+      operationId = "getMcpServerCard";
+      response = respondCard(request);
+    } else if (path === "/mcp") {
+      operationId = "handleMcp";
+      dependency = "publication";
+      response = withEdgeRatePolicy(await handleMcp(request));
+    } else {
+      for (const route of STUDIES_API_ROUTES) {
+        const params = route.match(path);
+        if (params) {
+          operationId = route.operationId;
+          dependency = route.dependency;
+          response = withEdgeRatePolicy(await route.handle(request, ...params));
+          break;
+        }
       }
+      response ||= new Response("Not Found", { status: 404, headers: CORS_HEADERS });
     }
-    return new Response("Not Found", { status: 404, headers: CORS_HEADERS });
+    return observeResponse(env, request, response, operationId, dependency, startedAt);
   },
 };

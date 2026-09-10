@@ -124,8 +124,25 @@ def deployment_metadata() -> dict:
     """Use the same runtime contract for API uploads and local Wrangler tests."""
     import tomllib
     config = tomllib.loads((cf.BASE / 'infra/mcp-worker/wrangler.toml').read_text(encoding='utf-8'))
+    bindings = [
+        {'name': item['binding'], 'type': 'analytics_engine', 'dataset': item['dataset']}
+        for item in config.get('analytics_engine_datasets', [])
+    ]
+    version_metadata = config.get('version_metadata')
+    if version_metadata:
+        bindings.append({'name': version_metadata['binding'], 'type': 'version_metadata'})
     return {'main_module': 'index.js', 'compatibility_date': config['compatibility_date'],
-            'compatibility_flags': config.get('compatibility_flags', [])}
+            'compatibility_flags': config.get('compatibility_flags', []),
+            'bindings': bindings}
+
+
+def observability_settings() -> dict:
+    """Return the Wrangler-owned log settings used by the direct API upload."""
+    import tomllib
+    config = tomllib.loads((cf.BASE / 'infra/mcp-worker/wrangler.toml').read_text(encoding='utf-8'))
+    settings = config['observability']
+    settings.setdefault('logs', {})['redact_query_string'] = True
+    return settings
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -156,6 +173,13 @@ def main(argv: list[str] | None = None) -> int:
     result = deploy_source(token, account, WORKER_NAME, js,
                            deployment_metadata(), multipart_put)
     print(json.dumps(result.get("result") or result, indent=2)[:2000])
+    cf._api_request(
+        "PATCH",
+        f"/accounts/{account}/workers/scripts/{WORKER_NAME}/script-settings",
+        token,
+        {"observability": observability_settings()},
+    )
+    print("Enabled persistent Worker logs with query-string redaction.")
     try:
         cf._api_request(
             "POST",
