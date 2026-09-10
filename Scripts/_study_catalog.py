@@ -23,6 +23,7 @@ from _common import (
     known_study_slugs,
     site_base_url,
     study_discussion_href,
+    study_dir,
     study_html_href,
     study_md,
     study_md_href,
@@ -740,7 +741,7 @@ def display_title(row: StudyRow) -> str:
 
 
 def proposal_meta_path(slug: str) -> Path:
-    return STUDIES / slug / ".proposal-meta.json"
+    return study_dir(slug) / ".proposal-meta.json"
 
 
 def has_approved_proposal_stub(slug: str) -> bool:
@@ -882,15 +883,15 @@ def load_pre_catalog_proposals(table: StudyTable = StudyTable.TOPICAL) -> list[d
         entry
         for entry in data.get("proposals", [])
         if entry.get("phase") == "pre-catalog"
-        and not entry.get("applied")
-        and bool(entry.get("formal")) == (table == StudyTable.FORMAL)
+        and (StudyTable.APPLIED if entry.get("applied") else
+             StudyTable.FORMAL if entry.get("formal") else StudyTable.TOPICAL) == table
     ]
 
 
 def sync_pre_catalog_proposals_to_catalog(*, rebuild_index: bool = True) -> list[StudyRow]:
-    """Register approved topical and formal proposals as Planned on the public index."""
+    """Register approved proposals as Planned in their selected collection."""
     synchronized: dict[StudyTable, list[StudyRow]] = {}
-    for table in (StudyTable.TOPICAL, StudyTable.FORMAL):
+    for table in CATALOG_TABLES:
         pre_catalog = load_pre_catalog_proposals(table)
         rows = load_catalog_rows(table)
         by_slug = {row.slug: row for row in rows}
@@ -1064,11 +1065,12 @@ def parse_references_readme_rows(content: str) -> list[tuple[str, str]]:
     return rows
 
 
-def references_readme_row(slug: str, tags: str) -> str:
-    return f"| [{slug}.pdf]({study_pdf_ref_path(slug)}) | {escape_md_cell(tags)} |"
+def references_readme_row(slug: str, tags: str, *, applied: bool = False) -> str:
+    href = application_pdf_href(slug) if applied else study_pdf_ref_path(slug)
+    return f"| [{slug}.pdf]({href}) | {escape_md_cell(tags)} |"
 
 
-def write_references_readme_row(slug: str, tags: str, *, remove: bool = False) -> None:
+def write_references_readme_row(slug: str, tags: str, *, remove: bool = False, applied: bool = False) -> None:
     ref_readme_path = REFERENCES / "README.md"
     ref_text = ref_readme_path.read_text(encoding="utf-8")
     block = extract_catalog_block(
@@ -1086,7 +1088,7 @@ def write_references_readme_row(slug: str, tags: str, *, remove: bool = False) -
             continue
         data_lines.append(line)
     if not remove:
-        data_lines.append(references_readme_row(slug, tags))
+        data_lines.append(references_readme_row(slug, tags, applied=applied))
     ref_block = REFERENCES_README_TABLE_HEADER
     if data_lines:
         ref_block += "\n" + "\n".join(data_lines)
@@ -1101,15 +1103,16 @@ def write_references_readme_row(slug: str, tags: str, *, remove: bool = False) -
     )
 
 
-def manifest_row(slug: str, tags: str, status: str = "TBD") -> str:
-    return f"| [{slug}.pdf]({study_pdf_ref_path(slug)}) | {escape_md_cell(tags)} | {status} |"
+def manifest_row(slug: str, tags: str, status: str = "TBD", *, applied: bool = False) -> str:
+    href = application_pdf_href(slug) if applied else study_pdf_ref_path(slug)
+    return f"| [{slug}.pdf]({href}) | {escape_md_cell(tags)} | {status} |"
 
 
-def append_manifest_row(content: str, slug: str, tags: str) -> str:
+def append_manifest_row(content: str, slug: str, tags: str, *, applied: bool = False) -> str:
     pdf_name = f"{slug}.pdf"
     if pdf_name in content:
         return content
-    row = manifest_row(slug, tags)
+    row = manifest_row(slug, tags, applied=applied)
     marker = "\n## By tag"
     if marker not in content:
         raise ValueError("Could not find '## By tag' section in MANIFEST.md")

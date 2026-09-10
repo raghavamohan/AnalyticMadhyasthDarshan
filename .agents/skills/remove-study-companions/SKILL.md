@@ -51,11 +51,16 @@ validate committed HEAD with the PR body. Use `study-update` and the surviving
 `Study slug: <Slug>`. Do not use `Operation: delete-study` for companion removal.
 Leave Edited-on items N/A unless the canonical study Markdown also changes.
 
-My Submissions requests one note/deck deletion at a time. Its distinct
-`delete-note` / `delete-presentation` operations go through the same scoped CI
-cleanup using deleted sources and base manifests. Whole-study deletion alone
-uses `delete-study`. A missing/invalid manifest fails preparation; it never
-escalates a companion request into study retirement.
+My Submissions supports individual deletion and selecting several companions in
+one request. `delete-note`, `delete-presentation`, `delete-presenter`, and
+`delete-companions` use the same scoped CI cleanup from deleted sources and base
+manifests. Every selected source is version-checked before branch creation.
+Whole-study deletion alone uses `delete-study`; companion deletion never retires
+the parent. An empty global deck inventory is valid and selects no deck render.
+
+To undo a retirement from merged history use
+[restore-study](../restore-study/SKILL.md). To change a companion filename or
+parent use [relocate-study-companion](../relocate-study-companion/SKILL.md).
 
 After merge, coherent publication removes the retired outputs from the active
 site inventory and keeps the parent study. Historical R2 object retention is a

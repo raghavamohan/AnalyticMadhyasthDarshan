@@ -103,7 +103,11 @@ def validate(
             if old and old != current and parse_edited_on(old) == parse_edited_on(current):
                 errors.append(f'{slug}: changed canonical content requires a new Edited on timestamp.')
         if check_approval and slug not in renames and slug not in base_public:
-            errors.extend(first_draft_approval_errors(slug, body))
+            if re.search(r'^Operation:\s*restore-study\s*$', body, re.M | re.I):
+                from _restore_study import restoration_errors
+                errors.extend(restoration_errors(slug, body, base))
+            else:
+                errors.extend(first_draft_approval_errors(slug, body))
     errors.extend(cross_study_section_errors(list(canonical)))
     target = parse_body_field(body, r'^Target status:\s*(\w+)')
     if target:

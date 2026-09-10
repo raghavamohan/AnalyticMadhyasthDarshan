@@ -7,7 +7,7 @@
       context.mode || '', context.slug || '', context.artifact || '', context.target || '', context.file || '', context.pr || '']);
   }
   function validate(data) {
-    if (!data || typeof data !== 'object' || JSON.stringify(data).length > 18000000)
+    if (!data || typeof data !== 'object' || JSON.stringify(data).length > 20000000)
       throw new Error('This draft exceeds the browser draft limit. Download your source before leaving.');
     for (const name of ['title','category','desc','summary','fam','content','author','proposal','fileName']) {
       if (data[name] != null && (typeof data[name] !== 'string' || data[name].length > 2100000)) throw new Error('This draft has an invalid text field. Nothing was imported.');
@@ -15,6 +15,28 @@
     if (data.source && (typeof data.source.content !== 'string' || data.source.content.length > 2100000 || !/^[a-f0-9]{40,64}$/.test(data.source.sha || ''))) throw new Error('This draft has an invalid source version. Nothing was imported.');
     if (data.operation && (!/^[0-9a-f-]{36}$/i.test(data.operation.id || '') || !['/api/propose','/api/submit','/api/revise'].includes(data.operation.path))) throw new Error('This draft has an invalid submission receipt. Nothing was imported.');
     if (data.presentation && (typeof data.presentation.contentBase64 !== 'string' || data.presentation.contentBase64.length > 14000000 || !/^[A-Za-z0-9+/]*={0,2}$/.test(data.presentation.contentBase64) || !/^[A-Za-z0-9-]+\.pptx$/i.test(data.presentation.fileName || ''))) throw new Error('This draft has an invalid presentation. Nothing was imported.');
+    if (data.collection != null && !['topical','formal','applied'].includes(data.collection)) throw new Error('This draft has an invalid study collection.');
+    if (data.deckFileName && !/^[A-Za-z0-9-]+\.pptx$/i.test(data.deckFileName)) throw new Error('This draft has an invalid presentation owner.');
+    if (data.assets != null) {
+      if (!Array.isArray(data.assets) || data.assets.length > 20) throw new Error('This draft has an invalid figure list.');
+      const names = new Set();
+      let bytes = 0;
+      for (const asset of data.assets) {
+        if (!asset || !/^[A-Za-z0-9][A-Za-z0-9._-]*\.(svg|png|jpe?g|gif|webp)$/i.test(asset.fileName || '') ||
+            typeof asset.contentBase64 !== 'string' || !/^[A-Za-z0-9+/]*={0,2}$/.test(asset.contentBase64) ||
+            asset.contentBase64.length > 2800000 || (asset.sourceSha != null && !/^[a-f0-9]{40,64}$/.test(asset.sourceSha))) {
+          throw new Error('This draft has an invalid figure attachment.');
+        }
+        if (names.has(asset.fileName.toLowerCase())) throw new Error('This draft contains duplicate figures.');
+        names.add(asset.fileName.toLowerCase()); bytes += asset.contentBase64.length;
+      }
+      if (bytes > 4194304) throw new Error('This draft exceeds the figure attachment limit.');
+    }
+    if (data.presenter && (!/^Presenters-Companion-[A-Za-z0-9-]+\.md$/.test(data.presenter.fileName || '') ||
+        typeof data.presenter.content !== 'string' || new TextEncoder().encode(data.presenter.content).length > 2 * 1024 * 1024 ||
+        (data.presenter.sourceSha != null && !/^[a-f0-9]{40,64}$/.test(data.presenter.sourceSha)))) {
+      throw new Error('This draft has an invalid presenter companion.');
+    }
     return data;
   }
   function open(name = 'amd-contributor-drafts') {

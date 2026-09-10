@@ -288,7 +288,7 @@ def issue_is_approved(issue_number: int) -> bool:
     return True
 
 
-def proposal_metadata_from_issue(issue_number: int) -> tuple[str, str, bool]:
+def proposal_metadata_from_issue(issue_number: int) -> tuple[str, str, str]:
     repo = os.environ.get("GITHUB_REPOSITORY")
     if not repo:
         raise SystemExit("GITHUB_REPOSITORY is not set.")
@@ -298,13 +298,14 @@ def proposal_metadata_from_issue(issue_number: int) -> tuple[str, str, bool]:
     category = parse_issue_form_section(body, ISSUE_FORM_HEADINGS["category"])
     description = parse_issue_form_section(body, ISSUE_FORM_HEADINGS["description"])
     formal_block = parse_issue_form_section(body, ISSUE_FORM_HEADINGS["formal"]) or ""
-    formal = "- [x]" in formal_block
+    from _study_collection import proposal_collection
+    collection = proposal_collection(formal_block)
 
     if not category:
         raise SystemExit(f"Issue #{issue_number} is missing a Category field.")
     if not description:
         raise SystemExit(f"Issue #{issue_number} is missing a One-line description field.")
-    return category, description, formal
+    return category, description, collection
 
 
 def changed_study_slugs(base_ref: str) -> list[str]:
@@ -646,7 +647,10 @@ def handle_new_study(body: str, base_ref: str) -> None:
             handle_study_update(body, base_ref)
             return
 
-    category, description, formal = proposal_metadata_from_issue(issue_number)
+    category, description, collection = proposal_metadata_from_issue(issue_number)
+    expected_root = 'Applications' if collection == 'applied' else 'Studies'
+    if md_path.relative_to(BASE).parts[0] != expected_root:
+        raise SystemExit('First draft source does not match its approved catalog collection.')
     tags = parse_body_field(body, r"^Tags:\s*(.+)$") or "MVD, SB, JV"
 
     command = [
@@ -663,8 +667,8 @@ def handle_new_study(body: str, base_ref: str) -> None:
         "draft",
         "--force",
     ]
-    if formal:
-        command.append("--formal")
+    if collection in {'formal', 'applied'}:
+        command.append(f"--{collection}")
 
     print("Running:", " ".join(command))
     subprocess.run(command, check=True, cwd=BASE)

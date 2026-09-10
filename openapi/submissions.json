@@ -572,7 +572,9 @@
               "enum": [
                 "study",
                 "note",
-                "presentation"
+                "presentation",
+                "presenter",
+                "asset"
               ],
               "default": "study"
             }
@@ -585,6 +587,15 @@
               "type": "string",
               "maxLength": 120
             }
+          },
+          {
+            "name": "pr",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "description": "For asset source versions on an owned first-draft PR branch. Requires an authenticated owner."
           }
         ],
         "responses": {
@@ -763,8 +774,8 @@
               }
             }
           },
-          "description": "Maximum serialized JSON request size: 18,000,000 bytes.",
-          "x-maxBodyBytes": 18000000
+          "description": "Maximum serialized JSON request size: 20,000,000 bytes.",
+          "x-maxBodyBytes": 20000000
         },
         "responses": {
           "200": {
@@ -829,8 +840,8 @@
               }
             }
           },
-          "description": "Maximum serialized JSON request size: 18,000,000 bytes.",
-          "x-maxBodyBytes": 18000000
+          "description": "Maximum serialized JSON request size: 20,000,000 bytes.",
+          "x-maxBodyBytes": 20000000
         },
         "responses": {
           "200": {
@@ -1911,6 +1922,14 @@
             "maxLength": 64,
             "pattern": "^[a-f0-9]{40,64}$",
             "description": "Required whenever an existing study, note, or presentation is replaced. Stale values return 409 with details.currentSource."
+          },
+          "assets": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "$ref": "#/components/schemas/FigureAttachment"
+            },
+            "description": "Figure sources committed with the document. Up to 2 MB each and 3 MB for all attachments combined. Existing figures require sourceSha."
           }
         }
       },
@@ -1920,8 +1939,7 @@
           "slug",
           "artifactType",
           "turnstileToken",
-          "operationId",
-          "sourceSha"
+          "operationId"
         ],
         "properties": {
           "slug": {
@@ -1934,7 +1952,9 @@
             "enum": [
               "study",
               "note",
-              "presentation"
+              "presentation",
+              "presenter",
+              "companions"
             ]
           },
           "fileName": {
@@ -1959,6 +1979,41 @@
             "maxLength": 64,
             "pattern": "^[a-f0-9]{40,64}$",
             "description": "Required whenever an existing study, note, or presentation is replaced. Stale values return 409 with details.currentSource."
+          },
+          "artifacts": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 20,
+            "items": {
+              "type": "object",
+              "required": [
+                "artifactType",
+                "fileName",
+                "sourceSha"
+              ],
+              "properties": {
+                "artifactType": {
+                  "type": "string",
+                  "enum": [
+                    "note",
+                    "presentation",
+                    "presenter"
+                  ]
+                },
+                "fileName": {
+                  "type": "string",
+                  "maxLength": 120
+                },
+                "sourceSha": {
+                  "type": "string",
+                  "minLength": 40,
+                  "maxLength": 64,
+                  "pattern": "^[a-f0-9]{40,64}$",
+                  "description": "Current Git blob SHA; required when replacing or deleting an existing file. A mismatch returns 409."
+                }
+              }
+            },
+            "description": "Bulk companion deletion within one study. Every selected source is version-checked before branch creation."
           }
         },
         "allOf": [
@@ -1968,7 +2023,8 @@
                 "artifactType": {
                   "enum": [
                     "note",
-                    "presentation"
+                    "presentation",
+                    "presenter"
                   ]
                 }
               },
@@ -1979,6 +2035,28 @@
             "then": {
               "required": [
                 "fileName"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "artifactType": {
+                  "const": "companions"
+                }
+              },
+              "required": [
+                "artifactType"
+              ]
+            },
+            "then": {
+              "required": [
+                "artifacts"
+              ]
+            },
+            "else": {
+              "required": [
+                "sourceSha"
               ]
             }
           }
@@ -2109,7 +2187,8 @@
             "maxLength": 6000
           },
           "formal": {
-            "type": "boolean"
+            "type": "boolean",
+            "description": "Legacy formal selection; use collection for new clients."
           },
           "familiarity": {
             "type": "string",
@@ -2126,6 +2205,15 @@
             "format": "uuid",
             "maxLength": 36,
             "description": "Client-generated UUIDv4 retained across interrupted/retried requests. Reusing it with different content is rejected."
+          },
+          "collection": {
+            "type": "string",
+            "enum": [
+              "topical",
+              "formal",
+              "applied"
+            ],
+            "default": "topical"
           }
         }
       },
@@ -2153,10 +2241,11 @@
             "enum": [
               "study",
               "note",
-              "presentation"
+              "presentation",
+              "presenter"
             ],
             "default": "study",
-            "description": "Study Markdown, a companion technical/research note, or a PowerPoint presentation."
+            "description": "Study, technical/research note, presentation, or Presenter’s Companion."
           },
           "fileName": {
             "type": "string",
@@ -2197,6 +2286,23 @@
             "maxLength": 64,
             "pattern": "^[a-f0-9]{40,64}$",
             "description": "Required whenever an existing study, note, or presentation is replaced. Stale values return 409 with details.currentSource."
+          },
+          "assets": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {
+              "$ref": "#/components/schemas/FigureAttachment"
+            },
+            "description": "Figure sources committed with the document. Up to 2 MB each and 3 MB for all attachments combined. Existing figures require sourceSha."
+          },
+          "presenter": {
+            "$ref": "#/components/schemas/PresenterAttachment",
+            "description": "Optional presenter Markdown submitted together with a PPTX."
+          },
+          "deckFileName": {
+            "type": "string",
+            "maxLength": 120,
+            "description": "Required for artifactType presenter: existing deck under the same study."
           }
         },
         "oneOf": [
@@ -2210,6 +2316,27 @@
               "fileName",
               "contentBase64"
             ]
+          }
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "artifactType": {
+                  "const": "presenter"
+                }
+              },
+              "required": [
+                "artifactType"
+              ]
+            },
+            "then": {
+              "required": [
+                "fileName",
+                "content",
+                "deckFileName"
+              ]
+            }
           }
         ]
       },
@@ -2285,7 +2412,8 @@
             "enum": [
               "study",
               "note",
-              "presentation"
+              "presentation",
+              "presenter"
             ]
           },
           "fileName": {
@@ -2302,6 +2430,64 @@
             "minLength": 40,
             "maxLength": 64,
             "pattern": "^[a-f0-9]{40,64}$"
+          }
+        }
+      },
+      "FigureAttachment": {
+        "type": "object",
+        "required": [
+          "fileName",
+          "contentBase64"
+        ],
+        "properties": {
+          "fileName": {
+            "type": "string",
+            "maxLength": 120,
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*\\.(svg|png|jpg|jpeg|webp|gif)$"
+          },
+          "contentBase64": {
+            "type": "string",
+            "contentEncoding": "base64",
+            "maxLength": 2796204
+          },
+          "sourceSha": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 40,
+            "maxLength": 64,
+            "pattern": "^[a-f0-9]{40,64}$",
+            "description": "Current Git blob SHA; required when replacing or deleting an existing file. A mismatch returns 409."
+          }
+        }
+      },
+      "PresenterAttachment": {
+        "type": "object",
+        "required": [
+          "fileName",
+          "content"
+        ],
+        "properties": {
+          "fileName": {
+            "type": "string",
+            "maxLength": 120,
+            "pattern": "^Presenters-Companion-[A-Za-z0-9][A-Za-z0-9-]*\\.md$"
+          },
+          "content": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 2097152
+          },
+          "sourceSha": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "minLength": 40,
+            "maxLength": 64,
+            "pattern": "^[a-f0-9]{40,64}$",
+            "description": "Current Git blob SHA; required when replacing or deleting an existing file. A mismatch returns 409."
           }
         }
       }

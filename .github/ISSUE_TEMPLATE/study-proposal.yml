@@ -70,13 +70,16 @@ body:
     validations:
       required: true
 
-  - type: checkbox
+  - type: dropdown
     id: formal_study
     attributes:
       label: Catalog table
       options:
-        - label: Register in the Formal Studies table (instead of Topical Studies)
-          required: false
+        - Topical Studies
+        - Formal Studies
+        - Applied Studies
+    validations:
+      required: true
 
   - type: dropdown
     id: prior_familiarity
