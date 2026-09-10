@@ -634,7 +634,7 @@
         "tags": [
           "submissions"
         ],
-        "summary": "Editable studies and their registered notes and presentations",
+        "summary": "Editable studies, notes, presentations and presenter ownership",
         "operationId": "listStudyArtifacts",
         "parameters": [
           {
@@ -2413,7 +2413,8 @@
               "study",
               "note",
               "presentation",
-              "presenter"
+              "presenter",
+              "asset"
             ]
           },
           "fileName": {
@@ -2423,7 +2424,7 @@
           "content": {
             "type": "string",
             "maxLength": 2097152,
-            "description": "Markdown for study/note sources; empty for presentations."
+            "description": "Markdown for study, note and presenter sources; empty for presentations and figure version reads."
           },
           "sourceSha": {
             "type": "string",

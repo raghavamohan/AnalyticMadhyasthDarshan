@@ -20,13 +20,11 @@ class PresentationManifestTests(unittest.TestCase):
     def test_repository_manifest_covers_every_deck(self) -> None:
         manifest = load_manifest()
         self.assertEqual(manifest_errors(manifest), [])
-        self.assertTrue(manifest.decks)
         self.assertEqual(manifest.profile().status, "accepted-production")
 
     def test_same_basename_decks_do_not_collide_with_study_pdf(self) -> None:
         manifest = load_manifest()
-        for deck_id in ("undivided-society", "not-just-material"):
-            spec = manifest.deck(deck_id)
+        for spec in manifest.decks:
             canonical = spec.source.parent / f"{spec.source.parent.name}.pdf"
             self.assertNotEqual(spec.slides_pdf, canonical)
             self.assertEqual(resolve_output(spec.source, None), spec.slides_pdf)

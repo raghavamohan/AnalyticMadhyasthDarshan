@@ -235,8 +235,11 @@ class LifecycleExtensions(unittest.TestCase):
 
     def test_scope_selection_works_before_dependency_installation(self):
         repository = Path(__file__).resolve().parents[1]
-        result = subprocess.run([sys.executable,'-S',str(repository/'Scripts/_run_lifecycle_acceptance.py'),
-                                 '--scope','--base-ref','HEAD'],cwd=repository,capture_output=True,text=True)
+        runner = self.root/'Scripts/_run_lifecycle_acceptance.py'
+        runner.write_bytes((repository/'Scripts/_run_lifecycle_acceptance.py').read_bytes())
+        self.git('init','-b','master'); self.git('add','.'); self.git('commit','-m','Scope fixture')
+        result = subprocess.run([sys.executable,'-S',str(runner),
+                                 '--scope','--base-ref','HEAD'],cwd=self.root,capture_output=True,text=True)
         self.assertEqual(result.returncode,0,result.stderr)
         self.assertEqual(result.stdout.strip(),'browser=false')
 
@@ -252,6 +255,18 @@ class LifecycleExtensions(unittest.TestCase):
             self.assertNotIn('Old.pdf',updated)
             self.assertIn('data-presentation-pdf="A/Other.pdf"',updated)
             self.assertIn('data-study-slides href="A/Other.pdf"',updated)
+
+    def test_applied_deck_slug_resolution_and_source_response_contract(self):
+        from _pptx_to_pdf import resolve_pptx
+        parent = self.parent('Applications','Applied')
+        (parent/'Deck.pptx').write_bytes(b'fixture')
+        self.assertEqual(resolve_pptx(None,'Applied','Deck.pptx'),parent/'Deck.pptx')
+        self.assertEqual(resolve_pptx(None,'Applied',None),parent/'Deck.pptx')
+        repository = Path(__file__).resolve().parents[1]
+        schema = json.loads((repository/'openapi/submissions.json').read_bytes())
+        request_kinds = next(p['schema']['enum'] for p in schema['paths']['/api/study-source']['get']['parameters'] if p['name'] == 'artifactType')
+        response_kinds = schema['components']['schemas']['StudySource']['properties']['artifactType']['enum']
+        self.assertTrue(set(request_kinds).issubset(response_kinds))
 
 
 if __name__ == '__main__':
