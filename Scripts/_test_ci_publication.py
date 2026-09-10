@@ -1,6 +1,7 @@
 """CI trust boundaries, preparation retries, and lifecycle intent regression tests."""
 import base64
 import json
+import re
 from pathlib import Path
 import subprocess
 import tempfile
@@ -19,6 +20,25 @@ from _study_catalog import StudyStatus
 
 
 class PreparationTests(unittest.TestCase):
+    def test_publication_caller_grants_the_reusable_workflows_artifact_read_scope(self):
+        root = Path(__file__).resolve().parent.parent / '.github/workflows'
+        caller = (root / 'publish-site.yml').read_text(encoding='utf-8')
+        callee = (root / 'generated-pdf-publish.yml').read_text(encoding='utf-8')
+        # Job permissions override the caller's top-level map. A reusable
+        # workflow cannot elevate that grant, even for read-only artifacts.
+        job = re.search(r'^  publish:\n((?:    .*\n|\s*\n)*)', caller, re.M).group(1)
+        def permissions(text, indent):
+            match = re.search(r'^' + ' ' * indent + r'permissions:\n((?:' + ' ' * (indent + 2) + r'[^\n]+\n)*)', text, re.M)
+            return dict(re.findall(r'([a-z-]+):\s*(read|write|none)', match[1])) if match else None
+        granted = permissions(job, 4)
+        if granted is None:
+            granted = permissions(caller, 0) or {}
+        required = permissions(callee, 0) or {}
+        rank = {'none': 0, 'read': 1, 'write': 2}
+        for scope, access in required.items():
+            self.assertGreaterEqual(rank[granted.get(scope, 'none')], rank[access],
+                                    f'Publish site cannot grant the called workflow {scope}: {access}')
+
     def test_intent_is_not_label_dependent(self):
         self.assertEqual(infer_intent('', ['Studies/A/A.md'], 'base'),'study-update')
         self.assertEqual(infer_intent('Proposal issue: #12', ['Studies/A/A.md'], 'base'),'new-study')
