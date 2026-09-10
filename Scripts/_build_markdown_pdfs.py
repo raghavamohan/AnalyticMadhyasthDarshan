@@ -21,9 +21,6 @@ from _build_inputs import file_hash
 import hashlib
 import platform
 
-FONT_FAMILIES = ("Segoe UI", "Georgia", "Consolas", "system-ui", "sans-serif", "serif", "monospace")
-
-
 def markdown_specs() -> tuple[GeneratedPdfSpec, ...]:
     return tuple(spec for spec in generated_pdf_specs() if spec.kind == "markdown")
 
@@ -67,28 +64,32 @@ def document_link_targets(source: Path, *, root: Path = BASE) -> list[tuple[str,
 
 @lru_cache(maxsize=1)
 def renderer_host_inputs() -> tuple[tuple[str, str], ...]:
-    """Fingerprint the actual host fonts used by Chromium, not the runner image."""
+    """Conservatively cover every installed face, including Unicode fallbacks.
+
+    A regular-face fc-match probe misses bold/italic and language fallback
+    changes. Hash the complete installed inventory and fontconfig rules instead
+    of treating an arbitrary runner image label as a font contract.
+    """
     records: list[tuple[str, str]] = []
-    executable = shutil.which("fc-match")
+    executable = shutil.which("fc-list")
     if executable:
-        for family in FONT_FAMILIES:
-            result = subprocess.run(
-                [executable, "--format=%{file}\\n", family],
-                check=True,
-                capture_output=True,
-                text=True,
-                encoding="utf-8",
-            )
-            for filename in result.stdout.splitlines():
-                path = Path(filename.strip())
-                if path.is_file():
-                    records.append((f"font:{family}:{path.name}", file_hash(path)))
-    elif platform.system() == "Windows":
-        fonts = Path(os.environ.get("WINDIR", "C:/Windows")) / "Fonts"
-        for name in ("segoeui.ttf", "georgia.ttf", "consola.ttf", "arial.ttf", "times.ttf", "cour.ttf"):
-            path = fonts / name
+        result = subprocess.run([executable, '--format=%{file}\\n'], check=True,
+                                capture_output=True, text=True, encoding='utf-8')
+        for filename in sorted(set(result.stdout.splitlines())):
+            path = Path(filename.strip())
             if path.is_file():
-                records.append((f"font:{name}", file_hash(path)))
+                records.append((f'font:{path.as_posix()}', file_hash(path)))
+        for path in sorted(Path('/etc/fonts').rglob('*')):
+            if path.is_file():
+                records.append((f'fontconfig:{path.as_posix()}', file_hash(path)))
+    elif platform.system() == "Windows":
+        directories = [Path(os.environ.get('WINDIR', 'C:/Windows')) / 'Fonts']
+        if os.environ.get('LOCALAPPDATA'):
+            directories.append(Path(os.environ['LOCALAPPDATA']) / 'Microsoft/Windows/Fonts')
+        for directory in directories:
+            for path in sorted(directory.rglob('*')):
+                if path.is_file() and path.suffix.lower() in {'.ttf', '.ttc', '.otf', '.fon'}:
+                    records.append((f'font:{path.as_posix()}', file_hash(path)))
     if not records:
         records.extend((
             ("host-image", f'{os.environ.get("ImageOS", os.name)}:{os.environ.get("ImageVersion", "local")}'),

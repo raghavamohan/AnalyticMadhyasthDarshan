@@ -119,6 +119,25 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         self.assertTrue(all(path.is_file() and path.suffix.lower() == ".pptx" for path in sources))
         self.assertEqual(catalog_build_id(), catalog_build_id())
 
+    def test_renderer_cache_covers_bold_and_unicode_fallback_faces(self) -> None:
+        import _build_markdown_pdfs as builder
+        with tempfile.TemporaryDirectory() as directory:
+            fonts = Path(directory) / 'Fonts'
+            fonts.mkdir()
+            (fonts / 'regular.ttf').write_bytes(b'regular')
+            (fonts / 'bold.ttf').write_bytes(b'bold')
+            (fonts / 'fallback.ttc').write_bytes(b'fallback')
+            with patch.object(builder.shutil, 'which', return_value=None), \
+                 patch.object(builder.platform, 'system', return_value='Windows'), \
+                 patch.dict('os.environ', {'WINDIR': directory, 'LOCALAPPDATA': ''}):
+                builder.renderer_host_inputs.cache_clear()
+                original = builder.renderer_host_inputs()
+                for name in ('bold.ttf', 'fallback.ttc'):
+                    (fonts / name).write_bytes(b'updated face')
+                    builder.renderer_host_inputs.cache_clear()
+                    self.assertNotEqual(original, builder.renderer_host_inputs())
+        builder.renderer_host_inputs.cache_clear()
+
     def test_pre_catalog_proposal_stub_has_no_document_status(self) -> None:
         fields = ProposalFields(
             slug="Example-Proposal",
