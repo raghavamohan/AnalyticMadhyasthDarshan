@@ -4,7 +4,10 @@ from __future__ import annotations
 
 import json
 import sys
+import tempfile
 from pathlib import Path
+from unittest.mock import patch
+import _companion_artifacts as artifacts
 
 SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
@@ -36,14 +39,28 @@ def test_registry_paths_exist_and_are_safe() -> None:
             assert (directory / name).is_file()
 
 
-def test_registry_has_known_multi_artifact_studies() -> None:
-    by_slug = {row["slug"]: row for row in build_registry()["studies"]}
-    epistemology = by_slug["The-Epistemology-of-Coexistence"]
-    assert len(epistemology["notes"]) >= 2
-    assert len(epistemology["presentations"]) >= 2
-    ontology = by_slug["The-Ontology-of-Coexistence"]
-    assert "Technical-Note-Roop-Guna-Svabhava-Dharma.md" in ontology["notes"]
-    assert len(ontology["presentations"]) >= 2
+def test_registry_tracks_multiple_and_deleted_companions() -> None:
+    # Inventory assertions belong to a fixture: real companions may be retired.
+    with tempfile.TemporaryDirectory() as temporary:
+        root = Path(temporary)
+        directory = root / 'Applications/Example'
+        directory.mkdir(parents=True)
+        (root/'Scripts').mkdir()
+        (root/'Scripts/companion-pipeline.json').write_bytes(b'{"schema":1,"companions":[]}')
+        (root/'Scripts/presentation-pipeline.json').write_bytes(b'{"decks":[]}')
+        catalog = root/'catalog.json'
+        catalog.write_bytes(b'[{"slug":"Example","status":"draft"}]')
+        names = ['Example.md','Technical-Note-One.md','Research-Note-Two.md','Deck-One.pptx','Deck-Two.pptx']
+        for name in names:
+            (directory/name).write_bytes(b'fixture')
+        with patch.object(artifacts,'BASE',root), patch.object(artifacts,'CATALOGS',((catalog,root/'Applications','Applications'),)):
+            row = build_registry()['studies'][0]
+            assert len(row['notes']) == len(row['presentations']) == 2
+            for name in names[1:]:
+                (directory/name).unlink()
+            row = build_registry()['studies'][0]
+            assert row['notes'] == row['presentations'] == []
+            assert (directory/'Example.md').is_file()
 
 
 def test_my_submissions_groups_updates_inside_each_study_card() -> None:
