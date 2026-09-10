@@ -1,5 +1,7 @@
 """CI trust boundaries, preparation retries, and lifecycle intent regression tests."""
 import base64
+from contextlib import redirect_stdout
+import io
 import json
 import re
 from pathlib import Path
@@ -20,6 +22,28 @@ from _study_catalog import StudyStatus
 
 
 class PreparationTests(unittest.TestCase):
+    def test_live_api_audit_keeps_quota_checks_off_static_publication_files(self):
+        import _test_studies_api as audit
+        from unittest.mock import MagicMock
+        response = MagicMock()
+        response.__enter__.return_value = response
+        response.status = 200
+        response.headers = {'Content-Type': 'application/json'}
+        response.read.return_value = b'{}'
+        with patch.object(audit.urllib.request, 'urlopen', return_value=response):
+            for path in ('/.well-known/publication.json', '/Studies/catalog-all.json?r=abc',
+                         '/Studies/start-here.json?r=abc'):
+                self.assertEqual(audit.fetch_live(audit.SITE + path, require_rate_policy=False)[0], 200)
+            for path in ('/api/studies', '/mcp'):
+                with redirect_stdout(io.StringIO()), self.assertRaises(SystemExit):
+                    audit.fetch_live(audit.SITE + path)
+            response.headers['RateLimit-Policy'] = '"edge-ip";q=40;w=10'
+            self.assertEqual(audit.fetch_live(audit.SITE + '/api/studies')[0], 200)
+            # Static reads must still reject challenges and non-JSON bodies.
+            response.headers = {'Content-Type': 'text/html', 'cf-mitigated': 'challenge'}
+            with redirect_stdout(io.StringIO()), self.assertRaises(SystemExit):
+                audit.fetch_live(audit.SITE + '/.well-known/publication.json', require_rate_policy=False)
+
     def test_publication_caller_grants_the_reusable_workflows_artifact_read_scope(self):
         root = Path(__file__).resolve().parent.parent / '.github/workflows'
         caller = (root / 'publish-site.yml').read_text(encoding='utf-8')

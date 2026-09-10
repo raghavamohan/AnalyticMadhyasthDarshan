@@ -124,7 +124,13 @@ def check_runtime_configuration() -> None:
     if ('cache_option_disabled' in flags or
             metadata['compatibility_date'] < '2024-11-11' and 'cache_option_enabled' not in flags):
         fail('MCP publication fetch requires Cloudflare cache: no-store support')
+    # Same-zone global fetch otherwise skips Worker routes and reads the old
+    # origin. Node fetch mocks also cannot reproduce that routing behavior.
+    if ('global_fetch_strictly_public' not in flags or
+            'global_fetch_private_origin' in flags):
+        fail('MCP publication fetch must reach the public site Worker, not the private origin')
     print('OK: deployed MCP runtime supports uncached publication-marker requests.')
+    print('OK: deployed MCP runtime routes publication reads through the public site Worker.')
 
 
 def main() -> None:
