@@ -211,15 +211,25 @@ def restore_prepared(output: Path, base: str) -> None:
 
 
 def merge_outputs(downloads: Path, output: Path) -> None:
-    """Combine partial job outputs without overwriting another deck's provenance."""
+    """Combine flat or per-artifact downloads, preserving every deck's provenance."""
     from _generated_pdf_inventory import generated_pdf_specs
     from _reference_artifacts import load_manifest
     allowed = {spec.key for spec in generated_pdf_specs()}
     allowed.update(row['repo_path'] for row in load_manifest().get('artifacts', [])
                    if row.get('target', {}).get('storage') == 'r2-public')
+    metadata = {PROOF, 'markdown-build-provenance.json', 'presentation-build-provenance.json'}
+    # download-artifact@v7 extracts a single pattern match directly into its
+    # destination, even with merge-multiple=false. Multiple matches retain one
+    # directory per artifact. Detect only known payload roots; never guess a
+    # missing Studies/Applications prefix or bypass the output allowlist below.
+    if downloads.is_symlink():
+        raise ValueError('Downloaded output contains a symbolic link')
+    entries = sorted(downloads.iterdir())
+    flat = any(entry.name in {'Studies', 'Applications', 'References'} | metadata for entry in entries)
+    directories = [downloads] if flat else entries
     provenance = None
     records = {}
-    for directory in sorted(downloads.iterdir()):
+    for directory in directories:
         if not directory.is_dir() or directory.is_symlink():
             raise ValueError('Expected one directory per downloaded artifact')
         for source in sorted(directory.rglob('*')):

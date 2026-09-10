@@ -1,7 +1,7 @@
 # CI implementation and remaining plan
 
-Updated 10 September 2026 with the lifecycle completion implementation following
-merged #461 and #462. Production CI migration evidence below remains attributed
+Updated 10 September 2026 with the lifecycle completion implementation merged in
+#463 and its publication collector repair. Production CI migration evidence below remains attributed
 to #459, source `63e68a03c536e94ed6559172581d7f635afbf77f`; new local acceptance
 does not supersede that deployed evidence. See [CI.md](CI.md) for the operating
 contract and [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md) for the operation/acceptance matrix.
@@ -22,8 +22,10 @@ contract and [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md) for the operation/acceptan
 
 These changes advance R2's repeatable local coverage. The deployed lifecycle,
 offline and controlled recovery matrix remains open; R1 and R3–R8 below are
-unchanged. Next for this implementation: merge its PR, verify site/Worker
-deployment, then execute the remaining deployed acceptance matrix.
+unchanged. #463 is merged and both Worker workflows passed, but its site
+publication failed during artifact collection before staging or promotion.
+Next: merge the collector repair, verify the resulting site publication, then
+execute the remaining deployed acceptance matrix.
 
 The F1–F15 implementation is merged and running in production. Both the site and Agent-facing Workers deployments passed. The initial migration/build-receipt bootstrap is complete. Strict slide-PDF byte reproducibility remains unfinished within F6; broader operational acceptance and the follow-ups below are also still open. A green deployment does not establish that every lifecycle, offline, recovery, or renderer scenario has been exercised.
 
@@ -58,6 +60,20 @@ The companion gate also found and repaired an existing stale ontology speaker no
 | [#457](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/457) | Main F1–F15 implementation, dependency planner, build proofs, publication protocol, preparation gates, generator ownership and Worker selection. | PR checks passed. Production exposed a reusable-workflow permission error and an unsupported MCP cache option. Submission/discussion Workers and shared edge policy deployed successfully. |
 | [#458](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/458) | Granted the publication caller `actions: read`; made the MCP API uploader use Wrangler's runtime configuration; enabled `cache_option_enabled`; added configuration regressions. | [Site publication passed](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/34424746547) and established the durable build receipt. MCP still read the old origin and failed with publication-marker 404/API 502. |
 | [#459](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/459) | Enabled `global_fetch_strictly_public` so same-zone reads reach the site Worker; retained a required routing guard; stopped requiring API quota headers on static marker/catalog/reading-path reads while retaining API/MCP and challenge checks. | [Agent-facing Workers passed](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/34426704381); [site publication passed](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/34426704500). |
+| [#463](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/463) | Completed lifecycle, Applied-study and companion operations, skills and scoped acceptance coverage. | PR checks and both Worker workflows passed. [Site publication failed](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/34438946641) while collecting the single reused PDF bundle; staging and promotion did not run. |
+
+The #463 publication reused all 47 selected PDFs (31 Markdown and 16 deck outputs),
+so both renderer jobs skipped and only `generated-reviewed-pdfs` was downloaded.
+`download-artifact@v7` extracts a single match directly into its destination, even
+with `merge-multiple: false`. The collector assumed every download had an artifact
+directory around it and treated `Studies/` as that directory, dropping the public
+path prefix. The repair recognizes flat and per-artifact layouts while retaining
+inventory, conflict and provenance checks. Regression coverage exercises single
+and multiple bundles, all three collection roots, deck proofs and rejected paths.
+The actual failed-run bundle now collects successfully locally: all 47 PDF hashes
+match the protected plan and pass the publisher's artifact verification. This is
+local repair evidence; successful production promotion still needs confirmation
+after the repair merges.
 
 Confirmed for #459:
 
