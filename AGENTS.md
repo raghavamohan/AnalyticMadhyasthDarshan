@@ -31,7 +31,8 @@ skills orchestrate `Scripts/_*.py`; they defer content and style rules to the se
 Available skills: `manage-studies`, `add-study`, `remove-study`, `rename-study`,
 `set-study-status`, `download-references`, `check-references`, `regenerate-study-pdf`,
 `update-study-presentation`, `update-presenters-companion`, `refine-studies-index`,
-`transcribe-recording`, `sync-master-clean-branches`, `review-study`.
+`transcribe-recording`, `sync-master-clean-branches`, `review-study`,
+`add-study-presentation`, `add-technical-note`.
 
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|
@@ -270,8 +271,10 @@ converters.
 - Markdown, PPTX, figures, notes JSON, and other authoring inputs are the source
   of truth in Git. Published `.html` readers also remain in Git.
 - Generated PDFs under `Studies/*/` and `Applications/*/` are intentionally
-  ignored. Generate them locally or in CI for verification, then publish them to
-  Cloudflare R2 with `Scripts/_publish_generated_pdfs.py`.
+  ignored. Generate affected outputs locally or in CI for verification. After
+  merge, `publish-site.yml` reuses/builds/uploads them through the shared dependency
+  graph and promotes a coherent site revision. Normal authoring skills do not
+  invoke the standalone R2 publisher or change public pointers.
 - Public URLs do not change: `amd-generated-pdfs` serves R2 objects at the
   existing `/Studies/...pdf` and `/Applications/...pdf` paths. Never generate a
   PDF during an HTTP request.
@@ -517,8 +520,8 @@ The second form validates SVG figures for all studies.
 ### After conversion
 
 - Confirm the output PDF path is `Studies/<Slug>/<Slug>.pdf` (same stem as the `.md`).
-- Do not add that generated PDF to Git; publish it through the R2 publisher or
-  leave publication to the protected-branch workflow.
+- Do not add that generated PDF to Git; leave publication to the protected
+  coherent-site workflow after merge.
 - Confirm the companion HTML path is `Studies/<Slug>/<Slug>.html` (or
   `Applications/<Slug>/<Slug>.html` for applied studies).
 - If the study uses ` ```mermaid ` blocks, confirm the PDF shows diagrams (not raw
@@ -597,10 +600,16 @@ by CI. `Scripts/companion-pipeline.json` declares source ownership; run
 notes against the companion. Unchanged DOCX/notes rebuilds preserve file bytes.
 
 
-Keep `<Deck>.pdf` slides-only. Its filename is referenced from
-`Scripts/_build_studies_index.py` and the generated `Studies/index.html`
-(`data-presentation-pdf`, `data-study-link`), so renaming it means editing the
-generator and the generated index together. Never write the notes PDF over that path.
+Keep the manifest's slides PDF slides-only. Output paths and index presentation
+links come from `Scripts/presentation-pipeline.json`; change that authored mapping
+and regenerate the index together. Never write notes over the slides or study PDF.
+
+For a new deck use [add-study-presentation](.agents/skills/add-study-presentation/SKILL.md).
+For an ordinary technical/research note use [add-technical-note](.agents/skills/add-technical-note/SKILL.md).
+Every presenter Markdown source must be declared once in `companion-pipeline.json`
+against a registered deck under the same study. Ordinary notes use the automatic
+Markdown inventory. Rename and retirement scripts maintain both companion/deck
+manifests; finalization refreshes public inventory and My Submissions metadata.
 
 Deck and companion edits are companion-only changes: they use the `study-update` label
 but do **not** refresh the study's `**Edited on:**` or catalog timestamps (§1, §7).
@@ -952,9 +961,23 @@ check, and how to reproduce each check locally — is documented in
    - `python Scripts/_quote_tool.py verify --study <Slug>` if you quoted a local source
    - `python Scripts/_check_references.py --study <Slug>` (drop `--study` if `References/` itself
      changed)
-   - `python Scripts/_regenerate_pdf.py <Slug>` (regenerates PDF/HTML and runs the SVG/diagram/
-     fenced-code/math/outline verifiers)
-   - `python Scripts/_verify_studies_index.py` if a catalog or the index shell changed
+   - Render only affected consumers: `_regenerate_pdf.py <Slug>` for canonical
+     Markdown, `_regenerate_pdf.py <note-path>` for notes, and
+     `_build_presentations.py --deck <ID> --in-place` for any PPTX change. These
+     invoke the same Markdown or staged deck checks as CI; companion-only edits
+     do not require the canonical study PDF.
+   - Run `python Scripts/_finalize_study_artifacts.py` after targeted renders.
+     Add `--study <Slug>` (repeatable) when canonical metadata/catalog needs sync.
+     It shares preparation's catalog, index, companion registry, PDF keys, social,
+     search/offline builders and checks; it does not render PDFs or publish.
+   - Commit tracked outputs, then run
+     `python Scripts/_validate_study_change.py --base-ref origin/master --body-file <PR-body-file>`
+     using the intended PR body. This validates committed HEAD, not the working
+     tree. First drafts require repository/token environment variables for the
+     linked proposal's read-only approval check. Run `_verify_studies_index.py`
+     and `_verify_companion_outputs.py` for generated freshness.
+   - The shared finish and dependency rules live in
+     [manage-studies](.agents/skills/manage-studies/SKILL.md#shared-finish-before-review).
 4. **Push the branch and open a pull request** using the matching template in
    [.github/PULL_REQUEST_TEMPLATE/](.github/PULL_REQUEST_TEMPLATE/) (or the chooser
    [.github/pull_request_template.md](.github/pull_request_template.md)) and apply
@@ -1072,8 +1095,8 @@ host remains during the staged migration described in [.github/CI.md](.github/CI
   rename/removal repairs are included in the same multi-study PR
 - [ ] Study status and GitHub PR readiness were handled independently; the PR is ready for
   review unless a GitHub draft PR was explicitly requested for incomplete PR work
-- [ ] Local verification (`_quote_tool.py verify`, `_check_references.py`, `_regenerate_pdf.py`,
-  `_verify_studies_index.py` as applicable) run and passing before push
+- [ ] Targeted Markdown/deck rendering, shared finalization, applicable quote/reference
+  checks and committed-HEAD lifecycle/freshness verification pass before push
 - [ ] Non-study changes (Scripts/, rules, skills, infra) are not carrying a study label
 
 ---
