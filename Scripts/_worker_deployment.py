@@ -65,6 +65,15 @@ def directory_fingerprint(directory: Path) -> str:
     return digest({'schema': 1, 'node': '24', 'config': config, 'files': files})
 
 
+def observability_settings(config: dict) -> dict | None:
+    """Build the API setting; Wrangler does not yet expose query redaction."""
+    if not config.get('observability'):
+        return None
+    settings = json.loads(json.dumps(config['observability']))
+    settings.setdefault('logs', {})['redact_query_string'] = True
+    return settings
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--directory', type=Path, required=True)
@@ -82,9 +91,18 @@ def main():
     config = tomllib.loads((directory / 'wrangler.toml').read_text(encoding='utf-8'))
     if active_fingerprint(token, account, config['name']) == key:
         print(f"{config['name']}: executable and configuration are unchanged; deployment skipped.")
-        return
-    command = ['node', str(directory / 'node_modules/wrangler/bin/wrangler.js'), 'deploy', '--message', ANNOTATION + key]
-    subprocess.run(command, cwd=directory, check=True)
+    else:
+        command = ['node', str(directory / 'node_modules/wrangler/bin/wrangler.js'), 'deploy', '--message', ANNOTATION + key]
+        subprocess.run(command, cwd=directory, check=True)
+    observability = observability_settings(config)
+    if observability:
+        cf._api_request(
+            'PATCH',
+            f"/accounts/{account}/workers/scripts/{config['name']}/script-settings",
+            token,
+            {'observability': observability},
+        )
+        print(f"{config['name']}: persistent Worker logs enabled with query-string redaction.")
 
 
 if __name__ == '__main__':

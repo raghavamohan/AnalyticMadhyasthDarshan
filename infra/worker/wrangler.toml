@@ -20,6 +20,22 @@ TURNSTILE_SITE_KEY = "0x4AAAAAADoBfrNV5lPeJQWO"
 # (*.workers.dev) deployments.
 COOKIE_SAMESITE = "Lax"
 
+[observability]
+enabled = true
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true
+
+[version_metadata]
+binding = "CF_VERSION_METADATA"
+
+[[analytics_engine_datasets]]
+binding = "API_METRICS"
+dataset = "amd_api_metrics"
+
 # Server-side session store. The signed cookie holds only an opaque session id;
 # the GitHub access token is kept in KV. Create the namespace once with:
 #   npx wrangler kv namespace create SESSIONS

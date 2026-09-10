@@ -1,0 +1,78 @@
+name: Production API synthetics
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: production-api-synthetics
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout deployed contract
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Run safe production checks
+        id: synthetics
+        continue-on-error: true
+        run: python Scripts/_api_synthetics.py --json-out "${RUNNER_TEMP}/api-synthetics.json"
+
+      - name: Preserve synthetic evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: api-synthetics-${{ github.run_id }}
+          path: ${{ runner.temp }}/api-synthetics.json
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Open or update the API incident
+        if: steps.synthetics.outcome == 'failure'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = '[API synthetic] Production verification failed';
+            const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+            const { data: issues } = await github.rest.issues.listForRepo({owner, repo, state: 'open', per_page: 100});
+            const existing = issues.find(issue => !issue.pull_request && issue.title === title);
+            const body = `Production API synthetics failed. Inspect the request IDs and per-check results in [workflow run ${context.runId}](${runUrl}).`;
+            if (existing) {
+              await github.rest.issues.createComment({owner, repo, issue_number: existing.number, body});
+            } else {
+              await github.rest.issues.create({owner, repo, title, body});
+            }
+
+      - name: Close a recovered API incident
+        if: steps.synthetics.outcome == 'success'
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const title = '[API synthetic] Production verification failed';
+            const { data: issues } = await github.rest.issues.listForRepo({owner, repo, state: 'open', per_page: 100});
+            const existing = issues.find(issue => !issue.pull_request && issue.title === title);
+            if (existing) {
+              const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
+              await github.rest.issues.createComment({owner, repo, issue_number: existing.number, body: `Recovered in [workflow run ${context.runId}](${runUrl}).`});
+              await github.rest.issues.update({owner, repo, issue_number: existing.number, state: 'closed', state_reason: 'completed'});
+            }
+
+      - name: Fail after incident handling
+        if: steps.synthetics.outcome == 'failure'
+        run: exit 1

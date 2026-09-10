@@ -79,6 +79,12 @@
           "href": "https://analyticmadhyasthdarshan.org/mcp",
           "type": "application/json"
         }
+      ],
+      "status": [
+        {
+          "href": "https://analyticmadhyasthdarshan.org/api/studies/health",
+          "type": "application/json"
+        }
       ]
     },
     {

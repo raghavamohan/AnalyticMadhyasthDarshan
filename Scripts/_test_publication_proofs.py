@@ -153,6 +153,12 @@ class PublicationProofTests(unittest.TestCase):
             (self.root / 'helper.js').write_bytes(b'export const a = 2')
             self.assertNotEqual(workers.directory_fingerprint(self.root), first)
 
+    def test_worker_observability_redacts_query_strings_after_deploy(self):
+        config = {'observability': {'enabled': True, 'logs': {'enabled': True, 'persist': True}}}
+        settings = workers.observability_settings(config)
+        self.assertTrue(settings['logs']['redact_query_string'])
+        self.assertNotIn('redact_query_string', config['observability']['logs'])
+
     def test_companion_outputs_match_canonical_sources(self):
         from _verify_companion_outputs import verify
         self.assertEqual(verify(), [])

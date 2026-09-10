@@ -68,6 +68,34 @@ test('Studies OpenAPI operations exactly match the runtime route table', async (
   assert.deepEqual(implemented, documented);
 });
 
+test('Studies health localizes publication degradation and records aggregate metrics', async () => {
+  const original = globalThis.fetch;
+  const points = [];
+  try {
+    globalThis.fetch = async () => { throw new Error('fixture publication outage'); };
+    const worker = await loadWorker('health-observability');
+    const response = await worker.fetch(
+      new Request('https://analyticmadhyasthdarshan.org/api/studies/health'),
+      {
+        API_METRICS: {writeDataPoint: point => points.push(point)},
+        CF_VERSION_METADATA: {id: 'fixture-version'},
+      },
+    );
+    assert.equal(response.status, 200);
+    assert.match(response.headers.get('X-Request-ID'), /^[0-9a-f-]{36}$/i);
+    const payload = await response.json();
+    assert.equal(payload.status, 'degraded');
+    assert.deepEqual(payload.checks.publication, {status:'degraded',required:true});
+    assert.equal(points.length, 1);
+    assert.deepEqual(points[0].blobs.slice(0, 6), [
+      'v1', 'studies', 'getStudiesHealth', 'GET', '2xx', 'publication',
+    ]);
+    assert.equal(JSON.stringify(points[0]).includes('fixture publication outage'), false);
+  } finally {
+    globalThis.fetch = original;
+  }
+});
+
 test('Studies API 502 uses the common HTTP error envelope', async () => {
   const original = globalThis.fetch;
   try {
@@ -127,6 +155,7 @@ test('Studies API pagination is bounded and advertises the edge quota', async ()
     ));
     assert.equal(response.status,200);
     assert.match(response.headers.get('RateLimit-Policy'),/edge-ip/);
+    assert.match(response.headers.get('X-Request-ID'), /^[0-9a-f-]{36}$/i);
     const payload = await response.json();
     assert.equal(payload.count,1);
     assert.equal(payload.total,3);

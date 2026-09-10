@@ -8,6 +8,23 @@ SITE_ORIGIN = "https://analyticmadhyasthdarshan.org"
 # Cookie SameSite: defaults to None (cross-origin workers.dev). Set to "Lax"
 # once this worker is routed under the same origin as the site.
 # COOKIE_SAMESITE = "Lax"
+
+[observability]
+enabled = true
+
+[observability.logs]
+enabled = true
+head_sampling_rate = 1
+invocation_logs = true
+persist = true
+
+[version_metadata]
+binding = "CF_VERSION_METADATA"
+
+[[analytics_engine_datasets]]
+binding = "API_METRICS"
+dataset = "amd_api_metrics"
+
 # After first deploy: wrangler d1 create amd-discussions — paste database_id below.
 [[d1_databases]]
 binding = "DB"
@@ -16,8 +33,8 @@ database_id = "11f1461e-14c5-4f08-9664-d4d1f7abbe2d"
 
 # Secrets (never commit):
 # npx wrangler secret put SESSION_SECRET
-# npx wrangler secret put TURNSTILE_SECRET_KEY 
-# npx wrangler secret put RESEND_API_KEY 
-# npx wrangler secret put ADMIN_EMAILS 
+# npx wrangler secret put TURNSTILE_SECRET_KEY
+# npx wrangler secret put RESEND_API_KEY
+# npx wrangler secret put ADMIN_EMAILS
 # Optional: npx wrangler secret put ALLOWED_ORIGINS
 # Optional: npx wrangler secret put EMAIL_FROM

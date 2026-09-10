@@ -1,6 +1,11 @@
 import { privateResponse, rejectUnsafeWrite } from '../../shared/http-security.mjs';
 import { normalizeApiErrorResponse } from '../../shared/api-errors.mjs';
 import {
+  observedResponse,
+  operationIdFor as observedOperationIdFor,
+  readinessStatus,
+} from '../../shared/api-observability.mjs';
+import {
   paginationMeta,
   parsePagination,
   readJsonWithin,
@@ -51,6 +56,27 @@ const MAGIC_LINK_WINDOW_SECONDS = 3600;
 const MAGIC_LINK_POLICY = `"magic-link-email";q=${MAGIC_LINK_LIMIT};w=${MAGIC_LINK_WINDOW_SECONDS}, "edge-ip";q=40;w=10`;
 const SLUG_RE = /^[A-Za-z0-9][A-Za-z0-9-]*$/;
 const RESERVED_SLUGS = new Set(['health', 'stats']);
+const OBSERVABILITY_ROUTES = Object.freeze([
+  ['GET', '/api/discussions/health', 'getDiscussionsHealth', 'none'],
+  ['GET', '/api/discussions/stats', 'listDiscussionStats', 'd1'],
+  ['GET', /^\/api\/discussions\/[A-Za-z0-9-]+$/, 'listComments', 'd1'],
+  ['POST', /^\/api\/discussions\/[A-Za-z0-9-]+\/comments$/, 'postComment', 'd1'],
+  ['POST', /^\/api\/discussions\/[A-Za-z0-9-]+\/comments\/[^/]+\/hide$/, 'hideComment', 'd1'],
+  ['POST', /^\/api\/discussions\/[A-Za-z0-9-]+\/comments\/[^/]+\/delete$/, 'deleteComment', 'd1'],
+  ['POST', '/api/discuss-auth/magic-link', 'requestMagicLink', 'd1_resend'],
+  ['GET', '/api/discuss-auth/verify', 'verifyMagicLink', 'd1'],
+  ['GET', '/api/discuss-auth/me', 'getDiscussAuthMe', 'none'],
+  ['POST', '/api/discuss-auth/logout', 'discussLogout', 'none'],
+].map(([method, path, operationId, dependency]) => ({method, path, operationId, dependency})));
+
+function discussionReadiness(env) {
+  return readinessStatus('discussions', {
+    database: { configured: Boolean(env.DB), required: true },
+    sessions: { configured: Boolean(env.SESSION_SECRET), required: true },
+    turnstile: { configured: Boolean(env.TURNSTILE_SECRET_KEY), required: true },
+    email: { configured: Boolean(env.RESEND_API_KEY), required: true },
+  });
+}
 function jsonResponse(request, env, payload, status = 200, extraHeaders = {}) {
   const headers = {
     ...corsHeaders(request, env),
@@ -208,7 +234,7 @@ function discussionViewer(session, env) {
 
 router.options('*', (request, env) => new Response(null, { headers: corsHeaders(request, env) }));
 
-router.get('/api/discussions/health', (request, env) => jsonResponse(request, env, { status: 'ok' }));
+router.get('/api/discussions/health', (request, env) => jsonResponse(request, env, discussionReadiness(env)));
 
 router.get('/api/discussions/stats', async (request, env) => {
   try {
@@ -481,6 +507,7 @@ router.all('*', (request, env) => new Response('Not Found', { status: 404, heade
 
 export default {
   async fetch(request, env, ctx) {
+    const startedAt = Date.now();
     let response = rejectUnsafeWrite(request, allowedOrigins(env), {});
     if (!response) {
       try {
@@ -492,6 +519,17 @@ export default {
       }
     }
     response = await normalizeApiErrorResponse(request, response);
-    return privateResponse(withRateLimitPolicy(response), corsHeaders(request, env));
+    response = privateResponse(withRateLimitPolicy(response), corsHeaders(request, env));
+    const operationId = observedOperationIdFor(request, OBSERVABILITY_ROUTES);
+    const route = OBSERVABILITY_ROUTES.find(item => item.operationId === operationId);
+    return observedResponse({
+      env,
+      request,
+      response,
+      service: 'discussions',
+      operationId,
+      dependency: route?.dependency || 'none',
+      startedAt,
+    });
   },
 };

@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan public study catalog",
-    "version": "1.4.0",
-    "description": "Read-only catalog of topical, formal, and applied studies. Markdown is the source of truth; HTML and PDF are generated. Write APIs (submissions, discussions) are separate and for humans; see /auth.md. JSON error responses use one envelope: success=false, code, message, requestId, and optional details. The same requestId is returned in the X-Request-ID response header."
+    "version": "1.5.0",
+    "description": "Read-only catalog of topical, formal, and applied studies. Markdown is the source of truth; HTML and PDF are generated. Write APIs (submissions, discussions) are separate and for humans; see /auth.md. Every dynamic API response carries an X-Request-ID header. JSON error responses use one envelope: success=false, code, message, requestId, and optional details; the error body uses the same request ID."
   },
   "servers": [
     {
@@ -170,6 +170,38 @@
         }
       }
     },
+    "/api/studies/health": {
+      "get": {
+        "tags": [
+          "discovery"
+        ],
+        "summary": "Study API dependency readiness",
+        "operationId": "getStudiesHealth",
+        "responses": {
+          "200": {
+            "description": "Runtime liveness and publication-origin readiness.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Health"
+                }
+              }
+            },
+            "headers": {
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              },
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          }
+        }
+      }
+    },
     "/api/studies": {
       "get": {
         "tags": [
@@ -260,6 +292,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -308,6 +343,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -379,6 +417,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -415,6 +456,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -459,6 +503,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -509,6 +556,60 @@
             "additionalProperties": true
           }
         }
+      },
+      "DependencyCheck": {
+        "type": "object",
+        "required": [
+          "status",
+          "required"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ready",
+              "degraded",
+              "disabled"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Health": {
+        "type": "object",
+        "required": [
+          "status",
+          "service",
+          "schemaVersion",
+          "checks"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ok",
+              "degraded"
+            ]
+          },
+          "service": {
+            "type": "string",
+            "const": "studies"
+          },
+          "schemaVersion": {
+            "type": "integer",
+            "const": 1
+          },
+          "checks": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DependencyCheck"
+            }
+          }
+        },
+        "additionalProperties": false
       },
       "CatalogRow": {
         "type": "object",
