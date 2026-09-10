@@ -62,3 +62,5 @@ To remove one or more notes/decks while keeping their parent study, use
 [remove-study-companions](../remove-study-companions/SKILL.md).
 The whole-study `_remove_study.py` command is exclusively for retirement of the
 study and all its companions; it is not a companion-removal command.
+
+For filename changes or moves between studies use [relocate-study-companion](../relocate-study-companion/SKILL.md). For restoration from merged history use [restore-study](../restore-study/SKILL.md).

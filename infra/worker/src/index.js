@@ -18,6 +18,7 @@ import {
   withRateLimitPolicy,
 } from '../../shared/api-contract.mjs';
 import { Router } from 'itty-router';
+import {validateAssetFilename, buildSupplementaryFiles, submissionFileOperations} from './submission-files.js';
 import {
   allowedOrigins,
   buildOAuthState,
@@ -359,14 +360,16 @@ function studyMdPath(slug, appliedSlugs) {
 
 const MAX_MARKDOWN_BYTES = 2 * 1024 * 1024;
 const MAX_PRESENTATION_BYTES = 10 * 1024 * 1024;
-const MAX_CONTRIBUTION_JSON_BYTES = 18_000_000;
+const MAX_CONTRIBUTION_JSON_BYTES = 20_000_000;
 const MAX_JSON_BYTES = 64 * 1024;
 const MAX_COMPANION_FILENAME_LEN = 120;
 const MAX_AUTHOR_LEN = 200;
 const MAX_REASON_LEN = 2000;
 const MAX_EMAIL_LEN = 254;
 const MAX_RETURN_TO_LEN = 2048;
-const SUBMISSION_ARTIFACT_TYPES = new Set(['study', 'note', 'presentation']);
+const SUBMISSION_ARTIFACT_TYPES = new Set(['study', 'note', 'presentation', 'presenter']);
+const {checkSupplementaryVersion, putSupplementaryFile, checkPresenterRegistration, ensurePresenterManifested} =
+  submissionFileOperations(githubRequest, assertSourceVersion);
 
 function validationError(message) {
   return httpError(400, message);
@@ -409,6 +412,9 @@ function validateCompanionFilename(artifactType, fileName) {
     throw validationError(
       'Technical and research note filenames must look like Technical-Note-Topic.md or Research-Note-Topic.md.'
     );
+  }
+  if (artifactType === 'presenter' && !/^Presenters-Companion-[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.md$/.test(name)) {
+    throw validationError('Use a filename such as Presenters-Companion-Topic.md.');
   }
   if (artifactType === 'presentation' &&
       !/^[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\.pptx$/i.test(name)) {
@@ -583,6 +589,7 @@ async function removePresentationManifestEntries(matchesSource, branchName, env,
   if (!Array.isArray(manifest.decks)) {
     throw new Error('The presentation pipeline manifest has no decks list.');
   }
+  const removedIds = new Set(manifest.decks.filter(deck => matchesSource(String(deck.source || ''))).map(deck => deck.id));
   const before = manifest.decks.length;
   manifest.decks = manifest.decks.filter((deck) => !matchesSource(String(deck.source || '')));
   if (manifest.decks.length === before) return 0;
@@ -593,7 +600,22 @@ async function removePresentationManifestEntries(matchesSource, branchName, env,
     branch: branchName,
     sha: fileData.sha,
   }, env, null, stats);
+  await removePresenterManifestEntries(row => removedIds.has(row.deck), branchName, env, stats);
   return removed;
+}
+
+async function removePresenterManifestEntries(matches, branchName, env, stats) {
+  const path = 'Scripts/companion-pipeline.json';
+  const file = await githubRequest(`/contents/${path}?ref=${branchName}`, 'GET', null, env, null, stats);
+  const manifest = JSON.parse(decodeBase64Content(file.content));
+  if (manifest.schema !== 1 || !Array.isArray(manifest.companions)) throw new Error('Invalid presenter ownership manifest.');
+  const kept = manifest.companions.filter(row => !matches(row));
+  if (kept.length === manifest.companions.length) return;
+  manifest.companions = kept;
+  await githubRequest(`/contents/${path}`, 'PUT', {
+    message:'Remove retired presenter ownership', branch:branchName, sha:file.sha,
+    content:btoa(unescape(encodeURIComponent(JSON.stringify(manifest, null, 2) + '\n'))),
+  }, env, null, stats);
 }
 
 async function assertStudyOwnedBySession(session, slug, env) {
@@ -1990,7 +2012,8 @@ router.post('/api/propose', async (request, env) => {
       'Prior familiarity',
       MAX_PROPOSAL_FAMILIARITY_LEN
     );
-    const formal = data.formal === true;
+    const collection = data.collection || (data.formal === true ? 'formal' : 'topical');
+    if (!['topical', 'formal', 'applied'].includes(collection)) throw validationError('Choose a catalog table.');
 
     const derivedSlug = titleToSlug(title);
     validateProposalSlug(derivedSlug);
@@ -2022,7 +2045,7 @@ ${summary}
 
 ### Catalog table
 
-- [${formal ? 'x' : ' '}] Register in the Formal Studies table (instead of Topical Studies)
+${collection[0].toUpperCase() + collection.slice(1)} Studies
 
 ### Prior familiarity with Madhyasth Darshan
 
@@ -2138,20 +2161,37 @@ router.get('/api/study-source', async (request, env) => {
     const artifactType = (url.searchParams.get('artifactType') || 'study').trim().toLowerCase();
     const fileName = (url.searchParams.get('fileName') || '').trim();
     let filePath;
+    let sourceRef;
     let markdown = true;
     if (artifactType === 'study') {
       const appliedSlugs = await fetchAppliedSlugSet(env, { githubRequests: 0 });
       filePath = studyMdPath(slug, appliedSlugs);
-    } else if (artifactType === 'note' || artifactType === 'presentation') {
+    } else if (artifactType === 'asset') {
+      validateAssetFilename(fileName);
+      const session = requireSession(await getSession(request, env));
+      await assertStudyOwnedBySession(session, slug, env);
+      const applied = await fetchAppliedSlugSet(env, {githubRequests: 0});
+      filePath = studyMdPath(slug, applied).replace(/[^/]+$/, fileName);
+      if (url.searchParams.has('pr')) {
+        const number = Number(url.searchParams.get('pr'));
+        if (!Number.isInteger(number) || number < 1) throw validationError('Invalid draft PR.');
+        const pr = await githubRequest(`/pulls/${number}`, 'GET', null, env, session.accessToken);
+        const target = revisionTarget(pr, session);
+        if (target.slug !== slug) throw validationError('Attachment belongs to another study.');
+        sourceRef = target.branch;
+        filePath = target.filePath.replace(/[^/]+$/, fileName);
+      }
+      markdown = false;
+    } else if (['note', 'presentation', 'presenter'].includes(artifactType)) {
       validateCompanionFilename(artifactType, fileName);
       const registry = await fetchCompanionArtifacts(env, { githubRequests: 0 });
       const study = companionStudy(registry, slug);
-      const registered = artifactType === 'note' ? study?.notes : study?.presentations;
+      const registered = artifactType === 'note' ? study?.notes : artifactType === 'presenter' ? study?.presenters : study?.presentations;
       if (!study || !Array.isArray(registered) || !registered.includes(fileName)) {
         return jsonResponse(request, env, { success: false, error: `No registered ${artifactType} found for "${slug}".` }, 404);
       }
       filePath = `${study.root}/${slug}/${fileName}`;
-      markdown = artifactType === 'note';
+      markdown = artifactType !== 'presentation';
     } else {
       return jsonResponse(request, env, { success: false, error: 'Choose study, note, or presentation.' }, 400);
     }
@@ -2165,7 +2205,7 @@ router.get('/api/study-source', async (request, env) => {
       return jsonResponse(request,env,{success:true,slug,artifactType,fileName:`${slug}.md`,content,starter:true});
     }
     try {
-      const file = await githubRequest(`/contents/${filePath}?ref=${await repositorySnapshot(env)}`, 'GET', null, env);
+      const file = await githubRequest(`/contents/${filePath}?ref=${encodeURIComponent(sourceRef || await repositorySnapshot(env))}`, 'GET', null, env);
       if (markdown) content = decodeBase64Content(file.content);
       sourceSha = file.sha;
     } catch (e) {
@@ -2215,7 +2255,7 @@ function revisionTarget(pr, session) {
   return {
     slug,
     branch: pr.head.ref,
-    filePath: `Studies/${slug}/${slug}.md`,
+    filePath: `${/^Study collection:\s*applied\s*$/mi.test(pr.body || '') ? 'Applications' : 'Studies'}/${slug}/${slug}.md`,
   };
 }
 
@@ -2278,6 +2318,8 @@ router.post('/api/revise', async (request, env) => {
       env
     );
     assertSourceVersion(data.sourceSha, fileData.sha);
+    const supplemental = buildSupplementaryFiles(data, {...artifact, filePath:target.filePath});
+    for (const file of supplemental) await checkSupplementaryVersion(file, target.branch, env);
     await markForPreparation(pr,env);
     await githubRequest(`/contents/${target.filePath}`, 'PUT', {
       message: `Revise ${target.slug} via My Submissions`,
@@ -2285,6 +2327,7 @@ router.post('/api/revise', async (request, env) => {
       branch: target.branch,
       sha: fileData.sha,
     }, env);
+    for (const file of supplemental) await putSupplementaryFile(file, target.branch, env);
     return jsonResponse(request, env, {
       success: true,
       url: pr.html_url,
@@ -2334,6 +2377,9 @@ router.post('/api/submit', async (request, env) => {
       assertProposalSlugMatch(proposal, slug, proposalRegistry);
       const catalogMap = await fetchCatalogSlugMap(env, stats);
       assertProposalWorkspaceReady(proposal, slug, proposalRegistry, catalogMap);
+      const registered = proposalRegistry.proposals.find(row => row.slug === slug);
+      if (registered?.applied) appliedSlugs.add(slug);
+      artifact = buildSubmissionArtifact({ ...data, isNew }, slug, appliedSlugs, istTime);
     }
 
     // Updates resolve through the durable companion registry rather than a
@@ -2353,7 +2399,7 @@ router.post('/api/submit', async (request, env) => {
       expectsExistingSource = artifact.artifactType === 'study' || (
         artifact.artifactType === 'note'
           ? (mappedStudy.notes || []).includes(artifact.fileName)
-          : (mappedStudy.presentations || []).includes(artifact.fileName)
+          : (artifact.artifactType === 'presenter' ? mappedStudy.presenters || [] : mappedStudy.presentations || []).includes(artifact.fileName)
       );
     }
 
@@ -2368,12 +2414,17 @@ router.post('/api/submit', async (request, env) => {
     assertNoOpenStatusChangePr(slug, buildOpenStatusChangeIndex(prSearch.items));
 
     // Updates to an existing applied study must target Applications/<slug>/.
-    // Brand-new studies proposed via the portal are always created under Studies/.
+    // First drafts use the collection recorded by their approved proposal.
     const branchName = `submission-${slug}-${env.operationId || crypto.randomUUID()}`;
     const filePath = artifact.filePath;
     const base = defaultBranch(env);
 
     const baseSha = await repositorySnapshot(env);
+    const supplemental = buildSupplementaryFiles(data, artifact);
+    for (const file of supplemental) await checkSupplementaryVersion(file, baseSha, env);
+    if (artifact.artifactType === 'presenter' || data.presenter) {
+      await checkPresenterRegistration(artifact, data, baseSha, env);
+    }
 
     if (!isNew) {
       let sourceFile;
@@ -2407,16 +2458,21 @@ router.post('/api/submit', async (request, env) => {
       const presentationRegistered = artifact.artifactType === 'presentation'
         ? await ensurePresentationManifested(artifact, branchName, env)
         : false;
+      for (const file of supplemental) await putSupplementaryFile(file, branchName, env);
+      if (artifact.artifactType === 'presenter' || data.presenter) {
+        await ensurePresenterManifested(artifact, data, branchName, env);
+      }
 
       const prTitle = isNew ? `Add study: ${slug}` : `Update study: ${slug}`;
       let prBody = `Submitted via Web Portal by ${author}.\nPortal-GitHub: @${session.login}\n\nSlug: ${slug}`;
       if (isNew) {
-        prBody = `Proposal issue: #${proposalIssue}\nSlug: ${slug}\nTags: MVD, SB, JV\nPortal-GitHub: @${session.login}\n\nSubmitted via Web Portal by ${author}.`;
+        prBody = `Proposal issue: #${proposalIssue}\nSlug: ${slug}\nStudy collection: ${appliedSlugs.has(slug) ? 'applied' : 'studies'}\nTags: MVD, SB, JV\nPortal-GitHub: @${session.login}\n\nSubmitted via Web Portal by ${author}.`;
       } else {
         const registrationSummary = presentationRegistered
           ? '\nRegistered the new deck in the presentation build pipeline.'
           : '';
-        prBody = `Study slug: ${slug}\nPortal-GitHub: @${session.login}\n\n### Summary of changes\n\n${artifact.summary}${registrationSummary}\n\nSubmitted via Web Portal by ${author}.`;
+        const filesSummary = supplemental.length ? '\nIncluded files: ' + supplemental.map(file => file.fileName).join(', ') + '.' : '';
+        prBody = `Study slug: ${slug}\nPortal-GitHub: @${session.login}\n\n### Summary of changes\n\n${artifact.summary}${registrationSummary}${filesSummary}\n\nSubmitted via Web Portal by ${author}.`;
       }
 
       const pr = await githubRequest('/pulls', 'POST', {
@@ -2455,12 +2511,13 @@ router.post('/api/delete-artifact', async (request, env) => {
     await verifyTurnstile(data.turnstileToken, env, request);
 
     const slug = String(data.slug || '').trim();
-    const artifactType = String(data.artifactType || '').trim().toLowerCase();
+    const bulk = data.artifacts !== undefined;
+    const artifactType = bulk ? 'companions' : String(data.artifactType || '').trim().toLowerCase();
     const fileName = String(data.fileName || '').trim();
     if (!/^[A-Za-z0-9-]+$/.test(slug) || slug.length > MAX_SLUG_LEN) {
       throw validationError('Invalid study slug.');
     }
-    if (!SUBMISSION_ARTIFACT_TYPES.has(artifactType)) {
+    if (!bulk && !SUBMISSION_ARTIFACT_TYPES.has(artifactType)) {
       throw validationError('Choose a study, note, or presentation to delete.');
     }
 
@@ -2472,14 +2529,20 @@ router.post('/api/delete-artifact', async (request, env) => {
     }
     await assertStudyOwnedBySession(session, slug, env);
 
-    let targetName = `${slug}.md`;
-    if (artifactType === 'note' || artifactType === 'presentation') {
-      targetName = validateCompanionFilename(artifactType, fileName);
-      const registered = artifactType === 'note' ? mappedStudy.notes : mappedStudy.presentations;
-      if (!Array.isArray(registered) || !registered.includes(targetName)) {
-        throw validationError(`"${targetName}" is not registered for "${slug}".`);
+    const selections = bulk ? data.artifacts : [{artifactType, fileName: artifactType === 'study' ? `${slug}.md` : fileName, sourceSha:data.sourceSha}];
+    if (!Array.isArray(selections) || !selections.length || selections.length > 20) throw validationError('Select between 1 and 20 companions.');
+    const selectedNames = new Set();
+    for (const selected of selections) {
+      if (!selected || (bulk && !['note', 'presentation', 'presenter'].includes(selected.artifactType))) throw validationError('Bulk deletion accepts companions only.');
+      if (selected.artifactType !== 'study') {
+        const targetName = validateCompanionFilename(selected.artifactType, selected.fileName);
+        const registered = selected.artifactType === 'note' ? mappedStudy.notes : selected.artifactType === 'presenter' ? mappedStudy.presenters : mappedStudy.presentations;
+        if (!Array.isArray(registered) || !registered.includes(targetName)) throw validationError(`"${targetName}" is not registered for "${slug}".`);
       }
+      if (selectedNames.has(selected.fileName.toLowerCase())) throw validationError('Select each companion only once.');
+      selectedNames.add(selected.fileName.toLowerCase());
     }
+    const targetName = selections.map(item => item.fileName).join(', ');
 
     const prSearch = await githubSearch(
       `repo:${REPO} is:pr is:open label:new-study,study-update,status-change`,
@@ -2492,18 +2555,19 @@ router.post('/api/delete-artifact', async (request, env) => {
 
     const root = mappedStudy.root === 'Applications' ? 'Applications' : 'Studies';
     const directory = `${root}/${slug}`;
-    const targetPath = `${directory}/${targetName}`;
     const branchName = operationBranchName('/api/delete-artifact', data, env.operationId);
     const base = defaultBranch(env);
     const baseRef = await githubRequest(`/git/refs/heads/${base}`, 'GET', null, env, null, stats);
-    let targetFile;
-    try {
-      targetFile = await githubRequest(`/contents/${targetPath}?ref=${baseRef.object.sha}`, 'GET', null, env, null, stats);
-    } catch (error) {
-      if (error.status === 404) throw validationError(`"${targetName}" no longer exists in "${slug}".`);
-      throw error;
+    for (const selected of selections) {
+      let targetFile;
+      try {
+        targetFile = await githubRequest(`/contents/${directory}/${selected.fileName}?ref=${baseRef.object.sha}`, 'GET', null, env, null, stats);
+      } catch (error) {
+        if (error.status === 404) throw validationError(`"${selected.fileName}" no longer exists in "${slug}".`);
+        throw error;
+      }
+      assertSourceVersion(selected.sourceSha, targetFile.sha);
     }
-    assertSourceVersion(data.sourceSha, targetFile.sha);
     await githubRequest('/git/refs', 'POST', {
       ref: `refs/heads/${branchName}`,
       sha: baseRef.object.sha,
@@ -2526,18 +2590,17 @@ router.post('/api/delete-artifact', async (request, env) => {
           stats
         );
       } else {
-        const filePath = targetPath;
-        await deleteRepositoryFile(filePath, branchName, env, stats);
-        if (artifactType === 'note') {
-          await deleteRepositoryFile(filePath.replace(/\.md$/i, '.html'), branchName, env, stats, { required: false });
-        } else {
-          const expectedSource = filePath.toLowerCase();
-          await removePresentationManifestEntries(
-            (source) => source.toLowerCase() === expectedSource,
-            branchName,
-            env,
-            stats
-          );
+        for (const selected of selections) {
+          const filePath = `${directory}/${selected.fileName}`;
+          await deleteRepositoryFile(filePath, branchName, env, stats);
+          if (selected.artifactType !== 'presentation') {
+            await deleteRepositoryFile(filePath.replace(/\.md$/i, '.html'), branchName, env, stats, { required: false });
+            if (selected.artifactType === 'presenter') {
+              await removePresenterManifestEntries(row => row.markdown === filePath, branchName, env, stats);
+            }
+          } else {
+            await removePresentationManifestEntries(source => source.toLowerCase() === filePath.toLowerCase(), branchName, env, stats);
+          }
         }
       }
 
@@ -2546,7 +2609,7 @@ router.post('/api/delete-artifact', async (request, env) => {
         ? `Remove the complete study \`${slug}\` and all files in its study directory.`
         : artifactType === 'presentation'
         ? `Remove presentation \`${targetName}\`, its generated PDFs, and any linked Presenter's Companion files from \`${slug}\`. Keep the study and other companions.`
-        : `Remove ${artifactType} \`${targetName}\` from \`${slug}\`.`;
+        : `Remove selected companion sources \`${targetName}\` and their owned outputs from \`${slug}\`. Keep the study and other companions; selected decks include their linked presenter documents.`;
       const prBody = [
         `Study slug: ${slug}`,
         `Operation: ${operation}`,

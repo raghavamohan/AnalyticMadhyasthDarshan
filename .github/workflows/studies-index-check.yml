@@ -96,6 +96,35 @@ jobs:
         run: python Scripts/_sync_agent_rules.py --check
       - name: Require clean verification checkout
         run: python Scripts/_generated_artifacts.py --check-clean
+  lifecycle:
+    needs: context
+    if: needs.context.outputs.ready == 'true'
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ needs.context.outputs.head }}
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Select browser acceptance from changed portal inputs
+        id: scope
+        env:
+          BASE_SHA: ${{ needs.context.outputs.base }}
+        run: python Scripts/_run_lifecycle_acceptance.py --scope --base-ref "$BASE_SHA"
+      - uses: ./.github/actions/setup-study-env
+        if: steps.scope.outputs.browser == 'true'
+      - name: Exercise isolated lifecycle and browser scenarios
+        if: steps.scope.outputs.browser == 'true'
+        run: python Scripts/_run_lifecycle_acceptance.py --output "$RUNNER_TEMP/lifecycle-acceptance"
+      - uses: actions/upload-artifact@v7
+        if: always() && steps.scope.outputs.browser == 'true'
+        with:
+          name: lifecycle-acceptance-${{ needs.context.outputs.head }}
+          path: ${{ runner.temp }}/lifecycle-acceptance
+          retention-days: 14
   study-check:
     needs: context
     if: needs.context.outputs.ready == 'true'
@@ -109,14 +138,15 @@ jobs:
       pull-requests: read
       statuses: write
     if: always() && (needs.context.result != 'success' || needs.context.outputs.ready == 'true')
-    needs: [context, checks, study-check]
+    needs: [context, checks, study-check, lifecycle]
     runs-on: ubuntu-latest
     steps:
       - name: Require every applicable check to succeed
         env:
           CHECKS: ${{ needs.checks.result }}
           STUDY: ${{ needs.study-check.result }}
-        run: test "$CHECKS" = success && test "$STUDY" = success
+          LIFECYCLE: ${{ needs.lifecycle.result }}
+        run: test "$CHECKS" = success && test "$STUDY" = success && test "$LIFECYCLE" = success
       - uses: actions/checkout@v7
         with:
           ref: ${{ needs.context.outputs.head }}

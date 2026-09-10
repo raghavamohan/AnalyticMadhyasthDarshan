@@ -38,7 +38,7 @@ def export(path: Path) -> None:
     path.write_bytes(json.dumps(payload, ensure_ascii=False).encode())
 
 
-def validate(payload: dict, pr: dict, repo: str) -> dict[str, bytes | None]:
+def validate(payload: dict, pr: dict, repo: str, *, source_manifests: dict | None = None) -> dict[str, bytes | None]:
     from _verification_identity import intent_hash
     if (payload.get('schema') != 1 or payload.get('repository') != repo
             or payload.get('pr') != pr['number'] or pr['state'] != 'open' or not pr['draft']
@@ -50,9 +50,13 @@ def validate(payload: dict, pr: dict, repo: str) -> dict[str, bytes | None]:
     if not isinstance(payload.get('files'), dict) or len(payload['files']) > 5000:
         raise ValueError('Invalid preparation file inventory.')
     files = {}
+    companion_outputs = None
+    if source_manifests is not None:
+        from _companion_lifecycle import output_contract
+        companion_outputs, _ = output_contract(source_manifests)
     total = 0
     for name, content in payload['files'].items():
-        if not permits(name, deleted=content is None):
+        if not permits(name, deleted=content is None, companion_outputs=companion_outputs):
             raise ValueError(f'Forbidden preparation output: {name}')
         raw = None if content is None else base64.b64decode(content, validate=True)
         total += len(raw or b'')
@@ -61,8 +65,24 @@ def validate(payload: dict, pr: dict, repo: str) -> dict[str, bytes | None]:
         files[name] = raw
     if 'Scripts/companion-pipeline.json' in files:
         from _companion_lifecycle import validate_prepared_manifest
-        validate_prepared_manifest(files['Scripts/companion-pipeline.json'], root=BASE)
+        validate_prepared_manifest(files['Scripts/companion-pipeline.json'], root=BASE,
+                                  before=source_manifests['companion-pipeline.json'] if source_manifests else None)
     return files
+
+
+def read_source_manifests(head: str, *, root: Path = BASE) -> dict:
+    """Read data only from the exact submitted head; never import its scripts."""
+    from _companion_lifecycle import output_contract
+    if not re.fullmatch(r'[a-f0-9]{40}', head):
+        raise ValueError('Invalid source commit')
+    manifests = {name: json.loads(git(root, 'show', f'{head}:Scripts/{name}'))
+                 for name in ('companion-pipeline.json', 'presentation-pipeline.json')}
+    _, sources = output_contract(manifests)
+    for name in sources:
+        entry = git(root, 'ls-tree', head, '--', name)
+        if not entry.startswith(('100644 blob ', '100755 blob ')) or entry.split('\t')[-1] != name:
+            raise ValueError(f'Companion authoring input is not a regular source blob: {name}')
+    return manifests
 
 
 def accept(path: Path) -> None:
@@ -90,10 +110,14 @@ def accept(path: Path) -> None:
             if payload.get('base') == pr['base']['sha'] and payload.get('intent') == intent_hash(pr):
                 dispatch(repo, pr)
                 return
-    files = validate(payload, pr, repo)
+    # Check identity using the ordinary file contract before fetching candidate
+    # data. The full path contract below then uses that exact head's ownership.
+    validate({**payload, 'files': {}}, pr, repo)
+    git(BASE, 'fetch', 'origin', payload['head'])
+    source_manifests = read_source_manifests(payload['head'])
+    files = validate(payload, pr, repo, source_manifests=source_manifests)
     branch = pr['head']['ref']
     git(BASE, 'check-ref-format', '--branch', branch)
-    git(BASE, 'fetch', 'origin', payload['head'])
     with tempfile.TemporaryDirectory() as directory:
         checkout = Path(directory) / 'prepared'
         git(BASE, 'worktree', 'add', '--detach', str(checkout), payload['head'])
@@ -114,7 +138,7 @@ def accept(path: Path) -> None:
                     'commit', '-m', 'Prepare study artifacts for review\n\nAMD-Prepared-From: ' + payload['head'])
             head = git(checkout, 'rev-parse', 'HEAD')
             live = gh('api', f'repos/{repo}/pulls/{number}')
-            validate(payload, live, repo)
+            validate(payload, live, repo, source_manifests=source_manifests)
             git(checkout, 'push', 'origin', f'HEAD:refs/heads/{branch}')
         finally:
             git(BASE, 'worktree', 'remove', '--force', str(checkout))

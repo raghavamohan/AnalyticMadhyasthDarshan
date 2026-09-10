@@ -39,14 +39,15 @@ Catalog/metadata only (no PDF): `--skip-pdf`
 Skip sync check: `--no-check-timestamps`
 
 The last two flags are for intermediate/diagnostic work. Complete the targeted
-render and normal checks before review. Do not rerun the status setter merely
-to finalize other artifacts: it refreshes the timestamp even for the same status.
+render and normal checks before review. Setting the already-current status checks
+timestamp consistency, then returns without changing the timestamp or rendering.
+Use the shared finalizer to refresh other artifacts.
 
 ## What the script does
 
 1. Updates `**Status:**` and `**Edited on:**` in the canonical
    `Studies/<Slug>/<Slug>.md` or `Applications/<Slug>/<Slug>.md` — always set to
-   the current IST time, even when status is unchanged
+   the current IST time when the status changes. An unchanged status is a verified no-op
 2. Updates the matching catalog JSON and `Studies/README.md` row, then rebuilds `Studies/index.html`
 3. Regenerates the canonical markdown's tracked sibling `<Slug>.html` and ignored
    `<Slug>.pdf` verification artifact:

@@ -20,6 +20,7 @@ import sys
 from pathlib import Path
 
 from _common import (
+    APPLICATIONS,
     REFERENCES,
     STUDIES,
     study_dir,
@@ -129,7 +130,7 @@ def parse_status_arg(value: str) -> StudyStatus:
         ) from exc
 
 
-def update_manifest(slug: str, tags: str, *, force: bool) -> None:
+def update_manifest(slug: str, tags: str, *, force: bool, applied: bool = False) -> None:
     manifest_path = REFERENCES / "MANIFEST.md"
     manifest_text = manifest_path.read_text(encoding="utf-8")
     if f"{slug}.pdf" in manifest_text and force:
@@ -138,7 +139,7 @@ def update_manifest(slug: str, tags: str, *, force: bool) -> None:
             "",
             manifest_text,
         )
-    write_text_lf(manifest_path, append_manifest_row(manifest_text, slug, tags))
+    write_text_lf(manifest_path, append_manifest_row(manifest_text, slug, tags, applied=applied))
     print(f"Updated {manifest_path}")
 
 
@@ -158,6 +159,7 @@ def add_study(
     check_timestamps: bool,
     convert: bool,
     no_keep_pdf: bool,
+    applied: bool = False,
 ) -> None:
     if not input_path.is_file():
         raise SystemExit(f"Input file not found: {input_path}")
@@ -166,7 +168,9 @@ def add_study(
     if suffix not in {".md", ".pdf"}:
         raise SystemExit(f"Expected a .md or .pdf file, got: {input_path}")
 
-    table = StudyTable.FORMAL if formal else StudyTable.TOPICAL
+    if formal and applied:
+        raise SystemExit("Choose either --formal or --applied, not both.")
+    table = StudyTable.APPLIED if applied else StudyTable.FORMAL if formal else StudyTable.TOPICAL
     is_pdf_import = suffix == ".pdf"
     derived_slug = slug or title_to_slug(title or input_path.stem.replace("_", " "))
     try:
@@ -180,9 +184,16 @@ def add_study(
     if is_pdf_import and status == StudyStatus.ONGOING:
         raise SystemExit("Ongoing placeholders accept markdown only and must not store a PDF.")
     study_title = title or slug_to_title(derived_slug)
-    dest_dir = study_dir(derived_slug)
-    dest_md = study_md(derived_slug)
-    dest_pdf = study_pdf(derived_slug)
+    dest_dir = (APPLICATIONS if applied else STUDIES) / derived_slug
+    dest_md = dest_dir / f"{derived_slug}.md"
+    dest_pdf = dest_dir / f"{derived_slug}.pdf"
+    other_dir = (STUDIES if applied else APPLICATIONS) / derived_slug
+    if other_dir.exists():
+        raise SystemExit(f"Slug already exists in another collection: {other_dir}")
+    existing_row = next((row for family in StudyTable for row in load_catalog_rows(family)
+                         if row.slug == derived_slug), None)
+    if existing_row and existing_row.table != table:
+        raise SystemExit("Registration cannot reclassify an existing study; retain its catalog table.")
     edited_at = now_ist()
     if dest_md.exists() and force:
         existing_edited_at = parse_edited_on(dest_md.read_text(encoding="utf-8"))
@@ -329,9 +340,9 @@ def add_study(
     print(f"Updated Studies/catalog JSON and Studies/README.md ({table.value} catalog)")
 
     if status != StudyStatus.ONGOING:
-        write_references_readme_row(derived_slug, study_tags)
+        write_references_readme_row(derived_slug, study_tags, applied=applied)
         print(f"Updated {REFERENCES / 'README.md'}")
-        update_manifest(derived_slug, study_tags, force=force)
+        update_manifest(derived_slug, study_tags, force=force, applied=applied)
         tag_names = {tag.strip() for tag in study_tags.split(",") if tag.strip()}
         pdf_paths = pdfs_for_tags(tag_names)
         if pdf_paths:
@@ -391,6 +402,7 @@ def main() -> None:
     )
     parser.add_argument("--dry-run", action="store_true", help="Print plan without writing files")
     parser.add_argument("--force", action="store_true", help="Overwrite existing study files")
+    parser.add_argument("--applied", action="store_true", help="Register under Applications/ in Applied Studies")
     parser.add_argument(
         "--skip-pdf",
         action="store_true",
@@ -423,6 +435,7 @@ def main() -> None:
         tags=args.tags,
         status=parse_status_arg(args.status),
         formal=args.formal,
+        applied=args.applied,
         dry_run=args.dry_run,
         force=args.force,
         skip_pdf=args.skip_pdf,

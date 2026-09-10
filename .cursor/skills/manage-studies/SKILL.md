@@ -20,7 +20,9 @@ Use the focused skill for authoring, then complete the shared finish below.
 | Draft ↔ Released | [set-study-status](../set-study-status/SKILL.md), `_set_study_status.py` |
 | Remove selected notes/decks | [remove-study-companions](../remove-study-companions/SKILL.md), `_remove_study_companions.py` |
 | Retire a study / planned placeholder | [remove-study](../remove-study/SKILL.md), `_remove_study.py` |
-| Rename study and companion paths | [rename-study](../rename-study/SKILL.md), `_rename_study.py --skip-issue` |
+| Rename a study and its containing paths | [rename-study](../rename-study/SKILL.md), `_rename_study.py --skip-issue` |
+| Rename/move an individual companion | [relocate-study-companion](../relocate-study-companion/SKILL.md), `_relocate_study_companion.py` |
+| Restore a retired study or companion | [restore-study](../restore-study/SKILL.md), `_restore_study.py` |
 | Add a presentation deck | [add-study-presentation](../add-study-presentation/SKILL.md) |
 | Edit slides, notes, or slide order | [update-study-presentation](../update-study-presentation/SKILL.md), `_build_presentations.py` |
 | Add a technical/research note and figures | [add-technical-note](../add-technical-note/SKILL.md) |
@@ -127,6 +129,12 @@ inside the PPTX; the deck renderer consumes the PPTX, not that loose source imag
    technical note or deck uses `study-update`. Companion-only timestamp items
    are N/A. Labels organize the PR; required `verify` infers scope from the
    committed changes and intent, so a missing label does not bypass validation.
+
+My Submissions can submit presenter Markdown for an existing deck, attach its
+presenter Markdown to a PPTX upload, include local SVG/raster files with a Markdown
+submission, and request deletion of multiple companions. Ownership declarations
+are source changes; the trusted preparer reads only data from the exact submitted
+commit when authorizing generated DOCX/JSON/PPTX outputs.
 
 Local contributors prepare outputs before review. Portal source submissions use
 the separate Draft-PR preparation/acceptance workflow; its preparation calls

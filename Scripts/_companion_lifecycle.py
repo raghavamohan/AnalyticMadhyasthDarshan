@@ -52,17 +52,64 @@ def rename_paths(old: str, new: str, *, root: Path = BASE, dry_run: bool = False
     return changed
 
 
-def validate_prepared_manifest(raw: bytes | None, *, root: Path = BASE) -> None:
+def output_contract(manifests: dict[str, dict]) -> tuple[set[str], set[str]]:
+    """Derive narrowly scoped output permissions from a source commit's data."""
+    companions = manifests['companion-pipeline.json']
+    decks = manifests['presentation-pipeline.json']
+    if companions.get('schema') != 1 or not isinstance(companions.get('companions'), list) or not isinstance(decks.get('decks'), list):
+        raise ValueError('Invalid source ownership manifests')
+    by_id, deck_paths = {}, set()
+    for item in decks['decks']:
+        if not isinstance(item, dict) or not isinstance(item.get('id'), str) or not item['id'] or item['id'] in by_id:
+            raise ValueError('Duplicate or invalid source deck ID')
+        parent = None
+        for field, suffix in (('source', '.pptx'), ('slidesPdf', '.pdf'), ('notesPdf', '.pdf')):
+            name = item.get(field)
+            if not isinstance(name, str):
+                raise ValueError('Missing deck source/output path')
+            path = PurePosixPath(name)
+            if (len(path.parts) != 3 or path.parts[0] not in {'Studies', 'Applications'}
+                    or ':' in name or '\\' in name or '..' in path.parts or path.suffix != suffix
+                    or name.casefold() in deck_paths or (parent is not None and path.parent != parent)
+                    or (suffix == '.pdf' and path.stem.casefold() == path.parts[1].casefold())):
+                raise ValueError('Unsafe or overlapping deck ownership')
+            validate_study_slug(path.parts[1])
+            parent = path.parent
+            deck_paths.add(name.casefold())
+        by_id[item['id']] = item['source']
+    outputs, sources, owned = set(), set(), set()
+    for item in companions['companions']:
+        markdown, deck = item['markdown'], by_id.get(item['deck'])
+        if not isinstance(markdown, str) or not isinstance(deck, str):
+            raise ValueError('Missing source deck ownership')
+        md, pptx = PurePosixPath(markdown), PurePosixPath(deck)
+        for name, path in ((markdown, md), (deck, pptx)):
+            if (len(path.parts) != 3 or path.parts[0] not in {'Studies', 'Applications'}
+                    or ':' in name or '\\' in name or '..' in path.parts):
+                raise ValueError('Source ownership must stay inside one study')
+            validate_study_slug(path.parts[1])
+        if (md.parent != pptx.parent or md.suffix != '.md' or not md.name.startswith('Presenters-Companion-')
+                or md.stem == md.parts[1] or pptx.suffix != '.pptx'
+                or markdown.casefold() in owned or deck.casefold() in owned):
+            raise ValueError('Invalid or duplicate source companion ownership')
+        owned.update({markdown.casefold(), deck.casefold()})
+        sources.update({markdown, deck})
+        outputs.update({str(md.with_suffix('.docx')), str(md.with_suffix('.notes.json')), deck})
+    return outputs, sources
+
+
+def validate_prepared_manifest(raw: bytes | None, *, root: Path = BASE, before: dict | None = None) -> None:
     """Accept retirement/relocation, never new ownership from a build payload.
 
-    The trusted writer reads its own manifest, not a manifest supplied by the
-    build, when authorizing binary outputs. New declarations belong in the
+    The trusted writer reads manifests from the exact submitted source commit,
+    never new ownership supplied by the build payload. New declarations belong in the
     contributor's reviewed source commit. A preparation result may only drop
     existing rows or move their same-named Markdown to another study directory.
     """
     if raw is None:
         raise ValueError('Preparation cannot delete the companion ownership manifest')
-    before = json.loads((root / 'Scripts/companion-pipeline.json').read_bytes())
+    if before is None:
+        before = json.loads((root / 'Scripts/companion-pipeline.json').read_bytes())
     after = json.loads(raw)
     if (not isinstance(after, dict) or not isinstance(after.get('companions'), list)
             or {k: v for k, v in before.items() if k != 'companions'}

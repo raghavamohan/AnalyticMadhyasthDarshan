@@ -28,9 +28,9 @@ STUDIES_OUTPUTS = {
 }
 
 
-def permits(name: str, *, deleted: bool = False) -> bool:
+def permits(name: str, *, deleted: bool = False, companion_outputs: set[str] | None = None) -> bool:
     path = PurePosixPath(name)
-    if path.is_absolute() or ".." in path.parts or "\\" in name:
+    if not path.parts or path.is_absolute() or ".." in path.parts or "\\" in name or ':' in name:
         return False
     if name in ROOT_OUTPUTS:
         return True
@@ -41,8 +41,10 @@ def permits(name: str, *, deleted: bool = False) -> bool:
     if name.startswith('Assets/Social/') and len(path.parts) == 3:
         return path.suffix == '.png'
     if path.suffix in {'.docx', '.json', '.pptx'} and path.parts[0] in {'Studies', 'Applications'}:
-        # Only the trusted default branch's declared companion chain may supply
-        # these binary/JSON outputs across the preparation writer boundary.
+        if companion_outputs is not None:
+            return name in companion_outputs or deleted or path.name == '.proposal-meta.json'
+        # Local preparation uses its checkout's declared chain. The trusted
+        # writer supplies explicit permissions read from the exact source head.
         companions = BASE / 'Scripts/companion-pipeline.json'
         decks = BASE / 'Scripts/presentation-pipeline.json'
         if companions.is_file() and decks.is_file():

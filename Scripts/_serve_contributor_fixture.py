@@ -40,7 +40,7 @@ class Handler(SimpleHTTPRequestHandler):
 
     def end_headers(self):
         if self.path.split('?')[0].endswith('.html'):
-            self.send_header('Content-Security-Policy', CSP.replace('https://analyticmadhyasthdarshan.org/Studies/portal/preview.html', 'http://127.0.0.1:8766/Studies/portal/preview.html'))
+            self.send_header('Content-Security-Policy', CSP.replace('https://analyticmadhyasthdarshan.org/Studies/portal/preview.html', f'http://127.0.0.1:{self.server.server_port}/Studies/portal/preview.html'))
             self.send_header('X-Frame-Options','SAMEORIGIN')
         super().end_headers()
 

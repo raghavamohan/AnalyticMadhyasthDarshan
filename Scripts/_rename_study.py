@@ -182,6 +182,7 @@ def update_registry(old_slug: str, new_slug: str, new_title: str | None, issue_n
         description=(old_row or new_row or meta or {}).get("description") or "",
         summary=(old_row or new_row or meta or {}).get("description") or "",
         formal=bool((old_row or new_row or meta or {}).get("formal")),
+        applied=bool((old_row or new_row or meta or {}).get("applied")),
         submitter=(old_row or new_row or meta or {}).get("submitter") or "",
         issue_number=issue_number
         or (old_row or new_row or {}).get("issueNumber")
@@ -207,6 +208,7 @@ def update_registry(old_slug: str, new_slug: str, new_title: str | None, issue_n
             "category": fields.category,
             "description": fields.description,
             "formal": fields.formal,
+            "applied": fields.applied,
             "phase": phase,
         }
     )
@@ -242,6 +244,7 @@ def update_proposal_meta_file(old_slug: str, new_slug: str, new_title: str | Non
             "category": row.get("category"),
             "description": row.get("description"),
             "formal": row.get("formal", False),
+            "applied": row.get("applied", False),
             "proposalIssue": row.get("issueNumber"),
             "submitter": row.get("submitter"),
             "phase": row.get("phase", "catalog-draft"),

@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-24.04
     outputs:
       changed: ${{ steps.tools.outputs.changed }}
+      has_decks: ${{ steps.tools.outputs.has_decks }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -37,9 +38,10 @@ jobs:
             changed=$(python Scripts/_artifact_graph.py --changed-presentation-tools-since "$BASE_SHA")
           fi
           echo "changed=$changed" >> "$GITHUB_OUTPUT"
+          python -c "import json; print('has_decks=' + str(bool(json.load(open('Scripts/presentation-pipeline.json'))['decks'])).lower())" >> "$GITHUB_OUTPUT"
   libreoffice-production:
     needs: plan
-    if: needs.plan.outputs.changed == 'true'
+    if: needs.plan.outputs.changed == 'true' && needs.plan.outputs.has_decks == 'true'
     runs-on: windows-2025
     steps:
       - name: Checkout

@@ -115,15 +115,30 @@ def remove_selected(slug: str, names: list[str], *, root: Path = BASE,
 def prepare_deleted(changes: list[tuple[str, str]], base: str, *, root: Path = BASE) -> None:
     """Apply the same scoped cleanup to source deletions from portal/local PRs."""
     groups: dict[str, list[str]] = {}
+    # Authored relocations keep their stable deck identity. Do not treat the
+    # old path as retirement and delete the newly relocated ownership chain.
+    previous = previous_manifests(base, root) if any(s == 'D' for s, _ in changes) else {}
+    relocated = set()
+    for manifest, field, identity, source in (
+        ('presentation-pipeline.json', 'decks', 'id', 'source'),
+        ('companion-pipeline.json', 'companions', 'deck', 'markdown'),
+    ):
+        if manifest not in previous:
+            continue
+        current = json.loads((root / 'Scripts' / manifest).read_bytes())
+        by_id = {row[identity]: row[source] for row in current[field]}
+        for old in previous[manifest][field]:
+            new = by_id.get(old[identity])
+            if new and new != old[source] and (root / new).is_file():
+                relocated.add(old[source])
     for status, name in changes:
         path = PurePosixPath(name)
-        if (status == 'D' and len(path.parts) == 3 and path.parts[0] in {'Studies', 'Applications'}
+        if (status == 'D' and name not in relocated and len(path.parts) == 3 and path.parts[0] in {'Studies', 'Applications'}
                 and (path.suffix == '.pptx' or (path.suffix == '.md' and path.stem != path.parts[1]))
                 and (root / path.parent / f'{path.parts[1]}.md').is_file()
                 and not (root / path).exists()):
             groups.setdefault(path.parts[1], []).append(path.name)
     if groups:
-        previous = previous_manifests(base, root)
         for slug, names in groups.items():
             remove_selected(slug, names, root=root, previous=previous)
 
