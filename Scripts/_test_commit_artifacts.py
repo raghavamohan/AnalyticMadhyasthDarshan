@@ -212,7 +212,7 @@ def test_regenerated_pull_request_head_gets_required_verification() -> None:
     assert "statuses: write" not in study_workflow
     assert "workflow_call:" in study_workflow
     assert "--check-clean" in study_workflow
-    assert "needs: [checks, study-check]" in verify_workflow
+    assert "needs: [context, checks, study-check]" in verify_workflow
     assert "report_sha:" in verify_workflow
     assert '-f state="$VERIFY_STATE"' in verify_workflow
     assert '-f context=verify' in verify_workflow
@@ -223,14 +223,14 @@ def test_regenerated_pull_request_head_gets_required_verification() -> None:
 
 
 def main() -> int:
-    if shutil.which("bash") is None:
-        print("bash not available; skipping commit-artifacts shell tests.")
-        return 0
     tests = [
         obj
         for name, obj in sorted(globals().items())
         if name.startswith("test_") and callable(obj)
     ]
+    if shutil.which("bash") is None:
+        print("bash not available; running workflow-contract checks without shell integration cases.")
+        tests = [test_regenerated_pull_request_head_gets_required_verification]
     failed = 0
     for test in tests:
         try:

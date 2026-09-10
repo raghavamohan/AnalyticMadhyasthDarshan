@@ -59,6 +59,8 @@ flowchart TD
 
 Ignored PDFs are never input hashes. Their absence from a checkout is expected. A missing or mismatched **published R2 object** selects repair. Deck pairs remain atomic in repair and review reuse.
 
+Reproducibility smoke jobs use the graph's rendering-tool inputs. Ordinary PPTX changes run only their selected deck pair in review; they do not start the all-decks repeat-render smoke job. Renderer, toolchain and smoke-harness changes retain repeat-render verification. Planning helpers are excluded from renderer import traversal so they cannot pull unrelated web/Markdown builders into every deck's inputs.
+
 ## Preparation and required verification
 
 `studies-index-check.yml` runs on every PR without path/label filtering, plus explicit bot dispatches. Its context job fetches the live PR and binds head, upstream base and lifecycle body into one verification identity. Ready sources run catalog/lifecycle/tests and document checks concurrently. Markdown and presentations have independent jobs after their shared plan. `verify` requires every applicable job and rechecks the live identity before success. Strict/up-to-date branch protection keeps the upstream base relevant at merge.
