@@ -79,3 +79,5 @@ Adding a deck alone leaves the parent's Edited-on/catalog timestamp unchanged.
 If adding a link to it also changes canonical study Markdown, refresh that
 study's timestamp and render its HTML/PDF too. Embed source SVG/raster figures
 inside the PPTX; loose image edits do not update the deck automatically.
+
+For filename changes or moves between studies use [relocate-study-companion](../relocate-study-companion/SKILL.md). For restoration from merged history use [restore-study](../restore-study/SKILL.md).

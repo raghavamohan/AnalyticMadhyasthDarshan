@@ -59,6 +59,20 @@ test('receipt digest ignores refreshed Turnstile tokens and object field order, 
   assert.notEqual(one,await operations.digestPayload('/api/submit',{slug:'Study',content:'two'}));
   assert.notEqual(one,await operations.digestPayload('/api/propose',{slug:'Study',content:'one'}));
 });
+
+test('bulk companion receipts preserve every version and reject canonical or duplicate sources', () => {
+  const value = {id:'123e4567-e89b-42d3-a456-426614174000',path:'/api/delete-artifact',
+    created:'2026-09-10T00:00:00.000Z',payload:{slug:'Test-Study',artifactType:'companions',artifacts:[
+      {artifactType:'presenter',fileName:'Presenters-Companion-Test.md',sourceSha:'a'.repeat(40)},
+      {artifactType:'note',fileName:'Technical-Note-Test.md',sourceSha:'b'.repeat(40)},
+    ]}};
+  assert.deepEqual(actionOperations.validate(value).payload.artifacts,value.payload.artifacts);
+  for (const artifacts of [[],[...value.payload.artifacts,value.payload.artifacts[0]],
+    [{artifactType:'study',fileName:'Test-Study.md',sourceSha:'a'.repeat(40)}],
+    [{...value.payload.artifacts[0],sourceSha:''}]]) {
+    assert.throws(() => actionOperations.validate({...value,payload:{...value.payload,artifacts}}));
+  }
+});
 test('all public contribution writes use receipts with deterministic recovery metadata',() => {
   assert.deepEqual([...operations.operationPaths].sort(),[
     '/api/delete-artifact','/api/propose','/api/revise','/api/status-change','/api/submit',

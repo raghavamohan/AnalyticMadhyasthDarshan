@@ -4,23 +4,23 @@
     {
       "name": "add-study",
       "type": "skill-md",
-      "description": "Register a new study in Studies/ using Scripts/_add_study.py or _add_study.ps1 — sets metadata, updates catalogs, and generates PDF. Use when adding a study, registering a paper, creating an Ongoing placeholder, importing a PDF, or adding a Formal study.",
+      "description": "Register a topical/formal study in Studies/ or an applied study in Applications/ using Scripts/_add_study.py or _add_study.ps1 — sets metadata, updates catalogs, and generates PDF. Use when adding a study, registering a paper, creating an Ongoing placeholder, importing a PDF, or adding a Formal or Applied study.",
       "url": "/.well-known/agent-skills/add-study/SKILL.md",
-      "digest": "sha256:746ad353e5f07d4088ee5610020c47fe7c5c1780cf03bae9c3ba607a6e4ef42e"
+      "digest": "sha256:da98dc120a170ba0d80cab2d5ec649adfb6ad3cfb9ca2413247aee1ef8df563d"
     },
     {
       "name": "add-study-presentation",
       "type": "skill-md",
       "description": "Add and register a new companion PowerPoint deck under Studies/ or Applications/, declare its slides/notes PDF outputs, optionally register a Presenter's Companion, and use the same staged renderer and checks as CI. Use when adding a first or additional teaching deck to an existing study.",
       "url": "/.well-known/agent-skills/add-study-presentation/SKILL.md",
-      "digest": "sha256:2a359f62fc5ce8d4653e5db4f127bed2e74d38ed0137423ae4240a87ba760070"
+      "digest": "sha256:e82de0f8f642754996056e90a265bca640b328bc26937876baedecb3256bcc9d"
     },
     {
       "name": "add-technical-note",
       "type": "skill-md",
       "description": "Add a technical or research note beside an existing study, including SVG, raster, Mermaid and math dependencies; generate its HTML/PDF and refresh the companion/publication inventory using the same scripts and checks as CI. Use for new Technical-Note-* or Research-Note-* companion Markdown documents.",
       "url": "/.well-known/agent-skills/add-technical-note/SKILL.md",
-      "digest": "sha256:74f8f4f7edea79d4cffffe14e688c86f08b846b8254e07d07b2b3291b82e5b77"
+      "digest": "sha256:32191e57e5ca2e2b3fe0aa5c5621c7c23ea39dad74906b2af53e740da9f9a05c"
     },
     {
       "name": "check-references",
@@ -41,7 +41,7 @@
       "type": "skill-md",
       "description": "Manage study registration, content updates, Draft/Released transitions, rename and retirement, and route new or updated decks and technical notes. Use for study lifecycle work under Studies/ or Applications/ and for finalizing tracked artifacts with the same producers and checks as CI preparation.",
       "url": "/.well-known/agent-skills/manage-studies/SKILL.md",
-      "digest": "sha256:5f1b1afc19662179cf660c06a134dd3b64911629b6ad1f6f7967617b181f0c6e"
+      "digest": "sha256:291c01d09062b879caeabd960bc5885285e714c5d863dc5eb6bbe432b3c53d73"
     },
     {
       "name": "refine-studies-index",
@@ -58,6 +58,13 @@
       "digest": "sha256:1c123f8b4ae9940da347efef96bc1594f776ae2ed83d203c761f80334569a11a"
     },
     {
+      "name": "relocate-study-companion",
+      "type": "skill-md",
+      "description": "Rename a technical/research note, deck or Presenter’s Companion, or move a note/deck to another existing study. Uses Scripts/_relocate_study_companion.py to update owned paths and relative Markdown links while preserving parent studies and shared figures.",
+      "url": "/.well-known/agent-skills/relocate-study-companion/SKILL.md",
+      "digest": "sha256:bd1f02e18da5c9d8f104a74445f2513959eba321baa1811918917763cd3e7569"
+    },
+    {
       "name": "remove-study",
       "type": "skill-md",
       "description": "Remove a study from Studies/ or Applications/ using Scripts/_remove_study.py or _remove_study.ps1 — deletes the complete directory and updates catalogs, proposal metadata, and References. Use when retiring a study, deleting a paper, removing an Ongoing placeholder, or cleaning up a study slug.",
@@ -69,7 +76,7 @@
       "type": "skill-md",
       "description": "Remove one or more technical/research notes, presentation decks or presenter companions while preserving the parent study, catalog and proposal metadata. Use for companion-only deletion; runs Scripts/_remove_study_companions.py and the shared finalizer, including cleanup of each selected companion's owned outputs.",
       "url": "/.well-known/agent-skills/remove-study-companions/SKILL.md",
-      "digest": "sha256:e46c757528d09cb57c27ea6848ec9371c77157faff888c3702de814773e5fc3f"
+      "digest": "sha256:10ffb4700f7b6fe50af1105a651d8f248efcec1ea5e90e59ef271db3927a2aa8"
     },
     {
       "name": "rename-study",
@@ -77,6 +84,13 @@
       "description": "Rename a study slug and/or display title using Scripts/_rename_study.py — moves the study directory, syncs catalogs, proposal-registry, GitHub proposal issue, References paths, and regenerated PDF/HTML; Start here and cross-study links are verified for same-PR updates. Use when renaming a study, changing a catalog slug, fixing a too-long slug, or updating My Submissions after a rename.",
       "url": "/.well-known/agent-skills/rename-study/SKILL.md",
       "digest": "sha256:f9180e73c04243c9b85b8808162718a106cf6e6bf29a52e67bd16bcd13f77774"
+    },
+    {
+      "name": "restore-study",
+      "type": "skill-md",
+      "description": "Restore a retired study or selected companion sources from a full commit SHA already in master history, using Scripts/_restore_study.py. Preserves historical canonical content and catalog metadata, rejects active-file/ownership conflicts, and rebuilds through the current shared pipelines.",
+      "url": "/.well-known/agent-skills/restore-study/SKILL.md",
+      "digest": "sha256:5b8425adc330f666b6abfb578c2ef648d39310efc5899e9f2e0f385f40b67bc1"
     },
     {
       "name": "review-study",
@@ -90,7 +104,7 @@
       "type": "skill-md",
       "description": "Change a study between Draft and Released using Scripts/_set_study_status.py or _set_study_status.ps1 — syncs markdown Status, Edited on, catalogs, and PDF watermark. Use when releasing a study, reverting to draft, finalizing a paper, or updating draft/released status.",
       "url": "/.well-known/agent-skills/set-study-status/SKILL.md",
-      "digest": "sha256:1120ac1263fa26444ab03bce81c494111df590c348258545409fc7435ffe154c"
+      "digest": "sha256:44839a6099b27040993850fbef95130db49583582c62353a4b8655fd64a15f04"
     },
     {
       "name": "sync-master-clean-branches",
@@ -111,14 +125,14 @@
       "type": "skill-md",
       "description": "Update a study Presenter's Companion (slide-by-slide delivery notes) under Studies/ or Applications/: keep the companion markdown as source of truth, rebuild DOCX/PDF, and sync PowerPoint speaker notes from a JSON map. Use when the teaching deck gains/loses slides, companion notes drift from the deck, or regenerating Presenters-Companion-*.docx/.pdf/.notes.json.",
       "url": "/.well-known/agent-skills/update-presenters-companion/SKILL.md",
-      "digest": "sha256:c3a5f1f31d8533d66b3d29344a9aa9dcfb96eb7193b083d65744cbee9b529ae2"
+      "digest": "sha256:79ce77995d80b6233949cf1a5b19cad4f0d78c15613ccf0392179c6e20095aea"
     },
     {
       "name": "update-study-presentation",
       "type": "skill-md",
       "description": "Update an existing study companion PowerPoint deck under Studies/ or Applications/, preserve its established design, regenerate its slides PDF and read-aloud notes PDF, and verify every format. Use for PPTX content edits, figure replacements, slide additions or removals, slide reordering, presentation reviews that require fixes, and PPTX-to-PDF refreshes. The PPTX is the source of truth; this repository does not use a slides-YAML generation workflow.",
       "url": "/.well-known/agent-skills/update-study-presentation/SKILL.md",
-      "digest": "sha256:bbf635aee1f4d521dd6dcfa34c70fcf018c823166b87b14514be7ef5a02d17e9"
+      "digest": "sha256:77067a396c3448480d750b85d5e9ec0eb0302f6071fed3d17123d20bdc03aa11"
     }
   ]
 }

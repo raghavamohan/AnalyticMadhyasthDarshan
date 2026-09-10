@@ -2,6 +2,13 @@
 
 The required `verify` gate reviews an immutable source commit. Preparation creates reviewable tracked files. Protected publication builds changed or missing outputs, then audits a complete coherent release. The finding cross-reference is [CI-IMPLEMENTATION.md](CI-IMPLEMENTATION.md).
 
+The [study lifecycle matrix](STUDY-LIFECYCLE.md) records operation coverage,
+companion ownership, portal attachments and acceptance evidence. Applied proposals
+use `Applications/`; all local and portal paths use the shared producers/finalizer.
+Companion rename/move and restoration from merged history have dedicated skills.
+The required `lifecycle` job exercises the shipped portal in a local fixture only
+when its inputs change and retains the report beside the other PR evidence.
+
 ## Dependency and ownership graph
 
 ```mermaid

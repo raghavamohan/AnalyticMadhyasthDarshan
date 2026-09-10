@@ -26,6 +26,22 @@
     if ('turnstileToken' in value || 'operationId' in value) throw new Error('The saved action receipt contains transient credentials.');
     const slug = String(value.slug || '').trim();
     if (!SLUG.test(slug)) throw new Error('The saved action receipt has an invalid study slug.');
+    if (path === '/api/delete-artifact' && value.artifactType === 'companions') {
+      if (!Array.isArray(value.artifacts) || !value.artifacts.length || value.artifacts.length > 20) {
+        throw new Error('The saved deletion receipt has an invalid companion selection.');
+      }
+      const artifacts = value.artifacts.map(item => {
+        if (!item || !['note', 'presentation', 'presenter'].includes(item.artifactType)) {
+          throw new Error('Only companions can be included in a bulk deletion receipt.');
+        }
+        const {artifactType, fileName, sourceSha} = cleanPayload(path, {...item, slug});
+        return {artifactType, fileName, sourceSha};
+      });
+      if (new Set(artifacts.map(item => item.fileName.toLowerCase())).size !== artifacts.length) {
+        throw new Error('The saved deletion receipt contains duplicate companions.');
+      }
+      return {slug, artifactType:'companions', artifacts};
+    }
     const sourceSha = String(value.sourceSha || '').trim();
     if (!SOURCE_SHA.test(sourceSha)) throw new Error('The saved action receipt has an invalid source version.');
     if (path === '/api/status-change') {
@@ -36,9 +52,9 @@
       return {slug, targetStatus, reason, sourceSha};
     }
     const artifactType = String(value.artifactType || '').trim().toLowerCase();
-    if (!['study', 'note', 'presentation'].includes(artifactType)) throw new Error('The saved deletion receipt has an invalid artifact type.');
+    if (!['study', 'note', 'presentation', 'presenter'].includes(artifactType)) throw new Error('The saved deletion receipt has an invalid artifact type.');
     const fileName = String(value.fileName || '').trim();
-    if (fileName.length > 240 || (artifactType !== 'study' && !fileName)) throw new Error('The saved deletion receipt has an invalid filename.');
+    if (fileName.length > 240 || /[\\/]/.test(fileName) || (artifactType !== 'study' && !fileName)) throw new Error('The saved deletion receipt has an invalid filename.');
     return {slug, artifactType, fileName, sourceSha};
   }
 

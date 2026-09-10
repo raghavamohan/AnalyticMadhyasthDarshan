@@ -27,6 +27,8 @@ NOTE_NAME_RE = re.compile(r"(?:Technical|Research)-Note-[A-Za-z0-9][A-Za-z0-9-]*
 
 def build_registry() -> dict:
     entries: dict[str, dict] = {}
+    ownership = json.loads((BASE / 'Scripts/companion-pipeline.json').read_bytes())['companions']
+    decks = {row['id']: row['source'] for row in json.loads((BASE / 'Scripts/presentation-pipeline.json').read_bytes())['decks']}
     for catalog_path, root_path, root_name in CATALOGS:
         rows = json.loads(catalog_path.read_text(encoding="utf-8"))
         for row in rows:
@@ -53,6 +55,10 @@ def build_registry() -> dict:
                 "root": root_name,
                 "notes": notes,
                 "presentations": presentations,
+                "presenters": sorted(Path(row['markdown']).name for row in ownership
+                                     if str(Path(row['markdown']).parent).replace('\\', '/') == f'{root_name}/{slug}'),
+                "presenterDecks": {Path(row['markdown']).name: Path(decks[row['deck']]).name for row in ownership
+                                   if str(Path(row['markdown']).parent).replace('\\', '/') == f'{root_name}/{slug}'},
             }
     return {
         "schemaVersion": 1,

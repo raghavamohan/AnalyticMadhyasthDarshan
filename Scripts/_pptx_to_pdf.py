@@ -22,7 +22,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from _common import STUDIES, configure_utf8_stdio
+from _common import configure_utf8_stdio, study_dir as resolve_study_dir
 from _presentation_pipeline import load_manifest
 
 POWERPOINT_CONVERTER = Path(__file__).with_name("_powerpoint_to_pdf.ps1")
@@ -83,9 +83,9 @@ def resolve_pptx(path: Path | None, study: str | None, deck: str | None) -> Path
     if path is not None:
         pptx = path.expanduser().resolve()
     elif study and deck:
-        pptx = (STUDIES / study / deck).resolve()
+        pptx = (resolve_study_dir(study) / deck).resolve()
     elif study:
-        study_dir = STUDIES / study
+        study_dir = resolve_study_dir(study)
         if not study_dir.is_dir():
             raise SystemExit(f"Study directory not found: {study_dir}")
         decks = sorted(study_dir.glob("*.pptx"))

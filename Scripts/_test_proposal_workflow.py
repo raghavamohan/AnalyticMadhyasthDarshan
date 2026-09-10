@@ -163,6 +163,7 @@ class ProposalBootstrapSafetyTests(unittest.TestCase):
                 "category": "Formal",
                 "description": "Formal proposal",
             }],
+            StudyTable.APPLIED: [{"slug": "Applied", "title": "Applied", "category": "Domain", "description": "Applied proposal"}],
         }
         writes: list[tuple[StudyTable, list[StudyRow], bool]] = []
 
@@ -184,11 +185,13 @@ class ProposalBootstrapSafetyTests(unittest.TestCase):
         self.assertEqual([table for table, _rows, _rebuild in writes], [
             StudyTable.TOPICAL,
             StudyTable.FORMAL,
+            StudyTable.APPLIED,
         ])
         self.assertTrue(writes[0][2])
         self.assertTrue(writes[1][2])
         self.assertEqual(writes[1][1][0].status, StudyStatus.ONGOING)
         self.assertEqual(writes[1][1][0].table, StudyTable.FORMAL)
+        self.assertEqual(writes[2][1][0].table, StudyTable.APPLIED)
 
 
 class ProposalPortalContractTests(unittest.TestCase):
@@ -234,7 +237,7 @@ class ProposalPortalContractTests(unittest.TestCase):
             "repo:${REPO} is:pr label:new-study,study-update,status-change",
             self.worker,
         )
-        self.assertIn("Promise.all([registryLoad, refreshAuthState()])", self.portal)
+        self.assertIn("Promise.all([registryLoad, refreshAuthState(initialContext)])", self.portal)
         self.assertIn("pollDashboardStatuses()", self.portal)
         self.assertIn("/api/me/submissions/status", self.portal)
         self.assertIn("Report workspace preparation failure", self.workflow)

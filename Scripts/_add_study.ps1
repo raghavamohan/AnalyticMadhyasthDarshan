@@ -16,6 +16,7 @@ param(
     [ValidateSet('draft', 'released', 'ongoing')]
     [string]$Status = 'draft',
     [switch]$Formal,
+    [switch]$Applied,
     [switch]$DryRun,
     [switch]$Force,
     [switch]$SkipPdf,
@@ -36,6 +37,7 @@ if ($Description) { $args += @('--description', $Description) }
 if ($Tags) { $args += @('--tags', $Tags) }
 $args += @('--status', $Status)
 if ($Formal) { $args += '--formal' }
+if ($Applied) { $args += '--applied' }
 if ($DryRun) { $args += '--dry-run' }
 if ($Force) { $args += '--force' }
 if ($SkipPdf) { $args += '--skip-pdf' }

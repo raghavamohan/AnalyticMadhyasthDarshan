@@ -212,7 +212,8 @@ def test_regenerated_pull_request_head_gets_required_verification() -> None:
     assert "statuses: write" not in study_workflow
     assert "workflow_call:" in study_workflow
     assert "--check-clean" in study_workflow
-    assert "needs: [context, checks, study-check]" in verify_workflow
+    assert "needs: [context, checks, study-check, lifecycle]" in verify_workflow
+    assert 'test "$LIFECYCLE" = success' in verify_workflow
     assert "report_sha:" in verify_workflow
     assert '-f state="$VERIFY_STATE"' in verify_workflow
     assert '-f context=verify' in verify_workflow

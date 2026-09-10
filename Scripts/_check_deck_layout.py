@@ -408,9 +408,11 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     if args.all:
-        decks = sorted(STUDIES.glob("*/*.pptx"))
+        from _presentation_pipeline import load_manifest
+        decks = [deck.source for deck in load_manifest().decks]
         if not decks:
-            raise SystemExit("No decks found under Studies/")
+            print('No registered decks; no layout checks required.')
+            return 0
     else:
         decks = [resolve_pptx(args.pptx, args.study, args.deck)]
 

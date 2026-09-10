@@ -23,7 +23,8 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from _common import STUDIES, study_dir, study_md, validate_study_slug, write_text_lf
+from _common import APPLICATIONS, STUDIES, study_dir, study_md, validate_study_slug, write_text_lf
+from _study_collection import proposal_collection
 from _study_catalog import (
     StudyStatus,
     format_edited_on_md,
@@ -67,6 +68,7 @@ class ProposalFields:
     formal: bool
     submitter: str
     issue_number: int | None = None
+    applied: bool = False
 
 
 def gh_request(path: str) -> dict:
@@ -135,7 +137,8 @@ def fields_from_issue(issue_number: int) -> ProposalFields:
     description = parse_issue_form_section(body, ISSUE_FORM_HEADINGS["description"])
     summary = parse_issue_form_section(body, ISSUE_FORM_HEADINGS["summary"])
     formal_block = parse_issue_form_section(body, ISSUE_FORM_HEADINGS["formal"]) or ""
-    formal = "- [x]" in formal_block
+    collection = proposal_collection(formal_block)
+    formal = collection == 'formal'
     submitter = parse_submitter_login(body) or issue.get("user", {}).get("login") or ""
 
     if not category:
@@ -154,6 +157,7 @@ def fields_from_issue(issue_number: int) -> ProposalFields:
         formal=formal,
         submitter=submitter,
         issue_number=issue_number,
+        applied=collection == 'applied',
     )
 
 
@@ -192,12 +196,13 @@ def write_proposal_meta(fields: ProposalFields, edited_at: datetime) -> None:
         "description": fields.description,
         "summary": fields.summary,
         "formal": fields.formal,
+        "applied": fields.applied,
         "proposalIssue": fields.issue_number,
         "submitter": fields.submitter,
         "phase": "pre-catalog",
         "approvedAt": format_edited_on_md(edited_at).replace("**Edited on:** ", ""),
     }
-    path = proposal_meta_path(fields.slug)
+    path = (APPLICATIONS / fields.slug / '.proposal-meta.json') if fields.applied else proposal_meta_path(fields.slug)
     path.parent.mkdir(parents=True, exist_ok=True)
     write_text_lf(path, json.dumps(meta, indent=2) + "\n")
 
@@ -217,6 +222,7 @@ def upsert_registry_entry(fields: ProposalFields) -> None:
             "category": fields.category,
             "description": fields.description,
             "formal": fields.formal,
+            "applied": fields.applied,
             "phase": "pre-catalog",
         }
     )
@@ -234,6 +240,9 @@ def _registry_entries() -> list[dict]:
 def bootstrap_target_state(fields: ProposalFields) -> str:
     """Validate that approval cannot claim another proposal or study slug."""
     entries = _registry_entries()
+    opposite = (STUDIES if fields.applied else APPLICATIONS) / fields.slug
+    if opposite.exists():
+        raise SystemExit('Proposal slug already exists in another collection')
     by_slug = next((row for row in entries if row.get("slug") == fields.slug), None)
     by_issue = next(
         (
@@ -253,6 +262,8 @@ def bootstrap_target_state(fields: ProposalFields) -> str:
         owner = by_slug.get("issueNumber")
         owner_text = f"proposal issue #{owner}" if owner else "another proposal"
         raise SystemExit(f"Slug {fields.slug} already belongs to {owner_text}.")
+    if by_slug and (bool(by_slug.get('applied')) != fields.applied or bool(by_slug.get('formal')) != fields.formal):
+        raise SystemExit('Proposal collection changed after registration; retain the approved collection')
 
     located = get_study_row(fields.slug)
     if located is not None:
@@ -310,6 +321,8 @@ def bootstrap_proposal(
     dry_run: bool = False,
     force: bool = False,
 ) -> None:
+    if fields.formal and fields.applied:
+        raise SystemExit('Choose one catalog table.')
     try:
         validate_study_slug(fields.slug)
     except ValueError as exc:
@@ -324,8 +337,8 @@ def bootstrap_proposal(
         print(f"{fields.slug} workspace already exists; preserving its authoring inputs.")
         return
 
-    dest_dir = study_dir(fields.slug)
-    dest_md = study_md(fields.slug)
+    dest_dir = (APPLICATIONS if fields.applied else STUDIES) / fields.slug
+    dest_md = dest_dir / f'{fields.slug}.md'
     if dest_md.exists() and not force:
         existing = dest_md.read_text(encoding="utf-8")
         if "**Status:**" in existing and "Study proposal" not in existing:
@@ -385,6 +398,7 @@ def main() -> None:
     parser.add_argument("--summary")
     parser.add_argument("--submitter", default="")
     parser.add_argument("--formal", action="store_true")
+    parser.add_argument("--applied", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--skip-issue-update", action="store_true")
@@ -402,6 +416,7 @@ def main() -> None:
             description=args.description.strip(),
             summary=(args.summary or args.description).strip(),
             formal=args.formal,
+            applied=args.applied,
             submitter=args.submitter.strip(),
             issue_number=None,
         )

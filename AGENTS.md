@@ -32,7 +32,8 @@ Available skills: `manage-studies`, `add-study`, `remove-study`, `rename-study`,
 `set-study-status`, `download-references`, `check-references`, `regenerate-study-pdf`,
 `update-study-presentation`, `update-presenters-companion`, `refine-studies-index`,
 `transcribe-recording`, `sync-master-clean-branches`, `review-study`,
-`add-study-presentation`, `add-technical-note`, `remove-study-companions`.
+`add-study-presentation`, `add-technical-note`, `remove-study-companions`,
+`relocate-study-companion`, `restore-study`.
 
 | Section | Topic | Cursor mirror |
 |---------|--------|---------------|

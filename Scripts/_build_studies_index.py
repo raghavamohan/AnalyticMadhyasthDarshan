@@ -2502,7 +2502,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
       const slidesLink = own("[data-study-slides]")[0];
       if (slidesLink) {
-        const presentationPdf = item.dataset.presentationPdf;
+        const registered = PRESENTATIONS[item.dataset.studySlug] || [];
+        const presentationPdf = registered.find(deck => deck.href === item.dataset.presentationPdf)?.href || registered[0]?.href;
         if (presentationPdf) {
           slidesLink.hidden = false;
           slidesLink.href = `${presentationPdf}?cb=${CATALOG_BUILD_ID}`;
@@ -2814,6 +2815,27 @@ def presentation_links_by_slug() -> dict[str, list[dict[str, str]]]:
             links.append({"label": label, "shortLabel": short_label, "href": href})
         result[slug] = links
     return result
+
+
+def render_start_here_presentations(content: str) -> str:
+    """Keep guided-path slides with the manifest after deck deletion or moves."""
+    registered = presentation_links_by_slug()
+    pattern = r'(<[^>]+data-study-slug="([^"]+)"[^>]*>)(.*?)(?=<[^>]+data-study-slug=|\Z)'
+    def render(match):
+        opening, slug, body = match.groups()
+        selected = re.search(r'data-presentation-pdf="([^"]*)"', opening)
+        if not selected:
+            return match[0]
+        hrefs = [deck['href'] for deck in registered.get(slug, [])]
+        href = selected[1] if selected[1] in hrefs else next(iter(hrefs), '')
+        opening = re.sub(r'data-presentation-pdf="[^"]*"', f'data-presentation-pdf="{href}"', opening)
+        def anchor(link):
+            tag = re.sub(r'\s+hidden(?:="[^"]*")?', '', link[0])
+            tag = re.sub(r'href="[^"]*"', f'href="{href or "#"}"', tag)
+            return tag if href else tag[:-1] + ' hidden>'
+        body = re.sub(r'<a\b[^>]*\bdata-study-slides\b[^>]*>', anchor, body)
+        return opening + body
+    return re.sub(pattern, render, content, flags=re.S)
 
 
 def build_hero_scope_html(rows: list) -> str:
@@ -3252,7 +3274,7 @@ def verify_index_shell_sync() -> list[str]:
     )
     expected = normalize_shell_text(
         strip_build_time_data(
-            strip_catalog_blocks(strip_grid_contents(minify_inline_css(INDEX_TEMPLATE)))
+            strip_catalog_blocks(strip_grid_contents(minify_inline_css(render_start_here_presentations(INDEX_TEMPLATE))))
         )
     )
 
@@ -3349,6 +3371,7 @@ def write_index_html() -> dict[str, list[StudyRow]] | None:
         build_id,
     )
     html = render_start_here_status(html, all_rows)
+    html = render_start_here_presentations(html)
     write_text_lf(index_path, minify_inline_css(html))
     return {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows}
 

@@ -42,7 +42,8 @@ const dashboardOperations = (() => {
     if (!value) return 'dashboard action';
     return value.path === '/api/status-change'
       ? `status change for ${value.payload.slug}`
-      : `deletion request for ${value.payload.artifactType === 'study' ? value.payload.slug : value.payload.fileName}`;
+      : `deletion request for ${value.payload.artifactType === 'study' ? value.payload.slug
+        : value.payload.artifactType === 'companions' ? value.payload.artifacts.map(item => item.fileName).join(', ') : value.payload.fileName}`;
   }
 
   function paint(message = '') {
@@ -144,15 +145,16 @@ const contributor = (() => {
   function capture(kind) {
     if (kind === 'propose') return {title:el('p-title').value, category:el('p-category').value,
       desc:el('p-desc').value, summary:el('p-summary').value, fam:el('p-fam').value,
-      formal:el('p-formal').checked, operation:states.propose.operation || null};
+      collection:el('p-collection').value, operation:states.propose.operation || null};
     return {content:el('s-content').value, author:el('s-author').value, proposal:states.submit.proposal ?? el('s-proposal').value,
       fileName:states.submit.fileName || '', presentation:uploadedPresentation,
+      assets:uploadedAssets, presenter:uploadedPresenter, deckFileName:el('s-presenter-deck').value,
       source:states.submit.source || null, operation:states.submit.operation || null};
   }
   function apply(kind, data = {}) {
     if (kind === 'propose') {
       for (const field of ['title','category','desc','summary']) el('p-' + field).value = data[field] || '';
-      el('p-fam').value = data.fam || 'New to the texts'; el('p-formal').checked = Boolean(data.formal);
+      el('p-fam').value = data.fam || 'New to the texts'; el('p-collection').value = data.collection || (data.formal ? 'formal' : 'topical');
       resetProposeConfirm(); updateSlugPreview();
     } else {
       el('s-content').value = data.content || ''; el('s-author').value = data.author || '';
@@ -161,6 +163,9 @@ const contributor = (() => {
       if (data.proposal) setProposalValue(data.proposal);
       states.submit.proposal = data.proposal || el('s-proposal').value;
       el('s-file').value = ''; uploadedPresentation = data.presentation || null;
+      uploadedAssets = data.assets || []; uploadedPresenter = data.presenter || null;
+      el('s-presenter-deck').dataset.savedValue = data.deckFileName || '';
+      el('s-assets').value = ''; el('s-deck-presenter').value = ''; paintAttachments();
       states.submit.source = data.source || null;
       states.submit.fileName = data.fileName || (states.submit.context ? states.submit.context.file || '' : new URLSearchParams(location.search).get('file') || '');
       revisionLoadedForPr = data.source && el('s-mode').value === 'revise' ? el('s-pr').value : null;
@@ -422,7 +427,7 @@ const contributor = (() => {
       if (value.context.account?.toLowerCase() !== account) throw new Error('Sign in to the account named in this backup before importing it.');
       const ctx = value.context;
       for (const field of ['mode','slug','artifact','target','file','pr']) if (typeof ctx[field] !== 'undefined' && (typeof ctx[field] !== 'string' || ctx[field].length > 240)) throw new Error('The backup has an invalid draft context.');
-      if (ctx.kind === 'submit' && (!['new','update','revise'].includes(ctx.mode) || !['study','note','presentation'].includes(ctx.artifact) || !/^[A-Za-z0-9-]*$/.test(ctx.slug))) throw new Error('The backup has an invalid study context.');
+      if (ctx.kind === 'submit' && (!['new','update','revise'].includes(ctx.mode) || !['study','note','presentation','presenter'].includes(ctx.artifact) || !/^[A-Za-z0-9-]*$/.test(ctx.slug))) throw new Error('The backup has an invalid study context.');
       AMDContributorDrafts.validate(value.data);
       if (!confirm('Restore this backup into its draft workspace? The current saved version will be kept as a recovery copy.')) return;
       if (!await change(ctx.kind, () => restoreContext(ctx))) return;

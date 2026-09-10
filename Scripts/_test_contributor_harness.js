@@ -4,7 +4,7 @@
   Object.defineProperty(window, 'indexedDB', {value:{open:(_,version) => { if(new URLSearchParams(location.search).get('storage') === 'blocked') throw new Error('Browser storage unavailable in this test. Download a backup before leaving.'); return realIDB.open('amd-contributor-fixture-v2',version); }}});
   const response = (data,status=200) => Promise.resolve(new Response(JSON.stringify(data),{status,headers:{'Content-Type':'application/json'}}));
   const study = '# Test study\n\n**Author:** Alice\n\n## Introduction\n\nA comparison of approaches.\n\n## Table\n\n| Tradition | Claim |\n| --- | --- |\n| MD | Coexistence |\n\n## Equation\n\n$E=mc^2$ and $$x=\\frac{a}{b}$$\n\n```mermaid\nflowchart LR\n  A[Question] --> B[Study]\n```\n\n## References\n\n[Source](https://example.org)\n';
-  const registry = {studies:[{slug:'Test-Study',root:'Studies',title:'Test study',notes:['Research-Note-Test.md'],presentations:['Test-Deck.pptx']},{slug:'Second-Study',root:'Applications',title:'Second study',notes:[],presentations:[]}]};
+  const registry = {studies:[{slug:'Test-Study',root:'Studies',title:'Test study',notes:['Research-Note-Test.md'],presentations:['Test-Deck.pptx'],presenters:['Presenters-Companion-Test.md'],presenterDecks:{'Presenters-Companion-Test.md':'Test-Deck.pptx'}},{slug:'Second-Study',root:'Applications',title:'Second study',notes:[],presentations:[],presenters:[],presenterDecks:{}}]};
   let account = sessionStorage.getItem('fixture-account') || 'alice';
   const notificationPrefs = {
     alice:{configured:true,email:'alice@example.test',enabled:true},
@@ -51,7 +51,9 @@
     if (url.pathname === '/api/me/submissions/status') return response({success:true,statuses:[{number:123,stage:'changes_requested',pullRequest:{number:123,url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123'},feedback:[],checks:{state:'success',url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/123/checks',details:[]}}],meta:{}});
     if (url.pathname === '/api/study-source' || url.pathname === '/api/revision-source') {
       if (document.getElementById('fixture-delay')?.checked) await new Promise(resolve => setTimeout(resolve,2500));
-      return response({success:true,slug:url.searchParams.get('slug') || 'Test-Study',content:study,sourceSha:'a'.repeat(40),prNumber:123});
+      if (url.searchParams.get('artifactType') === 'asset') return response({success:false,error:'New fixture figure'},404);
+      const content = url.searchParams.get('artifactType') === 'presenter' ? '# Slide 1\n\n## Delivering the slide\n\nDelivery text.\n' : study;
+      return response({success:true,slug:url.searchParams.get('slug') || 'Test-Study',content,sourceSha:'a'.repeat(40),prNumber:123});
     }
     if (url.pathname === '/api/operation') {
       const saved = sessionStorage.getItem('fixture-operation-' + url.searchParams.get('id'));

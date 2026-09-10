@@ -25,6 +25,7 @@ const worker = workerModule.default;
 const apiErrors = await import(await sourceUrl(path.resolve('../shared/api-errors.mjs')));
 const apiContract = await import(await sourceUrl(path.resolve('../shared/api-contract.mjs')));
 const discussion = path.basename(process.cwd()) === 'discussions-worker';
+if (!discussion) await import('./_test_submission_files.mjs');
 const prefix = discussion ? '/api/discuss-auth' : '/api/auth';
 const origin = 'https://analyticmadhyasthdarshan.org';
 const url = suffix => 'https://api.example' + prefix + suffix;
@@ -504,4 +505,71 @@ if (!discussion) test('revision routes reject stale source and replay a receipt 
     const missing=await post({...base,sourceSha:'a'.repeat(40)});await assertErrorEnvelope(missing,{status:400,code:'invalid_request'});assert.equal(writes,1);
     const signedOut=await worker.fetch(new Request('https://api.example/api/operation?id='+id),env);await assertErrorEnvelope(signedOut,{status:401,code:'authentication_required'});
   } finally {globalThis.fetch=original;}
+});
+
+if (!discussion) test('bulk deletion checks every source before writes and removes only selected ownership', async () => {
+  const {storageFixture} = await import('./_test_contributor.mjs');
+  const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
+  const kv=new Map(), objects=new Map(), writes=[], prefix='Applications/Test-Study/';
+  const env={SESSION_SECRET:'fixture',GITHUB_TOKEN:'fixture',TURNSTILE_SECRET_KEY:'fixture',
+    SESSIONS:{put:async(k,v)=>kv.set(k,v),get:async k=>kv.get(k)}};
+  env.CONTRIBUTOR_OPERATIONS={idFromName:v=>v,get:id=>{
+    if (!objects.has(id)) objects.set(id,new workerModule.ContributorOperations({storage:storageFixture()},env));
+    return objects.get(id);
+  }};
+  const token=await auth.createSession(env,{login:'alice',userId:1,accessToken:'fixture'});
+  const headers={Origin:origin,'Content-Type':'application/json',Cookie:auth.setSessionCookie(token,env).split(';')[0]};
+  const sources=new Map([
+    [prefix+'Test-Study.md','# Parent'],[prefix+'Technical-Note-One.md','# Note'],
+    [prefix+'Deck.pptx','deck'],[prefix+'Presenters-Companion-Deck.md','# Presenter'],
+    ['Scripts/presentation-pipeline.json',JSON.stringify({decks:[{id:'deck',source:prefix+'Deck.pptx'}]})],
+    ['Scripts/companion-pipeline.json',JSON.stringify({schema:1,companions:[{deck:'deck',markdown:prefix+'Presenters-Companion-Deck.md'}]})],
+  ]);
+  const originalFetch=globalThis.fetch, originalCaches=globalThis.caches;
+  globalThis.caches={default:{match:async request=>{
+    const key=request.url;
+    if (key.includes('companion-artifacts')) return Response.json({schemaVersion:1,studies:[{
+      slug:'Test-Study',root:'Applications',notes:['Technical-Note-One.md'],presentations:['Deck.pptx'],presenters:['Presenters-Companion-Deck.md'],
+    }]});
+    if (key.includes('proposal-registry')) return Response.json({version:1,proposals:[{slug:'Test-Study',submitter:'alice'}]});
+    return null;
+  },put:async()=>{}}};
+  globalThis.fetch=async(input,options={})=>{
+    const url=new URL(String(input)), method=options.method || 'GET';
+    if (url.pathname.includes('/siteverify')) return Response.json({success:true});
+    if (url.pathname.endsWith('/git/refs/heads/master')) return Response.json({object:{sha:'b'.repeat(40)}});
+    if (url.pathname.includes('/search/issues')) return Response.json({items:[],total_count:0});
+    if (url.pathname.includes('/contents/')) {
+      const name=decodeURIComponent(url.pathname.split('/contents/')[1]);
+      if (method==='PUT') {writes.push({method,name});sources.set(name,Buffer.from(JSON.parse(options.body).content,'base64').toString());return Response.json({});}
+      if (method==='DELETE') {writes.push({method,name});sources.delete(name);return Response.json({});}
+      return sources.has(name) ? Response.json({sha:'a'.repeat(40),content:Buffer.from(sources.get(name)).toString('base64')}) : Response.json({message:'Not Found'},{status:404});
+    }
+    if (method==='POST') {
+      writes.push({method,name:url.pathname});
+      if (url.pathname.endsWith('/pulls')) return Response.json({number:9,html_url:'https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/9'});
+      return Response.json({});
+    }
+    throw new Error('Unexpected deletion fixture request: '+url);
+  };
+  const post=artifacts=>worker.fetch(new Request('https://api.example/api/delete-artifact',{method:'POST',headers,
+    body:JSON.stringify({slug:'Test-Study',artifactType:'companions',artifacts,turnstileToken:'fixture',operationId:crypto.randomUUID()})}),env);
+  const note={artifactType:'note',fileName:'Technical-Note-One.md',sourceSha:'a'.repeat(40)};
+  const deck={artifactType:'presentation',fileName:'Deck.pptx',sourceSha:'a'.repeat(40)};
+  try {
+    await assertErrorEnvelope(await post([note,{...deck,sourceSha:'c'.repeat(40)}]),{status:409,code:'conflict'});
+    assert.equal(writes.length,0);
+    await assertErrorEnvelope(await post([{artifactType:'study',fileName:'Test-Study.md',sourceSha:'a'.repeat(40)}]),{status:400,code:'invalid_request'});
+    assert.equal(writes.length,0);
+    const response=await post([note,deck]);
+    const body=await response.json();
+    assert.equal(response.status,200,JSON.stringify(body));
+    assert.equal(body.state,'complete');
+    assert.equal(sources.get(prefix+'Test-Study.md'),'# Parent');
+    assert.deepEqual(JSON.parse(sources.get('Scripts/presentation-pipeline.json')).decks,[]);
+    assert.deepEqual(JSON.parse(sources.get('Scripts/companion-pipeline.json')).companions,[]);
+    assert.ok(writes.filter(item=>item.method==='DELETE').every(item=>[prefix+'Technical-Note-One.md',prefix+'Deck.pptx'].includes(item.name)));
+    // CI's shared deletion finalizer removes the deck's remaining owned chain.
+    assert.ok(sources.has(prefix+'Presenters-Companion-Deck.md'));
+  } finally {globalThis.fetch=originalFetch;globalThis.caches=originalCaches;}
 });
