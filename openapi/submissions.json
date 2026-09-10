@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan submission portal API",
-    "version": "1.5.0",
-    "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token. Browser POST requests also require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store. The machine-only /api/notify endpoint uses its separate secret and JSON without browser cookies or Origin. JSON error responses use one envelope: success=false, code, message, requestId, and optional details. The same requestId is returned in the X-Request-ID response header."
+    "version": "1.6.0",
+    "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token. Browser POST requests also require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store and carry an X-Request-ID header. The machine-only /api/notify endpoint uses its separate secret and JSON without browser cookies or Origin. JSON error responses use one envelope: success=false, code, message, requestId, and optional details; the error body uses the same request ID."
   },
   "servers": [
     {
@@ -30,11 +30,11 @@
         "tags": [
           "health"
         ],
-        "summary": "Liveness",
+        "summary": "Liveness and dependency readiness",
         "operationId": "getHealth",
         "responses": {
           "200": {
-            "description": "Worker is serving requests.",
+            "description": "Worker is serving requests and reports required dependency readiness.",
             "content": {
               "application/json": {
                 "schema": {
@@ -43,6 +43,9 @@
               }
             },
             "headers": {
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              },
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
               }
@@ -125,6 +128,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -157,6 +163,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -200,6 +209,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -295,6 +307,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -361,6 +376,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -411,6 +429,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -474,6 +495,9 @@
               },
               "RateLimit": {
                 "$ref": "#/components/headers/RateLimit"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -531,6 +555,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -604,6 +631,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             },
             "content": {
@@ -678,6 +708,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -732,6 +765,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -786,6 +822,9 @@
               },
               "RateLimit": {
                 "$ref": "#/components/headers/RateLimit"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -852,6 +891,9 @@
               },
               "RateLimit": {
                 "$ref": "#/components/headers/RateLimit"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -918,6 +960,9 @@
               },
               "RateLimit": {
                 "$ref": "#/components/headers/RateLimit"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -984,6 +1029,9 @@
               },
               "RateLimit": {
                 "$ref": "#/components/headers/RateLimit"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -1047,6 +1095,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -1113,6 +1164,9 @@
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
               }
             }
           },
@@ -1448,14 +1502,56 @@
       "Health": {
         "type": "object",
         "required": [
-          "status"
+          "status",
+          "service",
+          "schemaVersion",
+          "checks"
         ],
         "properties": {
           "status": {
             "type": "string",
-            "const": "ok"
+            "enum": [
+              "ok",
+              "degraded"
+            ]
+          },
+          "service": {
+            "type": "string",
+            "const": "submissions"
+          },
+          "schemaVersion": {
+            "type": "integer",
+            "const": 1
+          },
+          "checks": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/components/schemas/DependencyCheck"
+            }
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "DependencyCheck": {
+        "type": "object",
+        "required": [
+          "status",
+          "required"
+        ],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "ready",
+              "degraded",
+              "disabled"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
       },
       "Ok": {
         "type": "object",

@@ -114,9 +114,12 @@ Implementation notes:
   every individual response remains bounded.
 - No new Durable Object migration or secret is required.
 
-## Phase 3 — observability and service levels
+## Phase 3 — observability and service levels (implemented)
 
-Target: after write semantics are stable.
+Status: complete in the repository; deployment and the first 30-day baseline
+follow the protected-branch workflows after merge. The authenticated production
+smoke remains an operator-run activity because it requires an agreed disposable
+GitHub record and authorized mailbox; safe read-only synthetics run hourly.
 
 - Generate a request ID at the edge and return it on every response.
 - Record structured metrics by operation ID, status family, latency, dependency,
@@ -134,10 +137,34 @@ Target: after write semantics are stable.
 Exit criteria: regressions can be localized to edge, Worker, storage, GitHub,
 email, or publication drift from one request ID and dashboard.
 
-## Phase 4 — versioning and client usability
+Implementation notes:
 
-Target: once an external client depends on the API. A browser PWA, the catalog
-Recently updated UI, and ordinary feed readers using `feed.json` / Atom do
+- Every dynamic study, MCP, submission, and discussion response now carries an
+  `X-Request-ID`, including successful, redirect, empty, and not-found
+  responses. Structured Worker logs use the same ID.
+- All three runtimes write the shared `amd_api_metrics` Analytics Engine schema
+  by service, OpenAPI operation ID, method, status family, latency, dominant
+  dependency, retry outcome, and Worker version. The schema intentionally has
+  no URL, query, body, draft, token, email, cookie, IP, or session fields.
+- `/api/studies/health`, submission `/api/health`, and
+  `/api/discussions/health` distinguish runtime reachability from required
+  dependency readiness without exposing secret values.
+- `.github/workflows/api-synthetics.yml` independently checks production every
+  hour and on demand. It verifies statuses, search, detail, citation, MCP
+  initialization/tool listing, unauthenticated write rejection, request IDs,
+  and canonical discovery equality. Failures open or update one incident issue;
+  a successful recovery closes it.
+- [Public API operations](api-operations.md) defines the initial availability
+  and p95 objectives, Analytics Engine dashboard queries, alert thresholds,
+  incident localization, and the redacted authenticated OAuth/magic-link/write
+  smoke record. Automated checks never create proposals, PRs, comments, or
+  magic links.
+
+## Phase 4 — versioning and client usability (later)
+
+Status: deferred. Start only once a real external client depends on the API. A
+browser PWA, the catalog Recently updated UI, and ordinary feed readers using
+`feed.json` / Atom do
 **not** by themselves start this phase. Pull ETags forward earlier if SITE-02
 caching needs them. Do not treat a hypothetical store app as the external
 client that unlocks bearer writes.
@@ -159,6 +186,8 @@ the API without reading Worker source.
 
 ### A2A
 
+Status: deferred for later; no current implementation work is planned.
+
 Implement A2A only when there is a real stateful agent task that cannot be
 expressed as an MCP read tool or ordinary HTTP request. Before publishing an
 Agent Card, require:
@@ -170,6 +199,9 @@ Agent Card, require:
 - an owner for compatibility, monitoring, and incident response.
 
 ### Agent OAuth
+
+Status: deferred for later; no current implementation work is planned. This is
+separate from the already-supported human GitHub OAuth browser session.
 
 Implement an OAuth authorization server only when a non-browser client needs
 delegated write access. A native store application is not that client. Before
@@ -205,11 +237,14 @@ canonical machine feed. No new Worker is required.
 ## Delivery order
 
 1. Keep the deployed Phase 1 contract/error checks green.
-2. Complete the remaining Phase 2 resilience and predictability work.
-3. Establish Phase 3 telemetry and objectives.
+2. Keep the completed Phase 2 receipt, concurrency, pagination, and retry
+   contracts green.
+3. Deploy Phase 3 telemetry/status, run the safe hourly synthetics, and collect
+   the first 30-day service-level baseline. Perform the authenticated production
+   smoke only with an agreed disposable record and authorized mailbox.
 4. When SITE-02 ships, document Atom/feed discovery in OpenAPI and catalog
    verification. Add ETags for catalogs and feeds if caching needs them.
-5. Add Phase 4 versioning and generated clients when a non-browser consumer
+5. Later, add Phase 4 versioning and generated clients when a non-browser consumer
    other than today’s MCP/WebMCP readers depends on the API.
-6. Revisit A2A or agent OAuth only in response to a validated use case and an
+6. Later, revisit A2A or agent OAuth only in response to a validated use case and an
    identified operator. A native store app is not that use case.

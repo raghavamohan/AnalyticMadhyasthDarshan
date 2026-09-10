@@ -158,6 +158,8 @@ def check_operations(spec: dict, label: str) -> tuple[int, int]:
                     headers = success_response.get("headers") or {}
                     if headers.get("RateLimit-Policy") != {"$ref": "#/components/headers/RateLimitPolicy"}:
                         fail(f"{location} {status} must advertise RateLimit-Policy")
+                    if headers.get("X-Request-ID") != {"$ref": "#/components/headers/RequestId"}:
+                        fail(f"{location} {status} must advertise X-Request-ID")
             request_body = operation.get("requestBody")
             if request_body:
                 maximum = request_body.get("x-maxBodyBytes")

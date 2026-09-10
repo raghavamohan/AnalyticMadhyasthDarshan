@@ -256,6 +256,7 @@ def check_openapi() -> None:
         fail("openapi/studies.json must declare OpenAPI 3.1.0")
     paths = spec.get("paths") or {}
     for path in (
+        "/api/studies/health",
         "/api/studies",
         "/api/studies/{slug}",
         "/api/glossary",

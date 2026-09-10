@@ -25,6 +25,8 @@ on:
       - "Scripts/_test_api_worker_routes.mjs"
       - "Scripts/_test_contributor.mjs"
       - "Scripts/_worker_deployment.py"
+      - "Scripts/_api_synthetics.py"
+      - ".github/workflows/api-synthetics.yml"
       - ".github/workflows/submission-worker-deploy.yml"
   push:
     branches: [master]
@@ -50,6 +52,8 @@ on:
       - "Scripts/_test_api_worker_routes.mjs"
       - "Scripts/_test_contributor.mjs"
       - "Scripts/_worker_deployment.py"
+      - "Scripts/_api_synthetics.py"
+      - ".github/workflows/api-synthetics.yml"
       - ".github/workflows/submission-worker-deploy.yml"
 
 permissions:
@@ -84,6 +88,7 @@ jobs:
         run: |
           python Scripts/_validate_openapi.py
           python Scripts/_test_api_catalog.py
+          python -m py_compile Scripts/_api_synthetics.py
           python Scripts/_build_contributor_assets.py --check
           python Scripts/_verify_studies_index.py
           python Scripts/_test_contributor.py

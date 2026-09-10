@@ -108,6 +108,15 @@ test('shared HTTP errors cover every reusable OpenAPI status', async () => {
   }
 });
 
+test('request IDs are generated at the edge instead of accepting a client value', async () => {
+  const response = await apiErrors.normalizeApiErrorResponse(
+    new Request('https://api.example/test', {headers:{'X-Request-ID':'client-controlled-id'}}),
+    Response.json({success:false,error:'Fixture'},{status:400}),
+  );
+  assert.notEqual(response.headers.get('X-Request-ID'), 'client-controlled-id');
+  assert.equal((await response.json()).requestId, response.headers.get('X-Request-ID'));
+});
+
 test('shared request bounds count UTF-8 bytes and pagination rejects coercion', async () => {
   assert.deepEqual(await apiContract.readJsonWithin(new Request('https://api.example/test', {
     method:'POST',body:'{"x":"é"}',headers:{'Content-Type':'application/json'},
@@ -121,6 +130,36 @@ test('shared request bounds count UTF-8 bytes and pagination rejects coercion', 
   assert.deepEqual(apiContract.parsePagination(new URL('https://api.example/test?limit=100&offset=7')), {limit:100,offset:7});
   for (const query of ['limit=0','limit=1.5','limit=101','offset=-1','offset=10001']) {
     assert.throws(() => apiContract.parsePagination(new URL('https://api.example/test?'+query)), error => error.status === 400);
+  }
+});
+
+test('health reports dependency readiness, request identity, and aggregate metrics', async () => {
+  const points = [];
+  const metrics = {writeDataPoint: point => points.push(point)};
+  const env = discussion ? {
+    DB:{}, SESSION_SECRET:'fixture', TURNSTILE_SECRET_KEY:'fixture', RESEND_API_KEY:'fixture',
+    API_METRICS:metrics, CF_VERSION_METADATA:{id:'fixture-version'},
+  } : {
+    GITHUB_TOKEN:'fixture', GITHUB_CLIENT_ID:'fixture', GITHUB_CLIENT_SECRET:'fixture',
+    SESSIONS:{}, SESSION_SECRET:'fixture', CONTRIBUTOR_OPERATIONS:{},
+    TURNSTILE_SECRET_KEY:'fixture', API_METRICS:metrics,
+    CF_VERSION_METADATA:{id:'fixture-version'},
+  };
+  const endpoint = discussion ? '/api/discussions/health' : '/api/health';
+  const response = await worker.fetch(new Request('https://api.example' + endpoint), env);
+  assert.equal(response.status, 200);
+  assert.match(response.headers.get('X-Request-ID'), /^[0-9a-f-]{36}$/i);
+  const payload = await response.json();
+  assert.equal(payload.status, 'ok');
+  assert.equal(payload.schemaVersion, 1);
+  assert.equal(points.length, 1);
+  assert.deepEqual(points[0].blobs.slice(0, 5), [
+    'v1', discussion ? 'discussions' : 'submissions',
+    discussion ? 'getDiscussionsHealth' : 'getHealth', 'GET', '2xx',
+  ]);
+  const rendered = JSON.stringify(points[0]);
+  for (const forbidden of ['Cookie', 'token', 'email', 'draft']) {
+    assert.equal(rendered.toLowerCase().includes(forbidden.toLowerCase()), false);
   }
 });
 
@@ -276,6 +315,7 @@ test('real routes apply write checks and private headers before handlers', async
   assert.equal(response.headers.get('Access-Control-Allow-Origin'), origin);
   const me = await worker.fetch(new Request(url('/me')), {});
   assert.deepEqual(await me.json(), { loggedIn: false });
+  assert.match(me.headers.get('X-Request-ID'), /^[0-9a-f-]{36}$/i);
   assert.equal(me.headers.get('Cache-Control'), 'private, no-store');
   const missing = await worker.fetch(new Request('https://api.example/unknown'), {});
   assert.equal(missing.status, 404);
