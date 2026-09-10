@@ -255,8 +255,14 @@ def remove_study(
         registry_row and registry_row.get("applied")
     )
     directory = APPLICATIONS / slug if is_applied else study_dir(slug)
+    allowed_roots = {STUDIES.resolve(), APPLICATIONS.resolve()}
+    if (directory.is_symlink() or directory.resolve().parent not in allowed_roots
+            or not directory.resolve().is_relative_to(BASE.resolve())):
+        raise ValueError(f'Unsafe study deletion directory: {directory}')
     paths = study_files(slug, directory)
     existing_paths = [path for path in paths if path.exists()]
+    if any(path.is_symlink() or not path.resolve().is_relative_to(directory.resolve()) for path in existing_paths):
+        raise ValueError('Study deletion contains an unsafe path or symbolic link')
     deck_count = remove_presentation_manifest_entries(
         slug,
         dry_run=True,
@@ -324,6 +330,9 @@ def remove_study(
         else:
             path.unlink()
             print(f"Deleted {path}")
+
+    if directory.is_dir():
+        directory.rmdir()  # Empty after deleting the selected study's contents.
 
     if remove_registry_row(slug, dry_run=False):
         print(f"Updated {PROPOSAL_REGISTRY_PATH}")

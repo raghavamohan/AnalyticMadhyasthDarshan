@@ -18,6 +18,7 @@ Use the focused skill for authoring, then complete the shared finish below.
 | Register a study or first draft | [add-study](../add-study/SKILL.md), `_add_study.py` |
 | Edit canonical study content | [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md), `_regenerate_pdf.py <Slug>` |
 | Draft ↔ Released | [set-study-status](../set-study-status/SKILL.md), `_set_study_status.py` |
+| Remove selected notes/decks | [remove-study-companions](../remove-study-companions/SKILL.md), `_remove_study_companions.py` |
 | Retire a study / planned placeholder | [remove-study](../remove-study/SKILL.md), `_remove_study.py` |
 | Rename study and companion paths | [rename-study](../rename-study/SKILL.md), `_rename_study.py --skip-issue` |
 | Add a presentation deck | [add-study-presentation](../add-study-presentation/SKILL.md) |

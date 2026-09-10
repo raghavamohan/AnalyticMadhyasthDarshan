@@ -55,3 +55,10 @@ description: >-
 For later edits use [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md).
 For slide delivery scripts use
 [update-presenters-companion](../update-presenters-companion/SKILL.md) instead.
+
+## Companion-only deletion
+
+To remove one or more notes/decks while keeping their parent study, use
+[remove-study-companions](../remove-study-companions/SKILL.md).
+The whole-study `_remove_study.py` command is exclusively for retirement of the
+study and all its companions; it is not a companion-removal command.
