@@ -23,7 +23,6 @@ export function requestIdFor(request, response, payload = {}) {
   const candidates = [
     response?.headers?.get?.('X-Request-ID'),
     payload?.requestId,
-    request?.headers?.get?.('X-Request-ID'),
   ];
   const known = candidates.find(value => typeof value === 'string' && REQUEST_ID_RE.test(value));
   return known || crypto.randomUUID();

@@ -26,6 +26,8 @@ from _build_sitemap import DISCOVERY_PAGES, SITEMAP_PATH, collect_sitemap_entrie
 CATALOG_PATH = BASE / ".well-known" / "api-catalog"
 WORKER_CATALOG_PATH = BASE / "infra" / "api-catalog-worker" / "src" / "api-catalog.json"
 WORKER_INDEX_PATH = BASE / "infra" / "api-catalog-worker" / "src" / "index.js"
+SYNTHETICS_PATH = BASE / "Scripts" / "_api_synthetics.py"
+SYNTHETICS_WORKFLOW_PATH = BASE / ".github" / "workflows" / "api-synthetics.yml"
 REQUIRED_RELS = ("service-desc", "service-doc")
 OPTIONAL_RELS = ("status", "describedby")
 AGENT_SKILLS_HREF = (
@@ -246,6 +248,39 @@ def check_worker_discovery_hooks() -> None:
     if "router.get('/api/discussions/health'" not in discussions:
         fail("discussions worker is missing GET /api/discussions/health")
     print("OK: workers advertise health routes and use cookie-only 401 responses.")
+
+
+def check_synthetic_contract() -> None:
+    script = SYNTHETICS_PATH.read_text(encoding="utf-8")
+    workflow = SYNTHETICS_WORKFLOW_PATH.read_text(encoding="utf-8")
+    required_checks = (
+        "/api/studies/health",
+        "/api/health",
+        "/api/discussions/health",
+        "/api/studies?q=ontology",
+        "/api/cite/",
+        'mcp("initialize")',
+        'mcp("tools/list")',
+        "auth.submissions.reject",
+        "auth.discussions.reject",
+        "discovery.equality",
+    )
+    missing = [value for value in required_checks if value not in script]
+    if missing:
+        fail(f"production API synthetics omit checks: {missing}")
+    workflow_requirements = (
+        "schedule:",
+        "workflow_dispatch:",
+        "issues: write",
+        "continue-on-error: true",
+        "actions/upload-artifact@v7",
+        "actions/github-script@v9",
+        "[API synthetic] Production verification failed",
+    )
+    missing = [value for value in workflow_requirements if value not in workflow]
+    if missing:
+        fail(f"production API synthetic workflow omits controls: {missing}")
+    print("OK: production synthetics cover API status, reads, MCP, auth, discovery, and incidents.")
 
 
 def check_rfc9727_profile() -> None:
@@ -506,6 +541,7 @@ def main(argv: list[str] | None = None) -> None:
     print("OK: homepage Link header lists api-catalog, describedby, service-desc, service-doc.")
     check_rfc9727_profile()
     check_worker_discovery_hooks()
+    check_synthetic_contract()
     check_sitemap_discovery()
     if args.live or args.live_catalog_only:
         run_live_checks(catalog_only=args.live_catalog_only)

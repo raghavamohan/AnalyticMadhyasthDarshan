@@ -128,7 +128,7 @@ now checks and deploys both API Workers when either or their shared guard change
 
 | Route | Auth | Purpose |
 |-------|------|---------|
-| `GET /api/health` | — | Liveness `{ status: "ok" }` |
+| `GET /api/health` | — | Liveness and dependency readiness (`ok` or `degraded`) |
 | `GET /api/auth/github?return_to=…` | — | Start GitHub OAuth; redirects back to `return_to` after sign-in |
 | `GET /api/auth/callback` | — | OAuth callback; sets session cookie |
 | `GET /api/auth/me` | cookie | `{ loggedIn, login, notifications }` (notification summary omits the email address) |
@@ -255,8 +255,15 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 
 1. **HSTS preload list** — the HSTS header now includes `preload` (stable since July 2026). Submitting `analyticmadhyasthdarshan.org` to the [HSTS preload list](https://hstspreload.org/) is still optional and hard to undo. Do that only if you want Chrome/Firefox/Safari to hard-code HTTPS for this domain and every subdomain.
 2. **Manual smoke tests** — automated checks cover TLS/HSTS, portal page load, GitHub OAuth start (`302` to GitHub), and discussion page load. Still do a signed-in pass: portal GitHub OAuth through submit, and a discussion magic-link request plus email verify. Optional [SSL Labs](https://www.ssllabs.com/ssltest/) check (TLS 1.2+ only, HSTS present).
+
 3. **Bot-policy monitoring** — review AI Crawl Control and Search Console after policy changes. Keep Search and Agent allowed, Training blocked, managed `robots.txt` synchronized, `content_bots_protection` disabled, and `crawler_protection` enabled unless observed traffic justifies a narrower exception.
 4. **Rate-limit tuning** — if users behind a shared office IP hit `amd_rl_edge_api`, raise `requests_per_period` in `edge_api_rate_limit_rules_spec()` (e.g. 50–60) and re-run `--apply-discussions-rate-limits`.
+
+Production API telemetry, SLO queries, synthetic incident handling, and the
+redacted authenticated smoke procedure are documented in
+[`docs/api-operations.md`](../../docs/api-operations.md). The Worker writes
+privacy-safe aggregate points to `amd_api_metrics` and emits structured logs
+keyed by the response `X-Request-ID`.
 
 Items **not** planned: SSL Full (Strict) on GitHub Pages origin; separate per-route rate limits beyond Pro’s two-rule cap (worker-side limits cover magic-link abuse).
 
