@@ -45,7 +45,10 @@ description: >-
 
    One companion owns one registered deck under the same study. Follow
    [update-presenters-companion](../update-presenters-companion/SKILL.md) for
-   contiguous `# Slide N` sections, delivery scripts and generation:
+   contiguous `# Slide N` sections and delivery scripts. Before rendering a new
+   companion, stage its intended Markdown/resources using
+   [manage-studies: shared finish](../manage-studies/SKILL.md#shared-finish-before-review)
+   so search/offline discovery includes it. Then generate:
 
    ```powershell
    python Scripts/_build_presenters_companion.py Studies/<Slug>/Presenters-Companion-<Name>.md --pdf --pptx Studies/<Slug>/<Deck>.pptx

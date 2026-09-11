@@ -13,21 +13,21 @@
       "type": "skill-md",
       "description": "Add and register a new companion PowerPoint deck under Studies/ or Applications/, declare its slides/notes PDF outputs, optionally register a Presenter's Companion, and use the same staged renderer and checks as CI. Use when adding a first or additional teaching deck to an existing study.",
       "url": "/.well-known/agent-skills/add-study-presentation/SKILL.md",
-      "digest": "sha256:e82de0f8f642754996056e90a265bca640b328bc26937876baedecb3256bcc9d"
+      "digest": "sha256:0e74c0f0088482c957afcc10ad818080815b1337019cd3d63645754935f0cfa5"
     },
     {
       "name": "add-technical-note",
       "type": "skill-md",
       "description": "Add a technical or research note beside an existing study, including SVG, raster, Mermaid and math dependencies; generate its HTML/PDF and refresh the companion/publication inventory using the same scripts and checks as CI. Use for new Technical-Note-* or Research-Note-* companion Markdown documents.",
       "url": "/.well-known/agent-skills/add-technical-note/SKILL.md",
-      "digest": "sha256:32191e57e5ca2e2b3fe0aa5c5621c7c23ea39dad74906b2af53e740da9f9a05c"
+      "digest": "sha256:6de50298ae41dd37b50f57ec9cc2668933f6cd83d83f9aa8130cb2e37d77259f"
     },
     {
       "name": "check-references",
       "type": "skill-md",
-      "description": "Run full reference integrity checks on Studies/ bibliographies, local ../References/ links, References/ mirror files, and study PDF links using Scripts/_check_references.py. Use when adding or editing study references, after downloading references, before committing bibliography changes, or when a user asks to verify reference links work.",
+      "description": "Run full reference integrity checks on Studies/ bibliographies, local ../References/ links, References/ mirror files, and study PDF links using Scripts/_check_references.py. Use when adding or editing study references, after downloading references, before committing bibliography changes, or when a user asks to verify reference links work. Includes direct companion-note checks outside the canonical-study suite's coverage.",
       "url": "/.well-known/agent-skills/check-references/SKILL.md",
-      "digest": "sha256:2503c421e1a8c05f05057ffb4a3e47f000987b29cad4da3a4bf817cf2e240c13"
+      "digest": "sha256:898349ed236b60d4dfa0da6cb6569439f967c4955751942389ff861dce4f778e"
     },
     {
       "name": "download-references",
@@ -41,7 +41,7 @@
       "type": "skill-md",
       "description": "Manage study registration, content updates, Draft/Released transitions, rename and retirement, and route new or updated decks and technical notes. Use for study lifecycle work under Studies/ or Applications/ and for finalizing tracked artifacts with the same producers and checks as CI preparation.",
       "url": "/.well-known/agent-skills/manage-studies/SKILL.md",
-      "digest": "sha256:291c01d09062b879caeabd960bc5885285e714c5d863dc5eb6bbe432b3c53d73"
+      "digest": "sha256:514e6a36f0ced1043515b51566e90a2b69aae71807b39c7492b885caf74915b2"
     },
     {
       "name": "refine-studies-index",
@@ -55,7 +55,7 @@
       "type": "skill-md",
       "description": "Regenerate a study or companion-note PDF/HTML from markdown using Scripts/_regenerate_pdf.py. Use after editing a study markdown source, when fixing PDF rendering, applying a Draft/Released watermark, or rebuilding an unwatermarked research/technical note beside a study. Runs the repository's SVG, Mermaid, fenced-code, KaTeX-font, and outline verifiers.",
       "url": "/.well-known/agent-skills/regenerate-study-pdf/SKILL.md",
-      "digest": "sha256:1c123f8b4ae9940da347efef96bc1594f776ae2ed83d203c761f80334569a11a"
+      "digest": "sha256:c532197d61179e33720aed634527988c9e48d7b93ee5847afcb7463a8d5d27fb"
     },
     {
       "name": "relocate-study-companion",
@@ -97,7 +97,7 @@
       "type": "skill-md",
       "description": "Critically review or revise a study for primary-text support, connected synthesis, English prose, terminology, and consistency across sections and companion material. Use for substantive study reviews, disputed interpretations, or a complete review after revisions; routine spelling, link-only, and rendering checks use their own focused workflows.",
       "url": "/.well-known/agent-skills/review-study/SKILL.md",
-      "digest": "sha256:a36160da433e61b06da649f1664c72d0a97d4e61cddaedab48efef358462d4c6"
+      "digest": "sha256:5f062d77f86721ab5d3557c3bfe1838f79c480a5774079222b6f1a43eefe95bb"
     },
     {
       "name": "set-study-status",
@@ -125,14 +125,14 @@
       "type": "skill-md",
       "description": "Update a study Presenter's Companion (slide-by-slide delivery notes) under Studies/ or Applications/: keep the companion markdown as source of truth, rebuild DOCX/PDF, and sync PowerPoint speaker notes from a JSON map. Use when the teaching deck gains/loses slides, companion notes drift from the deck, or regenerating Presenters-Companion-*.docx/.pdf/.notes.json.",
       "url": "/.well-known/agent-skills/update-presenters-companion/SKILL.md",
-      "digest": "sha256:79ce77995d80b6233949cf1a5b19cad4f0d78c15613ccf0392179c6e20095aea"
+      "digest": "sha256:dcf67f7f6d02d71d34fc5b4f6e7b048303d324503acf057743621d24f1171696"
     },
     {
       "name": "update-study-presentation",
       "type": "skill-md",
       "description": "Update an existing study companion PowerPoint deck under Studies/ or Applications/, preserve its established design, regenerate its slides PDF and read-aloud notes PDF, and verify every format. Use for PPTX content edits, figure replacements, slide additions or removals, slide reordering, presentation reviews that require fixes, and PPTX-to-PDF refreshes. The PPTX is the source of truth; this repository does not use a slides-YAML generation workflow.",
       "url": "/.well-known/agent-skills/update-study-presentation/SKILL.md",
-      "digest": "sha256:77067a396c3448480d750b85d5e9ec0eb0302f6071fed3d17123d20bdc03aa11"
+      "digest": "sha256:bb4db1e8093e1db3ff1f0bcda84df13e35a0f6ae34d538bcaff3a6ebcea66f4d"
     }
   ]
 }
