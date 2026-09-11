@@ -1,0 +1,34 @@
+:root {
+  --amd-navy: #1a5276;
+  --amd-gold: #b47b46;
+  --amd-gold-text: #8b5e34;
+  --amd-paper: #f7f4ef;
+  --amd-ink: #2a241c;
+  --amd-muted: #5c5348;
+  --amd-line: #ded8cf;
+  --amd-surface: #ffffff;
+  --amd-serif: Cambria, Georgia, serif;
+  --amd-sans: Calibri, 'Segoe UI', sans-serif;
+  --amd-icon: var(--amd-navy);
+  --amd-accent: var(--amd-gold);
+}
+.amd-dark {
+  --amd-icon: #f7f4ef;
+  --amd-accent: #d5a477;
+  color: #f7f4ef;
+  background: #1a5276;
+}
+.amd-icon { width: 24px; height: 24px; flex: 0 0 auto; }
+.amd-mark { width: 72px; height: 72px; flex: 0 0 auto; }
+.amd-wait { display: inline-flex; align-items: center; gap: 12px; font-family: var(--amd-sans); }
+.amd-wait svg { width: 48px; height: 48px; flex: 0 0 auto; }
+.amd-wait .faculty, .amd-wait .goal { animation: amd-presence 2400ms ease-in-out infinite; }
+.amd-wait .faculty:nth-child(2), .amd-wait .goal:nth-child(2) { animation-delay: 300ms; }
+.amd-wait .faculty:nth-child(3), .amd-wait .goal:nth-child(3) { animation-delay: 600ms; }
+.amd-wait .faculty:nth-child(4), .amd-wait .goal:nth-child(4) { animation-delay: 900ms; }
+@keyframes amd-presence { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+[data-motion="paused"] .amd-wait .faculty,
+[data-motion="paused"] .amd-wait .goal { animation: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .amd-wait .faculty, .amd-wait .goal { animation: none; opacity: 1; }
+}
