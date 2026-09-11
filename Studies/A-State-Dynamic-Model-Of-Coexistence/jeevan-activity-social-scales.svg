@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="610" viewBox="0 0 760 610" role="img" aria-labelledby="title desc">
+  <title id="title">From Jeevan architecture to maintained human order</title>
+  <desc id="desc">Coexistence is the ground of all the descriptions. Five faculties and ten generic activities are specified through 61 pairs and 122 positions. These operate in embodied episodes. Repeated contributions, consequences and later evaluation participate in maintained social arrangements, which enable subsequent episodes. The diagram does not assign a social system to each faculty.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#526775"/></marker>
+  </defs>
+  <rect x="1" y="1" width="758" height="608" fill="#fff"/>
+  <g font-family="Arial, Helvetica, sans-serif" fill="#20313c">
+    <rect x="40" y="14" width="665" height="85" rx="7" fill="#eef2f4" stroke="#9eafb9"/>
+    <text x="372" y="46" text-anchor="middle" font-size="21" font-weight="bold">Coexistence: units in omnipresent satta</text>
+    <text x="372" y="73" text-anchor="middle" font-size="16">Satta is actionless; all following descriptions concern unit activity.</text>
+    <path d="M40 115 H705" stroke="#a4b1b9" stroke-dasharray="4 4"/>
+
+    <rect x="40" y="139" width="282" height="113" rx="6" fill="#f7f8f9" stroke="#8197a4"/>
+    <text x="181" y="165" text-anchor="middle" font-size="19" font-weight="bold">5 faculties &#183; 10 activities</text>
+    <text x="181" y="190" text-anchor="middle" font-size="16">Atma &#183; Buddhi &#183; Chitta</text>
+    <text x="181" y="212" text-anchor="middle" font-size="16">Vritti &#183; Mun</text>
+    <text x="181" y="235" text-anchor="middle" font-size="14">Nucleus and four orbital loci</text>
+
+    <rect x="428" y="139" width="277" height="113" rx="6" fill="#f7f8f9" stroke="#8197a4"/>
+    <text x="566" y="165" text-anchor="middle" font-size="19" font-weight="bold">122 activity positions</text>
+    <text x="566" y="190" text-anchor="middle" font-size="16">61 pairs: 1 + 2 + 8 + 18 + 32</text>
+    <text x="566" y="213" text-anchor="middle" font-size="15">Values, criteria, relationships,</text>
+    <text x="566" y="235" text-anchor="middle" font-size="15">abilities and bodily participation</text>
+
+    <path d="M332 199 H418" stroke="#526775" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <text x="375" y="178" text-anchor="middle" font-size="13">specified as</text>
+    <path d="M181 253 V294 M566 253 V294" stroke="#526775" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <text x="375" y="279" text-anchor="middle" font-size="14">in concrete situations</text>
+
+    <rect x="40" y="304" width="665" height="101" rx="6" fill="#f7f8f9" stroke="#8197a4"/>
+    <text x="372" y="331" text-anchor="middle" font-size="20" font-weight="bold">Embodied human episodes</text>
+    <text x="372" y="357" text-anchor="middle" font-size="16">Jeevan with body: participants, relationships and available means</text>
+    <text x="372" y="383" text-anchor="middle" font-size="16">Contributions &#8594; consequences &#8594; later evaluation</text>
+
+    <path d="M372 406 V451" stroke="#526775" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+    <text x="391" y="435" font-size="14">repetition, evaluation and correction</text>
+
+    <rect x="40" y="461" width="665" height="122" rx="6" fill="#eef2f4" stroke="#8197a4"/>
+    <text x="372" y="488" text-anchor="middle" font-size="20" font-weight="bold">Maintained social arrangements</text>
+    <text x="372" y="514" text-anchor="middle" font-size="16">Family and wider institutions sustain recurring functions</text>
+    <text x="372" y="540" text-anchor="middle" font-size="15">Education-sanskar &#183; Health-restraint &#183; Justice-security</text>
+    <text x="372" y="564" text-anchor="middle" font-size="15">Production-work &#183; Exchange-storage</text>
+    <path d="M706 528 H736 V355 H707" stroke="#526775" stroke-width="1.5" stroke-dasharray="5 3" fill="none" marker-end="url(#arrow)"/>
+    <text x="728" y="444" text-anchor="middle" transform="rotate(-90 728 444)" font-size="12">enables later episodes</text>
+  </g>
+</svg>

@@ -130,6 +130,10 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 | **Arnold symplectic** | [Arnold-Symplectic-Geometry-Applications.pdf](Science/Arnold-Symplectic-Geometry-Applications.pdf) | Author-hosted scan |
 | **Baehni 2019** | [Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf](Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf) | ETH Zurich semester paper |
 
+## Physics teaching resources (external)
+
+The external quantum-number clarification used by the Jeevan activities research note is registered under [physics teaching resources](NOT-DOWNLOADED.md#physics-teaching-resources--external-only): Donald R. Sadoway, MIT OpenCourseWare, *Introduction to Solid State Chemistry*, session 6, transcript pp. 2–3. It is linked to the publisher rather than mirrored.
+
 ## Modern-Philosophy/
 
 | Tag | File | Notes |
