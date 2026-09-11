@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="850" height="510" viewBox="0 0 850 510" role="img" aria-labelledby="title desc">
+  <title id="title">Jeevan: concentric constitution and integrated activity</title>
+  <desc id="desc">Atma at the centre, then Buddhi, Chitta, Vritti and Mun in four orbits. The corresponding detailed pair counts are one, two, eight, eighteen and thirty-two. The five faculties belong to one jeevan in coexistence; circle sizes are schematic.</desc>
+  <rect width="850" height="510" rx="12" fill="#ffffff"/>
+  <text x="425" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" font-weight="700" fill="#163b47">One jeevan; five integrated faculties</text>
+  <text x="425" y="56" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#52656d">Constitutional locations and their characteristic activities</text>
+  <g stroke="#537882" stroke-width="1.6">
+    <circle cx="218" cy="268" r="185" fill="#f0f6f7"/>
+    <circle cx="218" cy="268" r="146" fill="#e2eff0"/>
+    <circle cx="218" cy="268" r="108" fill="#d5e8e9"/>
+    <circle cx="218" cy="268" r="70" fill="#c4dee0"/>
+    <circle cx="218" cy="268" r="34" fill="#194e5c" stroke="#194e5c"/>
+  </g>
+  <g font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#163b47" text-anchor="middle">
+    <text x="218" y="109">Mun</text>
+    <text x="218" y="146">Vritti</text>
+    <text x="218" y="184">Chitta</text>
+    <text x="218" y="221">Buddhi</text>
+    <text x="218" y="274" fill="#ffffff" font-size="16">Atma</text>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <g fill="#163b47" font-size="17" font-weight="700">
+      <text x="447" y="100">Atma</text>
+      <text x="447" y="170">Buddhi</text>
+      <text x="447" y="240">Chitta</text>
+      <text x="447" y="310">Vritti</text>
+      <text x="447" y="380">Mun</text>
+    </g>
+    <g fill="#365c67" font-size="14" text-anchor="end">
+      <text x="811" y="100">1 detailed pair</text>
+      <text x="811" y="170">2 detailed pairs</text>
+      <text x="811" y="240">8 detailed pairs</text>
+      <text x="811" y="310">18 detailed pairs</text>
+      <text x="811" y="380">32 detailed pairs</text>
+    </g>
+    <g fill="#344b54" font-size="16">
+      <text x="447" y="125">Realisation / authenticity</text>
+      <text x="447" y="195">Enlightenment / resolve</text>
+      <text x="447" y="265">Contemplation / visualisation</text>
+      <text x="447" y="335">Deliberation / analysis</text>
+      <text x="447" y="405">Tasting / selection</text>
+    </g>
+    <g stroke="#d6e1e4" stroke-width="1">
+      <path d="M447 143H811 M447 213H811 M447 283H811 M447 353H811"/>
+    </g>
+    <text x="628" y="446" text-anchor="middle" font-size="16" fill="#194e5c" font-weight="700">61 pairs &#183; 122 detailed activities</text>
+    <text x="425" y="483" text-anchor="middle" font-size="14" fill="#52656d">Realised meaning is articulated through the whole jeevan in living.</text>
+  </g>
+</svg>
