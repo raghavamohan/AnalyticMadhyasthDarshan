@@ -1,0 +1,195 @@
+{
+  "status": "approved-for-use",
+  "note": "Navigation associations, not an exhaustive philosophical classification. Approved asset kit; website and deck integration is separate.",
+  "studies": [
+    {
+      "slug": "The-Ontology-of-Coexistence",
+      "title": "The Ontology of Coexistence",
+      "icon": "coexistence",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Nature-Of-Time",
+      "title": "Nature of Time",
+      "icon": "time",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Why-Humans-Are-Not-Just-Material",
+      "title": "Why Humans Are Not Just Material",
+      "icon": "jeevan",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Philosophy-Of-Mind-And-Jeevan",
+      "title": "Philosophy of Mind and Jeevan",
+      "icon": "jeevan",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Chitta-Brain-And-Memory",
+      "title": "Chitta, the Brain, and the Architecture of Memory",
+      "icon": "resolution",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "The-Epistemology-of-Coexistence",
+      "title": "The Epistemology of Coexistence",
+      "icon": "resolution",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Methodology-And-Hermeneutics",
+      "title": "Methodology and Hermeneutics",
+      "icon": "wisdom",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Axiology-Value-Theory",
+      "title": "Axiology: Value Theory",
+      "icon": "justice",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Ethics-And-Morals-In-Human-Beings",
+      "title": "Ethics and Morals in Human Beings",
+      "icon": "justice",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Family-Relationships-And-Values",
+      "title": "Family Relationships and Values",
+      "icon": "family",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Education-And-Sanskar",
+      "title": "Education and Sanskar",
+      "icon": "learning",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Aesthetics",
+      "title": "Aesthetics",
+      "icon": "art",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Human-Behavior-And-Society",
+      "title": "Human Behavior and Society",
+      "icon": "relationships",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "How-To-Form-Self-Sustaining-Organizations",
+      "title": "How to Form Self-Sustaining Organizations",
+      "icon": "family",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Governance-Justice-And-Undivided-Society",
+      "title": "Governance Justice and Undivided Society",
+      "icon": "justice",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Prosperity-Economics-And-Right-Use",
+      "title": "Prosperity Economics and Right Use",
+      "icon": "prosperity",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Nature-Ecology-And-Right-Use",
+      "title": "Nature Ecology and Right Use",
+      "icon": "ecology",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Spiritual-Practice-And-Realization",
+      "title": "Spiritual Practice and Realization",
+      "icon": "jeevan",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Science-Technology-And-Human-Purpose",
+      "title": "Science Technology and Human Purpose",
+      "icon": "science",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "How-Undivided-Society-Is-Established",
+      "title": "How Undivided Society Is Established",
+      "icon": "akhand-samaj",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Death-Continuity-And-Rebirth",
+      "title": "Death Continuity and Rebirth",
+      "icon": "continuity",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Language-Meaning-And-Definition",
+      "title": "Language Meaning and Definition",
+      "icon": "language",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Work-Action-And-Karma",
+      "title": "Work Action and Karma",
+      "icon": "work",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "Free-Will-Choice-And-Agency",
+      "title": "Free Will Choice and Agency",
+      "icon": "choice",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Health-Body-And-Restraint",
+      "title": "Health Body and Restraint",
+      "icon": "health",
+      "theme": "akhand-samaj",
+      "illustration": "community-courtyard.png"
+    },
+    {
+      "slug": "God-Divinity-And-The-Sacred",
+      "title": "God Divinity and the Sacred",
+      "icon": "coexistence",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "A-State-Dynamic-Model-Of-Coexistence",
+      "title": "From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence",
+      "icon": "model",
+      "theme": "jeevan",
+      "illustration": "inner-life.svg"
+    }
+  ]
+}
