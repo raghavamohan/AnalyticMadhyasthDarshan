@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** September 11, 2026, 5:30 AM IST
+**Edited on:** September 11, 2026, 6:00 AM IST
 
 **Scope:** This companion to [*A State-Dynamic Model of Coexistence*](A-State-Dynamic-Model-Of-Coexistence.md) examines the organisation of the 122 activities of *jeevan*, their connection with the thirty values, and the conditions through which individual activity participates in durable human order. It brings the activity inventory, Epistemology, Ontology, Axiology, the five-pass social research programme, and an additional preliminary research report into a connected primary-text review. It proposes refinements to the model; it does not amend the parent study or treat a proposed formalisation as a demonstrated account of physical or social causation.
 
@@ -33,7 +33,23 @@ Both columns contain activities. Their source assignment is more reliable than a
 
 The explicit nucleus–orbit correspondence is a positive source finding. What remains unresolved is the further identification of each named pair with one particle, or of the orbital counts with modern quantum states. The sequence 2, 8, 18, 32 agrees arithmetically with $2n^2$ for $n=1,2,3,4$. That agreement does not supply a physical derivation of the activities. The separate nucleus count of one is not obtained by setting $n=0$, which gives zero. The constitutional description, numerical analogy, and proposed physical interpretation therefore require separate arguments (MVD, p. 78; AVD, pp. 91–94).
 
+In the conventional electron-shell count, the principal quantum number starts at one. For a given $n$, the orbital angular-momentum values are $\ell=0,\ldots,n-1$, each admitting $2\ell+1$ magnetic states. Including the two spin possibilities gives:
+
+$$
+N_n=2\sum_{\ell=0}^{n-1}(2\ell+1)=2n^2.
+$$
+
+This counts allowed electron states, not positions on a spherical boundary. The nucleus is not the $n=0$ member of that enumeration, so its separate treatment is no mathematical breakdown. Neither spherical surface area nor an assumed motionless central point establishes the inventory's counts or identifies *atma* with a physical nucleus (MIT, *Particle-Wave Duality*, transcript pp. 2–3). The orbital language can remain source-governed while its proposed physical interpretation remains open.
+
 The important functional question is how the whole *jeevan* understands and fulfils the contents distributed across these loci. Faculty placement identifies a principal operation within the architecture. It need not assign exclusive ownership of a value or a social domain to that faculty.
+
+### 1.3 An overview across scales
+
+The diagram places the architecture, its detailed inventory, human episodes, and maintained social functions in one view. Coexistence is the ground presupposed throughout; it is not an earlier event producing the next layer. The horizontal arrow is a change in descriptive detail. The downward connections concern participation and continuity, while the return connection concerns the conditions of subsequent activity (§§4–5; MVD, pp. 55–56, 78, 199–205; MSM, pp. 64–65).
+
+![Overview linking coexistence, the five faculties and 122 activity positions, embodied episodes, and maintained social arrangements.](jeevan-activity-social-scales.svg)
+
+The five social functions draw on the whole *jeevan* in embodied, coordinated living. The diagram therefore contains no faculty-to-institution assignment and does not identify sensory or motor coupling as a nourishment/depletion mechanism. Their relation remains the contextual and evidential question developed below.
 
 ## 2. The values reveal several connected patterns
 
@@ -69,6 +85,14 @@ The established and expressed relationship values occupy nine complete pairs. Th
 | *Mun* 2 | *Mamta*, care | *Udarta*, generosity |
 | *Mun* 3 | *Samman*, respect | *Sauhardta*, cordiality |
 | *Mun* 4 | *Sneha*, affection | *Nishtha*, dedication |
+
+The definitions make these placements intelligible through complementary functional emphases. In *chitta*, love concerns completeness, guidance sustains progress towards comprehensive resolution, and reverence directs movement towards awakening and complete conduct. Reverence is explicitly described as movement in which contemplation predominates. The fuller account of guidance extends through children, guardians, teachers, and succeeding generations (MVD, pp. 331–332; MSM, pp. 230–236).
+
+In *vritti*, gratitude acknowledges assistance towards advancement, glory accepts and expresses assessed excellence, and trust fulfils values in mutuality. Gratitude and humility are explicitly connected with the joint operation of deliberation and analysis; the account of glory connects value, evaluation, and mutual satisfaction. Freedom from tension belongs to its expressed partner, *saralta*, and should not replace the definition of glory itself (MSM, pp. 130, 135–136; MVD, pp. 335–336).
+
+In *mun*, care, respect, and affection concern accepted affinity, recognised excellence, and willing participation in just relationships. Care includes nurturing another towards awakening, and respect involves evaluation of understanding and conduct. These contents connect with tasting and selecting how one participates; they extend beyond immediate bodily care or face-to-face presence (MSM, pp. 48–51, 54; MVD, pp. 339–340).
+
+Together these passages support a positive correspondence with contemplation and representation, deliberation and analysis, and tasting and selection. They do not derive the number three from a faculty's scope, or establish that only its assigned values require that operation. Their fulfilment remains integrated across *jeevan* (§2.4).
 
 The equal distribution invites further interpretation, but the definitions do not establish three exclusive domains of cosmic, social, and intimate relationship. Love is relevant in immediate relationships; guidance operates in everyday education; trust is common across relationships; generosity includes assistance towards awakening as well as bodily provision. Nor does placement specify a unique vertical coupling between one row in each faculty (MVD, pp. 331, 335–336, 339–340; MAD, reader pp. 30, 43).
 
@@ -108,6 +132,25 @@ The distinction between reality, understood content, operative judgement, and fu
 The relevant source pairs also remain distinct: *satya–dharma* is *Vritti* 11; *nyaya–samvedna* is *Vritti* 12; *samyama–niyam* is *Vritti* 14. These placements do not by themselves derive the complete sixfold governing grammar. Their definitions contribute to it together with the wider account of natural and human participation (MVD, pp. 336–337).
 
 Similarly, knowing, believing, recognising, and fulfilling should remain a connected grammar of functioning. They cannot be assigned exclusively, one per faculty. The *buddhi* definition of existence includes knowing, believing, and accepting; justice includes recognising and fulfilling; *mun* has a recognition entry of its own. In delusion, believing without knowing remains operative. It is knowledge-grounded acceptance that has not been established as the governing basis, not the absence of belief altogether (MVD, pp. 98–100, 328–329, 336, 346; KD, p. 84).
+
+### 3.1 Six perspectives and the four-and-a-half account
+
+Deliberation has six perspectives: *priya*, *hita*, *labh*, *nyaya*, *dharma*, and *satya*. Their correspondence with named inventory entries can be stated precisely while retaining the distinction between an evaluative perspective and a documentary position (MVD, pp. 66–67; PS, p. 85).
+
+| Perspective | Named inventory correspondence | Defined content relevant here |
+|---|---|---|
+| *Priya* | *Mun* 10, *bal*, paired with *pravrittiyan* | Sensory conduciveness relative to bodily wellness |
+| *Hita* | *Mun* 9, *bal*, paired with *svasthya* | Usefulness within the bodily domain |
+| *Labh* | No separately named position | Receiving more than the labour or contribution given; not a synonym for prosperity |
+| *Nyaya* | *Vritti* 12, *bal*, paired with *samvedna* | Recognition, fulfilment, evaluation, and mutual satisfaction |
+| *Dharma* | *Vritti* 11, *shakti*, paired with *satya* | Inseparable *dharana*, with human resolution as its contextual application |
+| *Satya* | *Vritti* 11, *bal*, paired with *dharma* | Existential truth and authenticity towards reality |
+
+The assignments follow AVD pp. 92–93 and MVD pp. 336, 342–343. They are not six separate slots or a division of the operation of deliberation among three faculties. In particular, *labh* cannot be placed at *svayatta–samriddhi* or *medha–kala* merely because those definitions concern production or usefulness. Receiving more value, goods, or services than one's contribution differs from producing beyond assessed needs. Usefulness concerns what something can fulfil, while *medha–kala* concerns its apprehension or accomplishment together with art (MVD, pp. 58, 67, 310, 330, 342).
+
+The four-and-a-half account operates at the generic activity level: tasting and selection contribute two; analysis and visualisation contribute one each; deliberation governed by pleasantness, bodily benefit, and profit supplies the half. The contrast concerns effective functioning under sensitivity and its transformation through awakened coordination. The same account states that all ten activities continuously operate, while only four and a half are effective under sensitivity (JV, printed pp. 72–74).
+
+This explains the half within deliberation without deriving an activation mask over the 122 positions. Awakening regulates sensory and bodily considerations through justice, resolution, and truth; it does not abolish bodily suitability or sensory participation. The regulation of *priya–hita–labh* tendencies into consonance with *nyaya–dharma–satya* provides a direct formulation of that connection (MSM, p. 49).
 
 ## 4. From activity to its social conditions
 
@@ -183,7 +226,7 @@ The need for wider coordination grows when dependencies exceed one shared-living
 
 Universality also requires attention to the person. A competent minority delivering adequate aggregate output cannot by itself establish that everyone has access to understanding, bodily means, participation, and correction. Disability, age, and dependence require suitable assistance and division of work. Universal *jeevan* architecture does not imply that every person must perform every bodily role, become a parent, or hold every institutional office. Application must preserve the relevant responsibility while examining who can perform which contribution and with what support.
 
-## 6. Three worked bridges from architecture to social practice
+## 6. Worked bridges to social practice
 
 ### 6.1 Learning that can become independent participation
 
@@ -235,6 +278,33 @@ Review of the sphere-analysis implementation identifies a further issue precedin
 
 The reported clustering counts should therefore be retained as results of the current encoding, with their robustness unresolved. Before using them to support a stronger social inference, normalise the source fields explicitly, reject missing fields rather than substitute the whole row, use bounded or reviewed phrase matching, inspect the changed memberships, and recompute the affected downstream analyses. Independent recoding and sensitivity to thresholds and analytical grain should follow. The present note records these repairs as a separate research agenda; it does not silently replace the earlier results.
 
+For implementation, recognise all field headers in a single pass so that an operation field also stops at a compound consequence/evidence header. A suitable starting recogniser for the register's semicolon-separated fields is:
+
+```python
+HEADER_RE = re.compile(
+    r"(?:^|;\s*)"
+    r"(?P<header>locus|operation|"
+    r"consequence\s+and\s+evidence|consequence|evidence)"
+    r"\s*:\s*",
+    re.IGNORECASE,
+)
+```
+
+Each value ends at the next recognised header span. A compound header supplies both consequence and evidence with a shared-span provenance marker; it must not silently become two independent observations. Missing fields remain explicit, and duplicate or conflicting headings require review. Topology and provenance codes should be removed from semantic field text only after being retained in their own fields. The treatment of shared spans in feature weighting must also be specified before recalculation.
+
+The current `tagged()` function already applies `re.search` to regex patterns; it does not perform simple substring membership tests. Repairs should therefore target the problematic alternatives, preserving intentional morphology elsewhere. Examples are `r"\bforms?\b"`, `r"\bair\b"`, and `r"\borgans?\b"`. Applying `re.escape` to every existing regex would disable meaningful alternatives and stems. The same review is needed for other dictionaries and direct scans such as `locus_tokens()`.
+
+| Repair check | Required result |
+|---|---|
+| Separate operation, consequence, and evidence headers | Each value ends at the next field; no whole-row substitution |
+| A compound consequence-and-evidence header | The shared value is identified for both fields with common provenance |
+| A missing, duplicate, or conflicting field | An explicit unresolved field or validation error |
+| Transformation, informed peers, or performance | No aesthetic-form tag from the substring `form` alone |
+| Impairment or organisation | No air or bodily-organ tag from those substrings alone |
+| Literal form, forms, air, organ, and organs | The intended bounded term still matches |
+
+These checks specify a repair to the extraction stage. They do not determine revised cluster memberships in advance or establish that the five-function conclusion will remain unchanged.
+
 ## 8. A compatible extension of the state-dynamic model
 
 ### 8.1 Preserve the existing account and add semantic precision
@@ -261,6 +331,55 @@ An occurrence of teaching, feeding, or evaluating can instantiate several invent
 
 This augments the parent's occurrence and later-evaluation records. It should not make one report count as independent evidence merely because several values refer to it. Nor should observer uncertainty become an ontic zero. Preserve Appendix C's four statuses: supported, contradicted, undetermined, and not assessed. Record non-applicability separately; it is neither a failed activity nor an additional degree of verification.
 
+An explicit proposed schema can reuse the parent types. For faculty $f\in\{A,B,C,V,M\}$, let the pair bounds be $(N_A,N_B,N_C,N_V,N_M)=(1,2,8,18,32)$ and define:
+
+$$
+\mathsf{Position}=\{(f,i,c):1\leq i\leq N_f,
+\ c\in\{\mathsf{bal},\mathsf{shakti}\}\}.
+$$
+
+For the human association $\eta=(j,b,H)$ and occurrence index $n$, let $y_{\eta,n}$ be the existing consequence record from Appendix A.9. The occurrence annotation and assessment schemas below are payloads of immutable records $\langle\mathsf{AnnotationID},r,\mathsf{payload}\rangle$, with a unique identifier and the log boundary $r$ at which the annotation becomes available. Its target records must exist by $r$. Recording time is distinct from the occurrence or evaluation being described: an interpretation added later cannot become evidence at an earlier index. An occurrence annotation payload can take the form:
+
+$$
+\begin{aligned}
+\mathcal A_{\eta,n}=\langle
+&\operatorname{ref}(y_{\eta,n}),\xi,P_{\mathrm{ref}},
+C_{\mathrm{int}},C_{\mathrm{act}},\\
+&M_{\mathrm{req}},M_{\mathrm{avail}},D_{\mathrm{refs}},
+\mathsf{SourceRefs}\rangle .
+\end{aligned}
+$$
+
+| Field | Type and interpretation |
+|---|---|
+| $\operatorname{ref}(y_{\eta,n})$ | Stable reference to the parent record, which already retains actual relation, operative recognition, KBRF, action, and immediate consequence |
+| $\xi$ | Context identifier resolving to the participants, relevant situation, and scope of the episode; distinct from the parent's constitutional-kind map $\kappa_n$ |
+| $P_{\mathrm{ref}}\subseteq\mathsf{Position}$ | Referenced or candidate inventory positions, not an observed activation mask |
+| $C_{\mathrm{int}},C_{\mathrm{act}}$ | Intended-contribution specification and references or views of the enacted contributions |
+| $M_{\mathrm{req}},M_{\mathrm{avail}}$ | Requirements for capability and means, and references or views of their actual availability in the situation |
+| $D_{\mathrm{refs}}$ | Set of responsibility-version identifiers to which the occurrence contributes |
+| $\mathsf{SourceRefs}$ | Source locations and semantic-registry references supporting the proposed interpretation |
+
+Fields referring to the parent occurrence and situation are views, not independently writable copies. Delayed consequences receive later records linked to the earlier occurrence. They are not inserted into the immediate record as though they had already occurred or been observed at $n$.
+
+At a later evaluation index $m>n$, retain the parent's distinct evaluation record $e_{\eta,n,m}$. Assess a proposition $p$ through a further annotation:
+
+$$
+\mathcal V_{\eta,n,m,p}=\langle
+\operatorname{ref}(e_{\eta,n,m}),p,P,a,B_{p,m},v,
+\mathsf{Links}\rangle ,
+$$
+
+$$
+B_{p,m}\subseteq L_m,\qquad
+v=\operatorname{Verify}(P,p,a,I_{\leq m})
+\in\mathsf{VStatus}.
+$$
+
+Here $P$ is a nonempty evaluator set; $a$ is a nonempty selection of Appendix C's access domains; $B_{p,m}$ records the trace-derived evidence basis actually used by verification under a declared relevance rule, including relevant counterevidence; and $\mathsf{Links}$ records correction or supersession links. The basis is an audit view of verification over the available trace, not an independently chosen favourable subset. $\mathsf{VStatus}$ retains the four statuses already listed. The evaluator set and evidence identifiers provide observational provenance, separately from the primary-text provenance in $\mathsf{SourceRefs}$.
+
+Applicability, enactment, recipient benefit, and fulfilment of a continuing responsibility are different propositions and may receive different assessments. Supported non-applicability can be represented as a supported negative applicability claim, not a fifth status. New assessments and correction links are appended; they can supersede an earlier judgement explicitly without deleting it. This retains the parent's distinction between a complete occurrence and its later evaluation.
+
 The generic four-and-a-half account and the 122-entry account also have different grains. Neither supplies a source-derived mask in which every deluded person's higher entry is zero and every awakened person's entry is one. Partial understanding, intermittent humane conduct, limited means, and established continuity must remain distinguishable. Context-specific evidence can refine the current generic profile without turning it into a numerical measure of awakening.
 
 ### 8.3 Represent maintained functions through repeated occurrences
@@ -268,6 +387,40 @@ The generic four-and-a-half account and the 122-entry account also have differen
 An institution can be represented as a maintained arrangement of participants, responsibilities, resources, records, and correction practices. Particular occurrences enact its functions. Its continuity claim concerns whether those conditions and contributions remain available over an interval, including changes in participants and means.
 
 The next formal object to specify is a responsibility record. It identifies the bearer and affected persons, actual relation, purpose, required contribution, available capability and means, fulfilment criterion, evidence access, and correction responsibility over a relevant interval. An allocation then links that responsibility to the persons and resources maintaining it; an occurrence records its performance; later evaluation records whether the criterion was met. Separate the existence of an assignment, the capability to fulfil it, and its actual fulfilment. A policy document proves the first at most.
+
+For a stable responsibility identifier $d$ and version $k$, a proposed record is:
+
+$$
+\begin{aligned}
+\mathcal R_{d,k}=\langle
+&d,k,g,\mathsf{RelationRefs},\mathsf{RequiredRoles},\\
+&\mathsf{Affected},\mathsf{Purpose},F,\mathsf{MeansReq},
+\mathsf{Criterion},\\
+&\mathsf{CorrectionPath},W,\mathsf{Provenance}\rangle .
+\end{aligned}
+$$
+
+| Field group | Type and interpretation |
+|---|---|
+| $d,k,g$ | Responsibility identifier, version identifier, and maintained-arrangement identifier; $g$ does not designate a new ontic unit |
+| $\mathsf{RelationRefs}$ | References to the actual relationships and their trace-indexed roles on which the responsibility is based |
+| $\mathsf{RequiredRoles},\mathsf{Affected}$ | Required contribution roles and references to affected persons or explicitly represented affected interests |
+| $\mathsf{Purpose},F$ | Understood purpose and a nonempty subset of the five social-function labels; a responsibility can support several functions |
+| $\mathsf{MeansReq}$ | Capability and resource requirements, checked against available means in the relevant situations |
+| $\mathsf{Criterion}$ | A fulfilment condition on contributions and consequences over the specified scope; its truth and its verification remain distinct |
+| $\mathsf{CorrectionPath}$ | Designated review roles, evidence access, and procedures for correction when the criterion is disputed or unmet |
+| $W,\mathsf{Provenance}$ | Target interval or continuity horizon, with the sources and decisions establishing this version of the responsibility |
+
+Assignments and actual contributions require separate links:
+
+$$
+\operatorname{Allocated}(\eta,\mathsf{role},d,k,I),\qquad
+\operatorname{Contributes}(y_{\eta,n},d,k,\mathsf{role}).
+$$
+
+The first assigns a role to a human association over interval $I$; the second links performed activity to that responsibility version. An operative assignment requires a valid role in $\mathsf{RequiredRoles}$ and an active human association over its operative interval. A planned future assignment remains a commitment until its conditions are met. Voluntary contributions can be recorded without a prior allocation. Neither assignment nor contribution alone implies fulfilment.
+
+Changes of personnel create new allocations, and changes to purpose, criterion, or correction arrangements create new versions with provenance. Evidence assesses responsibility through the proposition-specific records in §8.2. Where $W$ extends into the future, assessment must distinguish fulfilment over its observed portion from a commitment to maintain future fulfilment; present evidence cannot certify an unobserved future interval.
 
 These records make institutional failure more precise. A responsibility may be unassigned, assigned without means, performed ineffectively, mis-evaluated, or repeatedly left uncorrected. A change of organisation can be assessed by whether it preserves or improves the relevant contributions and correction, rather than by whether it reproduces the same institutional names. This develops the missing social modules identified in the parent study's §§11.3 and 12.7.
 
@@ -332,12 +485,16 @@ The methodological findings in §7 concern the current versions of the Pass-Thre
 ### Primary Madhyasth Darshan texts
 
 - **AVD** — A. Nagraj, [*Adhyatmvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), working English translation by Sanjeev Chopra. The tabulated faculty, orbit, column, and activity assignments, pp. 91–94 (§§1–2 and Editorial Notes).
-- **MVD** — A. Nagraj, [*Madhyasth Darshan: Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), translated by Rakesh Gupta. Family and constitutional architecture, pp. 55–62, 78 (§§1, 5); believing and knowing, pp. 98–100 (§3); action and subsequent formation, p. 218 (§4); exchange and labour-value assessment, pp. 260, 268–269 (§5); receptivity, p. 284 (§4); justice, p. 311 (§§3, 6); interfaculty harmony and complete activity definitions, pp. 327–348 (§§1–6, 8–9). Page numbers are the printed pagination of this rendering.
-- **MSM** — A. Nagraj, [*Manav Sanchetnavadi Manovigyan*](../../References/Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf), Hindi, 2008 OCR edition. Value expression and purpose, p. 34; activity architecture and tasting values, pp. 37–43 (§§1–2); social functions and their dependencies, pp. 64–65 (§§4–5); nourishment, provision, and responsibility, pp. 101, 104–105 (§§4, 6); sensory definitions and hearing, pp. 107–109 (Editorial Notes); learning and expression, p. 117 (§§5–6); the human-value sequence and love, p. 225; apprehension and complete representation of values, p. 243 (§2). Printed page plus twelve gives the one-based PDF position.
-- **PS** — A. Nagraj, *Paribhasha Samhita*, Hindi, third edition 2012, printed 14 January 2016; [official publications](https://originals.madhyasth.org/granth/published), [source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7), file `15_paribhasha_sanhita_2015_ocr.pdf`. Visualisation, usefulness, and practice, pp. 71–72 (§2); *dharma*, pp. 93–94 (§3); values and their dimensions of expression, pp. 149–154 (§§2, 5); justice–dharma–truth in deliberation, p. 178 (§3). Printed page plus eight gives the one-based PDF position; the filename does not establish the edition date.
+- **MVD** — A. Nagraj, [*Madhyasth Darshan: Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), translated by Rakesh Gupta. Family and constitutional architecture, pp. 55–62, 78 (§§1, 5); profit and the six perspectives, pp. 58, 66–67, 310 (§3.1); believing and knowing, pp. 98–100 (§3); the body–jeevan joint form, pp. 199–205 (§1.3); action and subsequent formation, p. 218 (§4); exchange and labour-value assessment, pp. 260, 268–269 (§5); receptivity, p. 284 (§4); justice, p. 311 (§§3, 6); interfaculty harmony and complete activity definitions, pp. 327–348 (§§1–6, 8–9). Page numbers are the printed pagination of this rendering.
+- **MSM** — A. Nagraj, [*Manav Sanchetnavadi Manovigyan*](../../References/Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf), Hindi, 2008 OCR edition. Value expression and purpose, p. 34; activity architecture and tasting values, pp. 37–43 (§§1–2); care, respect, affection, and regulation of the perspectives, pp. 48–51, 54 (§§2.2, 3.1); social functions and their dependencies, pp. 64–65 (§§4–5); nourishment, provision, and responsibility, pp. 101, 104–105 (§§4, 6); sensory definitions and hearing, pp. 107–109 (Editorial Notes); learning and expression, p. 117 (§§5–6); gratitude, glory, and trust, pp. 130, 135–136 (§2.2); the human-value sequence and love, p. 225; guidance and contemplation-led reverence, pp. 230–236; apprehension and complete representation of values, p. 243 (§2). Printed page plus twelve gives the one-based PDF position.
+- **PS** — A. Nagraj, *Paribhasha Samhita*, Hindi, third edition 2012, printed 14 January 2016; [official publications](https://originals.madhyasth.org/granth/published), [source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7), file `15_paribhasha_sanhita_2015_ocr.pdf`. Visualisation, usefulness, and practice, pp. 71–72 (§2); comparison through the six perspectives, p. 85 (§3.1); *dharma*, pp. 93–94 (§3); values and their dimensions of expression, pp. 149–154 (§§2, 5); justice–dharma–truth in deliberation, p. 178 (§3). Printed page plus eight gives the one-based PDF position; the filename does not establish the edition date.
 - **MAD** — A. Nagraj, *Manav Abhyas Darshan*, Hindi native reader: [p. 30](https://db.madhyasth.org/books/read/144/?page=30) and [p. 43](https://db.madhyasth.org/books/read/144/?page=43), relationship pairs, common trust, and complete love (§§2, 6); [p. 34](https://db.madhyasth.org/books/read/144/?page=34), order of dedication; [p. 47](https://db.madhyasth.org/books/read/144/?page=47) and [p. 51](https://db.madhyasth.org/books/read/144/?page=51), harmony and value continuity (§2). These are displayed reader pages, not PDF positions.
 - **KD** — A. Nagraj, [*Manav Karm Darshan*, Hindi](../../References/Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf), printed p. 84, §3.8, faculty operations over connected contents (§3); [working English rendering](../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). The original-language passage was checked for the distinction between functional correspondence and exclusive assignment.
-- **JV** — A. Nagraj, [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), translated by Rakesh Gupta. Family and education, pp. 55–60; relationships and social functions, pp. 108–110; the values of *jeevan* and dimensions of order, pp. 138–140 (§§2, 5). These are printed pages; in the cited body of this edition, the one-based PDF position is printed page plus one.
+- **JV** — A. Nagraj, [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), translated by Rakesh Gupta. Family and education, pp. 55–60; the ten activities and four-and-a-half effective account, pp. 72–74 (§3.1); relationships and social functions, pp. 108–110; the values of *jeevan* and dimensions of order, pp. 138–140 (§§2, 5). These are printed pages; in the cited body of this edition, the one-based PDF position is printed page plus one.
+
+### Physics clarification
+
+- **MIT** — Donald R. Sadoway, *Introduction to Solid State Chemistry*, MIT OpenCourseWare, Fall 2010, session 6, [*Particle-Wave Duality*](https://ocw.mit.edu/courses/3-091sc-introduction-to-solid-state-chemistry-fall-2010/pages/structure-of-the-atom/6-particle-wave-duality/), [lecture transcript](https://ocw.mit.edu/courses/3-091sc-introduction-to-solid-state-chemistry-fall-2010/9927ec108937913f79bfa65ad757a5c0_MIT3_091SCF10lec06_iPOD.pdf), PDF pp. 2–3. Quantum-number enumeration and the Pauli principle support the conventional shell-count clarification in §1.2; this source does not establish a physical identification of *jeevan*.
 
 ### Studies and research materials reviewed
 
