@@ -159,6 +159,12 @@ Scriptural passages cited for comparative examples are linked externally rather 
 | **Matthew 22:37-40** | Gospel of Matthew 22:37-40, King James Version. | https://www.christianity.com/bible/kjv/matthew/22-37-40 |
 | **Quran 16:90** | Qur'an, Surat An-Nahl 16:90. | https://legacy.quran.com/16/90 |
 
+## Physics teaching resources — external only
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **MIT quantum numbers** | Donald R. Sadoway. *Introduction to Solid State Chemistry*, MIT OpenCourseWare, Fall 2010, session 6, *Particle-Wave Duality*. Transcript PDF pp. 2–3, cited in Research-Note-Jeevan-Activities-Values-And-Human-Order §1.2 for conventional electron-state counting. Publisher-hosted teaching resource; linked without creating a local mirror. | [Course session](https://ocw.mit.edu/courses/3-091sc-introduction-to-solid-state-chemistry-fall-2010/pages/structure-of-the-atom/6-particle-wave-duality/) · [Transcript](https://ocw.mit.edu/courses/3-091sc-introduction-to-solid-state-chemistry-fall-2010/9927ec108937913f79bfa65ad757a5c0_MIT3_091SCF10lec06_iPOD.pdf) |
+
 ## Computational universe and discrete physics — external only
 
 Works cited in [*Technical Note: EMR and Wolfram's Computational Universe*](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Wolfram-Computational-Universe-And-EMR.md). Author-hosted writings and the free NKS online edition are linked rather than mirrored (print NKS remains a commercial book; HTML sources are not mirrored).

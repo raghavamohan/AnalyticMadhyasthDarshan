@@ -62,6 +62,7 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 | | Nagraj 2010 Sakshatkar | transcript present; recording external |
 
 | [A-State-Dynamic-Model-Of-Coexistence.pdf](../Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) | MVD, SB, JV, AVD, KD | present |
+| [Research-Note-Jeevan-Activities-Values-And-Human-Order.md](../Studies/A-State-Dynamic-Model-Of-Coexistence/Research-Note-Jeevan-Activities-Values-And-Human-Order.md) | MVD, AVD, MSM, KD, JV; MAD, PS and MIT quantum numbers | registered primary PDFs; MAD, PS and MIT external |
 
 
 ## By tag
@@ -72,15 +73,15 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 |-----|----------|----------|
 | **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) · [`.md` analysis extract](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md) | all Studies papers above |
 | **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md` analysis extract](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | all Studies papers above |
-| **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md` analysis extract](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | all Studies papers above |
-| **MAD** | [Manav Abhyas Darshan — Hindi reader](https://db.madhyasth.org/books/read/144/) (external) | Axiology-Value-Theory, displayed reader pp. 30, 34, 43, 45, 47, 51 |
-| **PS** | [Paribhasha Samhita — official publications](https://originals.madhyasth.org/granth/published) · [source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7) (external); third edition 2012, printing 2016; `15_paribhasha_sanhita_2015_ocr.pdf` | Axiology-Value-Theory, printed pp. 40–41, 78, 93, 149, 151, 154, 179 (PDF positions +8) |
+| **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md` analysis extract](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | all Studies papers above; Research-Note-Jeevan-Activities-Values-And-Human-Order Appendix H adds firsthand testimony and its social purpose, printed pp. 12, 91–92, 165 (PDF positions +1) |
+| **MAD** | [Manav Abhyas Darshan — Hindi reader](https://db.madhyasth.org/books/read/144/) (external) | Axiology-Value-Theory, displayed reader pp. 30, 34, 43, 45, 47, 51; Research-Note-Jeevan-Activities-Values-And-Human-Order, reader pp. 30, 34, 43, 47, 51 |
+| **PS** | [Paribhasha Samhita — official publications](https://originals.madhyasth.org/granth/published) · [source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7) (external); third edition 2012, printing 2016; `15_paribhasha_sanhita_2015_ocr.pdf` | Axiology-Value-Theory, printed pp. 40–41, 78, 93, 149, 151, 154, 179; Research-Note-Jeevan-Activities-Values-And-Human-Order, printed pp. 71–72, 85, 93–94, 149–154, 178 (PDF positions +8) |
 | **YAT** | [Yatharthata, Vastavikta, Satyata](https://originals.madhyasth.org/avdharna/yatharth) (external); official Hindi excerpt compilation attributed to *Paribhasha Sanhita* and other writings | The-Epistemology-of-Coexistence, the headings “स्थिति सत्य, ” “वस्तुगत सत्य, ” and “वस्तु स्थिति सत्य” (§1.1 and Editorial Notes) |
 | **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | The-Ontology-of-Coexistence, Axiology-Value-Theory, Family-Relationships-And-Values, A-State-Dynamic-Model-Of-Coexistence, Research-Note-Jeevan-Architecture (internal) |
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | terminology glossary, Phase 4 MVD/SB refresh (see MD-Mapping-Sources/) |
 | **KD** | [Madhyasth-Darshan/KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) · [active translation workspace](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | The-Ontology-of-Coexistence, The-Epistemology-of-Coexistence, Research-Note-Physics-Of-Satta-Unit-Interaction (internal). The source plus generated English and interleaved Hindi-English review PDFs are explicit active-translation exceptions in `r2-artifacts.json` and remain in Git. |
-| **MSM** | [Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf](Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf) | (none — not yet cited by any study) |
+| **MSM** | [Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf](Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf) | Research-Note-Jeevan-Activities-Values-And-Human-Order, printed pp. 34, 37–43, 48–51, 54, 64–65, 101, 104–109, 117, 130, 135–136, 225, 230–236, 243 (PDF positions +12) |
 | **KD-Karm-Darshan-English** | [Madhyasth-Darshan/KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | The-Ontology-of-Coexistence, Research-Note-Physics-Of-Satta-Unit-Interaction (internal), full-book working translation (front matter + ch. 1–3) |
 | **MSM-Manav-Sanchetnavadi-Manovigyan-English** | [Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/](Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/README.md) | (setup only — no English translation yet) |
 | **Nagraj 2010 Sakshatkar** | [Madhyasth-Darshan/Nagraj-Recorded-Sessions/](Madhyasth-Darshan/Nagraj-Recorded-Sessions/README.md) — [transcript + translation](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak.pdf) · [raw ASR](Madhyasth-Darshan/Nagraj-Recorded-Sessions/Sakshatkar-Bodh-Anubhav-Praman-2010-Amarkantak/Sakshatkar-Bodh-Anubhav-Praman-2010-raw-asr.txt) present; recording **external** ([NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)) | Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session (internal). **Not yet cited by any released study** — oral, machine-transcribed, see folder README before citing |
@@ -168,6 +169,10 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Ross et al. 2025** | [Original source](https://link.springer.com/article/10.1186/s13019-025-03484-w); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Sterelny 2025** | [Original source](https://gavindavidyounglectures.au/index.php/gdylp/article/download/3/8/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Wong et al. 2025** | [Original source](https://www.nature.com/articles/s41467-025-61945-1); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+
+### Physics teaching resources
+
+External physics clarification: **MIT quantum numbers**, Donald R. Sadoway, *Introduction to Solid State Chemistry*, Fall 2010, session 6, [lecture transcript](https://ocw.mit.edu/courses/3-091sc-introduction-to-solid-state-chemistry-fall-2010/9927ec108937913f79bfa65ad757a5c0_MIT3_091SCF10lec06_iPOD.pdf), PDF pp. 2–3; cited in Research-Note-Jeevan-Activities-Values-And-Human-Order §1.2. The publisher-hosted course resource remains external; see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md).
 
 ## Summary
 
