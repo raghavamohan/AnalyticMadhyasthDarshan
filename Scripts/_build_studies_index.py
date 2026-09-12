@@ -988,7 +988,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .path-core-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(200px, 0.4fr);
+    grid-template-columns: minmax(0, 1fr);
     gap: 18px 24px;
     padding-top: 14px;
     border-top: 1px solid var(--border);
@@ -1039,56 +1039,16 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     gap: 12px;
   }
   .path-continue {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    margin: 0;
-    padding: 14px 16px;
-    background: var(--accent-soft);
-    border: 1px solid #a5c4d9;
-    border-radius: 10px;
-    cursor: pointer;
-    font-family: var(--sans);
-    text-align: left;
-    appearance: none;
-    -webkit-appearance: none;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 5px;
+    width: 100%; margin: 0; padding: 12px 0 4px;
+    background: transparent; border: 0; border-top: 1px solid var(--border);
+    border-radius: 0; cursor: pointer; font-family: var(--sans); text-align: left;
+    appearance: none; -webkit-appearance: none;
   }
-  .path-continue:hover {
-    border-color: var(--accent);
-  }
-  .path-continue:focus-visible {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-  }
-  .path-continue-kicker {
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    margin: 0 0 6px;
-  }
-  .path-continue-stage {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent);
-    margin: 0 0 8px;
-  }
-  .path-continue-text {
-    font-size: 13px;
-    line-height: 1.4;
-    color: var(--text-muted);
-    margin: 0 0 12px;
-    flex: 1 1 auto;
-  }
-  .path-continue-link {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
+  .path-continue:hover .path-continue-stage { text-decoration: underline; text-underline-offset: 3px; }
+  .path-continue:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .path-continue-stage { font-size: 14px; font-weight: 600; color: var(--accent); }
+  .path-continue-text { font-size: 13px; line-height: 1.45; color: var(--text-muted); max-width: 75ch; }
   .path-status {
     display: inline-flex;
     align-items: center;
@@ -1540,6 +1500,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .hero { display: flow-root; }
   .hero-book { float: right; width: 150px; height: auto; margin: 0 0 8px 24px; }
   .contribute-heading { display: flex; align-items: center; gap: 10px; }
+  .contribute-action { display: inline-flex; align-items: center; justify-content: center; gap: 7px; min-height: 40px; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--accent-soft); color: var(--accent); font: 600 13px/1.4 var(--sans); text-decoration: none; }
+  .contribute-action:hover { border-color: var(--accent); color: var(--accent-hover); }
+  .contribute-action .amd-topic-icon { width: 18px; height: 18px; flex: 0 0 18px; }
   .contribute-heading .amd-topic-icon { width: 28px; height: 28px; flex: 0 0 28px; }
   .section-heading { display: flex; align-items: center; gap: 12px; }
   .section-heading-icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; background: var(--warm-soft); }
@@ -1701,10 +1664,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="2" aria-label="Continue to Existence">
-            <span class="path-continue-kicker">Next</span>
-            <span class="path-continue-stage">2 Existence</span>
+            <span class="path-continue-stage">Next: 2 &middot; Existence <span aria-hidden="true">&rarr;</span></span>
             <span class="path-continue-text">If the body does not already answer what a human is, the leftover questions are about existence: what is there, and where we stand in it.</span>
-            <span class="path-continue-link">Continue to Existence</span>
           </button>
         </div>
       </article>
@@ -1732,10 +1693,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="3" aria-label="Continue to Knowledge">
-            <span class="path-continue-kicker">Next</span>
-            <span class="path-continue-stage">3 Knowledge</span>
+            <span class="path-continue-stage">Next: 3 &middot; Knowledge <span aria-hidden="true">&rarr;</span></span>
             <span class="path-continue-text">Once that picture of existence is stated, the next study asks how it can be known, and what the knower must know.</span>
-            <span class="path-continue-link">Continue to Knowledge</span>
           </button>
         </div>
       </article>
@@ -1764,10 +1723,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="4" aria-label="Continue to Value">
-            <span class="path-continue-kicker">Next</span>
-            <span class="path-continue-stage">4 Value</span>
+            <span class="path-continue-stage">Next: 4 &middot; Value <span aria-hidden="true">&rarr;</span></span>
             <span class="path-continue-text">If understanding must show itself in evaluation, the next study asks what a value is, and what makes relationship definite.</span>
-            <span class="path-continue-link">Continue to Value</span>
           </button>
         </div>
       </article>
@@ -1795,10 +1752,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="5" aria-label="Continue to Living">
-            <span class="path-continue-kicker">Next</span>
-            <span class="path-continue-stage">5 Living</span>
+            <span class="path-continue-stage">Next: 5 &middot; Living <span aria-hidden="true">&rarr;</span></span>
             <span class="path-continue-text">Values that are definite still have to be lived. The next study asks how coexistence is established in family, education, and society.</span>
-            <span class="path-continue-link">Continue to Living</span>
           </button>
         </div>
       </article>
@@ -1826,10 +1781,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="1" aria-label="Return to Human">
-            <span class="path-continue-kicker">The path</span>
-            <span class="path-continue-stage">Return to Human</span>
+            <span class="path-continue-stage">Return to Human <span aria-hidden="true">&rarr;</span></span>
             <span class="path-continue-text">The path does not continue to another stage. Understanding is tested in living, and can be walked again from the human question.</span>
-            <span class="path-continue-link">Return to Human</span>
           </button>
         </div>
       </article>
@@ -1967,7 +1920,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
           <li>For an in-progress study, contribute questions, sources, proposed structure, or comparative material through its discussion.</li>
         </ol>
         <p class="path-note">Corrections go directly to the maintainers for review; a separate study proposal is not required. A GitHub account is required to file a correction.</p>
-        <p class="path-action"><a class="btn-secondary" href="?status=all&amp;sort=recent#browse-studies">Browse discussions</a> <a class="btn-primary" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">Suggest a correction</a></p>
+        <p class="path-action"><a class="contribute-action" href="?status=all&amp;sort=recent#browse-studies">@amd-topic:discussion@<span>Browse discussions</span></a> <a class="contribute-action" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">@amd-topic:art@<span>Suggest a correction</span></a></p>
       </div>
       <div class="contribute-path contribute-path--study" id="propose-a-new-study">
         <h3 class="contribute-heading">@amd-topic:notes@<span>Write or substantially revise a study</span></h3>
@@ -1978,7 +1931,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
           <li>After approval, prepare the study using the provided template and submit the draft.</li>
           <li>Track review, checks, revisions, and release status from the same page.</li>
         </ol>
-        <p class="path-action"><a class="btn-primary" href="submit.html">Open My Submissions</a></p>
+        <p class="path-action"><a class="contribute-action" href="submit.html">@amd-topic:notes@<span>Open My Submissions</span></a></p>
       </div>
     </div>
   </div>
