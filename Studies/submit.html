@@ -205,11 +205,64 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
 <link rel="stylesheet" href="portal/contributor.css?v=3408cf66f34bf9f7">
 <script src="portal/drafts.js?v=286c8589d5b22036"></script>
 <script src="portal/action-operations.js?v=a47adc3274b5ea82"></script>
+<!-- theme-styles --><style>:root {
+  --amd-navy: #1a5276;
+  --amd-gold: #b47b46;
+  --amd-gold-text: #8b5e34;
+  --amd-paper: #f7f4ef;
+  --amd-ink: #2a241c;
+  --amd-muted: #5c5348;
+  --amd-line: #ded8cf;
+  --amd-surface: #ffffff;
+  --amd-serif: Cambria, Georgia, serif;
+  --amd-sans: Calibri, 'Segoe UI', sans-serif;
+  --amd-icon: var(--amd-navy);
+  --amd-accent: var(--amd-gold);
+}
+[data-theme="dark"], .amd-dark {
+  --amd-icon: #f7f4ef;
+  --amd-accent: #d5a477;
+}
+.amd-dark {
+  color: #f7f4ef;
+  background: #1a5276;
+}
+.amd-icon { width: 24px; height: 24px; flex: 0 0 auto; }
+.amd-mark { width: 72px; height: 72px; flex: 0 0 auto; }
+.amd-wait { display: inline-flex; align-items: center; gap: 12px; font-family: var(--amd-sans); }
+.amd-wait svg { width: 48px; height: 48px; flex: 0 0 auto; }
+.amd-wait .faculty, .amd-wait .goal { animation: amd-presence 2400ms ease-in-out infinite; }
+.amd-wait .faculty:nth-child(2), .amd-wait .goal:nth-child(2) { animation-delay: 300ms; }
+.amd-wait .faculty:nth-child(3), .amd-wait .goal:nth-child(3) { animation-delay: 600ms; }
+.amd-wait .faculty:nth-child(4), .amd-wait .goal:nth-child(4) { animation-delay: 900ms; }
+@keyframes amd-presence { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+[data-motion="paused"] .amd-wait .faculty,
+[data-motion="paused"] .amd-wait .goal { animation: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .amd-wait .faculty, .amd-wait .goal { animation: none; opacity: 1; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .search-page {
+    --amd-icon: #f7f4ef;
+    --amd-accent: #d5a477;
+  }
+}
+.amd-wait[hidden] { display: none !important; }
+
+  .amd-icon { width: 20px; height: 20px; display: block; }
+  .amd-topic-icon, .amd-mark { width: 40px; height: 40px; flex: 0 0 auto; display: block; }
+  .amd-stage-mark { width: 24px; height: 24px; flex: 0 0 auto; display: block; }
+  .amd-home { display: inline-flex; align-items: center; gap: 8px; color: inherit; }
+  .amd-home .amd-mark { width: 32px; height: 32px; }
+  .amd-action { display: inline-flex; align-items: center; gap: 6px; }
+  .amd-action .amd-icon { width: 18px; height: 18px; }
+</style><!-- /theme-styles -->
 </head>
 <body>
 <div class="page">
   <header class="page-header">
-    <p class="back-link" id="hub-back-link"><a href="index.html">&larr; All studies</a></p>
+    <p class="back-link" id="hub-back-link"><!-- theme-home --><a class="amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><!-- /theme-home --></p>
     <div class="hero-row">
       <h1>My Submissions</h1>
       <button type="button" class="auth-btn" id="theme-toggle" aria-label="Switch color theme">Dark</button>

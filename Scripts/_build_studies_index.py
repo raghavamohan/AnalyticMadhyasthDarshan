@@ -17,6 +17,14 @@ if str(SCRIPTS) not in sys.path:
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # noqa: E402
 from _common import BASE, STUDIES, favicon_link_tags, write_text_lf  # noqa: E402
+from _theme_icons import (  # noqa: E402
+    STUDY_VISUALS_PLACEHOLDER,
+    fill_theme_placeholders,
+    serialize_study_visuals_json,
+    study_icon_name,
+    topic_icon_html,
+    ui_icon_html,
+)
 from _presentation_pipeline import DeckSpec, load_manifest  # noqa: E402
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
@@ -631,7 +639,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .cat-group-label .count { font-weight: 400; text-transform: none; letter-spacing: 0; }
 
   .grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(min(310px, 100%), 1fr));
     gap: 16px; margin: 12px 0 4px; padding: 0; list-style: none;
   }
 
@@ -1094,7 +1102,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .path-status.draft { color: #92400e; background: #fef3c7; }
   .path-status.planned { color: var(--warm); background: var(--warm-soft); }
   .path-action, .path-slides {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     margin: 0;
     font-family: var(--sans);
     font-size: 13px;
@@ -1487,14 +1497,72 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .path-dot { flex: 0 0 28px; width: 28px; height: 28px; font-size: 12px; }
     .path-stage-name { font-size: 11px; }
   }
+
+  .page-nav-home {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    color: inherit;
+    text-decoration: none;
+    margin-right: 2px;
+  }
+  .page-nav-home .amd-mark { width: 32px; height: 32px; }
+  .page-nav-link .amd-icon,
+  .theme-toggle .amd-icon { width: 18px; height: 18px; }
+  .theme-toggle-icon { display: inline-flex; align-items: center; }
+  .theme-icon-sun { display: none; }
+  [data-theme="dark"] .theme-icon-sun { display: inline-flex; }
+  [data-theme="dark"] .theme-icon-moon { display: none; }
+  .card-title-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 0 9px;
+  }
+  .card-title-row .card-title { margin: 0; flex: 1 1 auto; min-width: 0; }
+  .card-title-row .amd-topic-icon,
+  .card-title-row .amd-mark { width: 40px; height: 40px; margin-top: 1px; }
+  .path-stage-icon { display: flex; align-items: center; justify-content: center; }
+  .path-action, .path-slides { display: inline-flex; align-items: center; gap: 6px; }
+  .path-action .amd-icon, .path-slides .amd-icon { width: 16px; height: 16px; }
+  .discuss-link { gap: 4px; }
+  .discuss-link .amd-icon { width: 13px; height: 13px; }
+
+  @theme-motion-css@
+  .hero-identity { display: flex; align-items: center; gap: 18px; }
+  .hero-identity .amd-mark { width: 72px; height: 72px; }
+  .hero-identity h1 { margin: 0; }
+  .hero-identity { margin-bottom: 14px; }
+  .path-stage-caption { display: inline-flex; align-items: center; justify-content: center; gap: 5px; }
+  .approach-illustration { max-width: 720px; margin: 20px auto 28px; }
+  .approach-illustration img { display: block; width: 100%; height: auto; border-radius: 10px; }
+  .approach-illustration figcaption { text-align: center; font: 13px var(--sans); color: var(--text-muted); margin-top: 8px; }
+  @media (max-width: 820px) {
+    .page-nav-inner { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 6px 10px; }
+    .page-nav-home { grid-column: 1; grid-row: 1; }
+    .page-nav-tools { grid-column: 2; grid-row: 1; width: 100%; justify-content: flex-end; gap: 12px; }
+    .page-nav-inner .toc { grid-column: 1 / -1; grid-row: 2; }
+    .hero-identity { gap: 10px; }
+    .hero-identity .amd-mark { width: 52px; height: 52px; }
+  }
+  @media (max-width: 600px) {
+    .page-nav-tools { justify-content: space-between; gap: 4px; }
+    .path-stage-caption { gap: 3px; flex-wrap: wrap; }
+    .path-stage-caption .amd-stage-mark { width: 24px; height: 24px; }
+    .path-rail-item { padding-left: 0; padding-right: 0; }
+  }
+  @media (max-width: 360px) {
+    .page-nav-inner { gap: 6px; }
+    .page-nav-link { font-size: 11px; gap: 4px; }
+  }
 </style>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <div class="page">
 
-<header class="hero">
-  <h1>Studies of Madhyasth Darshan</h1>
+<header class="hero" id="site-header">
+  <div class="hero-identity">@amd-mark:akhand-samaj@<h1>Studies of Madhyasth Darshan</h1></div>
   <p class="lead">An open and growing collection of comparative studies of <strong>Madhyasth Darshan</strong> (Co-existentialism), the philosophy founded by <strong>Shri A. Nagraj</strong>. The collection follows a single line of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.</p>
 
   <div class="dialogue-row">
@@ -1512,6 +1580,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <nav class="page-nav" aria-label="Study navigation">
   <div class="page-nav-inner">
+    <a class="page-nav-home" href="#site-header" aria-label="Studies of Madhyasth Darshan">@amd-mark:akhand-samaj@</a>
     <ul class="toc" id="toc">
       <li><a href="#start-here">Start here</a></li>
       <li><a href="#browse-studies">Browse studies</a></li>
@@ -1521,11 +1590,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     </ul>
     <div class="page-nav-tools">
       <div class="nav-tool">
-        <a class="page-nav-link page-nav-search" href="search.html" aria-label="Search" aria-describedby="nav-search-tip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span class="nav-link-label">Search</span></a>
+        <a class="page-nav-link page-nav-search" href="search.html" aria-label="Search" aria-describedby="nav-search-tip">@amd-ui:search@<span class="nav-link-label">Search</span></a>
         <span class="nav-tooltip" role="tooltip" id="nav-search-tip">Find words and phrases inside studies and companion notes.</span>
       </div>
       <div class="nav-tool">
-        <a class="page-nav-link" href="notebook.html" aria-describedby="nav-notes-tip">My Notes</a>
+        <a class="page-nav-link" href="notebook.html" aria-describedby="nav-notes-tip">@amd-ui:notes@<span class="nav-link-label">My Notes</span></a>
         <span class="nav-tooltip" role="tooltip" id="nav-notes-tip">Open your highlights, notes and offline studies saved in this browser.</span>
       </div>
       <div class="nav-tool">
@@ -1533,14 +1602,14 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <span class="nav-tooltip" role="tooltip" id="nav-submit-tip">Use GitHub sign-in to propose studies, submit drafts and follow reviews.</span>
       </div>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
-        <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true">&#9789;</span>
+        <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true"><span class="theme-icon-moon">@amd-ui:moon@</span><span class="theme-icon-sun">@amd-ui:sun@</span></span>
         <span id="theme-toggle-label">Dark</span>
       </button>
     </div>
   </div>
 </nav>
 <script>
-(function(){var dark=document.documentElement.getAttribute("data-theme")==="dark";var icon=document.getElementById("theme-toggle-icon");var label=document.getElementById("theme-toggle-label");var btn=document.getElementById("theme-toggle");if(icon)icon.innerHTML=dark?"&#9728;":"&#9789;";if(label)label.textContent=dark?"Light":"Dark";if(btn)btn.setAttribute("aria-label",dark?"Switch to light theme":"Switch to dark theme");})();
+(function(){var dark=document.documentElement.getAttribute("data-theme")==="dark";var label=document.getElementById("theme-toggle-label");var btn=document.getElementById("theme-toggle");if(label)label.textContent=dark?"Light":"Dark";if(btn)btn.setAttribute("aria-label",dark?"Switch to light theme":"Switch to dark theme");})();
 </script>
 <div class="page-nav-anchor" aria-hidden="true"></div>
 
@@ -1561,27 +1630,27 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <div class="path-rail" role="radiogroup" aria-label="Five stages in the study path">
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-1" checked>
-          <label class="path-rail-item" for="path-stage-1"><span class="path-dot">1</span><span class="path-stage-name">Human</span></label>
+          <label class="path-rail-item" for="path-stage-1"><span class="path-dot">1</span><span class="path-stage-caption"><span class="path-stage-icon" aria-hidden="true">@amd-stage:jeevan@</span><span class="path-stage-name">Human</span></span></label>
         </div>
         <span class="path-because" aria-hidden="true"><span>so what is there?</span></span>
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-2">
-          <label class="path-rail-item" for="path-stage-2"><span class="path-dot">2</span><span class="path-stage-name">Existence</span></label>
+          <label class="path-rail-item" for="path-stage-2"><span class="path-dot">2</span><span class="path-stage-caption"><span class="path-stage-icon" aria-hidden="true">@amd-stage:coexistence@</span><span class="path-stage-name">Existence</span></span></label>
         </div>
         <span class="path-because" aria-hidden="true"><span>how is it known?</span></span>
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-3">
-          <label class="path-rail-item" for="path-stage-3"><span class="path-dot">3</span><span class="path-stage-name">Knowledge</span></label>
+          <label class="path-rail-item" for="path-stage-3"><span class="path-dot">3</span><span class="path-stage-caption"><span class="path-stage-icon" aria-hidden="true">@amd-stage:resolution@</span><span class="path-stage-name">Knowledge</span></span></label>
         </div>
         <span class="path-because" aria-hidden="true"><span>what has value?</span></span>
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-4">
-          <label class="path-rail-item" for="path-stage-4"><span class="path-dot">4</span><span class="path-stage-name">Value</span></label>
+          <label class="path-rail-item" for="path-stage-4"><span class="path-dot">4</span><span class="path-stage-caption"><span class="path-stage-icon" aria-hidden="true">@amd-stage:justice@</span><span class="path-stage-name">Value</span></span></label>
         </div>
         <span class="path-because" aria-hidden="true"><span>how is it lived?</span></span>
         <div class="path-rail-step">
           <input class="path-radio sr-only" type="radio" name="start-path" id="path-stage-5">
-          <label class="path-rail-item" for="path-stage-5"><span class="path-dot">5</span><span class="path-stage-name">Living</span></label>
+          <label class="path-rail-item" for="path-stage-5"><span class="path-dot">5</span><span class="path-stage-caption"><span class="path-stage-icon" aria-hidden="true">@amd-stage:akhand-samaj@</span><span class="path-stage-name">Living</span></span></label>
         </div>
       </div>
 
@@ -1594,9 +1663,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html" title="Read the study">Why Humans Are Not Just Material</a></p>
             <p class="path-study-blurb">This study tests whether a human is exhausted by a physicochemical body and brain, comparing a physicalist reading of the sciences with Advaita Vedanta and Madhyasth Darshan&rsquo;s body-and-jeevan account.</p>
             <div class="path-core-actions">
-              <a class="path-action" data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">Read the study</a>
-              <a class="path-action" data-study-action href="Why-Humans-Are-Not-Just-Material/discussion.html">Discuss this stage</a>
-              <a class="path-slides" data-study-slides href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material-presentation.pdf" title="Open presentation slides">Slides</a>
+              <a class="path-action" data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
+              <a class="path-action" data-study-action href="Why-Humans-Are-Not-Just-Material/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
+              <a class="path-slides" data-study-slides href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material-presentation.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
             <details class="path-related">
               <summary>3 related studies</summary>
@@ -1625,9 +1694,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" title="Read the study">The Ontology of Coexistence</a></p>
             <p class="path-study-blurb">This study asks what exists: coexistence of omnipresence and units, the four orders of nature, and the claim that the human belongs to the knowledge order rather than being only a material organism.</p>
             <div class="path-core-actions">
-              <a class="path-action" data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">Read the study</a>
-              <a class="path-action" data-study-action href="The-Ontology-of-Coexistence/discussion.html">Discuss this stage</a>
-              <a class="path-slides" data-study-slides href="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a>
+              <a class="path-action" data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
+              <a class="path-action" data-study-action href="The-Ontology-of-Coexistence/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
+              <a class="path-slides" data-study-slides href="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
             <details class="path-related">
               <summary>3 related studies</summary>
@@ -1656,9 +1725,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html" title="Read the study">The Epistemology of Coexistence</a></p>
             <p class="path-study-blurb">This study asks what knowledge is, who the knower is, and how understanding of coexistence must become evident in evaluation, conduct, and tradition rather than remaining unused information.</p>
             <div class="path-core-actions">
-              <a class="path-action" data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">Read the study</a>
-              <a class="path-action" data-study-action href="The-Epistemology-of-Coexistence/discussion.html">Discuss this stage</a>
-              <a class="path-slides" data-study-slides href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a>
+              <a class="path-action" data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
+              <a class="path-action" data-study-action href="The-Epistemology-of-Coexistence/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
+              <a class="path-slides" data-study-slides href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
             <details class="path-related">
               <summary>4 related studies</summary>
@@ -1688,9 +1757,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html" title="Read the study">Axiology: Value Theory</a></p>
             <p class="path-study-blurb">This study asks what a value is, whether it is conferred by preference or already present in participation, and how evaluation can be correct or mistaken in relationship and conduct.</p>
             <div class="path-core-actions">
-              <a class="path-action" data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html">Read the study</a>
-              <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">Discuss this stage</a>
-              <a class="path-slides" data-study-slides href="Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a>
+              <a class="path-action" data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
+              <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
+              <a class="path-slides" data-study-slides href="Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
             <details class="path-related">
               <summary>3 related studies</summary>
@@ -1719,9 +1788,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <p class="path-study-title"><a data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html" title="Read the study">How Undivided Society Is Established</a></p>
             <p class="path-study-blurb">This study asks what would make humankind an undivided society, and how that is established through family, education, organisations, and institutions as the test of the earlier understanding.</p>
             <div class="path-core-actions">
-              <a class="path-action" data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">Read the study</a>
-              <a class="path-action" data-study-action href="How-Undivided-Society-Is-Established/discussion.html">Discuss this stage</a>
-              <a class="path-slides" data-study-slides href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf" title="Open presentation slides">Slides</a>
+              <a class="path-action" data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
+              <a class="path-action" data-study-action href="How-Undivided-Society-Is-Established/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
+              <a class="path-slides" data-study-slides href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
             <details class="path-related">
               <summary>3 related studies</summary>
@@ -1744,7 +1813,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <div class="path-alongside">
         <span class="path-alongside-label">Also across the path</span>
         <div class="path-alongside-studies">
-          <div class="parallel-study" data-study-slug="A-State-Dynamic-Model-Of-Coexistence" data-presentation-pdf="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf"><a data-study-link href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" title="Read the study">From Unit Activity to Human Orderliness</a><span class="path-status draft" data-study-status>Draft</span><a class="path-slides" data-study-slides href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">Slides</a></div>
+          <div class="parallel-study" data-study-slug="A-State-Dynamic-Model-Of-Coexistence" data-presentation-pdf="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf"><a data-study-link href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" title="Read the study">From Unit Activity to Human Orderliness</a><span class="path-status draft" data-study-status>Draft</span><a class="path-slides" data-study-slides href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a></div>
           <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>In progress</span></div>
         </div>
       </div>
@@ -1821,6 +1890,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <section class="section" id="approach">
   <h2>How we work</h2>
+  <figure class="approach-illustration">
+    <img src="../Assets/Theme/illustrations/community-courtyard.png" width="1536" height="1024" loading="lazy" decoding="async" alt="People studying together, repairing a useful object and tending a garden."/>
+    <figcaption>Illustration of study and everyday participation.</figcaption>
+  </figure>
   <div class="section-card">
     <h3>Our approach</h3>
     <p>The project reads primary <strong>Madhyasth Darshan</strong> texts closely, reconstructs their claims as clearly as possible, and compares them with the natural sciences, Advaita Vedanta, and modern philosophy. The aim is rigorous comparative understanding: to test definitions, internal consistency, explanatory scope, and compatibility with evidence &mdash; not to persuade or offer devotional endorsement.</p>
@@ -1910,6 +1983,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   const CATALOG_BUILD_ID = "@catalog-build-id@";
   const PRESENTATIONS = @catalog-presentations@;
   const DISCUSS_ASSET_VERSION = "@discuss-asset-version@";
+  const STUDY_VISUALS = @study-visuals@;
+  const THEME_ICON_HTML = @theme-icon-html@;
+  const PDF_DOWNLOAD_ICON = @pdf-download-icon-json@;
+  const PRESENTATION_ICON = @presentation-icon-json@;
+  const DISCUSSION_ICON = @discussion-icon-json@;
   const catalogSources = [
     { url: `catalog-topical.json?cb=${CATALOG_BUILD_ID}`, coll: "topical" },
     { url: `catalog-formal.json?cb=${CATALOG_BUILD_ID}`, coll: "formal" },
@@ -1970,7 +2048,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const badge = `<span class="discuss-badge${count ? "" : " discuss-badge--empty"}" aria-hidden="true">${count || ""}</span>`;
     const unreadNote = unread ? " — new comments since your last visit" : "";
     const countNote = count ? ` — ${count} comment${count === 1 ? "" : "s"}` : "";
-    return `<a class="${classes.join(" ")}" href="${href}" title="Discussion board${countNote}${unreadNote}" aria-label="Discuss ${escAttr(s.t)}${countNote}${unreadNote}">Discuss${badge}</a>`;
+    return `<a class="${classes.join(" ")}" href="${href}" title="Discussion board${countNote}${unreadNote}" aria-label="Discuss ${escAttr(s.t)}${countNote}${unreadNote}">${DISCUSSION_ICON}Discuss${badge}</a>`;
   };
 
   const loadDiscussStats = async () => {
@@ -2222,9 +2300,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     return `${base}${versionQuery}${sep}dv=${DISCUSS_ASSET_VERSION}`;
   };
 
-  const PDF_DOWNLOAD_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>';
-  const PRESENTATION_ICON = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M5 3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h6v2H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 2h14v10H5V5Zm3 2a1 1 0 0 0-1 1v4a1 1 0 0 0 1.55.83l3-2a1 1 0 0 0 0-1.66l-3-2A1 1 0 0 0 8 7Z"/></svg>';
-
   const hasReadLinks = s => isAvail(s) || Boolean(s.html || s.pdf);
 
   const presentationLinksHtml = s => (s.presentations || []).map(deck => {
@@ -2255,10 +2330,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       ? `<span class="card-updated">Updated ${updatedDate(s.updated)}</span>`
       : "";
     const topLine = `<div class="card-topline"><span class="card-status ${badgeClass}"${draftTitle}><span class="badge-dot"></span>${badgeLabel}</span>${updated}</div>`;
+    const topicIcon = THEME_ICON_HTML[STUDY_VISUALS[s.slug]] || "";
     const foot = `<span class="card-actions">${presentationActions}${discussLinkHtml(s)}${readActions}</span>`;
     return `<li class="card ${cardClass}" id="study-${escAttr(s.slug)}">
       ${topLine}
-      <h3 class="card-title">${titleInner}</h3>
+      <div class="card-title-row">${topicIcon}<h3 class="card-title">${titleInner}</h3></div>
       <div class="chips">${chips}</div>
       <p class="card-desc">${s.d}</p>
       <div class="card-foot">${foot}</div></li>`;
@@ -2355,10 +2431,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   const applyThemeUi = theme => {
     const isDark = theme === "dark";
-    const icon = document.getElementById("theme-toggle-icon");
     const label = document.getElementById("theme-toggle-label");
     const btn = document.getElementById("theme-toggle");
-    if (icon) icon.innerHTML = isDark ? "&#9728;" : "&#9789;";
     if (label) label.textContent = isDark ? "Light" : "Dark";
     if (btn) btn.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
   };
@@ -2517,7 +2591,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       if (action) {
         action.hidden = !isAvail(study);
         action.href = studyDiscussionHref(study);
-        action.textContent = START_HERE_ACTION_WORDS[status];
+        const actionLabel = action.querySelector(".path-action-label");
+        if (actionLabel) actionLabel.textContent = START_HERE_ACTION_WORDS[status];
+        else action.textContent = START_HERE_ACTION_WORDS[status];
       }
     });
   };
@@ -2853,18 +2929,11 @@ def build_hero_scope_html(rows: list) -> str:
     )
 
 
-# Kept byte-for-byte in sync with the JavaScript `PDF_DOWNLOAD_ICON` in INDEX_TEMPLATE
+# Kept byte-for-byte in sync with the JavaScript icon constants in INDEX_TEMPLATE
 # so the pre-rendered cards and the client re-render produce identical markup.
-PDF_DOWNLOAD_ICON = (
-    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
-    '<path fill="currentColor" d="M12 3a1 1 0 0 1 1 1v9.59l2.3-2.3a1 1 0 1 1 1.4 1.42l-4 4a1 1 0 0 1-1.4 0l-4-4a1 1 0 1 1 1.4-1.42l2.3 2.3V4a1 1 0 0 1 1-1Zm-7 14a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/>'
-    "</svg>"
-)
-PRESENTATION_ICON = (
-    '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">'
-    '<path fill="currentColor" d="M5 3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h6v2H8a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2h-3v-2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 2h14v10H5V5Zm3 2a1 1 0 0 0-1 1v4a1 1 0 0 0 1.55.83l3-2a1 1 0 0 0 0-1.66l-3-2A1 1 0 0 0 8 7Z"/>'
-    "</svg>"
-)
+PDF_DOWNLOAD_ICON = ui_icon_html("download")
+PRESENTATION_ICON = ui_icon_html("slides")
+DISCUSSION_ICON = ui_icon_html("discussion")
 
 
 def _card_esc_attr(value: str) -> str:
@@ -2933,7 +3002,7 @@ def _card_discuss_link_html(entry: dict, version_query: str) -> str:
     title = entry["title"]
     return (
         f'<a class="discuss-link" href="{href}" title="Discussion board" '
-        f'aria-label="Discuss {_card_esc_attr(title)}">Discuss'
+        f'aria-label="Discuss {_card_esc_attr(title)}">{DISCUSSION_ICON}Discuss'
         f'<span class="discuss-badge discuss-badge--empty" aria-hidden="true"></span></a>'
     )
 
@@ -2990,10 +3059,11 @@ def _render_catalog_card(row: StudyRow, entry: dict, build_id: str) -> str:
         f'<span class="card-actions">{presentation_actions}'
         f"{_card_discuss_link_html(entry, version_query)}{read_actions}</span>"
     )
+    topic_icon = topic_icon_html(study_icon_name(entry["slug"])) if study_icon_name(entry["slug"]) else ""
     return (
         f'<li class="card {card_class}" id="study-{_card_esc_attr(entry["slug"])}">\n'
         f"      {top_line}\n"
-        f'      <h3 class="card-title">{title_inner}</h3>\n'
+        f'      <div class="card-title-row">{topic_icon}<h3 class="card-title">{title_inner}</h3></div>\n'
         f'      <div class="chips">{chips}</div>\n'
         f'      <p class="card-desc">{entry["description"]}</p>\n'
         f'      <div class="card-foot">{foot}</div></li>'
@@ -3096,6 +3166,13 @@ def strip_build_time_data(content: str) -> str:
         f'const DISCUSS_ASSET_VERSION = "{DISCUSS_ASSET_VERSION_PLACEHOLDER}";',
         result,
         count=1,
+    )
+    result = re.sub(
+        r"const STUDY_VISUALS = \{.*?\};",
+        f"const STUDY_VISUALS = {STUDY_VISUALS_PLACEHOLDER};",
+        result,
+        count=1,
+        flags=re.DOTALL,
     )
     # Start-here pills are written from the catalog by render_start_here_status(),
     # so they are build-time data like the cards and the bootstrap. Blank them on
@@ -3324,7 +3401,9 @@ def _presentation_source_paths() -> list[Path]:
     return sorted(deck.source for deck in load_manifest().decks)
 
 
-INDEX_TEMPLATE = INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags())
+INDEX_TEMPLATE = fill_theme_placeholders(
+    INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags())
+)
 
 
 def write_index_html() -> dict[str, list[StudyRow]] | None:
@@ -3360,6 +3439,7 @@ def write_index_html() -> dict[str, list[StudyRow]] | None:
         json.dumps(presentations, ensure_ascii=False, separators=(",", ":")),
     )
     html = html.replace(DISCUSS_ASSET_VERSION_PLACEHOLDER, DISCUSS_ASSET_VERSION)
+    html = html.replace(STUDY_VISUALS_PLACEHOLDER, serialize_study_visuals_json())
     bootstrap_json = serialize_catalog_bootstrap_json(topical_rows, formal_rows, applied_rows)
     # Guard against premature </script> termination inside the inlined JSON island.
     bootstrap_json = bootstrap_json.replace("</", "<\\/")

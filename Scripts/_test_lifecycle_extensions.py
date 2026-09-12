@@ -11,6 +11,7 @@ from unittest.mock import patch
 
 import _add_study as add
 import _bootstrap_proposal_study as bootstrap
+import _build_studies_index as index
 import _common as common
 import _presentation_pipeline as presentations
 import _prepared_study as prepared
@@ -244,7 +245,6 @@ class LifecycleExtensions(unittest.TestCase):
         self.assertEqual(result.stdout.strip(),'browser=false')
 
     def test_guided_slides_links_follow_remaining_inventory(self):
-        import _build_studies_index as index
         html = '<article data-study-slug="A" data-presentation-pdf="A/Old.pdf"><a data-study-slides href="A/Old.pdf">Slides</a></article>'
         with patch.object(index,'presentation_links_by_slug',return_value={}):
             removed = index.render_start_here_presentations(html)

@@ -100,6 +100,45 @@ workflow if the study markdown itself changes.
 
 ## Rebuild and verify
 
+### When a web refresh also touches study readers
+
+Use `python Scripts/_convert_to_pdf.py <source.md>` for HTML-only reader
+regeneration. If calling `convert_to_html` from Python, explicitly pass
+`include_web_chrome=True`; its default is print-oriented and omits reader
+controls and glossary behavior. Do not regenerate PDFs or change study dates
+for screen-only asset changes.
+
+Before a batch refresh, record the affected tracked HTML paths and their
+same-stem Markdown sources using `git ls-files`. Verify that the same set was
+rebuilt afterward. Do not use the search or offline eligible-document list as
+the complete reader inventory: it excludes some templates. Inspect per-file
+diff statistics; large deletions during an asset-URL refresh require explanation
+before committing. Check that existing reader controls and glossary markup
+remain present, even for documents outside the search catalog.
+
+After any reader regeneration or shared reader-asset change, run:
+
+```powershell
+python Scripts/_sync_glossary_html.py --check
+python Scripts/_test_study_reader.py
+python Scripts/_build_reader_offline.py
+```
+
+If glossary verification fails, inspect the reader diff and fix the producer
+or regeneration mode first. Use `_sync_glossary_html.py --write` for an intended
+glossary refresh, then repeat `--check` and rebuild the offline catalog.
+
+### Checks beyond artifact freshness
+
+The finalizer and index verifier are not the complete CI suite. When shared
+generator imports or asset dependencies change, also run
+`python Scripts/_test_lifecycle_extensions.py` and
+`python Scripts/_test_ci_study_pr.py`. Disposable repository fixtures must
+either contain the required assets or import repository-backed helpers before
+patching their roots; do not hide missing production assets with fallbacks.
+Run relevant browser checks for changed UI behavior, including failure/retry
+and reduced motion when loaders change.
+
 Run from the repository root:
 
 ```powershell

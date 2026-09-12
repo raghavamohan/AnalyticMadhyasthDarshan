@@ -41,14 +41,14 @@
       "type": "skill-md",
       "description": "Manage study registration, content updates, Draft/Released transitions, rename and retirement, and route new or updated decks and technical notes. Use for study lifecycle work under Studies/ or Applications/ and for finalizing tracked artifacts with the same producers and checks as CI preparation.",
       "url": "/.well-known/agent-skills/manage-studies/SKILL.md",
-      "digest": "sha256:514e6a36f0ced1043515b51566e90a2b69aae71807b39c7492b885caf74915b2"
+      "digest": "sha256:ae50bd9862934e838d2d8f3764185baf65ea576083b03ccb1af272ba4709e777"
     },
     {
       "name": "refine-studies-index",
       "type": "skill-md",
       "description": "Review and refine the Studies landing page, including the guided Start here path, hero and methodology copy, navigation, status language, catalog descriptions, contribution flow, and About section. Use when auditing or updating Studies/index.html through Scripts/_build_studies_index.py while keeping Studies/README.md, catalog JSON, proposal metadata, and generated artifacts synchronized.",
       "url": "/.well-known/agent-skills/refine-studies-index/SKILL.md",
-      "digest": "sha256:58a186471583c25a4aac7c5134f822620ca861c3224822563aaab0a1a259f8c5"
+      "digest": "sha256:ea49416b8b4bfbaff0aa8123c75b042589e95a7de40f32753d6ac7113df962cb"
     },
     {
       "name": "regenerate-study-pdf",

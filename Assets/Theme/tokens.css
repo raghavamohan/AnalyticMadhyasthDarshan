@@ -12,9 +12,11 @@
   --amd-icon: var(--amd-navy);
   --amd-accent: var(--amd-gold);
 }
-.amd-dark {
+[data-theme="dark"], .amd-dark {
   --amd-icon: #f7f4ef;
   --amd-accent: #d5a477;
+}
+.amd-dark {
   color: #f7f4ef;
   background: #1a5276;
 }
@@ -32,3 +34,11 @@
 @media (prefers-reduced-motion: reduce) {
   .amd-wait .faculty, .amd-wait .goal { animation: none; opacity: 1; }
 }
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .search-page {
+    --amd-icon: #f7f4ef;
+    --amd-accent: #d5a477;
+  }
+}
+.amd-wait[hidden] { display: none !important; }
