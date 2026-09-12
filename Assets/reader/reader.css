@@ -136,8 +136,8 @@
   #reader-visual-content :is(img,svg) { display: block; margin: 0; }
   @media (min-width: 1180px) {
     .reader-tabs button { font-size: 12px; padding-inline: 3px; }
-    #reader-tools { inset: 24px auto 24px 24px; width: 260px; height: calc(100dvh - 48px); box-shadow: none; }
-    html[data-reader-panel="open"] body { width: min(var(--reader-width),calc(100vw - 330px)); max-width: none; margin-left: max(300px,calc((100vw - var(--reader-width) + 280px)/2)); margin-right: 24px; }
+    #reader-tools { inset: 24px auto 24px max(24px,calc((100vw - 1120px)/2)); width: 288px; height: calc(100dvh - 48px); box-shadow: none; }
+    html[data-reader-panel="open"] body { width: min(var(--reader-width),calc(100vw - 380px)); max-width: none; margin-left: max(344px,calc((100vw - 1120px)/2 + 320px)); margin-right: 24px; }
   }
   @media (max-width: 640px) {
     #reader-viewer { width: calc(100vw - 16px); height: calc(100dvh - 16px); }

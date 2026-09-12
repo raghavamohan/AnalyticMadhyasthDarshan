@@ -208,6 +208,8 @@
     destination.searchParams.set('stage',origin.get('stage'));
     destination.hash = destination.hash.replace(/^#study-/, '#path-study-');
     back.href = destination.href;
+    back.textContent = 'Back to Start here';
+    back.classList.add('reader-from-path');
     back.title = 'Return to this study in Start here';
     back.setAttribute('aria-label',back.title);
   }
@@ -338,7 +340,7 @@
     const current = headings[index];
     if (index !== currentIndex) {
       currentIndex = index;
-      $('reader-current').textContent = current?.text || 'Introduction';
+      $('reader-current').textContent = (major >= 0 ? `Section ${major + 1} of ${sections.length} · ` : '') + (current?.text || 'Introduction');
       $('reader-current').title = current?.text || 'Introduction';
     }
     if (major !== sectionIndex) {
@@ -425,7 +427,7 @@
       else {
         tools.show();
         root.dataset.readerOverlay = ''; backdrop.hidden = false;
-        coveredContent = [main,$('reader-resume')].map(node => ({node,inert:node.inert}));
+        coveredContent = [main,$('reader-resume'),...document.querySelectorAll('.reader-opening,.reader-ending')].map(node => ({node,inert:node.inert}));
         coveredContent.forEach(({node}) => { node.inert = true; });
       }
     }
@@ -459,7 +461,7 @@
   document.addEventListener('keydown',event => {
     if (event.key === 'Escape' && !event.defaultPrevented && tools.open && !document.querySelector('dialog:modal')) { event.preventDefault(); closePanel(); }
   });
-  wide.addEventListener('change',() => { closePanel(false,false); if (wide.matches && prefs.sidebar) openPanel(false); });
+  wide.addEventListener('change',() => { closePanel(false,false); if (wide.matches && prefs.sidebar && !root.hasAttribute('data-reader-focus')) openPanel(false); });
   for (const [id,field] of [['reader-font-size','fontSize'],['reader-line-height','lineHeight'],['reader-column-width','width']]) {
     $(id).addEventListener('change',event => {
       const place = capture(); prefs = preferences({ ...prefs,[field]: Number(event.target.value) });
@@ -581,6 +583,110 @@
   }
   window.addEventListener('hashchange',followHash);
   window.addEventListener('popstate',() => { if (location.hash) followHash(); });
+  // Screen-only presentation. Original manuscript nodes retain their IDs and
+  // text for saved anchors, search, print and PDF generation.
+  function icon(node, name) {
+    let template = document.querySelector(`template[data-reader-icon="${name}"]`);
+    if (name === 'topic') { template = document.createElement('template'); template.innerHTML = JSON.parse($('reader-document-visual').textContent).icon; }
+    if (!node || !template) return;
+    const mark = template.content.cloneNode(true);
+    node.prepend(mark); node.classList.add('reader-icon-label');
+  }
+  const title = main.querySelector('h1');
+  if (title) {
+    const header = document.createElement('header'); header.className = 'reader-opening reader-chrome';
+    const heading = document.createElement('h1'); heading.textContent = title.textContent;
+    icon(heading,'topic'); header.append(heading); title.classList.add('reader-original-heading');
+    const metadata = [...main.children].filter(node => node.matches('p') && /^(Author|Edited on):/.test(node.textContent.trim()));
+    const line = document.createElement('p'); line.className = 'reader-byline';
+    line.textContent = [JSON.parse($('reader-document-visual').textContent).status, ...metadata.map(node => node.textContent.trim().startsWith('Author:')
+      ? (node.querySelector('a')?.textContent || node.textContent.replace(/^Author:\s*/, '').split('(')[0]).trim()
+      : node.textContent.replace(/^Edited on:/,'Updated'))].filter(Boolean).join(' · ');
+    if (line.textContent) header.append(line);
+    if (metadata.length) {
+      const about = document.createElement('details'); about.className = 'reader-about';
+      const summary = document.createElement('summary'); summary.textContent = 'About this study'; about.append(summary);
+      for (const original of metadata) {
+        original.classList.add('reader-original-metadata');
+        const copy = original.cloneNode(true); copy.removeAttribute('class');
+        for (const node of [copy,...copy.querySelectorAll('*')]) { node.removeAttribute('id'); node.removeAttribute('data-reader-passage'); }
+        about.append(copy);
+      }
+      header.append(about);
+    }
+    main.before(header);
+  }
+  icon(back,'akhand-samaj');
+  opener.textContent = 'Contents'; icon(opener,'menu');
+  const find = document.createElement('button'); find.type = 'button'; find.id = 'reader-find';
+  find.className = 'study-toolbar-control'; find.textContent = 'Find'; icon(find,'search');
+  find.addEventListener('click',() => { selectTab('search'); openPanel(); $('reader-search-query').focus(); });
+  opener.after(find);
+  for (const [name,mark] of Object.entries({contents:'menu',search:'search',notes:'notes',bookmarks:'bookmark',listen:'audio',display:'sun'})) icon($('reader-tab-' + name),mark);
+  for (const [selector,mark] of [['.study-toolbar-discuss','discussion'],['.study-toolbar-download','download'],['.study-toolbar-feedback','notes']]) icon(toolbar.querySelector(selector),mark);
+  toolbar.querySelector('.study-toolbar-download').lastChild.textContent = 'Download PDF';
+  toolbar.querySelector('.study-toolbar-feedback').lastChild.textContent = 'Suggest a correction';
+  const contents = $('reader-contents'), passage = $('reader-passage-tools');
+  const help = document.createElement('details'); help.className = 'reader-help';
+  const helpTitle = document.createElement('summary'); helpTitle.textContent = 'Passage links & sources'; help.append(helpTitle);
+  help.append(passage.nextElementSibling,passage); contents.append(help);
+  const footer = tools.querySelector('.reader-panel-footer');
+  const saved = document.createElement('details'); saved.className = 'reader-help';
+  const savedTitle = document.createElement('summary'); savedTitle.textContent = 'Saved reading places'; saved.append(savedTitle);
+  saved.append(...footer.childNodes); $('reader-display').append(saved); footer.remove();
+  for (const panelId of ['reader-search','reader-notes','reader-listen']) {
+    const firstHelp = $(panelId).querySelector(':scope > p.reader-helper');
+    if (firstHelp) {
+      const box = document.createElement('details'); box.className = 'reader-help';
+      const summary = document.createElement('summary'); summary.textContent = 'Help'; box.append(summary);
+      firstHelp.before(box); box.append(firstHelp); $(panelId).append(box);
+    }
+  }
+  $('selection-note').textContent = 'Add note'; $('selection-listen').textContent = 'Listen';
+  $('selection-listen').title = 'Listen to selected text';
+  icon($('selection-note'),'notes'); icon($('selection-listen'),'audio');
+  icon($('reader-copy-passage'),'link'); icon($('reader-copy-citation'),'notes');
+  const audioSettings = document.createElement('details'); audioSettings.className = 'reader-help';
+  const audioTitle = document.createElement('summary'); audioTitle.textContent = 'Voice, speed & help'; audioSettings.append(audioTitle);
+  const listen = $('reader-listen');
+  let setting = listen.querySelector('label[for="listen-voice"]');
+  while (setting) { const next = setting.nextElementSibling; audioSettings.append(setting); setting = next; }
+  audioSettings.append($('listen-test')); listen.append(audioSettings);
+  $('listen-pause').hidden = true; $('listen-resume').hidden = true;
+  $('reader-bookmark-empty').textContent = 'Keep a place to return to. Your bookmarks will appear here.';
+  icon($('reader-bookmark-empty'),'bookmark');
+  const preview = document.createElement('p'); preview.className = 'reader-type-preview';
+  preview.textContent = 'Understanding grows through careful study and observation.';
+  $('reader-reset-display').before(preview);
+  const stepper = document.createElement('div'); stepper.className = 'reader-text-stepper';
+  const size = $('reader-font-size'); size.before(stepper);
+  for (const delta of [-1,1]) {
+    const button = document.createElement('button'); button.type = 'button'; button.textContent = delta < 0 ? 'A−' : 'A+';
+    button.setAttribute('aria-label',delta < 0 ? 'Decrease text size' : 'Increase text size');
+    button.addEventListener('click',() => { size.selectedIndex = Math.max(0,Math.min(size.options.length - 1,size.selectedIndex + delta)); size.dispatchEvent(new Event('change')); });
+    stepper.append(button);
+    if (delta < 0) stepper.append(size);
+  }
+  const focus = document.createElement('button'); focus.type = 'button'; focus.id = 'reader-focus';
+  focus.textContent = 'Focus reading'; focus.setAttribute('aria-pressed','false');
+  const exitFocus = document.createElement('button'); exitFocus.type = 'button'; exitFocus.id = 'reader-exit-focus';
+  exitFocus.textContent = 'Exit focus'; exitFocus.hidden = true; exitFocus.className = 'study-toolbar-control'; toolbar.querySelector('.reader-toolbar-start').append(exitFocus);
+  function setFocus(enabled) {
+    root.toggleAttribute('data-reader-focus',enabled); focus.setAttribute('aria-pressed',String(enabled)); exitFocus.hidden = !enabled;
+    if (enabled) { closePanel(false,false); more.open = false; exitFocus.focus(); }
+    else { if (wide.matches && prefs.sidebar) openPanel(false); opener.focus(); }
+    scheduleMeasure();
+  }
+  focus.addEventListener('click',() => setFocus(true)); exitFocus.addEventListener('click',() => setFocus(false));
+  $('reader-display').prepend(focus);
+  const ending = document.createElement('nav'); ending.className = 'reader-ending reader-chrome'; ending.setAttribute('aria-label','Continue after this study');
+  for (const node of [back,toolbar.querySelector('.study-toolbar-discuss')]) { const link = node.cloneNode(true); link.removeAttribute('id'); ending.append(link); }
+  if (origin.get('from') === 'start-here' && /^[1-4]$/.test(origin.get('stage') || '')) {
+    const next = document.createElement('a'), destination = new URL(back.href);
+    const stage = Number(origin.get('stage')) + 1; destination.searchParams.set('stage',stage); destination.hash = 'path-stage-' + stage;
+    next.href = destination.href; next.textContent = `Continue to stage ${stage} →`; ending.append(next);
+  }
+  main.after(ending);
   renderBookmarks(); opener.hidden = false;
   const fallback = $('study-contents'); if (fallback) fallback.hidden = true;
   measure();
@@ -595,6 +701,7 @@
   $('reader-resume-dismiss').addEventListener('click',() => { startTracking(); measure(); persistPosition(); });
   window.AMDReaderFeatures?.({ main,passages,headings,tools,wide,capture,go,measure,scheduleMeasure,
     closePanel,openPanel,selectTab,message,cleanText });
+  for (const button of main.querySelectorAll('.reader-enlarge')) icon(button,'expand');
   window.AMDStudyTools?.({ main,passages,headings,tools,wide,capture,go,scheduleMeasure,
     currentPlace,onPlaceChange:listener => placeListeners.add(listener),closePanel,openPanel,selectTab,message,cleanText });
   requestAnimationFrame(() => { measure(); if (location.hash) followHash(); });

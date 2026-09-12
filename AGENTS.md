@@ -478,8 +478,9 @@ The second form validates SVG figures for all studies.
 ### What the scripts provide (do not reimplement)
 
 - Study typography, tables, blockquotes, and print CSS — `_convert_to_pdf.py`
-- **Fully justified body paragraphs** — all `<p>` elements use `text-align: justify`
-  (with `text-justify: inter-word` and `hyphens: auto`) in screen and print CSS;
+- **Fully justified print paragraphs** — manuscript `<p>` elements use `text-align: justify`
+  (with `text-justify: inter-word` and `hyphens: auto`) in desktop screen and print CSS;
+  narrow-screen readers override these with left alignment and no automatic hyphenation.
   list items and table cells remain left-aligned — `_convert_to_pdf.py`
 - **Embedded study figures** — PNG (or other raster) images and local **SVG** figures
   referenced from the study `.md` render in HTML/PDF with responsive width —

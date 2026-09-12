@@ -1,9 +1,12 @@
 """Screen-only reader controls and content-versioned shared assets."""
 import hashlib
 import os
+import json
+import re
 from pathlib import Path
 
 from _common import BASE
+from _theme_icons import topic_icon_html, study_icon_name
 
 ASSETS = BASE / "Assets" / "reader"
 
@@ -13,7 +16,11 @@ def reader_assets(source: Path) -> tuple[str, str]:
     def url(name: str) -> str:
         version = hashlib.sha256((ASSETS / name).read_bytes()).hexdigest()[:16]
         return f"{prefix}/{name}?v={version}"
+    status = re.search(r'^\*\*Status:\*\*\s*(Draft|Released)\b', source.read_text(encoding='utf-8'), re.M) if source.is_file() else None
+    visual = json.dumps({'icon': topic_icon_html(study_icon_name(source.parent.name) or 'learning'),
+                         'status': status.group(1) if status else ''}).replace('</', '<\\/')
     return (
+        f'<script type="application/json" id="reader-document-visual">{visual}</script>\n'
         f'<link rel="stylesheet" media="screen" href="{url("reader.css")}"/>\n'
         f'<link rel="stylesheet" media="screen" href="{url("search.css")}"/>\n'
         f'<link rel="stylesheet" media="screen" href="{url("study-tools.css")}"/>',
@@ -42,7 +49,14 @@ def reader_bootstrap() -> str:
 
 
 def reader_controls() -> str:
-    return """<section class="reader-resume reader-chrome" id="reader-resume" aria-label="Saved reading position" hidden>
+    icons = {name: topic_icon_html(name) for name in
+             ('akhand-samaj', 'menu', 'search', 'notes', 'audio', 'sun', 'discussion', 'download', 'external')}
+    icons['bookmark'] = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h12v18l-6-4-6 4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>'
+    icons['expand'] = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>'
+    icons['link'] = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 15 6-6m-7 3-2 2a4 4 0 0 0 6 6l2-2m2-6 2-2a4 4 0 0 0-6-6l-2 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'
+    registry = '<div id="reader-icon-templates" class="reader-chrome" hidden>' + ''.join(
+        f'<template data-reader-icon="{name}">{svg}</template>' for name, svg in icons.items()) + '</div>'
+    return registry + """<section class="reader-resume reader-chrome" id="reader-resume" aria-label="Saved reading position" hidden>
   <div><strong>Continue reading</strong><span id="reader-resume-label"></span></div>
   <button type="button" id="reader-resume-go">Resume</button>
   <button type="button" id="reader-resume-dismiss">Start here</button>

@@ -271,7 +271,8 @@
     function controls(value = state) {
       state = value; const active = state !== 'idle';
       const target = getTarget();
-      $('listen-start').disabled = active || !voices.length || !target?.quote || target.quote.length > 6000;
+      $('listen-start').disabled = state === 'starting' || (state === 'idle' && (!voices.length || !target?.quote || target.quote.length > 6000));
+      $('listen-start').textContent = state === 'speaking' ? 'Pause' : state === 'paused' ? 'Resume' : state === 'starting' ? 'Starting…' : 'Play';
       $('listen-test').disabled = active || !voices.length;
       $('listen-pause').disabled = state !== 'speaking'; $('listen-resume').disabled = state !== 'paused';
       $('listen-stop').disabled = !active; $('listen-voice').disabled = $('listen-speed').disabled = active || !voices.length;
@@ -288,7 +289,6 @@
         if ($(id).textContent !== text) $(id).textContent = text;
       }
       $('listen-selection-hint').hidden = !hint;
-      $('listen-start').textContent = selected?.kind === 'selection' ? 'Read selection' : 'Read paragraph';
       controls();
     }
     $('selection-listen').addEventListener('click',() => {
@@ -326,7 +326,7 @@
       $('listen-voice').replaceChildren();
       for (const voice of voices) { const option = document.createElement('option'); option.value = voice.voiceURI; option.textContent = `${voice.name} · ${voice.lang}`; $('listen-voice').append(option); }
       if (preferred) $('listen-voice').value = preferred.voiceURI;
-      updateSelection(); status(voices.length ? 'Choose Read paragraph or Read selection to begin. Test voice checks the sound.' : 'No device voices are available yet. Reopen Listen after installing a voice in your phone’s text-to-speech settings. See “No sound?” below.');
+      updateSelection(); status(voices.length ? 'Choose Play to listen to the passage shown above.' : 'No device voices are available yet. Reopen Listen after installing a voice in your phone’s text-to-speech settings. See “No sound?” in Voice, speed & help.');
     }
     $('reader-tab-listen').addEventListener('click',refreshVoices);
     synth.addEventListener('voiceschanged',refreshVoices);
@@ -349,7 +349,11 @@
       ranges = resolved.map((found,i) => { const start = offset; offset += selected.anchors[i].quote.length + 1; return {...found,from:start,to:offset - 1}; });
       testing = false; activeTarget = selected; player.play({text:selected.anchors.map(a => a.quote).join('\n'),voice:chosen,rate:Number($('listen-speed').value)});
     };
-    $('listen-start').addEventListener('click',() => read(getTarget()));
+    $('listen-start').addEventListener('click',() => {
+      if (state === 'speaking') player.pause();
+      else if (state === 'paused') player.resume();
+      else read(getTarget());
+    });
     updateSelection(); refreshVoices();
     // Some mobile engines initialize lazily and deliver voiceschanged late.
     const retries = [300,1000,3000].map(delay => setTimeout(() => { if (!voices.length) refreshVoices(); },delay));
