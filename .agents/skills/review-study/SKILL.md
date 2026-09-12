@@ -26,6 +26,11 @@ Read the complete argument before judging isolated claims. Identify the central
 definitions and relationships, then follow their use through exposition,
 comparison, criticism, conclusion, appendix, glossary, and Editorial Notes.
 
+When a companion extends a parent model, check the parent's actual definitions,
+assumptions and section references. Reconcile differing companion conclusions
+against the relevant sources. Check a proposed formal rule against its worked
+examples and the particular guarantee it claims.
+
 ## Assess the connected primary account
 
 For a material claim, keep a brief working record of its meaning, source locations,

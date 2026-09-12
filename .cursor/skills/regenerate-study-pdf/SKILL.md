@@ -35,8 +35,11 @@ conceptual review.
 
 1. Confirm you are on a **feature branch**, not the default branch — study changes always
    go through a branch + labeled pull request per [AGENTS.md](../../../AGENTS.md) §7.
-2. If you edited study **content**, refresh `**Edited on:**` and catalog **Status**
-   dates per [AGENTS.md](../../../AGENTS.md) §1 (run `Get-Date`, never guess).
+2. If you edited **canonical study Markdown**, refresh its `**Edited on:**` and
+   catalog **Status** dates per [AGENTS.md](../../../AGENTS.md) §1 (run `Get-Date`,
+   never guess). For a companion-note content edit, refresh the note's own
+   `**Edited on:**` when present; its PDF date comes from that source, not the
+   parent. Do not change dates for a rendering-only rebuild.
 3. Ensure one-time setup is done (repo root):
 
 ```powershell
@@ -125,6 +128,13 @@ flowchart TD
 - For **wide formal specs** (Petri nets, type signatures), prefer a **markdown table** over a long ` ```text ` block — tables do not clip in PDF.
 - After regeneration, verify steps catch unrendered diagrams and clipped code automatically.
 
+## Visual review
+
+Inspect the rendered PDF pages themselves: all pages for a new note, and affected
+pages plus surrounding reflow for an edit. Check figure and label legibility,
+complete formulas and tables, captions, and page breaks. Automated
+text/font/outline checks do not establish visual correctness.
+
 ## Completion check
 
 - [ ] Referenced SVG figures pass `python Scripts/_verify_study_svgs.py Studies/<Slug>/<Slug>.md`
@@ -133,7 +143,9 @@ flowchart TD
 - [ ] For a catalog study, the sibling `<Slug>.html` remains the published read view
 - [ ] No raw `flowchart TD` / `graph LR` visible in PDF when Mermaid blocks exist
 - [ ] KaTeX output embeds its font when the HTML contains rendered math
-- [ ] `**Edited on:**` and catalog **Last updated on** match (if content changed)
+- [ ] Rendered pages pass the visual review above
+- [ ] Canonical study `**Edited on:**` and catalog **Last updated on** match when its Markdown changed; companion-only edits leave these unchanged
+- [ ] An edited companion note's own `**Edited on:**`, when present, was refreshed before rendering
 - [ ] Intermediate `.html` is the published study page (not a throwaway artifact)
 - [ ] Change is on a feature branch with the correct PR label (`new-study` / `study-update` /
   `status-change`) ready to apply — not committed to `master`/`main`

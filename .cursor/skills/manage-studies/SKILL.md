@@ -43,13 +43,25 @@ served through the coherent site's R2 release. Missing local PDFs are expected.
 | Draft | Reader and PDF with Draft watermark |
 | Released | Reader and PDF without watermark |
 
-PPTX is the visible-slide source. `presentation-pipeline.json` declares every
-deck's slides/notes PDF pair. `companion-pipeline.json` declares each Presenter's
-Companion MD → DOCX/notes JSON → PPTX notes chain. Ordinary technical/research
-notes use the Markdown pipeline and automatic inventory, without a presenter
-mapping. Neither companions nor figures acquire catalog rows of their own.
+Choose registration by the source's role, not by its PDF output:
+
+| Document | Authored registration / ownership |
+|----------|----------------------------------|
+| Canonical study | Catalog entry managed through the study lifecycle scripts |
+| Technical/research note | Direct-child `Technical-Note-*.md` or `Research-Note-*.md`; automatic inventory, no separate catalog row or `**Status:**` |
+| Teaching deck | PPTX owns visible slides; `Scripts/presentation-pipeline.json` declares its slides/notes PDF pair |
+| Presenter's Companion | `Scripts/companion-pipeline.json` declares MD → DOCX/notes JSON → registered deck's notes ownership |
+
+Companions and figures do not acquire catalog rows. Generated companion
+inventories, PDF-key lists, search data and offline manifests are build outputs,
+not registration inputs; refresh them through the shared finalizer.
 
 ## Prepare the affected outputs
+
+For a review-only request, inspect the working tree, including untracked sources,
+without staging or repairing it. Report any checks whose coverage excludes those
+sources. The authoring and commit/PR steps below apply within the requested scope;
+a review request alone does not authorize them.
 
 Work from the repository root on a feature branch. Install repository Python
 requirements and the pinned Node/Chrome dependencies when rendering Markdown;
@@ -80,7 +92,15 @@ inside the PPTX; the deck renderer consumes the PPTX, not that loose source imag
 
 ## Shared finish before review
 
-1. After the targeted renders, finalize tracked artifacts:
+1. Before rendering a new Markdown source or running discovery builders, inspect
+   `git status --short` and add only the intended new sources/resources to the
+   Git index with `git add -- <paths>`. Search and reader-offline discovery use
+   `git ls-files`, whereas companion inventory also sees untracked notes.
+   Inventory/freshness checks can therefore pass while a new untracked note is
+   absent from search and offline support. Staging makes it discoverable; a
+   commit is not required for this step.
+
+   After the targeted renders, finalize tracked artifacts:
 
    ```powershell
    python Scripts/_finalize_study_artifacts.py --study <Slug>
@@ -98,12 +118,18 @@ inside the PPTX; the deck renderer consumes the PPTX, not that loose source imag
    inventory, generated-PDF keys, social cards, search and offline builders. It
    checks index/inventory freshness and declared companion DOCX/JSON/PPTX
    consistency. It does not render PDFs, invent source timestamps or publish.
-   A repeat on unchanged inputs must leave no diff.
+   A repeat on unchanged inputs must leave no diff. For a new public note, confirm
+   its actual entry in `Studies/companion-artifacts.json`, generated-PDF keys,
+   its study's search shard and `Studies/offline-manifest.json`; also review the
+   updated search manifest/page. A green rebuild alone does not prove inclusion.
 
-2. Run applicable reference and quote checks from AGENTS §6–§7. Review source,
-   HTML, catalog, registry, manifests and generated discovery diffs. Commit them
+2. Run applicable reference and quote checks from AGENTS §6–§7, including the
+   [direct companion checks](../check-references/SKILL.md#companion-note-coverage)
+   when note citations change. Review source, HTML, catalog, registry, manifests
+   and generated discovery diffs. Stage the final sources and tracked outputs
    together, including companion DOCX/notes JSON/PPTX when applicable; never add
-   generated study/application PDFs. Run `git diff --check` before committing.
+   generated study/application PDFs. Run both `git diff --check` and
+   `git diff --cached --check`, then commit the reviewed changes.
 
 3. Write the PR body using the matching template, then validate the **committed
    HEAD** against the current base with that same body:
@@ -114,8 +140,11 @@ inside the PPTX; the deck renderer consumes the PPTX, not that loose source imag
    python Scripts/_verify_companion_outputs.py
    ```
 
-   The first command compares commits, not uncommitted edits. First drafts also
-   need `GITHUB_REPOSITORY` and an authenticated `GITHUB_TOKEN` for the read-only
+   The first command compares commits, not staged or unstaged edits.
+   `_verify_companion_outputs.py` checks declared presenter MD/DOCX/JSON/PPTX
+   chains; it does not validate ordinary technical-note content or layout.
+   First drafts also need `GITHUB_REPOSITORY` and an authenticated
+   `GITHUB_TOKEN` for the read-only
    approval check against the linked open `proposal-approved` issue. Never print
    credentials. Fix failures, recommit, and repeat the affected checks.
 
