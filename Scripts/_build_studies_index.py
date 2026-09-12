@@ -1537,6 +1537,30 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .approach-illustration { max-width: 720px; margin: 20px auto 28px; }
   .approach-illustration img { display: block; width: 100%; height: auto; border-radius: 10px; }
   .approach-illustration figcaption { text-align: center; font: 13px var(--sans); color: var(--text-muted); margin-top: 8px; }
+  .hero { display: flow-root; }
+  .hero-book { float: right; width: 150px; height: auto; margin: 0 0 8px 24px; }
+  .contribute-intro { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; }
+  .contribute-intro .section-intro { flex: 1; margin: 0; }
+  .contribute-art { width: 180px; height: auto; flex: 0 0 auto; }
+  .section-heading { display: flex; align-items: center; gap: 10px; }
+  .section-heading .amd-icon { width: 24px; height: 24px; }
+  #approach .section-heading:not(:first-child) { margin-top: 36px; }
+  .approach-illustration { margin: 16px auto 26px; }
+  .approach-illustration .illustration-dark { display: none; }
+  [data-theme="dark"] .approach-illustration .illustration-light { display: none; }
+  [data-theme="dark"] .approach-illustration .illustration-dark { display: block; }
+  @media (min-width: 821px) {
+    #grid-formal > .card:only-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 12px 32px; }
+    #grid-formal > .card:only-child .card-title-row { grid-column: 1; grid-row: 2; }
+    #grid-formal > .card:only-child .chips { grid-column: 1; grid-row: 3; }
+    #grid-formal > .card:only-child .card-desc { grid-column: 2; grid-row: 2 / 4; margin: 0; align-self: center; }
+    #grid-formal > .card:only-child .card-foot { grid-column: 1 / -1; }
+  }
+  @media (max-width: 600px) {
+    .hero-book { width: 100px; margin-left: 12px; }
+    .contribute-intro { gap: 12px; }
+    .contribute-art { width: 108px; }
+  }
   @media (max-width: 820px) {
     .page-nav-inner { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 6px 10px; }
     .page-nav-home { grid-column: 1; grid-row: 1; }
@@ -1563,6 +1587,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <header class="hero" id="site-header">
   <div class="hero-identity">@amd-mark:akhand-samaj@<h1>Studies of Madhyasth Darshan</h1></div>
+  <img class="hero-book" src="../Assets/Theme/illustrations/open-book.png" width="1536" height="1024" alt="" decoding="async"/>
   <p class="lead">An open and growing collection of comparative studies of <strong>Madhyasth Darshan</strong> (Co-existentialism), the philosophy founded by <strong>Shri A. Nagraj</strong>. The collection follows a single line of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.</p>
 
   <div class="dialogue-row">
@@ -1890,17 +1915,18 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <section class="section" id="approach">
   <h2>How we work</h2>
+  <div class="section-card">
+    <h3 class="section-heading">@amd-ui:learning@Our approach</h3>
   <figure class="approach-illustration">
-    <img src="../Assets/Theme/illustrations/shared-study-courtyard.png" width="2172" height="724" loading="lazy" decoding="async" alt="Four people studying an open book together in a softly outlined courtyard, with a potted plant and a repaired stool nearby."/>
+    <img class="illustration-light" src="../Assets/Theme/illustrations/shared-study-courtyard.png" width="2172" height="724" loading="lazy" decoding="async" alt="Four people studying an open book together in a softly outlined courtyard, with a potted plant and a repaired stool nearby."/>
+    <img class="illustration-dark" src="../Assets/Theme/illustrations/shared-study-courtyard-dark.png" width="2172" height="724" loading="lazy" decoding="async" alt="Four people studying an open book together in a softly outlined courtyard, with a potted plant and a repaired stool nearby."/>
     <figcaption>Illustration of study and everyday participation.</figcaption>
   </figure>
-  <div class="section-card">
-    <h3>Our approach</h3>
     <p>The project reads primary <strong>Madhyasth Darshan</strong> texts closely, reconstructs their claims as clearly as possible, and compares them with the natural sciences, Advaita Vedanta, and modern philosophy. The aim is rigorous comparative understanding: to test definitions, internal consistency, explanatory scope, and compatibility with evidence &mdash; not to persuade or offer devotional endorsement.</p>
     <p>The founding studies draw on a scientist and technologist&rsquo;s training in graduate-level physics and mathematics. Matter-first explanations are a familiar starting point, but the success of scientific methods does not by itself settle the nature of consciousness, self, or value. Physics and mathematics are one leg of the comparison; each tradition is examined through its own concepts and arguments, with its claims open to criticism.</p>
     <p>Textual warrant, logical coherence, first-person verification, evidence in conduct, and instrument-based confirmation are kept distinct. Agreement at one level does not establish a claim at another. Clear, checkable prose comes first; formal models are used where they help and do not by themselves prove the existence of what they represent. Individual studies state their particular questions, sources, assumptions, and limits where these bear on the argument.</p>
 
-    <h3>What we keep separate</h3>
+    <h3 class="section-heading">@amd-ui:choice@What we keep separate</h3>
     <p class="section-intro" style="margin-bottom:4px;">Throughout, three things are held clearly apart:</p>
     <div class="triad">
       <div class="triad-item t1">
@@ -1917,7 +1943,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       </div>
     </div>
 
-    <h3>Objectives</h3>
+    <h3 class="section-heading">@amd-ui:resolution@Objectives</h3>
     <ol>
       <li>Understand each topic closely enough to state its definitions, claims, and arguments clearly.</li>
       <li>Compare traditions using explicit questions and consistent standards of evidence and reasoning.</li>
@@ -1925,7 +1951,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li>Examine what these ideas imply for relationships, conduct, institutions, science, and technology.</li>
     </ol>
 
-    <h3>From study to understanding</h3>
+    <h3 class="section-heading">@amd-ui:coexistence@From study to understanding</h3>
     <p>Reading and logical reconstruction are the beginning, not the endpoint. This path treats understanding as something to be tested in observation, relationships, decisions, and participation in family and society. Practice does not replace argument or evidence; it is where claims about value and conduct encounter lived consequences.</p>
   </div>
 </section>
@@ -1933,7 +1959,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <section class="section" id="contribute">
   <h2>How to contribute</h2>
   <div class="section-card">
-    <p class="section-intro">Contributions can improve an existing study or help create one that has not yet been written.</p>
+    <div class="contribute-intro"><p class="section-intro">Contributions can improve an existing study or help create one that has not yet been written.</p><img class="contribute-art" src="../Assets/Theme/illustrations/shared-writing.png" width="1536" height="1024" loading="lazy" decoding="async" alt=""/></div>
     <div class="contribute-paths">
       <div class="contribute-path contribute-path--feedback" id="comments-and-corrections">
         <h3>Discuss or improve a study</h3>
