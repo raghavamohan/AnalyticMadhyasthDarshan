@@ -167,7 +167,7 @@ interchangeable; never regenerate one over another's path.
 | PDF | Contains | Audience |
 |-----|----------|----------|
 | `<Deck>.pdf` | Slides only | Projecting; this is what `Studies/index.html` links as the presentation PDF |
-| `<Deck>-notes.pdf` | Slide plus that slide's read-aloud script, one page per slide | The presenter, while delivering |
+| `<Deck>-notes.pdf` | Slide plus that slide's read-aloud script, with continuation pages when needed | The presenter, while delivering |
 | `Presenters-Companion-<Name>.pdf` | Script **plus** primary-text background and Q&A | Pre-session study |
 
 `<Deck>.pdf` must stay slides-only. Output paths come from
@@ -177,10 +177,11 @@ For a new deck, follow [add-study-presentation](../add-study-presentation/SKILL.
 
 ## Notes on the PDF tooling
 
-- **A study folder may hold more than one deck.** `--study <Slug>` on its own only
-  resolves when exactly one `.pptx` is present; otherwise pass `--deck <file>` or a
-  full path. `The-Ontology-of-Coexistence` holds two decks, so the bare `--study`
-  form fails there by design.
+- **Select production builds by manifest deck ID:**
+  `_build_presentations.py --deck <ID> --in-place`; this command has no `--study`
+  option. The diagnostic `_pptx_to_pdf.py` and `_build_deck_notes_pdf.py` instead
+  accept a PPTX path or `--study <Slug> --deck <filename>`. Their `--study` alone
+  resolves only when the study directory contains exactly one deck.
 - `presentation-pipeline.json` is the canonical mapping from each PPTX to its slides
   and notes PDFs. This is essential where a deck stem matches the study slug: the
   slides output uses `-presentation.pdf` rather than overwriting the study PDF.
