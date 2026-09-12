@@ -50,6 +50,18 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
         nav:document.querySelector('.page-nav').getBoundingClientRect().height}));
       assert.ok(metrics.scroll <= metrics.width, `Page overflow at ${width}px: ${JSON.stringify(await page.$$eval('body *', nodes => nodes.filter(n => n.getBoundingClientRect().right > innerWidth).slice(0,12).map(n => [n.tagName,n.className,n.getBoundingClientRect().right])))}`);
       if (width === 390) assert.ok(metrics.nav < 145, `Mobile header too tall: ${metrics.nav}`);
+      const titleOffsets = await page.$$eval('.hero-identity, .card-title-row, .contribute-heading, .section-heading', rows => rows.filter(row => row.getBoundingClientRect().height > 0).map(row => {
+        const icon = row.firstElementChild.getBoundingClientRect();
+        const text = row.lastElementChild.getBoundingClientRect();
+        // Anonymous flex text boxes use font ink bounds; compare those separately
+        // through their container's align-items contract below.
+        return {kind:row.className, offset:row.children.length > 1 ? Math.abs(icon.y + icon.height/2 - text.y - text.height/2) : 0,
+          alignment:getComputedStyle(row).alignItems};
+      }));
+      for (const row of titleOffsets) {
+        assert.equal(row.alignment, 'center', `${row.kind} at ${width}px`);
+        assert.ok(row.offset < 1, `${row.kind} icon offset ${row.offset}px at ${width}px`);
+      }
     }
     for (const theme of ['light','dark']) {
       await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);

@@ -1515,13 +1515,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   [data-theme="dark"] .theme-icon-moon { display: none; }
   .card-title-row {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 10px;
     margin: 0 0 9px;
   }
   .card-title-row .card-title { margin: 0; flex: 1 1 auto; min-width: 0; }
   .card-title-row .amd-topic-icon,
-  .card-title-row .amd-mark { width: 40px; height: 40px; margin-top: 1px; }
+  .card-title-row .amd-mark { width: 40px; height: 40px; }
   .path-stage-icon { display: flex; align-items: center; justify-content: center; }
   .path-action, .path-slides { display: inline-flex; align-items: center; gap: 6px; }
   .path-action .amd-icon, .path-slides .amd-icon { width: 16px; height: 16px; }
@@ -1539,7 +1539,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .approach-illustration figcaption { text-align: center; font: 13px var(--sans); color: var(--text-muted); margin-top: 8px; }
   .hero { display: flow-root; }
   .hero-book { float: right; width: 150px; height: auto; margin: 0 0 8px 24px; }
-  .contribute-heading { display: flex; align-items: flex-start; gap: 10px; }
+  .contribute-heading { display: flex; align-items: center; gap: 10px; }
   .contribute-heading .amd-topic-icon { width: 28px; height: 28px; flex: 0 0 28px; }
   .section-heading { display: flex; align-items: center; gap: 12px; }
   .section-heading-icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; background: var(--warm-soft); }
