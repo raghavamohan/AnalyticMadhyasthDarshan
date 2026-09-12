@@ -7,6 +7,15 @@ pages, deck sources, and the legacy `Assets/Icons` families are not replaced.
 
 ## Meaning and geometry
 
+The study readers use the same topic assignment as the catalog, with a 40px
+title icon (30px on phones) and 18px functional icons beside visible labels.
+The return link carries A1. Notes use the document symbol; saved reading places
+use a ribbon bookmark, distinct from the saved/downloaded check mark. Link and
+four-corner expand glyphs follow the same rounded 1.7px line style. Their inline
+reader templates live in `Scripts/_study_reader.py`; they need no external
+sprite fetch and remain available in offline readers. Icons are decorative to
+assistive technology and do not enter manuscript paragraphs or print output.
+
 - **Jeevan:** atma at the centre, then buddhi, citta, vritti and mun from inside
   outward. All four rings remain present in the compact cut. A pictorial mark is
   not a physical measurement or a scale model.

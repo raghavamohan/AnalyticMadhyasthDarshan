@@ -2584,6 +2584,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const restoreStartHere = () => {
+    const stageTarget = /^#path-stage-([1-5])$/.exec(location.hash);
+    if (stageTarget) {
+      document.getElementById("path-stage-" + stageTarget[1]).checked = true;
+      requestAnimationFrame(() => document.getElementById("start-here").scrollIntoView({ behavior: "instant", block: "start" }));
+      return;
+    }
     const match = /^#path-study-([^#]+)$/.exec(location.hash);
     if (!match) return;
     let slug;

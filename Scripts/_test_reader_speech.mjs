@@ -172,9 +172,11 @@ function integration() {
   synth.spoken.at(-1).onstart();
   f.place('p-1');
   assert.equal(nodes.get('listen-selection-preview').textContent,second.text,'scrolling cannot relabel the paragraph being spoken');
-  nodes.get('listen-pause').fire('click');
+  assert.equal(nodes.get('listen-start').textContent,'Pause');
+  nodes.get('listen-start').fire('click');
   assert.equal(nodes.get('listen-resume').disabled,false);
-  nodes.get('listen-resume').fire('click');
+  assert.equal(nodes.get('listen-start').textContent,'Resume');
+  nodes.get('listen-start').fire('click');
   assert.equal(synth.spoken.at(-1).text,second.text);
   nodes.get('listen-stop').fire('click');
   assert.equal(nodes.get('listen-selection-preview').textContent,first.text,'stopping restores the current reading target');
@@ -202,7 +204,8 @@ function integration() {
   document.fire('selectionchange'); time.flush();
   assert.equal(f.nativeSelection,null);
   assert.equal(nodes.get('listen-selection-preview').textContent,first.text);
-  assert.equal(nodes.get('listen-start').disabled,true,'the active run uses Pause, Resume and Stop');
+  assert.equal(nodes.get('listen-start').disabled,false,'the primary control remains available to pause');
+  assert.equal(nodes.get('listen-start').textContent,'Pause');
   document.fire('pointerdown',{target:nodes.get('listen-start')});
   assert.equal(nodes.get('reader-selection-tools').hidden,true,'playback controls do not reopen the floating selection toolbar');
   assert.equal(nodes.get('listen-pause').disabled,false);
