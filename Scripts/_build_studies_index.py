@@ -1542,8 +1542,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .contribute-intro { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; }
   .contribute-intro .section-intro { flex: 1; margin: 0; }
   .contribute-art { width: 180px; height: auto; flex: 0 0 auto; }
-  .section-heading { display: flex; align-items: center; gap: 10px; }
-  .section-heading .amd-icon { width: 24px; height: 24px; }
+  .section-heading { display: flex; align-items: center; gap: 12px; }
+  .section-heading-icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; background: var(--warm-soft); }
+  .section-heading-icon .amd-topic-icon { width: 36px; height: 36px; }
+  [data-theme="dark"] .section-heading-icon { background: #302c26; }
   #approach .section-heading:not(:first-child) { margin-top: 36px; }
   .approach-illustration { margin: 16px auto 26px; }
   .approach-illustration .illustration-dark { display: none; }
@@ -1916,7 +1918,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <section class="section" id="approach">
   <h2>How we work</h2>
   <div class="section-card">
-    <h3 class="section-heading">@amd-ui:learning@Our approach</h3>
+    <h3 class="section-heading"><span class="section-heading-icon" aria-hidden="true">@amd-topic:learning@</span>Our approach</h3>
   <figure class="approach-illustration">
     <img class="illustration-light" src="../Assets/Theme/illustrations/shared-study-courtyard.png" width="2172" height="724" loading="lazy" decoding="async" alt="Four people studying an open book together in a softly outlined courtyard, with a potted plant and a repaired stool nearby."/>
     <img class="illustration-dark" src="../Assets/Theme/illustrations/shared-study-courtyard-dark.png" width="2172" height="724" loading="lazy" decoding="async" alt="Four people studying an open book together in a softly outlined courtyard, with a potted plant and a repaired stool nearby."/>
@@ -1926,7 +1928,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <p>The founding studies draw on a scientist and technologist&rsquo;s training in graduate-level physics and mathematics. Matter-first explanations are a familiar starting point, but the success of scientific methods does not by itself settle the nature of consciousness, self, or value. Physics and mathematics are one leg of the comparison; each tradition is examined through its own concepts and arguments, with its claims open to criticism.</p>
     <p>Textual warrant, logical coherence, first-person verification, evidence in conduct, and instrument-based confirmation are kept distinct. Agreement at one level does not establish a claim at another. Clear, checkable prose comes first; formal models are used where they help and do not by themselves prove the existence of what they represent. Individual studies state their particular questions, sources, assumptions, and limits where these bear on the argument.</p>
 
-    <h3 class="section-heading">@amd-ui:choice@What we keep separate</h3>
+    <h3 class="section-heading"><span class="section-heading-icon" aria-hidden="true">@amd-topic:choice@</span>What we keep separate</h3>
     <p class="section-intro" style="margin-bottom:4px;">Throughout, three things are held clearly apart:</p>
     <div class="triad">
       <div class="triad-item t1">
@@ -1943,7 +1945,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       </div>
     </div>
 
-    <h3 class="section-heading">@amd-ui:resolution@Objectives</h3>
+    <h3 class="section-heading"><span class="section-heading-icon" aria-hidden="true">@amd-topic:resolution@</span>Objectives</h3>
     <ol>
       <li>Understand each topic closely enough to state its definitions, claims, and arguments clearly.</li>
       <li>Compare traditions using explicit questions and consistent standards of evidence and reasoning.</li>
@@ -1951,7 +1953,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li>Examine what these ideas imply for relationships, conduct, institutions, science, and technology.</li>
     </ol>
 
-    <h3 class="section-heading">@amd-ui:coexistence@From study to understanding</h3>
+    <h3 class="section-heading"><span class="section-heading-icon" aria-hidden="true">@amd-topic:coexistence@</span>From study to understanding</h3>
     <p>Reading and logical reconstruction are the beginning, not the endpoint. This path treats understanding as something to be tested in observation, relationships, decisions, and participation in family and society. Practice does not replace argument or evidence; it is where claims about value and conduct encounter lived consequences.</p>
   </div>
 </section>
