@@ -1,4 +1,5 @@
 (() => {
+  const COMMENTS_LOADING_HTML = "<li class=\"comments-loading\"><span class=\"amd-wait\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 240 240\" aria-hidden=\"true\" focusable=\"false\"><path class=\"goal\" d=\"M120 36H163Q204 36 204 77V120\" transform=\"rotate(0 120 120)\" fill=\"none\" stroke=\"var(--amd-icon,#1A5276)\" stroke-width=\"20\"/><path class=\"goal\" d=\"M120 36H163Q204 36 204 77V120\" transform=\"rotate(90 120 120)\" fill=\"none\" stroke=\"var(--amd-accent,#B47B46)\" stroke-width=\"20\"/><path class=\"goal\" d=\"M120 36H163Q204 36 204 77V120\" transform=\"rotate(180 120 120)\" fill=\"none\" stroke=\"var(--amd-icon,#1A5276)\" stroke-width=\"20\"/><path class=\"goal\" d=\"M120 36H163Q204 36 204 77V120\" transform=\"rotate(270 120 120)\" fill=\"none\" stroke=\"var(--amd-accent,#B47B46)\" stroke-width=\"20\"/><circle cx=\"120\" cy=\"120\" r=\"22\" fill=\"var(--amd-accent,#B47B46)\" stroke=\"none\"/></svg><span class=\"amd-wait-label\">Loading comments&hellip;</span></span></li>";
   const cfg = window.AMD_DISCUSS || {};
   const STUDY_SLUG = cfg.slug;
   const STUDY_TITLE = cfg.title;
@@ -360,7 +361,7 @@
     commentsEmpty.classList.add("hidden");
     if (commentsError) commentsError.classList.add("hidden");
     commentList.setAttribute("aria-busy", "true");
-    commentList.innerHTML = '<li class="comments-loading">Loading comments&hellip;</li>';
+    commentList.innerHTML = COMMENTS_LOADING_HTML;
   };
 
   const renderComments = () => {
@@ -548,7 +549,10 @@
       markDiscussionSeen(allComments);
       if (commentsError) commentsError.classList.add("hidden");
     } catch (err) {
-      if (commentList && !append) commentList.innerHTML = "";
+      if (commentList && !append) {
+        commentList.innerHTML = "";
+        commentList.removeAttribute("aria-busy");
+      }
       if (commentsEmpty) commentsEmpty.classList.add("hidden");
       if (commentsError) commentsError.classList.remove("hidden");
       throw err;

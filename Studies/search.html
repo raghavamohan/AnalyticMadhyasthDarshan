@@ -7,12 +7,65 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Icons/akhand-samaj-favicon-16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/Assets/Icons/akhand-samaj-apple-touch-icon.png"/>
-<link rel="stylesheet" href="../Assets/reader/search.css?v=c92940019b038782"/>
-<script defer src="../Assets/reader/search.js?v=978601cd252a8f49"></script></head>
-<body class="search-page"><a class="search-back" href="index.html">← All studies</a>
+<style>:root {
+  --amd-navy: #1a5276;
+  --amd-gold: #b47b46;
+  --amd-gold-text: #8b5e34;
+  --amd-paper: #f7f4ef;
+  --amd-ink: #2a241c;
+  --amd-muted: #5c5348;
+  --amd-line: #ded8cf;
+  --amd-surface: #ffffff;
+  --amd-serif: Cambria, Georgia, serif;
+  --amd-sans: Calibri, 'Segoe UI', sans-serif;
+  --amd-icon: var(--amd-navy);
+  --amd-accent: var(--amd-gold);
+}
+[data-theme="dark"], .amd-dark {
+  --amd-icon: #f7f4ef;
+  --amd-accent: #d5a477;
+}
+.amd-dark {
+  color: #f7f4ef;
+  background: #1a5276;
+}
+.amd-icon { width: 24px; height: 24px; flex: 0 0 auto; }
+.amd-mark { width: 72px; height: 72px; flex: 0 0 auto; }
+.amd-wait { display: inline-flex; align-items: center; gap: 12px; font-family: var(--amd-sans); }
+.amd-wait svg { width: 48px; height: 48px; flex: 0 0 auto; }
+.amd-wait .faculty, .amd-wait .goal { animation: amd-presence 2400ms ease-in-out infinite; }
+.amd-wait .faculty:nth-child(2), .amd-wait .goal:nth-child(2) { animation-delay: 300ms; }
+.amd-wait .faculty:nth-child(3), .amd-wait .goal:nth-child(3) { animation-delay: 600ms; }
+.amd-wait .faculty:nth-child(4), .amd-wait .goal:nth-child(4) { animation-delay: 900ms; }
+@keyframes amd-presence { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+[data-motion="paused"] .amd-wait .faculty,
+[data-motion="paused"] .amd-wait .goal { animation: none; opacity: 1; }
+@media (prefers-reduced-motion: reduce) {
+  .amd-wait .faculty, .amd-wait .goal { animation: none; opacity: 1; }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .search-page {
+    --amd-icon: #f7f4ef;
+    --amd-accent: #d5a477;
+  }
+}
+.amd-wait[hidden] { display: none !important; }
+
+  .amd-icon { width: 20px; height: 20px; display: block; }
+  .amd-topic-icon, .amd-mark { width: 40px; height: 40px; flex: 0 0 auto; display: block; }
+  .amd-stage-mark { width: 24px; height: 24px; flex: 0 0 auto; display: block; }
+  .amd-home { display: inline-flex; align-items: center; gap: 8px; color: inherit; }
+  .amd-home .amd-mark { width: 32px; height: 32px; }
+  .amd-action { display: inline-flex; align-items: center; gap: 6px; }
+  .amd-action .amd-icon { width: 18px; height: 18px; }
+</style>
+<link rel="stylesheet" href="../Assets/reader/search.css?v=5a9f6333117dedb7"/>
+<script defer src="../Assets/reader/search.js?v=db4f6211550a4195"></script></head>
+<body class="search-page"><a class="search-back amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a>
 <main><h1>Find a passage</h1><p>Search the text of published studies and companion notes. Open a result at its passage, then use its sources to check the claim.</p>
 <section class="study-search" id="collection-search" data-manifest="search-data/manifest.json?v=ec0b5f02818d8246" aria-label="Search published documents">
-<form class="search-form"><label for="collection-query">Words or phrase</label><div class="search-input-row"><input id="collection-query" type="search" maxlength="200" placeholder='e.g. "duration of activity"' required/><button type="submit">Search</button></div>
+<form class="search-form"><label for="collection-query">Words or phrase</label><div class="search-input-row"><input id="collection-query" type="search" maxlength="200" placeholder='e.g. "duration of activity"' required/><button type="submit"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span>Search</span></button></div>
 <p class="search-help">All words must occur in the same passage. Use quotation marks for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
 <div class="search-filters">
 <label>Document<select id="search-document"><option value="">All documents</option></select></label>
@@ -20,7 +73,7 @@
 <label>Status<select id="search-status"><option value="">All statuses</option><option value="released">Released</option><option value="draft">Draft</option><option value="note">Companion notes</option></select></label>
 <label>Language<select id="search-language"><option value="">All languages</option></select></label>
 </div></form>
-<p class="search-status" role="status" aria-live="polite">Enter a word or phrase to begin.</p>
+<p class="search-status" role="status" aria-live="polite"><span class="amd-wait" id="search-wait" hidden><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><circle class="faculty" cx="120" cy="120" r="34" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="8"/><circle class="faculty" cx="120" cy="120" r="54" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="8"/><circle class="faculty" cx="120" cy="120" r="74" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="8"/><circle class="faculty" cx="120" cy="120" r="94" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="8"/><circle cx="120" cy="120" r="17" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg></span><span class="search-status-text">Enter a word or phrase to begin.</span></p>
 <ol class="search-results"></ol><button type="button" class="search-more" hidden>Show more results</button>
 </section><p class="search-help">Search runs in your browser. The selected documents load when you search. Primary-source PDFs, private submissions and in-progress studies are outside this index.</p>
 <noscript><p>Enable JavaScript for passage search, or open a study and use your browser’s Find command.</p></noscript></main></body></html>

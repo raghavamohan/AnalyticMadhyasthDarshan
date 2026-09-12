@@ -4,12 +4,21 @@ import hashlib
 from pathlib import Path
 import re
 
+from _theme_icons import THEME_MOTION_CSS, identity_mark_html
+
 BASE = Path(__file__).resolve().parents[1]
 PORTAL = BASE / 'Studies/portal'
 
 
 def expected(path, sources):
     text = path.read_text(encoding='utf-8')
+    for name, content in {
+        'theme-styles': '<style>' + THEME_MOTION_CSS + '</style>',
+        'theme-home': '<a class="amd-home" href="index.html">' + identity_mark_html('akhand-samaj') + '<span>All studies</span></a>',
+    }.items():
+        text = re.sub(r'<!-- ' + name + r' -->.*?<!-- /' + name + r' -->',
+                      lambda _: '<!-- ' + name + ' -->' + content + '<!-- /' + name + ' -->', text, flags=re.DOTALL)
+
     for url, source in sources.items():
         version = hashlib.sha256(source.read_bytes()).hexdigest()[:16]
         pattern = re.escape(url) + r'(?:\?v=[a-f0-9]+)?(?=[\'\"])'
