@@ -88,6 +88,13 @@ section breaks, not behind readable tables.
 
 ## Illustration provenance
 
+`shared-study-courtyard.png` is the approved website illustration: four people
+studying together, drawn in navy and muted gold with faint courtyard architecture.
+Its wide 3:1 composition keeps the How we work section light beside the text.
+It replaces the more detailed scene below on the website. Both are AI-generated
+editorial illustrations, not documented events. Alternative images and generation
+prompts are preserved in `illustrations/alternatives/`.
+
 `community-courtyard.png` is AI-generated editorial artwork made
 for this kit. It depicts an illustrative everyday scene, not a documented event
 or evidence that a social/philosophical claim has been established. Recommended
