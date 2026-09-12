@@ -100,6 +100,18 @@ inside the PPTX; the deck renderer consumes the PPTX, not that loose source imag
    consistency. It does not render PDFs, invent source timestamps or publish.
    A repeat on unchanged inputs must leave no diff.
 
+   Finalization is not a substitute for the full set of applicable CI checks.
+   After generating reader HTML or changing shared reader assets, run
+   `_sync_glossary_html.py --check` and `_test_study_reader.py`, then rebuild
+   `_build_reader_offline.py`. For HTML-only refreshes use the converter CLI,
+   or explicitly set `include_web_chrome=True` in Python. Account for every
+   affected tracked reader, including templates excluded from search/offline
+   eligibility; do not silently reduce the batch to catalogued documents.
+   Review unexpectedly large generated diffs before committing. Shared web
+   generator imports or asset dependencies also require
+   `_test_lifecycle_extensions.py` and `_test_ci_study_pr.py`; their disposable
+   fixtures exercise dependencies that freshness checks do not cover.
+
 2. Run applicable reference and quote checks from AGENTS §6–§7. Review source,
    HTML, catalog, registry, manifests and generated discovery diffs. Commit them
    together, including companion DOCX/notes JSON/PPTX when applicable; never add
