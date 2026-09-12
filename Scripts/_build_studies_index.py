@@ -1539,9 +1539,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .approach-illustration figcaption { text-align: center; font: 13px var(--sans); color: var(--text-muted); margin-top: 8px; }
   .hero { display: flow-root; }
   .hero-book { float: right; width: 150px; height: auto; margin: 0 0 8px 24px; }
-  .contribute-intro { display: flex; align-items: center; gap: 24px; margin-bottom: 20px; }
-  .contribute-intro .section-intro { flex: 1; margin: 0; }
-  .contribute-art { width: 180px; height: auto; flex: 0 0 auto; }
+  .contribute-heading { display: flex; align-items: flex-start; gap: 10px; }
+  .contribute-heading .amd-topic-icon { width: 28px; height: 28px; flex: 0 0 28px; }
   .section-heading { display: flex; align-items: center; gap: 12px; }
   .section-heading-icon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; background: var(--warm-soft); }
   .section-heading-icon .amd-topic-icon { width: 36px; height: 36px; }
@@ -1560,8 +1559,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   @media (max-width: 600px) {
     .hero-book { width: 100px; margin-left: 12px; }
-    .contribute-intro { gap: 12px; }
-    .contribute-art { width: 108px; }
   }
   @media (max-width: 820px) {
     .page-nav-inner { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 6px 10px; }
@@ -1961,10 +1958,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <section class="section" id="contribute">
   <h2>How to contribute</h2>
   <div class="section-card">
-    <div class="contribute-intro"><p class="section-intro">Contributions can improve an existing study or help create one that has not yet been written.</p><img class="contribute-art" src="../Assets/Theme/illustrations/shared-writing.png" width="1536" height="1024" loading="lazy" decoding="async" alt=""/></div>
     <div class="contribute-paths">
       <div class="contribute-path contribute-path--feedback" id="comments-and-corrections">
-        <h3>Discuss or improve a study</h3>
+        <h3 class="contribute-heading">@amd-topic:discussion@<span>Discuss or improve a study</span></h3>
         <p class="path-lead">Open <strong>Discuss</strong> to ask a question, challenge an interpretation, suggest sources, or help shape an in-progress study. Use <strong>Suggest a correction</strong> when you can identify a specific factual, textual, citation, or presentation problem.</p>
         <ol>
           <li>Select <strong>Discuss</strong> on any study to join its ongoing inquiry.</li>
@@ -1975,7 +1971,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <p class="path-action"><a class="btn-secondary" href="?status=all&amp;sort=recent#browse-studies">Browse discussions</a> <a class="btn-primary" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">Suggest a correction</a></p>
       </div>
       <div class="contribute-path contribute-path--study" id="propose-a-new-study">
-        <h3>Write or substantially revise a study</h3>
+        <h3 class="contribute-heading">@amd-topic:notes@<span>Write or substantially revise a study</span></h3>
         <p class="path-lead">Use the Web Submission Portal if you want to take responsibility for a new analytic paper or a substantial revision. Read the <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/README.md">study format guide</a> and the <a href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/CONTRIBUTING.md">contributor guide</a> before you start.</p>
         <p class="path-note">A free <a href="https://github.com/signup" target="_blank" rel="noopener">GitHub account</a> is required to propose or submit &mdash; it is how we track your proposal, pull request, and review history, and how you receive updates. Creating one takes a minute; reading studies never requires an account.</p>
         <ol>
