@@ -53,6 +53,14 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
     }
     for (const theme of ['light','dark']) {
       await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
+      const headingIcons = await page.$$eval('#approach .section-heading-icon', nodes => nodes.map(node => ({
+        badge: node.getBoundingClientRect().width,
+        icon: node.querySelector('svg').getBoundingClientRect().width,
+        inline: !!node.querySelector('svg path, svg circle'),
+        external: !!node.querySelector('use'),
+      })));
+      assert.equal(headingIcons.length, 4);
+      for (const icon of headingIcons) assert.deepEqual(icon, {badge:44,icon:36,inline:true,external:false});
       assert.ok(await page.$eval('.hero-identity .amd-mark', element => element.getBoundingClientRect().width >= 52));
       const selector = `.approach-illustration .illustration-${theme}`;
       await page.$eval(selector, image => image.scrollIntoView({block:'center',behavior:'instant'}));
