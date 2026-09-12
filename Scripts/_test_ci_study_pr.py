@@ -554,6 +554,7 @@ def test_collect_index_errors_runs_every_check() -> None:
         "verify_index_shell_sync",
         "verify_catalog_bootstrap_sync",
         "verify_start_here_sync",
+        "verify_study_visuals_sync",
         "verify_discussion_pages",
     ]
     called: list[str] = []

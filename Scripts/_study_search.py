@@ -16,6 +16,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 from _common import BASE, write_text_lf, favicon_link_tags
+from _theme_icons import THEME_MOTION_CSS, identity_mark_html, search_wait_html, ui_icon_html
 from _study_passages import clean_text, search_text
 from _study_pdf_metadata import StudyStatus, iter_pdf_study_rows
 from _publication_inventory import public_markdown
@@ -123,12 +124,13 @@ def search_page(manifest_version: str) -> str:
 <title>Search study passages</title><meta name="description" content="Find words and phrases across published studies and companion notes."/>
 <link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/search.html"/>
 {favicon_link_tags()}
+<style>{THEME_MOTION_CSS}</style>
 <link rel="stylesheet" href="../Assets/reader/search.css?v={css}"/>
 <script defer src="../Assets/reader/search.js?v={js}"></script></head>
-<body class="search-page"><a class="search-back" href="index.html">← All studies</a>
+<body class="search-page"><a class="search-back amd-home" href="index.html">{identity_mark_html("akhand-samaj")}<span>All studies</span></a>
 <main><h1>Find a passage</h1><p>Search the text of published studies and companion notes. Open a result at its passage, then use its sources to check the claim.</p>
 <section class="study-search" id="collection-search" data-manifest="search-data/manifest.json?v={manifest_version}" aria-label="Search published documents">
-<form class="search-form"><label for="collection-query">Words or phrase</label><div class="search-input-row"><input id="collection-query" type="search" maxlength="200" placeholder='e.g. "duration of activity"' required/><button type="submit">Search</button></div>
+<form class="search-form"><label for="collection-query">Words or phrase</label><div class="search-input-row"><input id="collection-query" type="search" maxlength="200" placeholder='e.g. "duration of activity"' required/><button type="submit">{ui_icon_html("search")}<span>Search</span></button></div>
 <p class="search-help">All words must occur in the same passage. Use quotation marks for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
 <div class="search-filters">
 <label>Document<select id="search-document"><option value="">All documents</option></select></label>
@@ -136,7 +138,7 @@ def search_page(manifest_version: str) -> str:
 <label>Status<select id="search-status"><option value="">All statuses</option><option value="released">Released</option><option value="draft">Draft</option><option value="note">Companion notes</option></select></label>
 <label>Language<select id="search-language"><option value="">All languages</option></select></label>
 </div></form>
-<p class="search-status" role="status" aria-live="polite">Enter a word or phrase to begin.</p>
+<p class="search-status" role="status" aria-live="polite">{search_wait_html()}<span class="search-status-text">Enter a word or phrase to begin.</span></p>
 <ol class="search-results"></ol><button type="button" class="search-more" hidden>Show more results</button>
 </section><p class="search-help">Search runs in your browser. The selected documents load when you search. Primary-source PDFs, private submissions and in-progress studies are outside this index.</p>
 <noscript><p>Enable JavaScript for passage search, or open a study and use your browser’s Find command.</p></noscript></main></body></html>

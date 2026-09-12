@@ -284,4 +284,6 @@ fs.writeFileSync(path.join(OUT, 'akhand-samaj-app-icon.svg'), APP);
   fs.copyFileSync(path.join(OUT, 'akhand-samaj-favicon.ico'), path.join(ROOT, 'favicon.ico'));
   fs.copyFileSync(path.join(OUT, 'akhand-samaj-apple-touch-icon.png'), path.join(ROOT, 'apple-touch-icon.png'));
   console.log('Akhand Samaj icon family built.');
-})();
+  // Keep the published compact identity aligned with the approved shared theme.
+  execFileSync(process.execPath, [path.resolve(__dirname, '../Theme/render-site-icons.cjs')], { stdio: 'inherit' });
+})().catch(error => { console.error(error); process.exitCode = 1; });

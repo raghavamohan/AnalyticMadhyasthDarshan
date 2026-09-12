@@ -1,13 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" role="img" aria-labelledby="t d">
-  <title id="t">Akhand Samaj favicon</title>
-  <desc id="d">Small-scale site mark: atma, rounded square, and four mid-side goal joints. A central atma nucleus inside an ordered rounded square whose four mid-side joints are resolution, prosperity, fearlessness, and coexistence — the public evidence of an undivided society.</desc>
-  <rect x="20" y="20" width="960" height="960" rx="190" fill="#1A5276"/>
-  <rect x="38" y="38" width="924" height="924" rx="174" fill="none" stroke="#F7F4EF" stroke-width="3" opacity="0.16"/>
-  <rect x="118" y="118" width="764" height="764" rx="168" fill="none" stroke="#F7F4EF" stroke-width="88"/>
-  <circle cx="500" cy="118" r="56" fill="#E8BD92"/>
-  <circle cx="882" cy="500" r="56" fill="#D5A477"/>
-  <circle cx="500" cy="882" r="56" fill="#C18A5A"/>
-  <circle cx="118" cy="500" r="56" fill="#A66E42"/>
-  <circle cx="500" cy="500" r="188" fill="#D5A477"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="akhand samaj" class="" style="--amd-icon:#F7F4EF;--amd-accent:#D5A477"><rect width="240" height="240" rx="36" fill="#1A5276"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg>

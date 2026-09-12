@@ -12,6 +12,7 @@ from bs4 import BeautifulSoup
 
 from _common import BASE, favicon_link_tags, site_base_url, write_text_lf
 from _study_reader import reader_assets, reader_bootstrap, reader_controls
+from _theme_icons import THEME_MOTION_CSS, identity_mark_html, topic_icon_html
 from _study_search import eligible_documents, serialize
 
 MANIFEST = BASE / 'Studies/offline-manifest.json'
@@ -58,10 +59,11 @@ def notebook_html() -> str:
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>My notes &amp; saved studies</title><meta name="robots" content="noindex"/>
-{favicon_link_tags()}{reader_bootstrap()}{css}{scripts}</head>
-<body class="notebook-page reader-chrome"><a href="index.html">← All studies</a>
+{favicon_link_tags()}{reader_bootstrap()}{css}{scripts}<style media="screen">{THEME_MOTION_CSS}
+.notebook-nav .amd-topic-icon {{ width: 20px; height: 20px; }}</style></head>
+<body class="notebook-page reader-chrome"><a class="amd-home" href="index.html">{identity_mark_html("akhand-samaj")}<span>All studies</span></a>
 <main id="notebook"><h1>My notes &amp; saved studies</h1>
-<nav class="notebook-nav" aria-label="Notebook sections"><a href="#notebook-notes">Private notes</a><a href="#saved-studies">Saved studies</a></nav>
+<nav class="notebook-nav" aria-label="Notebook sections"><a class="amd-action" href="#notebook-notes">{topic_icon_html("notes")}Private notes</a><a class="amd-action" href="#saved-studies">{topic_icon_html("learning")}Saved studies</a></nav>
 <h2>Private notes</h2>{notes}
 <section id="saved-studies"><h2>Saved studies</h2><p id="offline-library-status" role="status" aria-live="polite">Checking saved copies…</p><ol id="offline-library" class="study-note-list"></ol>
 <p>Saved copies include the study and its reading assets. Linked source PDFs, discussions and collection search require a connection. Browser storage can be evicted; keep exported backups of your notes.</p></section>

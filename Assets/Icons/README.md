@@ -3,8 +3,10 @@
 The approved shared theme is saved in [Assets/Theme](../Theme/README.md), with
 [per-asset meanings and intended uses](../Theme/asset-guide.md). It uses the
 concentric Jeevan J1 and Akhand Samaj A1 with a golden nucleus. The files in this
-directory remain the existing integrated family until the theme is adopted by
-the site and presentation pipelines.
+directory preserve the earlier family. The `akhand-samaj-favicon*` and
+`akhand-samaj-apple-touch-icon.png` files now use the approved A1 theme geometry;
+rebuild these with `node Assets/Theme/render-site-icons.cjs`. The legacy family
+preview documents the earlier designs, not the current website favicon.
 
 This directory holds the visual identity derived from the Madhyasth Darshan account of *jeevan*: a central **atma** nucleus, **four co-functioning faculties** — mun, vritti, chitta and buddhi — on a shared orbit, and **projection and reflection as one continuous cycle**. Projection is carried in the warm (gold / brown) arcs, reflection in the cool (blue) arcs; the two alternate around the orbit as a single loop. The faint concentric field, fading toward the edge rather than boxing the mark, represents saturation within *satta*.
 
