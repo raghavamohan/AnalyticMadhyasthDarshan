@@ -44,12 +44,49 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
       else void request.abort();
     });
     await page.goto(base + '/Studies/', {waitUntil:'networkidle0'});
+    await page.addStyleTag({content:'* { scroll-behavior: auto !important; transition: none !important; }'});
     for (const width of [320,390,820,1280]) {
       await page.setViewport({width,height:900});
       const metrics = await page.evaluate(() => ({width:innerWidth,scroll:document.documentElement.scrollWidth,
         nav:document.querySelector('.page-nav').getBoundingClientRect().height}));
       assert.ok(metrics.scroll <= metrics.width, `Page overflow at ${width}px: ${JSON.stringify(await page.$$eval('body *', nodes => nodes.filter(n => n.getBoundingClientRect().right > innerWidth).slice(0,12).map(n => [n.tagName,n.className,n.getBoundingClientRect().right])))}`);
       if (width === 390) assert.ok(metrics.nav < 145, `Mobile header too tall: ${metrics.nav}`);
+      await page.$eval('.path-panel[data-stage="1"] .path-related', details => details.open = true);
+      const relatedLayout = await page.$eval('.path-panel[data-stage="1"] .path-related li', row => {
+        const title = row.querySelector('.related-study-title').getBoundingClientRect();
+        const description = row.querySelector('.related-study-description').getBoundingClientRect();
+        return {below:description.top >= title.bottom, right:description.left >= title.right};
+      });
+      assert.ok(width <= 600 ? relatedLayout.below : relatedLayout.right, `Related description layout at ${width}px`);
+      await page.$eval('.path-panel[data-stage="1"] .path-related', details => details.open = false);
+      assert.ok(await page.$eval('.path-panel[data-stage="1"]', panel => panel.querySelector('.path-continue').getBoundingClientRect().top >= panel.querySelector('.path-core').getBoundingClientRect().bottom));
+      const titleOffsets = await page.$$eval('.hero-identity, .card-title-row, .contribute-heading, .section-heading', rows => rows.filter(row => row.getBoundingClientRect().height > 0).map(row => {
+        const icon = row.firstElementChild.getBoundingClientRect();
+        const text = row.lastElementChild.getBoundingClientRect();
+        // Anonymous flex text boxes use font ink bounds; compare those separately
+        // through their container's align-items contract below.
+        return {kind:row.className, offset:row.children.length > 1 ? Math.abs(icon.y + icon.height/2 - text.y - text.height/2) : 0,
+          alignment:getComputedStyle(row).alignItems};
+      }));
+      for (const row of titleOffsets) {
+        assert.equal(row.alignment, 'center', `${row.kind} at ${width}px`);
+        assert.ok(row.offset < 1, `${row.kind} icon offset ${row.offset}px at ${width}px`);
+      }
+    }
+    for (const [stage, next] of [[1,2],[2,3],[3,4],[4,5],[5,1]]) {
+      await page.$eval(`.path-panel[data-stage="${stage}"] .path-related`, details => details.open = true);
+      const related = await page.$$eval(`.path-panel[data-stage="${stage}"] [data-related-description]`, nodes => nodes.map(node => ({slug:node.dataset.relatedDescription, html:node.innerHTML})));
+      const catalog = ['topical','formal','applied'].flatMap(kind => JSON.parse(fs.readFileSync(path.join(root,`Studies/catalog-${kind}.json`),'utf8')));
+      for (const item of related) {
+        const entry = catalog.find(entry => entry.slug === item.slug);
+        assert.ok(entry && item.html.trim(), `Missing description for ${item.slug}`);
+        assert.equal(await page.evaluate(({actual,expected}) => {const a=document.createElement('div'),b=document.createElement('div');a.innerHTML=actual;b.innerHTML=expected;return a.textContent===b.textContent;},{actual:item.html,expected:entry.description}), true);
+      }
+      await page.$eval(`.path-panel[data-stage="${stage}"] .path-related`, details => details.open = false);
+      const selector = `.path-panel[data-stage="${stage}"] .path-continue`;
+      await page.focus(selector);
+      await page.keyboard.press('Enter');
+      await page.waitForFunction(next => document.querySelector(`#path-stage-${next}`).checked, {}, next);
     }
     for (const theme of ['light','dark']) {
       await page.evaluate(theme => document.documentElement.dataset.theme = theme, theme);
