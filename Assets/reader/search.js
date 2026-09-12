@@ -102,7 +102,13 @@
   if (!panel) return;
   const $ = id => document.getElementById(id);
   const form = panel.querySelector('form'), status = panel.querySelector('.search-status');
+  const statusText = panel.querySelector('.search-status-text') || status;
+  const wait = document.getElementById('search-wait');
   const list = panel.querySelector('.search-results'), more = panel.querySelector('.search-more');
+  const setStatus = (message, searching = false) => {
+    statusText.textContent = message;
+    if (wait) wait.hidden = !searching;
+  };
   const input = $('collection-query'), fields = ['document','kind','status','language'];
   let manifest, catalogRequest, matches = [], displayed = 0, request, run = 0, activeTerms = [], activeQuery = '';
   const cache = new Map();
@@ -159,9 +165,9 @@
     list.replaceChildren(); more.hidden = true; matches = []; displayed = 0;
     activeQuery = input.value;
     let queryTerms;
-    try { queryTerms = terms(activeQuery); } catch (error) { status.textContent = error.message; return; }
-    if (!queryTerms.length) { status.textContent = 'Enter a word or phrase to begin.'; return; }
-    activeTerms = queryTerms; panel.setAttribute('aria-busy','true'); status.textContent = 'Searching selected documents…';
+    try { queryTerms = terms(activeQuery); } catch (error) { setStatus(error.message); return; }
+    if (!queryTerms.length) { setStatus('Enter a word or phrase to begin.'); return; }
+    activeTerms = queryTerms; panel.setAttribute('aria-busy','true'); setStatus('Searching selected documents…', true);
     try {
       const documents = await catalog(); if (thisRun !== run) return;
       const filtered = documents.filter(doc => fields.every(field => !$('search-' + field).value ||
@@ -192,12 +198,17 @@
       }));
       if (thisRun !== run) return;
       matches = collected.sort((a,b) => a.doc.title.localeCompare(b.doc.title));
-      status.textContent = `${matches.length} matching passage${matches.length === 1 ? '' : 's'} in ${filtered.length - failed} searched document${filtered.length - failed === 1 ? '' : 's'}.` +
-        (failed ? ` ${failed} document${failed === 1 ? '' : 's'} could not load. Search again to retry.` : !matches.length ? ' Try fewer words or a different spelling.' : '');
+      setStatus(`${matches.length} matching passage${matches.length === 1 ? '' : 's'} in ${filtered.length - failed} searched document${filtered.length - failed === 1 ? '' : 's'}.` +
+        (failed ? ` ${failed} document${failed === 1 ? '' : 's'} could not load. Search again to retry.` : !matches.length ? ' Try fewer words or a different spelling.' : ''));
       displayNext();
     } catch (error) {
-      if (thisRun === run) status.textContent = 'Search could not load. Check your connection and search again.';
-    } finally { if (thisRun === run) panel.removeAttribute('aria-busy'); }
+      if (thisRun === run) setStatus('Search could not load. Check your connection and search again.');
+    } finally {
+      if (thisRun === run) {
+        panel.removeAttribute('aria-busy');
+        if (wait) wait.hidden = true;
+      }
+    }
   }
   let interacted = false;
   form.addEventListener('input',() => { interacted = true; });
@@ -210,5 +221,5 @@
     if (interacted) return;
     if (params.has('document')) $('search-document').value = params.get('document');
     if (input.value) perform(false);
-  }).catch(() => { status.textContent = 'The search catalog could not load. Submit your search to retry.'; });
+  }).catch(() => { setStatus('The search catalog could not load. Submit your search to retry.'); });
 })();

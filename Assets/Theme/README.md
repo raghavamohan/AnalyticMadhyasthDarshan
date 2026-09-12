@@ -95,7 +95,21 @@ alt text: “People studying together, repairing a useful object and tending a g
 
 ## Adoption
 
-The user approved this asset kit on September 11, 2026. Apply it through the site
-generators and deck pipelines as a subsequent integration change.
+The user approved this asset kit on September 11, 2026. The website integration
+uses A1 for home navigation and the page title, topic icons for study cards, and
+labelled waiting marks for search and discussions. The courtyard illustration
+appears once in “How we work.” Secondary pages share the same home mark.
+
+`tokens.css` owns the icon palette and motion rules. Site generators consume it
+through `Scripts/_theme_icons.py`; regenerate their outputs after token changes.
+Run `node Assets/Theme/render-site-icons.cjs` to rebuild the approved A1 favicon
+and touch icon at the existing public URLs. These use ivory and pale gold on
+navy for legibility at small sizes. Presentation adoption remains a separate
+deck-pipeline change.
+
+Verify website integration with `python Scripts/_test_theme_icons.py`,
+`node Scripts/_test_theme_browser.cjs`, and
+`python Scripts/_verify_studies_index.py`. The browser checks use the pinned
+local Chrome and mock discussion responses, including failure and retry.
 See `review.md` for exact targets and preservation requirements. Do not run the
 legacy icon builders into this directory; the new marks have their own source.

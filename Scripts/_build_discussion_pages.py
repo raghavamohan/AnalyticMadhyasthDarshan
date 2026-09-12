@@ -21,6 +21,7 @@ from _common import (  # noqa: E402
     write_text_lf,
 )
 from _discussion_assets import ASSET_VERSION  # noqa: E402
+from _theme_icons import THEME_MOTION_CSS, comments_loading_html, identity_mark_html, ui_icon_html  # noqa: E402
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
     StudyRow,
@@ -122,8 +123,8 @@ def _toolbar_paper_links(links: dict[str, str | None]) -> str:
     if not links.get("read") or not links.get("pdf"):
         return ""
     return (
-        f'          <a class="discuss-toolbar-link" href="{html.escape(links["read"])}">Read the study</a>\n'
-        f'          <a class="discuss-toolbar-link discuss-toolbar-download" href="{html.escape(links["pdf"])}" download>Download PDF</a>\n'
+        f'          <a class="discuss-toolbar-link amd-action" href="{html.escape(links["read"])}">{ui_icon_html("learning")}Read the study</a>\n'
+        f'          <a class="discuss-toolbar-link discuss-toolbar-download amd-action" href="{html.escape(links["pdf"])}" download>{ui_icon_html("download")}Download PDF</a>\n'
     )
 
 
@@ -408,6 +409,9 @@ a { color: var(--accent); }
   align-items: center;
   font-size: 0.9rem;
 }
+""" + THEME_MOTION_CSS + """
+.comments-loading .amd-wait { width: 100%; }
+.discuss-toolbar-download::after { content: none; }
 .alert { padding: 10px 12px; border-radius: 8px; margin-bottom: 12px; font-size: 0.92rem; }
 .alert-error { background: #fdecea; color: #8a1f11; border: 1px solid #f5c2c0; }
 .alert-success { background: #edf7ed; color: #1e4620; border: 1px solid #c8e6c9; }
@@ -838,7 +842,7 @@ DISCUSS_JS = r"""(() => {
     commentsEmpty.classList.add("hidden");
     if (commentsError) commentsError.classList.add("hidden");
     commentList.setAttribute("aria-busy", "true");
-    commentList.innerHTML = '<li class="comments-loading">Loading comments&hellip;</li>';
+    commentList.innerHTML = COMMENTS_LOADING_HTML;
   };
 
   const renderComments = () => {
@@ -1026,7 +1030,10 @@ DISCUSS_JS = r"""(() => {
       markDiscussionSeen(allComments);
       if (commentsError) commentsError.classList.add("hidden");
     } catch (err) {
-      if (commentList && !append) commentList.innerHTML = "";
+      if (commentList && !append) {
+        commentList.innerHTML = "";
+        commentList.removeAttribute("aria-busy");
+      }
       if (commentsEmpty) commentsEmpty.classList.add("hidden");
       if (commentsError) commentsError.classList.remove("hidden");
       throw err;
@@ -1116,6 +1123,13 @@ DISCUSS_JS = r"""(() => {
   loadComments().catch((err) => showAlert("error", readableError(err)));
 })();
 """
+DISCUSS_JS = DISCUSS_JS.replace(
+    "(() => {\n  const cfg = window.AMD_DISCUSS || {};",
+    "(() => {\n  const COMMENTS_LOADING_HTML = "
+    + json.dumps(comments_loading_html())
+    + ";\n  const cfg = window.AMD_DISCUSS || {};",
+    1,
+)
 
 
 def render_discussion_page(row: StudyRow) -> str:
@@ -1204,7 +1218,7 @@ def render_discussion_page(row: StudyRow) -> str:
   <header class="discuss-header">
     <nav class="discuss-toolbar" aria-label="Discussion navigation">
       <div class="discuss-toolbar-row">
-        <a class="discuss-toolbar-link discuss-toolbar-back" href="{html.escape(links['catalog'])}">&larr; All studies</a>
+        <a class="discuss-toolbar-link discuss-toolbar-back amd-home" href="{html.escape(links['catalog'])}">{identity_mark_html("akhand-samaj")}<span>All studies</span></a>
         <h1 class="discuss-toolbar-title">{html.escape(title)}{status_note}</h1>
         <span class="discuss-toolbar-actions">
 {paper_links}          <a class="discuss-toolbar-link discuss-toolbar-feedback" href="{html.escape(feedback)}" rel="noopener">Suggest a correction</a>
@@ -1247,7 +1261,7 @@ def render_discussion_page(row: StudyRow) -> str:
   <section class="comments-section" aria-labelledby="comments-heading">
     <h2 id="comments-heading">Comments</h2>
     <ul id="comment-list" class="comments" aria-live="polite" aria-busy="true">
-      <li class="comments-loading">Loading comments&hellip;</li>
+      {comments_loading_html()}
     </ul>
     <p id="comments-empty" class="hidden">No comments yet. Be the first to start the discussion.</p>
     <p id="comments-error" class="comments-error hidden">
