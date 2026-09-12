@@ -54,7 +54,7 @@ must use the **current** deck numbering.
 | `Scripts/_study_pdf_pipeline.py` | Canonical Markdown → HTML/PDF owner, including companion PDFs |
 | `Scripts/_verify_companion_outputs.py` | Check declared Markdown/DOCX/JSON/PPTX freshness |
 | `Scripts/_sync_pptx_speaker_notes.py` | Write notes JSON into a `.pptx` notes pane |
-| `Scripts/_build_deck_notes_pdf.py` | Deck → `<Deck>-notes.pdf`: slide image plus that slide's read-aloud script, one page per slide |
+| `Scripts/_build_deck_notes_pdf.py` | Deck → `<Deck>-notes.pdf`: slide image plus that slide's read-aloud script, with continuation pages when needed |
 
 Dependencies: the repository Python requirements and pinned Chrome/Node toolchain. The published companion PDF is rendered from Markdown through the same pipeline locally and in CI; Word COM is not its producer.
 
@@ -63,7 +63,7 @@ Three PDFs serve different purposes; do not conflate them:
 | PDF | Contains | Audience |
 |-----|----------|----------|
 | `<Deck>.pdf` | Slides only | Projecting; linked from `Studies/index.html` |
-| `<Deck>-notes.pdf` | Slide + read-aloud script per page | The presenter, while delivering |
+| `<Deck>-notes.pdf` | Slide plus read-aloud script, with continuation pages when needed | The presenter, while delivering |
 | `Presenters-Companion-<Name>.pdf` | Script **plus** primary-text background and Q&A | Pre-session study |
 
 The staged `_build_presentations.py` is the normal entry point: it generates
@@ -88,7 +88,10 @@ of being truncated. Use the lower-level notes builder only for diagnostics.
    deck mapping in `Scripts/companion-pipeline.json`. New sources must be declared
    once, with a registered deck under the same parent study; missing, duplicate,
    unsafe and cross-study mappings fail verification.
-4. Rebuild artifacts from repo root:
+4. For a new companion source, stage its intended Markdown/resources before
+   rendering, as described in
+   [manage-studies: shared finish](../manage-studies/SKILL.md#shared-finish-before-review).
+   Rebuild artifacts from repo root:
 
    ```powershell
    python Scripts/_build_presenters_companion.py Studies/<Slug>/Presenters-Companion-<Name>.md --pdf --pptx Studies/<Slug>/<Deck>.pptx

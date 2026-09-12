@@ -5,7 +5,8 @@ description: >-
   ../References/ links, References/ mirror files, and study PDF links using
   Scripts/_check_references.py. Use when adding or editing study references,
   after downloading references, before committing bibliography changes, or when
-  a user asks to verify reference links work.
+  a user asks to verify reference links work. Includes direct companion-note
+  checks outside the canonical-study suite's coverage.
 ---
 
 # Check references
@@ -62,6 +63,26 @@ python Scripts/_check_references.py --study The-Ontology-of-Coexistence --skip-p
 A file is **unusable** when it is empty, too small, or a PDF whose content starts
 with `<!DOCTYPE` (publisher bot-wall HTML saved as `.pdf`).
 
+## Companion-note coverage
+
+`_check_references.py` and `_audit_references.py` enumerate canonical
+`<Slug>/<Slug>.md` studies, not their technical/research notes. The `--study`
+filter and automatic PDF-link checks have that same scope. Run the applicable
+suite, but do not report its success as verification of a note's bibliography.
+
+For a changed note, additionally inspect its own bibliography and body links,
+resolve relative paths from the note's directory, and inspect its generated PDF
+link annotations for `file://` URLs or incorrect public targets. Use
+`Scripts/_reference_store.py` / `Scripts/_hydrate_references.py` to resolve or
+hydrate manifest-backed references: an absent local PDF alone is not a broken
+reference. Check external-only citations against their canonical source URLs.
+Update applicable usage entries in `References/README.md` and
+`References/MANIFEST.md` when adding a note that cites those sources.
+
+There is no companion-path CLI option on these two reference-check commands;
+do not invent one. Report direct note checks separately from canonical-suite
+results.
+
 ## What a passing check does not establish
 
 Link integrity and quotation matching do not verify the meaning of a paraphrase,
@@ -73,7 +94,7 @@ from an extraction failure.
 ## If checks fail
 
 1. **Empty or corrupt local file** — re-download via [download-references](../download-references/SKILL.md), or remove the local path and link the external DOI/URL only; document in [References/NOT-DOWNLOADED.md](../../../References/NOT-DOWNLOADED.md).
-2. **Missing file** — add to `Scripts/_reference_downloads.py` and download, or switch the study entry to an external link.
+2. **Missing file** — resolve manifest-backed storage first. For a genuinely missing mirror, add to `Scripts/_reference_downloads.py` and download, or switch the study entry to an external link.
 3. **PDF link mismatch** — regenerate the study PDF after fixing markdown or mirror files: [regenerate-study-pdf](../regenerate-study-pdf/SKILL.md).
 
 ## Related commands
@@ -88,6 +109,7 @@ from an extraction failure.
 ## Completion checklist
 
 - [ ] `python Scripts/_check_references.py` exits 0 (or `--study <Slug>` for a single-study edit)
+- [ ] Changed companion-note links checked directly, including generated PDF targets
 - [ ] Broken locals fixed or switched to external-only links + `NOT-DOWNLOADED.md`
 - [ ] `References/README.md` and `MANIFEST.md` updated when local vs external status changes
 - [ ] Affected study PDFs regenerated when bibliography links changed
