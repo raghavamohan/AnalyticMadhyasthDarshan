@@ -73,6 +73,8 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
         await page.setViewport({width:390,height:900});
         await page.$eval(selector, image => image.scrollIntoView({block:'center',behavior:'instant'}));
         await page.screenshot({path:path.join(process.env.AMD_THEME_SCREENSHOTS,`integrated-mobile-${theme}.png`)});
+        await page.$eval('#contribute', section => section.scrollIntoView({block:'start',behavior:'instant'}));
+        await page.screenshot({path:path.join(process.env.AMD_THEME_SCREENSHOTS,`contribute-mobile-${theme}.png`)});
         await page.setViewport({width:1280,height:900});
       }
     }

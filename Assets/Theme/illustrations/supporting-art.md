@@ -3,7 +3,7 @@
 Generated with the built-in image tool for the approved page integration. These are editorial illustrations, not documented events.
 
 - `open-book.png`: inquiry and close reading; small decorative accent beside the introduction. Transparent background.
-- `shared-writing.png`: discussion and collaborative revision; small decorative accent in How to contribute. Transparent background.
+- `shared-writing.png`: discussion and collaborative revision; retained as an alternative asset, no longer displayed in How to contribute. That section uses inline discussion and notes icons beside its two headings. Transparent background.
 - `shared-study-courtyard-dark.png`: dark-mode companion of the approved courtyard scene. Displayed in the same position as the light image; never simultaneously visible.
 
 The courtyard sits within Our approach. Decorative supporting images use empty alt text; the central scene retains a description. Keep their aspect ratios and relative prominence.

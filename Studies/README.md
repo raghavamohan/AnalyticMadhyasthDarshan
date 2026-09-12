@@ -111,8 +111,6 @@ Reading and logical reconstruction are the beginning, not the endpoint. This pat
 
 ## How to contribute
 
-Contributions can improve an existing study or help create one that has not yet been written.
-
 ### Discuss or improve a study
 
 Open **Discuss** to ask a question, challenge an interpretation, suggest sources, or help shape an in-progress study. Use **Suggest a correction** when you can identify a specific factual, textual, citation, or presentation problem.
