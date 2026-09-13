@@ -140,6 +140,33 @@ def mcp(method: str):
     return check
 
 
+def mcp_search():
+    payload, request_id, _ = expect_json(f"{SITE}/mcp", method="POST", payload={
+        "jsonrpc": "2.0", "id": 1, "method": "tools/call",
+        "params": {"name": "search_studies", "arguments": {"q": "ontology"}},
+    })
+    result = payload.get("result") or {}
+    studies = (result.get("structuredContent") or {}).get("studies") or []
+    if payload.get("error") or result.get("isError") or not any(
+        study.get("slug") and study.get("status") in {"draft", "released"} for study in studies
+    ):
+        raise AssertionError("MCP search tool did not return published studies")
+    if not request_id:
+        raise AssertionError("X-Request-ID is missing")
+    return request_id, f"{len(studies)} search results"
+
+
+def discussion_read():
+    payload, request_id, _ = expect_json(f"{SITE}/api/discussions/stats?limit=1")
+    if not isinstance(payload.get("threads"), list) or not isinstance(payload.get("meta"), dict):
+        raise AssertionError("discussion database read response is incomplete")
+    if not isinstance(payload["meta"].get("total"), int):
+        raise AssertionError("discussion database count is missing")
+    if not request_id:
+        raise AssertionError("X-Request-ID is missing")
+    return request_id, "discussion database read succeeded"
+
+
 def auth_rejection(url: str, *, method: str = "GET"):
     def check():
         payload, request_id, _ = expect_json(
@@ -184,6 +211,8 @@ def main(argv: list[str] | None = None) -> int:
         ("studies.citation", citation),
         ("mcp.initialize", mcp("initialize")),
         ("mcp.tools.list", mcp("tools/list")),
+        ("mcp.tools.search", mcp_search),
+        ("discussions.read", discussion_read),
         ("auth.submissions.reject", auth_rejection(f"{SUBMISSIONS}/api/me/submissions")),
         ("auth.discussions.reject", auth_rejection(
             f"{SITE}/api/discussions/synthetic/comments", method="POST",

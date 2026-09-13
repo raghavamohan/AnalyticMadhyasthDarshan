@@ -98,6 +98,23 @@ The publisher stages `amd-site-canary`, audits all release URLs (full checksums 
 
 ## Worker ownership, rollout and recovery
 
+Cloudflare control-plane reads through `_cloudflare_performance._api_request` retry
+connection failures, timeouts, HTTP 429 and selected transient 5xx responses up to
+three attempts with backoff. Writes are single-attempt to avoid replaying a change
+whose response was lost. Permanent API errors still fail immediately.
+
+`api-synthetics.yml` runs 13 standard-library-only production checks, including MCP
+search tool execution and database-backed discussion statistics reads. Empty
+discussion tables are healthy; missing response fields and MCP tool errors fail.
+These supplement configuration readiness and do not exercise authenticated writes
+or email delivery. Run `python -S Scripts/_api_synthetics.py` locally.
+
+An independently scheduled local Codex follow-up checks the latest successful
+`master` monitoring run hourly and alerts after three hours without success. It
+reports query failures as unknown visibility and stays quiet on unchanged states.
+This operational automation is configured outside the repository and depends on
+the Codex host being available; it is not an always-on hosted uptime service.
+
 Each API/discovery Worker compares its executable/configuration fingerprint with its **active Cloudflare version annotation**, including after rollback. Frontend changes can run compatibility tests without uploading unchanged backends. Shared headers and API edge policy belong only to serialized `edge-policy.yml`.
 
 The MCP Worker reads the active marker and revision-pinned files through the public site Worker. Its Wrangler configuration is also the API uploader's runtime contract: `cache_option_enabled` permits uncached marker requests, and `global_fetch_strictly_public` makes same-zone fetches reach Worker routes instead of bypassing them to the old origin. The required MCP configuration check rejects either missing capability. Node fetch mocks cannot verify Cloudflare routing; changes to this contract also need a same-zone edge canary that exercises catalog, Markdown, glossary, reading-path and MCP reads before promotion.
