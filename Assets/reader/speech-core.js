@@ -1,27 +1,55 @@
-/* Device speech: short utterances and cancel/restart pause work on Android too. */
+/* Device speech: complete sentences with cancel/restart pause for Android. */
 (function(root,factory) {
   const api = factory();
   if (typeof module === 'object' && module.exports) module.exports = api;
   else root.AMDReaderSpeech = api;
 })(typeof globalThis !== 'undefined' ? globalThis : this,() => {
   'use strict';
-  function chunks(text,language) {
-    let sentences = [{index:0,segment:text}];
-    try { if (typeof Intl.Segmenter === 'function') sentences = [...new Intl.Segmenter(language,{granularity:'sentence'}).segment(text)]; }
-    catch (_) { /* A device may return a nonstandard language tag. */ }
+  function chunks(text,language,passageEnds = []) {
+    let segmenter;
+    // Voice engines sometimes return en_IN or tags that are not BCP 47.
+    for (const locale of [(language || 'en').replace(/_/g,'-'),'en']) {
+      try { segmenter = new Intl.Segmenter(locale,{granularity:'sentence'}); break; }
+      catch (_) { /* Retry a valid locale, then use punctuation on older browsers. */ }
+    }
     const result = [];
-    for (const {index,segment} of sentences) for (let start = 0; start < segment.length;) {
-      let end = Math.min(start + 200,segment.length);
-      if (end < segment.length) {
-        const space = segment.lastIndexOf(' ',end - 1);
-        if (space > start + 60) end = space + 1;
-        // Never cut between the two UTF-16 code units of a character.
-        if (/[\uD800-\uDBFF]/.test(segment[end - 1])) end--;
+    // A heading/list item without terminal punctuation must not absorb the
+    // following passage. Keep original UTF-16 offsets for DOM word highlighting.
+    const ends = [...new Set(passageEnds.filter(n => Number.isInteger(n) && n > 0 && n < text.length))].sort((a,b) => a - b);
+    let blockStart = 0;
+    for (const blockEnd of [...ends,text.length]) {
+      // Markdown soft line wraps are whitespace, not passage boundaries.
+      const source = text.slice(blockStart,blockEnd).replace(/[\r\n]/g,' '), spans = [];
+      if (segmenter) {
+        for (const s of segmenter.segment(source)) spans.push({start:s.index,end:s.index + s.segment.length});
+      } else {
+        let start = 0;
+        for (const match of source.matchAll(/[.!?।॥]+["'”’»\)\]]*(?:\s+|$)/g)) {
+          const end = match.index + match[0].length;
+          spans.push({start,end}); start = end;
+        }
+        if (start < source.length) spans.push({start,end:source.length});
       }
-      if (segment.slice(start,end).trim()) result.push({start:index + start,end:index + end});
-      start = end;
+      let pending;
+      for (const span of spans) {
+        if (!pending) pending = {...span}; else pending.end = span.end;
+        const sentence = source.slice(pending.start,pending.end);
+        // ICU can treat honorifics and author initials as entire sentences.
+        const abbreviation = /\b(?:Dr|Mr|Mrs|Ms|Prof|Shri|Smt|e\.g|i\.e)\.\s*$/u.test(sentence);
+        const initials = /^\s*(?:(?:Dr|Mr|Mrs|Ms|Prof)\.\s+|(?:Shri|Smt)\s+)?(?:[A-Z]\.\s*)+$/u.test(sentence);
+        if (abbreviation || initials) continue;
+        if (sentence.trim()) result.push({start:blockStart + pending.start,end:blockStart + pending.end});
+        pending = null;
+      }
+      if (pending && source.slice(pending.start,pending.end).trim()) result.push({start:blockStart + pending.start,end:blockStart + pending.end});
+      blockStart = blockEnd;
     }
     return result;
+  }
+  function sentenceStart(text,offset,language) {
+    const at = Math.max(0,Math.min(offset,text.length));
+    const piece = chunks(text,language).find(p => at < p.end && text.slice(at,p.end).trim());
+    return piece ? piece.start + (text.slice(piece.start,piece.end).match(/^\s*/)?.[0].length || 0) : at;
   }
   function chooseVoice(voices,previous,language,languages = []) {
     const local = voices.filter(v => v.localService), normalize = s => (s || '').replace(/_/g,'-').toLowerCase();
@@ -52,6 +80,8 @@
     function speak() {
       if (!plan || index >= plan.pieces.length) { stop(); onFinish(); return; }
       const run = ++epoch, piece = plan.pieces[index];
+      // Do not silently split or truncate an exceptional over-limit sentence.
+      if (piece.end - piece.start > 32767) { fail('text-too-long'); return; }
       const current = () => run === epoch;
       change('starting');
       try {
@@ -89,18 +119,18 @@
     }
     return {
       get state() { return state; },
-      play(value) { stop(); plan = {...value,pieces:chunks(value.text,value.voice.lang)}; index = 0; speak(); },
+      play(value) { stop(); plan = {...value,pieces:chunks(value.text,value.language || value.voice.lang,value.passageEnds)}; index = 0; speak(); },
       pause() {
         if (state !== 'speaking') return;
         invalidate();
         try { cancel(); } catch (_) { fail('speech-failed'); return; }
         // Android implements native pause as stop and has no native resume.
-        // Preserve the chunk so an explicit Resume can speak it again.
+        // Preserve the complete sentence so Resume never starts mid-sentence.
         change('paused');
       },
       resume() { if (state === 'paused') speak(); },
       stop,
     };
   }
-  return {chunks,chooseVoice,createPlayer};
+  return {chunks,sentenceStart,chooseVoice,createPlayer};
 });
