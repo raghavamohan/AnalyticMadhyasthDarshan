@@ -10,7 +10,9 @@ from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 
-from _common import BASE
+# Keep scheduled checks runnable with only the Python standard library.
+# _common also imports PDF tooling, which the monitoring runner does not install.
+BASE = Path(__file__).resolve().parent.parent
 
 SITE = "https://analyticmadhyasthdarshan.org"
 SUBMISSIONS = "https://api.analyticmadhyasthdarshan.org"
