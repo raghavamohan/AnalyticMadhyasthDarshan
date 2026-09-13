@@ -276,6 +276,8 @@ def check_synthetic_contract() -> None:
         "actions/upload-artifact@v7",
         "actions/github-script@v9",
         "[API synthetic] Production verification failed",
+        "if: ${{ !cancelled() && steps.synthetics.outcome == 'failure' }}",
+        "if: ${{ !cancelled() && steps.synthetics.outcome == 'success' }}",
     )
     missing = [value for value in workflow_requirements if value not in workflow]
     if missing:

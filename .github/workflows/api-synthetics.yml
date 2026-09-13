@@ -40,7 +40,7 @@ jobs:
           retention-days: 30
 
       - name: Open or update the API incident
-        if: steps.synthetics.outcome == 'failure'
+        if: ${{ !cancelled() && steps.synthetics.outcome == 'failure' }}
         uses: actions/github-script@v9
         with:
           script: |
@@ -50,7 +50,7 @@ jobs:
             const runUrl = `${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}`;
             const { data: issues } = await github.rest.issues.listForRepo({owner, repo, state: 'open', per_page: 100});
             const existing = issues.find(issue => !issue.pull_request && issue.title === title);
-            const body = `Production API synthetics failed. Inspect the request IDs and per-check results in [workflow run ${context.runId}](${runUrl}).`;
+            const body = `Production API synthetics failed. Inspect the logs and, when available, the request IDs and per-check report in [workflow run ${context.runId}](${runUrl}). A startup failure means API health was not checked.`;
             if (existing) {
               await github.rest.issues.createComment({owner, repo, issue_number: existing.number, body});
             } else {
@@ -58,7 +58,7 @@ jobs:
             }
 
       - name: Close a recovered API incident
-        if: steps.synthetics.outcome == 'success'
+        if: ${{ !cancelled() && steps.synthetics.outcome == 'success' }}
         uses: actions/github-script@v9
         with:
           script: |
@@ -74,5 +74,5 @@ jobs:
             }
 
       - name: Fail after incident handling
-        if: steps.synthetics.outcome == 'failure'
+        if: ${{ !cancelled() && steps.synthetics.outcome == 'failure' }}
         run: exit 1
