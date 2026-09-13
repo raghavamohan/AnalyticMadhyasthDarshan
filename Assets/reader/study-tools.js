@@ -170,7 +170,20 @@
         paragraph = context.passages.slice(Math.max(0,start)).map(p => speechParagraphs.get(p.id)).find(Boolean)
           || [...speechParagraphs.values()].at(-1);
         if (!paragraph) return null;
-        selected = {anchors:[C.makeAnchor(paragraph,0,paragraph.text.length)],quote:paragraph.text};
+        let from = 0;
+        const top = (document.querySelector('.study-toolbar')?.getBoundingClientRect().bottom || 0) + 12;
+        if (paragraph.node.getBoundingClientRect?.().top < top) {
+          // Locate the first visible line even inside a very long paragraph.
+          let low = 0, high = paragraph.text.length;
+          while (low < high) {
+            const mid = Math.floor((low + high) / 2);
+            const rect = domRange(paragraph,mid,mid + 1)?.getBoundingClientRect();
+            if (rect && rect.bottom <= top) low = mid + 1; else high = mid;
+          }
+          from = low;
+          while (from > 0 && /\S/.test(paragraph.text[from]) && /\S/.test(paragraph.text[from - 1])) from--;
+        }
+        selected = {anchors:[C.makeAnchor(paragraph,from,paragraph.text.length)],quote:paragraph.text.slice(from)};
       }
       const first = paragraph || candidates().find(p => p.id === selected.anchors[0].id);
       const section = context.headings.find(h => h.id === (first?.subheading || first?.heading));
@@ -267,12 +280,38 @@
     const synth = window.speechSynthesis, S = window.AMDReaderSpeech;
     let voices = [], state = 'idle', ranges = [], testing = false, activeTarget = null, read = null;
     const status = text => { $('listen-status').textContent = text; };
-    const clearHighlight = () => window.CSS?.highlights?.delete('reader-speaking');
+    let highlightedNodes = [];
+    const clearHighlight = () => {
+      window.CSS?.highlights?.delete('reader-speaking');
+      highlightedNodes.forEach(node => node.removeAttribute('data-reader-speaking'));
+      highlightedNodes = [];
+    };
+    function follow(piece) {
+      clearHighlight();
+      const matching = ranges.filter(r => r.from < piece.end && r.to > piece.start);
+      const highlights = matching.map(r => domRange(r.passage,r.start + Math.max(0,piece.start - r.from),r.start + Math.min(r.to - r.from,piece.end - r.from))).filter(Boolean);
+      if (window.CSS?.highlights && window.Highlight) CSS.highlights.set('reader-speaking',new Highlight(...highlights));
+      else for (const r of matching) { r.passage.node.setAttribute('data-reader-speaking',''); highlightedNodes.push(r.passage.node); }
+      // Follow the range, not the paragraph: a paragraph may span several screens.
+      const rect = highlights[0]?.getBoundingClientRect();
+      const top = (document.querySelector('.study-toolbar')?.getBoundingClientRect().bottom || 0) + 20;
+      if (rect?.height && (rect.top < top || rect.bottom > window.innerHeight - 70)) {
+        window.scrollBy({top:rect.top - top - 40,behavior:'instant'});
+      }
+    }
     function controls(value = state) {
       state = value; const active = state !== 'idle';
       const target = getTarget();
-      $('listen-start').disabled = state === 'starting' || (state === 'idle' && (!voices.length || !target?.quote || target.quote.length > 6000));
+      $('listen-start').disabled = state === 'starting' || (state === 'idle' && (!voices.length || !target?.quote || (target.kind !== 'paragraph' && target.quote.length > 6000)));
       $('listen-start').textContent = state === 'speaking' ? 'Pause' : state === 'paused' ? 'Resume' : state === 'starting' ? 'Starting…' : 'Play';
+      const topRead = $('reader-read'), topStop = $('reader-read-stop');
+      if (topRead) {
+        topRead.closest('.study-toolbar').dataset.reading = String(active);
+        topRead.disabled = state === 'starting';
+        topRead.textContent = active ? $('listen-start').textContent : 'Read';
+        topRead.title = active ? topRead.textContent + ' reading aloud' : 'Read selected text or continue from here';
+        topStop.hidden = !active; topStop.disabled = !active;
+      }
       $('listen-test').disabled = active || !voices.length;
       $('listen-pause').disabled = state !== 'speaking'; $('listen-resume').disabled = state !== 'paused';
       $('listen-stop').disabled = !active; $('listen-voice').disabled = $('listen-speed').disabled = active || !voices.length;
@@ -280,10 +319,10 @@
     }
     function updateSelection() {
       const selected = state !== 'idle' && !testing ? activeTarget : getTarget();
-      const kind = selected?.kind === 'paragraph' ? 'Current paragraph' : 'Selected passage';
+      const kind = selected?.kind === 'paragraph' ? 'Read from here' : 'Selected passage';
       const label = selected?.quote ? `${kind} · ${selected.quote.length.toLocaleString()} characters` : 'No readable passage';
       const preview = selected?.quote ? selected.quote.slice(0,240) + (selected.quote.length > 240 ? '…' : '') : '';
-      const hint = selected?.error || (selected?.quote?.length > 6000 ? 'This paragraph is longer than 6,000 characters. Select the part you want to hear.'
+      const hint = selected?.error || (selected?.kind !== 'paragraph' && selected?.quote?.length > 6000 ? 'This paragraph is longer than 6,000 characters. Select the part you want to hear.'
         : selected?.quote ? '' : 'Click a paragraph or select text in the study, then return to Listen.');
       for (const [id,text] of [['listen-selection-label',label],['listen-selection-section',selected?.section || ''],['listen-selection-preview',preview],['listen-selection-hint',hint]]) {
         if ($(id).textContent !== text) $(id).textContent = text;
@@ -304,19 +343,19 @@
       }
     });
     if (!synth || !window.SpeechSynthesisUtterance || !S) {
-      status('Read-aloud is not available in this browser.'); updateSelection(); return updateSelection;
+      status('Read-aloud is not available in this browser.'); updateSelection();
+      $('reader-read')?.addEventListener('click',() => { context.selectTab('listen'); context.openPanel(); });
+      return updateSelection;
     }
     const player = S.createPlayer({synth,Utterance:window.SpeechSynthesisUtterance,
       onState:value => { controls(value); updateSelection(); if (value === 'starting') status('Starting device voice…'); if (value === 'paused') status('Paused. Resume restarts this sentence or short chunk.'); },
+      onWord:follow,
       onChunk:(piece,index,total) => {
         status(testing ? 'Playing the test voice.' : `Reading ${index + 1} of ${total} sentences or chunks.`);
-        if (window.CSS?.highlights && window.Highlight) {
-          const highlights = ranges.filter(r => r.from < piece.end && r.to > piece.start).map(r => domRange(r.passage,r.start + Math.max(0,piece.start - r.from),r.start + Math.min(r.to - r.from,piece.end - r.from))).filter(Boolean);
-          CSS.highlights.set('reader-speaking',new Highlight(...highlights));
-        }
+        follow(piece);
       },
       onError:code => status(code === 'start-timeout' ? 'The device voice did not start. Try Test voice or another voice. Open “No sound?” below for phone settings.' : 'The device could not read aloud (' + code + '). Try another voice or open “No sound?” below.'),
-      onFinish:() => status(testing ? 'Voice test finished. If you heard nothing, open “No sound?” below.' : 'Finished reading the ' + (activeTarget?.kind === 'paragraph' ? 'paragraph.' : 'selection.')),
+      onFinish:() => status(testing ? 'Voice test finished. If you heard nothing, open “No sound?” below.' : 'Finished reading the ' + (activeTarget?.kind === 'paragraph' ? 'document.' : 'selection.')),
     });
     function refreshVoices() {
       if (state !== 'idle') return;
@@ -341,19 +380,30 @@
     });
     read = selected => {
       refreshVoices(); const chosen = voice();
-      if (!selected?.quote || selected.quote.length > 6000) { updateSelection(); return; }
+      if (!selected?.quote || (selected.kind !== 'paragraph' && selected.quote.length > 6000)) { updateSelection(); return; }
       if (!chosen) return; // refreshVoices explains how to load a voice; a later tap starts playback.
-      const resolved = selected.anchors.map(a => C.resolve(a,candidates()));
+      const all = candidates();
+      const resolved = selected.kind === 'paragraph'
+        ? all.slice(all.findIndex(p => p.id === selected.anchors[0].id)).filter(p => p.text.trim()).map((passage,i) => ({passage,start:i ? 0 : selected.anchors[0].start,end:passage.text.length}))
+        : selected.anchors.map(a => C.resolve(a,all));
       if (resolved.some(a => !a)) { status('The selected passage has changed. Select it again.'); return; }
       let offset = 0;
-      ranges = resolved.map((found,i) => { const start = offset; offset += selected.anchors[i].quote.length + 1; return {...found,from:start,to:offset - 1}; });
-      testing = false; activeTarget = selected; player.play({text:selected.anchors.map(a => a.quote).join('\n'),voice:chosen,rate:Number($('listen-speed').value)});
+      const texts = resolved.map(r => r.passage.text.slice(r.start,r.end));
+      ranges = resolved.map((found,i) => { const start = offset; offset += texts[i].length + 1; return {...found,from:start,to:offset - 1}; });
+      testing = false; activeTarget = selected; player.play({text:texts.join('\n'),voice:chosen,rate:Number($('listen-speed').value)});
     };
-    $('listen-start').addEventListener('click',() => {
+    const toggle = () => {
       if (state === 'speaking') player.pause();
       else if (state === 'paused') player.resume();
       else read(getTarget());
+    };
+    $('listen-start').addEventListener('click',toggle);
+    $('reader-read')?.addEventListener('click',() => {
+      toggle();
+      if (state === 'idle') { context.selectTab('listen'); context.openPanel(); }
+      else if (context.tools?.open && !context.wide.matches) context.closePanel(false,false);
     });
+    $('reader-read-stop')?.addEventListener('click',() => { player.stop(); status('Stopped.'); });
     updateSelection(); refreshVoices();
     // Some mobile engines initialize lazily and deliver voiceschanged late.
     const retries = [300,1000,3000].map(delay => setTimeout(() => { if (!voices.length) refreshVoices(); },delay));

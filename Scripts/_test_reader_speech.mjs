@@ -25,11 +25,11 @@ function engine() {
   };
 }
 function fixture() {
-  const synth = engine(), time = clock(), states = [], errors = [], played = [];
+  const synth = engine(), time = clock(), states = [], errors = [], played = [], words = [];
   let finished = 0;
   const player = S.createPlayer({synth,Utterance,...time,onState:s => states.push(s),onError:e => errors.push(e),
-    onChunk:(p,i) => played.push(i),onFinish:() => finished++});
-  return {synth,time,states,errors,played,player,get finished() { return finished; }};
+    onChunk:(p,i) => played.push(i),onWord:p => words.push(p),onFinish:() => finished++});
+  return {synth,time,states,errors,played,words,player,get finished() { return finished; }};
 }
 const plan = {text:'One sentence. Another sentence.',voice:english,rate:1.25};
 
@@ -95,6 +95,8 @@ class Node {
   append(node) { this.children.push(node); if (!this.value) this.value = node.value; }
   replaceChildren() { this.children = []; this.value = ''; }
   closest() { return this.id ? this : null; }
+  setAttribute(name,value) { this[name] = value; }
+  removeAttribute(name) { delete this[name]; }
   scrollIntoView() { this.revealed = true; }
   focus() { this.focused = true; }
 }
@@ -104,6 +106,7 @@ function integration() {
   synth.getVoices = () => available;
   const ids = [...fs.readFileSync(new URL('_study_reader.py',import.meta.url),'utf8').matchAll(/id="([a-z-]+)"/g)].map(m => m[1]);
   const nodes = new Map(ids.map(id => [id,new Node(id)]));
+  for (const id of ['reader-read','reader-read-stop']) nodes.set(id,new Node(id));
   nodes.get('listen-speed').value = '1';
   const main = new Node('main');
   function passage(id,text,tag = 'p') {
@@ -120,9 +123,10 @@ function integration() {
   const document = new Node();
   Object.assign(document,{readyState:'loading',currentScript:{dataset:{}},documentElement:{lang:'en',hasAttribute:() => false},
     getElementById:id => nodes.get(id) || null,
-    querySelector:selector => selector === 'h1' ? {textContent:'Test study'} : {content:'abc'},
+    querySelector:selector => selector === 'h1' ? {textContent:'Test study'} : {content:'abc',getBoundingClientRect:() => ({bottom:0})},
     querySelectorAll:() => ['notes-new','selection-note','selection-highlight'].map(id => nodes.get(id)),
     createElement:() => new Node(),
+    createRange:() => ({setStart() {},setEnd() {},getBoundingClientRect:() => ({height:0})}),
     createTreeWalker:root => { let seen = false; return {nextNode:() => seen ? null : (seen = true,passages.find(p => p.node === root).textNode)}; },
   });
   const window = Object.assign(new Node(),{speechSynthesis:synth,SpeechSynthesisUtterance:Utterance,
@@ -156,7 +160,7 @@ function integration() {
   assert.equal(nodes.get('selection-note').disabled,true);
   assert.equal(synth.spoken.length,0,'initialization never plays audio');
   assert.equal(nodes.get('listen-selection-preview').textContent,first.text);
-  assert.match(nodes.get('listen-selection-label').textContent,/Current paragraph/);
+  assert.match(nodes.get('listen-selection-label').textContent,/Read from here/);
   f.voices([hindi,remote,english]);
   assert.equal(nodes.get('listen-voice').value,'en');
   assert.equal(nodes.get('listen-voice').children.length,2,'remote voices stay excluded');
@@ -168,7 +172,7 @@ function integration() {
   assert.equal(nodes.get('listen-selection-preview').textContent,second.text);
   assert.equal(nodes.get('listen-selection-section').textContent,'1.1 Current subsection');
   nodes.get('listen-start').fire('click');
-  assert.equal(synth.spoken.at(-1).text,second.text,'Read paragraph starts synchronously');
+  assert.equal(synth.spoken.at(-1).text.trim(),second.text,'Read paragraph starts synchronously');
   synth.spoken.at(-1).onstart();
   f.place('p-1');
   assert.equal(nodes.get('listen-selection-preview').textContent,second.text,'scrolling cannot relabel the paragraph being spoken');
@@ -177,7 +181,7 @@ function integration() {
   assert.equal(nodes.get('listen-resume').disabled,false);
   assert.equal(nodes.get('listen-start').textContent,'Resume');
   nodes.get('listen-start').fire('click');
-  assert.equal(synth.spoken.at(-1).text,second.text);
+  assert.equal(synth.spoken.at(-1).text.trim(),second.text);
   nodes.get('listen-stop').fire('click');
   assert.equal(nodes.get('listen-selection-preview').textContent,first.text,'stopping restores the current reading target');
   const beforeTest = synth.spoken.length;
@@ -215,15 +219,14 @@ function integration() {
   assert.equal(nodes.get('reader-selection-tools').hidden,true,'native range updates behind an open mobile drawer do not reveal floating controls');
   main.fire('pointerdown');
   assert.equal(nodes.get('listen-start').disabled,false);
-  assert.match(nodes.get('listen-selection-label').textContent,/Current paragraph/);
+  assert.match(nodes.get('listen-selection-label').textContent,/Read from here/);
   assert.equal(nodes.get('listen-selection-preview').textContent,second.text);
   assert.equal(nodes.get('listen-test').disabled,false);
   f.place('heading');
   assert.equal(nodes.get('listen-selection-preview').textContent,first.text,'a heading offers its following prose paragraph');
   f.place('p-long');
-  assert.equal(nodes.get('listen-start').disabled,true);
-  assert.match(nodes.get('listen-selection-hint').textContent,/longer than 6,000/);
-  assert.equal(nodes.get('listen-selection-hint').hidden,false,'long paragraphs cannot be silently truncated');
+  assert.equal(nodes.get('listen-start').disabled,false,'continuous reading accepts long paragraphs');
+  assert.equal(nodes.get('listen-selection-hint').hidden,true);
   select(0,f.long.text.length,f.long); document.fire('selectionchange'); time.flush();
   assert.equal(nodes.get('listen-start').disabled,true);
   assert.match(nodes.get('listen-selection-hint').textContent,/Select up to 6,000/);
@@ -240,4 +243,39 @@ function integration() {
   f.nodes.get('listen-start').fire('click');
   assert.equal(f.synth.spoken.at(-1).text,f.first.text);
 }
-console.log('Reader speech: current paragraphs, direct Read, mobile selection, delayed storage/voices, pause/resume, stalls and errors passed.');
+{
+  const f = fixture(); f.player.play(plan);
+  const u = f.synth.spoken[0]; u.onstart();
+  u.onboundary({name:'word',charIndex:4,charLength:0});
+  assert.equal(plan.text.slice(f.words[0].start,f.words[0].end),'sentence');
+  u.onboundary({name:'sentence',charIndex:0});
+  u.onboundary({name:'word',charIndex:999});
+  assert.equal(f.words.length,1);
+  f.player.pause(); u.onboundary({name:'word',charIndex:0});
+  assert.equal(f.words.length,1,'late boundaries cannot paint after pause');
+  f.player.resume(); const next = f.synth.spoken.at(-1); next.onstart(); next.onend();
+  const last = f.synth.spoken.at(-1); last.onstart(); last.onboundary({name:'word',charIndex:0});
+  assert.equal(plan.text.slice(f.words.at(-1).start,f.words.at(-1).end),'Another','word offsets include the chunk offset');
+  f.player.stop(); last.onboundary({name:'word',charIndex:0}); assert.equal(f.words.length,2);
+}
+{
+  const f = integration(); f.voices([english]); f.place('p-2');
+  f.nodes.get('reader-read').fire('click');
+  assert.equal(f.tab,null,'top-bar Read keeps the document visible');
+  let u = f.synth.spoken.at(-1); u.onstart();
+  assert.equal(f.nodes.get('reader-read').textContent,'Pause');
+  f.nodes.get('reader-read').fire('click');
+  assert.equal(f.nodes.get('reader-read').textContent,'Resume');
+  f.nodes.get('reader-read').fire('click');
+  let heard = '', count = 0;
+  while (f.nodes.get('reader-read').textContent !== 'Read' && count++ < 100) {
+    u = f.synth.spoken.at(-1); heard += u.text; u.onstart(); u.onend();
+  }
+  assert.equal(heard.trimEnd(),(f.second.text + '\n' + f.long.text).trimEnd(),'continues through a paragraph longer than 6,000 characters to the end');
+  assert.equal(f.nodes.get('reader-read-stop').hidden,true);
+  f.nodes.get('reader-read').fire('click'); u = f.synth.spoken.at(-1); u.onstart();
+  f.nodes.get('reader-read-stop').fire('click');
+  const countBefore = f.synth.spoken.length; u.onend();
+  assert.equal(f.synth.spoken.length,countBefore,'Stop prevents queued continuation');
+}
+console.log('Reader speech: continuous reading, toolbar controls, word boundaries, selection, mobile pause/resume and errors passed.');
