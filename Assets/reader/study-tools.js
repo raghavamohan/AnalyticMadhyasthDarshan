@@ -181,7 +181,7 @@
             if (rect && rect.bottom <= top) low = mid + 1; else high = mid;
           }
           from = low;
-          while (from > 0 && /\S/.test(paragraph.text[from]) && /\S/.test(paragraph.text[from - 1])) from--;
+          from = window.AMDReaderSpeech?.sentenceStart(paragraph.text,from,document.documentElement.lang || 'en') ?? from;
         }
         selected = {anchors:[C.makeAnchor(paragraph,from,paragraph.text.length)],quote:paragraph.text.slice(from)};
       }
@@ -348,13 +348,13 @@
       return updateSelection;
     }
     const player = S.createPlayer({synth,Utterance:window.SpeechSynthesisUtterance,
-      onState:value => { controls(value); updateSelection(); if (value === 'starting') status('Starting device voice…'); if (value === 'paused') status('Paused. Resume restarts this sentence or short chunk.'); },
+      onState:value => { controls(value); updateSelection(); if (value === 'starting') status('Starting device voice…'); if (value === 'paused') status('Paused. Resume restarts this sentence.'); },
       onWord:follow,
       onChunk:(piece,index,total) => {
-        status(testing ? 'Playing the test voice.' : `Reading ${index + 1} of ${total} sentences or chunks.`);
+        status(testing ? 'Playing the test voice.' : `Reading ${index + 1} of ${total} sentences.`);
         follow(piece);
       },
-      onError:code => status(code === 'start-timeout' ? 'The device voice did not start. Try Test voice or another voice. Open “No sound?” below for phone settings.' : 'The device could not read aloud (' + code + '). Try another voice or open “No sound?” below.'),
+      onError:code => status(code === 'text-too-long' ? 'This sentence exceeds the device voice limit. Select a shorter passage to read.' : code === 'start-timeout' ? 'The device voice did not start. Try Test voice or another voice. Open “No sound?” below for phone settings.' : 'The device could not read aloud (' + code + '). Try another voice or open “No sound?” below.'),
       onFinish:() => status(testing ? 'Voice test finished. If you heard nothing, open “No sound?” below.' : 'Finished reading the ' + (activeTarget?.kind === 'paragraph' ? 'document.' : 'selection.')),
     });
     function refreshVoices() {
@@ -390,7 +390,7 @@
       let offset = 0;
       const texts = resolved.map(r => r.passage.text.slice(r.start,r.end));
       ranges = resolved.map((found,i) => { const start = offset; offset += texts[i].length + 1; return {...found,from:start,to:offset - 1}; });
-      testing = false; activeTarget = selected; player.play({text:texts.join('\n'),voice:chosen,rate:Number($('listen-speed').value)});
+      testing = false; activeTarget = selected; player.play({text:texts.join('\n'),passageEnds:ranges.map(r => r.to + 1),language:document.documentElement.lang || 'en',voice:chosen,rate:Number($('listen-speed').value)});
     };
     const toggle = () => {
       if (state === 'speaking') player.pause();
