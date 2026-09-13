@@ -13,6 +13,7 @@ import json
 import os
 import stat
 import sys
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timedelta, timezone
@@ -302,6 +303,38 @@ def _api_request(
     *,
     allow_404: bool = False,
 ) -> dict | None:
+    """Retry transient safe-read failures; never replay a possibly applied write."""
+    for attempt in range(3):
+        try:
+            return _api_request_once(method, path, token, payload, allow_404=allow_404)
+        except (urllib.error.URLError, ConnectionError, TimeoutError) as exc:
+            retryable = not isinstance(exc, urllib.error.HTTPError) or exc.code in {
+                429, 500, 502, 503, 504,
+            }
+            if method.upper() not in {"GET", "HEAD"} or not retryable or attempt == 2:
+                raise
+            delay = 2 ** attempt
+            if isinstance(exc, urllib.error.HTTPError):
+                retry_after = exc.headers.get("Retry-After", "") if exc.headers else ""
+                if retry_after.isdigit():
+                    # Do not retry sooner than requested, or block a deployment indefinitely.
+                    if int(retry_after) > 60:
+                        raise
+                    delay = max(delay, int(retry_after))
+            print(f"Cloudflare {method} read failed transiently; retrying in {delay}s "
+                  f"(attempt {attempt + 2}/3).", file=sys.stderr)
+            time.sleep(delay)
+    raise AssertionError("unreachable")
+
+
+def _api_request_once(
+    method: str,
+    path: str,
+    token: str,
+    payload: dict | None = None,
+    *,
+    allow_404: bool = False,
+) -> dict | None:
     url = f"{API_BASE}{path}"
     data = json.dumps(payload).encode("utf-8") if payload is not None else None
     req = urllib.request.Request(
@@ -317,6 +350,8 @@ def _api_request(
         with urllib.request.urlopen(req, timeout=60) as resp:
             body = json.loads(resp.read().decode("utf-8"))
     except urllib.error.HTTPError as exc:
+        if method.upper() in {"GET", "HEAD"} and exc.code in {429, 500, 502, 503, 504}:
+            raise
         raw = exc.read().decode("utf-8")
         if allow_404 and exc.code == 404:
             return None

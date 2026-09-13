@@ -33,10 +33,28 @@ class SyntheticTests(unittest.TestCase):
             report = json.loads(report_path.read_text(encoding="utf-8"))
         self.assertEqual(result, 1)
         self.assertFalse(report["success"])
-        self.assertEqual(len(report["checks"]), 11)
+        self.assertEqual(len(report["checks"]), 13)
         self.assertTrue(all(not check["ok"] for check in report["checks"]))
         self.assertTrue(all(check["detail"] == "network unavailable" for check in report["checks"]))
         self.assertEqual(json.loads(output.getvalue()), report)
+
+    def test_mcp_http_success_with_tool_error_fails(self):
+        for payload in ({"error": {"message": "failed"}}, {"result": {"isError": True}},
+                        {"result": {"structuredContent": {"studies": []}}}):
+            with self.subTest(payload=payload), patch.object(
+                synthetics, "expect_json", return_value=(payload, "request-id", 1)
+            ):
+                self.assertFalse(synthetics.run_check("mcp", synthetics.mcp_search).ok)
+
+    def test_empty_discussion_database_is_healthy(self):
+        with patch.object(synthetics, "expect_json", return_value=(
+            {"threads": [], "meta": {"total": 0}}, "request-id", 1
+        )):
+            self.assertTrue(synthetics.run_check("db", synthetics.discussion_read).ok)
+
+    def test_invalid_discussion_result_fails(self):
+        with patch.object(synthetics, "expect_json", return_value=({}, "request-id", 1)):
+            self.assertFalse(synthetics.run_check("db", synthetics.discussion_read).ok)
 
 
 if __name__ == "__main__":
