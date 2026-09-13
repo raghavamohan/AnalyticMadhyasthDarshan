@@ -32,17 +32,58 @@ function fixture() {
   return {synth,time,states,errors,played,words,player,get finished() { return finished; }};
 }
 const plan = {text:'One sentence. Another sentence.',voice:english,rate:1.25};
+{
+  const text = 'One complete sentence with ' + 'many related words '.repeat(25) + 'its final clause. Next sentence.';
+  const f = fixture(); f.player.play({...plan,text});
+  const first = f.synth.spoken[0];
+  assert.equal(first.text.trim(),text.slice(0,text.indexOf(' Next sentence.')));
+  first.onstart(); f.player.pause(); f.player.resume();
+  const resumed = f.synth.spoken.at(-1);
+  assert.equal(resumed.text,first.text,'Resume repeats the entire sentence');
+  resumed.onstart(); resumed.onend();
+  assert.equal(f.synth.spoken.at(-1).text,'Next sentence.');
+}
+{
+  const f = fixture(); f.player.play({...plan,text:'x'.repeat(32768)});
+  assert.deepEqual(f.errors,['text-too-long'],'over-limit text fails visibly instead of being silently cut');
+  assert.equal(f.synth.spoken.length,0);
+}
 
-// Long paragraphs remain intact, bounded, and aligned to the original text.
+
+// Complete sentences remain intact and aligned to the original text.
 for (const text of ['A '.repeat(1600),'पाठ और अर्थ। '.repeat(80),'x'.repeat(199) + '😀'.repeat(220),'word '.repeat(40) + ' tail.']) {
   const pieces = S.chunks(text,'en-IN');
   assert.equal(pieces.map(p => text.slice(p.start,p.end)).join('').trim(),text.trim());
   for (const p of pieces) {
-    assert.ok(p.end - p.start <= 200);
+    assert.ok(p.end > p.start);
     assert.doesNotMatch(text.slice(p.start,p.end),/^[\uDC00-\uDFFF]|[\uD800-\uDBFF]$/u);
   }
 }
-assert.ok(S.chunks('A long selection. Another part.','invalid_voice_tag').length);
+const sentences = (text,lang = 'en',ends) => S.chunks(text,lang,ends).map(p => text.slice(p.start,p.end).trim());
+const longSentence = 'A sentence with ' + 'many connected words '.repeat(28) + 'a complete ending.';
+assert.deepEqual(sentences(longSentence + ' Next sentence.'),[longSentence,'Next sentence.']);
+for (const language of ['en_IN','invalid_voice_tag','en']) {
+  assert.deepEqual(sentences('First sentence. Second sentence! Third sentence?',language),['First sentence.','Second sentence!','Third sentence?']);
+}
+assert.deepEqual(sentences('Dr. Nagraj described 3.14 units. A. Nagraj continued.'),['Dr. Nagraj described 3.14 units.','A. Nagraj continued.']);
+assert.deepEqual(sentences('Let this unit be A. Next sentence.'),['Let this unit be A.','Next sentence.']);
+assert.deepEqual(sentences('Shri A. Nagraj wrote this. Next sentence.'),['Shri A. Nagraj wrote this.','Next sentence.']);
+assert.deepEqual(sentences('He said “This is complete.” Next sentence.'),['He said “This is complete.”','Next sentence.']);
+assert.deepEqual(sentences('पहला वाक्य है। दूसरा वाक्य है।','hi_IN'),['पहला वाक्य है।','दूसरा वाक्य है।']);
+const passageText = 'A heading without punctuation\nThe next paragraph is complete. Next sentence.';
+assert.deepEqual(sentences(passageText,'en',[30]),['A heading without punctuation','The next paragraph is complete.','Next sentence.']);
+assert.deepEqual(sentences('A sentence with a soft\nline wrap ends here. Next sentence.'),['A sentence with a soft\nline wrap ends here.','Next sentence.']);
+const positioned = 'First sentence. ' + longSentence + ' Final sentence.';
+assert.equal(S.sentenceStart(positioned,60,'en'),16);
+assert.equal(S.sentenceStart(positioned,positioned.indexOf(' Final') + 1,'en'),positioned.indexOf('Final'));
+assert.equal(S.sentenceStart(positioned,positioned.length,'en'),positioned.length);
+// Older browsers retain real punctuation boundaries instead of 200-character chunks.
+const fallbackSandbox = {module:{exports:{}},Intl:{},setTimeout,clearTimeout};
+vm.runInNewContext(fs.readFileSync(new URL('../Assets/reader/speech-core.js',import.meta.url),'utf8'),fallbackSandbox);
+const fallbackText = 'Dr. Nagraj described 3.14 units. ' + longSentence + ' पहला वाक्य। दूसरा वाक्य।';
+assert.deepEqual(Array.from(fallbackSandbox.module.exports.chunks(fallbackText,'en'),p => fallbackText.slice(p.start,p.end).trim()),
+  ['Dr. Nagraj described 3.14 units.',longSentence,'पहला वाक्य।','दूसरा वाक्य।']);
+
 assert.equal(S.chooseVoice([hindi,remote,english],'','en',['en-IN']),english);
 assert.equal(S.chooseVoice([hindi,english],'hi','en'),hindi);
 assert.equal(S.chooseVoice([remote],'remote','en'),undefined);
