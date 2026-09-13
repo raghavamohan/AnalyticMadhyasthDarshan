@@ -34,7 +34,7 @@
       regional.map(l => matching.find(v => normalize(v.lang) === l)).find(Boolean) || matching[0] ||
       local.find(v => v.default) || local[0];
   }
-  function createPlayer({synth,Utterance,onState = () => {},onChunk = () => {},onError = () => {},onFinish = () => {},
+  function createPlayer({synth,Utterance,onState = () => {},onChunk = () => {},onWord = () => {},onError = () => {},onFinish = () => {},
     setTimer = setTimeout,clearTimer = clearTimeout,startTimeout = 12000}) {
     let state = 'idle', plan = null, index = 0, epoch = 0, timer, utterance;
     const change = value => { state = value; onState(value); };
@@ -64,6 +64,21 @@
         utterance.onend = () => {
           if (!current()) return;
           invalidate(); index++; speak();
+        };
+        utterance.onboundary = event => {
+          if (!current() || state !== 'speaking' || event.name !== 'word') return;
+          const at = event.charIndex, text = plan.text.slice(piece.start,piece.end);
+          if (!Number.isInteger(at) || at < 0 || at >= text.length) return;
+          let word;
+          try { word = [...new Intl.Segmenter(plan.voice.lang,{granularity:'word'}).segment(text)]
+            .find(s => s.isWordLike && s.index <= at && s.index + s.segment.length > at); } catch (_) {}
+          if (!word) {
+            const match = /\S+/g; let token;
+            while ((token = match.exec(text))) if (token.index <= at && token.index + token[0].length > at) {
+              word = {index:token.index,segment:token[0]}; break;
+            }
+          }
+          if (word) onWord({start:piece.start + word.index,end:piece.start + word.index + word.segment.length});
         };
         utterance.onerror = event => { if (current()) fail(event.error || 'speech-failed'); };
         timer = setTimer(() => { if (current()) fail('start-timeout'); },startTimeout);

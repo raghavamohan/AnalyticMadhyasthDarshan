@@ -622,6 +622,11 @@
   find.className = 'study-toolbar-control'; find.textContent = 'Find'; icon(find,'search');
   find.addEventListener('click',() => { selectTab('search'); openPanel(); $('reader-search-query').focus(); });
   opener.after(find);
+  const readButton = document.createElement('button'); readButton.type = 'button'; readButton.id = 'reader-read';
+  readButton.className = 'study-toolbar-control'; readButton.textContent = 'Read'; readButton.disabled = true;
+  const stopButton = document.createElement('button'); stopButton.type = 'button'; stopButton.id = 'reader-read-stop';
+  stopButton.className = 'study-toolbar-control'; stopButton.textContent = 'Stop'; stopButton.hidden = true;
+  find.after(readButton,stopButton);
   for (const [name,mark] of Object.entries({contents:'menu',search:'search',notes:'notes',bookmarks:'bookmark',listen:'audio',display:'sun'})) icon($('reader-tab-' + name),mark);
   for (const [selector,mark] of [['.study-toolbar-discuss','discussion'],['.study-toolbar-download','download'],['.study-toolbar-feedback','notes']]) icon(toolbar.querySelector(selector),mark);
   toolbar.querySelector('.study-toolbar-download').lastChild.textContent = 'Download PDF';
