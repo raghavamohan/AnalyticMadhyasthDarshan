@@ -264,6 +264,8 @@ def check_synthetic_contract() -> None:
         "auth.submissions.reject",
         "auth.discussions.reject",
         "discovery.equality",
+        "mcp.tools.search",
+        "discussions.read",
     )
     missing = [value for value in required_checks if value not in script]
     if missing:
