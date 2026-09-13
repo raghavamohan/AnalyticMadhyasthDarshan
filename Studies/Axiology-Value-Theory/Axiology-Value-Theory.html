@@ -715,7 +715,7 @@
 <script type="application/json" id="reader-document-visual">{"icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"amd-topic-icon\" aria-hidden=\"true\" focusable=\"false\"><g fill=\"none\" stroke=\"var(--amd-icon,#1A5276)\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3v18M7 21h10M3 7h18M6 7l-4 8h8ZM18 7l-4 8h8Z\"/><circle cx=\"12\" cy=\"6\" r=\"2\" fill=\"var(--amd-accent,#B47B46)\" stroke=\"none\"/><\/g><\/svg>", "status": "Released"}</script>
 <link rel="stylesheet" media="screen" href="../../Assets/reader/reader.css?v=7529355e01285032"/>
 <link rel="stylesheet" media="screen" href="../../Assets/reader/search.css?v=5a9f6333117dedb7"/>
-<link rel="stylesheet" media="screen" href="../../Assets/reader/study-tools.css?v=1b92e340477f9c93"/>
+<link rel="stylesheet" media="screen" href="../../Assets/reader/study-tools.css?v=4290a1b1171cdcfb"/>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -797,7 +797,7 @@
     <a href="/Studies/notebook.html">My notes &amp; saved studies →</a>
   </section>
   <section id="reader-listen" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-listen" tabindex="0" hidden>
-    <p class="reader-helper">Read the current paragraph or selected text. Click a paragraph to choose it; scroll to follow your reading position.</p>
+    <p class="reader-helper">Read selected text, or start at the current paragraph and continue to the end. Use Read in the top bar to pause or resume, and Stop to end the session.</p>
     <div class="listen-selection"><strong id="listen-selection-label">Current paragraph</strong><p id="listen-selection-section" class="reader-helper"></p><p id="listen-selection-preview"></p><p id="listen-selection-hint" class="reader-helper" hidden></p></div>
     <div class="study-tool-actions"><button type="button" id="listen-start" aria-describedby="listen-selection-label listen-selection-section listen-selection-preview listen-selection-hint" disabled>Read paragraph</button><button type="button" id="listen-test" disabled>Test voice</button></div>
     <div class="study-tool-actions"><button type="button" id="listen-pause" disabled>Pause</button><button type="button" id="listen-resume" disabled>Resume</button><button type="button" id="listen-stop" disabled>Stop</button></div>
@@ -810,7 +810,7 @@
       <p class="reader-helper">On Android, search Settings for “Text-to-speech output”. Choose an engine and language, install its voice data if needed, and use Play to test it. Return to Chrome and reopen Listen; reload the page if the voice list has not updated.</p>
       <a href="https://support.google.com/accessibility/android/answer/6006983?hl=en" target="_blank" rel="noopener noreferrer">Android text-to-speech settings ↗</a>
     </details>
-    <p class="reader-helper">Only voices reported by your browser as local are offered. Voice availability and offline support vary by device. Pronunciation of Sanskrit, Hindi, formulas and abbreviations may be imperfect. Highlighting follows each spoken sentence or short chunk.</p>
+    <p class="reader-helper">Only voices reported by your browser as local are offered. Voice availability and offline support vary by device. Pronunciation of Sanskrit, Hindi, formulas and abbreviations may be imperfect. The spoken word is highlighted when the voice supplies word timing; otherwise highlighting follows each sentence or short chunk. The page scrolls as reading proceeds.</p>
   </section>
   <section id="reader-bookmarks" class="reader-tab-panel" role="tabpanel" aria-labelledby="reader-tab-bookmarks" tabindex="0" hidden>
     <form id="reader-bookmark-form">
@@ -1869,9 +1869,9 @@
 <script defer src="../../Assets/reader/search.js?v=db4f6211550a4195"></script>
 <script defer src="../../Assets/reader/reader-features.js?v=507b4490fab797a0"></script>
 <script defer src="../../Assets/reader/notes-core.js?v=cf0d5435124d9148"></script>
-<script defer src="../../Assets/reader/speech-core.js?v=009f08ae3f9cc3da"></script>
-<script defer src="../../Assets/reader/study-tools.js?v=0ac71eaa8e54ad3d" data-offline-client="../../Assets/reader/offline-client.js?v=3eb68287b9159c33"></script>
-<script defer src="../../Assets/reader/reader.js?v=f153cf4dc4cc7f3c"></script><script>
+<script defer src="../../Assets/reader/speech-core.js?v=dcc40bc34e7f31ea"></script>
+<script defer src="../../Assets/reader/study-tools.js?v=f61b20496d0c9a89" data-offline-client="../../Assets/reader/offline-client.js?v=3eb68287b9159c33"></script>
+<script defer src="../../Assets/reader/reader.js?v=c5f7749805354c09"></script><script>
 (() => {
   let floatPanel = document.getElementById("term-tip-float");
   if (!floatPanel) {
