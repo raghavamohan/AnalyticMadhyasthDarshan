@@ -65,7 +65,7 @@ These studies are more mathematical in nature. They represent the structure disc
 <!-- formal-studies-catalog -->
 | Document | Formal Focus | Description | Status |
 |----------|--------------|-------------|--------|
-| [From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence](A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html) · [Discuss](A-State-Dynamic-Model-Of-Coexistence/discussion.html) | Formal structure | A source-bounded qualitative reconstruction linking intrinsic unit activity, compositional closure, constitutionally complete jeevan, animal and human joint forms, reflexive evaluation, and public orderliness. It distinguishes dharma and niyati-kram from causal forces, preserves composition and atomic development as separate lines, and keeps unresolved empirical mechanisms explicit. | Released<br>Last updated on: Sep 6, 2026, 6:31 PM IST |
+| [From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence](A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html) · [Discuss](A-State-Dynamic-Model-Of-Coexistence/discussion.html) | Formal structure | A synthesis of coexistence as unit activity, connecting ontology with Jeevan's concentric faculties, evaluation, values, justice, and continuous realised fulfilment. It explains how humane living extends through five social functions, universal participation, and awakened tradition, with the formal model developed in appendices. | Released<br>Last updated on: Sep 14, 2026, 7:39 PM IST |
 <!-- /formal-studies-catalog -->
 
 ### Applied studies
