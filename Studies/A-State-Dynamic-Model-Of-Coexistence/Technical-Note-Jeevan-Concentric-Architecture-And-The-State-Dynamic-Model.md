@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([AnalyticMadhyasthDarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** September 11, 2026, 8:46 AM IST
+**Edited on:** September 14, 2026, 7:13 PM IST
 
 This note develops a synthesis of Shri A. Nagraj's account of *jeevan* in Madhyasth Darshan. Its starting point is the constitution and activity of the conscious unit asserted in that account: a nucleus and four orbits, five faculties, and 122 detailed activities. It asks how this concentric organisation helps explain the connections among understanding, values, bodily participation, and human order. The account is examined on its own philosophical terms; this note neither identifies *jeevan* with an atom of current physics nor presents the synthesis as physically verified.
 
@@ -91,6 +91,8 @@ The four *jeevan* values add explicit links between adjacent faculties (MVD, p. 
 
 Together, the two patterns explain coherence from two directions. The relationship pairs specify content to be fulfilled; the harmonies concern the accord of the faculties through which it is fulfilled. The relevant accord is grounded in realised understanding and just conduct (MVD, pp. 276–277, 327).
 
+Their highest fulfilment is *paramanand*, realisation of coexistence and its continuity in *atma*. This is the ultimate goal of human *jeevan*, expressed through the integrated activity of awakened living. Continuous realised fulfilment inspires the harmonies and their expression in participation (MVD, pp. 101, 327–328; AVD, p. 262).
+
 The six human values cross these connections. Courage and fortitude form *Vritti* 15; kindness is the expression paired with peace in *Vritti* 4; grace and compassion form *Vritti* 5; generosity is the expression paired with care in *Mun* 2. Human character consequently connects inward fulfilment, just assessment, and contribution (AVD, pp. 92–93).
 
 The thirty-value account is completed by the two values of things: usefulness and aesthetic value. Their relation to activity is expressed through *medha–kala*: the apprehension and accomplishment of usefulness and art, and beautification consistent with usefulness. In the synthesis, material arrangements take their purpose from human fulfilment, while their actual usefulness must be recognised in relation to what they can provide (PS, pp. 71–72, 149–154; MVD, p. 330). The overlapping classifications and exact counts are recorded in the Editorial Notes.
@@ -135,7 +137,7 @@ $$
 c\in\{\mathsf{bal},\mathsf{shakti}\}\}.
 $$
 
-The 122 positions retain their names, definitions, pair assignments, source variants, and provenance. Preserve the parent's human orientation $z_{j,n}$ and faculty profile. Extend a bounded situation with a collection of annotations:
+The 122 positions retain their names, definitions, pair assignments, source variants, and provenance. In the revised parent, $\chi_j$ owns the invariant constitution and faculty organisation, while $z_{j,n}$ owns the persistent refinable disposition profile of every constitutionally complete *jeevan*, joined or unjoined. The active human view $z^H_{\eta,n}$ is derived while its human association holds. Annotations refer to these existing descriptions without copying their writable state (SDM, Appendix A.3). Extend a bounded situation with a collection of annotations:
 
 $$
 \widehat{\mathcal Q}_n=\langle\mathcal Q_n,\mathcal D_n\rangle.
@@ -180,7 +182,7 @@ $$
 \operatorname{Traces}(\mathrm{SDM}).
 $$
 
-Every enriched trace projects to its parent trace, and every parent trace lifts through the empty annotation sequence. This establishes trace preservation for the defined annotation layer. Complete dossiers can be required for a particular study of episodes; such a requirement selects its evidence base. A future model making annotation contents govern transitions would require a separate preservation argument. Observation and correction by human participants continue through the parent's human-occurrence and orientation-revision relations.
+Every enriched trace projects to its parent trace, and every parent trace lifts through the empty annotation sequence. This establishes trace preservation for the defined annotation layer. Complete dossiers can be required for a particular study of episodes; such a requirement selects its evidence base. A future model making annotation contents govern transitions would require a separate preservation argument. Observation and correction by human participants continue through the parent's human-occurrence and disposition-revision relations. The parent's persistent-*jeevan* typing and constitutional-completeness constructor are substantive specification changes; the annotation proof compares expansions of that stated parent and does not prove those changes conservative with respect to earlier versions (SDM, Appendices A.3, A.6, A.11).
 
 ### 4.4 Nourishment as a bodily evaluation criterion
 
@@ -222,7 +224,7 @@ A versioned responsibility record can preserve these connections across changes 
 | Criterion and correction | How fulfilment is assessed and how a failure is addressed |
 | Interval and version | Period of applicability and links to preceding or superseding versions |
 
-Allocation links persons to roles; contribution links occurrences to responsibility versions; assessment examines fulfilment. Sustained contributions and correction supply evidence of continuity over the observed interval. This develops the parent's maintained relational orders (Appendix A.7) and its inquiry into undivided society (§11.3).
+Allocation links persons to roles; contribution links occurrences to responsibility versions; assessment examines fulfilment. Sustained contributions and correction supply evidence of continuity over the observed interval. These records elaborate the parent's maintained relational orders and its documentary account of responsibility and continuity (Appendices A.7, A.11), whose social meaning is developed through the five functions, wider coordination, and awakened tradition (§§11.4–11.6).
 
 ## 5. The explanatory use of the synthesis
 
@@ -280,8 +282,8 @@ The source-informed interpretation of an episode is distinguishable from its for
 
 ### Primary Madhyasth Darshan texts
 
-- **MVD** — A. Nagraj, [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), translated by Rakesh Gupta. Constitutional locations, p. 78 (§§1.1–1.2); constitutional completeness, pp. 89–91 (§1.1); bodily association, pp. 199–205 (§2.4); realisation-based and realisation-oriented functioning, pp. 276–277 (§§1.3, 2.1, 2.3, 3.1, 5); means, aims, and integral development, pp. 322–323 (§§1.1, 1.3, 2.1 and Editorial Notes); visualisation and interfaculty harmonies, p. 327 (§§1.3, 2.2–2.3, 3.1); activity definitions, pp. 328–348 (§§1.1–1.2, 2.2–2.4, 3.1, 4.4, 4.6 and Editorial Notes); family and social functions, pp. 55–56 (§§4.6, 5). Page numbers are the printed pagination of this rendering.
-- **AVD** — A. Nagraj, [*Adhyatmvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), working English translation by Sanjeev Chopra. Faculty, column, and detailed-pair inventory, pp. 91–94 (§§1.2, 2.3–2.4, 4.1, 4.6 and Editorial Notes).
+- **MVD** — A. Nagraj, [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), translated by Rakesh Gupta. Constitutional locations, p. 78 (§§1.1–1.2); constitutional completeness, pp. 89–91 (§1.1); paramanand, highest human goal, and continuity of realisation, pp. 101, 327–328 (§2.3); bodily association, pp. 199–205 (§2.4); realisation-based and realisation-oriented functioning, pp. 276–277 (§§1.3, 2.1, 2.3, 3.1, 5); means, aims, and integral development, pp. 322–323 (§§1.1, 1.3, 2.1 and Editorial Notes); visualisation and interfaculty harmonies, p. 327 (§§1.3, 2.2–2.3, 3.1); activity definitions, pp. 328–348 (§§1.1–1.2, 2.2–2.4, 3.1, 4.4, 4.6 and Editorial Notes); family and social functions, pp. 55–56 (§§4.6, 5). Page numbers are the printed pagination of this rendering.
+- **AVD** — A. Nagraj, [*Adhyatmvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), working English translation by Sanjeev Chopra. Faculty, column, and detailed-pair inventory, pp. 91–94 (§§1.2, 2.3–2.4, 4.1, 4.6 and Editorial Notes); continuous realised fulfilment and its expression, PDF p. 262 (§2.3).
 - **MSM** — A. Nagraj, [*Manav Sanchetnavadi Manovigyan*](../../References/Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf), Hindi, 2008 OCR edition. Values and purpose, p. 34 (§2.2); awakened tasting and activity distribution, pp. 38–43 (§§2.1–2.3, 4.5); social functions, pp. 64–65 (§§4.6, 5); representation of values, p. 243 (§§2.2, 4.5). Printed pages correspond to PDF positions twelve higher.
 - **PS** — A. Nagraj, *Paribhasha Samhita*, Hindi, third edition 2012, printing 2016; [official publications](https://originals.madhyasth.org/granth/published) and [source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7). Visualisation and usefulness, printed pp. 71–72 (§2.3); values and their dimensions of expression, pp. 149–154 (§2.3 and Editorial Notes).
 - **JV** — A. Nagraj, [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), translated by Rakesh Gupta. First-person account of the architecture and 122 conducts, printed pp. 12, 91–92, 165 (§1.1); effective functioning under sensitivity, pp. 72–74 (Editorial Notes). PDF positions are one higher.
@@ -289,7 +291,7 @@ The source-informed interpretation of an episode is distinguishable from its for
 
 ### Related studies and companion notes
 
-- **SDM** — [*From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence*](A-State-Dynamic-Model-Of-Coexistence.md). Actual and recognised mutuality, §2.3 (§3.2); generic activity and its vocabulary, §7.3 and Editorial Notes (§§1.2, 3.2); maintained orders and human evaluation, Appendices A.3–A.9 (§4); verification, Appendix C.2 (§4.2); undivided society, §11.3 (§§4.6, 5).
+- **SDM** — [*From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence*](A-State-Dynamic-Model-Of-Coexistence.md). Actual and recognised mutuality, §2.3 (§3.2); generic activity and its vocabulary, §7.3 and Editorial Notes (§§1.2, 3.2); persistent *jeevan*, maintained orders, and human evaluation, Appendices A.3–A.9 (§4); values, responsibilities, and continuity, Appendix A.11 (§§4.3, 4.6); verification, Appendix C.2 (§4.2); undivided society, five functions, wider coordination, and awakened tradition, §§11.3–11.6 (§§4.6, 5).
 - [*Research Note: Jeevan Activities, Value Fulfilment, and Human Order*](Research-Note-Jeevan-Activities-Values-And-Human-Order.md). Inventory and value synthesis, §§1–3 (§2); contextual records, §8 (§§3.2, 4); radial hypothesis, Appendix H (§§1.3, 3.2 and Editorial Notes).
 - [*The Sixty-One Activity Pairs of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.md). Documentary rows, definitions, and variants, §§4–8 (§§1.2, 2.4, 4.6 and Editorial Notes).
 - [*Axiology: Value Theory*](../Axiology-Value-Theory/Axiology-Value-Theory.md). The thirty-value canon and its expression, §§1.2–1.3 (§2.3 and Editorial Notes).

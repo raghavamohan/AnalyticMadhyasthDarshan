@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([AnalyticMadhyasthDarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 30, 2026, 2:52 AM IST
+**Edited on:** September 14, 2026, 7:13 PM IST
 
 **Status:** Internal technical note; not a catalog entry. Prepared as a semantic extension note for *[From Unit Activity to Human Orderliness](A-State-Dynamic-Model-Of-Coexistence.pdf)*.
 
@@ -97,7 +97,7 @@ For the SDM, modalities should be deferred until each operator is defined on a t
 
 MD-TOPOS separately assumes ten disjoint tier flags and an election relation, then assigns social and knowledge roles to them. Later tier formulas are nested or dependent, so they do not automatically satisfy the earlier disjointness condition, and their inhabitation is not proved from the minimal site. More importantly, the institutional hierarchy is not derived from the 26+1 vocabulary.
 
-The SDM should treat family, work, organisation, and wider social participation as maintained relational orders among persons, relationships, roles, material means, and consequences. No categorical encoding may turn an organisation into a higher ontic unit or attribute a collective *jeevan* to it. A World-Family module, if pursued, must be a separately sourced and typed social theory built after the human-conduct fragment.
+The revised SDM treats family, work, organisation, and wider social participation as maintained relational orders among persons, relationships, roles, material means, and consequences. Its §11.5 presents the source-proposed ten-tier family-based self-governance, while Appendix A.11 types the responsibilities, contributions, and shared norms through which arrangements are described (MVD, pp. 18–19, 161). A categorical treatment of that social content remains a separate formal task, building on the human-conduct fragment. It cannot turn an organisation into a higher ontic unit or attribute a collective *jeevan* to it; nor does the presence of a sourced institutional proposal establish its derivation from the 26+1 vocabulary.
 
 ## 4. The role of MD-TOPOS in the new SDM formulation
 
@@ -120,13 +120,17 @@ The first categorical reconstruction should be many-sorted. The exact signature 
 |---|---|
 | `Ground` | The formal place-holder for state-complete *satta*, kept outside the unit sort |
 | `Unit`, `Kind`, `Order` | Ontic units and their typed constitutional or order profiles |
-| `Body`, `Jeevan` | The two relata of animal or human association |
+| `Body`, `Jeevan` | The two relata of animal or human association; *jeevan* remains a unit whether joined or unjoined |
+| `JeevanConstitution`, `DispositionProfile`, `HumanView` | Fixed faculty organisation, persistent refinable dispositions, and derived expression during an active human association |
 | `AssociationScope` | A derived scope for a body–*jeevan* association, not a third unit |
 | `Relationship`, `MaintainedOrder` | Actual human relations and bounded arrangements among persons |
 | `Occurrence`, `StructuralEvent` | Complete effort–motion–result and compatible boundary changes |
 | `TraceRecord`, `VerificationStatus` | Later consequence, assessment, provenance, and operational status |
+| `ValuePosition`, `ResponsibilityRecord`, `NormRecord`, `LearningRecord` | Standing value definitions and the documentary social records distinguished in the parent's Appendix A.11 |
 
 Relations should include saturation, actual mutuality, containment, body–*jeevan* association, participation in an occurrence, recognition, fulfilment, candidate closure, event compatibility, consequence retention, and later verification. Functions or functional relations for form, result, accepted orientation, and order profile should be introduced only where their totality and uniqueness are justified.
+
+The parent's ownership distinctions must survive this retyping. Constitutional organisation belongs to $\chi_j$, refinable dispositions to the persistent $z_{j,n}$, and the active human view $z^H_{\eta,n}$ is derived. Body separation ends that view while the *jeevan* and its dispositions persist. Documentary value definitions and records of responsibility, learning, or assessment do not become additional writable versions of a person's state (SDM, Appendices A.3, A.11).
 
 The full Appendix A schema is not automatically a coherent theory. It uses finite sets, partial functions, non-emptiness, uniqueness, acyclicity, temporal inequalities, undefinedness, and invariants. Some of these can be expressed geometrically after retyping; some require a regular, coherent, first-order, or external metalanguage; some should remain properties of a chosen implementation. The classifying object must therefore be built fragment by fragment rather than claimed for the whole schema at once.
 
@@ -144,7 +148,7 @@ Three model families would make the pilot substantive:
 
 The first success criterion is not a large categorical object. It is a proved relationship among these three presentations: which theory each satisfies, which information a translation forgets, and whether any claimed equivalence is conservative.
 
-Body–*jeevan* association should form a second module. Human occurrence, faculty dependence, conduct, and trace assessment should follow later because they combine first-person claims, public consequences, temporal evaluation, and multiple access domains. The social module should follow the human module and preserve persons as agents.
+Persistent *jeevan* and body–*jeevan* association should form a second module. Human occurrence, faculty dependence, conduct, and trace assessment should follow later because they combine first-person claims, public consequences, temporal evaluation, and multiple access domains. The social module should formalise the revised parent's account after the human module and preserve persons as agents.
 
 ## 7. Observation ledgers and context operators
 
@@ -219,10 +223,10 @@ This is a design and audit note, not a construction of a classifying topos. It i
 
 ### State-dynamic reconstruction
 
-- **SDM** — [*From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence*](A-State-Dynamic-Model-Of-Coexistence.pdf). Used: process and claim boundaries (§12 and Appendices A–C); source-status audit (Editorial Notes).
+- **SDM** — [*From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence*](A-State-Dynamic-Model-Of-Coexistence.pdf). Used: process and claim boundaries (§12 and Appendices A–C); persistent *jeevan*, disposition ownership, and active human views (Appendix A.3; §§5–6 of this note); social functions, ten-tier coordination, and awakened tradition (§§11.4–11.6; §3.5 of this note); value and social records (Appendix A.11; §§3.5, 5–6 of this note); source-status audit (Editorial Notes).
 
 ### Primary Madhyasth Darshan texts
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: state and motion, *guna*, *svabhav*, and *dharma* as aspects of a unit and as evident in mutuality (p. 47; §3.1).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: state and motion, *guna*, *svabhav*, and *dharma* as aspects of a unit and as evident in mutuality (p. 47; §3.1); ten-tier family-based self-governance and humane tradition (pp. 18–19, 161; §3.5).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: units as state and motion and the inseparability of form, property, essential nature, and *dharma* from the bearer (pp. 248–257; §3.1).
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: the human body as an evolved formation for evidencing understanding and the necessity of body–*jeevan* association for human activity (p. 59; §3.1).
