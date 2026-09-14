@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([AnalyticMadhyasthDarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 30, 2026, 3:38 AM IST
+**Edited on:** September 14, 2026, 7:16 PM IST
 
 **Status:** Internal technical note; not a catalog entry. Prepared as a computational-semantics extension note for *[From Unit Activity to Human Orderliness](A-State-Dynamic-Model-Of-Coexistence.pdf)*.
 
@@ -156,18 +156,24 @@ For an association scope $\eta=(j,b,r)$, the implementation derives $e_\eta$ fro
 
 ### 4.2 Constructing the causal graph
 
-Define a causal dependency
+Use event identities and versioned state items. For a finite implemented trace, let $e<_t e'$ mean that distinct event $e$ precedes $e'$ in the recorded execution. Let $\operatorname{produced}(e)$ contain the item-versions created by $e$, and $\operatorname{required}(e')$ the versions that $e'$ actually reads or consumes, including those used by its match and guard. Define a direct dependency by
 
 $$
-e\prec e'
-\quad\text{when}\quad
-\operatorname{write}(e)
-\cap
-\bigl(\operatorname{read}(e')\cup\operatorname{write}(e')\bigr)
-\ne\varnothing,
+e\prec_0 e'
+\iff
+e<_t e'
+\;\land\;
+\operatorname{produced}(e)
+\cap\operatorname{required}(e')\ne\varnothing.
 $$
 
-subject to an explicit commutation rule for mergeable writes. The transitive reduction of this dependency relation gives a causal graph for the implemented trace. A compatible occurrence ensemble corresponds to an antichain, or to a set whose internal overlaps have a defined commutative merge.
+Versions present in the initial state have no producer within the trace; they may be represented as boundary inputs. State-preserving occurrences still have event identities and the dependencies of the versions they inspect. Mere reuse of a field name supplies no causal edge. In particular, two events writing the same field do not cause one another merely because their write-sets overlap.
+
+The transitive closure $\prec=\prec_0^{+}$ is a strict partial order: every dependency increases the recorded execution order, so neither a self-loop nor a directed cycle is possible. Its transitive reduction gives a finite causal DAG. Execution precedence establishes a necessary direction for dependency; it does not make every earlier event a cause of every later one. Schedule-independent causal graphs still require the separate proof in §4.3.
+
+Read/write and write/write conflicts are scheduling constraints distinct from this causal relation. If a later writer consumes a version produced by an earlier writer, the actual version dependency is recorded. Alternative incompatible writers belong to separate admissible branches or require an explicitly specified serialisation. Concurrent contributions to one result require a typed merge with a stated commutation law; a merge event consumes the contribution versions and produces the shared result. The contributing events need not depend on one another.
+
+A compatible occurrence ensemble is represented by an antichain only when its independent event representatives have no producer/consumer path between them and its reads and merged writes preserve the common candidate-state semantics. A defined merge alone does not prove that condition. Derived association occurrences are views over their body and *jeevan* events, not additional vertices in that antichain.
 
 Structural events are causally downstream of the EMR events whose candidate results satisfy their guards. A closure event, for example, depends on the constituent occurrences that make $\operatorname{CandidateClosed}$ true. Its effect activates a containing activity and its immediate-containment incidences while preserving constituent identity. It does not replace those occurrences with a single untyped node.
 
@@ -287,7 +293,7 @@ Wolfram's computational-universe approach and the SDM can be synchronized as fol
 |-------|----------|
 | Local rule execution | Adopt through typed attributed rewriting |
 | EMR | Encode as the three co-present semantic projections of one event |
-| Concurrent $A_n$ | Represent as a compatible event family and causal antichain |
+| Concurrent $A_n$ | Represent as a compatible event family; use a causal antichain only after checking dependencies and any merge |
 | Occurrence index | Interpret as a chosen causal foliation or descriptive cut |
 | Structural $\Lambda_n$ | Encode as a second guarded event sort downstream of candidate results |
 | Multiway graph | Use for schedule alternatives and genuine outcome branches, explicitly distinguished |
