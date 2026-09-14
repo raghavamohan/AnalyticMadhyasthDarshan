@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([AnalyticMadhyasthDarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** September 14, 2026, 7:13 PM IST
+**Edited on:** September 14, 2026, 8:38 PM IST
 
 This note develops a synthesis of Shri A. Nagraj's account of *jeevan* in Madhyasth Darshan. Its starting point is the constitution and activity of the conscious unit asserted in that account: a nucleus and four orbits, five faculties, and 122 detailed activities. It asks how this concentric organisation helps explain the connections among understanding, values, bodily participation, and human order. The account is examined on its own philosophical terms; this note neither identifies *jeevan* with an atom of current physics nor presents the synthesis as physically verified.
 
@@ -50,9 +50,9 @@ Concentricity consequently serves as an organising model of grounded articulatio
 
 ### 2.1 The relation between inward orientation and outward expression
 
-In the realisation-based account, enlightenment in *buddhi* accords with realisation in *atma*; contemplation in *chitta* accords with enlightenment; deliberation of justice, *dharma*, and truth in *vritti* accords with contemplation; and tasting in *mun* accords with deliberation. The body participates under the direction of *mun*. This is the positive connection through which the concentric architecture explains coherent conduct (MVD, pp. 276–277).
+In realisation-based expression, *anubhav-moolak*, enlightenment in *buddhi* accords with realisation in *atma*; contemplation in *chitta* accords with enlightenment; deliberation of justice, *dharma*, and truth in *vritti* accords with contemplation; and tasting in *mun* accords with deliberation. The body participates under the direction of *mun*. This is the positive connection through which the concentric architecture explains coherent conduct (MVD, pp. 276–277).
 
-The inward orientation is also explicit. The body has its aim in *mun*, *mun* in *vritti*, *vritti* in *chitta*, *chitta* in *buddhi*, and *buddhi* in *atma*; *atma* has its aim in evidence of realisation in coexistence. Complete development connects the reception of realised meaning with creative visualisation, thoughts of *dharma*, and receptivity for just behaviour (MVD, pp. 322–323). The architecture therefore connects the question of what an action serves with the question of how understanding becomes action.
+The complementary realisation-oriented direction, *anubhav-gami*, directs study and practice towards realisation in coexistence (AVD, p. 161). The body has its aim in *mun*, *mun* in *vritti*, *vritti* in *chitta*, *chitta* in *buddhi*, and *buddhi* in *atma*; *atma* has its aim in evidence of realisation in coexistence. Complete development connects the reception of realised meaning with creative visualisation, thoughts of *dharma*, and receptivity for just behaviour (MVD, pp. 322–323). The architecture therefore connects the question of what an action serves with the question of how understanding becomes action.
 
 This relationship helps explain the difference between sensory preference governing thought and understanding governing sensory participation. Under the former orientation, desire and thought support the satisfaction being sought. In awakening, tasted fulfilment accords with deliberation grounded in justice, *dharma*, and truth. *Mun* can accordingly taste the fulfilment of these values in living (MVD, pp. 276–277; MSM, pp. 38, 43).
 
@@ -250,7 +250,7 @@ Its practical contribution is an explanatory discipline for teaching and modelli
 | *Jeevan* | The constitutionally complete conscious unit in Madhyasth Darshan |
 | *Atma* and *Satta* | Respectively, the nucleus/faculty of the individual *jeevan*, and the all-pervading ground in which nature is saturated |
 | *Bal–shakti* | Activity in state and in motion; the two source columns |
-| Realisation-based / realisation-oriented | Expression grounded in realisation, and orientation towards realisation; connected directions in the primary account |
+| *Anubhav-gami* / *anubhav-moolak* | Realisation-oriented study and practice / expression grounded in realised understanding. The first directs understanding towards realisation; the second carries realised understanding into thought, relationships, and work. |
 | *Pramanikta* | Authenticity; the parent SDM also uses evidence for its generic activity |
 | *Tulan*, *chitran*, *asvadan* | Deliberation, visualisation, and tasting; comparison, imaging, and taste are corresponding labels in the parent model |
 | Fulfilment | Actual participation through which the relevant value is realised, examined with consequence and counterpart evidence |
@@ -283,7 +283,7 @@ The source-informed interpretation of an episode is distinguishable from its for
 ### Primary Madhyasth Darshan texts
 
 - **MVD** — A. Nagraj, [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf), translated by Rakesh Gupta. Constitutional locations, p. 78 (§§1.1–1.2); constitutional completeness, pp. 89–91 (§1.1); paramanand, highest human goal, and continuity of realisation, pp. 101, 327–328 (§2.3); bodily association, pp. 199–205 (§2.4); realisation-based and realisation-oriented functioning, pp. 276–277 (§§1.3, 2.1, 2.3, 3.1, 5); means, aims, and integral development, pp. 322–323 (§§1.1, 1.3, 2.1 and Editorial Notes); visualisation and interfaculty harmonies, p. 327 (§§1.3, 2.2–2.3, 3.1); activity definitions, pp. 328–348 (§§1.1–1.2, 2.2–2.4, 3.1, 4.4, 4.6 and Editorial Notes); family and social functions, pp. 55–56 (§§4.6, 5). Page numbers are the printed pagination of this rendering.
-- **AVD** — A. Nagraj, [*Adhyatmvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), working English translation by Sanjeev Chopra. Faculty, column, and detailed-pair inventory, pp. 91–94 (§§1.2, 2.3–2.4, 4.1, 4.6 and Editorial Notes); continuous realised fulfilment and its expression, PDF p. 262 (§2.3).
+- **AVD** — A. Nagraj, [*Adhyatmvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), working English translation by Sanjeev Chopra. Faculty, column, and detailed-pair inventory, pp. 91–94 (§§1.2, 2.3–2.4, 4.1, 4.6 and Editorial Notes); realisation-oriented study and realisation-based expression, PDF p. 161 (§2.1); continuous realised fulfilment and its expression, PDF p. 262 (§2.3).
 - **MSM** — A. Nagraj, [*Manav Sanchetnavadi Manovigyan*](../../References/Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf), Hindi, 2008 OCR edition. Values and purpose, p. 34 (§2.2); awakened tasting and activity distribution, pp. 38–43 (§§2.1–2.3, 4.5); social functions, pp. 64–65 (§§4.6, 5); representation of values, p. 243 (§§2.2, 4.5). Printed pages correspond to PDF positions twelve higher.
 - **PS** — A. Nagraj, *Paribhasha Samhita*, Hindi, third edition 2012, printing 2016; [official publications](https://originals.madhyasth.org/granth/published) and [source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7). Visualisation and usefulness, printed pp. 71–72 (§2.3); values and their dimensions of expression, pp. 149–154 (§2.3 and Editorial Notes).
 - **JV** — A. Nagraj, [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), translated by Rakesh Gupta. First-person account of the architecture and 122 conducts, printed pp. 12, 91–92, 165 (§1.1); effective functioning under sensitivity, pp. 72–74 (Editorial Notes). PDF positions are one higher.
