@@ -64,6 +64,7 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 | [A-State-Dynamic-Model-Of-Coexistence.pdf](../Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) | MVD, SB, JV, AVD, KD, MSM, JVD; MAD and PS | registered primary PDFs; MAD and PS external |
 | [Research-Note-Jeevan-Activities-Values-And-Human-Order.md](../Studies/A-State-Dynamic-Model-Of-Coexistence/Research-Note-Jeevan-Activities-Values-And-Human-Order.md) | MVD, AVD, MSM, KD, JV; MAD, PS and MIT quantum numbers | registered primary PDFs; MAD, PS and MIT external |
 | [Technical-Note-Jeevan-Concentric-Architecture-And-The-State-Dynamic-Model.md](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Jeevan-Concentric-Architecture-And-The-State-Dynamic-Model.md) | MVD, AVD, MSM, KD, JV; PS | registered primary PDFs; PS external |
+| [Technical-Note-Physical-Dynamics-And-Unit-Activity.md](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Physical-Dynamics-And-Unit-Activity.md) | MVD, SB; Tong-L, SICM-H, Tong-H, MIT-D, LYAP | registered primary PDFs; mechanics and stability sources external |
 
 
 ## By tag
@@ -73,6 +74,7 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | Tag | Location | Cited in |
 |-----|----------|----------|
 | **MVD** | [Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf) · [`.md` analysis extract](Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.md) | all Studies papers above |
+| **Tong-L**, **SICM-H**, **Tong-H**, **MIT-D**, **LYAP** | [Physics teaching resources](NOT-DOWNLOADED.md#physics-teaching-resources--external-only) | Technical-Note-Physical-Dynamics-And-Unit-Activity; variational mechanics, damping, stability, and interpretation boundaries |
 | **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md` analysis extract](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | all Studies papers above |
 | **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md` analysis extract](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | all Studies papers above; Research-Note-Jeevan-Activities-Values-And-Human-Order Appendix H adds firsthand testimony and its social purpose, printed pp. 12, 91–92, 165 (PDF positions +1) |
 | **MAD** | [Manav Abhyas Darshan — Hindi reader](https://db.madhyasth.org/books/read/144/) (external) | Axiology-Value-Theory, displayed reader pp. 30, 34, 43, 45, 47, 51; A-State-Dynamic-Model-Of-Coexistence, reader pp. 30, 34, 45, 47, 51; Research-Note-Jeevan-Activities-Values-And-Human-Order, reader pp. 30, 34, 43, 47, 51 |

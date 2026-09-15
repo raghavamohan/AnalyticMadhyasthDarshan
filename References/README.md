@@ -134,6 +134,8 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 
 The external quantum-number clarification used by the Jeevan activities research note is registered under [physics teaching resources](NOT-DOWNLOADED.md#physics-teaching-resources--external-only): Donald R. Sadoway, MIT OpenCourseWare, *Introduction to Solid State Chemistry*, session 6, transcript pp. 2–3. It is linked to the publisher rather than mirrored.
 
+The [physical-dynamics technical note](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Physical-Dynamics-And-Unit-Activity.md) uses the registered MVD and SB primary PDFs together with external mechanics and stability sources: David Tong's Lagrangian and Hamiltonian chapters, Sussman and Wisdom's Hamiltonian mechanics chapter, Matthew Evans's damped-oscillation lecture, and Russ Tedrake's Lyapunov analysis. Their canonical links are registered in [physics teaching resources](NOT-DOWNLOADED.md#physics-teaching-resources--external-only).
+
 ## Modern-Philosophy/
 
 | Tag | File | Notes |
