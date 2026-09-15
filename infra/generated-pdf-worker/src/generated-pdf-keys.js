@@ -6,6 +6,7 @@ export const GENERATED_PDF_KEYS = [
   "Studies/A-State-Dynamic-Model-Of-Coexistence/Research-Note-Jeevan-Activities-Values-And-Human-Order.pdf",
   "Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Jeevan-Concentric-Architecture-And-The-State-Dynamic-Model.pdf",
   "Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-MD-TOPOS-And-The-State-Dynamic-Model.pdf",
+  "Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Physical-Dynamics-And-Unit-Activity.pdf",
   "Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Wolfram-Computational-Universe-And-EMR.pdf",
   "Studies/Aesthetics/Aesthetics.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan-notes.pdf",
