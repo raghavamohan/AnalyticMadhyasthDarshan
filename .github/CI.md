@@ -103,6 +103,16 @@ connection failures, timeouts, HTTP 429 and selected transient 5xx responses up 
 three attempts with backoff. Writes are single-attempt to avoid replaying a change
 whose response was lost. Permanent API errors still fail immediately.
 
+R2 S3 `GET` and `HEAD` requests also retry transient transport failures (including
+TLS handshake timeouts and interrupted response reads), HTTP 429 and selected
+5xx responses for at most three attempts. Each attempt is freshly signed. Backoff
+is one then two seconds; numeric `Retry-After` values are respected up to sixty
+seconds, with longer waits failing closed. Missing optional objects still return
+not-found, while access denial and certificate-verification failures stop
+immediately. R2 writes remain single-attempt. This covers metadata reads during
+immutable-object staging and verification without replaying an upload or changing
+the release's integrity and promotion gates.
+
 `api-synthetics.yml` runs 13 standard-library-only production checks, including MCP
 search tool execution and database-backed discussion statistics reads. Empty
 discussion tables are healthy; missing response fields and MCP tool errors fail.
