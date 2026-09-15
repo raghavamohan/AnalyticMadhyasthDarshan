@@ -4,7 +4,11 @@ from __future__ import annotations
 import datetime as dt
 import hashlib
 import hmac
+import http.client
 import os
+import ssl
+import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -109,6 +113,45 @@ class R2S3Client:
         query: Mapping[str, str] | None = None,
         allow_not_found: bool = False,
     ) -> tuple[int, dict[str, str], bytes]:
+        """Retry safe reads; never replay a write whose outcome may be unknown."""
+        method = method.upper()
+        attempts = 3 if method in {"GET", "HEAD"} else 1
+        for attempt in range(attempts):
+            delay = 2 ** attempt
+            try:
+                # Each attempt gets a fresh timestamp and Signature V4 request.
+                return self._request_once(method, path, body=body, headers=headers, query=query)
+            except urllib.error.HTTPError as exc:
+                try:
+                    if allow_not_found and exc.code == 404:
+                        return 404, {k.lower(): v for k, v in (exc.headers or {}).items()}, b""
+                    if exc.code not in {429, 500, 502, 503, 504} or attempt == attempts - 1:
+                        raise RuntimeError(f"R2 S3 request failed: HTTP {exc.code} {exc.reason}") from exc
+                    retry_after = exc.headers.get("Retry-After", "") if exc.headers else ""
+                    if retry_after.isdigit():
+                        if int(retry_after) > 60:
+                            raise RuntimeError(f"R2 S3 request failed: HTTP {exc.code} {exc.reason}") from exc
+                        delay = max(delay, int(retry_after))
+                finally:
+                    exc.close()
+            except (urllib.error.URLError, ConnectionError, TimeoutError, http.client.IncompleteRead) as exc:
+                reason = exc.reason if isinstance(exc, urllib.error.URLError) else exc
+                if attempt == attempts - 1 or isinstance(reason, ssl.SSLCertVerificationError):
+                    raise
+            print(f"R2 {method} read failed transiently; retrying in {delay}s "
+                  f"(attempt {attempt + 2}/{attempts}).", file=sys.stderr)
+            time.sleep(delay)
+        raise AssertionError("unreachable")
+
+    def _request_once(
+        self,
+        method: str,
+        path: str,
+        *,
+        body: bytes = b"",
+        headers: Mapping[str, str] | None = None,
+        query: Mapping[str, str] | None = None,
+    ) -> tuple[int, dict[str, str], bytes]:
         now = dt.datetime.now(dt.timezone.utc)
         amz_date = now.strftime("%Y%m%dT%H%M%SZ")
         date_stamp = now.strftime("%Y%m%d")
@@ -156,13 +199,8 @@ class R2S3Client:
             url, data=body if method in {"PUT", "POST"} else None,
             headers=request_headers, method=method,
         )
-        try:
-            with urllib.request.urlopen(request, timeout=120) as response:
-                return response.status, {k.lower(): v for k, v in response.headers.items()}, response.read()
-        except urllib.error.HTTPError as exc:
-            if allow_not_found and exc.code == 404:
-                return 404, {k.lower(): v for k, v in exc.headers.items()}, b""
-            raise RuntimeError(f"R2 S3 request failed: HTTP {exc.code} {exc.reason}") from exc
+        with urllib.request.urlopen(request, timeout=120) as response:
+            return response.status, {k.lower(): v for k, v in response.headers.items()}, response.read()
 
     def list_buckets(self) -> list[str]:
         _, _, body = self._request("GET", "/")
