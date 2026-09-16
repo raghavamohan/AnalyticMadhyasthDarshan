@@ -1118,6 +1118,16 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     line-height: 1.3;
   }
   .path-related li a { font-weight: 600; }
+  .related-study-title {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    column-gap: 8px;
+    align-items: start;
+  }
+  .related-study-icon { grid-column: 1; grid-row: 1 / 3; }
+  .related-study-icon > svg { width: 24px; height: 24px; }
+  .related-study-title > :is(a, .path-status) { grid-column: 2; justify-self: start; }
+  .related-study-title > br { display: none; }
   .related-study-description { margin: 0; line-height: 1.5; color: var(--text-muted); }
   @media (max-width: 600px) {
     .path-related li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
@@ -1691,9 +1701,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <details class="path-related">
               <summary>3 related studies</summary>
               <ul>
-                <li data-study-slug="Philosophy-Of-Mind-And-Jeevan"><div class="related-study-title"><a data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Philosophy-Of-Mind-And-Jeevan"></p></li>
-                <li data-study-slug="Chitta-Brain-And-Memory"><div class="related-study-title"><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Chitta-Brain-And-Memory"></p></li>
-                <li data-study-slug="Death-Continuity-And-Rebirth"><div class="related-study-title"><a data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death, Continuity, and Rebirth</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Death-Continuity-And-Rebirth"></p></li>
+                <li data-study-slug="Philosophy-Of-Mind-And-Jeevan"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Philosophy-Of-Mind-And-Jeevan"></span><a data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Philosophy-Of-Mind-And-Jeevan"></p></li>
+                <li data-study-slug="Chitta-Brain-And-Memory"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Chitta-Brain-And-Memory"></span><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Chitta-Brain-And-Memory"></p></li>
+                <li data-study-slug="Death-Continuity-And-Rebirth"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Death-Continuity-And-Rebirth"></span><a data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death, Continuity, and Rebirth</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Death-Continuity-And-Rebirth"></p></li>
               </ul>
             </details>
           </div>
@@ -1721,9 +1731,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <details class="path-related">
               <summary>3 related studies</summary>
               <ul>
-                <li data-study-slug="Nature-Of-Time"><div class="related-study-title"><a data-study-link href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="Nature-Of-Time"></p></li>
-                <li data-study-slug="Nature-Ecology-And-Right-Use"><div class="related-study-title"><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Nature-Ecology-And-Right-Use"></p></li>
-                <li data-study-slug="God-Divinity-And-The-Sacred"><div class="related-study-title"><a data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God, Divinity, and the Sacred</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="God-Divinity-And-The-Sacred"></p></li>
+                <li data-study-slug="Nature-Of-Time"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Nature-Of-Time"></span><a data-study-link href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="Nature-Of-Time"></p></li>
+                <li data-study-slug="Nature-Ecology-And-Right-Use"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Nature-Ecology-And-Right-Use"></span><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Nature-Ecology-And-Right-Use"></p></li>
+                <li data-study-slug="God-Divinity-And-The-Sacred"><div class="related-study-title"><span class="related-study-icon" data-related-icon="God-Divinity-And-The-Sacred"></span><a data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God, Divinity, and the Sacred</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="God-Divinity-And-The-Sacred"></p></li>
               </ul>
             </details>
           </div>
@@ -1751,10 +1761,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <details class="path-related">
               <summary>4 related studies</summary>
               <ul>
-                <li data-study-slug="Methodology-And-Hermeneutics"><div class="related-study-title"><a data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Methodology-And-Hermeneutics"></p></li>
-                <li data-study-slug="Work-Action-And-Karma"><div class="related-study-title"><a data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Work-Action-And-Karma"></p></li>
-                <li data-study-slug="Free-Will-Choice-And-Agency"><div class="related-study-title"><a data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will, Choice, and Agency</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Free-Will-Choice-And-Agency"></p></li>
-                <li data-study-slug="Language-Meaning-And-Definition"><div class="related-study-title"><a data-study-link href="Language-Meaning-And-Definition/discussion.html">Language, Meaning, and Definition</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Language-Meaning-And-Definition"></p></li>
+                <li data-study-slug="Methodology-And-Hermeneutics"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Methodology-And-Hermeneutics"></span><a data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Methodology-And-Hermeneutics"></p></li>
+                <li data-study-slug="Work-Action-And-Karma"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Work-Action-And-Karma"></span><a data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Work-Action-And-Karma"></p></li>
+                <li data-study-slug="Free-Will-Choice-And-Agency"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Free-Will-Choice-And-Agency"></span><a data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will, Choice, and Agency</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Free-Will-Choice-And-Agency"></p></li>
+                <li data-study-slug="Language-Meaning-And-Definition"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Language-Meaning-And-Definition"></span><a data-study-link href="Language-Meaning-And-Definition/discussion.html">Language, Meaning, and Definition</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Language-Meaning-And-Definition"></p></li>
               </ul>
             </details>
           </div>
@@ -1782,9 +1792,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <details class="path-related">
               <summary>3 related studies</summary>
               <ul>
-                <li data-study-slug="Ethics-And-Morals-In-Human-Beings"><div class="related-study-title"><a data-study-link href="Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Ethics-And-Morals-In-Human-Beings"></p></li>
-                <li data-study-slug="Family-Relationships-And-Values"><div class="related-study-title"><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Family-Relationships-And-Values"></p></li>
-                <li data-study-slug="Aesthetics"><div class="related-study-title"><a data-study-link href="Aesthetics/Aesthetics.html">Aesthetics</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Aesthetics"></p></li>
+                <li data-study-slug="Ethics-And-Morals-In-Human-Beings"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Ethics-And-Morals-In-Human-Beings"></span><a data-study-link href="Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Ethics-And-Morals-In-Human-Beings"></p></li>
+                <li data-study-slug="Family-Relationships-And-Values"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Family-Relationships-And-Values"></span><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Family-Relationships-And-Values"></p></li>
+                <li data-study-slug="Aesthetics"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Aesthetics"></span><a data-study-link href="Aesthetics/Aesthetics.html">Aesthetics</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Aesthetics"></p></li>
               </ul>
             </details>
           </div>
@@ -1812,9 +1822,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <details class="path-related">
               <summary>3 related studies</summary>
               <ul>
-                <li data-study-slug="Human-Behavior-And-Society"><div class="related-study-title"><a data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Human-Behavior-And-Society"></p></li>
-                <li data-study-slug="How-To-Form-Self-Sustaining-Organizations"><div class="related-study-title"><a data-study-link href="How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="How-To-Form-Self-Sustaining-Organizations"></p></li>
-                <li data-study-slug="Education-And-Sanskar"><div class="related-study-title"><a data-study-link href="Education-And-Sanskar/discussion.html">Education and Sanskar</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Education-And-Sanskar"></p></li>
+                <li data-study-slug="Human-Behavior-And-Society"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Human-Behavior-And-Society"></span><a data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Human-Behavior-And-Society"></p></li>
+                <li data-study-slug="How-To-Form-Self-Sustaining-Organizations"><div class="related-study-title"><span class="related-study-icon" data-related-icon="How-To-Form-Self-Sustaining-Organizations"></span><a data-study-link href="How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="How-To-Form-Self-Sustaining-Organizations"></p></li>
+                <li data-study-slug="Education-And-Sanskar"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Education-And-Sanskar"></span><a data-study-link href="Education-And-Sanskar/discussion.html">Education and Sanskar</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Education-And-Sanskar"></p></li>
               </ul>
             </details>
           </div>
@@ -3233,15 +3243,24 @@ def start_here_status_key(status) -> str:
     return key if key in START_HERE_STATUS_WORDS else "planned"
 
 
-def render_related_descriptions(html: str, rows: list[StudyRow]) -> str:
-    """Render the same catalog descriptions used by cards, including before JS loads."""
+def render_related_studies(html: str, rows: list[StudyRow]) -> str:
+    """Render catalog descriptions and assigned topic icons before JS loads."""
     descriptions = {row.slug: row_to_catalog_entry(row)["description"] for row in rows}
     def replace(match: re.Match) -> str:
         head, slug, tail = match.groups()
         if slug not in descriptions:
             raise ValueError(f"Related study missing from catalog: {slug}")
         return head + descriptions[slug] + tail
-    return re.sub(r'(<p class="related-study-description" data-related-description="([^"]+)">).*?(</p>)', replace, html, flags=re.DOTALL)
+    html = re.sub(r'(<p class="related-study-description" data-related-description="([^"]+)">).*?(</p>)', replace, html, flags=re.DOTALL)
+
+    def replace_icon(match: re.Match) -> str:
+        head, slug, tail = match.groups()
+        name = study_icon_name(slug)
+        if not name:
+            raise ValueError(f"Related study missing icon assignment: {slug}")
+        return head + topic_icon_html(name) + tail
+
+    return re.sub(r'(<span class="related-study-icon" data-related-icon="([^"]+)">).*?(</span>)', replace_icon, html, flags=re.DOTALL)
 
 
 def render_start_here_status(html: str, rows: list[StudyRow]) -> str:
@@ -3384,7 +3403,7 @@ def verify_index_shell_sync() -> list[str]:
     )
     expected = normalize_shell_text(
         strip_build_time_data(
-            strip_catalog_blocks(strip_grid_contents(minify_inline_css(render_related_descriptions(render_start_here_presentations(INDEX_TEMPLATE), [row for table in StudyTable for row in parse_catalog_json_file(table)]))))
+            strip_catalog_blocks(strip_grid_contents(minify_inline_css(render_related_studies(render_start_here_presentations(INDEX_TEMPLATE), [row for table in StudyTable for row in parse_catalog_json_file(table)]))))
         )
     )
 
@@ -3484,7 +3503,7 @@ def write_index_html() -> dict[str, list[StudyRow]] | None:
         build_id,
     )
     html = render_start_here_status(html, all_rows)
-    html = render_related_descriptions(html, all_rows)
+    html = render_related_studies(html, all_rows)
     html = render_start_here_presentations(html)
     write_text_lf(index_path, minify_inline_css(html))
     return {"topical": topical_rows, "formal": formal_rows, "applied": applied_rows}
