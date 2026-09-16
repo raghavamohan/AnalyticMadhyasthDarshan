@@ -55,6 +55,26 @@ async function main() {
       waitUntil: 'load',
     });
     await page.evaluateHandle('document.fonts.ready');
+    // Fail instead of publishing clipped text when catalog titles grow.
+    const layoutErrors = await page.evaluate(() => {
+      const errors = [];
+      for (const selector of ['.eyebrow', '.icon', '.copy', '.title', '.blurb', '.cats', '.status']) {
+        const element = document.querySelector(selector);
+        if (!element) continue;
+        const box = element.getBoundingClientRect();
+        if (box.left < 0 || box.top < 0 || box.right > innerWidth || box.bottom > innerHeight ||
+            element.scrollWidth > element.clientWidth + 1 || element.scrollHeight > element.clientHeight + 1) {
+          errors.push(`${selector} overflows the card`);
+        }
+      }
+      const copy = document.querySelector('.copy')?.getBoundingClientRect();
+      const main = document.querySelector('.main')?.getBoundingClientRect();
+      if (copy && main && (copy.top < main.top || copy.bottom > main.bottom)) {
+        errors.push('Title or description overlaps the header or footer');
+      }
+      return errors;
+    });
+    if (layoutErrors.length) throw new Error(layoutErrors.join('; '));
     fs.mkdirSync(path.dirname(outputPath), { recursive: true });
     await page.screenshot({ path: outputPath, type: 'png' });
   } finally {
