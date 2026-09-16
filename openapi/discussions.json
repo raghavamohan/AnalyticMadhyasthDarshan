@@ -145,7 +145,8 @@
             "schema": {
               "type": "integer",
               "minimum": 0,
-              "default": 0
+              "default": 0,
+              "maximum": 10000
             }
           }
         ],

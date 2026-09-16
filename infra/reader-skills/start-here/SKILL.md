@@ -2,7 +2,7 @@
 name: start-here
 description: >-
   Orient a reader or agent to Analytic Madhyasth Darshan: public catalogs,
-  the recommended reading path, standpoint and scope, and where write APIs
+  the recommended reading path, shared approach, and where write APIs
   stay human-only. Use when an agent first lands on the site or asks how
   to begin reading the studies.
 ---
@@ -28,11 +28,25 @@ This site publishes analytic studies of **Madhyasth Darshan** (Co-existentialism
 
 Each published row has `html`, `pdf`, and `md`. **Markdown is the source of truth.** HTML and PDF are generated.
 
+Resolve static catalog paths against `https://analyticmadhyasthdarshan.org/Studies/`;
+applied studies use `../Applications/`. Dynamic HTTP/MCP results instead expose
+absolute `htmlUrl`, `pdfUrl`, and `mdUrl`; preserve their publication-revision
+query parameter. Ongoing (Planned) rows have no public document.
+
+HTTP study/glossary lists and MCP search/list/glossary tools default to 50 rows,
+with `limit` up to 100. Follow `nextOffset` while `hasMore` is true. Static catalog
+JSON is a complete array. Search matches catalog metadata; fetch the Markdown
+body before summarizing a paper's argument.
+
 ## Reading path
 
 On the studies landing page, follow **Start here**. The usual order is human, existence, knowledge, value, then lived participation. Formal and applied studies are a parallel track, not a substitute for the topical papers.
 
-Every topical study includes **Standpoint and scope**: the author writes as a scientist/technologist; matter-first science is the honest starting point; the method is to state the darshan and compare it with physics and natural sciences, Advaita Vedanta, and modern Western philosophy. The aim is comparative understanding, not persuasion.
+The shared method is described in **Our approach** on the studies landing page
+and in the repository README. Individual studies begin with their own question
+and argument; a recurring **Standpoint and scope** section is not required.
+Read each study's actual assumptions, comparisons, and limits rather than
+inferring them from the collection's general approach.
 
 ## Tools
 

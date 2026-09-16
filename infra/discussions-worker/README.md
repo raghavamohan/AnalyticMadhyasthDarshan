@@ -96,6 +96,7 @@ Discussion pages use same-origin `/api/...` when Worker routes are configured on
 After deploy, attach routes so the API is same-origin:
 
 ```powershell
+# Run from the repository root, not infra/discussions-worker
 python Scripts/_cloudflare_performance.py --apply-discussions-api
 ```
 
@@ -136,11 +137,12 @@ instead of silently overwriting newer state.
 
 ## Cloudflare edge limits (apex domain)
 
-Discussion routes run on `analyticmadhyasthdarshan.org/api/...` (not the `api.` subdomain). **Pro plan allows only two WAF rate-limit rules** in the zone; the repo uses one for leaked-credential checks and one combined rule (`amd_rl_edge_api`: **40 req / 10 s per IP** on portal `api.*` paths plus apex `/api/discussions/*` and `/api/discuss-auth/magic-link`). Worker-side magic-link limit remains 5/hour per email. Apply or verify via [`infra/worker/README.md`](../worker/README.md) (`--apply-discussions-rate-limits` / `--check-edge-security`).
+Discussion routes run on `analyticmadhyasthdarshan.org/api/...` (not the `api.` subdomain). **Pro plan allows only two WAF rate-limit rules** in the zone; the repo uses one for leaked-credential checks and one combined rule (`amd_rl_edge_api`: **40 req / 10 s per IP** on portal `/api/*`, all apex `/api/*`, and `/mcp*` paths). Worker-side magic-link limit remains 5/hour per email. Apply or verify via [`infra/worker/README.md`](../worker/README.md) (`--apply-discussions-rate-limits` / `--check-edge-security`).
 
 Static discussion pages receive **enforcing CSP** and other security headers from zone Transform Rules. Turnstile needs `https://challenges.cloudflare.com` in `script-src`, `connect-src`, and `frame-src`; study Mermaid loads from `https://cdn.jsdelivr.net`; Cloudflare Web Analytics uses `static.cloudflareinsights.com` — all included in the repo CSP spec.
 
-`GET /api/discuss-auth/verify` is intentionally not rate-limited at the edge (email link retries).
+`GET /api/discuss-auth/verify` is covered by the shared edge rule, along with
+other apex API routes. Honor `Retry-After` if an email-link retry is throttled.
 
 ## Moderation
 
@@ -149,7 +151,7 @@ Static discussion pages receive **enforcing CSP** and other security headers fro
 - JSON request bodies are limited to 16 KiB; oversized payloads return `413`.
 - Turnstile required on magic-link requests only (signed-in session covers repeat comment posts).
 - Rate limit: 5 magic-link emails per address per hour (worker); edge WAF limits — see **Cloudflare edge limits** above.
-- API responses advertise the edge policy in `RateLimit-Policy`. Magic-link responses also include the account-specific `RateLimit` state, and a `429` includes `Retry-After`.
+- API responses advertise the edge policy in `RateLimit-Policy`. Magic-link responses also include the email-specific `RateLimit` state, and a `429` includes `Retry-After`.
 - Admins (`ADMIN_EMAILS`) see a **Hide** button on others' comments.
 - Authors see **Delete** on their own comments (same soft-hide in D1).
 - Hidden comments are excluded from `GET /api/discussions/:slug`.

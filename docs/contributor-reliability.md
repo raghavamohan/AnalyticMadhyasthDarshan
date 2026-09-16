@@ -1,8 +1,10 @@
 # Contributor reliability
 
-Phase 4 adds browser draft recovery, richer previews, source comparisons and
-submission receipts to My Submissions. The public site remains static; submission
-writes continue through the existing Cloudflare Worker and GitHub.
+My Submissions provides browser draft recovery, previews, source comparisons,
+and submission receipts. Public study documents are built before publication;
+submission writes go through the Cloudflare Worker and GitHub. The API contract
+is documented in [OpenAPI](../openapi/submissions.json) and the
+[Worker guide](../infra/worker/README.md).
 
 ## Contributor workflow
 
@@ -45,7 +47,11 @@ Browser storage is not encrypted and does not sync between devices. Another
 person using the same browser profile can access it. Browser eviction or cleanup
 can remove it, so downloadable backups remain necessary. IndexedDB keeps at most
 100 contributor drafts and 64 MB including recovery copies. Markdown remains
-limited to 2 MB and presentations to 10 MB by the submission API. Preview is
+limited to 2 MiB and presentations to 10 MiB by the submission API. Figure
+attachments are capped at 2 MiB each, with up to 20 figures. Supplementary
+figures and presenter Markdown share a 4 MiB base64-character budget
+(approximately 3 MiB decoded); the full submission/revision JSON envelope is
+limited to 20,000,000 UTF-8 bytes. Preview is
 limited to 500,000 characters, 2,000 equations and 20 diagrams; oversized or
 invalid previews leave the source available. Draft listings load metadata only,
 without reading every presentation into memory.
@@ -81,7 +87,7 @@ Receipts retain only identifiers, hashes, timestamps and small result metadata,
 not draft bodies or authentication tokens. Receipts are retained to prevent old
 attempts from being replayed after an arbitrary expiry.
 
-Before replacing an existing study, note, or presentation, the Worker compares
+Before replacing an existing study, note, presentation, presenter companion, or figure, the Worker compares
 `sourceSha` with the current GitHub blob. Status changes and deletions carry the
 same source identifier. Revisions additionally use GitHub's `sha` update
 condition, so a concurrent commit fails instead of being overwritten. Update
