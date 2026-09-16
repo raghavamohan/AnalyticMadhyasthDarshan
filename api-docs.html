@@ -16,6 +16,7 @@
     margin: 48px auto;
     padding: 0 20px 64px;
     line-height: 1.55;
+    overflow-wrap: anywhere;
   }
   h1, h2 { font-weight: normal; }
   a { color: #1a5276; }
@@ -40,6 +41,13 @@
 </head>
 <body>
 <h1>Site APIs</h1>
+<p>
+  Read access is public and needs no account or API key. Use the HTTP API for
+  catalog search and study metadata, or MCP for the same read operations and
+  Markdown resources. Submission and discussion writes use separate human
+  sign-in flows. This guide describes the repository contract; health endpoints
+  report runtime readiness, and the OpenAPI documents define individual operations.
+</p>
 <p>
   Agents should start at
   <a href="/.well-known/api-catalog"><code>/.well-known/api-catalog</code></a>
@@ -109,6 +117,10 @@
       <td><a href="/api/studies?q="><code>GET /api/studies?q=</code></a></td>
     </tr>
     <tr>
+      <td>Study API health</td>
+      <td><a href="/api/studies/health"><code>GET /api/studies/health</code></a></td>
+    </tr>
+    <tr>
       <td>One study + outline</td>
       <td><a href="/api/studies/The-Ontology-of-Coexistence"><code>GET /api/studies/{slug}</code></a></td>
     </tr>
@@ -139,15 +151,68 @@
   </tbody>
 </table>
 <p>
-  Companion research notes are not catalog rows. Only curated technical notes
-  listed in <a href="sitemap.xml">sitemap.xml</a> are published as public pages.
+  Companion notes and presentations are not separate study catalog rows. The
+  publication inventory determines their public outputs; the curated
+  <a href="sitemap.xml">sitemap</a> is not an exhaustive companion inventory.
+  Use the study's reader and catalog presentation links to find related material.
+</p>
+
+<h2>Read examples and pagination</h2>
+<p>
+  These PowerShell examples make anonymous read requests. HTTP search matches
+  catalog titles, slugs, descriptions, and categories; it does not search the
+  full study body. Collection filters are <code>topical</code>,
+  <code>formal</code>, and <code>applied</code>; status filters are
+  <code>ongoing</code>, <code>draft</code>, and <code>released</code>.
+  The website labels <code>ongoing</code> work as Planned.
+</p>
+<pre><code>$base = "https://analyticmadhyasthdarshan.org"
+$page = Invoke-RestMethod "$base/api/studies?q=coexistence&amp;limit=10&amp;offset=0"
+$page.studies | Select-Object title, slug, status, mdUrl
+
+$study = Invoke-RestMethod "$base/api/studies/The-Ontology-of-Coexistence"
+$study.outline
+if ($study.mdUrl) {
+    $markdown = Invoke-RestMethod $study.mdUrl
+}
+Invoke-RestMethod "$base/api/cite/The-Ontology-of-Coexistence"
+Invoke-RestMethod "$base/api/glossary?q=jeevan"</code></pre>
+<p>
+  Study and glossary lists default to 50 rows; <code>limit</code> accepts 1–100
+  and <code>offset</code> accepts 0–10,000. Responses contain
+  <code>count</code> (this page), <code>total</code> (all matches),
+  <code>limit</code>, <code>offset</code>, <code>hasMore</code>, and
+  <code>nextOffset</code>. Follow <code>nextOffset</code> with the same filters
+  while <code>hasMore</code> is true. Search text is limited to 200 characters.
+  Static catalog JSON files return complete arrays without pagination.
+</p>
+<pre><code>$rows = @()
+$offset = 0
+do {
+    $page = Invoke-RestMethod "$base/api/studies?limit=100&amp;offset=$offset"
+    $rows += $page.studies
+    $offset = $page.nextOffset
+} while ($page.hasMore)
+if ($rows.Count -ne $page.total) {
+    throw "The catalog changed during pagination; reload before counting."
+}</code></pre>
+<p>
+  Dynamic results provide absolute <code>htmlUrl</code>, <code>pdfUrl</code>, and
+  <code>mdUrl</code> values. Follow these URLs as returned: they can include an
+  <code>r</code> query parameter that selects the publication revision used for
+  the metadata. Ongoing entries return null document URLs and an empty outline;
+  citation and Markdown-resource requests for them fail. An empty outline can
+  also mean Markdown retrieval failed, so it does not prove a paper has no headings.
+  Retrieve the body before making claims beyond the catalog description.
 </p>
 
 <h2>Submission portal</h2>
 <p class="muted">
   Base URL: <code>https://api.analyticmadhyasthdarshan.org</code>.
-  Contributors sign in with GitHub to propose studies, submit drafts, and
-  change Draft/Released status. Reading published studies does not use this API.
+  Contributors sign in with GitHub to propose studies, submit or revise drafts,
+  update study and companion sources, request deletion, and change Draft/Released
+  status. Accepted writes create or update GitHub work for review; they do not
+  publish immediately. Reading published studies does not use this API.
 </p>
 <table>
   <thead>
@@ -207,6 +272,37 @@
   </tbody>
 </table>
 
+<h2>Human write requirements</h2>
+<p>
+  Use the portal or discussion page for sign-in. Authenticated operations require
+  the appropriate session cookie. All browser POSTs require a trusted
+  <code>Origin</code> and <code>Content-Type: application/json</code>, including
+  magic-link requests and logout. The portal's
+  cross-origin requests to the API subdomain include credentials. Turnstile is
+  required for proposal, submission, revision, status, deletion, and magic-link
+  requests; it is not repeated for signed-in comments, moderation, notification
+  preferences, or logout. The CI-only <code>POST /api/notify</code> uses
+  <code>X-Notify-Secret</code> instead of a browser session.
+</p>
+<p>
+  Load the current source identifier before an update or deletion:
+  <code>sourceSha</code> for study/companion files and figure replacements,
+  <code>sourceVersion</code> for notification preferences, and
+  <code>sourceUpdatedAt</code> for comment hide/delete. A stale request returns
+  <code>409</code> with <code>details.currentSource</code>; reload and reconcile
+  the change. Contribution receipts and unchanged payloads must be retained
+  across interrupted requests. See <a href="/docs/contributor-reliability.md">contributor recovery</a>.
+</p>
+<p>
+  Submission and revision JSON bodies are capped at 20,000,000 UTF-8 bytes;
+  other submission writes at 65,536 bytes, and discussion writes at 16,384 bytes.
+  Markdown sources and individual figures are limited to 2 MiB, PPTX sources to
+  10 MiB. Up to 20 figures can accompany a submission; supplementary figures
+  and presenter Markdown share a 4 MiB base64-character budget (approximately
+  3 MiB decoded). The complete JSON envelope must also fit. Exact fields,
+  filenames, ownership requirements, and per-operation limits are in OpenAPI.
+</p>
+
 <h2>Error responses</h2>
 <p class="muted">
   Every JSON HTTP error from the Studies, submission, and discussion APIs uses
@@ -228,6 +324,18 @@
   required error object and place the correlation value at
   <code>error.data.requestId</code>. The reusable status responses and exact
   schemas are in the three OpenAPI documents above.
+</p>
+<p>
+  Dynamic APIs advertise a shared edge policy of 40 requests per IP per 10
+  seconds in <code>RateLimit-Policy</code>. Contribution writes additionally
+  allow 30 new attempts per account per UTC hour; magic links allow five per
+  email per hour. Those responses include quota state in <code>RateLimit</code>.
+  Honor <code>Retry-After</code> on <code>429</code>. Edge-generated blocks may
+  return HTML instead of the Worker error envelope; report the status, content
+  type, endpoint, and available request ID rather than treating HTML as JSON.
+  Health responses use HTTP 200 with a body status of <code>ok</code> or
+  <code>degraded</code>; inspect the body. Operator guidance is in
+  <a href="/docs/api-operations.md">Public API operations</a>.
 </p>
 
 <h2>Identity</h2>
@@ -295,6 +403,35 @@
   The Server Card is
   <a href="/.well-known/mcp/server-card.json"><code>/.well-known/mcp/server-card.json</code></a>.
   There are no write tools.
+</p>
+<p>
+  This is a stateless JSON-response transport: send JSON-RPC requests by POST
+  with <code>Content-Type: application/json</code> and initialize before using
+  tools. Supported protocol versions are <code>2025-06-18</code>,
+  <code>2025-03-26</code>, and <code>2024-11-05</code>. There is no persistent
+  session ID or GET/SSE stream; <code>GET /mcp</code> returns 405. Notifications
+  receive HTTP 202 with no body. Request bodies are limited to 64 KiB.
+  Discover exact tool inputs through <code>tools/list</code>; tool payloads are
+  objects in <code>result.structuredContent</code> and JSON text in
+  <code>result.content</code>. A tool failure can set
+  <code>result.isError</code> even when HTTP status is 200.
+</p>
+<pre><code>{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "2025-06-18",
+    "capabilities": {},
+    "clientInfo": { "name": "study-reader", "version": "1.0" }
+  }
+}</code></pre>
+<p>
+  WebMCP is a separate browser interface, enabled only where
+  <code>navigator.modelContext.registerTool</code> is available. Its tools are
+  <code>search_studies</code>, <code>list_studies</code>, <code>get_study</code>,
+  <code>open_study</code>, and <code>open_page</code>. These tools use the page's
+  catalog and navigation; they do not expose the full remote MCP tool set.
 </p>
 
 <h2 id="reusable-agent-prompt">Reusable agent prompt</h2>
@@ -389,9 +526,9 @@ Task: [INSERT THE QUESTION OR RESEARCH TASK HERE]</code></pre>
 </p>
 <h2>Improvement roadmap</h2>
 <p class="muted">
-  Phase 1 contract hardening is implemented. Write resilience, observability,
-  versioning, and the
-  decision gates for future A2A or agent OAuth support are tracked in the
+  Contract hardening, write resilience, and observability (Phases 1–3) are
+  implemented in the repository. Versioning, generated clients, and the
+  decision gates for future A2A or agent OAuth support remain tracked in the
   <a href="/docs/public-api-improvement-plan.md">public API improvement plan</a>.
 </p>
 <p><a href="Studies/index.html">Back to the studies catalog</a></p>

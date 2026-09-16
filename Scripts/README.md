@@ -15,7 +15,8 @@ cd ..
 
 `npm ci` installs the versions pinned by `package-lock.json`. The PDF renderer also
 checks the Chrome build recorded in `package.json`; do not use an unpinned system
-Chrome for committed PDFs.
+Chrome for verified publication PDFs. Generated study/application PDFs are ignored
+by Git and published through the protected site workflow.
 
 ## Maintainer / local development
 
@@ -30,7 +31,7 @@ what to run **on that branch** before opening the PR.
 |------|---------|
 | Add / register a study | `python Scripts/_add_study.py Studies/<Slug>/<Slug>.md --category "..." --description "..." --tags "MVD, SB" --status draft` |
 | Remove a study | `python Scripts/_remove_study.py <Slug> --yes` |
-| Rename a study slug/title | `python Scripts/_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New title"` |
+| Rename a study slug/title | `python Scripts/_rename_study.py --from <Old-Slug> --to <New-Slug> --title "New title" --skip-issue` |
 | Draft ↔ Released | `python Scripts/_set_study_status.py <Slug> --status released` |
 | Regenerate a study PDF/HTML | `python Scripts/_regenerate_pdf.py <Slug>` |
 | Regenerate a companion note PDF/HTML | `python Scripts/_regenerate_pdf.py Studies/<Slug>/Research-Note.md` (unwatermarked; same verifiers) |
@@ -82,6 +83,9 @@ what to run **on that branch** before opening the PR.
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
 | Cloudflare performance setup | `python Scripts/_cloudflare_performance.py` (`--apply-redirect`, `--apply-api`, `--apply-edge-security`, `--check-edge-security`; token in `.env`) |
 | Auth.md identity policy | `python Scripts/_test_auth_md.py` (`--live`); `python Scripts/_publish_auth_md_snippet.py` (`--generate-only`). `agent-publications.yml` deploys after merge. |
+| OpenAPI validation | `python -m pip install -r Scripts/requirements-api.txt`; then `python Scripts/_validate_openapi.py` and `python Scripts/_test_api_catalog.py` |
+| API route contracts | Run `npm ci` then `npm test` in each of `infra/worker/` and `infra/discussions-worker/`. For MCP, from the root run `python Scripts/_publish_mcp_server_card.py --generate-only` then `node Scripts/_test_mcp_api_errors.mjs`. |
+| Public API operations | [Runbook](../docs/api-operations.md), [HTTP/MCP guide](../api-docs.html), and `python Scripts/_api_synthetics.py --help` for read-only production checks |
 | RFC 9727 api-catalog | `python Scripts/_test_api_catalog.py` (`--live`); `python Scripts/_publish_api_catalog_snippet.py` |
 | Agent Skills Discovery | `python Scripts/_build_agent_skills_index.py` (`--check`); `python Scripts/_test_agent_skills.py` (`--live`); `python Scripts/_publish_agent_skills_snippet.py` (`--generate-only`). `agent-publications.yml` deploys after merge. |
 | MCP runtime / Server Card | `python Scripts/_test_mcp_server_card.py` (`--live`); `python Scripts/_test_studies_api.py` (`--live`); `python Scripts/_publish_mcp_server_card.py` (`--generate-only`). `agent-publications.yml` deploys after merge. |
@@ -90,9 +94,9 @@ what to run **on that branch** before opening the PR.
 | DNS-AID | `python Scripts/_test_dns_aid.py` (`--live`); `python Scripts/_publish_dns_aid.py` (`--check`) |
 | Sync agent rules and skills | `python Scripts/_sync_agent_rules.py` then `python Scripts/_sync_agent_rules.py --check` |
 
-Before a non-dry-run rename that resolves a proposal issue, set
-`GITHUB_TOKEN` and `GITHUB_REPOSITORY`; otherwise pass `--skip-issue` and let
-labeled CI complete proposal-issue synchronization on the PR branch.
+Use `--skip-issue` for local and PR rename preparation. Protected publication
+reconciles contributor-facing proposal issues from merged metadata; an unmerged
+rename must not change issue titles or slugs.
 
 Windows wrappers: `.\Scripts\_add_study.ps1`, `.\Scripts\_remove_study.ps1`,
 `.\Scripts\_rename_study.ps1`, `.\Scripts\_set_study_status.ps1`,

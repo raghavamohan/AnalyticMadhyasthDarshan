@@ -11,15 +11,20 @@ description: >-
 
 These studies state Madhyasth Darshan from the primary texts, then compare. They are not a missionary presentation and they do not treat materialism as proven.
 
-## The three comparison legs
+## Comparison frame
 
-Every topical study's **Standpoint and scope** names the same frame:
+The collection's shared approach supports comparison with the following
+traditions where relevant to the study's question:
 
-1. **Physics and natural sciences** — one leg, not the only one. Matter-first science is the honest starting point; the hard problem, self, and value are not treated as settled for materialism.
+1. **Physics and natural sciences** — assess empirical and theoretical claims without treating questions of mind, self, or value as settled by materialism.
 2. **Advaita Vedanta** — a living Indian tradition with its own ontology and epistemology.
 3. **Modern Western philosophy** — tailored to the paper (mind, value, language, political thought, and so on).
 
 Do not collapse the paper into a physics argument. Do not collapse it into Vedanta either.
+
+Use the traditions and questions actually addressed by the retrieved study.
+Studies do not require a repeated **Standpoint and scope** section or an identical
+set of comparison sections. Separate the study's claims from your own synthesis.
 
 ## How the papers are built
 

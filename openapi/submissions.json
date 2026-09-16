@@ -3,7 +3,7 @@
   "info": {
     "title": "Analytic Madhyasth Darshan submission portal API",
     "version": "1.6.0",
-    "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update published markdown, and request Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token. Browser POST requests also require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store and carry an X-Request-ID header. The machine-only /api/notify endpoint uses its separate secret and JSON without browser cookies or Origin. JSON error responses use one envelope: success=false, code, message, requestId, and optional details; the error body uses the same request ID."
+    "description": "GitHub-authenticated API that backs the Web Submission Portal at https://analyticmadhyasthdarshan.org/Studies/submit.html. Contributors propose studies, submit drafts, update study and companion sources with figure attachments, and request deletion or Draft/Released status changes. Most write routes require a first-party session cookie plus a Cloudflare Turnstile token. Browser POST requests also require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store and carry an X-Request-ID header. The machine-only /api/notify endpoint uses its separate secret and JSON without browser cookies or Origin. JSON error responses use one envelope: success=false, code, message, requestId, and optional details; the error body uses the same request ID."
   },
   "servers": [
     {
@@ -578,7 +578,7 @@
         "tags": [
           "submissions"
         ],
-        "summary": "Published study or registered companion source identifier",
+        "summary": "Repository source, version identifier, or owned Planned-study starter",
         "operationId": "getStudySource",
         "parameters": [
           {
@@ -609,7 +609,7 @@
           {
             "name": "fileName",
             "in": "query",
-            "description": "Registered note or presentation filename.",
+            "description": "Required basename for a registered note, presenter, presentation, or figure source.",
             "schema": {
               "type": "string",
               "maxLength": 120
@@ -627,7 +627,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Markdown content plus its sourceSha, or presentation metadata plus its sourceSha.",
+            "description": "Markdown and its sourceSha, a binary-source identifier with empty content, or an owned Planned-study starter without a sourceSha.",
             "headers": {
               "RateLimit-Policy": {
                 "$ref": "#/components/headers/RateLimitPolicy"
@@ -655,8 +655,21 @@
           },
           "500": {
             "$ref": "#/components/responses/InternalError"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
           }
-        }
+        },
+        "description": "Published study, note, presenter, and presentation reads use the repository default branch, which can be newer than the active public site. Planned-study starters and all asset source reads require an authenticated owner. A starter has starter=true and no sourceSha. Binary source reads return an empty content string and sourceSha, not binary bytes.",
+        "security": [
+          {},
+          {
+            "sessionCookie": []
+          }
+        ]
       }
     },
     "/api/study-artifacts": {
@@ -2017,7 +2030,7 @@
             "minLength": 40,
             "maxLength": 64,
             "pattern": "^[a-f0-9]{40,64}$",
-            "description": "Required whenever an existing study, note, or presentation is replaced. Stale values return 409 with details.currentSource."
+            "description": "Current source identifier required when replacing an existing Markdown or PPTX source. Stale values return 409 with details.currentSource. Figure and presenter attachments carry their own sourceSha."
           },
           "assets": {
             "type": "array",
@@ -2025,7 +2038,7 @@
             "items": {
               "$ref": "#/components/schemas/FigureAttachment"
             },
-            "description": "Figure sources committed with the document. Up to 2 MB each and 3 MB for all attachments combined. Existing figures require sourceSha."
+            "description": "Up to 20 figure sources, each at most 2,097,152 decoded bytes. Figures and optional presenter Markdown together must fit 4,194,304 base64 characters (approximately 3 MiB decoded). Existing files require sourceSha; the complete JSON envelope must also fit."
           }
         }
       },
@@ -2055,7 +2068,7 @@
           },
           "fileName": {
             "type": "string",
-            "description": "Required for a registered note or presentation; ignored for a complete study deletion.",
+            "description": "Required for a single registered note, presenter, or presentation; ignored for a complete study deletion.",
             "maxLength": 120
           },
           "turnstileToken": {
@@ -2074,7 +2087,7 @@
             "minLength": 40,
             "maxLength": 64,
             "pattern": "^[a-f0-9]{40,64}$",
-            "description": "Required whenever an existing study, note, or presentation is replaced. Stale values return 409 with details.currentSource."
+            "description": "Current source identifier required for a single deletion. Bulk deletions carry sourceSha on each artifacts item. Stale values return 409 with details.currentSource."
           },
           "artifacts": {
             "type": "array",
@@ -2341,11 +2354,11 @@
               "presenter"
             ],
             "default": "study",
-            "description": "Study, technical/research note, presentation, or Presenter’s Companion."
+            "description": "Study, technical/research note, presentation, or Presenter's Companion."
           },
           "fileName": {
             "type": "string",
-            "description": "Required for note and presentation uploads; the registered destination basename to replace, or a safe new basename ending in .md or .pptx.",
+            "description": "Required for note, presenter, and presentation uploads. Use the registered destination basename when replacing a source; no directories are accepted.",
             "maxLength": 120
           },
           "content": {
@@ -2356,7 +2369,7 @@
           "contentBase64": {
             "type": "string",
             "contentEncoding": "base64",
-            "description": "Base64-encoded .pptx content for presentation submissions (10 MB maximum before encoding).",
+            "description": "Base64-encoded PPTX; at most 10,485,760 bytes (10 MiB) before encoding.",
             "maxLength": 13981016
           },
           "isNew": {
@@ -2381,7 +2394,7 @@
             "minLength": 40,
             "maxLength": 64,
             "pattern": "^[a-f0-9]{40,64}$",
-            "description": "Required whenever an existing study, note, or presentation is replaced. Stale values return 409 with details.currentSource."
+            "description": "Current source identifier required when replacing an existing Markdown or PPTX source. Stale values return 409 with details.currentSource. Figure and presenter attachments carry their own sourceSha."
           },
           "assets": {
             "type": "array",
@@ -2389,7 +2402,7 @@
             "items": {
               "$ref": "#/components/schemas/FigureAttachment"
             },
-            "description": "Figure sources committed with the document. Up to 2 MB each and 3 MB for all attachments combined. Existing figures require sourceSha."
+            "description": "Up to 20 figure sources, each at most 2,097,152 decoded bytes. Figures and optional presenter Markdown together must fit 4,194,304 base64 characters (approximately 3 MiB decoded). Existing files require sourceSha; the complete JSON envelope must also fit."
           },
           "presenter": {
             "$ref": "#/components/schemas/PresenterAttachment",
@@ -2490,8 +2503,7 @@
           "slug",
           "artifactType",
           "fileName",
-          "content",
-          "sourceSha"
+          "content"
         ],
         "properties": {
           "success": {
@@ -2527,8 +2539,40 @@
             "minLength": 40,
             "maxLength": 64,
             "pattern": "^[a-f0-9]{40,64}$"
+          },
+          "starter": {
+            "type": "boolean",
+            "const": true,
+            "description": "Present only for an owned Planned-study starter; no existing source SHA is returned."
           }
-        }
+        },
+        "oneOf": [
+          {
+            "required": [
+              "sourceSha"
+            ],
+            "not": {
+              "required": [
+                "starter"
+              ]
+            }
+          },
+          {
+            "required": [
+              "starter"
+            ],
+            "not": {
+              "required": [
+                "sourceSha"
+              ]
+            },
+            "properties": {
+              "artifactType": {
+                "const": "study"
+              }
+            }
+          }
+        ]
       },
       "FigureAttachment": {
         "type": "object",
@@ -2540,7 +2584,8 @@
           "fileName": {
             "type": "string",
             "maxLength": 120,
-            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*\\.(svg|png|jpg|jpeg|webp|gif)$"
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*\\.(?:[sS][vV][gG]|[pP][nN][gG]|[jJ][pP][gG]|[jJ][pP][eE][gG]|[wW][eE][bB][pP]|[gG][iI][fF])$",
+            "description": "Safe basename; SVG, PNG, JPG, JPEG, WebP, and GIF extensions are case-insensitive."
           },
           "contentBase64": {
             "type": "string",
@@ -2569,12 +2614,13 @@
           "fileName": {
             "type": "string",
             "maxLength": 120,
-            "pattern": "^Presenters-Companion-[A-Za-z0-9][A-Za-z0-9-]*\\.md$"
+            "pattern": "^Presenters-Companion-[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.md$"
           },
           "content": {
             "type": "string",
             "minLength": 1,
-            "maxLength": 2097152
+            "maxLength": 2097152,
+            "description": "Non-empty Markdown, normalized to LF; at most 2,097,152 UTF-8 bytes. Counts toward the shared supplementary-file budget."
           },
           "sourceSha": {
             "type": [

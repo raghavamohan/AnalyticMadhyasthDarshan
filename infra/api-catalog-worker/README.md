@@ -13,7 +13,9 @@ attaches the zone Workers Route
 
 ## Deploy
 
-From the repository root:
+`agent-publications.yml` validates the catalog and OpenAPI contracts on pull
+requests, then deploys the catalog after merge to `master`. For an intentional
+manual deployment, run from the repository root:
 
 ```powershell
 python Scripts/_publish_api_catalog_snippet.py
@@ -49,6 +51,6 @@ python Scripts/_test_auth_md.py --live
 Human documentation: [api-docs.html](../../api-docs.html).
 
 Agent Skills, MCP, and Auth.md changes are also covered by `agent-publications.yml`: pull
-requests generate and validate all three Worker bundles, and merges deploy them and
-run their exact live canonical-payload checks. The commands above remain the
+requests generate and validate their Worker bundles, and merges deploy those
+Workers plus the API catalog and run live canonical-payload checks. The commands above remain the
 manual full-discovery publication procedure.
