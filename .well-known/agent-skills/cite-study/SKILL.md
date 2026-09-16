@@ -20,13 +20,16 @@ Prefer the study **markdown** over HTML or PDF. Catalog rows expose `md` (relati
 4. **Section** with a `§` cross-reference when the study uses numbered headings.
 5. **URL** to the markdown or HTML on https://analyticmadhyasthdarshan.org
 
-Example:
-
-> Raghav Mohan, *The Ontology of Coexistence*, released, 29 July 2026. https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
+Retrieve current citation metadata from `/api/cite/{slug}` rather than copying
+a fixed example date or status. Follow the returned `mdUrl` or `url`, retaining
+its publication-revision query parameter when present.
 
 ## Quoting
 
-Quote the primary Madhyasth Darshan texts from local `References/` paths when those files are in the study bibliography. Do not treat this site's studies as primary sources for the darshan itself; they are analytic comparative papers.
+For claims about the primary Madhyasth Darshan texts, follow the study's
+bibliography and inspect the cited source before quoting it. A `References/`
+URL may be served from R2 and need not exist in a local clone. Do not treat this
+site's analytic comparative studies as primary texts of the darshan.
 
 Shared terms (`jeevan`, `satta`, `saha-astitva`, …) are defined in https://analyticmadhyasthdarshan.org/Studies/glossary.json. Use the glossary display form in running prose.
 

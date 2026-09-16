@@ -23,7 +23,8 @@ production data; do not loosen them merely to hide a regression.
 
 ## Telemetry contract
 
-All dynamic API responses return `X-Request-ID`. Workers emit a structured
+All Worker-generated dynamic API responses return `X-Request-ID`. Edge blocks
+and transport failures may never reach the Worker and can lack that header. Workers emit a structured
 `api_request` record and one `amd_api_metrics` Analytics Engine point. Neither
 record contains URLs, query strings, request or response bodies, study drafts,
 GitHub tokens, email addresses, cookies, IP addresses, or session identifiers.
@@ -45,7 +46,11 @@ Analytics Engine columns are fixed as follows:
 | `double2` | latency in milliseconds |
 | `double3` | HTTP status |
 
-Create three dashboard tiles from the Cloudflare Analytics Engine SQL API:
+Create three dashboard tiles from the Cloudflare Analytics Engine SQL API.
+The first query is a raw non-5xx ratio, not the final SLO calculation: assess
+operation contracts and annotate confirmed upstream outages before evaluating
+the objectives above. Worker metrics do not include requests blocked at the edge;
+use edge analytics and synthetics for that part of availability.
 
 ```sql
 SELECT blob2 AS service,
@@ -91,9 +96,13 @@ an `uncertain` result.
 1. Start from the synthetic evidence or user-provided `X-Request-ID`.
 2. Find the structured event in Workers Logs, then note service, operation ID,
    Worker version, dependency, status family, latency, and retry outcome.
-3. Check `/api/studies/health`, the submission `/api/health`, and
-   `/api/discussions/health`. `degraded` means the runtime is reachable but the
-   publication dependency is unavailable or a required binding is
+3. Check `https://analyticmadhyasthdarshan.org/api/studies/health`,
+   `https://api.analyticmadhyasthdarshan.org/api/health`, and
+   `https://analyticmadhyasthdarshan.org/api/discussions/health`. All return HTTP
+   200 for both `ok` and `degraded`; inspect the JSON body. Study health probes
+   publication access, while write health checks binding/secret configuration,
+   not an end-to-end GitHub, database, Turnstile, or email transaction. `degraded`
+   means the publication dependency is unavailable or a required binding is
    unconfigured. Provider outages are localized by the synthetic result and
    dependency dimension in telemetry.
 4. For contribution writes, inspect `GET /api/operation` with the same receipt.

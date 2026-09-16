@@ -6,21 +6,21 @@
       "type": "skill-md",
       "description": "Cite Analytic Madhyasth Darshan studies from the canonical markdown, using catalog slugs, Edited-on timestamps, and glossary terms. Use when quoting, referencing, or attributing a paper from this collection.",
       "url": "/.well-known/agent-skills/cite-study/SKILL.md",
-      "digest": "sha256:8a228da8598363447de8ea3b8b34831147675b87112bac98181bd4031187025a"
+      "digest": "sha256:5e4d7ada344ea2dc144659b2aa33aefc2cb0ec8bcd24398d65af7473cdfba971"
     },
     {
       "name": "compare-traditions",
       "type": "skill-md",
       "description": "Compare Madhyasth Darshan claims in these studies with physics and natural sciences, Advaita Vedanta, and modern Western philosophy without missionary tone. Use when an agent is asked to set the darshan next to another tradition.",
       "url": "/.well-known/agent-skills/compare-traditions/SKILL.md",
-      "digest": "sha256:882e6fbf1885fe339ee9a7c135578dcb8dfce3e5bce6f1c415613719d4402cc2"
+      "digest": "sha256:0fd1247ca20c9c1ca1f90d2323d7c9a6a66fa17fca745121d1085793660393a2"
     },
     {
       "name": "start-here",
       "type": "skill-md",
-      "description": "Orient a reader or agent to Analytic Madhyasth Darshan: public catalogs, the recommended reading path, standpoint and scope, and where write APIs stay human-only. Use when an agent first lands on the site or asks how to begin reading the studies.",
+      "description": "Orient a reader or agent to Analytic Madhyasth Darshan: public catalogs, the recommended reading path, shared approach, and where write APIs stay human-only. Use when an agent first lands on the site or asks how to begin reading the studies.",
       "url": "/.well-known/agent-skills/start-here/SKILL.md",
-      "digest": "sha256:791e0fb320261b42aa27fdcf36860ea5ea3f8a7ea86d8009207dcc8665866c3a"
+      "digest": "sha256:a943cb5a5865b327eaedc33fab407cdbda9d502db696db1e17a502e223bf6f87"
     }
   ]
 }

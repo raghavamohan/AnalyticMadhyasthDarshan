@@ -27,4 +27,4 @@ python Scripts/_test_web_bot_auth.py --live
 ```
 
 The publish script writes `src/index.js` (gitignored), uploads Worker
-`amd-web-bot-auth`, enables the workers.dev host, and upserts the redirect.
+`amd-web-bot-auth`, enables the workers.dev host, and binds the apex Worker route.

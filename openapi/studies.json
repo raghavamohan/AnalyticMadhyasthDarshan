@@ -317,7 +317,7 @@
         ],
         "summary": "One study with heading outline",
         "operationId": "getStudyBySlug",
-        "description": "Catalog row plus ## and ### headings from the canonical markdown. Markdown itself is not inlined; use mdUrl or MCP resource studies://study/{slug}.",
+        "description": "Catalog row plus ## and ### headings from canonical Markdown. Markdown is not inlined; use mdUrl or MCP resource studies://study/{slug}. Ongoing rows have null document URLs and an empty outline. An empty outline can also mean Markdown retrieval failed.",
         "parameters": [
           {
             "name": "slug",
@@ -368,7 +368,7 @@
         ],
         "summary": "Search glossary terms",
         "operationId": "searchGlossary",
-        "description": "Substring match on id, display form, match aliases, and definition. Omit q to return every term.",
+        "description": "Substring match on id, display form, match aliases, and definition. Omit q to match every term; results are still paginated.",
         "parameters": [
           {
             "name": "q",
@@ -704,19 +704,22 @@
             "type": [
               "string",
               "null"
-            ]
+            ],
+            "description": "Absolute document URL, or null for ongoing rows. Preserve the r query parameter when present: it selects the publication revision used for the metadata."
           },
           "pdfUrl": {
             "type": [
               "string",
               "null"
-            ]
+            ],
+            "description": "Absolute document URL, or null for ongoing rows. Preserve the r query parameter when present: it selects the publication revision used for the metadata."
           },
           "mdUrl": {
             "type": [
               "string",
               "null"
-            ]
+            ],
+            "description": "Absolute document URL, or null for ongoing rows. Preserve the r query parameter when present: it selects the publication revision used for the metadata."
           }
         }
       },

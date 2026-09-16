@@ -10,7 +10,16 @@ unbound, a Redirect Rule sends `/auth.md` to the workers.dev host.
 
 ## Deploy
 
-From the repository root:
+`agent-publications.yml` generates and validates the bundle on pull requests,
+then deploys merged changes and checks the live policy against `auth.md`.
+For local validation without credentials or deployment, run from the repository root:
+
+```powershell
+python Scripts/_publish_auth_md_snippet.py --generate-only
+python Scripts/_test_auth_md.py
+```
+
+For an intentional manual deployment:
 
 ```powershell
 python Scripts/_publish_auth_md_snippet.py
