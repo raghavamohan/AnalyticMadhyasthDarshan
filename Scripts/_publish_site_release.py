@@ -15,7 +15,8 @@ from pathlib import Path
 import subprocess
 import time
 from urllib.request import Request, urlopen
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
+from http.client import IncompleteRead
 import uuid
 from datetime import datetime, timezone
 from urllib.parse import urlsplit
@@ -44,11 +45,15 @@ def audit_retry(operation, description: str):
     for attempt in range(len(delays) + 1):
         try:
             return operation()
-        except (HTTPError, ReleaseNotReady) as error:
+        except (URLError, ConnectionError, TimeoutError, IncompleteRead, ReleaseNotReady) as error:
             if isinstance(error, HTTPError):
                 if error.code not in {404, 502, 503, 504}:
                     raise
                 error.close()
+            elif isinstance(error, URLError) and not isinstance(error.reason, (ConnectionError, TimeoutError, IncompleteRead)):
+                # Do not hide certificate failures, malformed URLs, or permanent
+                # DNS/configuration errors behind network retries.
+                raise
             if attempt == len(delays):
                 raise
             delay = delays[attempt]
@@ -303,28 +308,30 @@ def audit(base: str, root: Path, manifest: dict, *, origin_base: str | None = No
                  else '?r=' + manifest['revision'])
         request = Request(base.rstrip("/") + quote(path, safe="/") + query,
                           method="GET" if full else "HEAD", headers={'User-Agent': AUDIT_USER_AGENT})
-        with audit_retry(lambda: urlopen(request, timeout=60), path) as response:
-            # R2 can describe an entire object as a range even for a plain GET.
-            # Accept it only when the range covers every expected byte; partial
-            # responses must not pass the complete-release audit.
-            complete_range = (full and response.status == 206
-                              and response.headers.get('Content-Range') == f'bytes 0-{record["bytes"] - 1}/{record["bytes"]}')
-            if response.status != 200 and not complete_range:
-                raise ValueError(f"Release URL failed: {path} (expected complete content, got HTTP {response.status})")
-            if full:
-                body = response.read()
-                if len(body) != record['bytes'] or digest(body) != record["sha256"]:
-                    expected = None
-                    managed_host = urlsplit(base).hostname == cf.SITE_HOST
-                    if managed_host and path == '/.well-known/security.txt' and origin_base:
-                        source = Request(origin_base.rstrip('/') + path + '?r=' + manifest['revision'], headers={'User-Agent': AUDIT_USER_AGENT})
-                        with audit_retry(lambda: urlopen(source, timeout=60), path + ' release origin') as original:
-                            expected = original.read()
-                    if not managed_host or not edge_response_matches(path, body, record, expected):
-                        raise ValueError(f"Public checksum/size mismatch: {path}")
-                    progress(f'Validated Cloudflare-managed response while preserving release content: {path}')
-            if not full and int(response.headers.get("Content-Length", "-1")) != record["bytes"]:
-                raise ValueError(f"Public size mismatch: {path}")
+        def verify_response():
+            with urlopen(request, timeout=60) as response:
+                # R2 can describe an entire object as a range even for a plain GET.
+                # Accept it only when the range covers every expected byte; partial
+                # responses must not pass the complete-release audit.
+                complete_range = (full and response.status == 206
+                                  and response.headers.get('Content-Range') == f'bytes 0-{record["bytes"] - 1}/{record["bytes"]}')
+                if response.status != 200 and not complete_range:
+                    raise ValueError(f"Release URL failed: {path} (expected complete content, got HTTP {response.status})")
+                if full:
+                    body = response.read()
+                    if len(body) != record['bytes'] or digest(body) != record["sha256"]:
+                        expected = None
+                        managed_host = urlsplit(base).hostname == cf.SITE_HOST
+                        if managed_host and path == '/.well-known/security.txt' and origin_base:
+                            source = Request(origin_base.rstrip('/') + path + '?r=' + manifest['revision'], headers={'User-Agent': AUDIT_USER_AGENT})
+                            with audit_retry(lambda: urlopen(source, timeout=60), path + ' release origin') as original:
+                                expected = original.read()
+                        if not managed_host or not edge_response_matches(path, body, record, expected):
+                            raise ValueError(f"Public checksum/size mismatch: {path}")
+                        progress(f'Validated Cloudflare-managed response while preserving release content: {path}')
+                if not full and int(response.headers.get("Content-Length", "-1")) != record["bytes"]:
+                    raise ValueError(f"Public size mismatch: {path}")
+        audit_retry(verify_response, path)
         return path
 
     progress(f'Auditing {total} release URLs with {io_workers(total)} workers.')
