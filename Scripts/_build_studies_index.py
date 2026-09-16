@@ -996,6 +996,27 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   .path-core {
     min-width: 0;
+    display: grid;
+    grid-template-columns: 180px minmax(0, 1fr);
+    column-gap: 22px;
+    align-items: start;
+  }
+  .path-study-image {
+    grid-column: 1;
+    grid-row: 1 / 5;
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: #f7f4ef;
+  }
+  .path-core > :is(.path-core-meta, .path-study-title, .path-study-blurb, .path-core-actions) {
+    grid-column: 2;
+  }
+  .path-core > .path-related {
+    grid-column: 1 / -1;
   }
   .path-core-meta {
     display: flex;
@@ -1433,6 +1454,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .path-domain { font-size: 10px; letter-spacing: 0.03em; }
     .path-panel { padding: 16px 14px 10px; }
     .path-panel h3 { font-size: 20px; }
+    .path-core { grid-template-columns: 88px minmax(0, 1fr); column-gap: 14px; }
+    .path-study-image { grid-row: 1 / 3; }
+    .path-core-meta { flex-wrap: wrap; gap: 5px 8px; }
+    .path-core > :is(.path-study-blurb, .path-core-actions) { grid-column: 1 / -1; }
+    .path-study-blurb { margin-top: 12px; }
     .path-core-layout { grid-template-columns: 1fr; }
   }
 
@@ -1653,6 +1679,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <h3>Is a human only a body?</h3>
         <div class="path-core-layout">
           <div class="path-core" data-study-slug="Why-Humans-Are-Not-Just-Material" data-presentation-pdf="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material-presentation.pdf">
+            <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-human.webp" width="480" height="480" alt="A person reflecting beside an open window." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html" title="Read the study">Why Humans Are Not Just Material</a></p>
             <p class="path-study-blurb">This study tests whether a human is exhausted by a physicochemical body and brain, comparing a physicalist reading of the sciences with Advaita Vedanta and Madhyasth Darshan&rsquo;s body-and-jeevan account.</p>
@@ -1682,6 +1709,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <h3>What exists&mdash;and what are we?</h3>
         <div class="path-core-layout">
           <div class="path-core" data-study-slug="The-Ontology-of-Coexistence" data-presentation-pdf="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf">
+            <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-existence.webp" width="480" height="480" alt="A person, deer, tree and river stones sharing a landscape." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" title="Read the study">The Ontology of Coexistence</a></p>
             <p class="path-study-blurb">This study asks what exists: coexistence of omnipresence and units, the four orders of nature, and the claim that the human belongs to the knowledge order rather than being only a material organism.</p>
@@ -1711,6 +1739,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <h3>What must the knower know?</h3>
         <div class="path-core-layout">
           <div class="path-core" data-study-slug="The-Epistemology-of-Coexistence" data-presentation-pdf="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf">
+            <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-knowledge.webp" width="480" height="480" alt="Two people observing a plant and studying together." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html" title="Read the study">The Epistemology of Coexistence</a></p>
             <p class="path-study-blurb">This study asks what knowledge is, who the knower is, and how understanding of coexistence must become evident in evaluation, conduct, and tradition rather than remaining unused information.</p>
@@ -1741,6 +1770,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <h3>What makes value and relationship definite?</h3>
         <div class="path-core-layout">
           <div class="path-core" data-study-slug="Axiology-Value-Theory" data-presentation-pdf="Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf">
+            <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-value.webp" width="480" height="480" alt="Two people offering and receiving a cup with care." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html" title="Read the study">Axiology: Value Theory</a></p>
             <p class="path-study-blurb">This study asks what a value is, whether it is conferred by preference or already present in participation, and how evaluation can be correct or mistaken in relationship and conduct.</p>
@@ -1770,6 +1800,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <h3>How is coexistence lived?</h3>
         <div class="path-core-layout">
           <div class="path-core" data-study-slug="How-Undivided-Society-Is-Established" data-presentation-pdf="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf">
+            <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-living.webp" width="480" height="480" alt="People gardening, repairing and reading in a shared courtyard." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html" title="Read the study">How Undivided Society Is Established</a></p>
             <p class="path-study-blurb">This study asks what would make humankind an undivided society, and how that is established through family, education, organisations, and institutions as the test of the earlier understanding.</p>
