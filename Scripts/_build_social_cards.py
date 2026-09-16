@@ -1,14 +1,13 @@
 """Render Open Graph share cards for the site and every catalogued study.
 
-Nothing on the site declared an og:image, and twitter:card was "summary", so a
-link shared into Slack, WhatsApp, X or LinkedIn rendered as a bare text row. The
-cards are typographic rather than pictorial: the study title in the site's
-Georgia, its categories and status in Segoe UI, on the site's paper ground.
+Large study icons and short, high-contrast titles stay recognizable in mobile
+link previews. A brief catalog description supports the title in smaller type.
+Icons come from the approved website theme kit.
 
 Rendered through headless Chrome (Scripts/_html_to_png.js) rather than a
 Pillow-drawn bitmap so the type matches the site exactly and no font has to be
 vendored into the repo. Generated PNGs are committed, so a maintainer only reruns
-this when a title, category or status changes:
+this when a title, description, category, status or icon changes:
 
     python Scripts/_build_social_cards.py            # all cards
     python Scripts/_build_social_cards.py --slug X   # one study
@@ -54,82 +53,68 @@ _CARD_TEMPLATE = """<!DOCTYPE html>
   * {{ box-sizing: border-box; margin: 0; padding: 0; }}
   html, body {{ width: {width}px; height: {height}px; }}
   body {{
+    padding: 48px 64px;
+    background: #f7f4ef;
+    color: #1a1612;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    border-top: 10px solid #1a5276;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 64px 72px 58px;
-    background: #f7f4ef;
-    /* A single warm wash off the top-left, so the card is not a flat slab. */
-    background-image: radial-gradient(120% 90% at 0% 0%, #fffdf9 0%, #f7f4ef 55%);
-    color: #2a241c;
-    font-family: 'Segoe UI', system-ui, sans-serif;
-  }}
-  .rule {{
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 10px;
-    background: #1a5276;
   }}
   .eyebrow {{
-    font-size: 20px;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #8b5e34;
+    font-size: 26px;
+    font-weight: 600;
+    color: #1a5276;
+    letter-spacing: .025em;
   }}
+  .main {{ display: flex; align-items: center; gap: 48px; flex: 1; min-height: 0; }}
+  .icon {{
+    width: 224px; height: 224px; flex: 0 0 224px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 48px; background: #eee8df;
+  }}
+  .icon svg {{ width: 168px; height: 168px; display: block; }}
+  .copy {{ flex: 1; min-width: 0; }}
   .title {{
     font-family: Georgia, 'Times New Roman', serif;
     font-size: {title_size}px;
-    line-height: 1.14;
+    line-height: 1.13;
     font-weight: 700;
-    color: #1a1612;
     text-wrap: balance;
-    max-width: 15.5em;
+    overflow-wrap: anywhere;
   }}
   .blurb {{
-    font-size: 24px;
-    line-height: 1.45;
+    margin-top: 20px;
+    font-size: 26px;
+    line-height: 1.4;
     color: #5c5348;
-    max-width: 40ch;
-    margin-top: 22px;
   }}
   .foot {{
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    font-size: 21px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 24px; padding-top: 24px; border-top: 2px solid #d9d1c5;
+    font-size: 24px; color: #5c5348;
   }}
+  .cats {{ flex: 1; min-width: 0; }}
   .status {{
-    padding: 5px 16px;
-    border-radius: 999px;
-    font-weight: 600;
-    background: #e4f0e0;
-    color: #2f6b28;
+    padding: 8px 20px; border-radius: 999px; font-weight: 600;
+    background: #e4f0e0; color: #2f6b28; white-space: nowrap;
   }}
   .status.draft {{ background: #fef3c7; color: #92400e; }}
   .status.progress {{ background: #f5ebe0; color: #8b5e34; }}
-  .cats {{ color: #5c5348; }}
-  .site {{
-    margin-left: auto;
-    font-weight: 600;
-    color: #1a5276;
-  }}
 </style>
 </head>
 <body>
-<div class="rule"></div>
-<div>
-  <p class="eyebrow">{eyebrow}</p>
-  <h1 class="title">{title}</h1>
-  {blurb}
+<p class="eyebrow">{eyebrow}</p>
+<div class="main">
+  <div class="icon" aria-hidden="true">{icon}</div>
+  <div class="copy">
+    <h1 class="title">{title}</h1>
+    {blurb}
+  </div>
 </div>
 <div class="foot">
-  {status}
   <span class="cats">{cats}</span>
-  <span class="site">analyticmadhyasthdarshan.org</span>
+  {status}
 </div>
 </body>
 </html>
@@ -168,15 +153,14 @@ def render_card(
     blurb: str | None,
     status: str | None,
     cats: str,
+    icon: str = "coexistence",
 ) -> None:
     status_html = ""
     if status:
         label = _STATUS_LABELS.get(status, status.title())
         css = {"draft": " draft", "ongoing": " progress"}.get(status, "")
         status_html = f'<span class="status{css}">{html.escape(label)}</span>'
-    blurb_html = ""
-    if blurb:
-        blurb_html = f'<p class="blurb">{html.escape(_truncate(blurb, 150))}</p>'
+    from _theme_icons import topic_icon_html
 
     page = _CARD_TEMPLATE.format(
         width=CARD_WIDTH,
@@ -184,7 +168,8 @@ def render_card(
         title_size=_title_size(title),
         eyebrow=html.escape(eyebrow),
         title=html.escape(title),
-        blurb=blurb_html,
+        blurb=f'<p class="blurb">{html.escape(_truncate(blurb, 120))}</p>' if blurb else '',
+        icon=topic_icon_html(icon),
         status=status_html,
         cats=html.escape(cats),
     )
@@ -230,11 +215,14 @@ CARD_MANIFEST = SCRIPTS / 'social-cards.json'
 
 
 def card_contracts() -> dict:
+    from _theme_icons import study_icon_name
+
     cards = {DEFAULT_CARD: dict(eyebrow="Analytic Madhyasth Darshan", title="Studies of Madhyasth Darshan",
               blurb="Comparative studies of Madhyasth Darshan read against the sciences, Advaita Vedanta, and modern philosophy.",
-              status=None, cats="Open and independent")}
+              status=None, cats="Open and independent", icon="coexistence")}
     for row in _catalog_rows():
-        cards[card_path(row.slug).name] = dict(eyebrow="A study in the collection", title=row.title,
+        cards[card_path(row.slug).name] = dict(eyebrow="Analytic Madhyasth Darshan", title=row.title,
+            icon=study_icon_name(row.slug) or "coexistence",
             blurb=row.description, status=row.status.value if row.status else None,
             cats=_truncate(str(row.category or '').strip() or 'Madhyasth Darshan', 60))
     return cards
@@ -242,8 +230,13 @@ def card_contracts() -> dict:
 
 def card_fingerprint(fields: dict) -> str:
     from _build_inputs import file_hash
+    from _theme_icons import IDENTITY_NAMES
     dependencies = {name: file_hash(SCRIPTS / name) for name in
                     ('_build_social_cards.py', '_html_to_png.js', '_chrome.js', 'package.json', 'package-lock.json')}
+    dependencies['_theme_icons.py'] = file_hash(SCRIPTS / '_theme_icons.py')
+    icon = fields.get('icon', 'coexistence')
+    variant = 'compact' if icon in IDENTITY_NAMES else 'light'
+    dependencies['icon'] = file_hash(BASE / 'Assets' / 'Theme' / 'icons' / f'{icon}-{variant}.svg')
     return hashlib.sha256(json.dumps({'fields': fields, 'renderer': dependencies}, sort_keys=True).encode()).hexdigest()
 
 
