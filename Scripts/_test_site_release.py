@@ -11,7 +11,9 @@ import unittest
 from contextlib import ExitStack
 from unittest.mock import patch
 from urllib.parse import urlsplit
-from urllib.error import HTTPError
+from urllib.error import HTTPError, URLError
+from http.client import IncompleteRead
+import ssl
 
 import _site_release as release
 import _publish_site_release as publisher
@@ -307,6 +309,41 @@ class ReleaseTests(unittest.TestCase):
             with self.assertRaises(publisher.ReleaseNotReady):
                 publisher.audit('https://site.example', self.root, {'revision':'a'*64,'files':{}})
             self.assertEqual(state.call_count, 6)
+
+    def test_audit_retries_connection_reset_and_body_read_failure(self):
+        body = b'complete page'
+        manifest = {'revision': 'a'*64, 'files': {'/index.html': {'bytes': len(body), 'sha256': release.digest(body)}}}
+        class BrokenBody(io.BytesIO):
+            def read(self, *args):
+                raise IncompleteRead(b'partial', 6)
+        broken = BrokenBody(body)
+        broken.status, broken.headers = 200, {}
+        healthy = io.BytesIO(body)
+        healthy.status, healthy.headers = 200, {}
+        with patch.object(publisher, 'public_state', return_value={'revision': manifest['revision']}), \
+             patch.object(publisher, 'urlopen', side_effect=[URLError(ConnectionResetError(104, 'Connection reset by peer')), broken, healthy]) as fetch, \
+             patch.object(publisher.time, 'sleep') as sleep:
+            publisher.audit('https://canary.example', self.root, manifest)
+        self.assertEqual(fetch.call_count, 3)
+        self.assertEqual([call.args[0] for call in sleep.call_args_list], [2, 4])
+        self.assertTrue(broken.closed)
+        self.assertTrue(healthy.closed)
+
+    def test_audit_network_retry_is_bounded_and_does_not_retry_security_or_content_errors(self):
+        from unittest.mock import Mock
+        for error, attempts in [
+            (URLError(ConnectionResetError(104, 'reset')), 6),
+            (TimeoutError('timeout'), 6),
+            (URLError(ssl.SSLCertVerificationError('invalid certificate')), 1),
+            (URLError('invalid host'), 1),
+            (ValueError('Public checksum/size mismatch'), 1),
+        ]:
+            operation = Mock(side_effect=error)
+            with self.subTest(error=error), patch.object(publisher.time, 'sleep') as sleep:
+                with self.assertRaises(type(error)):
+                    publisher.audit_retry(operation, '/index.html')
+            self.assertEqual(operation.call_count, attempts)
+            self.assertEqual(sleep.call_count, attempts - 1)
 
     def test_full_r2_range_requires_complete_size_and_checksum(self):
         body = b'PDF content'
