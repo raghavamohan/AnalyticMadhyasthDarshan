@@ -3,13 +3,14 @@ import html
 import re
 from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 
-from _common import site_base_url
+from _common import BASE, site_base_url
 from _build_inputs import file_hash
 import hashlib
 
 ASSET_SUFFIXES = {'.css', '.js', '.svg', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.avif', '.ico', '.woff', '.woff2', '.ttf'}
 CSS_URL = re.compile(r'url\(\s*([\"\x27]?)([^)\"\x27]+)\1\s*\)', re.I)
 IMPORT_URL = re.compile(r'(importScripts\(\s*[\"\x27])([^\"\x27]+)([\"\x27]\s*\))')
+ANALYTICS_SOURCE = BASE / 'infra/site-worker/analytics.js'
 
 
 def is_asset(path: str) -> bool:
@@ -89,4 +90,5 @@ def compile_html(data: bytes, path: str, hashes: dict) -> bytes:
                   lambda m: m[1] + asset_url(m[2], path, hashes) + m[1], text)
     text = re.sub(r'(<style\b[^>]*>)([\s\S]*?)(</style>)',
                   lambda m: m[1] + CSS_URL.sub(lambda u: 'url("' + asset_url(u[2], path, hashes) + '")', m[2]) + m[3], text, flags=re.I)
-    return re.sub(r'<head\b[^>]*>', lambda m: m[0] + CLIENT, text, count=1, flags=re.I).encode('utf-8')
+    analytics = '<script data-amd-analytics>' + ANALYTICS_SOURCE.read_text(encoding='utf-8') + '</script>'
+    return re.sub(r'<head\b[^>]*>', lambda m: m[0] + analytics + CLIENT, text, count=1, flags=re.I).encode('utf-8')

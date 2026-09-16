@@ -93,6 +93,25 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(store.calls, calls)
         self.assertNotIn('sourceSha', release.content_manifest(restored))
 
+    def test_analytics_is_sealed_into_html_and_changes_release_identity(self):
+        from _release_assets import ANALYTICS_SOURCE
+        first = self.build()
+        body = (self.root/'bundle/assets/Studies/A/A.html').read_bytes()
+        self.assertEqual(body.count(b'<script data-amd-analytics>'), 1)
+        self.assertIn(b'navigator.webdriver', body)
+        self.assertEqual(release.digest(body), first['files']['/Studies/A/A.html']['sha256'])
+        changed = self.root/'analytics.js'
+        changed.write_bytes(ANALYTICS_SOURCE.read_bytes() + b'\n// changed test policy\n')
+        with patch('_release_assets.ANALYTICS_SOURCE', changed):
+            second = self.build('changed-analytics')
+        self.assertNotEqual(first['revision'], second['revision'])
+        self.assertNotEqual(first['files']['/index.html']['sha256'], second['files']['/index.html']['sha256'])
+        self.assertEqual((self.source/'index.html').read_bytes(), self.files['/index.html'])
+
+    def test_analytics_browser_exclusion_policy(self):
+        result = subprocess.run(['node', str(BASE/'Scripts/_test_analytics.cjs')], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 0, result.stdout + '\n' + result.stderr)
+
     def test_partial_bundle_reuses_pdf_without_local_body_and_rechecks_remote(self):
         import _publication_plan as planner
         key = 'Studies/A/A.pdf'
