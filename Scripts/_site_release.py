@@ -133,7 +133,8 @@ def build(output: Path, artifact_root: Path | None, *, root: Path = BASE, source
     # HTML page or creating duplicate content-addressed objects.
     inputs = {path: digest(file.read_bytes()) for path, file in files.items()}
     inputs.update({path: value['record']['sha256'] for path, value in reused.items()})
-    revision = digest(encode({"inputs": inputs, "builder": digest(Path(__file__).read_bytes() + (BASE / "Scripts/_release_assets.py").read_bytes())}))
+    from _release_assets import ANALYTICS_SOURCE
+    revision = digest(encode({"inputs": inputs, "builder": digest(Path(__file__).read_bytes() + (BASE / "Scripts/_release_assets.py").read_bytes() + ANALYTICS_SOURCE.read_bytes())}))
     available = set(files) | set(reused)
     bodies = {path: file.read_bytes() for path, file in files.items()}
     from _release_assets import compile_assets, compile_html, asset_url
