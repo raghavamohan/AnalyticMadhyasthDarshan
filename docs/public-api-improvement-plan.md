@@ -27,8 +27,8 @@ existing first-party cookie and public-read contracts.
 
 ## Phase 1 — lock the contract (implemented)
 
-Status: complete and deployed by the protected-branch workflows after the Phase
-1 API-contract merge.
+Status: implemented in the repository. Protected-branch workflows publish merged
+changes; use live synthetics and deployment evidence to confirm production state.
 
 - Make OpenAPI the required review artifact for every route change.
 - Validate all three OpenAPI files in CI with a standards-compliant parser and
@@ -98,18 +98,21 @@ Implementation notes:
   source identifier. A stale request returns `409` and
   `details.currentSource`; the browser preserves the original operation payload
   instead of silently rebasing a write.
-- Contribution attempts publish the 30-per-account hourly policy, remaining
+- Contribution attempts publish the 30-per-account UTC-hour policy, remaining
   capacity, and reset delay. Discussion magic-link requests publish their
-  five-per-email hourly policy. Every API response advertises the 40-per-IP,
+  five-per-email hourly policy. Every dynamic API response advertises the 40-per-IP,
   10-second edge policy; `429` responses include `Retry-After`, which clients
   must honor before any reset hint.
 - JSON bodies are counted as UTF-8 bytes before parsing. The public schemas
-  state the 18,000,000-byte contribution-upload envelope, 65,536-byte small
+  state the 20,000,000-byte contribution-upload envelope, 65,536-byte small
   submission envelope, 16,384-byte discussion envelope, 2 MiB Markdown limit,
-  10 MiB presentation limit, and individual string bounds.
+  10 MiB presentation limit, and individual string bounds. Submissions also support
+  presenter companions and figure attachments; supplementary files share a
+  4 MiB base64-character budget (approximately 3 MiB decoded).
 - Studies and glossary reads, MCP list/search tools, submission dashboards,
   editable-artifact discovery, discussion threads, and discussion statistics
-  use `limit`/`offset`, default 50, with a maximum page size of 100. Filters have
+  use `limit`/`offset`, default 50, with a maximum page size of 100. Offset is capped
+  at 10,000 except submission dashboard/status reads, which cap it at 1,000. Filters have
   explicit enums or maximum lengths. Browser clients follow `nextOffset` while
   every individual response remains bounded.
 - No new Durable Object migration or secret is required.
@@ -177,7 +180,8 @@ client that unlocks bearer writes.
   synthetic environment in CI.
 - Add conditional GET support (`ETag` and `If-None-Match`) for catalogs, study
   detail, glossary, start-here, and citation responses.
-- Publish examples for the complete read journey and each human write workflow.
+- Expand the [existing read examples and write guidance](../api-docs.html) into
+  generated-client examples for each human write workflow.
 
 Exit criteria: an external client can discover, generate against, and upgrade
 the API without reading Worker source.

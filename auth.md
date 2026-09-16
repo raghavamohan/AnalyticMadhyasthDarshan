@@ -7,7 +7,7 @@ The public API catalog is at
 https://analyticmadhyasthdarshan.org/.well-known/api-catalog
 ([RFC 9727](https://www.rfc-editor.org/rfc/rfc9727)).
 
-Repo agent skills are listed at
+Public reader skills are listed at
 https://analyticmadhyasthdarshan.org/.well-known/agent-skills/index.json
 ([Agent Skills Discovery](https://github.com/cloudflare/agent-skills-discovery-rfc)).
 That index is **reader skills only**. Maintainer skills that need a git clone
@@ -31,7 +31,7 @@ The unified catalog is at
 https://analyticmadhyasthdarshan.org/Studies/catalog-all.json
 Catalog search is `GET https://analyticmadhyasthdarshan.org/api/studies`
 (query parameters `q`, `collection`, `status`, `slug`, `limit`, `offset`).
-One published study plus its heading outline is
+One catalog study plus its available heading outline is
 `GET https://analyticmadhyasthdarshan.org/api/studies/{slug}`.
 The recommended reading path is
 `GET https://analyticmadhyasthdarshan.org/api/start-here`.
@@ -41,6 +41,10 @@ Study and glossary list responses default to 50 rows and allow at most 100 per
 request. Their response includes `total`, `limit`, `offset`, `hasMore`, and
 `nextOffset`. MCP `search_studies`, `list_studies`, and `get_glossary` use the
 same bounds.
+Ongoing (Planned) studies have no public document URL; their detail response has
+an empty outline. Dynamic document URLs include the active publication revision
+when available; follow them as returned. An empty outline can also mean that
+the Markdown body could not be fetched.
 
 The Web Bot Auth directory is at
 https://analyticmadhyasthdarshan.org/.well-known/http-message-signatures-directory
@@ -52,7 +56,9 @@ origins as a verified bot.
 Browser agents can call catalog tools through
 [WebMCP](https://webmachinelearning.github.io/webmcp/). The page script is
 https://analyticmadhyasthdarshan.org/webmcp.js
-and registers tools with `navigator.modelContext.registerTool` on load.
+and registers tools with `navigator.modelContext.registerTool` when supported.
+The browser tools are `search_studies`, `list_studies`, `get_study`, `open_study`,
+and `open_page`; they are distinct from the remote MCP tools above.
 
 DNS for AI Discovery ([DNS-AID](https://datatracker.ietf.org/doc/html/draft-mozleywilliams-dnsop-dnsaid))
 publishes ServiceMode HTTPS records under the `_agents` namespace. The zone is
@@ -80,8 +86,9 @@ Contributors who propose or edit studies sign in with GitHub in a browser.
 
 - Start: `GET https://api.analyticmadhyasthdarshan.org/api/auth/github`
 - Callback: `GET https://api.analyticmadhyasthdarshan.org/api/auth/callback`
-- Session: first-party cookie; write routes also require a Cloudflare Turnstile
-  token
+- Session: first-party cookie; proposals, submissions, revisions, status changes,
+  and deletions also require a Cloudflare Turnstile token. Notification
+  preferences and logout do not require Turnstile.
 - Docs: [api-docs.html](api-docs.html), OpenAPI at
   [openapi/submissions.json](/openapi/submissions.json)
 
@@ -108,8 +115,10 @@ session cookie from the flows above, not `Authorization: Bearer`. Server-to-serv
 Browser POST requests must include a trusted `Origin` and
 `Content-Type: application/json`, including bodyless actions such as logout.
 The production browser origin is `https://analyticmadhyasthdarshan.org`; local
-preview origins must be explicitly configured. API responses are private and
-must not be cached. OAuth callbacks validate signed, expiring state and use
+preview origins must be explicitly configured. Submission and discussion
+responses use `Cache-Control: private, no-store`; public study HTTP/MCP responses
+use `no-store`. Static catalogs and discovery documents have their own caching
+headers. OAuth callbacks validate signed, expiring state and use
 S256 PKCE; session cookies contain an opaque identifier rather than a GitHub
 access token. Email sign-in links are single-use and expire after 15 minutes.
 
@@ -120,3 +129,10 @@ than overwrite it. Responses advertise rate policy in `RateLimit-Policy`.
 Contribution writes also return account quota in `RateLimit`; magic-link
 requests return their email quota. On `429`, honor `Retry-After` before retrying.
 OpenAPI documents the byte and field-size limits for every JSON write.
+
+The five contribution writes also require a client-generated UUIDv4
+`operationId`. Save it before sending and recover interrupted results with
+`GET https://api.analyticmadhyasthdarshan.org/api/operation?id=…` using the same
+account session. Retry the same receipt and unchanged payload only when its
+state is `notStarted`; `inProgress` and `uncertain` require result recovery or
+maintainer investigation. See [contributor reliability](docs/contributor-reliability.md).

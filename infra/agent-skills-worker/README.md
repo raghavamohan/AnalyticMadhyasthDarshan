@@ -3,7 +3,12 @@
 Serves [Agent Skills Discovery](https://github.com/cloudflare/agent-skills-discovery-rfc)
 v0.2.0 for `https://analyticmadhyasthdarshan.org/.well-known/agent-skills/*`.
 
-Canonical files stay in [`.well-known/agent-skills/`](../../.well-known/agent-skills/).
+Reader sources live in [`infra/reader-skills/`](../reader-skills/); maintainer
+sources live in [`.agents/skills/`](../../.agents/skills/). Run
+`python Scripts/_build_agent_skills_index.py` from the repository root after
+source changes. It generates the indexes, digests, and published copies in
+[`.well-known/agent-skills/`](../../.well-known/agent-skills/); do not edit those
+copies independently.
 The Worker embeds those files so the public index, the maintainer index, and
 `SKILL.md` artifacts return HTTP 200 with `application/json` / `text/markdown`.
 Crawlers should load `index.json` (reader skills only). Clone-based agents can
@@ -29,6 +34,6 @@ python Scripts/_test_agent_skills.py --live
 ```
 
 The publish script writes `src/index.js` (gitignored), uploads Worker
-`amd-agent-skills`, enables the workers.dev host, and upserts the redirect.
+`amd-agent-skills`, enables the workers.dev host, and binds the apex Worker route.
 Pass `--generate-only` to write and syntax-check the bundle without Cloudflare
 credentials or a deployment.

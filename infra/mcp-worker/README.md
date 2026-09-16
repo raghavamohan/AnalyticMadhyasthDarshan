@@ -10,13 +10,25 @@ and a thin Streamable HTTP runtime at `/mcp`, plus
 The canonical card remains at [`.well-known/mcp/server-card.json`](../../.well-known/mcp/server-card.json).
 The Worker source is [`src/runtime.js`](src/runtime.js); the publish script
 prepends the embedded card JSON and `Studies/start-here.json`, then writes
-gitignored `src/index.js`.
+gitignored `src/index.js`. Runtime reads resolve `/.well-known/publication.json`
+and fetch catalog, glossary, reading-path, and Markdown content from that public
+revision. The embedded reading-path data is not a substitute for a working
+publication endpoint. Returned document URLs retain the revision query parameter.
 
 Read-only tools: `search_studies`, `list_studies`, `get_study`,
 `get_study_outline`, `get_glossary`, `get_start_here`, `get_cite`.
 Resources: `studies://catalog-all`, `studies://glossary`, `studies://feed`,
 `studies://start-here`, and `studies://study/{slug}` for canonical markdown.
 There are no write tools. DNS-AID does not publish `_mcp._agents`.
+
+The transport is stateless JSON-RPC over POST, with JSON responses and no
+session ID or GET/SSE stream. `GET /mcp` returns 405; notifications return 202
+without a body. Initialize with one of `2025-06-18`, `2025-03-26`, or
+`2024-11-05`, then use `tools/list`, `tools/call`, `resources/list`,
+`resources/templates/list`, and `resources/read` as needed. Tool payloads are
+objects in `result.structuredContent` and JSON text in `result.content`;
+inspect `result.isError` as well as JSON-RPC
+errors. Public HTTP examples are in [the API guide](../../api-docs.html).
 
 The plain Studies HTTP endpoints use the shared JSON error envelope documented
 in [`openapi/studies.json`](../../openapi/studies.json), with the same
@@ -32,6 +44,12 @@ pagination (50 by default, 100 maximum) and report `total`, `limit`, `offset`,
 Invalid filters return `400` over HTTP or JSON-RPC `-32602` from MCP. MCP request
 bodies are capped at 64 KiB, and plain API responses advertise the shared edge
 policy through `RateLimit-Policy`.
+
+Search matches catalog metadata, not full-text passages. Ongoing rows can be
+listed and retrieved as metadata, but have no public Markdown or citation.
+Study detail returns an empty outline if there is no document or if Markdown
+retrieval fails. Health returns HTTP 200 with `ok` or `degraded` in the body;
+check that field, not only the status code.
 
 The zone API token can upload this Worker. Production attaches zone Workers
 Routes (`/.well-known/mcp/*`, `/mcp*`, `/api/studies*`, `/api/glossary*`,

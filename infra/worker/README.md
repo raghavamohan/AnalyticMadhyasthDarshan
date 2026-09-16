@@ -56,13 +56,18 @@ When prompted, enter `master` (the repository default today).
 OAuth scope requested: `read:user user:email public_repo` (proposals are filed as issues on the contributor's account; `user:email` lets the portal offer optional email notifications).
 
 For local `wrangler dev`, use a separate development OAuth App with callback
-`http://localhost:8787/api/auth/callback`, and set:
+`http://localhost:8787/api/auth/callback`. Put its credentials and exact preview
+origins in an untracked `.dev.vars` in this directory, for example
+`ALLOWED_ORIGINS=http://localhost:8787,http://127.0.0.1:8787`. Include the actual
+portal origin if it uses another port. `wrangler secret put` configures deployed
+secrets, not local `.dev.vars`.
 
-```powershell
-npx wrangler secret put ALLOWED_ORIGINS
-```
+### Session storage
 
-Enter: `http://localhost:8787,http://127.0.0.1:8787`
+For a new deployment, create `SESSIONS` with `npx wrangler kv namespace create SESSIONS`
+and put the returned namespace ID in `wrangler.toml`. Do not reuse the checked-in
+production ID for another account. The `CONTRIBUTOR_OPERATIONS` Durable Object
+and its migration are already declared in the same file.
 
 ## Turnstile (bot protection)
 
@@ -76,7 +81,9 @@ Get-Content .turnstile-secret.tmp -Raw | npx wrangler secret put TURNSTILE_SECRE
 Remove-Item .turnstile-secret.tmp
 ```
 
-The worker verifies `turnstileToken` on every write request before calling GitHub. To add hostnames (for example `localhost`), update the widget domains in the Cloudflare dashboard or run `_update_turnstile_domains.py` when the API token has `Account.Turnstile:Edit`.
+The worker verifies `turnstileToken` for proposals, submissions, revisions, status
+changes, and deletions before calling GitHub. Notification preferences and logout
+use the session without Turnstile; the CI notification hook uses its own secret. To add hostnames (for example `localhost`), update the widget domains in the Cloudflare dashboard or run `_update_turnstile_domains.py` when the API token has `Account.Turnstile:Edit`.
 
 ## Deploy
 
@@ -121,8 +128,9 @@ placed in a browser cookie. Legacy inline-token cookies require signing in
 again. Logout deletes the KV session; KV propagation can delay revocation at
 another location, so this is not a globally instantaneous revocation guarantee.
 
-Run `npm test` for real route tests and `python Scripts/_test_portal_security.py`
-from the repository root for the shared security contracts. The Worker workflow
+Run `npm test` in this Worker directory for real route tests. Run
+`python Scripts/_test_portal_security.py` from the repository root for the shared
+security contracts. The Worker workflow
 now checks and deploys both API Workers when either or their shared guard changes.
 
 
@@ -140,16 +148,32 @@ now checks and deploys both API Workers when either or their shared guard change
 | `POST /api/propose` | cookie + Turnstile | Create a `study-proposal` issue **as the signed-in user** |
 | `GET /api/proposal-status?issue=N` | optional | Approval/declined/closed status, locked slug, `workspaceReady`, and `ownedByYou` when signed in |
 | `GET /api/study-artifacts?slug=Slug` | — | Durable editable-study mapping, including every registered note and presentation; omit `slug` for a paginated mapping. My Submissions loads this API instead of the unpublished `Studies/companion-artifacts.json` file. |
-| `GET /api/study-source?slug=Slug` | — | Current published study Markdown or a registered note/presentation source token selected with `artifactType` and `fileName` |
+| `GET /api/study-source?slug=Slug` | public for published documents; owner cookie for Planned starters/assets | Repository-default-branch Markdown or source identifier, selected with `artifactType` and `fileName`; `pr` selects an owned first-draft branch for assets |
 | `GET /api/revision-source?pr=N` | cookie | Load the signed-in contributor's open first-draft PR Markdown for an in-place revision |
-| `POST /api/revise` | cookie + Turnstile | Commit revised Markdown to the same owned first-draft PR branch and rerun CI |
+| `POST /api/revise` | cookie + Turnstile | Commit revised Markdown and optional figures to the same owned first-draft PR branch and rerun CI |
 | `GET /api/operation?id=UUID` | cookie | Recover an account-scoped submission receipt without repeating its GitHub write |
-| `POST /api/delete-artifact` | yes | Opens a reviewable `study-update` PR to delete one mapped note/presentation or the complete owned study |
-| `POST /api/submit` | cookie + Turnstile | Branch, commit study Markdown, a technical/research-note `.md`, or a presentation `.pptx` to the study directory, then open a PR; enforces file/type limits, locked slugs for new studies, and one open PR per slug |
+| `POST /api/delete-artifact` | cookie + Turnstile | Open a reviewable `study-update` PR to delete one companion, up to 20 selected companions, or the complete owned study |
+| `POST /api/submit` | cookie + Turnstile | Branch, commit study/note/presenter Markdown or a presentation `.pptx`, with optional figures and presenter attachment, then open a PR; enforces file/type limits, locked slugs for new studies, and one open PR per slug |
 | `POST /api/status-change` | cookie + Turnstile | Open a `status-change` PR (body: `Study slug:` / `Target status:` for CI) |
 | `POST /api/notify` | `X-Notify-Secret` | Called by the `portal-notify.yml` workflow to email a contributor on approval/decline/merge |
 
-For new studies, `/api/submit` requires `proposalIssue`, accepts only the canonical study Markdown, verifies `proposal-approved`, checks the signed-in user owns the proposal issue, and requires the verified Planned workspace before accepting a draft. Proposal creation validates required fields and rejects slugs already used by an open proposal, approved proposal, Planned row, or published study. Existing studies resolve through `Studies/companion-artifacts.json`, not the contributor's issue history, and may submit `artifactType: "study"`, `"note"`, or `"presentation"` only after the same ownership check used by deletion and status changes. Selecting an existing note or presentation preserves its mapped destination filename even if the local replacement has a different name. A previously unknown presentation source is also added to `Scripts/presentation-pipeline.json`, with collision-safe output names, so presentation CI validates it. Markdown is limited to 2 MB and normalized to LF; base64-decoded presentations are limited to 10 MB. PR bodies include `Portal-GitHub: @login` so submissions can be correlated in search. GitHub PR search remains only as a concurrency guard that prevents two open updates from changing the same study at once.
+For new studies, `/api/submit` requires `proposalIssue`, accepts only the canonical study Markdown, verifies `proposal-approved`, checks the signed-in user owns the proposal issue, and requires the verified Planned workspace before accepting a draft. Proposal creation validates required fields and rejects slugs already used by an open proposal, approved proposal, Planned row, or published study. Existing studies resolve through `Studies/companion-artifacts.json`, not the contributor's issue history, and may submit `artifactType: "study"`, `"note"`, `"presentation"`, or `"presenter"` only after the same ownership check used by deletion and status changes. Selecting an existing note or presentation preserves its mapped destination filename even if the local replacement has a different name. A previously unknown presentation source is also added to `Scripts/presentation-pipeline.json`, with collision-safe output names, so presentation CI validates it. Markdown is limited to 2 MiB (2,097,152 UTF-8 bytes) and normalized to LF; base64-decoded presentations are limited to 10 MiB (10,485,760 bytes). PR bodies include `Portal-GitHub: @login` so submissions can be correlated in search. GitHub PR search remains only as a concurrency guard that prevents two open updates from changing the same study at once.
+
+Figure uploads use `assets` (up to 20 SVG/PNG/JPG/JPEG/WebP/GIF sources, each at
+most 2 MiB). `presenter` attaches `Presenters-Companion-<Name>.md` to a PPTX upload;
+a standalone `artifactType: "presenter"` also requires `deckFileName` for the
+registered deck under the same study. All supplementary files together must fit
+4 MiB of base64 text (approximately 3 MiB decoded), and the full JSON envelope
+must fit its limit. Existing attachments require their own `sourceSha`.
+Presenter ownership is recorded in `Scripts/companion-pipeline.json`; preparation
+generates the DOCX, notes JSON, deck notes, and PDFs. See the exact request schemas
+in [OpenAPI](../../openapi/submissions.json).
+
+Source reads use the repository default branch and may be newer than the public
+site. For an owned Planned study, source loading returns `starter: true` and a
+starter Markdown body, without `sourceSha`. Presentation and asset reads return
+an empty `content` string plus a source identifier; they do not download binary
+bytes. Public readers should use the [Studies API](../../api-docs.html).
 
 A closed proposal cannot submit a first draft. When it has no live Draft or
 Released catalog row and no open pull request, the dashboard marks it
@@ -184,13 +208,13 @@ dashboard row includes `publication`, which compares GitHub's default-branch SHA
 itself as `AMD-Submission-Portal/1.0` and times out rather than stalling the page;
 an unavailable or challenged endpoint is `unknown`, never a claim that the study
 is live. JSON
-request bodies are limited to 64 KiB for ordinary writes and 18 MB for submission
-and revision envelopes; individual Markdown and decoded presentation limits remain
-2 MB and 10 MB. All API responses advertise the shared edge policy through
+request bodies are limited to 65,536 UTF-8 bytes for ordinary writes and
+20,000,000 bytes for submission and revision envelopes; individual Markdown and
+decoded presentation limits remain 2 MiB and 10 MiB. All API responses advertise the shared edge policy through
 `RateLimit-Policy`. Account-scoped contribution writes also include `RateLimit`,
 and exhausted quotas return `429` with `Retry-After`.
 
-`/api/delete-artifact` accepts only studies shown in the signed-in contributor's dashboard and only note/presentation filenames present in the durable artifact registry. It deletes a single mapped companion source on the PR branch, unregisters a deleted deck from the presentation pipeline, and removes a note's generated HTML reader when present. Whole-study requests add a short-lived marker that study PR CI recognizes and fulfills through `Scripts/_remove_study.py`, keeping catalogs, proposal metadata, References, and presentation registrations synchronized. No deletion reaches the published branch until a maintainer merges the PR. Status and deletion recovery branches use the receipt-derived names `status-<slug>-<operationId>` and `deletion-<slug>-<operationId>` and are retained when an external write cannot be confirmed.
+`/api/delete-artifact` accepts only studies shown in the signed-in contributor's dashboard and only note/presentation filenames present in the durable artifact registry. It accepts a single companion or an `artifacts` list of 1–20 companions under the same study, with a `sourceSha` for every selected source. It deletes the selected sources on the PR branch and updates the relevant ownership manifests; preparation removes their owned outputs. Selecting a deck also removes its registered presenter-companion chain. Whole-study requests add a short-lived marker that study PR CI recognizes and fulfills through `Scripts/_remove_study.py`, keeping catalogs, proposal metadata, References, and presentation registrations synchronized. No deletion reaches the published branch until a maintainer merges the PR. Status and deletion recovery branches use the receipt-derived names `status-<slug>-<operationId>` and `deletion-<slug>-<operationId>` and are retained when an external write cannot be confirmed.
 
 ## Email notifications (optional)
 
@@ -237,14 +261,14 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 
 **Verify anytime:** `python Scripts/_cloudflare_performance.py --check-edge-security`
 
-### Applied on Pro (live)
+### Managed Pro configuration
 
 | Control | Rule / setting | Script ref |
 |---------|----------------|------------|
 | Granular AI bot policy | Search and user-directed agents allowed; training blocked; managed `robots.txt` synchronized; `managed_challenge` on definitely automated unknown traffic; verified bots allowed | `--apply-portal-edge-security` |
 | Notify SBFM skip | `amd_skip_sbfm_portal_notify` → `http_request_sbfm` skip for `/api/notify` only | `--apply-portal-edge-security` |
 | Probe-path block | `amd_block_common_probes` (`/wp-*`, `/.env`, `/.git`, …) | `--apply-edge-security` |
-| API rate limit | `amd_rl_edge_api` — 40 req / 10 s per IP (portal `api.*` + apex discussion routes); plus leaked-credential rule (Pro max **2** rate-limit rules) | `--apply-discussions-rate-limits` |
+| API rate limit | `amd_rl_edge_api` — 40 req / 10 s per IP (portal `/api/*`, all apex `/api/*`, and `/mcp*`); plus leaked-credential rule (Pro max **2** rate-limit rules) | `--apply-discussions-rate-limits` |
 | TLS / transport | min TLS 1.2, HSTS 1y + includeSubDomains + **preload**, HTTPS rewrites on, `browser_check` off, SSL **full** (GitHub Pages) | `--apply-security-baseline` |
 | Response headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, **enforcing CSP** on static pages (not `/api/*`); RFC 8288 `Link` on `/` and `/Studies/index.html`; `text/markdown` on `/auth.md` and Agent Skills `SKILL.md`; `application/json` on `/.well-known/agent-skills/index.json` and `/.well-known/mcp/server-card.json`; `application/http-message-signatures-directory+json` on `/.well-known/http-message-signatures-directory`; RFC 9727 `application/linkset+json` on `/.well-known/api-catalog` | `--apply-security-headers` |
 | DNS-AID | ServiceMode HTTPS at `_index._agents`; zone DNSSEC signing on; parent DS via Cloudflare Registrar CDS/CDNSKEY scan (1–2 days) | `python Scripts/_publish_dns_aid.py` |
@@ -273,6 +297,7 @@ Items **not** planned: SSL Full (Strict) on GitHub Pages origin; separate per-ro
 npx wrangler dev
 ```
 
-Set secrets for local runs with `wrangler secret put …` or a `.dev.vars` file (gitignored — do not commit tokens).
+Set local secrets in `.dev.vars` (gitignored — do not commit tokens). Use
+`wrangler secret put …` only for deployed Worker secrets.
 
 Open the portal with a matching `ALLOWED_ORIGINS` entry and use the local worker URL as `API_BASE` in `submit.html` while testing.
