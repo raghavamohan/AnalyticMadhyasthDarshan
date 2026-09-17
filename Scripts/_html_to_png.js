@@ -58,7 +58,7 @@ async function main() {
     // Fail instead of publishing clipped text when catalog titles grow.
     const layoutErrors = await page.evaluate(() => {
       const errors = [];
-      for (const selector of ['.eyebrow', '.icon', '.copy', '.title', '.blurb', '.cats', '.status']) {
+      for (const selector of ['.eyebrow', '.icon', '.copy', '.title', '.blurb', '.cats', '.status', '.site']) {
         const element = document.querySelector(selector);
         if (!element) continue;
         const box = element.getBoundingClientRect();
