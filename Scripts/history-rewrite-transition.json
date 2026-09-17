@@ -1,0 +1,11 @@
+{
+  "schema": 1,
+  "previousPublication": {
+    "sourceSha": "fd34b92a9d3c31ca2bcbec6238f4f4adeae29a1d",
+    "revision": "6094ad7276f873f0e539f8b369c906f2e16882bda2dd759300f276f4736a9d16",
+    "runtimeFingerprint": "df47f2e1a9f1fbec982e6962b69343f8ea68db5408ccc8c8a2a7b3eeabcbd3dc",
+    "buildReceiptKey": "site/builds/c80535ee2f64421248b32e5a016e78de0543b76e00c0c671a683bb7293af1c83.json"
+  },
+  "rewrittenBase": "dd2d24b021bf461d2af7149df57ad22ba09d500d",
+  "unchangedTree": "4196d70c6b3b67ba8515098affccc14a40c4f167"
+}

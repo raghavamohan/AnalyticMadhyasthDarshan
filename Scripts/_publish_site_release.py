@@ -382,6 +382,11 @@ def assert_forward(previous: dict, candidate: dict) -> None:
         if previous.get('revision') and candidate.get('revision') and previous['revision'] != candidate['revision']:
             raise ValueError('The published commit rebuilt with different bytes; pin the changed renderer in a new commit before publication.')
         return
+    # One reviewed history migration may advance provenance without changing
+    # published bytes. Ordinary unrelated releases still fail closed.
+    from _history_rewrite_transition import allows_transition
+    if allows_transition(BASE, previous, candidate):
+        return
     check = subprocess.run(["git", "merge-base", "--is-ancestor", previous["sourceSha"], candidate["sourceSha"]], cwd=BASE)
     if check.returncode:
         raise ValueError("An older or unrelated release cannot replace the active revision; use explicit rollback.")
