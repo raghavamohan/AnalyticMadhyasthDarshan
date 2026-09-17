@@ -101,9 +101,17 @@ _CARD_TEMPLATE = """<!DOCTYPE html>
   }}
   .status.draft {{ background: #fef3c7; color: #92400e; }}
   .status.progress {{ background: #f5ebe0; color: #8b5e34; }}
+  .home .eyebrow {{ font-size: 23px; letter-spacing: .09em; text-transform: uppercase; color: #8b5e34; }}
+  .home .main {{ flex-direction: row-reverse; gap: 40px; }}
+  .home .icon {{ width: 248px; height: 248px; flex-basis: 248px; background: transparent; }}
+  .home .icon svg {{ width: 232px; height: 232px; }}
+  .home .title {{ font-size: 68px; line-height: 1.14; text-wrap: initial; }}
+  .home .blurb {{ margin-top: 24px; font-size: 28px; max-width: 44ch; }}
+  .home .foot {{ font-size: 21px; }}
+  .site {{ color: #1a5276; font-weight: 600; white-space: nowrap; }}
 </style>
 </head>
-<body>
+<body class="{layout}">
 <p class="eyebrow">{eyebrow}</p>
 <div class="main">
   <div class="icon" aria-hidden="true">{icon}</div>
@@ -115,6 +123,7 @@ _CARD_TEMPLATE = """<!DOCTYPE html>
 <div class="foot">
   <span class="cats">{cats}</span>
   {status}
+  {site}
 </div>
 </body>
 </html>
@@ -154,6 +163,7 @@ def render_card(
     status: str | None,
     cats: str,
     icon: str = "coexistence",
+    layout: str = "study",
 ) -> None:
     status_html = ""
     if status:
@@ -165,13 +175,15 @@ def render_card(
     page = _CARD_TEMPLATE.format(
         width=CARD_WIDTH,
         height=CARD_HEIGHT,
+        layout=html.escape(layout),
         title_size=_title_size(title),
         eyebrow=html.escape(eyebrow),
-        title=html.escape(title),
+        title=html.escape(title).replace("Analytic ", "Analytic<br>", 1) if layout == "home" else html.escape(title),
         blurb=f'<p class="blurb">{html.escape(_truncate(blurb, 120))}</p>' if blurb else '',
         icon=topic_icon_html(icon),
         status=status_html,
         cats=html.escape(cats),
+        site='<span class="site">analyticmadhyasthdarshan.org</span>' if layout == 'home' else '',
     )
     with tempfile.TemporaryDirectory() as tmp:
         source = Path(tmp) / "card.html"
@@ -217,9 +229,9 @@ CARD_MANIFEST = SCRIPTS / 'social-cards.json'
 def card_contracts() -> dict:
     from _theme_icons import study_icon_name
 
-    cards = {DEFAULT_CARD: dict(eyebrow="Analytic Madhyasth Darshan", title="Studies of Madhyasth Darshan",
-              blurb="Comparative studies of Madhyasth Darshan read against the sciences, Advaita Vedanta, and modern philosophy.",
-              status=None, cats="Open and independent", icon="coexistence")}
+    cards = {DEFAULT_CARD: dict(eyebrow="The philosophy of coexistence", title="Analytic Madhyasth Darshan",
+              blurb="Exploring Shri A. Nagraj’s philosophy through primary texts, analysis, and comparison.",
+              status=None, cats="Open studies · Shared inquiry", icon="akhand-samaj", layout="home")}
     for row in _catalog_rows():
         cards[card_path(row.slug).name] = dict(eyebrow="Analytic Madhyasth Darshan", title=row.title,
             icon=study_icon_name(row.slug) or "coexistence",
