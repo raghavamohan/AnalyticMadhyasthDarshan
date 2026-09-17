@@ -2,31 +2,32 @@
 name: sync-master-clean-branches
 description: >-
   Safely switch a Git repository to master, fast-forward it to origin/master,
-  remove obsolete local PR branches whose work is already merged, remove the
-  repository-local tmp directory, and clean up generated study/application
+  remove obsolete local PR branches whose work is already merged, and clean up generated study/application
   PDFs. Use when
   asked to sync or refresh master, return to the remote head, prune merged local
   PR branches, or perform a full sync and cleanup. Preserves reference-library
-  files, dirty source work, and remote or unmerged branches.
+  files, the repository-local tmp directory, dirty source work, and remote or unmerged branches.
 ---
 
 # Sync master, clean local PR branches and generated output
 
 A full invocation of this skill includes syncing `master`, cleaning merged local
-PR branches, removing the repository-root `tmp/` directory, and deleting local
+PR branches and deleting local
 generated PDFs under `Studies/` and `Applications/`. If the user explicitly
 requests only syncing or only branch cleanup, perform only that operation. A
-full cleanup request authorizes the temporary-output and PDF removal described
+full cleanup request authorizes the PDF removal described
 below; show the exact targets and proceed without asking for routine
-confirmation.
+confirmation. Preserve the repository-root `tmp/` contents; temporary stashing
+with restoration is allowed, but deleting them as cleanup is not.
 
 ## Safety invariants
 
-- Inspect the working tree before switching branches. The exact repository-root
-  `tmp/` directory is disposable output during a full invocation: verify its
-  resolved path, show its contents, delete it, and inspect the tree again. If
-  anything else is dirty, do not stash, commit, reset, discard, or carry the
-  changes onto `master` without the user's direction.
+- Inspect the working tree before switching branches. Untracked files under
+  the repository-root `tmp/` directory may remain during sync or be temporarily
+  stashed without further confirmation. Any tracked
+  changes, including under `tmp/`, or untracked paths outside `tmp/` block sync:
+  do not stash, commit, reset, discard, or carry those changes onto `master`
+  without the user's direction.
 - Update `master` with a fast-forward only. If it has diverged from
   `origin/master`, stop and report the divergence; do not reset or rebase it.
 - Never infer that an upstream marked `[gone]` is safe to delete: first confirm
@@ -56,17 +57,34 @@ git for-each-ref refs/heads --format="%(refname:short)|%(upstream:short)|%(upstr
 Confirm that `origin/master` exists. A clean status prints only the branch line;
 any additional path is an uncommitted change that must be preserved.
 
-For a full invocation, inspect and remove the exact repository-root `tmp/`
-directory before applying the clean-tree gate. Resolve both the repository root
-and the target to absolute paths, require the target to equal `<repo>/tmp`, and
-refuse a symbolic link, junction, or other reparse point. Use native PowerShell
-file operations and do not interpret `/tmp` as an operating-system temporary
-directory. Re-run `git status --short --branch` afterward. Any remaining changed
-path blocks branch switching until the user decides how to handle it.
+Apply the clean-tree gate with one exception: untracked paths under the exact
+repository-root `tmp/` directory do not block sync. Use
+`git status --porcelain --untracked-files=all` when individual paths are needed
+to distinguish this exception from other changes. Prefer leaving `tmp/` in
+place. When needed for sync, a temporary stash of its untracked files is
+authorized:
+
+```powershell
+git stash push --include-untracked -m "sync-master: preserve tmp" -- tmp/
+```
+
+Apply the gate for other changes before stashing. Keep the pathspec scoped to
+`tmp/`; do not use a repository-wide stash or include ignored files with
+`--all`. Record the newly created stash's exact object ID and verify creation
+succeeded before proceeding; do not mistake an older stash for a new one.
+Restore that exact stash with `git stash apply <stash-object-id>` after the
+sync attempt, including when sync fails. Drop only the matching stash entry
+after verifying all saved files were restored. If restoration conflicts, keep
+the stash and report its ID and the remaining conflict; do not overwrite files
+or discard the saved copy.
+
+Do not delete `tmp/` as cleanup, stage its files for commit, or add ignore rules
+for it. If Git still refuses a switch or pull because preserved files would be
+overwritten, stop and report the conflict without forcing the operation.
 
 ## Sync master
 
-For a clean working tree:
+For a clean working tree, or one containing only untracked `tmp/` files:
 
 ```powershell
 git switch master
@@ -84,7 +102,7 @@ git log -1 --oneline --decorate
 ```
 
 The status should show `master...origin/master` with no ahead/behind count and no
-changed paths.
+changed paths other than any preserved untracked `tmp/` files.
 
 ## Clean obsolete local PR branches
 
@@ -141,7 +159,7 @@ paths, for example `Remove-Item -LiteralPath <verified-pdf-path> -ErrorAction St
 Delete files individually; do not use recursive directory removal or a blanket
 `git clean -fdx`, which would also remove unrelated ignored data and settings.
 
-If `tmp/` or a PDF is locked or permission is denied, leave the affected target
+If a PDF is locked or permission is denied, leave the affected target
 in place and report it. Do not close applications, alter permissions, or
 substitute a different deletion method to bypass an approval rejection. Continue
 independent cleanup and report any remaining generated output accurately.
@@ -154,7 +172,9 @@ git status --short --branch
 ```
 
 Repeat the PDF inventory to confirm which eligible files remain. Report the
-updated `master` commit, whether `tmp/` was removed, local branches and PDFs
+updated `master` commit, any preserved untracked `tmp/` files and their stash
+restoration status (including any retained stash ID), local branches and PDFs
 removed, skipped branches or PDFs and their reasons, and whether the working
-tree is clean. Ignored PDFs do not affect Git's clean status; do not use a clean
+tree is clean. If untracked `tmp/` files remain, report them explicitly rather
+than calling the working tree clean. Ignored PDFs do not affect Git's clean status; do not use a clean
 status as proof they were removed.
