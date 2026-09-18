@@ -1,8 +1,9 @@
 # Start here audio introductions: implementation plan
 
 Status: Five English draft scripts prepared for author review in
-[Audio/README.md](../Audio/README.md). Recording, site integration, and publication
-remain planned.
+[Audio/README.md](../Audio/README.md); one editorial revision applied (September 18,
+2026) for fidelity to each study's central question and the weight of its examples.
+Recording, site integration, and publication remain planned.
 
 ## Objective and agreed scope
 
