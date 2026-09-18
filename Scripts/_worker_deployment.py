@@ -2,6 +2,9 @@
 
 The active Cloudflare version annotation is the receipt. Local Actions caches
 and the previous Git push are not deployment authority, including after rollback.
+
+This module is imported on Worker deploy jobs that have stdlib Python only. Do
+not import ``_common`` or any module that requires repository pip packages.
 """
 import argparse
 import hashlib
