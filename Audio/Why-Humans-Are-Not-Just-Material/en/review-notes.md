@@ -8,7 +8,7 @@
 - **Source study:** [Why Humans Are Not Just Material](../../../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md)
 - **Source Edited on:** September 8, 2026, 7:36 AM IST
 - **Source repository commit:** `730b0b235e5f9f0a4c245ad0ad780bd735cd5c93`
-- **Spoken word count:** 647, excluding the title
+- **Spoken word count:** 649, excluding the title
 - **Target recording length:** 4–5 minutes
 - **Illustrative timing:** about 5:03 at 135 words per minute plus 15 seconds of pauses; not a measured recording.
 
@@ -25,7 +25,7 @@ quotations are used in the narration.
 
 | Transcript content | Study sections | Treatment |
 | --- | --- | --- |
-| Well fed yet lacking meaning; the opening question | Introduction | Paraphrase of the study's own opening; the earlier meal-and-friendship paragraph was removed to avoid repeating the food motif used in the Value episode. |
+| Bodily needs met (work, home, comforts, food, health) yet life lacking meaning; the opening question | Introduction; §1.2.1 | Generalised from the study's "well fed" opening at author request so that all bodily provision, not only food, is covered; the earlier meal-and-friendship paragraph was removed to avoid repeating the food motif used in the Value episode. |
 | What "just material" means | Introduction, second paragraph | States the physicalist sense examined by the study so the listener does not hear it as a claim about greed or comfort. |
 | Nagraj's starting point: matter-centred and mystery-centred inquiry | §1.1 | Paraphrase; Nagraj is named as author of the diagnosis, not the books as speakers. |
 | Body and jeevan; continuous happiness and guidance of aims | §§1.2.1–1.2.2, 1.3.3–1.4 | The account is attributed to Madhyasth Darshan; bodily provision retains its place. |
@@ -69,7 +69,7 @@ and recording checksums can be added here once a recording exists.
 ## Revision 2 provenance
 
 - Source SHA-256: `13563505965453b191db816498b20b2c1fe71cc2720b9f63a211e58f3e631a57` (unchanged)
-- Transcript SHA-256: `f45a7dcade5a8b9a1191d4712731d85de91378ed2c285b4abbfa6f687e4a87e3`
+- Transcript SHA-256: `aef63787a09991822cf0f8cd422e9e35be3dc0a96dc84a8522a89b943a3559f2`
 
 ## Author comments
 

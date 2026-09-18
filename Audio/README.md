@@ -13,7 +13,7 @@ final length. Titles and review notes are not spoken.
 
 | Order | Stage | Transcript | Spoken words | Review notes |
 | --- | --- | --- | ---: | --- |
-| 1 | Human | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/en/transcript.md) | 647 | [Sources and review](Why-Humans-Are-Not-Just-Material/en/review-notes.md) |
+| 1 | Human | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/en/transcript.md) | 649 | [Sources and review](Why-Humans-Are-Not-Just-Material/en/review-notes.md) |
 | 2 | Existence | [The Ontology of Coexistence](The-Ontology-of-Coexistence/en/transcript.md) | 644 | [Sources and review](The-Ontology-of-Coexistence/en/review-notes.md) |
 | 3 | Knowledge | [The Epistemology of Coexistence](The-Epistemology-of-Coexistence/en/transcript.md) | 646 | [Sources and review](The-Epistemology-of-Coexistence/en/review-notes.md) |
 | 4 | Value | [Axiology: Value Theory](Axiology-Value-Theory/en/transcript.md) | 645 | [Sources and review](Axiology-Value-Theory/en/review-notes.md) |
