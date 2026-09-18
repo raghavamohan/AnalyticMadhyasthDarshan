@@ -17,6 +17,7 @@ import {
   clearSessionCookie,
   corsHeaders,
   createSession,
+  destroySession,
   getSession,
   isAdmin,
   requireSession,
@@ -498,6 +499,7 @@ router.get('/api/discuss-auth/me', async (request, env) => {
 });
 
 router.post('/api/discuss-auth/logout', async (request, env) => {
+  await destroySession(request, env);
   return jsonResponse(request, env, { success: true }, 200, {
     'Set-Cookie': clearSessionCookie(env),
   });

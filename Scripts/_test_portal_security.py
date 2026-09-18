@@ -25,6 +25,7 @@ class PortalSecurityTests(unittest.TestCase):
             database = str(Path(directory) / "tokens.sqlite")
             with closing(sqlite3.connect(database)) as connection, connection:
                 connection.executescript((BASE / "infra/discussions-worker/migrations/0001_init.sql").read_text(encoding="utf-8"))
+                connection.executescript((BASE / "infra/discussions-worker/migrations/0002_sessions.sql").read_text(encoding="utf-8"))
                 connection.executemany("INSERT INTO magic_tokens (token,email,display_name,expires_at) VALUES (?, 'test@example.org', 'Test', ?)", [("valid", 200), ("expired", 100)])
 
             def consume(token):

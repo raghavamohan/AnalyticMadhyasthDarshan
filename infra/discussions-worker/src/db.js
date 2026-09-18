@@ -154,3 +154,19 @@ export async function magicLinkRateState(db, email, sinceExpiryMs, now = nowMs()
       : 3600,
   };
 }
+
+export async function storeSession(db, { sid, userId, email, displayName, createdAt, expiresAt }) {
+  await db.prepare(
+    'INSERT INTO sessions (sid, user_id, email, display_name, created_at, expires_at) VALUES (?, ?, ?, ?, ?, ?)',
+  ).bind(sid, userId, email, displayName, createdAt, expiresAt).run();
+}
+
+export async function loadSession(db, sid) {
+  return db.prepare(
+    'SELECT sid, user_id, email, display_name, expires_at FROM sessions WHERE sid = ?',
+  ).bind(sid).first();
+}
+
+export async function deleteSession(db, sid) {
+  await db.prepare('DELETE FROM sessions WHERE sid = ?').bind(sid).run();
+}

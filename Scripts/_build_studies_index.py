@@ -17,6 +17,7 @@ if str(SCRIPTS) not in sys.path:
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # noqa: E402
 from _common import BASE, STUDIES, favicon_link_tags, write_text_lf  # noqa: E402
+from _site_chrome import site_feed_link_tags  # noqa: E402
 from _theme_icons import (  # noqa: E402
     STUDY_VISUALS_PLACEHOLDER,
     fill_theme_placeholders,
@@ -50,6 +51,7 @@ CATALOG_PRESENTATIONS_PLACEHOLDER = "@catalog-presentations@"
 DISCUSS_ASSET_VERSION_PLACEHOLDER = "@discuss-asset-version@"
 HERO_SCOPE_PLACEHOLDER = "<!-- @hero-scope@ -->"
 FAVICON_LINKS_PLACEHOLDER = "<!-- @favicon-links@ -->"
+FEED_LINKS_PLACEHOLDER = "<!-- @feed-links@ -->"
 START_HERE_STATUS_PLACEHOLDER = "@start-here-status@"
 PILL_STATUS_SUB_RE = r'(<span class="path-status )[a-z-]+("[^>]*data-study-status[^>]*>)[^<]*(</span>)'
 PILL_STATUS_SUB_REPL = (
@@ -81,6 +83,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta name="color-scheme" content="light dark"/>
 <link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
 <!-- @favicon-links@ -->
+<!-- @feed-links@ -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="AnalyticMadhyasthDarshan.org"/>
 <meta property="og:title" content="Studies of Madhyasth Darshan"/>
@@ -506,6 +509,21 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
   }
+  .follow-updates {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 16px 18px 14px;
+    margin: 0 0 14px;
+  }
+  .follow-updates h3 { margin: 0 0 6px; font-size: 16px; }
+  .follow-updates p { margin: 0 0 8px; color: var(--text-muted); font-size: 14px; }
+  .follow-updates ol { margin: 0 0 10px; padding-left: 20px; }
+  .follow-updates li { margin: 4px 0; font-size: 14px; }
+  .follow-updates .follow-meta { color: var(--text-muted); }
+  .follow-feeds { font-size: 14px; font-weight: 600; }
+  .install-hint { font-size: 13px; }
   .toolbar {
     display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 12px;
     background: var(--surface); border: 1px solid var(--border);
@@ -1851,6 +1869,14 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <h2>Browse all studies</h2>
   </div>
 
+  <aside class="follow-updates" id="follow-updates" aria-labelledby="follow-updates-heading">
+    <h3 id="follow-updates-heading">Follow updates</h3>
+    <p>Newest published studies, then subscribe in a feed reader. Ongoing rows stay off this list.</p>
+    <ol id="follow-list"></ol>
+    <p class="follow-feeds"><a href="feed.json">JSON Feed</a> · <a href="atom.xml">Atom</a></p>
+    <p class="install-hint">On a phone, use the browser menu to Add to Home Screen. The icon opens this catalog.</p>
+  </aside>
+
   <div class="toolbar" role="search">
     <label class="search">
       <span class="sr-only">Search studies</span>
@@ -2694,9 +2720,28 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     window.setTimeout(() => { target.classList.remove("is-targeted"); }, 1600);
   };
 
+  const renderFollow = () => {
+    const list = document.getElementById("follow-list");
+    if (!list) return;
+    const newest = STUDIES.filter(isAvail).slice().sort((a, b) => ts(b) - ts(a)).slice(0, 5);
+    list.replaceChildren();
+    for (const study of newest) {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = studyHtmlHref(study);
+      link.textContent = study.t;
+      const meta = document.createElement("span");
+      meta.className = "follow-meta";
+      meta.textContent = study.updated ? " · " + updatedDate(study.updated) : "";
+      item.append(link, meta);
+      list.append(item);
+    }
+  };
+
   const bootCatalog = () => {
     updateHeroScope();
     renderCatalog();
+    renderFollow();
     syncStartHere(STUDIES);
   };
 
@@ -3454,7 +3499,9 @@ def _presentation_source_paths() -> list[Path]:
 
 
 INDEX_TEMPLATE = fill_theme_placeholders(
-    INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags())
+    INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags()).replace(
+        FEED_LINKS_PLACEHOLDER, site_feed_link_tags()
+    )
 )
 
 

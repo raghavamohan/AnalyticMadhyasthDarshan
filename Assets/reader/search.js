@@ -72,7 +72,24 @@
     url.hash = passage.id;
     return url.href;
   }
-  const Core = { fold,normalized,terms,locations,match,search,excerpt,passageURL };
+  function studyGroup(url) {
+    const match = String(url).match(/^\/(Studies|Applications)\/([^/]+)\//);
+    return match ? match[1] + '/' + match[2] : url;
+  }
+  function rankHit(doc, passage, hits, queryTerms) {
+    let score = 0;
+    const section = fold(passage.section || '');
+    const heading = fold(passage.heading || '');
+    const title = fold(doc.title || '');
+    for (const term of queryTerms) {
+      if (term.includes(' ')) score += 20;
+      if (locations(section, term).length) score += 12;
+      if (locations(heading, term).length) score += 8;
+      if (locations(title, term).length) score += 4;
+    }
+    return score + Math.min(hits.length, 6);
+  }
+  const Core = { fold,normalized,terms,locations,match,search,excerpt,passageURL,rankHit,studyGroup };
   if (typeof module !== 'undefined' && module.exports) module.exports = Core;
   if (typeof document === 'undefined') return;
   window.AMDSearch = Core;
@@ -144,14 +161,23 @@
       option.textContent = language === 'en' ? 'English' : language === 'hi' ? 'Hindi' : language;
       $('search-language').append(option);
     }
+    const languageFilter = $('search-language')?.closest('label');
+    if (languageFilter) languageFilter.hidden = [...new Set(manifest.map(doc => doc.language))].length < 2;
     return manifest;
   }
   function displayNext() {
     const next = matches.slice(displayed,displayed + 20);
-    for (const {doc,passage,hits} of next) {
+    for (const {doc,passage,hits,groupTitle} of next) {
+      if (list.dataset.group !== studyGroup(doc.url)) {
+        const heading = document.createElement('li');
+        heading.className = 'search-group';
+        heading.textContent = groupTitle || doc.title;
+        list.append(heading);
+        list.dataset.group = studyGroup(doc.url);
+      }
       const li = document.createElement('li'), link = document.createElement('a'), description = document.createElement('p');
       link.href = passageURL(doc.url,passage,activeQuery,doc.version,location.origin);
-      link.textContent = doc.title + ' · ' + passage.section;
+      link.textContent = (doc.kind === 'companion' ? doc.title + ' · ' : '') + passage.section;
       const metadata = document.createElement('p'); metadata.className = 'search-help';
       metadata.textContent = doc.kind === 'companion' ? 'Companion note' : (doc.status === 'released' ? 'Released study' : 'Draft study');
       Core.markText(description,excerpt(passage.text,hits),activeTerms);
@@ -197,7 +223,19 @@
         }
       }));
       if (thisRun !== run) return;
-      matches = collected.sort((a,b) => a.doc.title.localeCompare(b.doc.title));
+      const titles = new Map();
+      for (const doc of documents) {
+        if (doc.kind === 'study') titles.set(studyGroup(doc.url), doc.title);
+      }
+      matches = collected.map(hit => ({...hit, groupTitle: titles.get(studyGroup(hit.doc.url)) || hit.doc.title}))
+        .sort((a,b) => {
+          const group = studyGroup(a.doc.url).localeCompare(studyGroup(b.doc.url));
+          if (group) return group;
+          const rank = rankHit(b.doc,b.passage,b.hits,queryTerms) - rankHit(a.doc,a.passage,a.hits,queryTerms);
+          if (rank) return rank;
+          return a.doc.title.localeCompare(b.doc.title) || (a.passage.section || '').localeCompare(b.passage.section || '');
+        });
+      list.dataset.group = '';
       setStatus(`${matches.length} matching passage${matches.length === 1 ? '' : 's'} in ${filtered.length - failed} searched document${filtered.length - failed === 1 ? '' : 's'}.` +
         (failed ? ` ${failed} document${failed === 1 ? '' : 's'} could not load. Search again to retry.` : !matches.length ? ' Try fewer words or a different spelling.' : ''));
       displayNext();

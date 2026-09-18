@@ -60,6 +60,10 @@
           "type": "application/feed+json"
         },
         {
+          "href": "https://analyticmadhyasthdarshan.org/Studies/atom.xml",
+          "type": "application/atom+xml"
+        },
+        {
           "href": "https://analyticmadhyasthdarshan.org/llms.txt",
           "type": "text/plain"
         },

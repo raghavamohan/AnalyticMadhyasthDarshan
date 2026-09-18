@@ -9,7 +9,7 @@ Reviewed: 18 September 2026 against `master` `4f471bf4` and live
 
 Status: **pending** (not started), **partial** (started, unfinished),
 **later** (needed, not this cycle), **deferred** (do not start unless a stated
-gate is met).
+gate is met), **done** (finished in this list).
 
 Within each category, rows are ordered **P1 → P2 → P3**, and within a
 priority **pending / partial → later → deferred**. That order is the work
@@ -24,8 +24,7 @@ change. Do not leave a stale copy in a subdirectory.
 1. Author-review the five Start here audio transcripts, beginning with
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
-2. Website this cycle, in table order: `SITE-01`, `SITE-02`, `UX-01`, `UX-02`,
-   `UX-03`, `OPS-01`.
+2. Website next: `UX-04`–`UX-06` (device/AT matrix, recovery check, fresh RUM), then `DIS-01`.
 3. CI `R1` (Worker canaries before promotion).
 4. `R2-RIGHTS` (fourteen retained third-party PDFs).
 5. `TR-PILOT` (listen through the five-video transcription pilot).
@@ -37,16 +36,16 @@ Design and evaluation matrix:
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| SITE-01 | P1 | pending | Live `/manifest.webmanifest` is 404. `favicon_link_tags()` emits icons only. Smallest closed job; unblocks Add to Home Screen. |
-| SITE-02 | P1 | pending | `feed.json` exists. Live `/Studies/atom.xml` is 404. Catalog has a Recently updated sort, not a Follow list. |
-| UX-01 | P1 | pending | Shared navigation and return context. Catalog has Search / My Notes / My Submissions; live search, notebook, and portal still have only All studies. Discussion “Read the study” has no passage hash. |
-| UX-02 | P1 | pending | Literal search still sorts by document title. Companion labels include “PRESENTER’S COMPANION”. Rank phrases/headings, group by study, hide redundant language filter. |
-| UX-03 | P1 | pending | Notebook scope is disabled, the page links to itself, and there is no note search or bookmark backup. |
-| OPS-01 | P1 | pending | `extract-zip` still in `Scripts/package-lock.json`. Discussion sessions have no per-session server-side revocation. Blocks `DIS-01`. |
+| SITE-01 | P1 | done | Web App Manifest at `/manifest.webmanifest`, linked from `favicon_link_tags()`, with a catalog Add to Home Screen hint. |
+| SITE-02 | P1 | done | Atom sibling at `/Studies/atom.xml`. Catalog Follow updates lists the newest published studies plus JSON Feed and Atom links. |
+| UX-01 | P1 | done | Search, notebook, portal, and discussion pages share Search / My Notes / My Submissions. Discussion “Read the study” keeps the passage hash. |
+| UX-02 | P1 | done | Passage search ranks phrases and headings, groups by study, labels Presenter’s Companion from the filename, and hides the language filter when every document is English. |
+| UX-03 | P1 | done | Notebook document filter works, the page no longer links to itself, notes can be searched, and bookmarks can be exported or restored. |
+| OPS-01 | P1 | done | Local `extract-zip` override refuses zip symlinks. Discussion sessions are D1 rows and logout revokes them. |
 | UX-04 | P1 | later | Device/AT matrix (Safari/iOS, Firefox, TalkBack/VoiceOver/NVDA). Mobile read-aloud shipped; that does not close the evaluation. |
 | UX-05 | P1 | later | Production contributor/discussion recovery check. Composer text is not preserved across sign-in. |
 | UX-06 | P1 | later | Fresh Cloudflare RUM sample, segmented by catalog / large reader / search / portal and mobile / desktop. Saved baseline is still 30 August 2026 (45 views, catalog LCP p75 2.6 s, TTFB 1.3 s, CLS p75 1.0, INP p75 0). That sample predates `amd-site` cutover. Live catalog HTML is Worker-served (`cfOrigin` 0). Investigate CLS/INP before optimizing. Re-run `python Scripts/_cloudflare_performance.py --export-rum-baseline`. Related: `CF-PDF-CACHE`. |
-| DIS-01 | P2 | pending | Reply mail and report control. Blocked on `OPS-01`. Not this cycle. |
+| DIS-01 | P2 | pending | Reply mail and report control. Session revocation shipped with `OPS-01`. Not this cycle. |
 | UX-07 | P2 | later | Reading-time cues, argument routes, public reference-library browser. |
 | FBK-01 | P2 | deferred | Keep GitHub corrections unless observation shows GitHub is the blocker. |
 | WEB-P6 | P3 | deferred | Optional semantic retrieval. Start only if lexical search shows unmet need. |
@@ -97,9 +96,8 @@ Phases 1–3 are implemented. Hourly read-only synthetics run.
 | API-A2A | P3 | deferred | A2A task protocol. No work until a stateful agent task cannot be an MCP read or ordinary HTTP request. |
 | API-OAUTH | P3 | deferred | Agent OAuth authorization server. Separate from human GitHub OAuth. Not needed for a store app. |
 
-Website `SITE-02` Atom/feed discovery and `DIS-01` discussion preference routes
-are listed under Website. The first 30-day Analytics Engine SLO baseline is
-`CF-SLO` under Infrastructure.
+Website `DIS-01` discussion preference routes are listed under Website. The first
+30-day Analytics Engine SLO baseline is `CF-SLO` under Infrastructure.
 
 ## References
 
@@ -127,9 +125,9 @@ catalog, generated PDF, reference PDF, and `/api/studies/health`. GitHub Pages
 is no longer the public HTML/PDF origin. Do not reopen that cutover.
 
 Already listed elsewhere: `UX-06` (field RUM), `R1` (Worker canaries before
-promotion), `R2-BACKUP` (R2 deletion protection), `OPS-01` (discussion session
-revocation), `API-SMOKE` (authenticated write smoke), `R6` (remove the inactive
-Pages retry workflow after operational acceptance).
+promotion), `R2-BACKUP` (R2 deletion protection), `API-SMOKE` (authenticated
+write smoke), `R6` (remove the inactive Pages retry workflow after operational
+acceptance).
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |

@@ -12,9 +12,12 @@
 .study-search button { cursor: pointer; }
 .study-search :is(input,select,button,a):focus-visible { outline: 2px solid var(--search-link); outline-offset: 3px; }
 .search-help { font-size: 13px; color: var(--search-muted); }
-.search-filters { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 12px; margin: 24px 0; }
-.search-filters label { font-size: 13px; min-width: 0; }
+.search-filters { display: flex; flex-wrap: wrap; gap: 12px; margin: 24px 0; }
+.search-filters label { font-size: 13px; min-width: 0; flex: 1 1 140px; }
+.search-filters label:first-child { flex: 2 1 220px; }
 .search-filters select { display: block; width: 100%; margin-top: 6px; }
+.search-results .search-group { list-style: none; padding: 18px 0 4px; border-top: 1px solid var(--search-edge); font: 600 13px/1.4 system-ui,sans-serif; color: var(--search-muted); letter-spacing: 0.04em; text-transform: uppercase; }
+.search-results .search-group:first-child { border-top: 0; padding-top: 0; }
 .search-status { margin: 22px 0; font-weight: 600; display: flex; align-items: center; gap: 12px; }
 .search-input-row button { display: inline-flex; align-items: center; gap: 8px; }
 .search-input-row .amd-icon { width: 18px; height: 18px; }
@@ -27,6 +30,5 @@
 @media (max-width: 640px) {
   .search-page { padding: 20px 16px 48px; }
   .search-page h1 { font-size: 34px; }
-  .search-filters { grid-template-columns: 1fr 1fr; }
-  .search-filters label:first-child { grid-column: 1 / -1; }
+  .search-filters label { flex: 1 1 100%; }
 }

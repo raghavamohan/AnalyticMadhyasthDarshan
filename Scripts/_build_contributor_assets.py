@@ -4,7 +4,8 @@ import hashlib
 from pathlib import Path
 import re
 
-from _theme_icons import THEME_MOTION_CSS, identity_mark_html
+from _site_chrome import SITE_CHROME_CSS, site_home_and_tools
+from _theme_icons import THEME_MOTION_CSS
 
 BASE = Path(__file__).resolve().parents[1]
 PORTAL = BASE / 'Studies/portal'
@@ -13,8 +14,8 @@ PORTAL = BASE / 'Studies/portal'
 def expected(path, sources):
     text = path.read_text(encoding='utf-8')
     for name, content in {
-        'theme-styles': '<style>' + THEME_MOTION_CSS + '</style>',
-        'theme-home': '<a class="amd-home" href="index.html">' + identity_mark_html('akhand-samaj') + '<span>All studies</span></a>',
+        'theme-styles': '<style>' + THEME_MOTION_CSS + SITE_CHROME_CSS + '</style>',
+        'theme-home': site_home_and_tools(home_href='index.html', studies_prefix='', current='submit'),
     }.items():
         text = re.sub(r'<!-- ' + name + r' -->.*?<!-- /' + name + r' -->',
                       lambda _: '<!-- ' + name + ' -->' + content + '<!-- /' + name + ' -->', text, flags=re.DOTALL)

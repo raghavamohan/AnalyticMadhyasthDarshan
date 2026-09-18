@@ -172,6 +172,10 @@ class ReleaseTests(unittest.TestCase):
                 self.assertFalse(release.eligible_static(path,published))
         self.assertTrue(release.eligible_static('Studies/A/A.html',published))
         self.assertTrue(release.eligible_static('Assets/reader/reader.js',published))
+        self.assertTrue(release.eligible_static('manifest.webmanifest',published))
+        self.assertTrue(release.eligible_static('Studies/atom.xml',published))
+        self.assertEqual(release.content_type('/Studies/atom.xml'), 'application/atom+xml; charset=utf-8')
+        self.assertEqual(release.content_type('/manifest.webmanifest'), 'application/manifest+json')
 
     def test_audit_identifies_itself_on_publication_get_and_asset_get_head_requests(self):
         manifest = self.build()

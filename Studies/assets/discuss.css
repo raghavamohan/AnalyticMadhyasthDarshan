@@ -277,8 +277,17 @@ a { color: var(--accent); }
   .amd-home .amd-mark { width: 32px; height: 32px; }
   .amd-action { display: inline-flex; align-items: center; gap: 6px; }
   .amd-action .amd-icon { width: 18px; height: 18px; }
-
+.site-chrome-nav { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin:0 0 18px; }
+.site-chrome-tools { display:flex; flex-wrap:wrap; align-items:center; gap:4px 14px; }
+.site-chrome-link { display:inline-flex; align-items:center; gap:6px; color:inherit; text-decoration:none; font-weight:600; font-size:14px; min-height:44px; }
+.site-chrome-link .amd-icon { width:18px; height:18px; }
+.site-chrome-link[aria-current="page"] { text-decoration:underline; text-underline-offset:3px; }
+.site-chrome-nav .amd-home { display:inline-flex; align-items:center; gap:8px; color:inherit; text-decoration:none; font-weight:600; min-height:44px; }
+.site-chrome-nav .amd-home .amd-mark { width:32px; height:32px; }
 .comments-loading .amd-wait { width: 100%; }
+.discuss-toolbar-home { grid-column: 1; justify-self: start; min-width: 0; }
+.discuss-toolbar-home .site-chrome-nav { margin: 0; gap: 6px 12px; }
+.discuss-toolbar-home .site-chrome-link { min-height: 32px; font-size: 13px; }
 .discuss-toolbar-download::after { content: none; }
 .alert { padding: 10px 12px; border-radius: 8px; margin-bottom: 12px; font-size: 0.92rem; }
 .alert-error { background: #fdecea; color: #8a1f11; border: 1px solid #f5c2c0; }
@@ -302,7 +311,7 @@ a { color: var(--accent); }
 .comments-section h2 { margin: 0 0 12px; font-size: 1rem; }
 @media (max-width: 640px) {
   .discuss-toolbar-row { grid-template-columns: 1fr 1fr; }
-  .discuss-toolbar-back { grid-column: 1; }
+  .discuss-toolbar-home { grid-column: 1; }
   .discuss-toolbar-actions { grid-column: 1 / -1; justify-self: stretch; justify-content: flex-end; }
   .discuss-toolbar-title { grid-column: 1 / -1; white-space: normal; }
   .discuss-toolbar-feedback { white-space: normal; }

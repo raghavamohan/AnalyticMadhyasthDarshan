@@ -77,9 +77,10 @@ link. The change does not remove existing comments or user identities.
 POST requests require a trusted Origin and JSON content type. Add local preview
 origins explicitly with `ALLOWED_ORIGINS`. Responses are private/no-store,
 including comment lists whose permissions depend on the signed-in reader.
-Existing discussion sessions remain signed cookies; per-session server-side
-revocation and additional abuse quotas remain `OPS-01` in
-[PENDING.md](../../PENDING.md#website).
+Existing discussion sessions are signed JWTs bound to a D1 `sessions` row.
+Logout deletes that row so the cookie cannot be reused. Remaining discussion
+work is reply mail and a report control (`DIS-01`). Per-user/IP quotas and a
+reviewed retention policy stay later follow-ups.
 
 ```powershell
 npx wrangler deploy
@@ -123,7 +124,7 @@ contract: `success: false`, stable `code`, human-readable `message`,
 | `POST /api/discuss-auth/magic-link` | Turnstile | Send email sign-in link |
 | `GET /api/discuss-auth/verify?token=…&return_to=…` | — | Verify token; set session cookie; redirect |
 | `GET /api/discuss-auth/me` | cookie | `{ loggedIn, email, displayName, isAdmin }` |
-| `POST /api/discuss-auth/logout` | cookie | Clear session |
+| `POST /api/discuss-auth/logout` | cookie | Revoke the stored session and clear the cookie |
 
 Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with the submissions worker (`/api/auth/github`, etc.). `health` and `stats` are reserved slugs so `GET /api/discussions/:slug` cannot swallow the liveness or stats routes. Unauthenticated writes return JSON `401` responses and rely on the documented first-party session-cookie flow; they do not advertise bearer authentication.
 

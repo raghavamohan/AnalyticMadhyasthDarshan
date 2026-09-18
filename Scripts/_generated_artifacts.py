@@ -22,7 +22,7 @@ ROOT_OUTPUTS = {
 }
 STUDIES_OUTPUTS = {
     "README.md", "index.html", "catalog-topical.json", "catalog-formal.json",
-    "catalog-applied.json", "catalog-all.json", "feed.json", "studies.txt",
+    "catalog-applied.json", "catalog-all.json", "feed.json", "atom.xml", "studies.txt",
     "companion-artifacts.json", "proposal-registry.json", "search.html",
     "notebook.html", "offline-manifest.json",
 }

@@ -149,6 +149,28 @@
         }
       }
     },
+    "/Studies/atom.xml": {
+      "get": {
+        "tags": [
+          "catalog"
+        ],
+        "summary": "Atom change feed",
+        "operationId": "getStudiesAtomFeed",
+        "description": "Atom 1.0 sibling of the JSON Feed: draft and released studies, newest Edited-on first. Ongoing rows are omitted.",
+        "responses": {
+          "200": {
+            "description": "Atom feed.",
+            "content": {
+              "application/atom+xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/Studies/glossary.json": {
       "get": {
         "tags": [

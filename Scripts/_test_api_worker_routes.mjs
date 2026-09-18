@@ -53,6 +53,40 @@ async function assertErrorEnvelope(response, {status, code, privateHeaders = tru
   return payload;
 }
 
+function mockDiscussionDb({ commentsFirst = null, commentAll = [] } = {}) {
+  const sessions = new Map();
+  return {
+    prepare(sql) {
+      return {
+        bind(...args) {
+          return {
+            run: async () => {
+              if (sql.includes('INSERT INTO sessions')) {
+                sessions.set(args[0], {
+                  sid: args[0],
+                  user_id: args[1],
+                  email: args[2],
+                  display_name: args[3],
+                  created_at: args[4],
+                  expires_at: args[5],
+                });
+              }
+              if (sql.includes('DELETE FROM sessions')) sessions.delete(args[0]);
+              return { meta: { changes: 1 } };
+            },
+            first: async () => {
+              if (sql.includes('FROM sessions')) return sessions.get(args[0]) || null;
+              if (sql.includes('FROM comments')) return commentsFirst;
+              return { count: 0 };
+            },
+            all: async () => ({ results: commentAll }),
+          };
+        },
+      };
+    },
+  };
+}
+
 async function withDashboardPublicationFetch(publicationResponse, run, repositorySha = 'a'.repeat(40)) {
   const originalFetch = globalThis.fetch;
   const originalCaches = globalThis.caches;
@@ -355,10 +389,7 @@ if (discussion) test('comment listing includes an email-free viewer summary', as
   const env = {
     SESSION_SECRET:'fixture-only',
     ADMIN_EMAILS:'alice@example.test',
-    DB:{prepare:() => ({bind:() => ({
-      all:async () => ({results:[]}),
-      first:async () => ({count:0}),
-    })})},
+    DB: mockDiscussionDb(),
   };
   const signedOut = await worker.fetch(new Request('https://api.example/api/discussions/Test-Study'), env);
   assert.deepEqual(await signedOut.json(), {
@@ -379,16 +410,11 @@ if (discussion) test('comment listing includes an email-free viewer summary', as
 
 if (discussion) test('comment mutations reject a stale source identifier before writing', async () => {
   const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
-  const kv = new Map(); let updates = 0;
   const env = {
     SESSION_SECRET:'fixture-only',
-    SESSIONS:{put:async (key,value) => kv.set(key,value),get:async key => kv.get(key)},
-    DB:{prepare:sql => ({bind:() => ({
-      first:async () => sql.includes('FROM comments')
-        ? {id:'comment-1',thread_slug:'Test-Study',user_id:'user-1',status:'visible',updated_at:42}
-        : null,
-      run:async () => {updates++;return {meta:{changes:1}};},
-    })})},
+    DB: mockDiscussionDb({
+      commentsFirst: {id:'comment-1',thread_slug:'Test-Study',user_id:'user-1',status:'visible',updated_at:42},
+    }),
   };
   const token = await auth.createSession(env,{userId:'user-1',email:'alice@example.test',displayName:'Alice'});
   const response = await worker.fetch(new Request(
@@ -397,7 +423,20 @@ if (discussion) test('comment mutations reject a stale source identifier before 
   ),env);
   const payload = await assertErrorEnvelope(response,{status:409,code:'conflict'});
   assert.deepEqual(payload.details,{currentSource:42,providedSource:41});
-  assert.equal(updates,0);
+});
+
+if (discussion) test('logout deletes the stored session so the cookie cannot be reused', async () => {
+  const auth = await import(await sourceUrl(path.resolve('src/auth.js')));
+  const env = { SESSION_SECRET:'fixture-only', DB: mockDiscussionDb() };
+  const token = await auth.createSession(env,{userId:'user-1',email:'alice@example.test',displayName:'Alice'});
+  const cookie = auth.setSessionCookie(token,env).split(';')[0];
+  const authed = { headers:{ Cookie: cookie } };
+  assert.equal((await auth.getSession(new Request(origin, authed), env)).email, 'alice@example.test');
+  const response = await worker.fetch(new Request('https://api.example/api/discuss-auth/logout', {
+    method:'POST', headers:{ Origin:origin, 'Content-Type':'application/json', Cookie: cookie },
+  }), env);
+  assert.equal(response.status, 200);
+  assert.equal(await auth.getSession(new Request(origin, authed), env), null);
 });
 
 if (!discussion) test('auth snapshot includes notification state without exposing the email address', async () => {
