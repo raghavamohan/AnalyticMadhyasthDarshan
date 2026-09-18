@@ -7,6 +7,7 @@
 - [Studies catalog](https://analyticmadhyasthdarshan.org/Studies/index.html): topical, formal, and applied papers
 - [Unified catalog JSON](https://analyticmadhyasthdarshan.org/Studies/catalog-all.json): all rows with a collection tag
 - [Change feed](https://analyticmadhyasthdarshan.org/Studies/feed.json): JSON Feed of draft and released Edited-on dates
+- [Atom feed](https://analyticmadhyasthdarshan.org/Studies/atom.xml): the same change list as the JSON Feed
 - [Glossary](https://analyticmadhyasthdarshan.org/Studies/glossary.json): shared terms used across studies
 - [API catalog](https://analyticmadhyasthdarshan.org/.well-known/api-catalog): RFC 9727 linkset
 - [MCP Server Card](https://analyticmadhyasthdarshan.org/.well-known/mcp/server-card.json): Streamable HTTP at /mcp

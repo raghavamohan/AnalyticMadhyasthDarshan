@@ -21,7 +21,8 @@ from _common import (  # noqa: E402
     write_text_lf,
 )
 from _discussion_assets import ASSET_VERSION  # noqa: E402
-from _theme_icons import THEME_MOTION_CSS, comments_loading_html, identity_mark_html, ui_icon_html  # noqa: E402
+from _site_chrome import SITE_CHROME_CSS, site_feed_link_tags, site_home_and_tools  # noqa: E402
+from _theme_icons import THEME_MOTION_CSS, comments_loading_html, ui_icon_html  # noqa: E402
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
     StudyRow,
@@ -123,7 +124,7 @@ def _toolbar_paper_links(links: dict[str, str | None]) -> str:
     if not links.get("read") or not links.get("pdf"):
         return ""
     return (
-        f'          <a class="discuss-toolbar-link amd-action" href="{html.escape(links["read"])}">{ui_icon_html("learning")}Read the study</a>\n'
+        f'          <a id="discuss-read-study" class="discuss-toolbar-link amd-action" href="{html.escape(links["read"])}">{ui_icon_html("learning")}Read the study</a>\n'
         f'          <a class="discuss-toolbar-link discuss-toolbar-download amd-action" href="{html.escape(links["pdf"])}" download>{ui_icon_html("download")}Download PDF</a>\n'
     )
 
@@ -409,8 +410,11 @@ a { color: var(--accent); }
   align-items: center;
   font-size: 0.9rem;
 }
-""" + THEME_MOTION_CSS + """
+""" + THEME_MOTION_CSS + SITE_CHROME_CSS + """
 .comments-loading .amd-wait { width: 100%; }
+.discuss-toolbar-home { grid-column: 1; justify-self: start; min-width: 0; }
+.discuss-toolbar-home .site-chrome-nav { margin: 0; gap: 6px 12px; }
+.discuss-toolbar-home .site-chrome-link { min-height: 32px; font-size: 13px; }
 .discuss-toolbar-download::after { content: none; }
 .alert { padding: 10px 12px; border-radius: 8px; margin-bottom: 12px; font-size: 0.92rem; }
 .alert-error { background: #fdecea; color: #8a1f11; border: 1px solid #f5c2c0; }
@@ -434,7 +438,7 @@ a { color: var(--accent); }
 .comments-section h2 { margin: 0 0 12px; font-size: 1rem; }
 @media (max-width: 640px) {
   .discuss-toolbar-row { grid-template-columns: 1fr 1fr; }
-  .discuss-toolbar-back { grid-column: 1; }
+  .discuss-toolbar-home { grid-column: 1; }
   .discuss-toolbar-actions { grid-column: 1 / -1; justify-self: stretch; justify-content: flex-end; }
   .discuss-toolbar-title { grid-column: 1 / -1; white-space: normal; }
   .discuss-toolbar-feedback { white-space: normal; }
@@ -518,6 +522,16 @@ DISCUSS_JS = r"""(() => {
   let initialLastSeen = null;
   const DISCUSS_SEEN_KEY = "amd-discuss-seen";
   const DISPLAY_NAME_KEY = "amd-discuss-name";
+  const readStudy = document.getElementById("discuss-read-study");
+  if (readStudy && /^#[^#\s]+$/.test(location.hash)) {
+    try {
+      const url = new URL(readStudy.getAttribute("href") || readStudy.href, location.href);
+      url.hash = location.hash;
+      readStudy.href = url.pathname + url.search + url.hash;
+    } catch {
+      // Keep the unhashed study link if the current location cannot be parsed.
+    }
+  }
 
   const readDiscussSeenMap = () => {
     try {
@@ -1151,6 +1165,10 @@ def render_discussion_page(row: StudyRow) -> str:
         planned_callout = ""
 
     assets = links["assets"]
+    studies_prefix = "../../Studies/" if row.table == StudyTable.APPLIED else "../"
+    home_nav = site_home_and_tools(
+        home_href=links["catalog"], studies_prefix=studies_prefix
+    )
     css_href = html.escape(f"{assets}/{DISCUSS_CSS_NAME}?v={ASSET_VERSION}")
     js_href = html.escape(f"{assets}/{DISCUSS_JS_NAME}?v={ASSET_VERSION}")
     canonical = _canonical_url(row)
@@ -1194,6 +1212,7 @@ def render_discussion_page(row: StudyRow) -> str:
 <meta name="description" content="{html.escape(description)}">
 <link rel="canonical" href="{html.escape(canonical)}">
 {favicon_link_tags()}
+{site_feed_link_tags()}
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AnalyticMadhyasthDarshan.org">
 <meta property="og:title" content="Discussion &mdash; {html.escape(title)}">
@@ -1218,7 +1237,7 @@ def render_discussion_page(row: StudyRow) -> str:
   <header class="discuss-header">
     <nav class="discuss-toolbar" aria-label="Discussion navigation">
       <div class="discuss-toolbar-row">
-        <a class="discuss-toolbar-link discuss-toolbar-back amd-home" href="{html.escape(links['catalog'])}">{identity_mark_html("akhand-samaj")}<span>All studies</span></a>
+        <div class="discuss-toolbar-home">{home_nav}</div>
         <h1 class="discuss-toolbar-title">{html.escape(title)}{status_note}</h1>
         <span class="discuss-toolbar-actions">
 {paper_links}          <a class="discuss-toolbar-link discuss-toolbar-feedback" href="{html.escape(feedback)}" rel="noopener">Suggest a correction</a>

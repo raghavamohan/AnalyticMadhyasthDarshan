@@ -11,8 +11,9 @@ from urllib.parse import urljoin, urlsplit, parse_qs, unquote
 from bs4 import BeautifulSoup
 
 from _common import BASE, favicon_link_tags, site_base_url, write_text_lf
+from _site_chrome import SITE_CHROME_CSS, site_feed_link_tags, site_home_and_tools
 from _study_reader import reader_assets, reader_bootstrap, reader_controls
-from _theme_icons import THEME_MOTION_CSS, identity_mark_html, topic_icon_html
+from _theme_icons import THEME_MOTION_CSS, topic_icon_html
 from _study_search import eligible_documents, serialize
 
 MANIFEST = BASE / 'Studies/offline-manifest.json'
@@ -55,18 +56,32 @@ def notebook_html() -> str:
     notes = controls.find(id='reader-notes')
     notes.attrs = {'id': 'notebook-notes'}
     notes.find('p').string = 'Private highlights and notes from your study readers, stored in this browser profile. Open a source title to return to the study.'
+    for link in notes.select('a[href="/Studies/notebook.html"]'):
+        link.decompose()
+    scope = notes.find(id='notes-scope')
+    if scope is not None:
+        scope.clear()
+        option = controls.new_tag('option', value='all')
+        option.string = 'All documents'
+        scope.append(option)
     css, scripts = reader_assets(NOTEBOOK.with_suffix('.md'))
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>My notes &amp; saved studies</title><meta name="robots" content="noindex"/>
-{favicon_link_tags()}{reader_bootstrap()}{css}{scripts}<style media="screen">{THEME_MOTION_CSS}
+{favicon_link_tags()}{site_feed_link_tags()}{reader_bootstrap()}{css}{scripts}<style media="screen">{THEME_MOTION_CSS}{SITE_CHROME_CSS}
 .notebook-nav .amd-topic-icon {{ width: 20px; height: 20px; }}</style></head>
-<body class="notebook-page reader-chrome"><a class="amd-home" href="index.html">{identity_mark_html("akhand-samaj")}<span>All studies</span></a>
+<body class="notebook-page reader-chrome">{site_home_and_tools(home_href="index.html", studies_prefix="", current="notebook")}
 <main id="notebook"><h1>My notes &amp; saved studies</h1>
 <nav class="notebook-nav" aria-label="Notebook sections"><a class="amd-action" href="#notebook-notes">{topic_icon_html("notes")}Private notes</a><a class="amd-action" href="#saved-studies">{topic_icon_html("learning")}Saved studies</a></nav>
 <h2>Private notes</h2>{notes}
 <section id="saved-studies"><h2>Saved studies</h2><p id="offline-library-status" role="status" aria-live="polite">Checking saved copies…</p><ol id="offline-library" class="study-note-list"></ol>
 <p>Saved copies include the study and its reading assets. Linked source PDFs, discussions and collection search require a connection. Browser storage can be evicted; keep exported backups of your notes.</p></section>
+<section id="bookmark-backup"><h2>Bookmark backup</h2>
+<p>Export or restore named bookmarks saved by study readers in this browser. Notes use the separate export above.</p>
+<div class="study-tool-actions"><button type="button" id="bookmarks-export">Export bookmarks</button></div>
+<label for="bookmarks-import">Restore a bookmarks JSON backup</label><input id="bookmarks-import" type="file" accept="application/json,.json"/>
+<p id="bookmarks-status" role="status" aria-live="polite"></p>
+</section>
 <noscript>JavaScript is needed to open your device’s notes and saved-study list. Your downloaded Markdown and JSON backups remain readable independently.</noscript>
 </main></body></html>
 '''

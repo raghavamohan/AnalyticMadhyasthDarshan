@@ -7,6 +7,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Icons/akhand-samaj-favicon-16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/Assets/Icons/akhand-samaj-apple-touch-icon.png"/>
+<link rel="manifest" href="/manifest.webmanifest"/>
+<meta name="theme-color" content="#1A5276"/>
+<link rel="alternate" type="application/feed+json" href="/Studies/feed.json" title="Studies change feed"/>
+<link rel="alternate" type="application/atom+xml" href="/Studies/atom.xml" title="Studies Atom feed"/>
 <style>:root {
   --amd-navy: #1a5276;
   --amd-gold: #b47b46;
@@ -59,12 +63,18 @@
   .amd-home .amd-mark { width: 32px; height: 32px; }
   .amd-action { display: inline-flex; align-items: center; gap: 6px; }
   .amd-action .amd-icon { width: 18px; height: 18px; }
-</style>
-<link rel="stylesheet" href="../Assets/reader/search.css?v=5a9f6333117dedb7"/>
-<script defer src="../Assets/reader/search.js?v=db4f6211550a4195"></script></head>
-<body class="search-page"><a class="search-back amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a>
+.site-chrome-nav { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin:0 0 18px; }
+.site-chrome-tools { display:flex; flex-wrap:wrap; align-items:center; gap:4px 14px; }
+.site-chrome-link { display:inline-flex; align-items:center; gap:6px; color:inherit; text-decoration:none; font-weight:600; font-size:14px; min-height:44px; }
+.site-chrome-link .amd-icon { width:18px; height:18px; }
+.site-chrome-link[aria-current="page"] { text-decoration:underline; text-underline-offset:3px; }
+.site-chrome-nav .amd-home { display:inline-flex; align-items:center; gap:8px; color:inherit; text-decoration:none; font-weight:600; min-height:44px; }
+.site-chrome-nav .amd-home .amd-mark { width:32px; height:32px; }</style>
+<link rel="stylesheet" href="../Assets/reader/search.css?v=a419b4f54c4437ff"/>
+<script defer src="../Assets/reader/search.js?v=f9194e7cdcfef23f"></script></head>
+<body class="search-page"><nav class="site-chrome-nav" aria-label="Study navigation"><a class="amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><div class="site-chrome-tools"><a class="site-chrome-link" href="search.html" aria-current="page" title="Find words and phrases inside studies and companion notes."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span class="nav-link-label">Search</span></a><a class="site-chrome-link" href="notebook.html" title="Open your highlights, notes and offline studies saved in this browser."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#notes"></use></svg><span class="nav-link-label">My Notes</span></a><a class="site-chrome-link site-chrome-text" href="submit.html" title="Use GitHub sign-in to propose studies, submit drafts and follow reviews.">My Submissions</a></div></nav>
 <main><h1>Find a passage</h1><p>Search the text of published studies and companion notes. Open a result at its passage, then use its sources to check the claim.</p>
-<section class="study-search" id="collection-search" data-manifest="search-data/manifest.json?v=981265a5cc8c3bad" aria-label="Search published documents">
+<section class="study-search" id="collection-search" data-manifest="search-data/manifest.json?v=ca94b5c703bfe491" aria-label="Search published documents">
 <form class="search-form"><label for="collection-query">Words or phrase</label><div class="search-input-row"><input id="collection-query" type="search" maxlength="200" placeholder='e.g. "duration of activity"' required/><button type="submit"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span>Search</span></button></div>
 <p class="search-help">All words must occur in the same passage. Use quotation marks for a phrase. Latin accents are ignored; Hindi spelling is preserved.</p>
 <div class="search-filters">

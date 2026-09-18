@@ -234,6 +234,20 @@
   });
   feedback?.addEventListener('click',prepareFeedback);
   feedback?.addEventListener('contextmenu',prepareFeedback);
+  function prepareDiscuss(link) {
+    const url = new URL(link.getAttribute('href') || link.href, location.href);
+    const place = currentPlace();
+    url.hash = place?.anchor || '';
+    link.href = url.pathname + url.search + url.hash;
+  }
+  document.addEventListener('click', event => {
+    const link = event.target.closest('.study-toolbar-discuss');
+    if (link) prepareDiscuss(link);
+  }, true);
+  document.addEventListener('contextmenu', event => {
+    const link = event.target.closest('.study-toolbar-discuss');
+    if (link) prepareDiscuss(link);
+  }, true);
   const marker = () => toolbar.offsetHeight + 12;
   function capture() {
     const y = scrollY + marker(), item = passages[Math.max(0,readingIndex(passages,y))];

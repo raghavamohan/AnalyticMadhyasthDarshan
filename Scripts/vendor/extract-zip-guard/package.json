@@ -1,0 +1,15 @@
+{
+  "name": "extract-zip",
+  "version": "2.0.1-amd-symlink-guard",
+  "description": "extract-zip 2.0.1 with symlink entries rejected (GHSA-jmr9-qjv8-65gv)",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "license": "BSD-2-Clause",
+  "engines": {
+    "node": ">= 10.17.0"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "yauzl": "^2.10.0"
+  }
+}

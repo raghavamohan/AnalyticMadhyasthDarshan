@@ -39,6 +39,7 @@ DISCOVERY_PAGES = (
     "webmcp.js",
     "Studies/catalog-all.json",
     "Studies/feed.json",
+    "Studies/atom.xml",
     "Studies/glossary.json",
     "Studies/start-here.json",
 )

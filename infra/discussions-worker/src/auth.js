@@ -1,3 +1,10 @@
+import {
+  deleteSession,
+  loadSession,
+  nowMs,
+  storeSession,
+} from './db.js';
+
 const SESSION_COOKIE = 'amd_discuss_session';
 const SESSION_MAX_AGE_SEC = 30 * 24 * 60 * 60;
 
@@ -121,19 +128,58 @@ export function clearSessionCookie(env) {
 }
 
 export async function createSession(env, { userId, email, displayName }) {
-  const exp = Math.floor(Date.now() / 1000) + SESSION_MAX_AGE_SEC;
-  return signSession({ userId, email, displayName, exp }, env.SESSION_SECRET);
+  if (!env.DB || !env.SESSION_SECRET) {
+    throw new Error('Server-side session storage is not configured.');
+  }
+  const now = nowMs();
+  const exp = Math.floor(now / 1000) + SESSION_MAX_AGE_SEC;
+  const sid = crypto.randomUUID();
+  await storeSession(env.DB, {
+    sid,
+    userId,
+    email,
+    displayName,
+    createdAt: now,
+    expiresAt: exp * 1000,
+  });
+  return signSession({ sid, exp }, env.SESSION_SECRET);
 }
 
 export async function getSession(request, env) {
-  if (!env.SESSION_SECRET) return null;
+  if (!env.SESSION_SECRET || !env.DB) return null;
   const cookies = parseCookies(request);
   const token = cookies[SESSION_COOKIE];
   if (!token) return null;
   try {
-    return await verifySession(token, env.SESSION_SECRET);
+    const payload = await verifySession(token, env.SESSION_SECRET);
+    if (!payload?.sid) return null;
+    const row = await loadSession(env.DB, payload.sid);
+    if (!row || Number(row.expires_at) <= nowMs()) {
+      if (row) await deleteSession(env.DB, payload.sid);
+      return null;
+    }
+    return {
+      sid: payload.sid,
+      userId: row.user_id,
+      email: row.email,
+      displayName: row.display_name,
+      exp: payload.exp,
+    };
   } catch {
     return null;
+  }
+}
+
+export async function destroySession(request, env) {
+  if (!env.DB || !env.SESSION_SECRET) return;
+  const cookies = parseCookies(request);
+  const token = cookies[SESSION_COOKIE];
+  if (!token) return;
+  try {
+    const payload = await verifySession(token, env.SESSION_SECRET);
+    if (payload?.sid) await deleteSession(env.DB, payload.sid);
+  } catch {
+    // best effort
   }
 }
 

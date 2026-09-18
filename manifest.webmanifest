@@ -1,0 +1,24 @@
+{
+  "name": "Analytic Madhyasth Darshan",
+  "short_name": "AMD Studies",
+  "description": "Comparative studies of Madhyasth Darshan. Install opens the studies catalog.",
+  "start_url": "/Studies/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#F7F4EF",
+  "theme_color": "#1A5276",
+  "icons": [
+    {
+      "src": "/Assets/Icons/akhand-samaj-favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/Assets/Icons/akhand-samaj-apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180",
+      "purpose": "any"
+    }
+  ]
+}

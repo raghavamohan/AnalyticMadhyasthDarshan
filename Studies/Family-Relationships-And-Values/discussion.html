@@ -12,6 +12,10 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Icons/akhand-samaj-favicon-16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/Assets/Icons/akhand-samaj-apple-touch-icon.png"/>
+<link rel="manifest" href="/manifest.webmanifest"/>
+<meta name="theme-color" content="#1A5276"/>
+<link rel="alternate" type="application/feed+json" href="/Studies/feed.json" title="Studies change feed"/>
+<link rel="alternate" type="application/atom+xml" href="/Studies/atom.xml" title="Studies Atom feed"/>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="AnalyticMadhyasthDarshan.org">
 <meta property="og:title" content="Discussion &mdash; Family Relationships and Values">
@@ -42,17 +46,17 @@
   } catch(e) {}
 })();
 </script>
-<link rel="stylesheet" href="../assets/discuss.css?v=7">
+<link rel="stylesheet" href="../assets/discuss.css?v=8">
 </head>
 <body>
 <div class="wrap">
   <header class="discuss-header">
     <nav class="discuss-toolbar" aria-label="Discussion navigation">
       <div class="discuss-toolbar-row">
-        <a class="discuss-toolbar-link discuss-toolbar-back amd-home" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a>
+        <div class="discuss-toolbar-home"><nav class="site-chrome-nav" aria-label="Study navigation"><a class="amd-home" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><div class="site-chrome-tools"><a class="site-chrome-link" href="../search.html" title="Find words and phrases inside studies and companion notes."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span class="nav-link-label">Search</span></a><a class="site-chrome-link" href="../notebook.html" title="Open your highlights, notes and offline studies saved in this browser."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#notes"></use></svg><span class="nav-link-label">My Notes</span></a><a class="site-chrome-link site-chrome-text" href="../submit.html" title="Use GitHub sign-in to propose studies, submit drafts and follow reviews.">My Submissions</a></div></nav></div>
         <h1 class="discuss-toolbar-title">Family Relationships and Values <span class="status-badge status-badge--draft">Draft</span></h1>
         <span class="discuss-toolbar-actions">
-          <a class="discuss-toolbar-link amd-action" href="Family-Relationships-And-Values.html"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#learning"></use></svg>Read the study</a>
+          <a id="discuss-read-study" class="discuss-toolbar-link amd-action" href="Family-Relationships-And-Values.html"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#learning"></use></svg>Read the study</a>
           <a class="discuss-toolbar-link discuss-toolbar-download amd-action" href="Family-Relationships-And-Values.pdf" download><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#download"></use></svg>Download PDF</a>
           <a class="discuss-toolbar-link discuss-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&amp;title=Study%20feedback%3A%20Family%20Relationships%20and%20Values" rel="noopener">Suggest a correction</a>
           <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Log in</button>
@@ -122,6 +126,6 @@
   if(panel)panel.classList.remove("hidden");
 })();
 </script>
-<script src="../assets/discuss.js?v=7"></script>
+<script src="../assets/discuss.js?v=8"></script>
 </body>
 </html>

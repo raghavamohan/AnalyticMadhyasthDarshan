@@ -17,12 +17,13 @@ from pathlib import Path
 SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
 
-from _common import BASE, STUDIES
+from _common import BASE, STUDIES, favicon_link_tags
 from _study_catalog import (
     CATALOG_ALL_PATH,
     CATALOG_TABLES,
     LLMS_FULL_TXT_PATH,
     LLMS_TXT_PATH,
+    STUDIES_ATOM_PATH,
     STUDIES_FEED_PATH,
     StudyStatus,
     _absolute_from_studies,
@@ -118,6 +119,34 @@ def check_feed(rows: list[dict]) -> None:
     if dates != sorted(dates, reverse=True):
         fail("feed.json items are not newest-first by date_modified")
     print("OK: Studies/feed.json is JSON Feed 1.1, newest Edited-on first.")
+    atom = STUDIES_ATOM_PATH.read_text(encoding="utf-8") if STUDIES_ATOM_PATH.is_file() else ""
+    if not atom.startswith("<?xml") or 'xmlns="http://www.w3.org/2005/Atom"' not in atom:
+        fail("Studies/atom.xml must be an Atom 1.0 feed")
+    if atom.count("<entry>") != len(items):
+        fail(f"atom.xml has {atom.count('<entry>')} entries, expected {len(items)}")
+    if items and items[0]["title"] not in atom:
+        fail("atom.xml is missing the newest feed item title")
+    print("OK: Studies/atom.xml matches the JSON Feed item set.")
+
+
+def check_manifest() -> None:
+    path = BASE / "manifest.webmanifest"
+    if not path.is_file():
+        fail("missing manifest.webmanifest")
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if payload.get("start_url") != "/Studies/index.html":
+        fail("manifest.webmanifest start_url must open the studies catalog")
+    if payload.get("display") != "standalone":
+        fail("manifest.webmanifest display must be standalone")
+    icons = payload.get("icons") or []
+    if not any(icon.get("src", "").endswith(".svg") for icon in icons):
+        fail("manifest.webmanifest must include the SVG app icon")
+    tags = favicon_link_tags()
+    if 'rel="manifest" href="/manifest.webmanifest"' not in tags:
+        fail("favicon_link_tags() must advertise the Web App Manifest")
+    if 'name="theme-color"' not in tags:
+        fail("favicon_link_tags() must set theme-color")
+    print("OK: Web App Manifest and favicon tags advertise install.")
 
 
 def check_llms(rows: list[dict]) -> None:
@@ -137,6 +166,7 @@ def check_llms(rows: list[dict]) -> None:
         "/Studies/catalog-all.json",
         "/Studies/glossary.json",
         "/Studies/feed.json",
+        "/Studies/atom.xml",
         "/.well-known/api-catalog",
     ):
         if needle not in text:
@@ -473,6 +503,7 @@ def check_live() -> None:
 def main() -> None:
     rows = check_catalog_all()
     check_feed(rows)
+    check_manifest()
     check_llms(rows)
     check_start_here(rows)
     check_search(rows)

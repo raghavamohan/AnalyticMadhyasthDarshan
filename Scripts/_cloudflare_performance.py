@@ -156,6 +156,7 @@ HOMEPAGE_LINK = (
     '</Studies/catalog-applied.json>; rel="describedby"; type="application/json", '
     '</Studies/catalog-all.json>; rel="describedby"; type="application/json", '
     '</Studies/feed.json>; rel="describedby"; type="application/feed+json", '
+    '</Studies/atom.xml>; rel="describedby"; type="application/atom+xml", '
     '</Studies/glossary.json>; rel="describedby"; type="application/json", '
     '</llms.txt>; rel="describedby"; type="text/plain", '
     '</mcp>; rel="describedby"; type="application/json", '
@@ -1976,6 +1977,7 @@ def cache_rules_spec() -> list[dict]:
                 'http.request.uri.path eq "/Studies/catalog-applied.json" or '
                 'http.request.uri.path eq "/Studies/catalog-all.json" or '
                 'http.request.uri.path eq "/Studies/feed.json" or '
+                'http.request.uri.path eq "/Studies/atom.xml" or '
                 'http.request.uri.path eq "/Studies/glossary.json"))'
             ),
             edge_ttl_seconds=SECONDS_PER_HOUR,
@@ -2833,6 +2835,8 @@ def main() -> int:
                     f"https://{SITE_HOST}/Studies/catalog-applied.json",
                     f"https://{SITE_HOST}/Studies/catalog-all.json",
                     f"https://{SITE_HOST}/Studies/feed.json",
+                    f"https://{SITE_HOST}/Studies/atom.xml",
+                    f"https://{SITE_HOST}/manifest.webmanifest",
                     f"https://{SITE_HOST}/Studies/glossary.json",
                     f"https://{SITE_HOST}/llms.txt",
                     f"https://{SITE_HOST}/llms-full.txt",

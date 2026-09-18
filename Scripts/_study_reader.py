@@ -100,6 +100,7 @@ def reader_controls() -> str:
       <button type="button" id="notes-reload" hidden>Reload saved note</button>
       <button type="button" id="notes-reattach">Attach to current selection</button>
     </form>
+    <label for="notes-query">Find in notes</label><input id="notes-query" type="search" maxlength="200" placeholder="Search titles, quotes, and note text"/>
     <label for="notes-scope">Show notes</label><select id="notes-scope"><option value="document">This document</option><option value="all">All documents</option></select>
     <ol id="notes-list" class="study-note-list" aria-label="Private notes"></ol>
     <details><summary>Export or restore notes</summary><p class="reader-helper">Exports include the notes shown above and any unsaved editor text. Conflicting imported notes are kept as separate copies.</p>

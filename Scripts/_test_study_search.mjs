@@ -35,4 +35,9 @@ assert.equal(R.safeURL('../source.pdf#page=7','https://example.org/Studies/A/A.h
 assert.equal(R.cited('MVD, pp. 3–7','MVD'),true);
 assert.equal(R.cited('AMVD, p. 4','MVD'),false);
 assert.equal(R.cited('(A+B, p. 4)','A+B'),true);
+assert.equal(S.rankHit({title:'Time'},{section:'Introduction',heading:''},[[0,4]],S.terms('time')), 5);
+assert.ok(S.rankHit({title:'Law'},{section:'Duration of activity',heading:''},[[0,8]],S.terms('"duration of activity"')) >
+  S.rankHit({title:'Duration of activity'},{section:'Introduction',heading:''},[[0,8]],S.terms('"duration of activity"')));
+assert.equal(S.studyGroup('/Studies/The-Ontology-of-Coexistence/Presenters-Companion-Ontology-of-Existence.html'),
+  'Studies/The-Ontology-of-Coexistence');
 console.log('Passage query, Unicode offsets and source URL checks passed');

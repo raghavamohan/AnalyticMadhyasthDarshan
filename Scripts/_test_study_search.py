@@ -20,6 +20,11 @@ class PassageTests(unittest.TestCase):
         data = search.document_data(Path('test.md'), html)
         self.assertEqual([(p['id'], p['text']) for p in data['passages']], [('a', 'Let x be a value.')])
 
+    def test_generic_presenter_companion_title_uses_the_filename(self):
+        html = '<html lang="en"><body><h1>PRESENTER’S COMPANION</h1><main id="main"></main></body></html>'
+        data = search.document_data(Path('Studies/The-Ontology-of-Coexistence/Presenters-Companion-Ontology-of-Existence.md'), html)
+        self.assertEqual(data['title'], "Presenter's Companion: Ontology of Existence")
+
     def test_query_and_source_contracts(self):
         result = subprocess.run(['node', str(BASE / 'Scripts/_test_study_search.mjs')], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)

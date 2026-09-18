@@ -37,6 +37,16 @@
   let initialLastSeen = null;
   const DISCUSS_SEEN_KEY = "amd-discuss-seen";
   const DISPLAY_NAME_KEY = "amd-discuss-name";
+  const readStudy = document.getElementById("discuss-read-study");
+  if (readStudy && /^#[^#\s]+$/.test(location.hash)) {
+    try {
+      const url = new URL(readStudy.getAttribute("href") || readStudy.href, location.href);
+      url.hash = location.hash;
+      readStudy.href = url.pathname + url.search + url.hash;
+    } catch {
+      // Keep the unhashed study link if the current location cannot be parsed.
+    }
+  }
 
   const readDiscussSeenMap = () => {
     try {
