@@ -51,6 +51,23 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
         nav:document.querySelector('.page-nav').getBoundingClientRect().height}));
       assert.ok(metrics.scroll <= metrics.width, `Page overflow at ${width}px: ${JSON.stringify(await page.$$eval('body *', nodes => nodes.filter(n => n.getBoundingClientRect().right > innerWidth).slice(0,12).map(n => [n.tagName,n.className,n.getBoundingClientRect().right])))}`);
       if (width === 390) assert.ok(metrics.nav < 145, `Mobile header too tall: ${metrics.nav}`);
+      if (width >= 1280) {
+        const tocTops = await page.$$eval('.toc a', nodes => nodes.map(node => Math.round(node.getBoundingClientRect().top)));
+        assert.equal(new Set(tocTops).size, 1, `TOC wrapped on desktop: ${JSON.stringify(tocTops)}`);
+        const chipHeights = await page.evaluate(() => {
+          const height = selector => Math.round(document.querySelector(selector).getBoundingClientRect().height);
+          return {
+            toc: height('.toc a'),
+            search: height('.page-nav-search'),
+            notes: height('.page-nav-tools a[href="notebook.html"]'),
+            submit: height('.page-nav-submit'),
+            theme: height('#theme-toggle'),
+          };
+        });
+        for (const [name, height] of Object.entries(chipHeights)) {
+          assert.equal(height, chipHeights.toc, `${name} height ${height}px != TOC ${chipHeights.toc}px`);
+        }
+      }
       await page.$eval('.path-panel[data-stage="1"] .path-related', details => details.open = true);
       const relatedLayout = await page.$eval('.path-panel[data-stage="1"] .path-related li', row => {
         const title = row.querySelector('.related-study-title').getBoundingClientRect();
