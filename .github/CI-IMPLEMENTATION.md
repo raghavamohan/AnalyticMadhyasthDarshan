@@ -21,17 +21,17 @@ contract and [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md) for the operation/acceptan
   restoration and exact-source binary permissions.
 
 These changes advance R2's repeatable local coverage. The deployed lifecycle,
-offline and controlled recovery matrix remains open; R1 and R3–R8 below are
-unchanged. #463 is merged and both Worker workflows passed, but its site
+offline and controlled recovery matrix remains open; R1 and R3–R8 are tracked in
+[PENDING.md](../PENDING.md#ci). #463 is merged and both Worker workflows passed, but its site
 publication failed during artifact collection before staging or promotion.
 Next: merge the collector repair, verify the resulting site publication, then
 execute the remaining deployed acceptance matrix.
 
-The F1–F15 implementation is merged and running in production. Both the site and Agent-facing Workers deployments passed. The initial migration/build-receipt bootstrap is complete. Strict slide-PDF byte reproducibility remains unfinished within F6; broader operational acceptance and the follow-ups below are also still open. A green deployment does not establish that every lifecycle, offline, recovery, or renderer scenario has been exercised.
+The F1–F15 implementation is merged and running in production. Both the site and Agent-facing Workers deployments passed. The initial migration/build-receipt bootstrap is complete. Strict slide-PDF byte reproducibility remains unfinished within F6; broader operational acceptance and the follow-ups in [PENDING.md](../PENDING.md#ci) are also still open. A green deployment does not establish that every lifecycle, offline, recovery, or renderer scenario has been exercised.
 
 ## Completed implementation
 
-“Implemented” records merged code and its regression coverage. Remaining operational exercises are listed separately below.
+“Implemented” records merged code and its regression coverage. Remaining operational exercises are tracked in [PENDING.md](../PENDING.md#ci).
 
 | Finding | Status | Delivered behavior |
 |---|---|---|
@@ -92,20 +92,13 @@ A temporary Worker on a unique same-zone Cloudflare route reproduced #458's exac
 
 The [#457 presentation smoke run](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/34422569722) rendered all eight deck pairs twice. All rendered/text comparisons passed. **All eight slides PDFs reported `byte-identical=no`; all eight notes PDFs reported `byte-identical=yes`.** `_verify_presentation_reproducible.py` currently accepts rendered/text equivalence. This is not proof of strict slide-byte determinism.
 
-## Remaining work, in priority order
+## Open follow-ups
 
-These are follow-ups, not failed or pending deployments. Planning them does not authorize production rollback, deletion, or new lifecycle submissions.
-
-| Order | Priority | Remaining step | Completion evidence |
-|---|---|---|---|
-| R1 | P1 | **Automate pre-promotion API/Worker canaries.** Turn the manual same-zone test into a repeatable protected deployment gate for changed Workers. Validate the exact candidate bundle/configuration against the active publication before promotion, clean up temporary resources, and restore the prior version if the production audit fails. Keep secrets out of untrusted PR execution. | Cache/routing misconfiguration fails before the active API changes; catalog, Markdown, glossary, reading path and MCP calls pass through actual Cloudflare routing. Unchanged Workers still skip deployments. |
-| R2 | P1 | **Finish operational acceptance under the new pipeline.** Record proposal → first draft → update → release → rename → retire, an already-open My Submissions page, saved/offline readers after changes and disconnection, failed/superseded publication recovery, and controlled rollback followed by forward re-promotion. Use approved disposable fixtures; closed/declined issue #420 is not a fixture. | A recorded matrix links each scenario to its revision, run/browser evidence and result. Public catalog, API, HTML, PDF and dashboard agree; stale preparation cannot write or mark ready; retained pages and offline resources follow the documented policy. Test isolated/canary recovery before any separately scheduled production drill. |
-| R3 | P2 | **Finish strict slide-PDF byte reproducibility (F6).** Identify and canonicalize remaining nondeterministic LibreOffice PDF fields/structure, then require byte equality as well as visual/text/font/page fidelity for repeated renders. | All eight slide PDFs and eight notes PDFs have identical SHA-256 values across repeated clean builds under the pinned contract. Same-input repair/force rebuild does not introduce unexplained new blobs. |
-| R4 | P2 | **Complete build/runtime/font contracts.** `render-contract.json`, renderer/package pins and Markdown host/font cache fingerprints are in place. Finish the Python/Node patch, runner-image/font version and migration policy for each artifact family; API jobs may keep a separate contract. | A renderer/font/runtime change is recorded and invalidates only its consumers; clean independent runners either reproduce the expected bytes or explicitly identify a contract change. |
-| R5 | P2 | **Consolidate observability and measure change classes.** The JSON plan and logs already explain selections; add one run summary for rendered/reused PDFs, artifact-transfer bytes, R2 request/PUT bytes, changed Worker fingerprints, audit durations, and promotion/recovery results. Replay narrow edits such as #441/#452/#453 against the planner and record before/after selection counts. | Frontend-only, one-study, one-note, one-deck, catalog/proposal and retry runs have comparable evidence. Confirm zero unrelated renders/transfers and collect enough runs to set latency targets; do not generalize from #459 alone. |
-| R6 | P3; after R2 | **Remove transitional CI paths.** Audit and retire disabled Pages retry and obsolete publication branches/comments once operational acceptance is recorded. Preserve shared builders, explicit bot verification dispatch and actual rollback support. | Each active surface has one documented owner; no disabled legacy workflow can accidentally resume publishing or request unnecessary write permissions. |
-| R7 | P3; policy decision first | **Define retention, withdrawal and safe garbage collection.** Separate ordinary catalog retirement from immediate withdrawal; define retained-revision access, Worker-version retention, rollback horizon and reference rights obligations. Begin with a report of objects reachable from retained manifests/receipts. | An agreed policy and dry-run report protect all live/retained dependencies. Object deletion remains a separate reviewed operation and is never part of routine publication. |
-| R8 | P3; optional optimization | **Broaden reviewed-artifact recovery lookup.** Current reuse searches the PR associated with the candidate merge and its validated preparation parent. If that merge only repairs CI while an earlier content merge never established a receipt, matching artifacts in the earlier PR are not discovered automatically. Add bounded history lookup only if worthwhile. | An isolated failed-content-publication → CI-repair scenario reuses earlier trusted artifacts with the same exact input/toolchain/provenance checks. Normal #459-style reuse already works through the active receipt. |
+Open CI follow-ups live in [PENDING.md](../PENDING.md#ci). They are not failed
+or pending deployments. Planning them does not authorize production rollback,
+deletion, or new lifecycle submissions. Keep completion evidence and how-to in
+this file when implementing a listed ID; do not add a second remaining-work
+table here.
 
 ## Earlier seven steps: current disposition
 

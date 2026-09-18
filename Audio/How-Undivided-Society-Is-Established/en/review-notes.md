@@ -41,7 +41,7 @@ Uses a neighbourhood as an entry point, then follows the study from person and f
 
 Revision 2 sharpened the neighbourhood so that it shows difference hardening into division, added the negative definition of undivided society, expanded the diagnosis of division into the study's causal chain (§§3.1, 3.3), added the prosperity/non-accumulation consequence (§5.2), the justice/legality distinction (§2.2), and the closing reversal (§6). Paid for by compressing the five-dimension list to names, tightening the comparison and transition paragraphs, and removing two summary sentences ("Internal contradiction and external conflict feed each other"; "Each goal places demands on how the others are pursued") whose content the surrounding sentences already carry.
 
-**Study follow-up (flagged, not done here):** the study's §3.2 "From difference to division" has no worked group-boundary illustration. If the transcript and study are to share an example, §3.2 is where a matching neighbourhood illustration would go. That is a study edit under §7 of AGENTS.md and is outside this audio-only change.
+**Study follow-up (flagged, not done here):** [How Undivided Society](../../../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md) §3.2 still has no worked group-boundary illustration. That study edit is `ST-ILL-01` in [PENDING.md](../../../PENDING.md#studies).
 
 ## Points for author review
 
@@ -51,12 +51,10 @@ Revision 2 sharpened the neighbourhood so that it shows difference hardening int
 
 ## Review checklist
 
-- [ ] The meaning and emphasis match the study and the intended introduction.
-- [ ] The spoken wording is clear for a newcomer and technical terms are explained.
-- [ ] The comparison and unresolved questions retain the study's qualifications.
-- [ ] A timed read fits 4–5 minutes, with comfortable pauses.
-- [ ] Pronunciation and the narration method are settled before recording.
-- [ ] Wording is finalised and transcript status is changed to `Ready to record`.
+Author-review and recording readiness for the five Start here episodes are
+tracked in [PENDING.md](../../../PENDING.md#audio) (`AUD-01`). Do not keep a
+second checklist here. Record episode-specific comments under Author comments
+or Points for author review.
 
 ## Initial draft provenance
 

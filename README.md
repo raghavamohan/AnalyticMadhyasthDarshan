@@ -49,8 +49,9 @@ infra/            Cloudflare Workers (submissions portal, per-study discussions,
                   performance baselines (cloudflare-rum-baseline.json), audit notes
 openapi/          HTTP contracts for public studies, submissions, and discussions
 docs/             API operations, contributor reliability, and improvement plans
+PENDING.md        Single project backlog (do not add remaining-work tables elsewhere)
 .well-known/      Canonical API, MCP, identity-key, and agent-skill discovery files
-AGENTS.md         Standing rules for agents and local maintainers (§1–§9)
+AGENTS.md         Standing rules for agents and local maintainers (§1–§10)
 .github/          CI workflows, study pull request templates, CI.md reference
 ```
 

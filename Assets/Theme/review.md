@@ -93,9 +93,9 @@ keep the accompanying words; an image cannot independently convey the full term.
 
 ## Implementation sequence
 
-The supplied theme is ready for design review. Applying it across the live site
-and the eight teaching decks is a separate integration stage, with these exact
-owners and checks:
+Applying the kit across the live site and the eight teaching decks is tracked
+as `THEME-SITE` and `THEME-DECKS` in [PENDING.md](../../PENDING.md#theme). This
+table is how-to for those IDs, not a second backlog.
 
 | Surface | Source to update | Preserve / verify |
 | --- | --- | --- |

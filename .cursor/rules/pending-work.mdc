@@ -1,0 +1,50 @@
+---
+description: Keep project follow-ups in PENDING.md by category; do not scatter remaining-work tables
+globs: PENDING.md,docs/**,Audio/**,Assets/Theme/**,outputs/**,.github/CI-IMPLEMENTATION.md,References/CLOUDFLARE-R2-MIGRATION-PLAN.md
+alwaysApply: true
+---
+
+# Keep pending work in PENDING.md
+
+> **Source of truth:** [AGENTS.md](../AGENTS.md) §10. Keep this file in sync when editing.
+
+[PENDING.md](../PENDING.md) at the repository root is the **only** project backlog.
+Agents and maintainers add, update, and close work items there, under the
+existing categories (Website, Audio, CI, API, Infrastructure, References,
+Transcription, Theme, Studies). Do not start a second remaining-work table,
+follow-up register, or TODO checklist in a subdirectory plan, review note, or
+skill document.
+
+## What belongs in PENDING.md
+
+- Implementation and evaluation follow-ups that are not finished
+- Deferred items that must not be started without a stated gate
+- First drafts still to write (catalog `ongoing` rows) and flagged study edits
+  that are not yet in a study PR
+
+## What does not belong there
+
+- Skill, PR, and CI process checklists for finishing one change
+- Scholarly Open problems inside a study
+- Session-only agent TodoWrite lists
+
+## Mandatory workflow
+
+1. **New follow-up** — add a row to the matching category in `PENDING.md` with a
+   stable ID, priority, status, and one-line remaining need. Link the plan or
+   how-to; do not copy the item into that plan as a second list.
+2. **Status change** — update the row in the same change that starts, defers, or
+   finishes the work. Mark **done** or remove the row when it is complete.
+3. **Plans and review notes** — keep design, history, and how-to. If they
+   previously held a remaining-work table, they point at `PENDING.md` instead.
+   Episode-specific author comments may stay in review notes; recording readiness
+   is tracked under Audio in `PENDING.md`.
+4. **Do not create** `TODO.md`, `TODOS.md`, or a `## Remaining work` /
+   `## Follow-up register` table under `docs/`, `Audio/`, `References/`,
+   `.github/`, `outputs/`, or `Assets/`. Point to `PENDING.md`.
+
+## Check
+
+- [ ] Open project work is listed in `PENDING.md`
+- [ ] The change that created or finished the work updated that file
+- [ ] No new remaining-work table or follow-up register was added in a subdirectory

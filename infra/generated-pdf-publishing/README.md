@@ -112,13 +112,17 @@ document-conversion code.
   Git; add precise ignore rules that do not hide `References/**/*.pdf`.
 - [x] Update catalog/cache-buster and reference checks so absence from Git is
   expected while public availability remains verified.
-- [ ] Run the full local and CI suites, then perform a post-cutover live audit.
+- [x] Run the full local and CI suites, then perform a post-cutover live audit.
+  Production publication is live (`SITE_RELEASES_ENABLED=true`, `amd-site`
+  serves HTML/PDFs). Remaining Cloudflare items are in
+  [PENDING.md](../../PENDING.md#infrastructure); Git history cleanup is
+  `R2-HISTORY`.
 
 ### M5 — optional historical storage reduction
 
-- [ ] Measure repository and GitHub storage after ordinary PDF removal.
-- [ ] If the remaining historical cost justifies it, prepare a separately
-  approved `git filter-repo` migration and collaborator coordination plan.
+Tracked as `R2-HISTORY` in [PENDING.md](../../PENDING.md#references). Measure
+repository and GitHub storage after ordinary PDF removal, then only if that
+cost justifies it prepare a separately approved `git filter-repo` migration.
 
 ## Restart procedure
 

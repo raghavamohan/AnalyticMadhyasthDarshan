@@ -6,9 +6,10 @@ injects the complete manifest, the existing PDF serving module, and reference ke
 as Worker modules; do not deploy this directory directly with the placeholder.
 
 Build, canary, promotion, public-route migration, and rollback commands are
-documented in [the CI runbook](../../.github/CI.md). Public migration is separately
-gated by `SITE_RELEASES_ENABLED` and the cutover command. Until that migration,
-GitHub Pages and the legacy PDF Worker remain the public hosts.
+documented in [the CI runbook](../../.github/CI.md). Public delivery is live:
+`SITE_RELEASES_ENABLED` is true, and catalog HTML carries `X-AMD-Release`.
+Remaining Cloudflare follow-ups live in [PENDING.md](../../PENDING.md#infrastructure).
+Do not treat GitHub Pages as the public HTML/PDF origin.
 
 The Worker requires `ASSETS`, `GENERATED_PDFS`, and `REFERENCE_PDFS` bindings. All
 file access is constrained by the release or approved reference inventory. Removal

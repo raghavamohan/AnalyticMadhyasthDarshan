@@ -34,3 +34,5 @@ use PowerShell syntax, never bash. The repo root path contains a space
 
 - No `&&`, `||`, or bash heredocs in commands issued this session.
 - Paths containing spaces are wrapped in double quotes.
+
+---

@@ -615,6 +615,9 @@ A raw ASR pass is **not** a References artefact. Promoting one means: normalisin
 
 ## Further expansion candidates (not started)
 
+Tracked as `TR-SERIES` and `TR-CHANNEL` in
+[PENDING.md](../../../PENDING.md#transcription). Context for those IDs:
+
 1. **The सहअस्तित्ववादी विज्ञान series** — 17 parts, 20.1 h, the systematic ontology exposition. Largest single coherent block on the channel and the obvious next target for the Ontology study. ~3.6 h on GPU.
 2. **Full-channel transcription** — the remaining ~150 h, so that routing by transcript search (D1) becomes possible across the whole corpus rather than a curated slice. **~32 h on GPU at 5.52×**, against ~880 h on CPU. This is what D8 unlocks.
 3. ~~GPU revisit~~ — **done, see D8.** DirectML tested and rejected; Vulkan built and adopted.
