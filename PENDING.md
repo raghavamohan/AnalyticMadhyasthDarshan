@@ -9,15 +9,15 @@ Reviewed: 18 September 2026 against `master` `4f471bf4` and live
 
 Status: **pending** (not started), **partial** (started, unfinished),
 **later** (needed, not this cycle), **deferred** (do not start unless a stated
-gate is met), **done** (finished in this list).
+gate is met).
 
 Within each category, rows are ordered **P1 → P2 → P3**, and within a
 priority **pending / partial → later → deferred**. That order is the work
 order. Cross-links stay in the owning category (for example field RUM is
 `UX-06`, not a second Infrastructure row).
 
-When an item is finished, mark it **done** here or remove the row in the same
-change. Do not leave a stale copy in a subdirectory.
+When an item is finished, remove the row and add a one-line note under
+**Done in the same registers**. Do not leave a stale copy in a subdirectory.
 
 ## Next
 
@@ -36,16 +36,10 @@ Design and evaluation matrix:
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| SITE-01 | P1 | done | Web App Manifest at `/manifest.webmanifest`, linked from `favicon_link_tags()`, with a catalog Add to Home Screen hint. |
-| SITE-02 | P1 | done | Atom sibling at `/Studies/atom.xml`. Catalog Follow updates lists the newest published studies plus JSON Feed and Atom links. |
-| UX-01 | P1 | done | Search, notebook, portal, and discussion pages share Search / My Notes / My Submissions. Discussion “Read the study” keeps the passage hash. |
-| UX-02 | P1 | done | Passage search ranks phrases and headings, groups by study, labels Presenter’s Companion from the filename, and hides the language filter when every document is English. |
-| UX-03 | P1 | done | Notebook document filter works, the page no longer links to itself, notes can be searched, and bookmarks can be exported or restored. |
-| OPS-01 | P1 | done | Local `extract-zip` override refuses zip symlinks. Discussion sessions are D1 rows and logout revokes them. |
 | UX-04 | P1 | later | Device/AT matrix (Safari/iOS, Firefox, TalkBack/VoiceOver/NVDA). Mobile read-aloud shipped; that does not close the evaluation. |
 | UX-05 | P1 | later | Production contributor/discussion recovery check. Composer text is not preserved across sign-in. |
 | UX-06 | P1 | later | Fresh Cloudflare RUM sample, segmented by catalog / large reader / search / portal and mobile / desktop. Saved baseline is still 30 August 2026 (45 views, catalog LCP p75 2.6 s, TTFB 1.3 s, CLS p75 1.0, INP p75 0). That sample predates `amd-site` cutover. Live catalog HTML is Worker-served (`cfOrigin` 0). Investigate CLS/INP before optimizing. Re-run `python Scripts/_cloudflare_performance.py --export-rum-baseline`. Related: `CF-PDF-CACHE`. |
-| DIS-01 | P2 | pending | Reply mail and report control. Session revocation shipped with `OPS-01`. Not this cycle. |
+| DIS-01 | P2 | pending | Reply mail and report control. Session revocation already shipped. Not this cycle. |
 | UX-07 | P2 | later | Reading-time cues, argument routes, public reference-library browser. |
 | FBK-01 | P2 | deferred | Keep GitHub corrections unless observation shows GitHub is the blocker. |
 | WEB-P6 | P3 | deferred | Optional semantic retrieval. Start only if lexical search shows unmet need. |
@@ -133,11 +127,7 @@ acceptance).
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| CF-SLO | P1 | done | 18 Sep 2026 snapshot in [infra/amd-api-metrics-baseline.json](infra/amd-api-metrics-baseline.json). Three dashboard SQL tiles live in [docs/api-operations.md](docs/api-operations.md); re-export with `--export-api-slo-baseline`. 30-day non-5xx availability was 100% for studies/discussions/submissions. |
-| CF-ANALYTICS | P2 | done | Catalog and ontology reader HTML embed the compiled Insights loader (`--check-web-analytics`). Opt-out vs one beacon is covered by `Scripts/_test_analytics.cjs --browser`. Release compiler now includes reference-library HTML. The 10–16 September gap cannot be recovered. |
 | CF-PDF-CACHE | P2 | later | Generated study PDFs remain `must-revalidate` (live HEAD 18 Sep 2026). Catalog HTML with a revision is immutable for a year. Measure with `UX-06` before lengthening PDF cache or adding revisioned PDF URLs. |
-| CF-SSL | P3 | done | Zone SSL is Full (Strict). `www` 301s to the apex Worker host at the edge so GitHub Pages is not the TLS origin. `--apply-security-baseline` is in the shared edge-policy workflow. |
-| CF-BOTS | P3 | done | Live bot management matches the spec: Search/Agent allowed, training blocked, managed robots.txt. No change required. Search Console remains ordinary operator monitoring. |
 | CF-HSTS | P3 | deferred | Optional submission of `analyticmadhyasthdarshan.org` to the HSTS preload list. The header already includes `preload`. Hard to undo. |
 
 ## Transcription
@@ -207,5 +197,6 @@ catalog / Start here order, not proposal-number order.
   remain `THEME-SITE` / `THEME-DECKS`.
 - Public site cutover to `amd-site` (`SITE_RELEASES_ENABLED=true`). HTML and
   generated/reference PDFs are Worker-served; do not reopen GitHub Pages hosting.
+- Website `SITE-01`, `SITE-02`, `UX-01`–`UX-03`, `OPS-01` (PR #493).
 - Infrastructure `CF-SLO`, `CF-ANALYTICS`, `CF-SSL`, and `CF-BOTS` (18 September
   2026). Remaining: `CF-PDF-CACHE` (after `UX-06`) and deferred `CF-HSTS`.
