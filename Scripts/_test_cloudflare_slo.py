@@ -1,13 +1,40 @@
 """Analytics Engine SLO export and compiled Web Analytics probes."""
 from __future__ import annotations
 
+import ast
 import io
 import json
 import unittest
 import urllib.error
+from pathlib import Path
 from unittest.mock import MagicMock, patch
 
 import _cloudflare_performance as cf
+
+SCRIPTS = Path(__file__).resolve().parent
+WORKER_DEPLOY_MODULES = (
+    "_cloudflare_performance.py",
+    "_worker_deployment.py",
+)
+BLOCKED_IMPORTS = {"_common", "pypdf"}
+
+
+class WorkerDeployImportTests(unittest.TestCase):
+    def test_deploy_helpers_do_not_import_the_study_pdf_stack(self) -> None:
+        for name in WORKER_DEPLOY_MODULES:
+            source = (SCRIPTS / name).read_text(encoding="utf-8")
+            tree = ast.parse(source)
+            imported: set[str] = set()
+            for node in ast.walk(tree):
+                if isinstance(node, ast.Import):
+                    imported.update(alias.name.split(".", 1)[0] for alias in node.names)
+                elif isinstance(node, ast.ImportFrom) and node.module:
+                    imported.add(node.module.split(".", 1)[0])
+            blocked = imported & BLOCKED_IMPORTS
+            self.assertFalse(
+                blocked,
+                f"{name} imports {sorted(blocked)}; Worker deploy jobs do not install pypdf",
+            )
 
 
 class AnalyticsEngineSqlTests(unittest.TestCase):

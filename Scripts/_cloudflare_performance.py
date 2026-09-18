@@ -21,7 +21,25 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Mapping
 
-from _common import write_text_lf
+# Do not import _common: Worker deploy jobs load this module through
+# _worker_deployment.py with stdlib Python only. _common imports pypdf.
+
+def write_text_lf(path: Path, text: str) -> bool:
+    """Write a tracked text file with LF endings, only when the bytes change.
+
+    Same contract as ``_common.write_text_lf``. Kept here so this module stays
+    importable without the study PDF stack.
+    """
+    data = text.replace("\r\n", "\n").encode("utf-8")
+    try:
+        if path.read_bytes() == data:
+            return False
+    except OSError:
+        pass
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(data)
+    return True
+
 
 SCRIPTS = Path(__file__).resolve().parent
 BASE = SCRIPTS.parent
