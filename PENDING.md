@@ -97,7 +97,9 @@ Phases 1–3 are implemented. Hourly read-only synthetics run.
 | API-OAUTH | P3 | deferred | Agent OAuth authorization server. Separate from human GitHub OAuth. Not needed for a store app. |
 
 Website `DIS-01` discussion preference routes are listed under Website. The first
-30-day Analytics Engine SLO baseline is `CF-SLO` under Infrastructure.
+30-day Analytics Engine SLO snapshot is
+[infra/amd-api-metrics-baseline.json](infra/amd-api-metrics-baseline.json)
+(`CF-SLO`).
 
 ## References
 
@@ -120,9 +122,9 @@ Cloudflare edge, site Worker, RUM, and API telemetry. How-to:
 [infra/site-worker/README.md](infra/site-worker/README.md).
 
 Live on 18 September 2026: `SITE_RELEASES_ENABLED=true`; catalog HTML carries
-`X-AMD-Release` matching publication.json for `4f471bf4`; `cfOrigin` is 0 on
-catalog, generated PDF, reference PDF, and `/api/studies/health`. GitHub Pages
-is no longer the public HTML/PDF origin. Do not reopen that cutover.
+`X-AMD-Release`; `cfOrigin` is 0 on catalog, generated PDF, reference PDF, and
+`/api/studies/health`. Zone SSL is Full (Strict). GitHub Pages is no longer the
+public HTML/PDF origin. Do not reopen that cutover.
 
 Already listed elsewhere: `UX-06` (field RUM), `R1` (Worker canaries before
 promotion), `R2-BACKUP` (R2 deletion protection), `API-SMOKE` (authenticated
@@ -131,11 +133,11 @@ acceptance).
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| CF-SLO | P1 | later | Collect the first 30-day `amd_api_metrics` service-level baseline and create the three Analytics Engine dashboard tiles in [docs/api-operations.md](docs/api-operations.md). Hourly read-only synthetics already run. Telemetry code is deployed; dashboards and a dated baseline are not in the repo. |
-| CF-ANALYTICS | P2 | pending | After publication, confirm the compiled Web Analytics loader on the catalog and one study reader (opt-out browser sends no beacon; a normal browser sends one). Reference-library HTML is still outside that loader. The 10–16 September gap cannot be recovered. |
-| CF-PDF-CACHE | P2 | later | Generated study PDFs are `must-revalidate` (HEAD ~243 ms Worker from Delhi). Catalog HTML with a revision is immutable for a year. Reference PDFs cache for 1 hour. Measure with `UX-06` before lengthening PDF cache or adding revisioned PDF URLs. |
-| CF-SSL | P3 | later | Revisit SSL Full (Strict). It was skipped while GitHub Pages was origin. Live traffic now terminates on Workers (`cfOrigin` 0). |
-| CF-BOTS | P3 | later | Review AI Crawl Control and Search Console after bot-policy changes. Keep Search/Agent allowed and Training blocked unless observed traffic requires a change. |
+| CF-SLO | P1 | done | 18 Sep 2026 snapshot in [infra/amd-api-metrics-baseline.json](infra/amd-api-metrics-baseline.json). Three dashboard SQL tiles live in [docs/api-operations.md](docs/api-operations.md); re-export with `--export-api-slo-baseline`. 30-day non-5xx availability was 100% for studies/discussions/submissions. |
+| CF-ANALYTICS | P2 | done | Catalog and ontology reader HTML embed the compiled Insights loader (`--check-web-analytics`). Opt-out vs one beacon is covered by `Scripts/_test_analytics.cjs --browser`. Release compiler now includes reference-library HTML. The 10–16 September gap cannot be recovered. |
+| CF-PDF-CACHE | P2 | later | Generated study PDFs remain `must-revalidate` (live HEAD 18 Sep 2026). Catalog HTML with a revision is immutable for a year. Measure with `UX-06` before lengthening PDF cache or adding revisioned PDF URLs. |
+| CF-SSL | P3 | done | Zone SSL is Full (Strict). `www` 301s to the apex Worker host at the edge so GitHub Pages is not the TLS origin. `--apply-security-baseline` is in the shared edge-policy workflow. |
+| CF-BOTS | P3 | done | Live bot management matches the spec: Search/Agent allowed, training blocked, managed robots.txt. No change required. Search Console remains ordinary operator monitoring. |
 | CF-HSTS | P3 | deferred | Optional submission of `analyticmadhyasthdarshan.org` to the HSTS preload list. The header already includes `preload`. Hard to undo. |
 
 ## Transcription
@@ -205,3 +207,5 @@ catalog / Start here order, not proposal-number order.
   remain `THEME-SITE` / `THEME-DECKS`.
 - Public site cutover to `amd-site` (`SITE_RELEASES_ENABLED=true`). HTML and
   generated/reference PDFs are Worker-served; do not reopen GitHub Pages hosting.
+- Infrastructure `CF-SLO`, `CF-ANALYTICS`, `CF-SSL`, and `CF-BOTS` (18 September
+  2026). Remaining: `CF-PDF-CACHE` (after `UX-06`) and deferred `CF-HSTS`.

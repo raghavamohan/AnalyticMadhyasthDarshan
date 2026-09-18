@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Cloudflare performance setup for analyticmadhyasthdarshan.org (GitHub Pages + proxy).
+"""Cloudflare performance setup for analyticmadhyasthdarshan.org.
 
 Applies zone settings, cache rules, the root-to-catalog redirect, and portal edge
 security (granular AI bot policy + WAF skip for notify) via API when
 CLOUDFLARE_API_TOKEN is set (repo-root `.env`, `.env.local`, or the process environment).
 Baseline RUM metrics: infra/cloudflare-rum-baseline.json
+API SLO snapshot: infra/amd-api-metrics-baseline.json
 """
 from __future__ import annotations
 
@@ -20,9 +21,12 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Mapping
 
+from _common import write_text_lf
+
 SCRIPTS = Path(__file__).resolve().parent
 BASE = SCRIPTS.parent
 BASELINE_PATH = BASE / "infra" / "cloudflare-rum-baseline.json"
+API_SLO_BASELINE_PATH = BASE / "infra" / "amd-api-metrics-baseline.json"
 SITE_HOST = "analyticmadhyasthdarshan.org"
 API_HOST = f"api.{SITE_HOST}"
 PORTAL_NOTIFY_URL = f"https://{API_HOST}/api/notify"
@@ -31,6 +35,68 @@ START_HERE_API_URL = f"https://{SITE_HOST}/api/start-here"
 ROOT_URL = f"https://{SITE_HOST}/"
 CATALOG_PATH = "/Studies/index.html"
 CATALOG_URL = f"https://{SITE_HOST}{CATALOG_PATH}"
+ONTOLOGY_READER_URL = (
+    f"https://{SITE_HOST}/Studies/The-Ontology-of-Coexistence/"
+    "The-Ontology-of-Coexistence.html"
+)
+API_METRICS_DATASET = "amd_api_metrics"
+# Pasteable Analytics Engine tiles from docs/api-operations.md. FORMAT JSON is
+# appended only when querying the SQL API so dashboard paste stays unchanged.
+API_SLO_DASHBOARD_TILES = (
+    {
+        "id": "service-availability",
+        "title": "Service availability and p95 latency",
+        "window": "1 day",
+        "sql": (
+            "SELECT blob2 AS service,\n"
+            "       SUM(_sample_interval) AS requests,\n"
+            "       100 * sumIf(_sample_interval, double3 < 500) / SUM(_sample_interval) AS availability,\n"
+            "       quantileExactWeighted(0.95)(double2, _sample_interval) AS p95_ms\n"
+            f"FROM {API_METRICS_DATASET}\n"
+            "WHERE timestamp > NOW() - INTERVAL '1' DAY\n"
+            "GROUP BY service\n"
+            "ORDER BY service"
+        ),
+    },
+    {
+        "id": "operation-status",
+        "title": "Operation status families",
+        "window": "1 hour",
+        "sql": (
+            "SELECT blob2 AS service, blob3 AS operation_id, blob5 AS status_family,\n"
+            "       SUM(_sample_interval) AS requests,\n"
+            "       quantileExactWeighted(0.95)(double2, _sample_interval) AS p95_ms\n"
+            f"FROM {API_METRICS_DATASET}\n"
+            "WHERE timestamp > NOW() - INTERVAL '1' HOUR\n"
+            "GROUP BY service, operation_id, status_family\n"
+            "ORDER BY service, requests DESC"
+        ),
+    },
+    {
+        "id": "dependency-failures",
+        "title": "Dependency failures and uncertain retries",
+        "window": "1 hour",
+        "sql": (
+            "SELECT blob6 AS dependency, blob7 AS retry_outcome,\n"
+            "       SUM(_sample_interval) AS requests\n"
+            f"FROM {API_METRICS_DATASET}\n"
+            "WHERE timestamp > NOW() - INTERVAL '1' HOUR\n"
+            "  AND (double3 >= 500 OR blob7 IN ('uncertain', 'throttled'))\n"
+            "GROUP BY dependency, retry_outcome\n"
+            "ORDER BY requests DESC"
+        ),
+    },
+)
+API_SLO_THIRTY_DAY_SQL = (
+    "SELECT blob2 AS service,\n"
+    "       SUM(_sample_interval) AS requests,\n"
+    "       100 * sumIf(_sample_interval, double3 < 500) / SUM(_sample_interval) AS availability,\n"
+    "       quantileExactWeighted(0.95)(double2, _sample_interval) AS p95_ms\n"
+    f"FROM {API_METRICS_DATASET}\n"
+    "WHERE timestamp > NOW() - INTERVAL '30' DAY\n"
+    "GROUP BY service\n"
+    "ORDER BY service"
+)
 API_BASE = "https://api.cloudflare.com/client/v4"
 REDIRECT_PHASE = "http_request_dynamic_redirect"
 CACHE_PHASE = "http_request_cache_settings"
@@ -176,6 +242,7 @@ HOMEPAGE_LINK_REQUIRED_RELS = (
 )
 HOMEPAGE_LINK_URLS = (ROOT_URL, CATALOG_URL)
 ROOT_REDIRECT_REF = "analyticmadhyasth_root_to_catalog"
+WWW_REDIRECT_REF = "amd_www_to_apex"
 AGENT_SKILLS_REDIRECT_REF = "amd_agent_skills_redirect"
 AGENT_SKILLS_WORKER_HOST = "amd-agent-skills.raghavamohan.workers.dev"
 API_CATALOG_REDIRECT_REF = "amd_api_catalog_redirect"
@@ -827,7 +894,7 @@ def security_baseline_settings_spec() -> dict[str, object]:
         "min_tls_version": "1.2",
         "automatic_https_rewrites": "on",
         "browser_check": "off",
-        "ssl": "full",
+        "ssl": "strict",
     }
 
 
@@ -846,6 +913,12 @@ def security_header_hsts_spec() -> dict:
 def apply_security_baseline(token: str, zone_id: str | None) -> None:
     zone = resolve_zone_id(token, zone_id)
     print(f"Zone ID: {zone}")
+    leftovers = proxied_github_pages_records(token, zone)
+    if leftovers:
+        print("Warning: proxied GitHub Pages DNS is still present:")
+        for hit in leftovers:
+            print(f"  {hit}")
+    ensure_redirect_rule(token, zone, www_host_redirect_rule_body())
     for setting_id, value in security_baseline_settings_spec().items():
         current = get_zone_setting(token, zone, setting_id)
         if current == value:
@@ -891,7 +964,7 @@ def print_check_security_baseline(token: str, zone_id: str | None) -> bool:
         print(f"  ERROR: {exc}")
         return False
     if ok:
-        print("  OK: TLS 1.2+, HSTS, HTTPS rewrites, browser_check off, ssl full.")
+        print("  OK: TLS 1.2+, HSTS, HTTPS rewrites, browser_check off, ssl strict.")
         return True
     for issue in issues:
         print(f"  {issue}")
@@ -1601,6 +1674,28 @@ def root_redirect_rule_body() -> dict:
     }
 
 
+def www_host_redirect_rule_body() -> dict:
+    www_host = f"www.{SITE_HOST}"
+    return {
+        "ref": WWW_REDIRECT_REF,
+        "expression": f'(http.host eq "{www_host}")',
+        "description": "Redirect www to the apex Worker hostname before GitHub Pages origin.",
+        "action": "redirect",
+        "enabled": True,
+        "action_parameters": {
+            "from_value": {
+                "status_code": 301,
+                "preserve_query_string": True,
+                "target_url": {
+                    "expression": (
+                        f'concat("https://{SITE_HOST}", http.request.uri.path)'
+                    )
+                },
+            }
+        },
+    }
+
+
 def agent_skills_redirect_rule_body() -> dict:
     return {
         "ref": AGENT_SKILLS_REDIRECT_REF,
@@ -2160,6 +2255,7 @@ def apply_web_bot_auth_redirect(token: str, zone_id: str | None) -> None:
 def apply_root_redirect(token: str, zone_id: str | None) -> None:
     """Create or update the zone redirect rule: / -> /Studies/index.html (301)."""
     zone = resolve_zone_id(token, zone_id)
+    ensure_redirect_rule(token, zone, www_host_redirect_rule_body())
     ruleset = get_redirect_entrypoint_ruleset(token, zone)
     rule_body = root_redirect_rule_body()
 
@@ -2183,6 +2279,7 @@ def apply_root_redirect(token: str, zone_id: str | None) -> None:
     existing = _find_root_redirect_rule(rules)
     if existing and _root_redirect_rule_is_correct(existing):
         print("Root redirect rule already configured.")
+        ensure_redirect_rule(token, zone, www_host_redirect_rule_body())
         return
 
     if existing:
@@ -2630,12 +2727,201 @@ query ($accountTag: string, $start: Time, $end: Time) {
     return BASELINE_PATH
 
 
+def analytics_engine_sql(token: str, account_id: str, query: str) -> dict:
+    """Run a read-only Analytics Engine SQL query. POST is used; the query is SELECT."""
+    sql = query.strip()
+    if "FORMAT" not in sql.upper():
+        sql += "\nFORMAT JSON"
+    url = f"{API_BASE}/accounts/{account_id}/analytics_engine/sql"
+    data = sql.encode("utf-8")
+    req = urllib.request.Request(
+        url,
+        data=data,
+        method="POST",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Content-Type": "text/plain; charset=utf-8",
+        },
+    )
+    last_error: Exception | None = None
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as resp:
+                raw = resp.read().decode("utf-8")
+            body = json.loads(raw)
+            if isinstance(body, dict) and body.get("success") is False:
+                raise RuntimeError(json.dumps(body.get("errors", body), indent=2))
+            return body
+        except urllib.error.HTTPError as exc:
+            raw = exc.read().decode("utf-8")
+            retryable = exc.code in {429, 500, 502, 503, 504}
+            if not retryable or attempt == 2:
+                try:
+                    parsed = json.loads(raw)
+                except json.JSONDecodeError:
+                    raise RuntimeError(f"HTTP {exc.code}: {raw}") from exc
+                raise RuntimeError(json.dumps(parsed.get("errors", parsed), indent=2)) from exc
+            last_error = exc
+        except (urllib.error.URLError, ConnectionError, TimeoutError, json.JSONDecodeError) as exc:
+            last_error = exc
+            if attempt == 2:
+                raise
+        delay = 2 ** attempt
+        print(
+            f"Analytics Engine SQL failed transiently; retrying in {delay}s "
+            f"(attempt {attempt + 2}/3).",
+            file=sys.stderr,
+        )
+        time.sleep(delay)
+    raise last_error or RuntimeError("Analytics Engine SQL query failed.")
+
+
+def _sql_rows(body: dict) -> list:
+    rows = body.get("data")
+    if isinstance(rows, list):
+        return rows
+    return []
+
+
+def export_api_slo_baseline(token: str, zone_id: str | None) -> Path:
+    """Run the three dashboard tiles plus a 30-day service window into a dated JSON snapshot."""
+    account_id = resolve_account_id(token, zone_id)
+    captured_at = datetime.now(timezone.utc).replace(microsecond=0).strftime(
+        "%Y-%m-%dT%H:%M:%SZ"
+    )
+    tiles = []
+    for tile in API_SLO_DASHBOARD_TILES:
+        result = analytics_engine_sql(token, account_id, tile["sql"])
+        tiles.append(
+            {
+                "id": tile["id"],
+                "title": tile["title"],
+                "window": tile["window"],
+                "sql": tile["sql"],
+                "rows": _sql_rows(result),
+            }
+        )
+    slo = analytics_engine_sql(token, account_id, API_SLO_THIRTY_DAY_SQL)
+    payload = {
+        "site": SITE_HOST,
+        "dataset": API_METRICS_DATASET,
+        "captured_from": "Cloudflare Analytics Engine SQL API",
+        "captured_at": captured_at,
+        "account_id": account_id,
+        "objectives": {
+            "public_reads_availability": 99.9,
+            "public_reads_p95_ms": 1000,
+            "authenticated_reads_availability": 99.5,
+            "authenticated_reads_p95_ms": 2500,
+            "human_writes_availability": 99.0,
+            "human_writes_p95_ms": 10000,
+            "discussion_availability": 99.5,
+            "discussion_p95_ms": 2500,
+            "note": (
+                "Raw non-5xx ratio is not the final SLO. Assess operation contracts "
+                "and annotate confirmed upstream outages before evaluating these "
+                "objectives. Worker metrics omit edge blocks; use synthetics too."
+            ),
+        },
+        "dashboard": {
+            "url": (
+                f"https://dash.cloudflare.com/{account_id}/workers/observability/"
+                "analytics-engine"
+            ),
+            "tiles": tiles,
+        },
+        "slo_30d": {
+            "window": "30 days",
+            "sql": API_SLO_THIRTY_DAY_SQL,
+            "rows": _sql_rows(slo),
+        },
+    }
+    write_text_lf(
+        API_SLO_BASELINE_PATH,
+        json.dumps(payload, indent=2, ensure_ascii=False) + "\n",
+    )
+    print(f"Wrote {API_SLO_BASELINE_PATH.relative_to(BASE).as_posix()}")
+    return API_SLO_BASELINE_PATH
+
+
+def print_api_slo_summary() -> None:
+    if not API_SLO_BASELINE_PATH.is_file():
+        print(f"API SLO baseline file not found: {API_SLO_BASELINE_PATH}")
+        return
+    data = json.loads(API_SLO_BASELINE_PATH.read_text(encoding="utf-8"))
+    print("API SLO baseline:")
+    print(f"  captured_at: {data.get('captured_at')}")
+    print(f"  dataset: {data.get('dataset')}")
+    for tile in (data.get("dashboard") or {}).get("tiles") or []:
+        print(f"  tile {tile.get('id')}: {len(tile.get('rows') or [])} row(s)")
+    slo_rows = (data.get("slo_30d") or {}).get("rows") or []
+    print(f"  30-day services: {len(slo_rows)} row(s)")
+    for row in slo_rows:
+        service = row.get("service")
+        availability = row.get("availability")
+        p95 = row.get("p95_ms")
+        requests = row.get("requests")
+        print(
+            f"    {service}: requests={requests} availability={availability} p95_ms={p95}"
+        )
+
+
+def verify_web_analytics_loader() -> tuple[bool, list[str]]:
+    """Confirm published catalog and reader HTML embed the compiled Insights loader."""
+    issues: list[str] = []
+    marker = "<script data-amd-analytics>"
+    token = "d0ff8fdbff3b4fe39838c048896422ae"
+    for url in (CATALOG_URL, ONTOLOGY_READER_URL):
+        try:
+            status, content_type, body = _public_probe(url, "AMD-Analytics-Audit/1.0")
+        except urllib.error.URLError as exc:
+            issues.append(f"{url} probe failed: {exc.reason}")
+            continue
+        if status != 200:
+            issues.append(f"{url} returned HTTP {status}.")
+            continue
+        if "html" not in content_type.lower():
+            issues.append(f"{url} returned Content-Type {content_type!r}.")
+        if marker not in body:
+            issues.append(f"{url} is missing the compiled Web Analytics loader.")
+        elif token not in body:
+            issues.append(f"{url} loader is present but the site token is missing.")
+    return not issues, issues
+
+
+def print_verify_web_analytics_loader() -> bool:
+    print("Web Analytics loader check:")
+    ok, issues = verify_web_analytics_loader()
+    if ok:
+        print("  OK: catalog and ontology reader embed the compiled Insights loader.")
+        return True
+    for issue in issues:
+        print(f"  {issue}")
+    return False
+
+
+def proxied_github_pages_records(token: str, zone_id: str | None) -> list[str]:
+    zone = resolve_zone_id(token, zone_id)
+    body = _api_request("GET", f"/zones/{zone}/dns_records?per_page=500", token)
+    hits: list[str] = []
+    for record in (body or {}).get("result") or []:
+        if not record.get("proxied"):
+            continue
+        content = str(record.get("content") or "").lower()
+        if "github.io" in content:
+            hits.append(
+                f"{record.get('type')} {record.get('name')} -> {record.get('content')}"
+            )
+    return hits
+
+
 def print_dashboard_steps() -> None:
     print(
         f"""
-Cloudflare dashboard steps for {SITE_HOST} (GitHub Pages origin, orange-cloud proxy):
+Cloudflare dashboard steps for {SITE_HOST} (Workers origin, orange-cloud DNS):
 
-1. DNS - confirm A/CNAME for {SITE_HOST} is Proxied (orange cloud).
+1. DNS - confirm A/CNAME for {SITE_HOST} is Proxied (orange cloud). Public HTML/PDF
+   is served by amd-site; GitHub Pages is not the origin.
 
 2. Rules -> Redirect Rules (or run: python Scripts/_cloudflare_performance.py --apply-redirect)
    Root 301 to https://{SITE_HOST}/Studies/index.html (API uses ref {ROOT_REDIRECT_REF})
@@ -2728,6 +3014,16 @@ def main() -> int:
         help="Re-export Web Analytics Core Web Vitals into infra/cloudflare-rum-baseline.json.",
     )
     parser.add_argument(
+        "--export-api-slo-baseline",
+        action="store_true",
+        help="Query amd_api_metrics dashboard tiles into infra/amd-api-metrics-baseline.json.",
+    )
+    parser.add_argument(
+        "--check-web-analytics",
+        action="store_true",
+        help="Confirm the compiled Web Analytics loader on the live catalog and ontology reader.",
+    )
+    parser.add_argument(
         "--apply-discussions-api",
         action="store_true",
         help="Create or update Worker routes for amd-discussions on the custom domain.",
@@ -2747,7 +3043,7 @@ def main() -> int:
     parser.add_argument(
         "--apply-security-baseline",
         action="store_true",
-        help="Apply TLS 1.2, HSTS, HTTPS rewrites, and disable browser_check.",
+        help="Apply TLS 1.2, HSTS, HTTPS rewrites, ssl Full (Strict), and disable browser_check.",
     )
     parser.add_argument(
         "--check-security-baseline",
@@ -2875,6 +3171,25 @@ def main() -> int:
             return 1
         print_baseline_summary()
         return 0
+
+    if args.export_api_slo_baseline:
+        if not token:
+            print(
+                "CLOUDFLARE_API_TOKEN is required for --export-api-slo-baseline "
+                "(set in .env or the process environment).",
+                file=sys.stderr,
+            )
+            return 1
+        try:
+            export_api_slo_baseline(token, zone_id)
+        except (urllib.error.URLError, RuntimeError, json.JSONDecodeError) as exc:
+            print(f"API error: {exc}", file=sys.stderr)
+            return 1
+        print_api_slo_summary()
+        return 0
+
+    if args.check_web_analytics:
+        return 0 if print_verify_web_analytics_loader() else 1
 
     if args.check_edge_security:
         if not token:

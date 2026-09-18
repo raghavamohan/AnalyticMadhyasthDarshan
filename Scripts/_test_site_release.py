@@ -110,6 +110,15 @@ class ReleaseTests(unittest.TestCase):
         self.assertNotEqual(first['files']['/index.html']['sha256'], second['files']['/index.html']['sha256'])
         self.assertEqual((self.source/'index.html').read_bytes(), self.files['/index.html'])
 
+    def test_reference_html_receives_analytics_but_is_not_archived(self):
+        self.files['/References/note.html'] = b'<html><head></head><body>ref</body></html>'
+        manifest = self.build()
+        body = (self.root/'bundle/assets/References/note.html').read_bytes()
+        self.assertEqual(body.count(b'<script data-amd-analytics>'), 1)
+        self.assertIn(b'navigator.webdriver', body)
+        self.assertFalse(manifest['files']['/References/note.html']['archive'])
+        self.assertTrue(manifest['files']['/Studies/A/A.html']['archive'])
+
     def test_analytics_browser_exclusion_policy(self):
         result = subprocess.run(['node', str(BASE/'Scripts/_test_analytics.cjs')], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + '\n' + result.stderr)

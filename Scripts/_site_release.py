@@ -148,7 +148,7 @@ def build(output: Path, artifact_root: Path | None, *, root: Path = BASE, source
     from _release_assets import compile_assets, compile_html, asset_url
     asset_hashes = compile_assets(bodies)
     for path, body in list(bodies.items()):
-        if path.endswith(".html") and not path.startswith("/References/"):
+        if path.endswith(".html"):
             bodies[path] = compile_html(body, path, asset_hashes)
     # Saved-reader checksums describe the deployed copies, including release
     # links. Never modify the canonical offline manifest in Git.

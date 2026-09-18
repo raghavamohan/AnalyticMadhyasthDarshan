@@ -45,6 +45,7 @@ class CloudflareBotPolicyTests(unittest.TestCase):
             encoding="utf-8"
         )
         for flag in (
+            "--apply-security-baseline",
             "--apply-security-headers",
             "--apply-portal-edge-security",
             "--apply-discussions-rate-limits",
@@ -163,6 +164,21 @@ class CloudflareBotPolicyTests(unittest.TestCase):
             cf.apply_super_bot_fight_mode("token", None)
         payload = request.call_args.args[3]
         self.assertFalse(payload["fight_mode"])
+
+    def test_security_baseline_uses_full_strict_tls_to_origin(self) -> None:
+        self.assertEqual(cf.security_baseline_settings_spec()["ssl"], "strict")
+        www = cf.www_host_redirect_rule_body()
+        self.assertEqual(www["ref"], cf.WWW_REDIRECT_REF)
+        self.assertIn('http.host eq "www.analyticmadhyasthdarshan.org"', www["expression"])
+
+    def test_slo_dashboard_tiles_match_the_operations_runbook(self) -> None:
+        docs = (BASE / "docs" / "api-operations.md").read_text(encoding="utf-8")
+        self.assertEqual(len(cf.API_SLO_DASHBOARD_TILES), 3)
+        for tile in cf.API_SLO_DASHBOARD_TILES:
+            self.assertIn(tile["sql"], docs)
+            self.assertNotIn("FORMAT JSON", tile["sql"])
+        self.assertIn("INTERVAL '30' DAY", cf.API_SLO_THIRTY_DAY_SQL)
+        self.assertIn("--export-api-slo-baseline", docs)
 
 
 if __name__ == "__main__":
