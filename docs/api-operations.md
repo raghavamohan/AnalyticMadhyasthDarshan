@@ -46,8 +46,10 @@ Analytics Engine columns are fixed as follows:
 | `double2` | latency in milliseconds |
 | `double3` | HTTP status |
 
-Create three dashboard tiles from the Cloudflare Analytics Engine SQL API
-(`CF-SLO` in [PENDING.md](../PENDING.md#infrastructure)).
+Create three dashboard tiles from the Cloudflare Analytics Engine SQL API.
+Paste these queries in Workers Observability → Analytics Engine, then snapshot
+the results with `python Scripts/_cloudflare_performance.py --export-api-slo-baseline`
+into [infra/amd-api-metrics-baseline.json](../infra/amd-api-metrics-baseline.json).
 The first query is a raw non-5xx ratio, not the final SLO calculation: assess
 operation contracts and annotate confirmed upstream outages before evaluating
 the objectives above. Worker metrics do not include requests blocked at the edge;

@@ -120,8 +120,10 @@ Implementation notes:
 
 ## Phase 3 — observability and service levels (implemented)
 
-Status: complete in the repository; deployment is live. The first 30-day
-baseline is `CF-SLO` in [PENDING.md](../PENDING.md#infrastructure). The authenticated production
+Status: complete in the repository; deployment is live. The 18 September 2026
+`amd_api_metrics` snapshot is
+[infra/amd-api-metrics-baseline.json](../infra/amd-api-metrics-baseline.json)
+(`CF-SLO`). The authenticated production
 smoke remains an operator-run activity because it requires an agreed disposable
 GitHub record and authorized mailbox; safe read-only synthetics run hourly.
 
