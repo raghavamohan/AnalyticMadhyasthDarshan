@@ -149,8 +149,7 @@ The icon kit itself is delivered.
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| THEME-SITE | P2 | partial | Finish shared-theme integration on remaining site surfaces (landing, social, portal). Some reader/discussion controls already use the sprite. |
-| THEME-DECKS | P2 | pending | Apply the shared theme to the eight teaching decks without altering authored evidence. Staged presentation build required. After remaining site surfaces, or in parallel on a deck-only PR. |
+| THEME-DECKS | P2 | pending | Apply the shared theme to the eight teaching decks without altering authored evidence. Staged presentation build required. |
 
 ## Studies
 
@@ -193,8 +192,9 @@ catalog / Start here order, not proposal-number order.
 - GPU transcription pipeline (VAD-off, Vulkan).
 - Revision 2 of the five Start here transcripts (18 September 2026). Author
   review of that result is `AUD-01`.
-- Shared icon/illustration kit in `Assets/Theme/`. Live-site and deck rollout
-  remain `THEME-SITE` / `THEME-DECKS`.
+- Shared icon/illustration kit in `Assets/Theme/`. Site surfaces (landing
+  nav, social cards, portal wait/toggle) shipped as `THEME-SITE`. Deck
+  rollout remains `THEME-DECKS`.
 - Public site cutover to `amd-site` (`SITE_RELEASES_ENABLED=true`). HTML and
   generated/reference PDFs are Worker-served; do not reopen GitHub Pages hosting.
 - Website `SITE-01`, `SITE-02`, `UX-01`–`UX-03`, `OPS-01` (PR #493).

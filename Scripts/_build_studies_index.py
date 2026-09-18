@@ -1465,7 +1465,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .toc { gap: 4px; }
     .toc a { padding: 6px 9px; font-size: 12px; }
     .page-nav-tools { width: 100%; justify-content: space-between; gap: 4px; }
-    .page-nav-search .nav-link-label { display: none; }
+    .page-nav-tools .nav-link-label { display: none; }
     .page-nav-tools .theme-toggle { min-width: 36px; min-height: 40px; padding: 5px 8px; }
     #theme-toggle-label { display: none; }
     .page { padding: calc(var(--page-nav-offset, 56px) + 18px) 14px 44px; }
@@ -1642,11 +1642,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <span class="nav-tooltip" role="tooltip" id="nav-search-tip">Find words and phrases inside studies and companion notes.</span>
       </div>
       <div class="nav-tool">
-        <a class="page-nav-link" href="notebook.html" aria-describedby="nav-notes-tip">@amd-ui:notes@<span class="nav-link-label">My Notes</span></a>
+        <a class="page-nav-link" href="notebook.html" aria-label="My Notes" aria-describedby="nav-notes-tip">@amd-ui:notes@<span class="nav-link-label">My Notes</span></a>
         <span class="nav-tooltip" role="tooltip" id="nav-notes-tip">Open your highlights, notes and offline studies saved in this browser.</span>
       </div>
       <div class="nav-tool">
-        <a class="page-nav-link page-nav-submit" href="submit.html" aria-describedby="nav-submit-tip">My Submissions</a>
+        <a class="page-nav-link page-nav-submit" href="submit.html" aria-label="My Submissions" aria-describedby="nav-submit-tip">@amd-ui:work@<span class="nav-link-label">My Submissions</span></a>
         <span class="nav-tooltip" role="tooltip" id="nav-submit-tip">Use GitHub sign-in to propose studies, submit drafts and follow reviews.</span>
       </div>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">

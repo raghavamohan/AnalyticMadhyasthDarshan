@@ -3,8 +3,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const http = require('node:http');
-const puppeteer = require('puppeteer');
 const chrome = require('./_chrome.js');
+const puppeteer = require('puppeteer');
 const root = path.resolve(__dirname, '..');
 const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.png':'image/png'};
 
@@ -99,6 +99,7 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
       assert.equal(headingIcons.length, 4);
       for (const icon of headingIcons) assert.deepEqual(icon, {badge:44,icon:36,inline:true,external:false});
       assert.ok(await page.$eval('.hero-identity .amd-mark', element => element.getBoundingClientRect().width >= 52));
+      assert.ok(await page.$('.page-nav-submit use[href$="#work"]'), 'landing My Submissions missing work icon');
       const selector = `.approach-illustration .illustration-${theme}`;
       await page.$eval(selector, image => image.scrollIntoView({block:'center',behavior:'instant'}));
       await page.waitForFunction(selector => {const image = document.querySelector(selector); return image.complete && image.naturalWidth > 0;}, {}, selector);
@@ -118,7 +119,13 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
     for (const name of ['search','notebook','submit']) {
       await page.goto(`${base}/Studies/${name}.html`, {waitUntil:'networkidle0'});
       assert.ok(await page.$('.amd-home .amd-mark'), `${name} missing common home identity`);
+      assert.ok(await page.$(`.site-chrome-link[href="submit.html"] use[href$="#work"]`), `${name} missing submissions icon`);
     }
+    await page.goto(`${base}/Studies/submit.html`, {waitUntil:'networkidle0'});
+    assert.ok(await page.$('#theme-toggle .theme-icon-moon use[href$="#moon"]'), 'portal theme toggle missing moon icon');
+    assert.ok(await page.$('#theme-toggle .theme-icon-sun use[href$="#sun"]'), 'portal theme toggle missing sun icon');
+    assert.ok(await page.$eval('#amd-portal-wait', node => !!node.content.querySelector('.amd-wait')), 'portal missing branded waiter');
+    assert.ok(await page.$('#propose-download-draft use[href$="#download"]'), 'portal download action missing icon');
     await page.goto(base + '/Studies/search.html', {waitUntil:'networkidle0'});
     await page.type('#collection-query','coexistence');
     await page.click('button[type=submit]');
