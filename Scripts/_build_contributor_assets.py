@@ -5,7 +5,7 @@ from pathlib import Path
 import re
 
 from _site_chrome import SITE_CHROME_CSS, site_home_and_tools
-from _theme_icons import THEME_MOTION_CSS
+from _theme_icons import THEME_MOTION_CSS, ui_icon_html, wait_mark_html
 
 BASE = Path(__file__).resolve().parents[1]
 PORTAL = BASE / 'Studies/portal'
@@ -16,6 +16,10 @@ def expected(path, sources):
     for name, content in {
         'theme-styles': '<style>' + THEME_MOTION_CSS + SITE_CHROME_CSS + '</style>',
         'theme-home': site_home_and_tools(home_href='index.html', studies_prefix='', current='submit'),
+        'theme-wait': wait_mark_html('akhand-samaj'),
+        'theme-ui-download': ui_icon_html('download'),
+        'theme-ui-moon': ui_icon_html('moon'),
+        'theme-ui-sun': ui_icon_html('sun'),
     }.items():
         text = re.sub(r'<!-- ' + name + r' -->.*?<!-- /' + name + r' -->',
                       lambda _: '<!-- ' + name + ' -->' + content + '<!-- /' + name + ' -->', text, flags=re.DOTALL)

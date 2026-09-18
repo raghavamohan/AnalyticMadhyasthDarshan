@@ -25,7 +25,7 @@ SITE_TOOL_ITEMS = (
         "submit.html",
         "My Submissions",
         "Use GitHub sign-in to propose studies, submit drafts and follow reviews.",
-        "",
+        "work",
     ),
 )
 
