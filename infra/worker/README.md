@@ -275,13 +275,27 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 
 **Re-apply full stack after drift or zone changes:** `python Scripts/_cloudflare_performance.py --apply-edge-security`
 
-### Operator next steps (not done yet)
+### Operator next steps
 
-1. **HSTS preload list** — the HSTS header now includes `preload` (stable since July 2026). Submitting `analyticmadhyasthdarshan.org` to the [HSTS preload list](https://hstspreload.org/) is still optional and hard to undo. Do that only if you want Chrome/Firefox/Safari to hard-code HTTPS for this domain and every subdomain.
-2. **Manual smoke tests** — automated checks cover TLS/HSTS, portal page load, GitHub OAuth start (`302` to GitHub), and discussion page load. Still do a signed-in pass: portal GitHub OAuth through submit, and a discussion magic-link request plus email verify. Optional [SSL Labs](https://www.ssllabs.com/ssltest/) check (TLS 1.2+ only, HSTS present).
+Tracked in [PENDING.md](../../PENDING.md#infrastructure): `CF-HSTS`, `CF-SSL`,
+`CF-BOTS`, `API-SMOKE` / `UX-05`. Keep this section for how-to, not a second
+backlog.
 
-3. **Bot-policy monitoring** — review AI Crawl Control and Search Console after policy changes. Keep Search and Agent allowed, Training blocked, managed `robots.txt` synchronized, `content_bots_protection` disabled, and `crawler_protection` enabled unless observed traffic justifies a narrower exception.
-4. **Rate-limit tuning** — if users behind a shared office IP hit `amd_rl_edge_api`, raise `requests_per_period` in `edge_api_rate_limit_rules_spec()` (e.g. 50–60) and re-run `--apply-discussions-rate-limits`.
+1. **HSTS preload list** — the HSTS header already includes `preload`. Submitting
+   `analyticmadhyasthdarshan.org` to the [HSTS preload list](https://hstspreload.org/)
+   is `CF-HSTS`: optional and hard to undo.
+2. **Signed-in smoke** — automated checks cover TLS/HSTS, portal page load, GitHub
+   OAuth start (`302` to GitHub), and discussion page load. The signed-in pass is
+   `API-SMOKE` / `UX-05`. Optional [SSL Labs](https://www.ssllabs.com/ssltest/)
+   check belongs with `CF-SSL`.
+3. **Bot-policy monitoring** — `CF-BOTS`. Keep Search and Agent allowed, Training
+   blocked, managed `robots.txt` synchronized, `content_bots_protection` disabled,
+   and `crawler_protection` enabled unless observed traffic justifies a narrower
+   exception.
+4. **Rate-limit tuning** — if users behind a shared office IP hit `amd_rl_edge_api`,
+   raise `requests_per_period` in `edge_api_rate_limit_rules_spec()` (e.g. 50–60)
+   and re-run `--apply-discussions-rate-limits`. Not a standing ticket until that
+   is observed.
 
 Production API telemetry, SLO queries, synthetic incident handling, and the
 redacted authenticated smoke procedure are documented in
@@ -289,7 +303,10 @@ redacted authenticated smoke procedure are documented in
 privacy-safe aggregate points to `amd_api_metrics` and emits structured logs
 keyed by the response `X-Request-ID`.
 
-Items **not** planned: SSL Full (Strict) on GitHub Pages origin; separate per-route rate limits beyond Pro’s two-rule cap (worker-side limits cover magic-link abuse).
+Items **not** planned until `CF-SSL` is scheduled: SSL Full (Strict) was deferred
+when GitHub Pages was origin. Live HTML/PDF/API now show `cfOrigin` 0. Separate
+per-route rate limits beyond Pro’s two-rule cap remain out of scope (worker-side
+limits cover magic-link abuse).
 
 ## Local development
 

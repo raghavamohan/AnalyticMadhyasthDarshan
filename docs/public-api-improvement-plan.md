@@ -20,7 +20,8 @@ operational ownership all exist.
 A2A task operations, agent OAuth access tokens, and native mobile store clients
 are intentionally not part of the supported surface. The decision gates below
 define when A2A or agent OAuth should be added. Native Android/iOS applications
-are out of scope on the [website plan](website-improvement-plan.md); do not add
+are out of scope on the [website plan](website-improvement-plan.md); remaining site
+work is listed in [PENDING.md](../PENDING.md#website). Do not add
 bearer write tokens or a second origin policy in order to support a store app.
 Browser PWA install, JSON Feed/Atom, and discussion reply mail stay on the
 existing first-party cookie and public-read contracts.
@@ -119,8 +120,8 @@ Implementation notes:
 
 ## Phase 3 — observability and service levels (implemented)
 
-Status: complete in the repository; deployment and the first 30-day baseline
-follow the protected-branch workflows after merge. The authenticated production
+Status: complete in the repository; deployment is live. The first 30-day
+baseline is `CF-SLO` in [PENDING.md](../PENDING.md#infrastructure). The authenticated production
 smoke remains an operator-run activity because it requires an agreed disposable
 GitHub record and authorized mailbox; safe read-only synthetics run hourly.
 
@@ -165,7 +166,7 @@ Implementation notes:
 
 ## Phase 4 — versioning and client usability (later)
 
-Status: deferred. Start only once a real external client depends on the API. A
+Status: deferred. Tracked as `API-P4` in [PENDING.md](../PENDING.md#api). Start only once a real external client depends on the API. A
 browser PWA, the catalog Recently updated UI, and ordinary feed readers using
 `feed.json` / Atom do
 **not** by themselves start this phase. Pull ETags forward earlier if SITE-02
@@ -191,6 +192,7 @@ the API without reading Worker source.
 ### A2A
 
 Status: deferred for later; no current implementation work is planned.
+Tracked as `API-A2A` in [PENDING.md](../PENDING.md#api).
 
 Implement A2A only when there is a real stateful agent task that cannot be
 expressed as an MCP read tool or ordinary HTTP request. Before publishing an
@@ -206,6 +208,7 @@ Agent Card, require:
 
 Status: deferred for later; no current implementation work is planned. This is
 separate from the already-supported human GitHub OAuth browser session.
+Tracked as `API-OAUTH` in [PENDING.md](../PENDING.md#api).
 
 Implement an OAuth authorization server only when a non-browser client needs
 delegated write access. A native store application is not that client. Before
@@ -226,7 +229,7 @@ notification secret.
 ### Discussion watch / reply mail (website-first)
 
 Add authenticated discussion preference and report routes only when
-[website DIS-01](website-improvement-plan.md) is scheduled, after discussion
+[website DIS-01](../PENDING.md#website) is scheduled, after discussion
 session revocation (OPS-01). Keep the existing magic-link cookie. Document any
 new route in `openapi/discussions.json` before deploy. This is not agent OAuth
 and not a mobile push platform.
@@ -234,7 +237,7 @@ and not a mobile push platform.
 ### Catalog feed siblings (website-first)
 
 An Atom (or RSS) sibling of `Studies/feed.json` is an additive catalog resource
-for SITE-02. Generate it from the same catalog writer, add it to
+for SITE-02, tracked in [PENDING.md](../PENDING.md#website). Generate it from the same catalog writer, add it to
 `openapi/studies.json` and `_verify_studies_index.py`, and keep JSON Feed as the
 canonical machine feed. No new Worker is required.
 

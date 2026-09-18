@@ -78,8 +78,8 @@ POST requests require a trusted Origin and JSON content type. Add local preview
 origins explicitly with `ALLOWED_ORIGINS`. Responses are private/no-store,
 including comment lists whose permissions depend on the signed-in reader.
 Existing discussion sessions remain signed cookies; per-session server-side
-revocation and additional abuse quotas remain follow-up work in the
-[website plan](../../docs/website-improvement-plan.md).
+revocation and additional abuse quotas remain `OPS-01` in
+[PENDING.md](../../PENDING.md#website).
 
 ```powershell
 npx wrangler deploy

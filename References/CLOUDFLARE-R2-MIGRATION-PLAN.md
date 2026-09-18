@@ -56,14 +56,41 @@ was sufficient to bind the bucket, deploy the Worker, and attach the route.
   Hindi-English review PDFs also remain in Git while that translation is active;
   all four PDFs are explicitly recorded in the artifact manifest.
 
-## Follow-up register
+## Open follow-ups
 
-| Follow-up | Status | Completion condition |
-|---|---|---|
-| Rights review for 14 retained third-party PDFs | Open | Each artifact has an authoritative source and explicit redistribution basis, then moves to R2; otherwise its citation moves to a canonical external URL |
-| KD and MSM translation exceptions | Ongoing | Keep their two source PDFs and the two generated KD review PDFs in Git until the active translation workflow no longer requires them |
-| R2 deletion protection and independent backup | Open hardening | Choose a retention policy, verify backup recovery, and apply a bucket lock only after confirming it will not block legitimate corrections |
-| Git history cleanup | Deferred by owner on September 4, 2026 | Schedule a separate maintenance window with backup tags, branch freeze, force-push coordination, and collaborator re-clones |
+Open items for this migration live in
+[PENDING.md](../PENDING.md#references). Keep completed-phase history and
+verification commands here. Do not add a second follow-up register.
+
+### How to complete the rights review (R2-RIGHTS)
+
+Fourteen PDFs remain under review. For each artifact:
+
+1. record an authoritative source URL and explicit license or permission;
+2. mark it `r2-public` only when redistribution is supported;
+3. upload and verify it before changing links or deleting the Git copy;
+4. otherwise keep it in Git or replace the citation with a canonical external link;
+5. repeat the fresh-cache integrity and public delivery suites.
+
+This does not require a new bucket.
+
+### How to complete the translation-workspace exception (R2-KD)
+
+The two immutable source PDFs and two generated KD review PDFs remain explicit
+active translation exceptions. After the hydrator has been used in real KD/MSM
+translation work, consider moving immutable page images and generated workspace
+renderings to R2. Retain editable Markdown, mappings, glossaries, and ledgers.
+Do not remove any of the four retained PDFs until the user explicitly changes
+the exception or the active translation workflow no longer needs them.
+
+### Git history cleanup (R2-HISTORY)
+
+Deferred by the owner on September 4, 2026. Removing files from the current tree
+prevents future binary growth but does not shrink old clones or remove blobs already
+stored in GitHub history. Before revisiting this phase, measure the remote impact and
+remaining pack. Any `git filter-repo` operation requires a separately approved
+maintenance event, backup tags, a branch freeze, force-push coordination, and
+collaborator re-clones.
 
 The history item is deliberately not part of routine migration work. Removing payloads
 from the current tree prevents future binary growth, but old blobs remain in existing
@@ -169,42 +196,9 @@ tranche merged in PR #372. Parent commits and Git history remain rollback source
 A clean cache hydration followed by `_check_references.py` passed for all 25 public
 R2 PDFs.
 
-## Remaining phases
-
-### Phase 8 — Resolve retained PDFs
-
-In progress. The site owner confirmed redistribution rights for all eight Advaita
-Vedanta PDFs. They are recorded as approved, uploaded with their original checksums,
-included in the production Worker allowlist, and removed from the current Git tree.
-Fourteen PDFs remain under review.
-
-For each artifact:
-
-1. record an authoritative source URL and explicit license or permission;
-2. mark it `r2-public` only when redistribution is supported;
-3. upload and verify it before changing links or deleting the Git copy;
-4. otherwise keep it in Git or replace the citation with a canonical external link;
-5. repeat the fresh-cache integrity and public delivery suites.
-
-This is the next functional phase. It does not require a new bucket.
-
-### Phase 9 — Lean translation workspaces
-
-The two immutable source PDFs and two generated KD review PDFs remain explicit active
-translation exceptions. After the hydrator has been used in real KD/MSM translation
-work, consider moving immutable page images and generated workspace renderings to R2.
-Retain editable Markdown, mappings, glossaries, and ledgers. Do not remove any of the
-four retained PDFs until the user explicitly changes the exception or the active
-translation workflow no longer needs them.
-
-### Phase 10 — Optional Git history cleanup
-
-Deferred by the owner on September 4, 2026. Removing files from the current tree
-prevents future binary growth but does not shrink old clones or remove blobs already
-stored in GitHub history. Before revisiting this phase, measure the remote impact and
-remaining pack. Any `git filter-repo` operation requires a separately approved
-maintenance event, backup tags, a branch freeze, force-push coordination, and
-collaborator re-clones.
+Open remaining items are `R2-RIGHTS`, `R2-KD`, `R2-BACKUP`, and `R2-HISTORY` in
+[PENDING.md](../PENDING.md#references). Deletion protection is described under
+Phase 4 above.
 
 ## Verification and resume commands
 

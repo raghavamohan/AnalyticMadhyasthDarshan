@@ -2,7 +2,7 @@
 
 Rigorous analytic studies of **Madhyasth Darshan** (Co-existentialism), the philosophy founded by Shri A. Nagraj. Each study reads the primary texts, states the darshan's claims, and compares them critically with physics and natural sciences, Advaita Vedanta, and modern Western philosophy where relevant.
 
-**Standing rules:** [AGENTS.md](AGENTS.md) is the **source of truth** for all agent and maintainer workflows. Cursor loads the same content through `.cursor/rules/*.mdc` mirrors (one file per AGENTS.md section). After editing `AGENTS.md` (§1–§9) or any `.agents/skills/**/SKILL.md`, run `python Scripts/_sync_agent_rules.py` and `python Scripts/_sync_agent_rules.py --check` before finishing; commit sync output in the same commit as the canonical edit.
+**Standing rules:** [AGENTS.md](AGENTS.md) is the **source of truth** for all agent and maintainer workflows. Cursor loads the same content through `.cursor/rules/*.mdc` mirrors (one file per AGENTS.md section). After editing `AGENTS.md` (§1–§10) or any `.agents/skills/**/SKILL.md`, run `python Scripts/_sync_agent_rules.py` and `python Scripts/_sync_agent_rules.py --check` before finishing; commit sync output in the same commit as the canonical edit. Project follow-ups live only in [PENDING.md](PENDING.md).
 
 ---
 
@@ -14,6 +14,7 @@ Rigorous analytic studies of **Madhyasth Darshan** (Co-existentialism), the phil
 | `Studies/README.md`, `Studies/index.html`, `Studies/catalog-*.json` | Public catalog (must stay in sync) |
 | `Applications/<Slug>/<Slug>.md` | **Source of truth** for each applied study — a concrete instantiation of a formal template; companion `.html` and `.pdf` are generated |
 | `References/` | Local mirrors of cited sources; audit in `MANIFEST.md`; external-only works in `NOT-DOWNLOADED.md` |
+| `PENDING.md` | Single project backlog (Website, Audio, CI, API, Infrastructure, References, Transcription, Theme, Studies) |
 | `Scripts/` | Study lifecycle, PDF pipeline, reference checks, catalog builders |
 | `.agents/skills/` | Canonical agent skills (`.cursor/skills/` and `.opencode/skills/` mirror this) |
 | `infra/` | Cloudflare Workers (submission portal, discussions) |
@@ -38,6 +39,7 @@ the root-matching `<Slug>.md` drives the catalog row and main PDF.
 | §7 | Feature branch + labeled PR for any `Studies/` or `Applications/` change | Always for study work |
 | §8 | LF line endings everywhere | Always |
 | §9 | PowerShell shell conventions (no `&&`/`||`, quote paths with spaces) | Always |
+| §10 | Keep pending work in `PENDING.md`; do not scatter remaining-work tables | Always |
 
 Contributor-facing flow: [CONTRIBUTING.md](CONTRIBUTING.md). Study format and tone: [Studies/README.md](Studies/README.md).
 
