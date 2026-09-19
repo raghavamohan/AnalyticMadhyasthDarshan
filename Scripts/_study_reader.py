@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 from _common import BASE
-from _theme_icons import topic_icon_html, study_icon_name
+from _theme_icons import topic_icon_html, study_icon_name, ui_icon_html
 
 ASSETS = BASE / "Assets" / "reader"
 
@@ -51,6 +51,7 @@ def reader_bootstrap() -> str:
 def reader_controls() -> str:
     icons = {name: topic_icon_html(name) for name in
              ('akhand-samaj', 'menu', 'search', 'notes', 'audio', 'sun', 'discussion', 'download', 'external')}
+    icons['saved'] = ui_icon_html('saved')
     icons['bookmark'] = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h12v18l-6-4-6 4Z" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>'
     icons['expand'] = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M9 3H3v6m12-6h6v6M3 15v6h6m12-6v6h-6" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>'
     icons['link'] = '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9 15 6-6m-7 3-2 2a4 4 0 0 0 6 6l2-2m2-6 2-2a4 4 0 0 0-6-6l-2 2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>'

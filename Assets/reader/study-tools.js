@@ -334,7 +334,11 @@
         catch (error) { context.message(error.message,true); }
       });
       $('reader-offline-tools').addEventListener('toggle',() => { if ($('reader-offline-tools').open) loadOffline().then(api => api.reader(path)).catch(error => { $('offline-status').textContent = error.message; }); });
-      if (document.documentElement.hasAttribute('data-offline-copy')) { $('reader-offline-banner').hidden = false; $('reader-offline-banner').textContent = 'Reading a saved copy. Open Display → Offline reading to check its date or update it.'; }
+      const saveFromToolbar = () => loadOffline().then(api => api.reader(path)).then(() => $('offline-save').click()).catch(error => context.message(error.message,true));
+      $('reader-offline')?.addEventListener('click',saveFromToolbar);
+      $('reader-offline-more')?.addEventListener('click',event => { event.preventDefault(); saveFromToolbar(); });
+      loadOffline().then(api => api.reader(path)).catch(() => {});
+      if (document.documentElement.hasAttribute('data-offline-copy')) { $('reader-offline-banner').hidden = false; $('reader-offline-banner').textContent = 'Reading a saved copy. Use Save offline in the toolbar to update it.'; }
     } else {
       $('notes-new').hidden = true;
       loadOffline().then(api => api.library()).catch(error => { $('offline-library-status').textContent = error.message; });

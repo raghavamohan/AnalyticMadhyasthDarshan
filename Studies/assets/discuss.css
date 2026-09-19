@@ -284,6 +284,37 @@ a { color: var(--accent); }
 .site-chrome-link[aria-current="page"] { text-decoration:underline; text-underline-offset:3px; }
 .site-chrome-nav .amd-home { display:inline-flex; align-items:center; gap:8px; color:inherit; text-decoration:none; font-weight:600; min-height:44px; }
 .site-chrome-nav .amd-home .amd-mark { width:32px; height:32px; }
+.site-chrome-tools .theme-toggle {
+  flex: 0 0 auto;
+  font: 600 13px/1 inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+}
+.site-chrome-tools .theme-toggle:hover { opacity: 0.85; }
+.site-chrome-tools .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.theme-toggle .amd-icon { width: 18px; height: 18px; }
+.theme-toggle-icon { display: inline-flex; align-items: center; }
+.theme-icon-sun { display: none; }
+[data-theme="dark"] .theme-icon-sun { display: inline-flex; }
+[data-theme="dark"] .theme-icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .theme-icon-sun { display: inline-flex; }
+  html:not([data-theme]) .theme-icon-moon { display: none; }
+}
+#theme-toggle-label { display: inline-block; min-width: 2.75em; text-align: left; }
+@media (max-width: 640px) {
+  #theme-toggle-label { display: none; }
+  .site-chrome-tools .theme-toggle { min-width: 36px; padding: 0 8px; }
+}
 .comments-loading .amd-wait { width: 100%; }
 .discuss-toolbar-home { grid-column: 1; justify-self: start; min-width: 0; }
 .discuss-toolbar-home .site-chrome-nav { margin: 0; gap: 6px 12px; }
@@ -319,8 +350,7 @@ a { color: var(--accent); }
 @media (max-width: 600px) {
   .auth-grid { grid-template-columns: 1fr; }
 }
-@media (prefers-color-scheme: dark) {
-  :root {
+html[data-theme="dark"] {
     --bg: #171411;
     --surface: #211c18;
     --text: #f2ebe1;
@@ -329,28 +359,62 @@ a { color: var(--accent); }
     --accent-soft: #1a3344;
     --border: #3a322b;
   }
-  .comment { background: #1a1613; }
-  .alert-error { background: #3a1714; color: #ffb4a9; border-color: #7f2d25; }
-  .alert-success { background: #142818; color: #a8d5a8; border-color: #2f5c31; }
-  .btn-primary { color: #102030; }
-  .auth-row input, .auth-row textarea, .reply-form textarea {
+  html[data-theme="dark"] .comment { background: #1a1613; }
+  html[data-theme="dark"] .alert-error { background: #3a1714; color: #ffb4a9; border-color: #7f2d25; }
+  html[data-theme="dark"] .alert-success { background: #142818; color: #a8d5a8; border-color: #2f5c31; }
+  html[data-theme="dark"] .btn-primary { color: #102030; }
+  html[data-theme="dark"] .auth-row input, html[data-theme="dark"] .auth-row textarea, html[data-theme="dark"] .reply-form textarea {
     background-color: #26201b;
     color: var(--text);
     border-color: #433931;
   }
-  .auth-row textarea:focus, .auth-row input:focus, .reply-form textarea:focus {
+  html[data-theme="dark"] .auth-row textarea:focus, html[data-theme="dark"] .auth-row input:focus, html[data-theme="dark"] .reply-form textarea:focus {
     border-color: var(--accent);
     outline: none;
   }
-  .discuss-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
-  .comments-error { color: #aca194; }
-  .comments-retry { color: #7ebbed; }
-  .comments-retry:hover { color: #b8daf3; }
-  .discuss-toolbar-link { color: #7ebbed; }
-  .discuss-toolbar-link:hover { color: #b8daf3; }
-  .discuss-toolbar-title { color: #f5f1ec; }
-  .planned-callout { background: #211c18; border-color: #3a322b; border-left-color: #d97706; }
-  .planned-callout h2 { color: #fcd34d; }
-  .new-divider { color: #f0c78a; }
-  .new-divider::before { border-top-color: #6b4518; }
+  html[data-theme="dark"] .discuss-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+  html[data-theme="dark"] .comments-error { color: #aca194; }
+  html[data-theme="dark"] .comments-retry { color: #7ebbed; }
+  html[data-theme="dark"] .comments-retry:hover { color: #b8daf3; }
+  html[data-theme="dark"] .discuss-toolbar-link { color: #7ebbed; }
+  html[data-theme="dark"] .discuss-toolbar-link:hover { color: #b8daf3; }
+  html[data-theme="dark"] .discuss-toolbar-title { color: #f5f1ec; }
+  html[data-theme="dark"] .planned-callout { background: #211c18; border-color: #3a322b; border-left-color: #d97706; }
+  html[data-theme="dark"] .planned-callout h2 { color: #fcd34d; }
+  html[data-theme="dark"] .new-divider { color: #f0c78a; }
+  html[data-theme="dark"] .new-divider::before { border-top-color: #6b4518; }
+@media (prefers-color-scheme: dark) {
+html:not([data-theme]) {
+    --bg: #171411;
+    --surface: #211c18;
+    --text: #f2ebe1;
+    --text-muted: #b9aea0;
+    --accent: #7ebbed;
+    --accent-soft: #1a3344;
+    --border: #3a322b;
+  }
+  html:not([data-theme]) .comment { background: #1a1613; }
+  html:not([data-theme]) .alert-error { background: #3a1714; color: #ffb4a9; border-color: #7f2d25; }
+  html:not([data-theme]) .alert-success { background: #142818; color: #a8d5a8; border-color: #2f5c31; }
+  html:not([data-theme]) .btn-primary { color: #102030; }
+  html:not([data-theme]) .auth-row input, html:not([data-theme]) .auth-row textarea, html:not([data-theme]) .reply-form textarea {
+    background-color: #26201b;
+    color: var(--text);
+    border-color: #433931;
+  }
+  html:not([data-theme]) .auth-row textarea:focus, html:not([data-theme]) .auth-row input:focus, html:not([data-theme]) .reply-form textarea:focus {
+    border-color: var(--accent);
+    outline: none;
+  }
+  html:not([data-theme]) .discuss-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
+  html:not([data-theme]) .comments-error { color: #aca194; }
+  html:not([data-theme]) .comments-retry { color: #7ebbed; }
+  html:not([data-theme]) .comments-retry:hover { color: #b8daf3; }
+  html:not([data-theme]) .discuss-toolbar-link { color: #7ebbed; }
+  html:not([data-theme]) .discuss-toolbar-link:hover { color: #b8daf3; }
+  html:not([data-theme]) .discuss-toolbar-title { color: #f5f1ec; }
+  html:not([data-theme]) .planned-callout { background: #211c18; border-color: #3a322b; border-left-color: #d97706; }
+  html:not([data-theme]) .planned-callout h2 { color: #fcd34d; }
+  html:not([data-theme]) .new-divider { color: #f0c78a; }
+  html:not([data-theme]) .new-divider::before { border-top-color: #6b4518; }
 }

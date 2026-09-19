@@ -112,6 +112,7 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
         }
       }
       await page.$eval('.path-panel[data-stage="1"] .path-related', details => details.open = true);
+      assert.ok(await page.$('.path-panel[data-stage="1"] .path-related-chips a.path-related-chip'));
       const relatedLayout = await page.$eval('.path-panel[data-stage="1"] .path-related li', row => {
         const title = row.querySelector('.related-study-title').getBoundingClientRect();
         const description = row.querySelector('.related-study-description').getBoundingClientRect();
@@ -180,6 +181,7 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
       await page.goto(`${base}/Studies/${name}.html`, {waitUntil:'networkidle0'});
       assert.ok(await page.$('.amd-home .amd-mark'), `${name} missing common home identity`);
       assert.ok(await page.$(`.site-chrome-link[href="submit.html"] use[href$="#work"]`), `${name} missing submissions icon`);
+      assert.ok(await page.$('#theme-toggle'), `${name} missing shared theme toggle`);
     }
     await page.goto(`${base}/Studies/submit.html`, {waitUntil:'networkidle0'});
     assert.ok(await page.$('#theme-toggle .theme-icon-moon use[href$="#moon"]'), 'portal theme toggle missing moon icon');
@@ -193,6 +195,7 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
     assert.equal(await page.$eval('#search-wait', node => getComputedStyle(node).display), 'none');
     assert.match(await page.$eval('.search-status', node => node.textContent), /matching passages/);
     await page.goto(base + '/Studies/How-Undivided-Society-Is-Established/discussion.html', {waitUntil:'domcontentloaded'});
+    assert.ok(await page.$('#theme-toggle'), 'discussion missing shared theme toggle');
     await page.waitForSelector('#comment-list[aria-busy="true"] .amd-wait');
     await page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
     assert.equal(await page.$eval('.amd-wait .goal', node => getComputedStyle(node).animationName), 'none');
