@@ -44,6 +44,12 @@ def test_catalog_bridges_passage_search_and_related_chips() -> None:
     assert "preventScroll" in go_handler
     assert "#start-here .path-core.is-targeted > .path-study-title" in INDEX_TEMPLATE
     assert "#start-here [data-study-slug].is-targeted { animation:" not in INDEX_TEMPLATE
+    restore_handler = INDEX_TEMPLATE.split("const restoreStartHere", 1)[1].split(
+        'window.addEventListener("hashchange"', 1
+    )[0]
+    assert "related.open = true" not in restore_handler
+    assert "closeStartHereRelated()" in restore_handler
+    assert 'window.addEventListener("pageshow", closeStartHereRelated)' in INDEX_TEMPLATE
 
 
 def test_reader_toolbar_exposes_progress_offline_and_glossary_sheet() -> None:
