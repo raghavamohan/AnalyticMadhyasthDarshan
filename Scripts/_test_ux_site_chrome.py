@@ -37,8 +37,11 @@ def test_discussion_css_follows_saved_theme() -> None:
 def test_catalog_bridges_passage_search_and_related_chips() -> None:
     assert 'id="search-passage-hint"' in INDEX_TEMPLATE
     assert "Passage Search" in INDEX_TEMPLATE
-    assert "path-related-chips" in INDEX_TEMPLATE
-    assert "About these related studies" in INDEX_TEMPLATE
+    assert "path-related-chips" not in INDEX_TEMPLATE
+    assert "About these related studies" not in INDEX_TEMPLATE
+    assert "<summary>Related studies</summary>" in INDEX_TEMPLATE
+    assert INDEX_TEMPLATE.count("<summary>Related studies</summary>") == 5
+    assert "initHashStudyTarget();\n    applyHashStudyTarget();" in INDEX_TEMPLATE
     go_handler = INDEX_TEMPLATE.split('closest("[data-go-stage]")', 1)[1].split("const collSeg", 1)[0]
     assert "scrollIntoView" not in go_handler
     assert "preventScroll" in go_handler

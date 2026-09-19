@@ -111,8 +111,9 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
           assert.equal(height, chipHeights.toc, `${name} height ${height}px != TOC ${chipHeights.toc}px`);
         }
       }
+      assert.equal(await page.$eval('.path-panel[data-stage="1"] .path-related summary', node => node.textContent.trim()), 'Related studies');
+      assert.equal(await page.$('.path-panel[data-stage="1"] .path-related-chips'), null);
       await page.$eval('.path-panel[data-stage="1"] .path-related', details => details.open = true);
-      assert.ok(await page.$('.path-panel[data-stage="1"] .path-related-chips a.path-related-chip'));
       const relatedLayout = await page.$eval('.path-panel[data-stage="1"] .path-related li', row => {
         const title = row.querySelector('.related-study-title').getBoundingClientRect();
         const description = row.querySelector('.related-study-description').getBoundingClientRect();
