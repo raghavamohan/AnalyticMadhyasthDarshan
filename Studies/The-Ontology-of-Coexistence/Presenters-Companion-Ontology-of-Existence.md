@@ -4,7 +4,7 @@
 
 Slide-by-slide delivery notes and primary-text background for Q&A.
 
-Companion to the **27-slide** presentation based on §1 of *The Ontology of Coexistence* (AnalyticMadhyasthDarshan.org). Primary texts cited: *Madhyasth Darshan* (MVD), *Manav Karm Darshan* (KD), *Samadhanatmak Bhautikvad* (SB), *Jeevan Vidya – An Introduction* (JV), and *Adhyatmvad* (AVD) — translations by Rakesh Gupta where applicable; KD section 3 working English as noted in the study.
+Companion to the **28-slide** presentation based on §1 of *The Ontology of Coexistence* (AnalyticMadhyasthDarshan.org). Primary texts cited: *Madhyasth Darshan* (MVD), *Manav Karm Darshan* (KD), *Samadhanatmak Bhautikvad* (SB), *Jeevan Vidya – An Introduction* (JV), and *Adhyatmvad* (AVD) — translations by Rakesh Gupta where applicable; KD section 3 working English as noted in the study.
 
 **How to use this guide:** each slide has three parts. “Delivering the slide” is a **complete read-aloud script** for live or video-conference delivery, written for a smart audience with **no prior Madhyasth Darshan or formal-philosophy background** — English first, source terms second; speak it as written (or nearly so). It is mirrored in the PowerPoint notes pane. “Primary-text background” is for pre-session study, not for reading aloud. “Likely questions” is for Q&A preparation.
 
@@ -306,7 +306,7 @@ Three things follow, and they are the three cards.
 
 Recognition first. A unit recognises another by responding according to definite constitution, distance, force, and relation. No cognition is involved — please do not hear "recognition" as a mental act. Heat is accepted and redistributed by matter. Particles hold definite distance in an atom. Atoms combine in definite ways and not others. That is recognition in the insentient orders, and the texts name the equipment for it: capacity, ability, receptivity.
 
-Complementarity second. Nothing in nature exists in isolation, and each unit is a whole along with its environment. Now the consequence people find surprising: essentiality in every order is what value *is*, in the broad sense — the usefulness through which a unit is complementary to others. That means value is ontological here. It is not assigned by an observer, and it is not a human invention layered on top of physics.
+Complementarity second. Nothing in nature exists in isolation, and each unit is a whole along with its environment. Now the consequence people find surprising: value, in the universal sense, is essentiality and participation in orderliness — the definite conduct through which a unit complements others. Usefulness is that essentiality as it appears in objects; it is not the whole of value. Value is ontological here. It is not assigned by an observer, and it is not a human invention layered on top of physics.
 
 Fulfilment third. Fulfilment is the participation that follows recognition, according to constitution and order. Below the human order it is definite — it happens. At the human order it must be achieved, through knowing and believing. Which is precisely why, at the human order alone, it can fail.
 
@@ -320,7 +320,7 @@ Complementarity given in the bond rather than created: SB pp. 49–50, 53. “No
 
 The equipment of recognition — capacity (*kshamata*), ability (*yogyata*), receptivity (*patrata*): SB pp. 57, 62, 79; MVD p. 62. “Transparent in mutuality”: MVD p. 32.
 
-Recognition below the human order is not reflective cognition; the heat, particle-distance, and atomic-combination examples are the study's own (§1.2). Value as the usefulness through which a unit is complementary to others: §1.4.
+Recognition below the human order is not reflective cognition; the heat, particle-distance, and atomic-combination examples are the study's own (§1.2). Value as essentiality and participation in orderliness: §1.4.
 
 The completeness drive is grounded in these endowments: SB pp. 50–51 — this is the citation behind the closing line of the script. Composition as natural inclination toward coexistence: JV p. 67 (§1.10). Integration at T1 through hungry/undigested (overfull) complementarity: MVD p. 8; SB pp. 58, 71; KD 3.3 (§1.6.1). Justice as recognising relationships, fulfilling values, evaluating the fulfilment, and achieving mutual satisfaction: §1.12.1.
 
@@ -360,9 +360,11 @@ Form is real; what another unit encounters is its definite presentation in mutua
 
 And notice: the tree as a composite can die while its material constituents persist. Persistence of existence is not persistence of one configuration.
 
+The same unit is known in three complementary aspects, not three worlds. Inherent truth is what the unit is. Positional truth is how it stands among others. Existential truth is that it exists in Omnipresence.
+
 ## Primary-text background
 
-Four aspects: MVD, pp. 11, 42, 47, 50–51; SB pp. 55, 71, 86. “Each unit is a whole along with its environment… orderliness with its ness… moves towards ‘development’ in its natural state and ‘decline’ in its excited state.” — SB, pp. 13–14
+Four aspects: MVD, pp. 11, 42, 47, 50–51; SB pp. 55, 71, 86. Three complementary truths: YAT; MVD pp. 88, 97; study §1.3. “Each unit is a whole along with its environment… orderliness with its ness… moves towards ‘development’ in its natural state and ‘decline’ in its excited state.” — SB, pp. 13–14
 
 *Dharma* definition and cumulative stack: MVD, pp. 253–254. “Dharma is understood on the basis of ‘orderliness’…” — JV, pp. 120–121. Peepal: JV, p. 113.
 
@@ -391,7 +393,7 @@ In the material, plant, and animal orders its expression is definite: recognitio
 
 Two kinds of mutuality matter. A relationship is mutuality whose expectations are definite in the completeness of the bond — parent and child. A contact (*sampark*) is mutuality where expectations are voluntary — neighbours who share a wall.
 
-The slide names five value families: object, *jeevan*, human, established, and civic — the last is *shishta-mulya* in the source. Object values are two, utility and art, so the same list is often counted as six types: utility, art, *jeevan*, human, established, and civic. Established values are the ones that become evident when human relationships are recognised and fulfilled — trust, respect, affection, care, and so on. Civic values are how all of that is expressed in social participation.
+The slide names the thirty values: four *jeevan* values, six human values, nine established values, nine expressed values, and two object values. Established values become evident when human relationships are recognised and fulfilled — trust, respect, affection, care, and so on. Expressed values — *shishta-mulya* — are their corresponding powers in motion. The English translation of MVD renders those as civic values; they are relationship-expression, not a separate family of right-use of body, mind, and wealth.
 
 At the human order the path runs: knowing, then believing, then recognising, then fulfilling. Awakening does not invent new faculties. It aligns this chain with coexistence.
 
@@ -401,7 +403,7 @@ At the human order the path runs: knowing, then believing, then recognising, the
 
 Relationship / contact definitions: MVD, pp. 61–62. Values and mutuality: SB, pp. 50, 53, 61; MVD, p. 27. Motherly care example: JV, pp. 137–138.
 
-The five families follow the study's §1.4 table: object, *jeevan*, human, established, civic (*shishta*). The MVD English translation uses *civic values* for *shishta-mulya*; “expression values” is an explanatory rendering, not a separate sixth family, and “relationship values” is a loose label for established values rather than a family of its own. The primary texts distribute these explanations across passages on production, relationship, *jeevan*, and humane conduct rather than giving one closed list in a single place.
+The thirty-value canon follows the study's §1.4 table and *Paribhasha Samhita* pp. 151, 154, matching Axiology §1.3. The English translation of MVD uses *civic values* for *shishta-mulya*; this companion treats them as the expressed pair of the established values. The primary texts distribute these explanations across passages on production, relationship, *jeevan*, and humane conduct rather than giving one closed list in a single place.
 
 ## Likely questions from the audience
 
@@ -647,7 +649,7 @@ We now turn to human living — movement three.
 
 Animal and human living is a joint form. The sentient unit brings the full set of faculties and activities. The body supplies the species-specific medium.
 
-On one side: the body — living composition, sense organs, brain, physical expression; decomposable. On the other: the sentient unit — constitutionally complete; faculties inherent; continuing when the joint form ends.
+On one side: the body — living composition, sense organs, the brain (*medhas*), physical expression; decomposable. The brain receives and translates signals; it is the medium, not the knower. On the other: the sentient unit — constitutionally complete; faculties inherent; continuing when the joint form ends.
 
 Animal bodily development limits expression. The human medium can support the full range, while mistaking the body for the self can still misdirect evaluation.
 
@@ -660,7 +662,7 @@ MVD pp. 13, 115, 288–289; SB pp. 91–92; JV pp. 20, 54. “Jeevan continues t
 ## Likely questions from the audience
 
 **Q: What is the relationship between jeevan and the brain?**
-The brain is a physical interface for expression within the joint form; the knower is always *jeevan*. How this squares with physical causal closure is an open comparative question the study treats candidly.
+The brain (*medhas*) is a physical interface for expression within the joint form; the knower is always *jeevan*. How this squares with physical causal closure is an open comparative question the study treats candidly.
 
 **Q: Do animals have the same jeevan kind?**
 Same kind of constitutionally complete unit; different bodily medium and therefore different expressible range. Full awakening requires the human medium (MVD, p. 115; JV, pp. 79, 93).
@@ -675,7 +677,9 @@ The sentient unit — jeevan — is a constitutionally complete atom.
 
 Structurally, the centre is the core self. Around it: resolve, desire, thought, and hope — the texts’ buddhi, chitta, vritti, and mun.
 
-Each works outward and inward. Hope selects and tastes. Thought analyses and deliberates. Desire visualises and contemplates. Resolve resolves and receives clear understanding. The core self authenticates and realises.
+Each works outward and inward. Hope selects and tastes. Thought analyses and deliberates. Desire visualises and contemplates — and directly apprehends. Resolve resolves and comprehends. The core self authenticates and realises.
+
+Guidance can descend from the core self through the faculties — higher-conformance — or sensory drive can push inward from the body — lower-conformance. Cognisance regulates sensitivity when the higher direction holds.
 
 All five faculties and ten activities belong to the sentient unit. Presence is not the same as expression or effective organisation. Animal bodies limit expression. Humans have the medium for the full range, yet under body-confusion only part of that range may be effectively organised.
 
@@ -683,7 +687,7 @@ Study brings understanding. Practice tests and stabilises it. Practice does not 
 
 ## Primary-text background
 
-MVD, p. 78; JV, p. 92; MVD, pp. 13, 126, 278–279, 286–287. *Koshas*: MVD, pp. 49–50. Body mistaken for self: SB, pp. 91–92; JV, p. 93.
+MVD, p. 78; JV, p. 92; MVD, pp. 13, 82–83, 126, 207–208, 278–279, 286–287. *Koshas*: MVD, pp. 49–50. Body mistaken for self: SB, pp. 91–92; JV, p. 93. The study renders the reflective activity of *buddhi* as comprehension (*bodh*) and of *chitta* as direct apprehension (*sakshatkar*).
 
 ## Likely questions from the audience
 
@@ -875,13 +879,13 @@ We turn now to knowing — how understanding widens, and how it happens in the s
 
 On the left: what must be understood as mutual context widens. Form is real structure encountered in mutual facing. Capacities show as effects between units. Essential nature needs state, order, and context. Innateness is evidenced in whole-order fulfilment. Relationships are shared expectations weighed by justice, dharma, and truth. At the top is coexistence itself — not another observed detail, but the aim of knowing.
 
-On the right: how knowing happens within the sentient unit. Hope tastes and selects. Thought deliberates. Desire contemplates. Resolve clarifies and resolves. The core self realises — through truth. When each level is acted in alignment, it is felt as happiness, peace, contentment, and bliss.
+On the right: how knowing happens within the sentient unit. Hope tastes and selects. Thought deliberates. Desire contemplates and directly apprehends. Resolve comprehends and resolves. The core self realises — through truth. When each level is acted in alignment, it is felt as happiness, peace, contentment, and bliss.
 
 The ladders meet at the top: coexistence known and lived is felt as bliss. Human error belongs to confused evaluation, not to fuzziness in the reality reflected.
 
 ## Primary-text background
 
-JV, p. 120 (triad epistemic bases); JV, p. 121; SB, p. 50 (ultimate *dharma*); JV, p. 120 (understanding as enlightenment of existence, *jeevan*, and humane conduct); MVD, pp. 78, 101, 137; JV, p. 61; study §§1.3–1.4, 1.7–1.13.
+JV, p. 120 (triad epistemic bases); JV, p. 121; SB, p. 50 (ultimate *dharma*); JV, p. 120 (understanding of existence, *jeevan*, and humane conduct); MVD, pp. 78, 101, 137; JV, p. 61; study §§1.3–1.4, 1.7–1.13.
 
 ## Likely questions from the audience
 
