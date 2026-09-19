@@ -319,7 +319,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   .page-nav-inner {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     align-items: center;
     gap: 10px 14px;
   }
@@ -1455,7 +1455,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       display: none;
       height: 0;
     }
-    .toc { flex-wrap: wrap; flex: 1 1 100%; min-width: 0; }
+    .toc { flex-wrap: wrap; flex: 1 1 auto; min-width: 0; }
     .page-nav-tools { position: relative; margin-left: auto; }
     .nav-tool { position: static; }
     .nav-tooltip { left: 0; right: 0; width: auto; }
@@ -1468,10 +1468,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
 
   @media (max-width: 600px) {
+    .page-nav-inner { gap: 4px 6px; }
     .toc { gap: 4px; }
     .toc a { padding: 0 9px; font-size: 12px; }
-    .page-nav-tools { width: 100%; justify-content: space-between; gap: 4px; }
+    .page-nav-tools { width: auto; justify-content: flex-end; gap: 2px; }
     .page-nav-tools .nav-link-label { display: none; }
+    .page-nav-tools .page-nav-link { padding: 0 6px; }
     .page-nav-tools .theme-toggle { min-width: 36px; min-height: 32px; padding: 0 8px; }
     #theme-toggle-label { display: none; }
     .page { padding: calc(var(--page-nav-offset, 56px) + 18px) 14px 44px; }
@@ -1582,9 +1584,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   [data-theme="dark"] .approach-illustration .illustration-dark { display: block; }
   @media (min-width: 821px) {
     .page-nav-inner { gap: 8px 10px; }
-    .page-nav-tools { gap: 2px; }
+    .page-nav-tools { flex: 0 0 auto; flex-wrap: nowrap; gap: 2px; }
     .page-nav-link { padding: 0 6px; gap: 4px; }
-    .toc { flex-wrap: nowrap; gap: 4px; }
+    .toc { flex-wrap: nowrap; gap: 4px; min-width: min-content; }
     .toc a { padding: 0 10px; }
     .theme-toggle { min-width: 5.25rem; padding: 0 10px; gap: 4px; }
     #grid-formal > .card:only-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 12px 32px; }
@@ -1597,15 +1599,29 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .hero-book { width: 100px; margin-left: 12px; }
   }
   @media (max-width: 820px) {
-    .page-nav-inner { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 6px 10px; }
-    .page-nav-home { grid-column: 1; grid-row: 1; }
-    .page-nav-tools { grid-column: 2; grid-row: 1; width: 100%; justify-content: flex-end; gap: 12px; }
-    .page-nav-inner .toc { grid-column: 1 / -1; grid-row: 2; }
+    .page-nav-home { display: none; }
+    .page-nav-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px 8px;
+    }
+    .page-nav-inner .toc,
+    .page-nav-inner .toc li {
+      display: contents;
+    }
+    .page-nav-tools {
+      width: auto;
+      flex: 0 0 auto;
+      flex-wrap: nowrap;
+      margin-left: auto;
+      justify-content: flex-end;
+      gap: 2px;
+    }
     .hero-identity { gap: 10px; }
     .hero-identity .amd-mark { width: 52px; height: 52px; }
   }
   @media (max-width: 600px) {
-    .page-nav-tools { justify-content: space-between; gap: 4px; }
     .path-stage-caption { gap: 3px; flex-wrap: wrap; }
     .path-stage-caption .amd-stage-mark { width: 24px; height: 24px; }
     .path-rail-item { padding-left: 0; padding-right: 0; }
