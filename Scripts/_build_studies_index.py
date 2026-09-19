@@ -460,11 +460,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .catalog-group.is-targeted {
     animation: section-target-flash 1.6s ease-out forwards;
   }
-  #start-here [data-study-slug].is-targeted { animation: section-target-flash 1.6s ease-out forwards; }
+  #start-here .path-core.is-targeted > .path-study-title,
+  #start-here a.path-related-chip.is-targeted,
+  #start-here li[data-study-slug].is-targeted .related-study-title {
+    animation: section-target-flash 1.6s ease-out forwards;
+  }
 
   @keyframes section-target-flash {
     0% {
-      background: #e8f4fa;
+      background: var(--accent-soft);
       border-radius: var(--radius);
       box-shadow: 0 0 0 3px rgba(26, 82, 118, 0.22);
     }
@@ -1086,10 +1090,14 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     color: var(--text-muted);
   }
   .path-study-title {
+    justify-self: start;
+    max-width: 100%;
     font-size: 18px;
     font-weight: 700;
     line-height: 1.3;
     margin: 0 0 4px;
+    padding: 2px 8px;
+    margin-left: -8px;
   }
   .path-study-title a {
     color: var(--accent);
@@ -2610,8 +2618,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       const heading = panel && panel.querySelector("h3");
       if (heading) {
         heading.tabIndex = -1;
-        const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-        panel.scrollIntoView({ behavior: reduce ? "instant" : "smooth", block: "start" });
         heading.focus({ preventScroll: true });
       }
     });
