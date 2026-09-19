@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Analytic Madhyasth Darshan studies</title>
   <id>https://analyticmadhyasthdarshan.org/Studies/atom.xml</id>
-  <updated>2026-09-14T20:43:00+05:30</updated>
+  <updated>2026-09-19T06:23:00+05:30</updated>
   <subtitle>Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://analyticmadhyasthdarshan.org/Studies/atom.xml"/>
   <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
   <link rel="alternate" type="application/feed+json" href="https://analyticmadhyasthdarshan.org/Studies/feed.json"/>
+  <entry>
+    <title>The Ontology of Coexistence</title>
+    <id>https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/</id>
+    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"/>
+    <updated>2026-09-19T06:23:00+05:30</updated>
+    <summary>Madhyasth Darshan&#x27;s account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy</summary>
+  </entry>
   <entry>
     <title>From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence</title>
     <id>https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/</id>
@@ -34,13 +41,6 @@
     <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html"/>
     <updated>2026-09-07T09:38:00+05:30</updated>
     <summary>Value as essentiality in active units: Madhyasth Darshan&#x27;s forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared</summary>
-  </entry>
-  <entry>
-    <title>The Ontology of Coexistence</title>
-    <id>https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/</id>
-    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"/>
-    <updated>2026-09-06T18:31:00+05:30</updated>
-    <summary>Madhyasth Darshan&#x27;s account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy</summary>
   </entry>
   <entry>
     <title>Spiritual Practice and Realization</title>

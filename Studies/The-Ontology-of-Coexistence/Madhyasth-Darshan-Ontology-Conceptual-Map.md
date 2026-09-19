@@ -45,9 +45,11 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 **Concept.** Units are bounded, countable, formful realities. Every unit has form (*roop*), properties (*guna*), essential nature (*svabhav*), and *dharma*, but these do not form a static inventory of observable values. Form is the unit's real boundary and configuration and is reflected in mutual facing. *Guna* is relative power, effective when units come together. *Svabhav* is the essentiality or usefulness of that effect in an order and context. *Dharma* is the unit's inseparable innateness and fulfilment. Each unit remains an identifiable bearer and a whole with its environment while participating in overall orderliness. The peepal-tree example in the main study follows all four aspects through one pranic composition and distinguishes growth as *dharma* from seed-conformance as its mode of conduct.
 
-**Primary pointers.** SB, pp. 13–15, 48, 50–54, 248–252; MVD, pp. 11, 47, 50–51, 112; KD §3.1 and §§3.9–3.10, printed pp. 54–102.
+Truth of a unit is stated in three complementary aspects, not three worlds. Inherent truth (*vastugat satya*) is the unit's own form, properties, essential nature, and innateness. Positional truth (*vastu-sthiti satya*) is that same unit in place, time, and direction. Existential truth (*sthiti satya*) is nature saturated in Omnipresence. These complete one another; they are not Advaita's three tiers.
 
-**Read for.** Boundary and unitness; bearer and inseparable capacity; reflection and relative effect in definite mutuality; usefulness and value; natural and excited states; and the atom as the root quantity of physical, chemical, and *jeevan* activity.
+**Primary pointers.** SB, pp. 13–15, 48, 50–54, 248–252; MVD, pp. 11, 47, 50–51, 88, 97, 112; YAT; KD §3.1 and §§3.9–3.10, printed pp. 54–102.
+
+**Read for.** Boundary and unitness; bearer and inseparable capacity; reflection and relative effect in definite mutuality; the three complementary truths; usefulness and value; natural and excited states; and the atom as the root quantity of physical, chemical, and *jeevan* activity.
 
 ### 4. Saturation (*sampriktata*)
 
@@ -122,19 +124,19 @@ Integration–disintegration occurs among material constituents; vitalising–de
 
 ### 12. The five faculties and ten activities of *jeevan*
 
-**Concept.** Atma is the nucleus; buddhi, chitta, vritti, and mun are associated with successive orbits. Each faculty has an outward projection and an inward reflection activity. All ten activities belong to and continuously operate in *jeevan*; “four and a half” names their restricted effective organisation and bodily evidence in deluded human living, not absent faculties.
+**Concept.** Atma is the nucleus; buddhi, chitta, vritti, and mun are associated with successive orbits. Each faculty has an outward projection (*paravartan*) and an inward reflection (*pratyavartan*) activity. The brain (*medhas*) receives and translates signals between *jeevan* and the body; it is the medium, not the knower. Higher-conformance (*purvanukram*) is guidance descending from *atma* to *mun*; lower-conformance (*paranukram*) is sensory drive pushing inward. All ten activities belong to and continuously operate in *jeevan*; “four and a half” names their restricted effective organisation and bodily evidence in deluded human living, not absent faculties.
 
-**Primary pointers.** MVD, pp. 13, 77–78, 99–101, 126, 277–279, 328–348; JV, pp. 73–74, 92, 138; AVD, pp. 91–94; KD §§3.6, 3.11–3.12, printed pp. 70–118.
+**Primary pointers.** MVD, pp. 13, 77–78, 82–83, 99–101, 124, 126, 203, 207–208, 277–279, 328–348; JV, pp. 73–74, 92, 138–140; AVD, pp. 91–94; KD §§3.6, 3.11–3.12, printed pp. 70–118; PS, pp. 40–41.
 
 | Faculty | Projection | Reflection |
 |---|---|---|
 | Mun / hope | selection | taste-recognition |
 | Vritti / thought | analysis | deliberation |
-| Chitta / desire | visualisation | contemplation |
-| Buddhi | resolve | enlightenment |
+| Chitta / desire | visualisation | contemplation; direct apprehension (*sakshatkar*) |
+| Buddhi | resolve | comprehension (*bodh*) |
 | Atma | authenticity | realisation |
 
-The ten are enumerated in finer grain as named positions at each faculty, whose two members are again what the faculty bears in state and what carries it outward. The named values of the concept-19 families belong to that enumeration rather than standing beside it.
+The ten are enumerated in finer grain as named positions at each faculty, whose two members are again what the faculty bears in state and what carries it outward. The named values of the concept-19 families belong to that enumeration rather than standing beside it. Tasting at *mun* has sensory, value-based, and goal-based forms (*ruchi-mulak*, *mulya-mulak*, *lakshya-mulak*); development changes the governing orientation from sensory attraction toward relationship-fulfilment and the human goal. Projection of realisation is authenticity, resolve, visualisation, analysis, and selection into living conduct.
 
 **Read for.** The orbital account, force and power, projection and reflection, the distinction between inherent activity and effective bodily evidence, four-and-a-half activities in deluded human living, the finer-grained positions at which named values are borne, and the regulation of the faculties from atma in awakening.
 
@@ -164,7 +166,7 @@ The ten are enumerated in finer grain as named positions at each faculty, whose 
 
 ### 16. Regulation, law, justice, and orderliness
 
-**Concept.** Omnipresence does not command. Regulation is evident in saturated units through mediative organisation and order-specific conformance. Law is universal definite regulation; justice is the human completion of relationship through recognition, value-fulfilment, evaluation, and mutual satisfaction.
+**Concept.** Omnipresence does not command. Orderliness is self-regulation (*swatah-saspurt*) in the coexisting orders. Regulation is evident in saturated units through mediative organisation and order-specific conformance (*parinam-*, *beej-*, *vansh-*, and *sanskar-anushangita*). Law is universal definite regulation; justice is the human completion of relationship through recognition, value-fulfilment, evaluation, and mutual satisfaction.
 
 **Primary pointers.** MVD, pp. 15, 26–27, 67, 137, 161–162, 311; SB, pp. 57, 62–63, 69.
 
@@ -211,17 +213,17 @@ The figure and numbered guide show the core dependency structure. The following 
 
 When a composite form disintegrates, that organisation ends while its constituent realities persist in other relations. This is why conservation must not be expressed as the permanence of every composite unit.
 
-### Five value families and six individual value types
+### Thirty values (*tees mulya*)
 
-MVD presents five value families. Its object-value family contains two distinguishable values—utility and art—so separating them yields six individual value types.
+Value in the universal sense is essentiality (*maulikta*) and participation in orderliness. Usefulness is that essentiality as it appears in objects; it does not exhaust value in *jeevan* or in relationships. *Paribhasha Samhita* pp. 151 and 154 enumerate thirty values: four *jeevan*, six human, nine established, nine expressed, and two object values. The English translation of MVD renders *shishta-mulya* as civic values; they are the expressed pair of the established relationship values.
 
 | Value family | Content |
 |---|---|
 | Object values | Utility: definite usefulness of an object; art: meaningful aesthetic enhancement of usefulness |
 | *Jeevan* values | Happiness, peace, contentment, and bliss—the four harmonies among the faculties of *jeevan*, each borne as a named activity by the outer faculty of its pair |
 | Human values | The value-domain through which humaneness becomes evident; closely related humane and higher-humane essential natures include fortitude, courage, generosity, kindness, grace, and compassion |
-| Established values | The nine relationship values—trust, respect, affection, care, guidance, reverence, gratitude, glory, and love—borne at *chitta*, *vritti*, and *mun*, each paired with the civic value expressing it |
-| Civic values (*shishta-mulya*) | Right-use and purposeful-use of body, mind, and wealth in social participation; “expression values” is an explanatory alternative, not another family |
+| Established values | The nine relationship values—trust, respect, affection, care, guidance, reverence, gratitude, glory, and love—borne at *chitta*, *vritti*, and *mun* |
+| Expressed values (*shishta-mulya*) | The nine corresponding powers in motion: concordance, cordiality, dedication, generosity, naturalness, devoutness, simplicity, humility, and non-otherness |
 
 Object value is spread in units. The named values of the other four families are activities borne by *jeevan*'s faculties, defined in the same appendix of the primary texts that defines its activities (MVD, pp. 328–348; AVD, pp. 91–94; §§1.4, 1.7). Relationship supplies the recognised mutuality, value identifies what fulfils it, evaluation checks the fulfilment, and mutual satisfaction completes justice (§§1.4, 1.12).
 
@@ -317,3 +319,5 @@ For a detailed critical and comparative treatment, see [*The Ontology of Coexist
 - **JV** — A. Nagraj, [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), English translation by Rakesh Gupta.
 - **KD** — A. Nagraj, [*Manav Karm Darshan — Working English Rendering*](../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Use the Part 3 subsection and printed-page pointers above; this is a working rendering rather than a published English translation.
 - **AVD** — A. Nagraj, [*Adhyatmvad* (*Realisation Centred Spiritualism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), English translation by Sanjeev Chopra — work in progress. Pointed to only for the tabulated enumeration of the conducts of awakened *jeevan*; definitional content is taken from MVD.
+- **YAT** — A. Nagraj, [“Yatharthata, Vastavikta, Satyata”](https://originals.madhyasth.org/avdharna/yatharth). Cited for the three complementary truths in concept 3.
+- **Paribhasha** — A. Nagraj, [*Paribhasha Samhita*](https://www.madhyasth.org/browse-texts/browse-topics/definitions). Cited for the thirty-value classification (pp. 151, 154).
