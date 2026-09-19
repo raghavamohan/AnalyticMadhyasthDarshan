@@ -84,6 +84,17 @@ def test_submissions_nav_uses_work_icon() -> None:
     assert 'aria-current="page"' in html
 
 
+def test_shared_chrome_includes_theme_toggle() -> None:
+    from _site_chrome import THEME_BOOTSTRAP_SCRIPT, site_home_and_tools
+
+    html = site_home_and_tools(home_href="index.html", studies_prefix="", current="search")
+    assert 'id="theme-toggle"' in html
+    assert "#moon" in html
+    assert "#sun" in html
+    assert "amd-theme" in THEME_BOOTSTRAP_SCRIPT
+    assert 'getAttribute("data-theme"' in html
+
+
 def main() -> int:
     tests = [
         test_study_visuals_cover_the_catalog,
@@ -92,6 +103,7 @@ def main() -> int:
         test_waiters_keep_identity_motion_hooks,
         test_placeholder_fill_keeps_labels,
         test_submissions_nav_uses_work_icon,
+        test_shared_chrome_includes_theme_toggle,
     ]
     failed = 0
     for test in tests:

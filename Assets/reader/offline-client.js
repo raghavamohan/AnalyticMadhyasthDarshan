@@ -44,14 +44,29 @@
       const item = (await list()).find(n => n.path === path), current = document.querySelector('meta[name="amd-source-version"]')?.content;
       status.textContent = item ? description(item) + (item.version !== current ? ' This open study has a different version. Save again to update the copy.' : '') : 'This document is not saved offline.';
       $('offline-remove').hidden = !item; $('offline-save').textContent = item ? 'Update offline copy' : 'Save for offline reading';
+      const saved = Boolean(item);
+      const label = saved ? 'Saved ✓' : 'Save offline';
+      const aria = saved ? 'Update saved offline copy' : 'Save for offline reading';
+      for (const id of ['reader-offline','reader-offline-more']) {
+        const btn = $(id); if (!btn) continue;
+        const text = btn.querySelector('.reader-offline-label');
+        if (text) text.textContent = label; else btn.textContent = label;
+        btn.setAttribute('aria-label', aria);
+        btn.classList.toggle('is-saved', saved);
+      }
+    }
+    function setBusy(busy) {
+      for (const id of ['offline-save','offline-remove','reader-offline','reader-offline-more']) {
+        const btn = $(id); if (btn) btn.disabled = busy;
+      }
     }
     if (!wired) {
       wired = true;
       $('offline-save').addEventListener('click',async () => {
-        $('offline-save').disabled = $('offline-remove').disabled = true;
+        setBusy(true);
         try { status.textContent = 'Preparing offline reading…'; await action('SAVE',path,text => { status.textContent = text; }); await check(); }
         catch (error) { status.textContent = error.message; }
-        finally { $('offline-save').disabled = $('offline-remove').disabled = false; }
+        finally { setBusy(false); }
       });
       $('offline-remove').addEventListener('click',async () => {
         try { await action('REMOVE',path); await check(); status.textContent = 'Saved study copy removed. Your notes and bookmarks are retained.'; }
@@ -63,7 +78,7 @@
   async function library() {
     const status = $('offline-library-status'), root = $('offline-library'); root.replaceChildren();
     try {
-      const items = await list(); status.textContent = items.length ? `${items.length} saved documents. Open one using its title.` : 'No offline studies yet. In a study, open Display → Offline reading to save it.';
+      const items = await list(); status.textContent = items.length ? `${items.length} saved documents. Open one using its title.` : 'No offline studies yet. In a study, use Save offline in the toolbar.';
       for (const item of items) {
         const li = document.createElement('li'), link = document.createElement('a'), details = document.createElement('p'), remove = document.createElement('button');
         link.href = item.path; link.textContent = item.title; details.textContent = description(item); remove.type = 'button'; remove.textContent = 'Remove saved copy';

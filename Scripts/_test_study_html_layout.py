@@ -106,6 +106,9 @@ def test_study_toolbar_is_two_rows_without_the_study_title() -> None:
 
     assert "A Very Long Study Title" not in toolbar
     assert toolbar.count('class="study-toolbar-row ') == 2
+    assert 'id="reader-progress"' in toolbar
+    assert 'id="reader-offline"' in toolbar
+    assert 'id="reader-offline-more"' in toolbar
     assert 'class="study-toolbar-more"' in toolbar
     assert 'aria-label="Back to all studies">&larr; Studies</a>' in toolbar
     assert 'aria-label="Download PDF">PDF</a>' in toolbar

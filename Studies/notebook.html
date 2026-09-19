@@ -19,14 +19,14 @@
 }catch(e){}})();
 </script>
 <script type="application/json" id="reader-document-visual">{"icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"amd-topic-icon\" aria-hidden=\"true\" focusable=\"false\"><g fill=\"none\" stroke=\"var(--amd-icon,#1A5276)\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 6C9 3 5 3 2 4v15c4-1 7 0 10 2 3-2 6-3 10-2V4c-3-1-7-1-10 2ZM12 6v15\"/><g stroke=\"var(--amd-accent,#B47B46)\"><path d=\"M5 8h3M16 8h3M5 12h3M16 12h3\"/><\/g><\/g><\/svg>", "status": ""}</script>
-<link rel="stylesheet" media="screen" href="../Assets/reader/reader.css?v=7529355e01285032"/>
-<link rel="stylesheet" media="screen" href="../Assets/reader/search.css?v=a419b4f54c4437ff"/>
+<link rel="stylesheet" media="screen" href="../Assets/reader/reader.css?v=7e986ad2c779a090"/>
+<link rel="stylesheet" media="screen" href="../Assets/reader/search.css?v=fa9aa7468153e817"/>
 <link rel="stylesheet" media="screen" href="../Assets/reader/study-tools.css?v=4290a1b1171cdcfb"/><script defer src="../Assets/reader/search.js?v=f9194e7cdcfef23f"></script>
 <script defer src="../Assets/reader/reader-features.js?v=507b4490fab797a0"></script>
 <script defer src="../Assets/reader/notes-core.js?v=cf0d5435124d9148"></script>
 <script defer src="../Assets/reader/speech-core.js?v=45e096e2a4fe78eb"></script>
-<script defer src="../Assets/reader/study-tools.js?v=464b29bd9b4851fb" data-offline-client="../Assets/reader/offline-client.js?v=3eb68287b9159c33"></script>
-<script defer src="../Assets/reader/reader.js?v=3f71fa4aa00cf4c4"></script><style media="screen">:root {
+<script defer src="../Assets/reader/study-tools.js?v=1928f590ba101b6c" data-offline-client="../Assets/reader/offline-client.js?v=199e595372ea81b0"></script>
+<script defer src="../Assets/reader/reader.js?v=a845142273b79448"></script><style media="screen">:root {
   --amd-navy: #1a5276;
   --amd-gold: #b47b46;
   --amd-gold-text: #8b5e34;
@@ -85,8 +85,67 @@
 .site-chrome-link[aria-current="page"] { text-decoration:underline; text-underline-offset:3px; }
 .site-chrome-nav .amd-home { display:inline-flex; align-items:center; gap:8px; color:inherit; text-decoration:none; font-weight:600; min-height:44px; }
 .site-chrome-nav .amd-home .amd-mark { width:32px; height:32px; }
-.notebook-nav .amd-topic-icon { width: 20px; height: 20px; }</style></head>
-<body class="notebook-page reader-chrome"><nav class="site-chrome-nav" aria-label="Study navigation"><a class="amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><div class="site-chrome-tools"><a class="site-chrome-link" href="search.html" title="Find words and phrases inside studies and companion notes."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span class="nav-link-label">Search</span></a><a class="site-chrome-link" href="notebook.html" aria-current="page" title="Open your highlights, notes and offline studies saved in this browser."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#notes"></use></svg><span class="nav-link-label">My Notes</span></a><a class="site-chrome-link" href="submit.html" title="Use GitHub sign-in to propose studies, submit drafts and follow reviews."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#work"></use></svg><span class="nav-link-label">My Submissions</span></a></div></nav>
+.site-chrome-tools .theme-toggle {
+  flex: 0 0 auto;
+  font: 600 13px/1 inherit;
+  color: inherit;
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 0 10px;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 32px;
+}
+.site-chrome-tools .theme-toggle:hover { opacity: 0.85; }
+.site-chrome-tools .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.theme-toggle .amd-icon { width: 18px; height: 18px; }
+.theme-toggle-icon { display: inline-flex; align-items: center; }
+.theme-icon-sun { display: none; }
+[data-theme="dark"] .theme-icon-sun { display: inline-flex; }
+[data-theme="dark"] .theme-icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .theme-icon-sun { display: inline-flex; }
+  html:not([data-theme]) .theme-icon-moon { display: none; }
+}
+#theme-toggle-label { display: inline-block; min-width: 2.75em; text-align: left; }
+@media (max-width: 640px) {
+  #theme-toggle-label { display: none; }
+  .site-chrome-tools .theme-toggle { min-width: 36px; padding: 0 8px; }
+}
+.notebook-nav .amd-topic-icon { width: 20px; height: 20px; }
+body.notebook-page { background: var(--reader-surface); color: var(--reader-ink); }</style></head>
+<body class="notebook-page reader-chrome"><nav class="site-chrome-nav" aria-label="Study navigation"><a class="amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><div class="site-chrome-tools"><a class="site-chrome-link" href="search.html" title="Find words and phrases inside studies and companion notes."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span class="nav-link-label">Search</span></a><a class="site-chrome-link" href="notebook.html" aria-current="page" title="Open your highlights, notes and offline studies saved in this browser."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#notes"></use></svg><span class="nav-link-label">My Notes</span></a><a class="site-chrome-link" href="submit.html" title="Use GitHub sign-in to propose studies, submit drafts and follow reviews."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#work"></use></svg><span class="nav-link-label">My Submissions</span></a><button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme"><span class="theme-toggle-icon" aria-hidden="true"><span class="theme-icon-moon"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#moon"></use></svg></span><span class="theme-icon-sun"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#sun"></use></svg></span></span><span id="theme-toggle-label">Dark</span></button></div></nav><script>
+(function(){
+  var root=document.documentElement;
+  var btn=document.getElementById("theme-toggle");
+  if(!btn)return;
+  var system=window.matchMedia("(prefers-color-scheme: dark)");
+  function active(){
+    var t=root.getAttribute("data-theme");
+    if(t==="dark")return "dark";
+    if(t==="light"||t==="sepia")return "light";
+    return system.matches?"dark":"light";
+  }
+  function paint(){
+    var next=active()==="dark"?"Light":"Dark";
+    var label=document.getElementById("theme-toggle-label");
+    if(label)label.textContent=next;
+    btn.setAttribute("aria-label","Switch to "+next.toLowerCase()+" theme");
+  }
+  btn.addEventListener("click",function(){
+    var next=active()==="dark"?"light":"dark";
+    root.setAttribute("data-theme",next);
+    try{localStorage.setItem("amd-theme",next);}catch(e){}
+    paint();
+  });
+  if(system.addEventListener)system.addEventListener("change",paint);
+  paint();
+})();
+</script>
 <main id="notebook"><h1>My notes &amp; saved studies</h1>
 <nav class="notebook-nav" aria-label="Notebook sections"><a class="amd-action" href="#notebook-notes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="amd-topic-icon" aria-hidden="true" focusable="false"><g fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h12l4 4v16H4ZM15 2v5h5M8 11h8M8 15h8M8 19h5"/></g></svg>Private notes</a><a class="amd-action" href="#saved-studies"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="amd-topic-icon" aria-hidden="true" focusable="false"><g fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6C9 3 5 3 2 4v15c4-1 7 0 10 2 3-2 6-3 10-2V4c-3-1-7-1-10 2ZM12 6v15"/><g stroke="var(--amd-accent,#B47B46)"><path d="M5 8h3M16 8h3M5 12h3M16 12h3"/></g></g></svg>Saved studies</a></nav>
 <h2>Private notes</h2><section id="notebook-notes">

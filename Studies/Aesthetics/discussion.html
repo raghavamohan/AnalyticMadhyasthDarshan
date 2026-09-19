@@ -33,6 +33,9 @@
 {"@context": "https://schema.org", "@type": "DiscussionForumPosting", "headline": "Discussion: Aesthetics", "url": "https://analyticmadhyasthdarshan.org/Studies/Aesthetics/discussion.html", "about": "Aesthetics", "isPartOf": {"@type": "WebSite", "name": "AnalyticMadhyasthDarshan.org", "url": "https://analyticmadhyasthdarshan.org/"}}
 </script>
 <script>
+(function(){try{var t=localStorage.getItem("amd-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
+</script>
+<script>
 (function(){
   var key="amd-discuss-auth-v1";
   try {
@@ -46,14 +49,41 @@
   } catch(e) {}
 })();
 </script>
-<link rel="stylesheet" href="../assets/discuss.css?v=8">
+<link rel="stylesheet" href="../assets/discuss.css?v=9">
 </head>
 <body>
 <div class="wrap">
   <header class="discuss-header">
     <nav class="discuss-toolbar" aria-label="Discussion navigation">
       <div class="discuss-toolbar-row">
-        <div class="discuss-toolbar-home"><nav class="site-chrome-nav" aria-label="Study navigation"><a class="amd-home" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><div class="site-chrome-tools"><a class="site-chrome-link" href="../search.html" title="Find words and phrases inside studies and companion notes."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span class="nav-link-label">Search</span></a><a class="site-chrome-link" href="../notebook.html" title="Open your highlights, notes and offline studies saved in this browser."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#notes"></use></svg><span class="nav-link-label">My Notes</span></a><a class="site-chrome-link" href="../submit.html" title="Use GitHub sign-in to propose studies, submit drafts and follow reviews."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#work"></use></svg><span class="nav-link-label">My Submissions</span></a></div></nav></div>
+        <div class="discuss-toolbar-home"><nav class="site-chrome-nav" aria-label="Study navigation"><a class="amd-home" href="../index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><div class="site-chrome-tools"><a class="site-chrome-link" href="../search.html" title="Find words and phrases inside studies and companion notes."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span class="nav-link-label">Search</span></a><a class="site-chrome-link" href="../notebook.html" title="Open your highlights, notes and offline studies saved in this browser."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#notes"></use></svg><span class="nav-link-label">My Notes</span></a><a class="site-chrome-link" href="../submit.html" title="Use GitHub sign-in to propose studies, submit drafts and follow reviews."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#work"></use></svg><span class="nav-link-label">My Submissions</span></a><button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme"><span class="theme-toggle-icon" aria-hidden="true"><span class="theme-icon-moon"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#moon"></use></svg></span><span class="theme-icon-sun"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#sun"></use></svg></span></span><span id="theme-toggle-label">Dark</span></button></div></nav><script>
+(function(){
+  var root=document.documentElement;
+  var btn=document.getElementById("theme-toggle");
+  if(!btn)return;
+  var system=window.matchMedia("(prefers-color-scheme: dark)");
+  function active(){
+    var t=root.getAttribute("data-theme");
+    if(t==="dark")return "dark";
+    if(t==="light"||t==="sepia")return "light";
+    return system.matches?"dark":"light";
+  }
+  function paint(){
+    var next=active()==="dark"?"Light":"Dark";
+    var label=document.getElementById("theme-toggle-label");
+    if(label)label.textContent=next;
+    btn.setAttribute("aria-label","Switch to "+next.toLowerCase()+" theme");
+  }
+  btn.addEventListener("click",function(){
+    var next=active()==="dark"?"light":"dark";
+    root.setAttribute("data-theme",next);
+    try{localStorage.setItem("amd-theme",next);}catch(e){}
+    paint();
+  });
+  if(system.addEventListener)system.addEventListener("change",paint);
+  paint();
+})();
+</script></div>
         <h1 class="discuss-toolbar-title">Aesthetics <span class="status-badge status-badge--draft">Draft</span></h1>
         <span class="discuss-toolbar-actions">
           <a id="discuss-read-study" class="discuss-toolbar-link amd-action" href="Aesthetics.html"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#learning"></use></svg>Read the study</a>
@@ -70,7 +100,7 @@
 
   <section id="sign-in-panel" class="action-panel hidden" aria-labelledby="sign-in-heading">
     <h2 id="sign-in-heading">Sign in to comment</h2>
-    <p class="auth-sign-in-note">Enter your email and display name. We will send a one-time sign-in link.</p>
+    <p class="auth-sign-in-note">Commenting uses an email sign-in link, not GitHub. Study proposals on My Submissions use GitHub. Enter your email and display name, and we will send a one-time sign-in link.</p>
     <form id="magic-link-form" class="auth-row">
       <div class="auth-grid">
         <label>Email<input type="email" name="email" autocomplete="email" required></label>
@@ -126,6 +156,6 @@
   if(panel)panel.classList.remove("hidden");
 })();
 </script>
-<script src="../assets/discuss.js?v=8"></script>
+<script src="../assets/discuss.js?v=9"></script>
 </body>
 </html>

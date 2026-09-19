@@ -349,12 +349,33 @@
     if (item) { link.href = '#' + encodeURIComponent(item.id); link.title = item.text; }
     else { link.removeAttribute('href'); link.removeAttribute('title'); }
   }
+  function updateProgress() {
+    const meter = $('reader-progress'), bar = $('reader-progress-bar');
+    if (!meter || !bar) return;
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const pct = Math.max(0, Math.min(100, Math.round((scrollY / max) * 100)));
+    bar.style.width = pct + '%';
+    meter.setAttribute('aria-valuenow', String(pct));
+  }
+  const compactQuery = matchMedia('(max-width: 640px)');
+  let lastCompactY = 0;
+  function updateCompact() {
+    if (!compactQuery.matches || scrollY < 12) {
+      root.removeAttribute('data-reader-compact');
+      lastCompactY = scrollY;
+      return;
+    }
+    if (scrollY > lastCompactY + 8) root.setAttribute('data-reader-compact','');
+    else if (scrollY < lastCompactY - 4) root.removeAttribute('data-reader-compact');
+    lastCompactY = scrollY;
+  }
+  compactQuery.addEventListener('change',() => { if (!compactQuery.matches) root.removeAttribute('data-reader-compact'); });
   function updatePosition() {
     const y = scrollY + marker(), index = readingIndex(headings,y), major = readingIndex(sections,y);
     const current = headings[index];
     if (index !== currentIndex) {
       currentIndex = index;
-      $('reader-current').textContent = (major >= 0 ? `Section ${major + 1} of ${sections.length} · ` : '') + (current?.text || 'Introduction');
+      $('reader-current').textContent = (major >= 0 ? `§ ${major + 1} / ${sections.length} · ` : '') + (current?.text || 'Introduction');
       $('reader-current').title = current?.text || 'Introduction';
     }
     if (major !== sectionIndex) {
@@ -377,6 +398,7 @@
       }
     }
     updatePlaceTools();
+    updateProgress();
   }
   $('study-section-prev').addEventListener('click',event => {
     event.preventDefault(); const i = readingIndex(sections,scrollY + marker()); if (i > 0) visitHeading(sections[i - 1]);
@@ -388,6 +410,7 @@
     // Opening the sidebar can shift the page before its layout is restored.
     // That movement must not discard the passage the reader just chose.
     if (clickedPassage && !geometryTimer && Math.abs(scrollY - clickedScrollY) > 2) clickedPassage = null;
+    updateCompact();
     if (!frame) frame = requestAnimationFrame(() => { frame = 0; updatePosition(); });
     clearTimeout(saveTimer); saveTimer = setTimeout(persistPosition,700);
   },{ passive: true });

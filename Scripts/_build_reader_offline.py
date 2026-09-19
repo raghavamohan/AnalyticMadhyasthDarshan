@@ -69,7 +69,8 @@ def notebook_html() -> str:
 <html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>My notes &amp; saved studies</title><meta name="robots" content="noindex"/>
 {favicon_link_tags()}{site_feed_link_tags()}{reader_bootstrap()}{css}{scripts}<style media="screen">{THEME_MOTION_CSS}{SITE_CHROME_CSS}
-.notebook-nav .amd-topic-icon {{ width: 20px; height: 20px; }}</style></head>
+.notebook-nav .amd-topic-icon {{ width: 20px; height: 20px; }}
+body.notebook-page {{ background: var(--reader-surface); color: var(--reader-ink); }}</style></head>
 <body class="notebook-page reader-chrome">{site_home_and_tools(home_href="index.html", studies_prefix="", current="notebook")}
 <main id="notebook"><h1>My notes &amp; saved studies</h1>
 <nav class="notebook-nav" aria-label="Notebook sections"><a class="amd-action" href="#notebook-notes">{topic_icon_html("notes")}Private notes</a><a class="amd-action" href="#saved-studies">{topic_icon_html("learning")}Saved studies</a></nav>

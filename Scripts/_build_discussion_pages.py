@@ -21,7 +21,7 @@ from _common import (  # noqa: E402
     write_text_lf,
 )
 from _discussion_assets import ASSET_VERSION  # noqa: E402
-from _site_chrome import SITE_CHROME_CSS, site_feed_link_tags, site_home_and_tools  # noqa: E402
+from _site_chrome import SITE_CHROME_CSS, THEME_BOOTSTRAP_SCRIPT, site_feed_link_tags, site_home_and_tools  # noqa: E402
 from _theme_icons import THEME_MOTION_CSS, comments_loading_html, ui_icon_html  # noqa: E402
 from _study_catalog import (  # noqa: E402
     CATALOG_TABLES,
@@ -446,8 +446,12 @@ a { color: var(--accent); }
 @media (max-width: 600px) {
   .auth-grid { grid-template-columns: 1fr; }
 }
-@media (prefers-color-scheme: dark) {
-  :root {
+"""
+
+
+def _discuss_dark_css(root: str) -> str:
+    child = f"{root} "
+    return f"""{root} {{
     --bg: #171411;
     --surface: #211c18;
     --text: #f2ebe1;
@@ -455,33 +459,40 @@ a { color: var(--accent); }
     --accent: #7ebbed;
     --accent-soft: #1a3344;
     --border: #3a322b;
-  }
-  .comment { background: #1a1613; }
-  .alert-error { background: #3a1714; color: #ffb4a9; border-color: #7f2d25; }
-  .alert-success { background: #142818; color: #a8d5a8; border-color: #2f5c31; }
-  .btn-primary { color: #102030; }
-  .auth-row input, .auth-row textarea, .reply-form textarea {
+  }}
+  {child}.comment {{ background: #1a1613; }}
+  {child}.alert-error {{ background: #3a1714; color: #ffb4a9; border-color: #7f2d25; }}
+  {child}.alert-success {{ background: #142818; color: #a8d5a8; border-color: #2f5c31; }}
+  {child}.btn-primary {{ color: #102030; }}
+  {child}.auth-row input, {child}.auth-row textarea, {child}.reply-form textarea {{
     background-color: #26201b;
     color: var(--text);
     border-color: #433931;
-  }
-  .auth-row textarea:focus, .auth-row input:focus, .reply-form textarea:focus {
+  }}
+  {child}.auth-row textarea:focus, {child}.auth-row input:focus, {child}.reply-form textarea:focus {{
     border-color: var(--accent);
     outline: none;
-  }
-  .discuss-toolbar { background: rgba(26, 24, 21, 0.92); border-color: #423b33; }
-  .comments-error { color: #aca194; }
-  .comments-retry { color: #7ebbed; }
-  .comments-retry:hover { color: #b8daf3; }
-  .discuss-toolbar-link { color: #7ebbed; }
-  .discuss-toolbar-link:hover { color: #b8daf3; }
-  .discuss-toolbar-title { color: #f5f1ec; }
-  .planned-callout { background: #211c18; border-color: #3a322b; border-left-color: #d97706; }
-  .planned-callout h2 { color: #fcd34d; }
-  .new-divider { color: #f0c78a; }
-  .new-divider::before { border-top-color: #6b4518; }
-}
+  }}
+  {child}.discuss-toolbar {{ background: rgba(26, 24, 21, 0.92); border-color: #423b33; }}
+  {child}.comments-error {{ color: #aca194; }}
+  {child}.comments-retry {{ color: #7ebbed; }}
+  {child}.comments-retry:hover {{ color: #b8daf3; }}
+  {child}.discuss-toolbar-link {{ color: #7ebbed; }}
+  {child}.discuss-toolbar-link:hover {{ color: #b8daf3; }}
+  {child}.discuss-toolbar-title {{ color: #f5f1ec; }}
+  {child}.planned-callout {{ background: #211c18; border-color: #3a322b; border-left-color: #d97706; }}
+  {child}.planned-callout h2 {{ color: #fcd34d; }}
+  {child}.new-divider {{ color: #f0c78a; }}
+  {child}.new-divider::before {{ border-top-color: #6b4518; }}
 """
+
+
+DISCUSS_CSS += (
+    _discuss_dark_css('html[data-theme="dark"]')
+    + "@media (prefers-color-scheme: dark) {\n"
+    + _discuss_dark_css("html:not([data-theme])")
+    + "}\n"
+)
 
 
 DISCUSS_JS = r"""(() => {
@@ -1229,6 +1240,7 @@ def render_discussion_page(row: StudyRow) -> str:
 <script type="application/ld+json">
 {ld_json}
 </script>
+{THEME_BOOTSTRAP_SCRIPT}
 {AUTH_BOOTSTRAP_SCRIPT}
 <link rel="stylesheet" href="{css_href}">
 </head>
@@ -1252,7 +1264,7 @@ def render_discussion_page(row: StudyRow) -> str:
 {planned_callout}
   <section id="sign-in-panel" class="action-panel hidden" aria-labelledby="sign-in-heading">
     <h2 id="sign-in-heading">Sign in to comment</h2>
-    <p class="auth-sign-in-note">Enter your email and display name. We will send a one-time sign-in link.</p>
+    <p class="auth-sign-in-note">Commenting uses an email sign-in link, not GitHub. Study proposals on My Submissions use GitHub. Enter your email and display name, and we will send a one-time sign-in link.</p>
     <form id="magic-link-form" class="auth-row">
       <div class="auth-grid">
         <label>Email<input type="email" name="email" autocomplete="email" required></label>

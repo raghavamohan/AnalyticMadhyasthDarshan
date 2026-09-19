@@ -198,5 +198,8 @@ catalog / Start here order, not proposal-number order.
 - Public site cutover to `amd-site` (`SITE_RELEASES_ENABLED=true`). HTML and
   generated/reference PDFs are Worker-served; do not reopen GitHub Pages hosting.
 - Website `SITE-01`, `SITE-02`, `UX-01`–`UX-03`, `OPS-01` (PR #493).
+- Shared `amd-theme` toggle, dual-search hint, reader progress/offline, mobile
+  glossary sheet, Start here chips, and portal `<div class="back-link">` UX
+  repairs.
 - Infrastructure `CF-SLO`, `CF-ANALYTICS`, `CF-SSL`, and `CF-BOTS` (18 September
   2026). Remaining: `CF-PDF-CACHE` (after `UX-06`) and deferred `CF-HSTS`.

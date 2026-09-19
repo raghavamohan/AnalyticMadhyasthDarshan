@@ -543,9 +543,12 @@ def _study_toolbar_html(md_path: Path, *, title: str) -> str:
   <div class="study-toolbar-row study-toolbar-row--primary">
     <span class="reader-toolbar-start"><a class="study-toolbar-link study-toolbar-back study-toolbar-control" href="{catalog_href}" aria-label="Back to all studies">&larr; Studies</a>
       <button type="button" class="study-toolbar-control" id="reader-open" aria-controls="reader-tools" aria-expanded="false" title="Show contents and study tools" hidden>Contents &amp; tools <span class="reader-disclosure" aria-hidden="true">&#9662;</span></button></span>
-    <details class="study-toolbar-more">
+    <span class="reader-toolbar-end">
+      <button type="button" class="study-toolbar-control" id="reader-offline" aria-label="Save for offline reading"><span class="reader-offline-label">Save offline</span></button>
+      <details class="study-toolbar-more">
       <summary class="study-toolbar-control">More <span class="reader-disclosure" aria-hidden="true">&#9662;</span></summary>
       <span class="study-toolbar-actions">
+      <button type="button" class="study-toolbar-link" id="reader-offline-more">Save offline</button>
       <a class="study-toolbar-link study-toolbar-discuss" href="{discuss_href}">Discuss</a>
       <a class="study-toolbar-link study-toolbar-download" href="{pdf_href}" download aria-label="Download PDF">PDF</a>
       <a class="study-toolbar-link study-toolbar-feedback" href="{feedback_href}" aria-label="Suggest a correction">Suggest edit</a>
@@ -555,12 +558,14 @@ def _study_toolbar_html(md_path: Path, *, title: str) -> str:
         <a class="study-toolbar-link" href="{catalog_href.split('#')[0]}#approach">Our approach</a>
       </span>
     </details>
+    </span>
   </div>
   <div class="study-toolbar-row study-toolbar-row--sections">
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--prev" id="study-section-prev" href="#" aria-disabled="true">&larr; Previous section</a>
     <span id="reader-current" aria-label="Current section">Introduction</span>
     <a class="study-toolbar-link study-toolbar-section study-toolbar-section--next" id="study-section-next" href="#" aria-disabled="true">Next section &rarr;</a>
   </div>
+  <div class="study-toolbar-progress" id="reader-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Reading progress"><span id="reader-progress-bar"></span></div>
 </nav>
 """
 
@@ -577,15 +582,30 @@ def _term_tip_js() -> str:
     floatPanel.hidden = true;
     document.body.appendChild(floatPanel);
   }
+  let backdrop = document.getElementById("term-tip-backdrop");
+  if (!backdrop) {
+    backdrop = document.createElement("button");
+    backdrop.type = "button";
+    backdrop.id = "term-tip-backdrop";
+    backdrop.className = "term-tip-backdrop";
+    backdrop.setAttribute("aria-label", "Dismiss definition");
+    backdrop.hidden = true;
+    document.body.appendChild(backdrop);
+  }
   let activeButton = null;
   let pinnedButton = null;
+  const sheet = () => window.matchMedia("(max-width: 600px)").matches;
 
   const hide = () => {
     if (activeButton) activeButton.setAttribute("aria-expanded", "false");
     activeButton = null;
-    floatPanel.classList.remove("is-visible");
+    floatPanel.classList.remove("is-visible", "is-sheet");
     floatPanel.hidden = true;
-    floatPanel.textContent = "";
+    floatPanel.replaceChildren();
+    floatPanel.style.top = "";
+    floatPanel.style.left = "";
+    backdrop.hidden = true;
+    backdrop.classList.remove("is-visible");
   };
 
   const show = (button, text) => {
@@ -594,19 +614,48 @@ def _term_tip_js() -> str:
     }
     activeButton = button;
     button.setAttribute("aria-expanded", "true");
-    floatPanel.textContent = text;
+    floatPanel.replaceChildren();
+    const body = document.createElement("p");
+    body.className = "term-tip-definition";
+    body.textContent = text;
+    floatPanel.append(body);
+    const mobile = sheet();
+    if (mobile) {
+      const close = document.createElement("button");
+      close.type = "button";
+      close.className = "term-tip-close";
+      close.setAttribute("aria-label", "Close definition");
+      close.textContent = "Close";
+      close.addEventListener("click", event => {
+        event.stopPropagation();
+        pinnedButton = null;
+        hide();
+      });
+      floatPanel.append(close);
+      floatPanel.classList.add("is-sheet");
+      backdrop.hidden = false;
+      backdrop.classList.add("is-visible");
+    } else {
+      floatPanel.classList.remove("is-sheet");
+      backdrop.hidden = true;
+      backdrop.classList.remove("is-visible");
+    }
     floatPanel.hidden = false;
     floatPanel.classList.add("is-visible");
-    const rect = button.getBoundingClientRect();
-    const margin = 8;
-    let top = rect.top - floatPanel.offsetHeight - margin;
-    if (top < margin) top = rect.bottom + margin;
-    let left = rect.left;
-    const maxLeft = window.innerWidth - floatPanel.offsetWidth - margin;
-    if (left > maxLeft) left = Math.max(margin, maxLeft);
-    floatPanel.style.top = `${Math.max(8, top)}px`;
-    floatPanel.style.left = `${Math.max(8, left)}px`;
+    if (!mobile) {
+      const rect = button.getBoundingClientRect();
+      const margin = 8;
+      let top = rect.top - floatPanel.offsetHeight - margin;
+      if (top < margin) top = rect.bottom + margin;
+      let left = rect.left;
+      const maxLeft = window.innerWidth - floatPanel.offsetWidth - margin;
+      if (left > maxLeft) left = Math.max(margin, maxLeft);
+      floatPanel.style.top = `${Math.max(8, top)}px`;
+      floatPanel.style.left = `${Math.max(8, left)}px`;
+    }
   };
+
+  floatPanel.addEventListener("click", event => event.stopPropagation());
 
   document.querySelectorAll(".term-tip").forEach(button => {
     const definition = button.getAttribute("data-definition");
@@ -615,16 +664,16 @@ def _term_tip_js() -> str:
     button.setAttribute("aria-expanded", "false");
     const reveal = () => show(button, definition);
     button.addEventListener("mouseenter", () => {
-      if (!pinnedButton) reveal();
+      if (!pinnedButton && !sheet()) reveal();
     });
     button.addEventListener("focus", () => {
       if (!pinnedButton || pinnedButton === button) reveal();
     });
     button.addEventListener("mouseleave", () => {
-      if (!pinnedButton) hide();
+      if (!pinnedButton && !sheet()) hide();
     });
     button.addEventListener("blur", () => {
-      if (!pinnedButton) hide();
+      if (!pinnedButton && !sheet()) hide();
     });
     button.addEventListener("click", event => {
       event.stopPropagation();
@@ -638,15 +687,14 @@ def _term_tip_js() -> str:
     });
   });
 
-  document.addEventListener("click", () => {
+  const dismiss = () => {
     pinnedButton = null;
     hide();
-  });
+  };
+  document.addEventListener("click", dismiss);
+  backdrop.addEventListener("click", dismiss);
   document.addEventListener("keydown", event => {
-    if (event.key === "Escape") {
-      pinnedButton = null;
-      hide();
-    }
+    if (event.key === "Escape") dismiss();
   });
 })();
 </script>
@@ -732,6 +780,9 @@ _STUDY_DARK_DECLARATIONS = """
       background: rgba(26, 24, 21, 0.92);
       border-color: #423b33;
     }
+    #reader-progress-bar { background: #7ebbed; }
+    .term-tip-backdrop { background: rgba(0, 0, 0, 0.55); }
+    .term-tip-close { color: #7ebbed; background: #1e1b18; border-color: #423b33; }
     .study-toolbar-link { color: #7ebbed; }
     .study-toolbar-link:hover { color: #b8daf3; }
     .study-toolbar-section.is-disabled { color: #6f655a; }
@@ -1111,10 +1162,52 @@ def convert_to_html(
     box-shadow: 0 4px 14px rgba(42, 36, 28, 0.12);
     text-align: left;
     pointer-events: none;
+    user-select: text;
   }
   .term-tip-panel.is-visible {
     display: block;
+    pointer-events: auto;
   }
+  .term-tip-definition { margin: 0; }
+  .term-tip-close {
+    display: none;
+    margin-top: 12px;
+    font: 600 13px/1.3 'Segoe UI', system-ui, sans-serif;
+    color: #1a5276;
+    background: #f7f4ef;
+    border: 1px solid #d8d2c8;
+    border-radius: 8px;
+    min-height: 44px;
+    width: 100%;
+    cursor: pointer;
+  }
+  .term-tip-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 39;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background: rgba(26, 24, 21, 0.35);
+  }
+  .term-tip-backdrop.is-visible { display: block; }
+  .term-tip-panel.is-sheet {
+    top: auto !important;
+    left: 0 !important;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    max-height: min(70vh, 28rem);
+    overflow: auto;
+    border-radius: 16px 16px 0 0;
+    padding: 16px 16px 20px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .term-tip-panel.is-sheet .term-tip-close { display: block; }
   .study-toolbar {
     display: flex;
     flex-direction: column;
@@ -1131,6 +1224,23 @@ def convert_to_html(
     background: rgba(247, 244, 239, 0.92);
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
+  }
+  .reader-toolbar-end { display: flex; align-items: center; gap: 4px; justify-self: end; }
+  .study-toolbar-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    overflow: hidden;
+    pointer-events: none;
+    background: transparent;
+  }
+  #reader-progress-bar {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #1a5276;
   }
   .study-toolbar-row {
     display: grid;
@@ -1383,7 +1493,7 @@ def convert_to_html(
       color: inherit;
       cursor: text;
     }
-    .term-tip-panel { display: none !important; }
+    .term-tip-panel, .term-tip-backdrop { display: none !important; }
   }
 """
 

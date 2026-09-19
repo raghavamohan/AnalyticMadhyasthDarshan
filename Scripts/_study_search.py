@@ -16,7 +16,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 from _common import BASE, write_text_lf, favicon_link_tags
-from _site_chrome import SITE_CHROME_CSS, site_feed_link_tags, site_home_and_tools
+from _site_chrome import SITE_CHROME_CSS, THEME_BOOTSTRAP_SCRIPT, site_feed_link_tags, site_home_and_tools
 from _theme_icons import THEME_MOTION_CSS, search_wait_html, ui_icon_html
 from _study_passages import clean_text, search_text
 from _study_pdf_metadata import StudyStatus, iter_pdf_study_rows
@@ -140,6 +140,7 @@ def search_page(manifest_version: str) -> str:
 <link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/search.html"/>
 {favicon_link_tags()}
 {site_feed_link_tags()}
+{THEME_BOOTSTRAP_SCRIPT}
 <style>{THEME_MOTION_CSS}{SITE_CHROME_CSS}</style>
 <link rel="stylesheet" href="../Assets/reader/search.css?v={css}"/>
 <script defer src="../Assets/reader/search.js?v={js}"></script></head>
