@@ -24,7 +24,7 @@ When an item is finished, remove the row and add a one-line note under
 1. Author-review the five Start here audio transcripts, beginning with
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
-2. Website next: `UX-04`–`UX-06` (device/AT matrix, recovery check, fresh RUM), then `DIS-01`.
+2. Website next: `AUTH-01` Phase 0 (isolated staging), followed by its four product/cutover phases; coordinate recovery acceptance with `UX-05`. `UX-04`/`UX-06` remain later and `DIS-01` remains outside this cycle.
 3. CI `R1` (Worker canaries before promotion).
 4. `R2-RIGHTS` (fourteen retained third-party PDFs).
 5. `TR-PILOT` (listen through the five-video transcription pilot).
@@ -36,12 +36,12 @@ Design and evaluation matrix:
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
+| AUTH-01 | P1 | pending | Implement the [final unified email sign-in plan](docs/unified-email-sign-in-plan.md): Phase 0 isolates staging/auth infrastructure and publication; Phases 1-4 deliver shared identity/UI, contribution ownership and PR revisions, review replies/corrections, then single-user cutover. Includes Issue/PR and API contracts, notification ownership, and public-read preservation. Confirm resource names before provisioning; architecture is settled. Incorporates former `FBK-01`. |
 | UX-04 | P1 | later | Device/AT matrix (Safari/iOS, Firefox, TalkBack/VoiceOver/NVDA). Mobile read-aloud shipped; that does not close the evaluation. |
-| UX-05 | P1 | later | Production contributor/discussion recovery check. Composer text is not preserved across sign-in. |
+| UX-05 | P1 | later | Production contributor/discussion recovery check. Composer text is not preserved across sign-in; implement preservation and verify cutover recovery with `AUTH-01` Phases 1 and 4. |
 | UX-06 | P1 | later | Fresh Cloudflare RUM sample, segmented by catalog / large reader / search / portal and mobile / desktop. Saved baseline is still 30 August 2026 (45 views, catalog LCP p75 2.6 s, TTFB 1.3 s, CLS p75 1.0, INP p75 0). That sample predates `amd-site` cutover. Live catalog HTML is Worker-served (`cfOrigin` 0). Investigate CLS/INP before optimizing. Re-run `python Scripts/_cloudflare_performance.py --export-rum-baseline`. Related: `CF-PDF-CACHE`. |
 | DIS-01 | P2 | pending | Reply mail and report control. Session revocation already shipped. Not this cycle. |
 | UX-07 | P2 | later | Reading-time cues, argument routes, public reference-library browser. |
-| FBK-01 | P2 | deferred | Keep GitHub corrections unless observation shows GitHub is the blocker. |
 | WEB-P6 | P3 | deferred | Optional semantic retrieval. Start only if lexical search shows unmet need. |
 
 ## Audio
