@@ -2596,11 +2596,15 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     });
   }
 
+  const closeStartHereRelated = () => {
+    document.querySelectorAll("#start-here .path-related").forEach(details => {
+      details.open = false;
+    });
+  };
+
   document.querySelectorAll("#start-here .path-radio").forEach(radio => {
     radio.addEventListener("change", () => {
-      document.querySelectorAll("#start-here .path-related").forEach(details => {
-        details.open = false;
-      });
+      closeStartHereRelated();
       syncStartHere(STUDIES);
     });
   });
@@ -2755,6 +2759,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
 
   const restoreStartHere = () => {
+    closeStartHereRelated();
     const stageTarget = /^#path-stage-([1-5])$/.exec(location.hash);
     if (stageTarget) {
       document.getElementById("path-stage-" + stageTarget[1]).checked = true;
@@ -2770,8 +2775,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const stage = item.closest(".path-panel")?.dataset.stage || new URLSearchParams(location.search).get("stage") || "1";
     const radio = /^[1-5]$/.test(stage) && document.getElementById("path-stage-" + stage);
     if (radio) radio.checked = true;
-    const related = item.closest(".path-related") || item.closest(".path-core")?.querySelector(".path-related");
-    if (related) related.open = true;
     requestAnimationFrame(() => {
       item.scrollIntoView({ behavior: "instant", block: "center" });
       item.classList.add("is-targeted");
@@ -2780,6 +2783,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   };
   restoreStartHere();
   window.addEventListener("hashchange",restoreStartHere);
+  window.addEventListener("pageshow", closeStartHereRelated);
 
   // Support returning from a study's HTML page to the exact card it was opened
   // from (via a `#study-<slug>` hash on the "All studies" link) instead of always
