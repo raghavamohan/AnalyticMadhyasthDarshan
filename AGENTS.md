@@ -771,6 +771,9 @@ support is carried by prose plus a parenthetical citation. Verify what remains:
 - Cross-refs only for argument (`§6.2`, `§3.3`), not for cataloguing the outline
 - One running English term per source concept in analytical prose (glossary +
   Editorial Notes); block quotes keep translation wording
+- Clear voice: ordinary English for the point being made; keep a source term
+  only when it is load-bearing and gloss it on first use; reserve dense jargon
+  and symbolic notation for mathematical or formal formulations
 - Doctrine stated in the darshan's voice with the page in parentheses: *Complete
   knowledge comprises… (KD §3.5, p. 69)* — not *KD lists four contents of
   complete knowledge*
@@ -802,6 +805,8 @@ support is carried by prose plus a parenthetical citation. Verify what remains:
   `## Editorial Notes` instead
 - [ ] English edits preserve conceptual meaning; substantive changes have source
   reasons, consistent terminology, and corresponding glossary/notes updates
+- [ ] Exposition is in a clear voice; stacked jargon is reserved for
+  mathematical or formal formulations
 - [ ] Supported synthesis is retained; no invented reconciliation or suppressed
   conflict; material interpretive choices and uncertainty remain explicit
 - [ ] Comparison confined to the comparison sections and criticism to critical
@@ -851,10 +856,16 @@ add classification tags to the published essay.
 A synthesis needs support for its connections as well as its component definitions.
 Follow the relevant terms through definitions, classifications, purposes, and
 applications across the primary works, checking contrary passages and translation
-or edition differences. Absence of the whole claim from one passage is insufficient
-grounds to remove it. Conversely, compatible vocabulary alone does not establish
-a link. Report "not located in the material reviewed" when the search is limited;
-reserve stronger claims of absent support for a review that can justify them.
+or edition differences. The assembled point may be derived from multiple passages
+across several texts; recover that holistic claim before judging any one citation.
+Absence of the whole claim from one passage is insufficient grounds to remove it.
+Conversely, compatible vocabulary alone does not establish a link. Report "not
+located in the material reviewed" when the search is limited; reserve stronger
+claims of absent support for a review that can justify them.
+
+When the user supplies comments from other reviewers, recover each comment's
+intent, test it against the primary account, and adopt, adopt in part, or decline
+it on that warrant. A reviewer's preference is not itself a source.
 
 Preserve well-supported relationships while correcting exact errors of definition,
 pairing, faculty, level, scope, or attribution. When concepts change, trace their
@@ -875,6 +886,10 @@ review of the whole study.
 - [ ] Necessary source notes, assumptions, and limits remain explicit.
 - [ ] Shared methodological prose is maintained in Our approach and the README.
 - [ ] No recurring standpoint section is required by templates or validation.
+- [ ] The assembled multi-text point was reviewed as a whole, not citation by
+  citation in isolation
+- [ ] Supplied reviewer comments were evaluated for intent and primary-text
+  warrant before any corresponding edit
 
 ---
 
