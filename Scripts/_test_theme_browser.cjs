@@ -45,12 +45,55 @@ const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.j
     });
     await page.goto(base + '/Studies/', {waitUntil:'networkidle0'});
     await page.addStyleTag({content:'* { scroll-behavior: auto !important; transition: none !important; }'});
-    for (const width of [320,390,820,1280]) {
+    for (const width of [320,390,820,840,900,940,980,1100,1280]) {
       await page.setViewport({width,height:900});
       const metrics = await page.evaluate(() => ({width:innerWidth,scroll:document.documentElement.scrollWidth,
         nav:document.querySelector('.page-nav').getBoundingClientRect().height}));
       assert.ok(metrics.scroll <= metrics.width, `Page overflow at ${width}px: ${JSON.stringify(await page.$$eval('body *', nodes => nodes.filter(n => n.getBoundingClientRect().right > innerWidth).slice(0,12).map(n => [n.tagName,n.className,n.getBoundingClientRect().right])))}`);
-      if (width === 390) assert.ok(metrics.nav < 145, `Mobile header too tall: ${metrics.nav}`);
+      const navOverlaps = await page.evaluate(() => {
+        const boxes = [...document.querySelectorAll('.page-nav-home, .toc a, .page-nav-tools a, .page-nav-tools .theme-toggle')]
+          .filter(node => getComputedStyle(node).display !== 'none' && node.getBoundingClientRect().width > 0)
+          .map(node => ({name:(node.getAttribute('aria-label') || node.textContent).trim(), ...node.getBoundingClientRect()}));
+        const hits = [];
+        for (let i = 0; i < boxes.length; i++) {
+          for (let j = i + 1; j < boxes.length; j++) {
+            const a = boxes[i], b = boxes[j];
+            const overlapX = Math.min(a.right, b.right) - Math.max(a.left, b.left);
+            const overlapY = Math.min(a.bottom, b.bottom) - Math.max(a.top, b.top);
+            if (overlapX > 1 && overlapY > 1) hits.push(`${a.name} x ${b.name}`);
+          }
+        }
+        return hits;
+      });
+      assert.deepEqual(navOverlaps, [], `Nav controls overlap at ${width}px: ${navOverlaps.join('; ')}`);
+      if (width <= 820) {
+        const mobileNav = await page.evaluate(() => {
+          const round = value => Math.round(value);
+          const nav = document.querySelector('.page-nav').getBoundingClientRect();
+          const toc = [...document.querySelectorAll('.toc a')].map(node => node.getBoundingClientRect());
+          const tools = [...document.querySelectorAll('.page-nav-tools a, .page-nav-tools .theme-toggle')].map(node => node.getBoundingClientRect());
+          const allTops = [...new Set([...toc, ...tools].map(box => round(box.top)))].sort((a, b) => a - b);
+          const toolTop = Math.min(...tools.map(box => round(box.top)));
+          const lastTocOnToolRow = toc.filter(box => Math.abs(round(box.top) - toolTop) <= 2).sort((a, b) => a.right - b.right).at(-1);
+          return {
+            homeDisplay: getComputedStyle(document.querySelector('.page-nav-home')).display,
+            rowCount: allTops.length,
+            toolRowCount: new Set(tools.map(box => round(box.top))).size,
+            toolsLeft: Math.min(...tools.map(box => box.left)),
+            toolsRight: Math.max(...tools.map(box => box.right)),
+            navRight: nav.right,
+            lastTocRight: lastTocOnToolRow ? lastTocOnToolRow.right : null,
+          };
+        });
+        assert.equal(mobileNav.homeDisplay, 'none', `Home mark still visible at ${width}px`);
+        assert.ok(mobileNav.rowCount <= (width >= 390 ? 2 : 3), `Mobile nav has ${mobileNav.rowCount} rows at ${width}px`);
+        assert.equal(mobileNav.toolRowCount, 1, `Tools split across rows at ${width}px`);
+        assert.ok(mobileNav.navRight - mobileNav.toolsRight < 24, `Tools not right-aligned at ${width}px`);
+        if (mobileNav.lastTocRight != null) {
+          assert.ok(mobileNav.toolsLeft >= mobileNav.lastTocRight - 1, `Tools overlap TOC at ${width}px`);
+        }
+      }
+      if (width === 390) assert.ok(metrics.nav < 100, `Mobile header too tall: ${metrics.nav}`);
       if (width >= 1280) {
         const tocTops = await page.$$eval('.toc a', nodes => nodes.map(node => Math.round(node.getBoundingClientRect().top)));
         assert.equal(new Set(tocTops).size, 1, `TOC wrapped on desktop: ${JSON.stringify(tocTops)}`);
