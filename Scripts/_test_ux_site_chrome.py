@@ -39,8 +39,11 @@ def test_catalog_bridges_passage_search_and_related_chips() -> None:
     assert "Passage Search" in INDEX_TEMPLATE
     assert "path-related-chips" in INDEX_TEMPLATE
     assert "About these related studies" in INDEX_TEMPLATE
-    assert "scrollIntoView" in INDEX_TEMPLATE
-    assert "prefers-reduced-motion" in INDEX_TEMPLATE
+    go_handler = INDEX_TEMPLATE.split('closest("[data-go-stage]")', 1)[1].split("const collSeg", 1)[0]
+    assert "scrollIntoView" not in go_handler
+    assert "preventScroll" in go_handler
+    assert "#start-here .path-core.is-targeted > .path-study-title" in INDEX_TEMPLATE
+    assert "#start-here [data-study-slug].is-targeted { animation:" not in INDEX_TEMPLATE
 
 
 def test_reader_toolbar_exposes_progress_offline_and_glossary_sheet() -> None:
