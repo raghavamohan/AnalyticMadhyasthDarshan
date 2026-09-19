@@ -1,6 +1,6 @@
 # Studies citation verification
 
-Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-05; human-sentience study entries updated: 2026-09-08.
+Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-05; human-sentience study entries updated: 2026-09-08; ontology review entries updated: 2026-09-19.
 
 **Legend:** present = available through its listed reference link (R2 or a Git-retained file); external = linked from the original publisher or author URL (see [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md)); internal = another paper in `Studies/`, not a bibliographic source. Storage state, checksums, and rights decisions are authoritative in [r2-artifacts.json](r2-artifacts.json).
 
@@ -45,13 +45,16 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 | | Carroll 2010, Ashtekar and Singh 2011, McTaggart 1908 | present |
 | | Rovelli 2018 | external |
 | [The-Ontology-of-Coexistence.pdf](../Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) | MVD, SB, JV, AVD, KD | present |
-| | PS (Paribhasha Samhita, Hindi third edition 2012 / printing 2016) | external |
-| | CU, TU, VC | present |
+| | MAD (Hindi native reader), PS (Hindi third edition 2012 / printing 2016), YAT | external |
+| | CU, TU, MU, BG, VC, DDV, BS (BSB) | present |
 | | Chalmers 1995, Nagel 1974, Strawson 2006 | present |
-| | Frankish 2016, Limanowski and Blankenburg 2013 | present |
+| | Frankish 2016, Limanowski and Blankenburg 2013, COGITATE Consortium 2025 (same archive as Melloni et al. 2025) | present |
 | | Whitehead 1929, Russell 1921, Mach 1914 | present |
-| | Ashtekar and Singh 2011, Carroll 2010, Friston 2010, Guth 2007 | present |
-| | Metzinger 2003, Penrose 2010, Ishvarakrishna, Nagarjuna, Weinberg 1995 | external |
+| | Ashtekar and Singh 2011, Friston 2010, Guth 2007 | present |
+| | Chalmers 2016, Kim 2005, Dennett 1991, Churchland 1986, Parfit 1984, SEP Personal Identity, Olson 1997, Baker 2000, Schechtman 1996, van Fraassen 1980 | external |
+| | Aquinas ST, Spinoza Ethics, Leibniz Monadology, Berkeley Principles, Samkhya Karika | external |
+| | Planck Collaboration 2020, Penrose 2010, Weinberg 1995, Carroll 2010, Maturana and Varela 1980, Tong Statistical Physics, Metzinger 2003, Clark 2016, Seth 2021 | external |
+| | AAN/AAP/CNS/SCCM 2023, Dehaene and Changeux 2011, Lau and Rosenthal 2011, Lamme 2006, Albantakis et al. 2023, Nowak 2006 | external |
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD | TBD |
 | [Axiology-Value-Theory.pdf](../Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf) | MVD, SB, JV, AVD, KD | present |
 | | MAD (Manav Abhyas Darshan, Hindi native reader); PS (Paribhasha Samhita, Hindi third edition 2012 / printing 2016) | external |
@@ -78,9 +81,9 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Tong-L**, **SICM-H**, **Tong-H**, **MIT-D**, **LYAP** | [Physics teaching resources](NOT-DOWNLOADED.md#physics-teaching-resources--external-only) | Technical-Note-Physical-Dynamics-And-Unit-Activity; variational mechanics, damping, stability, and interpretation boundaries |
 | **SB** | [Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf) · [`.md` analysis extract](Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.md) | all Studies papers above |
 | **JV** | [Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf) · [`.md` analysis extract](Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.md) | all Studies papers above; Research-Note-Jeevan-Activities-Values-And-Human-Order Appendix H adds firsthand testimony and its social purpose, printed pp. 12, 91–92, 165 (PDF positions +1) |
-| **MAD** | [Manav Abhyas Darshan — Hindi reader](https://db.madhyasth.org/books/read/144/) (external) | Axiology-Value-Theory, displayed reader pp. 30, 34, 43, 45, 47, 51; A-State-Dynamic-Model-Of-Coexistence, reader pp. 30, 34, 45, 47, 51; Research-Note-Jeevan-Activities-Values-And-Human-Order, reader pp. 30, 34, 43, 47, 51 |
+| **MAD** | [Manav Abhyas Darshan — Hindi reader](https://db.madhyasth.org/books/read/144/) (external) | Axiology-Value-Theory, displayed reader pp. 30, 34, 43, 45, 47, 51; The-Ontology-of-Coexistence, reader p. 30; A-State-Dynamic-Model-Of-Coexistence, reader pp. 30, 34, 45, 47, 51; Research-Note-Jeevan-Activities-Values-And-Human-Order, reader pp. 30, 34, 43, 47, 51 |
 | **PS** | [Paribhasha Samhita — official publications](https://originals.madhyasth.org/granth/published) · [source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7) (external); third edition 2012, printing 2016; `15_paribhasha_sanhita_2015_ocr.pdf` | Axiology-Value-Theory, printed pp. 40–41, 78, 93, 149, 151, 154, 179; A-State-Dynamic-Model-Of-Coexistence, printed pp. 40–41, 149, 151, 154; The-Ontology-of-Coexistence, printed pp. 22, 40–41, 56, 114, 119, 121, 135, 151, 154, 206; Research-Note-Jeevan-Activities-Values-And-Human-Order, printed pp. 71–72, 85, 93–94, 149–154, 178 (PDF positions +8); Technical-Note-Jeevan-Concentric-Architecture-And-The-State-Dynamic-Model |
-| **YAT** | [Yatharthata, Vastavikta, Satyata](https://originals.madhyasth.org/avdharna/yatharth) (external); official Hindi excerpt compilation attributed to *Paribhasha Sanhita* and other writings | The-Epistemology-of-Coexistence, the headings “स्थिति सत्य, ” “वस्तुगत सत्य, ” and “वस्तु स्थिति सत्य” (§1.1 and Editorial Notes) |
+| **YAT** | [Yatharthata, Vastavikta, Satyata](https://originals.madhyasth.org/avdharna/yatharth) (external); official Hindi excerpt compilation attributed to *Paribhasha Sanhita* and other writings | The-Epistemology-of-Coexistence, the headings “स्थिति सत्य, ” “वस्तुगत सत्य, ” and “वस्तु स्थिति सत्य” (§1.1 and Editorial Notes); The-Ontology-of-Coexistence (§1.3 and Editorial Notes) |
 | **AVD** | [Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf) | The-Ontology-of-Coexistence, Axiology-Value-Theory, Family-Relationships-And-Values, A-State-Dynamic-Model-Of-Coexistence, Research-Note-Jeevan-Architecture (internal), Technical-Note-Jeevan-Concentric-Architecture-And-The-State-Dynamic-Model |
 | **JVD** | [Madhyasth-Darshan/JVD-Janvad.pdf](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf) | Nature-Of-Time; A-State-Dynamic-Model-Of-Coexistence, self-governance and humane tradition, PDF pp. 138–139, 147–148, 168–170; ten-tier proposal and coordination, PDF pp. 237–238, 249–250, 255–256, 281, 292, 298, 305, 315, 321, 327–328 |
 | **MD** | [Madhyasth-Darshan/MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | terminology glossary, Phase 4 MVD/SB refresh (see MD-Mapping-Sources/) |
@@ -92,12 +95,12 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **BU** | [Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BU-Brihadaranyaka-Upanishad-Madhavananda.pdf) | Why-Humans, Aesthetics |
 | **TU** | [Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/Eight-Upanishads-Vol1-KU-TU-Gambhirananda.pdf) | Why-Humans, The-Ontology-of-Coexistence, Aesthetics (Gambhirananda 2-vol. set; TU at p. 237) |
 | **KU** | same as TU | Why-Humans (Katha at p. 97) |
-| **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans, Nature-Of-Time |
+| **MU** | [Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/MU-Mandukya-Upanishad-Gambhirananda.pdf) | Why-Humans, Nature-Of-Time, The-Ontology-of-Coexistence |
 | **CU** | [Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/CU-Chandogya-Upanishad-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
-| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics, Knowledge-Knower, Nature-Of-Time |
-| **BSB** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower |
+| **BG** | [Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf) | Why-Humans, Ethics-And-Morals, Aesthetics, Knowledge-Knower, Nature-Of-Time, The-Ontology-of-Coexistence |
+| **BSB** / **BS** | [Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BSB-Brahma-Sutra-Bhashya-Gambhirananda.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence (BS tag) |
 | **VC** | [Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf) | Why-Humans, Ethics-And-Morals, The-Ontology-of-Coexistence, Aesthetics, Knowledge-Knower, Nature-Of-Time |
-| **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower |
+| **DDV** | [Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/DDV-Drig-Drishya-Viveka-Nikhilananda.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
 | **AV** | [SEP entry](https://plato.stanford.edu/entries/shankara/) | How-To-Form |
 | **SV** | [Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf](Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf) | How-To-Form |
 | **Bhattacharya** | [Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf](https://analyticmadhyasthdarshan.org/References/Comparative-Philosophy/Bhattacharya-Jeevan-And-Brain-Relationship.pdf) | (none — not currently cited by any study) |
@@ -113,11 +116,13 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Strawson 2006** | [Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf](Science/Strawson-2006-Realistic-Monism-Panpsychism.pdf) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
 | **Bloom 2013** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Retained external reference, no longer cited in Why-Humans |
 | **Tomasello 2014** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans |
-| **Churchland 1986**, **Dennett 1991**, **Goff 2019**, **Kandel et al. 2021**, **Kim 2005** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans, Knowledge-Knower |
+| **Churchland 1986**, **Dennett 1991**, **Kim 2005** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans, Knowledge-Knower, The-Ontology-of-Coexistence |
+| **Goff 2019**, **Kandel et al. 2021** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Why-Humans, Knowledge-Knower |
+| **Parfit 1984**, **SEP Personal Identity** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | The-Epistemology-of-Coexistence, The-Ontology-of-Coexistence |
 | **Popper 1959** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
 | **Frankish 2016** | [Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf](Modern-Philosophy/Frankish-2016-Illusionism-Theory-Consciousness.pdf) | Knowledge-Knower, The-Ontology-of-Coexistence |
 | **Limanowski and Blankenburg 2013** | [Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Limanowski-Blankenburg-2013-Minimal-Self-Models-Free-Energy-Principle.pdf) | Knowledge-Knower, The-Ontology-of-Coexistence |
-| **Melloni et al. 2025** / **Cogitate Consortium 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower, Why-Humans (Cogitate Consortium tag) |
+| **Melloni et al. 2025** / **COGITATE Consortium 2025** | [Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/Melloni-et-al-2025-Adversarial-Testing-Consciousness-Theories.pdf) | Knowledge-Knower, Why-Humans, The-Ontology-of-Coexistence (COGITATE Consortium tag) |
 | **SEP Aesthetics of the Everyday** | [SEP entry](https://plato.stanford.edu/entries/aesthetics-of-everyday/) | Aesthetics |
 | **SEP Concept of the Aesthetic** | [SEP entry](https://plato.stanford.edu/entries/aesthetic-concept/) | Aesthetics |
 | **SEP Definition of Art** | [SEP entry](https://plato.stanford.edu/entries/art-definition/) | Aesthetics |
@@ -139,7 +144,9 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Arnold symplectic** | [Science/Arnold-Symplectic-Geometry-Applications.pdf](Science/Arnold-Symplectic-Geometry-Applications.pdf) | (none — review MANIFEST.md) |
 | **Baehni 2019** | [Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf](Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf) | (none — review MANIFEST.md) |
 | **Scholarpedia PLA**, **Landau SE**, **particle future SE**, **Reddit PLA**, **Gray and Taylor astonishment**, **Apeiron biological action**, **Emergent Mind PLA**, **ResearchGate teleology**, **Gromov 1989**, **path integrals blog**, **Milewski 2015**, **Baez week292**, **Baez week296**, **Baez maximum principles**, **Baez and Fong 2015**, **Baez and Weingarten 2020**, **nLab prequantized Lagrangian**, **Weinstein Lagrangian**, **Math SE modules** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | (none — review MANIFEST.md) |
-| **Metzinger 2003**, **Penrose 2010**, **Ishvarakrishna**, **Nagarjuna**, **Weinberg 1995** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Metzinger 2003**, **Penrose 2010**, **Weinberg 1995** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Ishvarakrishna** / **Samkhya Karika** | [Rutgers source collection](https://sites.rutgers.edu/edwin-bryant/wp-content/uploads/sites/169/2020/11/Samkhya-Karika-Gaudapada1.pdf); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence (Samkhya Karika tag) |
+| **Nagarjuna** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Retained external reference; no longer cited in The-Ontology-of-Coexistence |
 | **Hashemi 2025** | [Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf](Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) | Knowledge-Knower |
 | **McTaggart 1908** | [Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf) | Nature-Of-Time |
 | **Gettier 1963**, **IEP Enactivism**, **Jarczewski and Riggs 2025**, **Kuhn 2024**, **Massimi 2022**, **Piredda 2024**, **Wiese 2024** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
@@ -149,6 +156,31 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 
 | **Killingsworth 2021** | [Publisher article](https://doi.org/10.1073/pnas.2016976118); [external-reference record](NOT-DOWNLOADED.md) | Axiology-Value-Theory |
 | **Killingsworth, Kahneman, and Mellers 2023** | [Publisher article](https://doi.org/10.1073/pnas.2208661120); [external-reference record](NOT-DOWNLOADED.md) | Axiology-Value-Theory |
+
+### Ontology comparison sources
+
+| Tag | Reference location | Cited by |
+|-----|--------------------|----------|
+| **Chalmers 2016** | ["Panpsychism and Panprotopsychism."](https://academic.oup.com/book/11114/chapter/159539099); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Olson 1997** | [The Human Animal: Personal Identity Without Psychology](https://global.oup.com/academic/product/the-human-animal-9780195134230); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Baker 2000** | [Persons and Bodies: A Constitution View](https://www.cambridge.org/core/books/persons-and-bodies/37247AC7286CDEA6C82DFF25B1805911); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Schechtman 1996** | [The Constitution of Selves](https://www.cornellpress.cornell.edu/book/9780801484844/the-constitution-of-selves/); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **van Fraassen 1980** | [The Scientific Image](https://global.oup.com/academic/product/the-scientific-image-9780198244271); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Aquinas ST** | [q. 75](https://www.newadvent.org/summa/1075.htm) · [q. 76](https://www.newadvent.org/summa/1076.htm); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Spinoza Ethics** | [Ethics](https://www.gutenberg.org/files/3800/3800-h/3800-h.htm); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Leibniz Monadology** | [Monadology](https://dss-sites.ucsd.edu/drutherford/Leibniz/translations/Monadology.pdf); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Berkeley Principles** | [A Treatise Concerning the Principles of Human Knowledge](https://www.gutenberg.org/cache/epub/4723/pg4723-images.html); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Planck Collaboration 2020** | ["Planck 2018 results. VI. Cosmological parameters."](https://doi.org/10.1051/0004-6361/201833910); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Maturana and Varela 1980** | [Autopoiesis and Cognition](https://archive.org/details/autopoiesisandco0000matu); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Tong Statistical Physics** | [§1.2.1, entropy and the second law](https://www.damtp.cam.ac.uk/user/tong/statphys/statmechhtml/S1.html) · [§4.3.3, entropy](https://www.damtp.cam.ac.uk/user/tong/statphys/statmechhtml/S4.html); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Clark 2016** | [Surfing Uncertainty: Prediction, Action, and the Embodied Mind](https://global.oup.com/academic/product/surfing-uncertainty-9780190217013); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Seth 2021** | [Being You: A New Science of Consciousness](https://www.anilseth.com/being-you/); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **AAN/AAP/CNS/SCCM 2023** | ["Pediatric and Adult Brain Death/Death by Neurologic Criteria Consensus Guideline."](https://doi.org/10.1212/WNL.0000000000207740); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Dehaene and Changeux 2011** | ["Experimental and Theoretical Approaches to Conscious Processing."](https://doi.org/10.1016/j.neuron.2011.03.018); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Lau and Rosenthal 2011** | ["Empirical Support for Higher-Order Theories of Conscious Awareness."](https://doi.org/10.1016/j.tics.2011.05.009); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Lamme 2006** | ["Towards a True Neural Stance on Consciousness."](https://doi.org/10.1016/j.tics.2006.09.001); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Albantakis et al. 2023** | ["Integrated Information Theory (IIT) 4.0: Formulating the Properties of Phenomenal Existence in Physical Terms."](https://doi.org/10.1371/journal.pcbi.1011465); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Nowak 2006** | ["Five Rules for the Evolution of Cooperation."](https://doi.org/10.1126/science.1133755); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
 
 ### Human sentience sources
 

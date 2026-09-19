@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 14, 2026, 12:02 PM IST
+**Edited on:** September 19, 2026, 9:43 PM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md).
 
@@ -28,12 +28,12 @@ The distinction is consequently not between an immaterial spectator and a mechan
 
 ## 2. Five faculties and ten paired activities
 
-Each faculty has two generic activities. One is classified as *bal*, an activity in state; the other as *shakti*, an activity in motion. State here does not mean inactivity, and motion is not restricted to bodily movement. Realisation, enlightenment, contemplation, deliberation, and taste are active ways in which a qualitative orientation is established. Authenticity, resolve, visualisation, analysis, and selection are the paired ways in which that orientation becomes effective (JV, pp. 40, 62; MVD, pp. 131, 323).
+Each faculty has two generic activities. One is classified as *bal*, an activity in state; the other as *shakti*, an activity in motion. State here does not mean inactivity, and motion is not restricted to bodily movement. Realisation, comprehension, contemplation, deliberation, and taste are active ways in which a qualitative orientation is established. Authenticity, resolve, visualisation, analysis, and selection are the paired ways in which that orientation becomes effective (JV, pp. 40, 62; MVD, pp. 131, 323).
 
 | Faculty | What it concerns | *Bal*: activity in state | *Shakti*: activity in motion |
 |---|---|---|---|
 | *Atma* | Realisation | *Anubhav*: realisation in coexistence | *Pramanikta*: authenticity and evidence |
-| *Buddhi* | Definiteness | *Bodh*: enlightenment or definite understanding | *Sankalp*: resolve according to understanding |
+| *Buddhi* | Definiteness | *Bodh*: comprehension | *Sankalp*: resolve according to understanding |
 | *Chitta* | Meaning and form | *Chintan*: contemplation | *Chitran*: visualisation, image, or plan |
 | *Vritti* | Criteria and alternatives | *Tulan*: deliberation | *Vishleshan*: analysis |
 | *Mun* | Acceptability and choice | *Asvadan*: taste or valuation | *Chayan*: selection |
@@ -44,13 +44,13 @@ The ten belong to one *jeevan*. They are neither modules that switch independent
 
 *Anubhav* is realisation in coexistence rather than episodic sensation. Its paired activity, *pramanikta*, is authenticity: realised understanding becoming evident. *Atma* is mediative at the centre, but it does not issue detailed instructions to the other faculties. It supplies the realised orientation with which definite understanding and conduct are to agree (MVD, pp. 211, 323).
 
-### 2.2 *Buddhi*: enlightenment and resolve
+### 2.2 *Buddhi*: comprehension and resolve
 
-*Bodh* is definite understanding, not firmness attached to an assumption. Where meaning remains incorrect or unresolved, *bodh* concerning that content has not become effective. Beliefs accepted from fear or temptation remain limited to visualisation in *chitta*; *buddhi* remains silent until study, enlightenment, and realisation awaken it (MVD, pp. 99–100). *Sankalp* is resolve based on definiteness. *Buddhi* can remain alienated from *atma*, expectational, or unenlightened; the success term *bodh* should not be confused with every belief attributed to the person (MVD, pp. 216–217, 276, 279).
+*Bodh* is definite understanding, not firmness attached to an assumption. Where meaning remains incorrect or unresolved, *bodh* concerning that content has not become effective. Beliefs accepted from fear or temptation remain limited to visualisation in *chitta*; *buddhi* remains silent until study, comprehension, and realisation awaken it (MVD, pp. 99–100). *Sankalp* is resolve based on definiteness. *Buddhi* can remain alienated from *atma*, governed by expectation, or without effective comprehension; the success term *bodh* should not be confused with every belief attributed to the person (MVD, pp. 216–217, 276, 279).
 
 ### 2.3 *Chitta*: contemplation and visualisation
 
-*Chintan* sustains and contemplates meaning. *Chitran* gives meaning a projectable form: an image, anticipated relationship, explanation, possibility, or plan. The quality of visualisation depends on the meaning it expresses; without enlightenment in truth it necessarily carries excess, deficiency, or omission (MVD, pp. 286, 323).
+*Chintan* sustains and contemplates meaning. *Chitran* gives meaning a projectable form: an image, anticipated relationship, explanation, possibility, or plan. The quality of visualisation depends on the meaning it expresses; without comprehension in truth it necessarily carries excess, deficiency, or omission (MVD, pp. 286, 323).
 
 ### 2.4 *Vritti*: deliberation and analysis
 
@@ -64,7 +64,7 @@ Pleasure, health, and material result remain relevant in awakened living. Their 
 
 ### 2.6 Two uses of *bal* and *shakti*
 
-The corpus uses the terms at two grains. At the activity level, state activities are strengths and motion activities powers. At the faculty level, *mun*, *vritti*, *chitta*, *buddhi*, and *atma* themselves are called the five strengths, while hope, thought, desire, resoluteness, and evidence or authenticity are called their powers (MVD, pp. 199, 275; SB, pp. 63, 139; AVD, p. 151).
+The corpus uses the terms at two grains. At the activity level, state activities are strengths and motion activities powers. At the faculty level, *mun*, *vritti*, *chitta*, *buddhi*, and *atma* themselves are called the five strengths, while hope, thought, desire, resoluteness, and evidence (*praman*) are their characteristic powers. Authenticity (*pramanikta*) is the outward activity through which *atma*'s power becomes evident; it is not an additional faculty or power (MVD, pp. 199, 275; SB, pp. 63, 139; AVD, p. 151).
 
 These formulations are related but not fully reconciled in the texts. The table above adopts the activity-level assignment directly tabulated in AVD, pp. 91–94. It should not be used to erase the faculty-level vocabulary or to infer that every occurrence of *bal* and *shakti* names one member of a ten-activity pair.
 
@@ -74,9 +74,9 @@ The faculties form an ordered architecture, not a production line. Each performs
 
 The realisation-based sequence runs through the activities in state:
 
-**realisation → enlightenment → contemplation → deliberation → taste**
+**realisation → comprehension → contemplation → deliberation → taste**
 
-Realisation in *atma* is followed by enlightenment in *buddhi*, contemplation in *chitta*, deliberation of justice, *dharma*, and truth in *vritti*, and taste in *mun* (MVD, pp. 276–277).
+Realisation in *atma* is followed by comprehension in *buddhi*, contemplation in *chitta*, deliberation of justice, *dharma*, and truth in *vritti*, and taste in *mun* (MVD, pp. 276–277).
 
 The paired activities in motion make that organisation effective:
 
@@ -86,7 +86,7 @@ When selection is embodied, the sequence extends through bodily capacity, speech
 
 ### 3.1 Projection and reflection
 
-In the directional account used here, *paravartan* is the outward manifestation of orientation, while *pratyavartan* is the movement of awakening in which an outer faculty comes to accord with the faculty inward of it. Hope in *mun* becomes according to thought in *vritti*; thought according to *chitta*; desire according to enlightenment in *buddhi*; and enlightenment according to realisation in *atma* (MVD, pp. 275–277, 307).
+In the directional account used here, *paravartan* is the outward manifestation of orientation, while *pratyavartan* is the movement of awakening in which an outer faculty comes to accord with the faculty inward of it. Hope in *mun* becomes according to thought in *vritti*; thought according to *chitta*; desire according to comprehension in *buddhi*; and comprehension according to realisation in *atma* (MVD, pp. 275–277, 307).
 
 The adjoining relations are also named from the content they make effective. Awareness of realisation (*pratiti*) occurs between *buddhi* and *chitta* as contemplation; comprehension (*aabhas*) between *chitta* and *vritti* as deliberation of justice, *dharma*, and truth; and perception (*bhas*) between *vritti* and *mun* as taste of values with selection and fulfilment of relationships (MVD, pp. 99–100). These are descriptions of coherence among faculties, not three further faculties.
 
@@ -211,7 +211,7 @@ $$
 | Faculty locus | Pairs | Activities | Generic pair |
 |---|---:|---:|---|
 | *Atma*, nucleus | 1 | 2 | Realisation–authenticity |
-| *Buddhi*, first orbit | 2 | 4 | Enlightenment–resolve |
+| *Buddhi*, first orbit | 2 | 4 | Comprehension–resolve |
 | *Chitta*, second orbit | 8 | 16 | Contemplation–visualisation |
 | *Vritti*, third orbit | 18 | 36 | Deliberation–analysis |
 | *Mun*, fourth orbit | 32 | 64 | Taste–selection |
@@ -241,7 +241,9 @@ Five groups of questions remain: the relation between sentient content and bodil
 
 ## Editorial Notes
 
-The reader follows the activity-level *bal–shakti* assignment in AVD, the directional cycle in MVD, and the four-faculty placement of attained *sanskar* without claiming that the corresponding variants have been harmonised. The unused textual variants, overlapping terms, and excluded oral schema are documented in the [technical companion](Research-Note-Jeevan-Functional-Model.md) §13; pair-level variants remain in [the inventory](Research-Note-Activity-Pair-Inventory.md) §8.
+The reader follows AVD's Hindi activity-level *bal–shakti* assignment, the directional cycle in MVD, and the four-faculty placement of attained *sanskar*. AVD's English strength/power headings are reversed in places; the Hindi distinction controls the assignment, as explained in [the inventory](Research-Note-Activity-Pair-Inventory.md) §2. The unused textual variants, overlapping terms, and excluded oral schema are documented in the [technical companion](Research-Note-Jeevan-Functional-Model.md) §13; pair-level variants remain in the inventory's §8.
+
+The running term for *bodh* is comprehension and for *sakshatkar*, direct apprehension. Documentary quotations and source headings may retain enlightenment and direct recognition, respectively. Visualisation (*chitran*) names an activity of *chitta*, imaging (*pratibimban*) the mutual facing of units, and reflection (*pratyavartan*) the inward direction of knowing. These conventions follow [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md), Editorial Notes.
 
 ## References
 

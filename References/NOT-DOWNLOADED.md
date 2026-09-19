@@ -8,10 +8,10 @@ Works cited in `Studies/` that are **not** copied into `References/`. Each paper
 
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
-| **MAD** | Nagraj, A. *Manav Abhyas Darshan* (Hindi). Native reader, 222-page version; page-specific links in Axiology-Value-Theory. External reader retained because a usable canonical PDF mirror was not available during review. | https://db.madhyasth.org/books/read/144/ |
+| **MAD** | Nagraj, A. *Manav Abhyas Darshan* (Hindi). Native reader, 222-page version; page-specific links in Axiology-Value-Theory and The-Ontology-of-Coexistence (reader p. 30 for the nine established values and their expressions). External reader retained because a usable canonical PDF mirror was not available during review. | https://db.madhyasth.org/books/read/144/ |
 | **PS** | Nagraj, A. *Paribhasha Samhita* (Hindi). Third edition 2012, printed 14 January 2016; Jeevan Vidya Prakashan, Divyapath Sansthan. Official file `15_paribhasha_sanhita_2015_ocr.pdf`, 234 PDF pages. Cited by printed page in Axiology-Value-Theory and The-Ontology-of-Coexistence. External source retained; the copy inspected for review is not a repository mirror. Distinct from the selected English definitions below. | [Official publications](https://originals.madhyasth.org/granth/published) · [official source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7) |
 | **Paribhasha** | Nagraj, A. *Paribhasha Samhita* (Hindi, ed. 2008). English selection of definitions. | https://www.madhyasth.org/browse-texts/browse-topics/definitions |
-| **YAT** | Nagraj, A. “Yatharthata, Vastavikta, Satyata” (यथार्थता वास्तविकता सत्यता). *Madhyasth Darshan Authentic Site*, Divya Path Sansthan. Official Hindi excerpt compilation attributed on the page to *Paribhasha Sanhita* and other writings. Cited by heading in The-Epistemology-of-Coexistence; no local mirror. | [Official excerpt compilation](https://originals.madhyasth.org/avdharna/yatharth) |
+| **YAT** | Nagraj, A. “Yatharthata, Vastavikta, Satyata” (यथार्थता वास्तविकता सत्यता). *Madhyasth Darshan Authentic Site*, Divya Path Sansthan. Official Hindi excerpt compilation attributed on the page to *Paribhasha Sanhita* and other writings. Cited by heading in The-Epistemology-of-Coexistence and The-Ontology-of-Coexistence; no local mirror. | [Official excerpt compilation](https://originals.madhyasth.org/avdharna/yatharth) |
 
 ## Madhyasth Darshan ? recorded sessions (recordings external; transcripts stored locally)
 
@@ -97,7 +97,7 @@ These works are cited in *Why Humans Are Not Just Material* and link to the publ
 | **Kandel et al. 2021** | Kandel, E. R., et al. *Principles of Neural Science*, 6th ed. McGraw-Hill, 2021. (Why-Humans cites Chs. 1, 4, and 56 on brain, circuits, decision-making, and consciousness.) | https://www.mheducation.com/highered/mhp/product/principles-neural-science-sixth-edition.html |
 | **Kim 2005** | Kim, J. *Physicalism, or Something Near Enough*. Princeton University Press, 2005. | https://www.jstor.org/stable/j.ctt7snrs |
 | **Popper 1959** | Popper, K. *The Logic of Scientific Discovery*. Hutchinson / Routledge. | https://www.routledge.com/The-Logic-of-Scientific-Discovery/Popper/p/book/9780415278447 |
-| **Weinberg 1995** | Weinberg, S. *The Quantum Theory of Fields*, Vol. 1: *Foundations*. Cambridge University Press, 1995. | https://www.cambridge.org/core/books/quantum-theory-of-fields/7A7637CB756DAC56A978B5E4EBD9788F |
+| **Weinberg 1995** | Weinberg, S. *The Quantum Theory of Fields*, Vol. 1: *Foundations*. Cambridge University Press, 1995. | https://www.cambridge.org/core/books/quantum-theory-of-fields/22986119910BF6A2EFE42684801A3BDF |
 | **Shapiro 2007** | Shapiro, L., ed. *The Correspondence between Princess Elisabeth of Bohemia and Ren? Descartes*. University of Chicago Press, 2007. | https://press.uchicago.edu/ucp/books/book/chicago/C/bo3647771.html |
 | **Tomasello 2014** | Tomasello, M. *A Natural History of Human Thinking*. Harvard University Press, 2014. | https://doi.org/10.4159/9780674726369 |
 
@@ -114,12 +114,39 @@ These works are cited in *Why Humans Are Not Just Material* and link to the publ
 | **Massimi 2022** | Massimi, M. *Perspectival Realism*. Oxford University Press, 2022. | https://global.oup.com/academic/product/perspectival-realism-9780197555620 |
 | **Metzinger 2003** | Metzinger, T. *Being No One: The Self-Model Theory of Subjectivity*. MIT Press, 2003. | https://mitpress.mit.edu/9780262632870/being-no-one/ |
 | **Parfit 1984** | Parfit, D. *Reasons and Persons*. Oxford University Press, 1984. | https://global.oup.com/academic/product/reasons-and-persons-9780198249085 |
-| **Penrose 2010** | Penrose, R. *Cycles of Time: An Extraordinary New View of the Universe*. Bodley Head, 2010. | https://www.penguinrandomhouse.com/books/311068/cycles-of-time-by-roger-penrose/ |
+| **Penrose 2010** | Penrose, R. *Cycles of Time: An Extraordinary New View of the Universe*. Bodley Head, 2010. | https://www.penguinrandomhouse.com/books/129417/cycles-of-time-by-roger-penrose/ |
 | **Piredda 2024** | Piredda, G. "The Tacitly Situated Self: From Narration to Sedimentation and Projection." *Topoi*, 43, 607?615, 2024. CC BY open access at Springer; not mirrored here because automated fetch returns an HTML page instead of the PDF. | https://doi.org/10.1007/s11245-024-10044-9 |
 | **SEP Personal Identity** | Olson, E. "Personal Identity." *Stanford Encyclopedia of Philosophy*. | https://plato.stanford.edu/entries/identity-personal/ |
 | **SEP Phenomenology** | Smith, D. W. "Phenomenology." *Stanford Encyclopedia of Philosophy*. | https://plato.stanford.edu/entries/phenomenology/ |
 | **Sosa 2007** | Sosa, E. *A Virtue Epistemology: Apt Belief and Reflective Knowledge, Volume I*. Oxford University Press, 2007. | https://academic.oup.com/book/32531 |
 | **Wiese 2024** | Wiese, W. "Artificial consciousness: a perspective from the free energy principle." *Philosophical Studies*, 181, 1947?1970, 2024. CC BY open access at Springer; not mirrored here because automated fetch returns an HTML page instead of the PDF. | https://doi.org/10.1007/s11098-024-02182-y |
+
+## Ontology comparison — external only
+
+These sources are linked from *The Ontology of Coexistence*. No repository mirror has been added; these entries record citation coverage rather than a redistribution licence.
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **Chalmers 2016** | Chalmers, D. ["Panpsychism and Panprotopsychism."](https://academic.oup.com/book/11114/chapter/159539099) In G. Brüntrup and L. Jaskolla, eds., *Panpsychism: Contemporary Perspectives*. Oxford University Press. | ["Panpsychism and Panprotopsychism."](https://academic.oup.com/book/11114/chapter/159539099) |
+| **Olson 1997** | Olson, E. T. [*The Human Animal: Personal Identity Without Psychology*](https://global.oup.com/academic/product/the-human-animal-9780195134230). Oxford University Press. | [The Human Animal: Personal Identity Without Psychology](https://global.oup.com/academic/product/the-human-animal-9780195134230) |
+| **Baker 2000** | Baker, L. R. [*Persons and Bodies: A Constitution View*](https://www.cambridge.org/core/books/persons-and-bodies/37247AC7286CDEA6C82DFF25B1805911). Cambridge University Press. | [Persons and Bodies: A Constitution View](https://www.cambridge.org/core/books/persons-and-bodies/37247AC7286CDEA6C82DFF25B1805911) |
+| **Schechtman 1996** | Schechtman, M. [*The Constitution of Selves*](https://www.cornellpress.cornell.edu/book/9780801484844/the-constitution-of-selves/). Cornell University Press. | [The Constitution of Selves](https://www.cornellpress.cornell.edu/book/9780801484844/the-constitution-of-selves/) |
+| **van Fraassen 1980** | van Fraassen, B. C. [*The Scientific Image*](https://global.oup.com/academic/product/the-scientific-image-9780198244271). Oxford University Press. | [The Scientific Image](https://global.oup.com/academic/product/the-scientific-image-9780198244271) |
+| **Aquinas ST** | Aquinas, T. *Summa Theologiae*, I, [q. 75](https://www.newadvent.org/summa/1075.htm), aa. 2, 4, 6, and [q. 76](https://www.newadvent.org/summa/1076.htm), a. 1. | [q. 75](https://www.newadvent.org/summa/1075.htm) · [q. 76](https://www.newadvent.org/summa/1076.htm) |
+| **Spinoza Ethics** | Spinoza, B. [*Ethics*](https://www.gutenberg.org/files/3800/3800-h/3800-h.htm), trans. R. H. M. Elwes. | [Ethics](https://www.gutenberg.org/files/3800/3800-h/3800-h.htm) |
+| **Leibniz Monadology** | Leibniz, G. W. [*Monadology*](https://dss-sites.ucsd.edu/drutherford/Leibniz/translations/Monadology.pdf), trans. Robert Latta, revised Donald Rutherford (1997). | [Monadology](https://dss-sites.ucsd.edu/drutherford/Leibniz/translations/Monadology.pdf) |
+| **Berkeley Principles** | Berkeley, G. [*A Treatise Concerning the Principles of Human Knowledge*](https://www.gutenberg.org/cache/epub/4723/pg4723-images.html). | [A Treatise Concerning the Principles of Human Knowledge](https://www.gutenberg.org/cache/epub/4723/pg4723-images.html) |
+| **Planck Collaboration 2020** | Planck Collaboration. ["Planck 2018 results. VI. Cosmological parameters."](https://doi.org/10.1051/0004-6361/201833910) *Astronomy & Astrophysics*, 641, A6. | ["Planck 2018 results. VI. Cosmological parameters."](https://doi.org/10.1051/0004-6361/201833910) |
+| **Maturana and Varela 1980** | Maturana, H. R., and Varela, F. J. [*Autopoiesis and Cognition*](https://archive.org/details/autopoiesisandco0000matu). Reidel. | [Autopoiesis and Cognition](https://archive.org/details/autopoiesisandco0000matu) |
+| **Tong Statistical Physics** | Tong, D. *Statistical Physics*. University of Cambridge lecture notes: [§1.2.1, entropy and the second law](https://www.damtp.cam.ac.uk/user/tong/statphys/statmechhtml/S1.html), and [§4.3.3, entropy](https://www.damtp.cam.ac.uk/user/tong/statphys/statmechhtml/S4.html). | [§1.2.1, entropy and the second law](https://www.damtp.cam.ac.uk/user/tong/statphys/statmechhtml/S1.html) · [§4.3.3, entropy](https://www.damtp.cam.ac.uk/user/tong/statphys/statmechhtml/S4.html) |
+| **Clark 2016** | Clark, A. [*Surfing Uncertainty: Prediction, Action, and the Embodied Mind*](https://global.oup.com/academic/product/surfing-uncertainty-9780190217013). Oxford University Press. | [Surfing Uncertainty: Prediction, Action, and the Embodied Mind](https://global.oup.com/academic/product/surfing-uncertainty-9780190217013) |
+| **Seth 2021** | Seth, A. [*Being You: A New Science of Consciousness*](https://www.anilseth.com/being-you/). Faber & Faber. | [Being You: A New Science of Consciousness](https://www.anilseth.com/being-you/) |
+| **AAN/AAP/CNS/SCCM 2023** | Greer, D. M., et al. ["Pediatric and Adult Brain Death/Death by Neurologic Criteria Consensus Guideline."](https://doi.org/10.1212/WNL.0000000000207740) *Neurology*, 101(24), 1112–1132. | ["Pediatric and Adult Brain Death/Death by Neurologic Criteria Consensus Guideline."](https://doi.org/10.1212/WNL.0000000000207740) |
+| **Dehaene and Changeux 2011** | Dehaene, S., and Changeux, J.-P. ["Experimental and Theoretical Approaches to Conscious Processing."](https://doi.org/10.1016/j.neuron.2011.03.018) *Neuron*, 70(2), 200–227. | ["Experimental and Theoretical Approaches to Conscious Processing."](https://doi.org/10.1016/j.neuron.2011.03.018) |
+| **Lau and Rosenthal 2011** | Lau, H., and Rosenthal, D. ["Empirical Support for Higher-Order Theories of Conscious Awareness."](https://doi.org/10.1016/j.tics.2011.05.009) *Trends in Cognitive Sciences*, 15(8), 365–373. | ["Empirical Support for Higher-Order Theories of Conscious Awareness."](https://doi.org/10.1016/j.tics.2011.05.009) |
+| **Lamme 2006** | Lamme, V. A. F. ["Towards a True Neural Stance on Consciousness."](https://doi.org/10.1016/j.tics.2006.09.001) *Trends in Cognitive Sciences*, 10(11), 494–501. | ["Towards a True Neural Stance on Consciousness."](https://doi.org/10.1016/j.tics.2006.09.001) |
+| **Albantakis et al. 2023** | Albantakis, L., et al. ["Integrated Information Theory (IIT) 4.0: Formulating the Properties of Phenomenal Existence in Physical Terms."](https://doi.org/10.1371/journal.pcbi.1011465) *PLOS Computational Biology*, 19(10), e1011465. | ["Integrated Information Theory (IIT) 4.0: Formulating the Properties of Phenomenal Existence in Physical Terms."](https://doi.org/10.1371/journal.pcbi.1011465) |
+| **Nowak 2006** | Nowak, M. A. ["Five Rules for the Evolution of Cooperation."](https://doi.org/10.1126/science.1133755) *Science*, 314(5805), 1560–1563. | ["Five Rules for the Evolution of Cooperation."](https://doi.org/10.1126/science.1133755) |
 
 ## Advaita Vedanta — external only
 
@@ -138,7 +165,7 @@ These works are cited in *Why Humans Are Not Just Material* and link to the publ
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
 | **ATR** | Rambachan, A. *A Hindu Theology of Liberation: Not-Two Is Not One*. SUNY Press, 2015. | https://sunypress.edu/Books/A/A-Hindu-theology-of-liberation2 |
-| **Ishvarakrishna** | Ishvarakrishna. *Samkhyakarika*, translated by Swami Virupakshananda. | https://archive.org/details/SamkhyaKarikaWithCommentaryOfGaudapada |
+| **Ishvarakrishna** / **Samkhya Karika** | Ishvarakrishna. *Samkhya Karika*, with Gaudapada's commentary; English translation hosted in Edwin Bryant's Rutgers source collection. The-Ontology-of-Coexistence cites Karikas 3, 18–22, 27, 62–68. The scanned edition's translator is not asserted here. | https://sites.rutgers.edu/edwin-bryant/wp-content/uploads/sites/169/2020/11/Samkhya-Karika-Gaudapada1.pdf |
 | **Nagarjuna** | Nagarjuna. *Mulamadhyamakakarika* (*Fundamental Verses on the Middle Way*), translated by Jay L. Garfield. | https://plato.stanford.edu/entries/nagarjuna/ |
 
 ## Indian aesthetics and Advaita (external only)

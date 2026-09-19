@@ -57,9 +57,9 @@ JV is the accessible entry point; SB states the ontology of matter and coexisten
 
 Before the details, here is the map of the argument. One claim — existence is coexistence — moves through three parts.
 
-First: what is real, and how it is ordered. There is an all-pervasive ground and countable units, and two bonds — each unit to the ground, and each unit to the others. The second of those is complementarity, and it is given rather than made: because there are many bounded things in one ground, each stands in definite relation to the rest. Each unit has a definite form, capacities, a way of participating, and an inseparable innateness, and these show up in mutual relations across four orders of nature. Because no unit can be separated from the ground, existence itself neither begins nor ends.
+First: what is real, and how it is ordered. There is an all-pervasive ground and countable units, and two bonds — each unit to the ground, and each unit to the others. The second of those is complementarity: each unit stands in definite relations to the rest. Every unit has form, capacities, a way of participating, and an inseparable innateness, expressed across four orders of nature. The darshan connects their inseparability from the ground with its claim that existence neither begins nor ends.
 
-Second: how development proceeds along two lines that must not be collapsed. And the reason it proceeds at all — the drive is to fulfil that complementarity. One line builds larger configurations — particles, molecules, cells, bodies — but never exceeds the order of the things it is built from. The other is development in an atom that can become a complete sentient unit. Across both, activity is effort, motion, and result together — not three separate steps.
+Second: how development proceeds along two lines. Composition forms molecules, cells and bodies; material constituents can enter pranic organisation and return to the material order through disintegration. This does not by itself produce a sentient unit. Development in an atom reaches constitutional completeness as jeevan. Across both lines, activity includes effort, motion and result together.
 
 Third: how sentient living becomes awakened conduct. We examine the human joint form, jeevan's faculties and harmonies, evaluation, realisation, and the expression of understanding through humane conduct.
 
@@ -180,7 +180,7 @@ One naming caution. The texts list many English names for the ground — includi
 
 “The Omnipotence eternally present as omnipresence is an indivisible entity, because its reality is apparent as transparence, permeability and omnipresence.” — SB, p. 46; restated as omnipresent, eternal, ever-existent, transparent, and permeating at SB, p. 160.
 
-Naming tensions: Editorial Notes in the study. Inter-unit distance held in *satta* as Space: SB, pp. 57, 59, 79. Never-separated: SB, p. 70; JV, p. 18.
+Source-defined names and translation risks: MVD p. 35 and Editorial Notes in the study. Inter-unit distance held in *satta* as Space: SB, pp. 57, 59, 79. Never-separated: SB, p. 70; JV, p. 18.
 
 MVD p. 32 locates permeation in insentient and sentient units and transparency in their mutuality. PS p. 114 connects this with images and recognition. The ground remains actionless; imaging and recognition do not make it a knowing subject.
 
@@ -218,7 +218,7 @@ These descriptions belong together. The source passages connect them in more tha
 
 ## Primary-text background
 
-The derivation from permeability, and non-annihilation as its corollary: “Being soaked itself is forcefulness. It becomes clear that units are soaked because Omnipotence is permeating. No matter how many times we divide a unit, each fragment remains submerged, surrounded, and soaked. It also becomes clear that a unit cannot be annihilated.” — SB, p. 57. The three aspects taken together, with permeativeness inferred from soakedness: SB, p. 243.
+The source connects permeability with non-annihilation: “Being soaked itself is forcefulness. It becomes clear that units are soaked because Omnipotence is permeating. No matter how many times we divide a unit, each fragment remains submerged, surrounded, and soaked. It also becomes clear that a unit cannot be annihilated.” — SB, p. 57. Division leaves each fragment saturated; whether this establishes every form of persistence is a further philosophical question. The three aspects taken together, with permeativeness inferred from soakedness: SB, p. 243.
 
 Surroundedness as what establishes regulation: “This very surroundedness itself clarifies the regulation of every unit, because every unit … remains regulated within a definite distance from one another, which itself is formless existence.” — SB, p. 79
 
@@ -238,7 +238,7 @@ SB p. 57 associates soakedness with forcefulness, submersion with activeness, an
 Not as an efficient cause. *Satta* is *mahakaran* — supreme cause in the sustaining sense (MVD, pp. 288–289; SB, pp. 49, 62). Particular changes occur through unit-activity in mutuality. Slide 7 develops this.
 
 **Q: Is “inherent energy” measurable physical energy?**
-The texts treat it as ontological endowment. Relative energy — what physics measures — appears in mutuality of units. Do not identify *satta*'s uniform energy with a physical field.
+The texts treat it as ontological endowment. Relative energy appears in unit-mutuality and includes named phenomena such as heat, sound, and electricity. Comparing those terms with measured physical quantities requires a further account; *satta*'s uniform energy is not thereby identified with a physical field.
 
 **Q: If complementarity is “given,” why do conflicts exist?**
 Complementarity is perpetual; recognition and fulfilment can fail. At the human order, mis-evaluation under body-identification leaves complementarity incompletely expressed (MVD, p. 112).
@@ -257,7 +257,7 @@ The primary descriptions overlap. SB p. 57 connects submersion with activeness, 
 
 One consequence of the last slide deserves its own moment, because it answers the second of our opening questions.
 
-If no division of a unit can put any fragment outside the ground, then nothing that exists can be annihilated. And nothing arises from non-being either. So existence does not begin and does not end. What begins and ends is composition — particular arrangements of units.
+Division leaves every fragment saturated in the ground. Madhyasth Darshan connects this inseparability with its claim that what exists is not annihilated and does not arise from non-being. Existence is perpetual; particular arrangements of units begin and end. The doctrine is explicit, although inseparability alone does not independently prove every claim of persistence.
 
 Notice carefully what that does and does not claim. A compound decomposes. A body dies. Those organisations genuinely end. What continues is their constituents, in other relations. Perpetuity belongs to coexistence, not to any particular configuration.
 
@@ -267,7 +267,7 @@ Third, time. Time here is not a container existing alongside the ground and the 
 
 ## Primary-text background
 
-Non-annihilation follows from permeability: “Being soaked itself is forcefulness. It becomes clear that units are soaked because Omnipotence is permeating. No matter how many times we divide a unit, each fragment remains submerged, surrounded, and soaked. It also becomes clear that a unit cannot be annihilated.” — SB, p. 57
+The primary connection between permeability and non-annihilation: “Being soaked itself is forcefulness. It becomes clear that units are soaked because Omnipotence is permeating. No matter how many times we divide a unit, each fragment remains submerged, surrounded, and soaked. It also becomes clear that a unit cannot be annihilated.” — SB, p. 57
 
 Perpetuity of existence, and the world's reality alongside the ground: SB p. 70; JV p. 18. “Brahma is truth, the world is perpetual” — study §1.14, where it is contrasted with the Advaita reading developed in §2.
 
@@ -284,7 +284,7 @@ Big Bang cosmology describes the evolution of the observable universe from an ea
 Both are transformations of configuration, not passage into non-being. MD's claim concerns what exists, not the survival of particular arrangements. The study is explicit that conservation of quantity alone does not establish MD's stronger claims.
 
 **Q: Isn't this just “energy is conserved” restated?**
-Conservation laws are quantitative statements within physics. MD's claim is ontological: no unit stands outside what it is saturated in. The two are compatible and mutually suggestive, but they are not the same claim, and the study does not treat physics as proving the ontology.
+Conservation laws state quantitative relations within physics. MD asserts that what exists does not become non-existent. That stronger ontological claim cannot be derived from conservation laws alone; identifying its units with physical particles would require further argument.
 
 # Slide 8
 
@@ -348,7 +348,7 @@ Form is the real configuration of the unit: shape, volume, and density. The cons
 
 Properties are relative powers inseparable from their bearer. In the peepal, nutrition, repair, seed production, and degeneration become effective under definite conditions.
 
-Essential nature is usefulness in context: vitalising while the living organisation holds; devitalising when it breaks down.
+Essential nature is usefulness in mutuality. The peepal's effects are vitalising or devitalising according to the affected body and conditions. Its being alive or decomposing does not alone decide which effect it has on another body.
 
 Innateness — dharma in this technical sense — is what cannot be separated from the unit, plus order-specific fulfilment. For the peepal: existence plus growth. Seed-conformance is how it conducts itself, not an extra label piled on top.
 
@@ -389,7 +389,7 @@ The complementarity we just established becomes evident through relationships am
 
 In the material, plant, and animal orders its expression is definite: recognition happens, fulfilment happens. At the human order alone it has to be recognised, evaluated, and fulfilled — so at the human order alone it can be got wrong, and it is got wrong when the body is mistaken for the self.
 
-Two kinds of mutuality matter. A relationship is mutuality whose expectations are definite in the completeness of the bond — parent and child. A contact (*sampark*) is mutuality where expectations are voluntary — neighbours who share a wall.
+Two kinds of mutuality matter. A relationship carries definite expectations towards completeness — parent and child, for example. In a contact (*sampark*), the particular exchange is voluntarily undertaken, as when neighbours agree to share the upkeep of a wall. Both remain answerable to justice and humane conduct.
 
 The slide names the thirty values: four *jeevan* values, six human values, nine established values, nine expressed values, and two object values. Established values become evident when human relationships are recognised and fulfilled — trust, respect, affection, care, and so on. Expressed values — *shishta-mulya* — are their corresponding powers in motion. The English translation of MVD renders those as civic values; they are relationship-expression, not a separate family of right-use of body, mind, and wealth.
 
@@ -401,7 +401,7 @@ At the human order the path runs: knowing, then believing, then recognising, the
 
 Relationship / contact definitions: MVD, pp. 61–62. Values and mutuality: SB, pp. 50, 53, 61; MVD, p. 27. Motherly care example: JV, pp. 137–138.
 
-The thirty-value canon follows the study's §1.4 table and *Paribhasha Samhita* pp. 151, 154, matching Axiology §1.3. The English translation of MVD uses *civic values* for *shishta-mulya*; this companion treats them as the expressed pair of the established values. The primary texts distribute these explanations across passages on production, relationship, *jeevan*, and humane conduct rather than giving one closed list in a single place.
+The thirty-value enumeration is explicit in *Paribhasha Samhita* pp. 151, 154; definitions and connections are developed across several passages. *Manav Abhyas Darshan*, native-reader p. 30, gives the principal nine established values and their paired expressions. The English translation of MVD uses *civic values* for *shishta-mulya*; this companion treats them as the expressed pair of the established values. See the study's §1.4 and Axiology §1.3.
 
 ## Likely questions from the audience
 
@@ -530,7 +530,7 @@ Because it is the first order described as requiring a joint expression of a bio
 
 Now we name three milestones — T1, T2, and T3.
 
-T1 is constitutional completeness: the immortality of result. A developing atom becomes a sentient unit — jeevan. Status shifts from physicochemical to what the texts call delusional — meaning the body is mistaken for the self. That is a stage label, not a psychiatric diagnosis.
+T1 is constitutional completeness: the immortality of result. A developing atom becomes a sentient unit — jeevan. Its standing changes from physicochemical to sentient before realisation, on what the texts call the delusional plane. In human living, delusion means mistaking the body for the self. In animal living, expression is limited by the bodily medium. The plane name should not turn that limitation into a human error or a psychiatric diagnosis.
 
 T2 is activity completeness: restfulness of effort. Inner seeking settles into direct realisation and resolution. Status shifts toward awakened understanding.
 
@@ -568,7 +568,7 @@ There is one drive: nature saturated in state-complete Omnipresence, oriented to
 
 **Orders** — material, bio, animal, knowledge — say what *kind* of thing a unit is: its organisation, its essential nature, its innateness. Four orders.
 
-**Progressions** — existential, way of existence, development, awakening — say how the drive *moves*. The first names the definite sequence in which the orders become manifest; the second, the conformance by which each order keeps its conduct; the third, physicochemical and atomic development up to T1; the fourth, qualitative development inside a complete sentient unit toward T2 and T3.
+**Order and development** are described by four terms: existential progression, way of existence, development progression, and awakening progression. The first names the definite order in which the orders become manifest; the second, the conformance by which each order keeps its conduct; the third, physicochemical and atomic development up to T1; the fourth, qualitative development inside a complete sentient unit toward T2 and T3.
 
 **Planes** — physicochemical, delusional, deific, divine — say how *far* something has come. These are the four we just saw across the top of the last slide. Before T1; T1 only; T2; T3.
 
@@ -578,9 +578,9 @@ The one caution worth stating out loud: an order is not a plane. The knowledge o
 
 ## Primary-text background
 
-Study §1.6 (the completeness drive), §1.9.1 (four progressions), §1.9.2 (four planes, five human types), and the conceptual map's classification key.
+Study §1.6 (the completeness drive), §1.9.1 (terms for order and development), §1.9.2 (four planes, five human types), and the conceptual map's classification key.
 
-The four progressions are *niyati-kram* (existential progression), *niyati-vidhi* (way of existence), *vikas-kram* (development progression), and *jagriti-kram* (awakening progression): MVD, pp. 13–14; study §1.9.1.
+The four terms for order and development are *niyati-kram* (existential progression), *niyati-vidhi* (way of existence), *vikas-kram* (development progression), and *jagriti-kram* (awakening progression): MVD, pp. 13–14; study §1.9.1.
 
 The four planes are physicochemical, delusional, deific, and divine or complete: study §1.9.2. Order vs plane asymmetry: SB, p. 52 — two orders can share one plane; one order can span three planes.
 
@@ -635,7 +635,7 @@ Not presently — say so plainly (§6.2.1). Realisation and conduct are warrants
 It identifies closure with the sentient status and describes the before/after criteria. It does not derive sentience from a particle configuration in a way that supplies a contemporary causal model. Calling the sentience threshold a textual transition criterion is more accurate than calling it an empirically established mechanism.
 
 **Q: Isn't this just panpsychism?**
-Close but distinct: panpsychism makes every particle a subject; MD does not. Active sentience belongs only to constitutionally complete atoms; what is pervasive is intelligibility in *satta*, not micro-minds.
+The views differ. Some forms of panpsychism attribute experience to fundamental physical entities; other versions locate it at a wider scale. MD assigns sentience to constitutionally complete atoms. Its pervasive *satta* is actionless, rather than a collection of minds.
 
 # Slide 17
 
@@ -655,7 +655,7 @@ The body gates expression. The sentient unit is seer, doer, and enjoyer through 
 
 ## Primary-text background
 
-MVD pp. 13, 115, 288–289; SB pp. 91–92; JV pp. 20, 54. “Jeevan continues to exist even after death as it does while driving a body.” — JV, p. 20
+MVD pp. 13, 115, 288–289; SB pp. 91–92; JV PDF pp. 20, 55 (printed pp. 19, 54). “Jeevan continues to exist even after death as it does while driving a body.” — JV, PDF p. 20
 
 ## Likely questions from the audience
 
@@ -673,9 +673,9 @@ Same kind of constitutionally complete unit; different bodily medium and therefo
 
 The sentient unit — jeevan — is a constitutionally complete atom.
 
-Structurally, the centre is the core self. Around it: resolve, desire, thought, and hope — the texts’ buddhi, chitta, vritti, and mun.
+Structurally, atma is the centre. Four faculties surround it: buddhi, chitta, vritti, and mun. The texts distinguish these faculties from their characteristic powers: evidence, resoluteness, desire, thought, and hope.
 
-Each works outward and inward. Hope selects and tastes. Thought analyses and deliberates. Desire visualises and contemplates — and directly apprehends. Resolve resolves and comprehends. The core self authenticates and realises. Tasting at hope has three orientations: sensory, value-based, and goal-based. Awakening changes which of these governs what is accepted. Projection of realisation is authenticity, resolve, visualisation, analysis, and selection into living conduct.
+Each characteristic power has outward and inward activities. Mun selects and tastes; vritti analyses and deliberates; chitta visualises and contemplates, including direct apprehension; buddhi resolves and comprehends; atma evidences authenticity and realises. Tasting at mun has three orientations: sensory, value-based, and goal-based. Awakening changes which governs what is accepted. Projection expresses understanding through authenticity, resolve, visualisation, analysis, and selection into living conduct.
 
 Here, reflection means pratyavartan, the inward activity of knowing. It differs from pratibimban, the imaging between units introduced on slides 8 and 9. Guidance can descend from the core self through the faculties, while sensory drive can press inward from the body. In awakening, cognisance regulates sensitivity.
 
@@ -685,7 +685,9 @@ Study brings understanding. Practice tests and stabilises it. Practice does not 
 
 ## Primary-text background
 
-MVD, p. 78; JV, p. 92; MVD, pp. 13, 82–83, 126, 207–208, 278–279, 286–287. *Koshas*: MVD, pp. 49–50. Body mistaken for self: SB, pp. 91–92; JV, p. 93. The study renders the reflective activity of *buddhi* as comprehension (*bodh*) and of *chitta* as direct apprehension (*sakshatkar*). Tasting forms: PS pp. 40–41; Axiology §1.2.
+MVD, p. 78; JV, p. 92; MVD, pp. 13, 82–83, 93, 126, 207–208, 278–279, 286–287. Faculties, characteristic powers, and their paired activities: SB p. 63. Atma's characteristic power, evidence (*praman*), is distinguished from authenticity (*pramanikta*) as its projection activity. At the activity level, *bal* names state and *shakti* motion; KD §3.8, printed p. 84 supplies the orientation, which the AVD English appendix headings reverse. Body mistaken for self: SB, pp. 91–92; JV, p. 93. The study renders *bodh* as comprehension and *sakshatkar* as direct apprehension. Tasting forms: PS pp. 40–41; Axiology §1.2.
+
+The koshas in MVD pp. 49–50 describe manifestations across the orders: annamaya/pranamaya already in material nature, manomaya in pranic nature, anandamaya in animal and deluded human living, and vigyanmaya in awakened human living. They are distinct from these five faculties and from the four planes (study §1.5).
 
 ## Likely questions from the audience
 
@@ -707,13 +709,15 @@ They name harmonies within the sentient unit. Happiness: harmony of hope and tho
 
 These four harmonies belong to the knowledge-order account of awakening. Animal living expresses hope to live through its bodily medium. We should therefore keep animal sensory satisfaction distinct from the human development of these harmonies. Within the human account, bliss is borne at buddhi through harmony with atma. Realisation at atma is named ultimate bliss, or paramanand, whose effect reaches the remaining faculties.
 
+Their fulfilment is cumulative: resolution; resolution with prosperity; these with fearlessness; and all three in coexistence. Each fuller fulfilment retains the preceding content. These are principal correspondences within one life, not separate compartments or a promise that acquiring goods automatically produces peace.
+
 The living cycle is: reflection feeds projection, and projection feeds deeper reflection — that is what living means here. Continuous happiness is harmony evidenced in resolved living, not a sensory spike.
 
 The next two slides examine how understanding comes to guide evaluation, work, and relationships.
 
 ## Primary-text background
 
-JV, p. 138 (four harmonies). JV, p. 61 (values ladder / five levels). KD §3.12, pp. 110–113 (projection–reflection). SB pairs values with practical routes through justice, orderliness, and realisation. MVD, p. 77 (channelling energies toward awakening).
+JV, PDF p. 138 (four harmonies), PDF p. 61 (experienced values and their evidence). KD §3.12, printed p. 112 gives cumulative fulfilment; pp. 110–113 develops projection–reflection. SB pairs values with practical routes through justice, orderliness, and realisation. MVD, p. 77 (channelling energies toward awakening).
 
 Study §1.8 locates happiness at mun, peace at vritti, contentment at chitta, and bliss at buddhi, each through harmony with the inward faculty. MVD pp. 100–101 distinguishes ultimate bliss at realised atma; MVD pp. 328–346 enumerates the faculty activities. The knowledge-order ladder should not be extended to animals merely from the presence of the same faculties.
 
@@ -745,7 +749,7 @@ No faculty is missing, and sensation is not rejected. Confusion lets sensory cri
 
 When the same fork is resolved in a person and sustained across a tradition, it shows as resolution, prosperity, fearlessness, and coexistence.
 
-And one thing awakening is *not*: it is not preferring the right things, and it is not having the right insight. The next slide is about why.
+Awakening requires more than preferring the right things or having an insight that does not guide conduct. The next slide explains how understanding becomes effective in living.
 
 ## Primary-text background
 
@@ -803,7 +807,7 @@ Same underlying activity ontology; karma names human activity-with-aspiration an
 Because action without truthful understanding reproduces the confusion it came from — the study's phrase is that projection without truthful understanding can reproduce delusion (§1.6.3). The claim is not that study is unnecessary. It is that study is half. Reflection without projection remains unevidenced; projection without reflection goes wrong.
 
 **Q: Can't I just be a good person without any of this?**
-The system's answer is that isolated good conduct is genuinely valuable but is not conduct completeness, which requires understanding *and* continuity in a tradition (§1.6.3, §1.15). It would also say that much of what passes for good conduct is organised around profit, health, and pleasant feeling, and that the difference only becomes visible when relationships are actually evaluated.
+Good conduct is valuable, but conduct completeness means the individual's continuous expression of realised understanding. MVD pp. 15–16 distinguishes completeness in an individual from completeness in society. A person's humane participation helps establish and transmit an awakened tradition; it does not require an already completed universal society. The claim is assessed through understanding, fulfilled relationships and continuity of conduct (§1.6.3, §1.15).
 
 # Slide 22
 
@@ -817,7 +821,7 @@ Remember the third of the three terms: surrounded. Regulation is what surrounded
 
 The account works at three levels, and it is worth naming them: Omnipresence is the sustaining condition; within an atom, the nucleus is the mediative organisation that regulates generative and degenerative activity and conserves relative powers; and at larger scales, order-specific conformance is the definite conduct you can actually observe.
 
-Conformance has order-specific modes. Material: structural or result conformance. Bio: seed-conformance. Animal: species-conformance, inherited from gestation. Human: *sanskar*-conformance — achieved through knowing, believing, recognising, and fulfilling, rather than inherited. That last one is why education and tradition matter so much here: they can reproduce confusion just as easily as they can support awakening.
+Conformance has order-specific modes. Material: structural or result conformance. Bio: seed-conformance. Animal: species-conformance, inherited from gestation. Human: *sanskar*-conformance — conduct follows acquired acceptances and dispositions. These can express delusion or awakened understanding. That is why education and tradition matter: they can reproduce confusion or support awakening.
 
 Material, bio, and animal regulation is definite. An animal body’s expressive limits do not introduce evaluative error. In human living, the sentient unit can judge wrongly when it mistakes the body for the self. Awakening aligns evaluation with coexistence. That is why justice becomes necessary at the human order.
 
@@ -879,7 +883,7 @@ We turn now to knowing — how understanding widens, and how it happens in the s
 
 On the left: what must be understood as mutual context widens. Form is real structure encountered in mutual facing. Capacities show as effects between units. Essential nature needs state, order, and context. Innateness is evidenced in whole-order fulfilment. Relationships are shared expectations weighed by justice, dharma, and truth. At the top is coexistence itself — not another observed detail, but the aim of knowing.
 
-On the right: how knowing happens within the sentient unit. Hope tastes and selects. Thought deliberates. Desire contemplates and directly apprehends. Resolve comprehends and resolves. The core self realises through truth. Happiness, peace, contentment, and bliss name harmonies between paired faculties. Realisation at the core is named ultimate bliss.
+On the right: how knowing happens within the sentient unit. Mun tastes and selects. Vritti deliberates. Chitta contemplates and directly apprehends. Buddhi comprehends and resolves. Atma realises in truth. Happiness, peace, contentment, and bliss name harmonies between paired faculties. Realisation at atma is named ultimate bliss.
 
 Every unit is already manifest with all four aspects. The left-hand steps describe widening human understanding of that unit; they do not describe successive additions to its image. Inward reflection deepens knowing, and projection makes understanding evident through conduct. Bliss names the harmony of buddhi and atma; coexistence realised at atma is ultimate bliss.
 
@@ -968,21 +972,21 @@ Its definition joins usefulness and beauty and makes expression meaningful. A cl
 
 ## Delivering the slide
 
-The drive comes to rest in awakened human beings — effort settled, understanding proven in daily conduct, and carried as a tradition.
+Conduct completeness is realised understanding expressed continuously by the individual. Humane participation and education transmit it through an awakened tradition. Individual completeness contributes to social completeness; it does not wait for the entire society to be complete.
 
 Effort settled in realisation is T2. Understanding proven in conduct is T3.
 
 Four goals at four levels: resolution in every person; prosperity in every family; fearlessness — trust — in society; coexistence with all of nature.
 
-Five dimensions of continuity carry the tradition: education and formative culture; justice and preservation; health and restraint; production and work; exchange and storage.
+Five social systems carry that continuity: education and formative culture; justice and preservation; health and restraint; production and work; exchange and storage. These differ from the four dimensions of a person's living — realisation, thought, behaviour and work.
 
 And here is where the other half of the composition slide returns. Families and societies are not a further compositional tier — you cannot get a humane society by stacking bodies the way you stack molecules. They are relational achievements: they persist humanely while relationships are recognised, values fulfilled, evaluation completed, and mutual satisfaction achieved. Fear, force, or extraction can hold a group together for a while; on this account they do not make it an orderly society.
 
-This is not an ideal bolted onto matter. On this account, the progression is designed to arrive here. Nature saturated in Omnipresence is bound for development until realisation. An awakened human tradition is what that progression delivers.
+MD connects this social aim with human dharma as happiness, values fulfilled in relationships, and understanding expressed in conduct. Nature is oriented towards development and realisation; an awakened human tradition requires people to understand, practise, and transmit that understanding. The ontology gives this participation a purpose without making humane institutions automatic.
 
 ## Primary-text background
 
-JV, p. 61; MVD, pp. 13–15; SB, pp. 51, 81, 91. Five dimensions: study §1.15 and governance-related works in the series. SB on operating scale of self-sustaining systems (100–200 families) if useful for Q&A.
+JV, PDF p. 61; MVD, pp. 13–16; SB, pp. 51, 81, 91. Individual and social completeness are distinguished in MVD pp. 15–16. Five social systems: study §1.15 and governance-related works in the series. SB on operating scale of self-sustaining systems (100–200 families) if useful for Q&A.
 
 Human assemblies as achieved rather than chemically definite: study §1.10, final paragraph; MVD, p. 42; SB, p. 14 (persist or decline). This is the counterpart of slide 13 — the compositional half of §1.10 was delivered there, the relational half here.
 
@@ -992,7 +996,7 @@ Human assemblies as achieved rather than chemically definite: study §1.10, fina
 No — *samridhi* is felt sufficiency with proper utilisation, opposed to hoarding (AVD).
 
 **Q: How does family-scale vision reach society?**
-By composition under recognised relationships — the same persist-or-decline rule, expressed institutionally across the five dimensions.
+Through coordinated participation in recognised relationships, expressed institutionally across the five social systems. Social continuity requires continued fulfilment; it is not a chemical composition of persons.
 
 # Slide 28
 

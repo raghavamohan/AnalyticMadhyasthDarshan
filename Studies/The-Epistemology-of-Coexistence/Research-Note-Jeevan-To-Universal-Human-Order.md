@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 11:16 AM IST
+**Edited on:** September 19, 2026, 9:30 PM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md).
 
@@ -14,7 +14,7 @@ This common architecture supports a universal social conclusion, but not by a di
 
 ## 1. The form and limit of the derivation
 
-The aim is *vishram*, restfulness: freedom from contradiction and unhappiness while activity continues, rather than inactivity or withdrawal. Restfulness becomes effective when the outer faculties accord with the faculties inward of them. Taste and selection in *mun* become consonant with deliberation in *vritti*; deliberation and analysis become consonant with contemplation in *chitta*; contemplation and visualisation become consonant with enlightenment in *buddhi*; and enlightenment and resolve become consonant with realisation in *atma*. Happiness, peace, contentment, and bliss name the harmonies of the four adjoining relations (MVD, pp. 68, 275–277, 307, 327; JV, p. 138).
+The aim is *vishram*, restfulness: freedom from contradiction and unhappiness while activity continues, rather than inactivity or withdrawal. Restfulness becomes effective when the outer faculties accord with the faculties inward of them. Taste and selection in *mun* become consonant with deliberation in *vritti*; deliberation and analysis become consonant with contemplation in *chitta*; contemplation and visualisation become consonant with comprehension in *buddhi*; and comprehension and resolve become consonant with realisation in *atma*. Happiness, peace, contentment, and bliss name the harmonies of the four adjoining relations (MVD, pp. 68, 275–277, 307, 327; JV, p. 138).
 
 This inward consonance does not complete the human claim by remaining inward. Authenticity is realised understanding becoming evident. Resolve, visualisation, analysis, and selection become embodied through speech, behaviour, skill, work, use of resources, and participation. Their effects return as bodily condition, another person's response, relationship-fulfilment or contradiction, material result, and ecological consequence. These are evaluated, can occasion inquiry, and can become lasting *sanskar*. The evidence chain therefore runs from realisation to understanding, resolution, work and behaviour, and an awakened human tradition (MVD, p. 12).
 
@@ -35,7 +35,7 @@ $$
 | Faculty | Generic pair | Pairs | Activities | Provisional external implication |
 |---|---|---:|---:|---|
 | *Atma* | Realisation–authenticity | 1 | 2 | Understanding must be allowed to become truthful evidence rather than remain a private assertion. |
-| *Buddhi* | Enlightenment–resolve | 2 | 4 | Education and decision must cultivate definiteness and responsible resolve rather than obedience, fear, or borrowed belief. |
+| *Buddhi* | Comprehension–resolve | 2 | 4 | Education and decision must cultivate definiteness and responsible resolve rather than obedience, fear, or borrowed belief. |
 | *Chitta* | Contemplation–visualisation | 8 | 16 | Meaning, explanation, imagination, design, and planning require study, cultural expression, scientific inquiry, and freedom from possessive attachment. |
 | *Vritti* | Deliberation–analysis | 18 | 36 | Alternatives and consequences must be assessed through justice, *dharma*, and truth while retaining the subordinate tests of pleasure, health, and material result. |
 | *Mun* | Taste–selection | 32 | 64 | Daily choices in sensation, relationship, consumption, work, and use must have humane possibilities available for selection and fulfilment. |

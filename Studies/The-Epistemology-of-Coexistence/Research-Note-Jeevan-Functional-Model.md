@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 14, 2026, 12:02 PM IST
+**Edited on:** September 19, 2026, 9:43 PM IST
 
 **Status:** Internal technical companion (not a catalog entry).
 
@@ -75,9 +75,10 @@ $$
 Thus
 
 $$
-S(J,t)=\bigl(s(b,t),s(c,t),s(v,t),s(m,t)\bigr),
-\qquad
-Q(J,t)=\bigl(q(a,t),q(b,t),q(c,t),q(v,t),q(m,t)\bigr).
+\begin{aligned}
+S(J,t)&=\bigl(s(b,t),s(c,t),s(v,t),s(m,t)\bigr),\\
+Q(J,t)&=\bigl(q(a,t),q(b,t),q(c,t),q(v,t),q(m,t)\bigr).
+\end{aligned}
 $$
 
 $S$ and $Q$ are analytical aspects, not two stores. Restricting acquired organisation to four faculties is a reading of the passages, not an explicit storage theory. A formulation in which awakening of the four implicitly includes a transformed relation to *atma* remains compatible with the sources.
@@ -131,7 +132,7 @@ $$
 =\langle P_a,P_b,P_c,P_v,P_m\rangle.
 $$
 
-The angle brackets record order and dependence, not composition or conversion. Realisation does not turn into enlightenment as one substance becoming another; each faculty performs its own activity in relation to the orientation available from the faculty inward of it.
+The angle brackets record order and dependence, not composition or conversion. Realisation does not turn into comprehension as one substance becoming another; each faculty performs its own activity in relation to the orientation available from the faculty inward of it.
 
 The independence of these ordered paths from the direction terms *paravartan* and *pratyavartan* is a hypothesis. AVD places the *bal* activities under *pratyavartan* and the *shakti* activities under *paravartan*, while MVD, pp. 276–277, orders the state activities outward in the realisation-based way. The model keeps the tension explicit rather than treating either arrangement as a settled identity.
 
@@ -276,9 +277,10 @@ $$
 
 $$
 S(J,t+1)=
-\mathcal{U}^{S}\bigl(S(J,t),\mathcal{Q}(t)\bigr)
-\quad\text{when uptake occurs and the content is assimilated}.
+\mathcal{U}^{S}\bigl(S(J,t),\mathcal{Q}(t)\bigr),
 $$
+
+where the second update occurs when uptake takes place and the content is assimilated.
 
 The stronger printed learning sequence should govern interpretation of these symbols: realisation-oriented conceptions in *buddhi* become thought and action, and thoughts arising through action are instilled again as *sanskar* through inference (MVD, p. 218). The formal protocol must not replace that source-grounded account.
 
@@ -288,7 +290,9 @@ The model treats *bodh* and *anubhav* as success terms rather than fallible esti
 
 $$
 \mathsf{Bodh}:\mathcal{X}(c)\rightharpoonup\mathcal{X}(b),
-\qquad
+$$
+
+$$
 \mathsf{Bodh}(x_c)\downarrow
 \Longrightarrow
 \operatorname{Agree}(x_c,K)=\top,
@@ -297,16 +301,18 @@ $$
 
 $$
 \mathsf{Anubhav}:\mathcal{X}(b)\rightharpoonup\mathcal{X}(a),
-\qquad
+$$
+
+$$
 \mathsf{Anubhav}(x_b)\downarrow
 \Longrightarrow
 \operatorname{Agree}(x_b,K)=\top,
 \quad x_b\in\mathcal{X}(b).
 $$
 
-If agreement is absent, the candidate remains assumption, judgment, or unresolved meaning rather than becoming incorrect *bodh* or *anubhav*. This is a formal interpretation of the success vocabulary, not a source formula. The condition of a perturbed or unenlightened *buddhi* is represented by the functions being undefined for the content, not by a false result.
+If agreement is absent, the candidate remains assumption, judgment, or unresolved meaning rather than becoming incorrect *bodh* or *anubhav*. This is a formal interpretation of the success vocabulary, not a source formula. A perturbed *buddhi*, or one without effective comprehension of that content, is represented by the functions being undefined for the content, not by a false result.
 
-Incompleteness may concern subject matter, coordination, or evidence. Let $\mathcal{D}$ be the domain of subject matters considered by the model, and let $\Delta(b)$ and $\Delta(a)$ be the subdomains for which enlightenment and realisation are effective:
+Incompleteness may concern subject matter, coordination, or evidence. Let $\mathcal{D}$ be the domain of subject matters considered by the model, and let $\Delta(b)$ and $\Delta(a)$ be the subdomains for which comprehension and realisation are effective:
 
 $$
 \Delta(a)\subseteq\Delta(b)\subseteq\mathcal{D}.
@@ -327,10 +333,12 @@ $$
 When $A(f,t)=\top$, the value is named by the faculty:
 
 $$
-\operatorname{Value}(b)=\textit{bliss},\quad
-\operatorname{Value}(c)=\textit{contentment},\quad
-\operatorname{Value}(v)=\textit{peace},\quad
-\operatorname{Value}(m)=\textit{happiness}.
+\begin{aligned}
+\operatorname{Value}(b)&=\textit{bliss},&
+\operatorname{Value}(c)&=\textit{contentment},\\
+\operatorname{Value}(v)&=\textit{peace},&
+\operatorname{Value}(m)&=\textit{happiness}.
+\end{aligned}
 $$
 
 Let $H(f,\operatorname{in}(f),t)$ denote qualitative concurrence between adjoining faculties. It is a relation assessed at a time, not the embodied-consequence map $\mathcal{H}$ of §4. The correspondence between immersion and adjoining concurrence is represented as
@@ -389,7 +397,7 @@ Partially awakened, half-awakened, and awakened statuses are represented by prog
 
 The union of *vritti* and *mun* alone is associated with sleep or dream, where imagination is not evidenced in work and behaviour (MVD, p. 279). It supplies a directly stated shallow case of recurrent activity without present bodily execution; extending that possibility to a complete five-faculty recurrence is a model hypothesis.
 
-The fraction in “four and a half” concerns the restricted jurisdiction of *tulan*: pleasantness, health, and profit operate, while justice, *dharma*, and truth do not yet govern. Visualisation remains effective but necessarily carries excess, deficiency, or omission without enlightenment in truth (MVD, p. 286). The sources do not settle whether that flaw is part of the fraction or a second description of deluded *chitran*.
+The fraction in “four and a half” concerns the restricted jurisdiction of *tulan*: pleasantness, health, and profit operate, while justice, *dharma*, and truth do not yet govern. Visualisation remains effective but necessarily carries excess, deficiency, or omission without comprehension in truth (MVD, p. 286). The sources do not settle whether that flaw is part of the fraction or a second description of deluded *chitran*.
 
 ## 8. Pair-level semantics
 
@@ -508,7 +516,7 @@ Hope, thought, desire, resoluteness, and evidence are located at faculties in so
 
 ### 13.3 *Sanskar*, *sakshatkar*, and overlapping vocabulary
 
-The four-faculty placement in §2.1 follows attained awakening in *mun*, *vritti*, *chitta*, and *buddhi* (MVD, p. 121). Delusion under animal consciousness is called *kusanskar* in one formulation, while another holds that wrongs are not accepted and therefore do not become *sanskar* (MVD, pp. 94, 315; JV, pp. 49–50). *Sakshatkar* appears where study reaches *chitta* and as realisation-based contemplation of enlightenment and resolve, overlapping the locus of *chintan* without establishing a separate faculty stage (MVD, pp. 99, 126).
+The four-faculty placement in §2.1 follows attained awakening in *mun*, *vritti*, *chitta*, and *buddhi* (MVD, p. 121). Delusion under animal consciousness is called *kusanskar* in one formulation, while another holds that wrongs are not accepted and therefore do not become *sanskar* (MVD, pp. 94, 315; JV, pp. 49–50). *Sakshatkar* appears where study reaches *chitta* and as realisation-based contemplation of comprehension and resolve, overlapping the locus of *chintan* without establishing a separate faculty stage (MVD, pp. 99, 126).
 
 *Medhas* names neural mediation, while *medha* is an activity of *chitta* associated with bearing memory and art (MVD, pp. 200, 330). *Samvedna* names sensitivity in one account and a detailed activity of *vritti* in another (MVD, pp. 273, 337). Sensing, enquiring, protecting, enlightening, adhering, and reflecting are also listed as sentient specialties; several concern inquiry, teaching, mutual resolution, protection, and human relationship rather than internal traffic among faculties (MVD, pp. 313–314).
 

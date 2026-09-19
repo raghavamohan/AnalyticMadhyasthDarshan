@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 7:08 AM IST
+**Edited on:** September 19, 2026, 9:46 PM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled as the source inventory behind §6 of [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md).
 
@@ -32,16 +32,28 @@ The middle three columns carry the faculty-level naming and the outer two the ac
 
 **The detailed definitions** run under the heading "The Definitions of 122 activities of *Jeevan*" (MVD, pp. 328–348). Each faculty's block opens with its two modes, and the activities beneath are set out as two-name headings followed by a definition of each member. The block headings are realisation and authenticity for *atma*, enlightenment and resolve for *buddhi*, contemplation and visualisation for *chitta*, deliberation and analysis for *vritti*, and selection and taste for *mun* (MVD, pp. 328, 329, 332, 339).
 
+The documentary headings and translated definitions retain MVD's “enlightenment” for *bodh* and “direct recognition” for *sakshatkar*. The analytical running terms in the accompanying studies are comprehension and direct apprehension. This convention preserves the source wording while keeping the two concepts distinct from realisation (*anubhav*).
+
 ## 3. The five loci
 
-| Constituent | Faculty (*bal*) | Orientation (*shakti*) | *Bal* activity | *Shakti* activity | Pairs | Activities |
-|---|---|---|---|---|---:|---:|
-| Nucleus | *Atma* | *Praman*, evidence | *Anubhav*, realisation | *Pramanikta*, authenticity | 1 | 2 |
-| First orbit | *Buddhi* | *Ritambhara*, resoluteness | *Bodh*, enlightenment | *Sankalp*, resolve | 2 | 4 |
-| Second orbit | *Chitta* | *Ichha*, desire | *Chintan*, contemplation | *Chitran*, visualisation | 8 | 16 |
-| Third orbit | *Vritti* | *Vichar*, thought | *Tulan*, deliberation | *Vishleshan*, analysis | 18 | 36 |
-| Fourth orbit | *Mun* | *Asha*, hope | *Asvadan*, taste | *Chayan*, selection | 32 | 64 |
-| | | | | | **61** | **122** |
+| Constituent | Faculty (*bal*) | Orientation (*shakti*) |
+|---|---|---|
+| Nucleus | *Atma* | *Praman*, evidence |
+| First orbit | *Buddhi* | *Ritambhara*, resoluteness |
+| Second orbit | *Chitta* | *Ichha*, desire |
+| Third orbit | *Vritti* | *Vichar*, thought |
+| Fourth orbit | *Mun* | *Asha*, hope |
+
+Their paired activities and detailed counts are:
+
+| Faculty | *Bal* activity | *Shakti* activity | Pairs | Activities |
+|---|---|---|---:|---:|
+| *Atma* | *Anubhav*, realisation | *Pramanikta*, authenticity | 1 | 2 |
+| *Buddhi* | *Bodh*, enlightenment | *Sankalp*, resolve | 2 | 4 |
+| *Chitta* | *Chintan*, contemplation | *Chitran*, visualisation | 8 | 16 |
+| *Vritti* | *Tulan*, deliberation | *Vishleshan*, analysis | 18 | 36 |
+| *Mun* | *Asvadan*, taste | *Chayan*, selection | 32 | 64 |
+| Total | | | **61** | **122** |
 
 Every pair below occupies one position at one of these loci. The numbering within each faculty is the source's own (AVD, pp. 91–94). The numbered rows are contents of the generic pair named in this table, not a second set of faculties and not dimensions of it. The sources use “eight dimensions” for visualisation in *chitta*, and they do not map those dimensions onto the eight *chitta* pairs (§4.3). For *mun*, *asha* names the orientation—hope toward tasting—while *asvadan* and *chayan* are the two activities; the thirty-two pairs are what that tasting and selecting are over.
 
@@ -230,6 +242,4 @@ This inventory does not sort those relations into a functional taxonomy. A propo
 
 ### Related studies and research notes
 
-- [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md), especially §4.2 and §6 on the 122 activities and the awakened inventory of *mun*.
-- [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md), especially §8 on pair-level semantics.
-- [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md).
+See [*Jeevan Architecture*](Research-Note-Jeevan-Architecture.md) §§4.2 and 6 for the awakened inventory, [*A Functional Model of Jeevan*](Research-Note-Jeevan-Functional-Model.md) §8 for pair semantics, and [*The Epistemology of Coexistence*](The-Epistemology-of-Coexistence.md) for the wider account of knowing.

@@ -1,6 +1,8 @@
 # Madhyasth Darshan Ontology: A Core Conceptual Map and Primary-Text Guide
 
-This study aid presents the core ontological architecture of Madhyasth Darshan as a single map. It is intended for repeated study: first follow the large structure in the figure, then use the numbered reading guide to locate each concept in the primary texts. The figure follows the shortest path from coexistence to humane fulfilment; a final classification key explicitly maps the value families, karma, progressions, planes, human types, evaluative perspectives, social dimensions, and evidence standards that would overload one diagram.
+**Edited on:** September 19, 2026, 9:39 PM IST
+
+This study aid presents the core ontological architecture of Madhyasth Darshan as a single map. It is intended for repeated study: first follow the large structure in the figure, then use the numbered reading guide to locate each concept in the primary texts. The figure follows the shortest path from coexistence to humane fulfilment; a final classification key explicitly maps the value families, karma, terms for order and development, planes, human types, evaluative perspectives, social systems, and evidence standards that would overload one diagram.
 
 The map distinguishes two lines that are easily conflated. **Compositional progression** produces molecules, cells, bodies, and environments. **Development in the atom** reaches constitutional completeness as *jeevan* and continues, in the human joint form, toward activity completeness and conduct completeness. A body does not become *jeevan* merely by becoming biologically complex.
 
@@ -14,7 +16,7 @@ Read the figure from its ontological ground toward its lived evidence:
 
 1. **Existence is coexistence.** Formless Omnipresence (*satta*) and countless formful units (*ikai*) are eternally and inseparably present.
 2. **Saturation is the bond.** Units do not first exist independently and later enter Omnipresence; every unit is submerged, soaked, and surrounded in it.
-3. **Activity belongs to units in mutuality.** Omnipresence is actionless and non-transforming. Saturation ontologically entails energy-fullness, forcefulness, recognition, regulation, and activity as effort–motion–result; the texts do not supply a separate physical mechanism for this entailment. This is *kriyā*, or activity, throughout nature — not *karma*, or human action. Units are definite bearers, while form is reflected, relative properties become effective, essential nature is recognised as usefulness, and *dharma* is evidenced through order-specific participation.
+3. **Activity belongs to units in mutuality.** Omnipresence is actionless and non-transforming. Saturation ontologically entails energy-fullness, forcefulness, recognition, regulation, and activity as effort–motion–result; the texts do not supply a separate physical mechanism for this entailment. This is *kriyā*, or activity, throughout nature — not *karma*, or human action. Units are definite bearers, while form is imaged in mutual facing, relative properties become effective, essential nature is recognised as usefulness, and *dharma* is evidenced through order-specific participation.
 4. **Nature has four orders.** Material and pranic orders are insentient. Animal and knowledge orders are joint expressions of an insentient body and sentient *jeevan*.
 5. **Development has two lines.** Compositional progression supplies bodies and environments but does not produce T1, T2, or T3. Development in a constitution-oriented atom supplies constitutionally complete *jeevan* at T1; awakening within the human joint form proceeds through T2 and T3.
 6. **The first completeness is constitutional.** At *gathanpurnata* (T1), the atom's particle constitution closes and it becomes the sentient unit called *jeevan*.
@@ -23,7 +25,7 @@ Read the figure from its ontological ground toward its lived evidence:
 
 ## Primary-text guide to the concepts
 
-Page numbers below refer to the printed page numbers represented in the local Markdown transcriptions and corresponding PDFs. KD is a working English rendering; its Part 3 subsection and printed-page range are supplied together.
+MVD, SB, JV, and AVD page pointers use PDF positions. KD and PS use printed pages; KD's Part 3 subsection and printed-page range are supplied together. KD is a working English rendering, and its Hindi source controls disputed terminology.
 
 ### 1. Existence as coexistence
 
@@ -35,21 +37,21 @@ Page numbers below refer to the printed page numbers represented in the local Ma
 
 ### 2. Omnipresence (*satta* / *vyapak*)
 
-**Concept.** Omnipresence is formless, all-pervasive, non-transforming, immeasurable, and actionless. The translations also call it Omnipotence, Uniform Energy, Space, Knowledge, Consciousness, Eternity, God, and Absolute Energy. Knowing as an activity belongs to *jeevan*, not to Omnipresence as a universal cognising subject.
+**Concept.** Omnipresence is formless, all-pervasive, non-transforming, immeasurable, and actionless. The translations also call it Omnipotence, Uniform Energy, Space, Knowledge, Consciousness, Eternity, God, and Absolute Energy. MVD explains these names through pervasiveness, regulation, realisation, and the activity of units in saturation. Their ordinary English meanings should not silently replace those explanations. Knowing as an activity belongs to *jeevan*, not to Omnipresence as a universal cognising subject.
 
-**Primary pointers.** SB, pp. 48–50, 57, 68–70; MVD, pp. 26, 32–34, 40.
+**Primary pointers.** SB, pp. 48–50, 57, 68–70; MVD, pp. 26, 32–35, 40.
 
 **Read for.** State-completeness, actionlessness, permeation, the absence of an external ruler, and Omnipresence as sustaining condition rather than an efficient agent performing transformations.
 
 ### 3. Units (*ikai*) and their four aspects in mutuality
 
-**Concept.** Units are bounded, countable, formful realities. Every unit has form (*roop*), properties (*guna*), essential nature (*svabhav*), and *dharma*, but these do not form a static inventory of observable values. Form is the unit's real boundary and configuration and is reflected in mutual facing. *Guna* is relative power, effective when units come together. *Svabhav* is the essentiality or usefulness of that effect in an order and context. *Dharma* is the unit's inseparable innateness and fulfilment. Each unit remains an identifiable bearer and a whole with its environment while participating in overall orderliness. The peepal-tree example in the main study follows all four aspects through one pranic composition and distinguishes growth as *dharma* from seed-conformance as its mode of conduct.
+**Concept.** Units are bounded, countable, formful realities. Every unit has form (*roop*), properties (*guna*), essential nature (*svabhav*), and *dharma*, but these do not form a static inventory of observable values. Form is the unit's real boundary and configuration and is imaged in mutual facing. *Guna* is relative power, effective when units come together. *Svabhav* is the essentiality or usefulness of that effect in an order and context. *Dharma* is the unit's inseparable innateness and fulfilment. Each unit remains an identifiable bearer and a whole with its environment while participating in overall orderliness. The peepal-tree example in the main study follows all four aspects through one pranic composition and distinguishes growth as *dharma* from seed-conformance as its mode of conduct.
 
 Truth of a unit is stated in three complementary aspects, not three worlds. Inherent truth (*vastugat satya*) is the unit's own form, properties, essential nature, and innateness. Positional truth (*vastu-sthiti satya*) is that same unit in place, time, and direction. Existential truth (*sthiti satya*) is nature saturated in Omnipresence. These complete one another; they are not Advaita's three tiers.
 
 **Primary pointers.** SB, pp. 13–15, 48, 50–54, 248–252; MVD, pp. 11, 47, 50–51, 88, 97, 112; YAT; KD §3.1 and §§3.9–3.10, printed pp. 54–102.
 
-**Read for.** Boundary and unitness; bearer and inseparable capacity; reflection and relative effect in definite mutuality; the three complementary truths; usefulness and value; natural and excited states; and the atom as the root quantity of physical, chemical, and *jeevan* activity.
+**Read for.** Boundary and unitness; bearer and inseparable capacity; imaging and relative effect in definite mutuality; the three complementary truths; usefulness and value; natural and excited states; and the atom as the root quantity of physical, chemical, and *jeevan* activity.
 
 ### 4. Saturation (*sampriktata*)
 
@@ -61,7 +63,7 @@ Truth of a unit is stated in three complementary aspects, not three worlds. Inhe
 
 ### 5. Recognition, fulfilment, and complementarity
 
-**Concept.** Units recognise and fulfil according to their constitution and order. In insentient nature, reflection, effect, recognition, and fulfilment are definite according to the participating units and conditions. Animal *jeevan* expresses hope-bound selection through a species-conformant bodily medium. Human evaluation can become mistaken only when deluded *jeevan* identifies itself with the body; the underlying mutuality does not thereby become indefinite. Complementarity becomes value in relationship.
+**Concept.** Units recognise and fulfil according to their constitution and order. In insentient nature, imaging, effect, recognition, and fulfilment are definite according to the participating units and conditions. Animal *jeevan* expresses hope-bound selection through a species-conformant bodily medium. Human evaluation can become mistaken when deluded *jeevan* identifies itself with the body; the underlying mutuality does not thereby become indefinite. Complementarity becomes value in relationship.
 
 **Primary pointers.** SB, pp. 49–54, 57, 59, 61–62, 80–81, 123; MVD, pp. 61–62; JV, pp. 43, 67, 69.
 
@@ -69,9 +71,9 @@ Truth of a unit is stated in three complementary aspects, not three worlds. Inhe
 
 ### 6. Effort–motion–result (*shram–gati–parinam*)
 
-**Concept.** Every activity bears effort, motion, and result inseparably. These are joint aspects of one activity, not three independent events. Force is recognised in state and power in motion.
+**Concept.** Every activity bears effort, motion, and result inseparably. These are joint aspects of one activity, not three independent events. Force is recognised in state and power in motion. SB relates effort to *dharma* and *svabhav*, motion to *svabhav* and *guna*, and result to *roop* and immortality within its account of constitutional completeness. The overlap of *svabhav* prevents a one-to-one mapping; the reference to immortality does not make every present configuration permanent.
 
-**Primary pointers.** SB, pp. 53, 58, 62, 69, 71; MVD, pp. 40, 104; KD §§3.11–3.12, printed pp. 102–118.
+**Primary pointers.** SB, pp. 53, 58–62, 69, 71; MVD, pp. 40, 104; KD §§3.11–3.12, printed pp. 102–118.
 
 **Read for.** The universal structure of activity, force–power as state–motion, projection–reflection in sentient activity, and the mapping of result, effort, and motion to the three completeness goals.
 
@@ -79,7 +81,7 @@ Truth of a unit is stated in three complementary aspects, not three worlds. Inhe
 
 **Concept.** Nature is organised as material, pranic or bio, animal, and knowledge or human orders. Their dharmas are cumulatively stated as existence, growth, hope to live, and happiness. Their essential natures name order-definite relational expressions, not context-free scalar properties.
 
-**Primary pointers.** SB, p. 179; MVD, p. 115; JV, p. 44.
+**Primary pointers.** SB, p. 179; MVD, p. 115; JV, pp. 47–48.
 
 | Order | Principal manifestation | Order-specific expression of essential nature | Cumulative dharma |
 |---|---|---|---|
@@ -90,11 +92,13 @@ Truth of a unit is stated in three complementary aspects, not three worlds. Inhe
 
 Integration–disintegration occurs among material constituents; vitalising–devitalising is recognised relative to bodily nourishment and protection; cruelty means suffering caused to another; humane essential nature is evidenced through relationship and conduct. The relational context makes each expression definite rather than subjective.
 
+The *kosha* account describes manifestations across these orders and human awakening. MVD pp. 49–50 attributes *annamaya* and *pranamaya* to material atoms, adds *manomaya* in the pranic order, describes four including *anandmaya* in animal and deluded human living, and five including *vigyanmaya* in awakened human living. This classification is distinct from the five faculties of *jeevan* in concept 12 and the four developmental planes in concept 15. The shared names do not establish a one-to-one correspondence with Advaita's five sheaths.
+
 ### 8. Compositional progression
 
-**Concept.** Atoms combine into molecules and larger physicochemical compositions. Chemical grandeur makes biological cells and bodies possible. This line supplies bodies and environments but does not itself produce *jeevan* or awakening.
+**Concept.** Atoms combine into molecules and larger physicochemical compositions. Chemical grandeur makes biological cells and bodies possible. Material constituents can participate in pranic organisation, which can return to the material order through disintegration (SB, p. 77). This reversible transformation supplies bodies and environments but does not itself produce constitutionally complete *jeevan* or awakening.
 
-**Primary pointers.** KD §§3.1–3.2, printed pp. 54–60; MVD, pp. 8, 42, 92–93; SB, pp. 76–78; JV, pp. 48, 67, 82.
+**Primary pointers.** KD §§3.1–3.2, printed pp. 54–60; MVD, pp. 8, 42, 92–93; SB, pp. 76–78; JV, pp. 66–67, 82.
 
 **Read for.** Atomic and molecular composition, mixtures and compounds, biological composition, transmission of composition method through seed and lineage, and the return of decomposed biological forms to material constituents.
 
@@ -118,7 +122,7 @@ Integration–disintegration occurs among material constituents; vitalising–de
 
 **Concept.** *Jeevan* is the constitutionally complete sentient atom and the knower. The body is a pranic composition and the medium through which *jeevan* is expressed in animal and human orders. Animal bodies constrain expression to hope-bound species-conformance. The fully enriched human nervous system provides for complete understanding, but does not guarantee it; human delusion begins when *jeevan* identifies itself with the body.
 
-**Primary pointers.** MVD, pp. 13, 78, 115; JV, pp. 54, 59, 79, 92–93; KD §3.16, printed pp. 136–145.
+**Primary pointers.** MVD, pp. 13, 78, 92–93, 115; JV, pp. 54–55, 59, 92–93; KD §3.16, printed pp. 136–145.
 
 **Read for.** The distinction between body and *jeevan*, the human as their combined form, the body's sensory and neural provision, freedom of action and imagination, and the error of taking the body to be the self.
 
@@ -126,15 +130,17 @@ Integration–disintegration occurs among material constituents; vitalising–de
 
 **Concept.** Atma is the nucleus; buddhi, chitta, vritti, and mun are associated with successive orbits. Each faculty has an outward projection (*paravartan*) and an inward reflection (*pratyavartan*) activity. The brain (*medhas*) receives and translates signals between *jeevan* and the body; it is the medium, not the knower. Higher-conformance (*purvanukram*) is guidance descending from *atma* to *mun*; lower-conformance (*paranukram*) is sensory drive pushing inward. All ten activities belong to and continuously operate in *jeevan*; “four and a half” names their restricted effective organisation and bodily evidence in deluded human living, not absent faculties.
 
-**Primary pointers.** MVD, pp. 13, 77–78, 82–83, 99–101, 124, 126, 203, 207–208, 277–279, 328–348; JV, pp. 73–74, 92, 138–140; AVD, pp. 91–94; KD §§3.6, 3.11–3.12, printed pp. 70–118; PS, pp. 40–41.
+**Primary pointers.** MVD, pp. 13, 77–78, 82–83, 99–101, 124, 126, 203, 207–208, 277–279, 328–348; SB, p. 63; JV, pp. 73–74, 92, 138–140; AVD, pp. 91–94; KD §§3.6, 3.8, 3.11–3.12, printed pp. 70–118, especially p. 84; PS, pp. 40–41.
 
-| Faculty | Projection | Reflection |
-|---|---|---|
-| Mun / hope | selection | taste-recognition |
-| Vritti / thought | analysis | deliberation |
-| Chitta / desire | visualisation | contemplation; direct apprehension (*sakshatkar*) |
-| Buddhi | resolve | comprehension (*bodh*) |
-| Atma | authenticity | realisation |
+| Faculty | Characteristic power | Projection | Reflection |
+|---|---|---|---|
+| Mun | hope (*asha*) | selection | taste-recognition |
+| Vritti | thought (*vichar*) | analysis | deliberation |
+| Chitta | desire (*ichha*) | visualisation | contemplation; direct apprehension (*sakshatkar*) |
+| Buddhi | truth-resolve (*ritambhara*) | resolve | comprehension (*bodh*) |
+| Atma | evidence (*praman*) | authenticity (*pramanikta*) | realisation |
+
+Faculty and characteristic power are distinct names, and the paired activities describe each power in projection and reflection (SB, p. 63). The state–strength and motion–power relation follows KD's Hindi account, §3.8, p. 84; AVD's English strength/power headings at pp. 91–94 are reversed in places. In this guide, imaging (*pratibimban*) names the mutual facing of units, visualisation (*chitran*) the outward activity of *chitta*, and reflection (*pratyavartan*) the inward direction of knowing.
 
 The ten are enumerated in finer grain as named positions at each faculty, whose two members are again what the faculty bears in state and what carries it outward. The named values of the concept-19 families belong to that enumeration rather than standing beside it. Tasting at *mun* has sensory, value-based, and goal-based forms (*ruchi-mulak*, *mulya-mulak*, *lakshya-mulak*); development changes the governing orientation from sensory attraction toward relationship-fulfilment and the human goal. Projection of realisation is authenticity, resolve, visualisation, analysis, and selection into living conduct.
 
@@ -150,9 +156,9 @@ The ten are enumerated in finer grain as named positions at each faculty, whose 
 
 ### 14. Conduct completeness (T3)
 
-**Concept.** Conduct completeness is the destination of motion. Realisation becomes continuous as humane work, behaviour, relationship-fulfilment, justice, participation in orderliness, and living proof in tradition.
+**Concept.** Conduct completeness is the individual's continuous expression of realised understanding as humane work, behaviour, relationship-fulfilment, justice, and participation in orderliness. Its social fulfilment includes contributing to a tradition through which understanding and humane living remain available across generations. Individual conduct completeness does not require a universally completed society already to exist.
 
-**Primary pointers.** MVD, pp. 80, 160–163; SB, pp. 137–138, 159; KD §§3.12 and 3.18, printed pp. 110–118 and 151–153.
+**Primary pointers.** MVD, pp. 15–16, 80, 160–163; SB, pp. 137–138, 159; KD §§3.12 and 3.18, printed pp. 110–118 and 151–153.
 
 **Read for.** Projection as evidence, authenticity, mutual satisfaction, conduct as proof of understanding, and continuity through an awakened human tradition.
 
@@ -160,13 +166,15 @@ The ten are enumerated in finer grain as named positions at each faculty, whose 
 
 **Concept.** An order identifies what kind of manifestation a unit participates in; a plane identifies the developmental standing reached. The four planes are physicochemical, delusional, deific, and divine or complete.
 
-**Primary pointers.** SB, p. 52; MVD, pp. 49–50, 160.
+**Primary pointers.** SB, p. 52; MVD, p. 160.
 
 **Read for.** Why the knowledge order spans more than one plane; why animal bodily limitation and human body-identification must not be treated as the same mechanism even where both stand before awakening; and how activity and conduct completeness define the deific and divine planes.
 
 ### 16. Regulation, law, justice, and orderliness
 
 **Concept.** Omnipresence does not command. Orderliness is self-regulation (*swatah-saspurt*) in the coexisting orders. Regulation is evident in saturated units through mediative organisation and order-specific conformance (*parinam-*, *beej-*, *vansh-*, and *sanskar-anushangita*). Law is universal definite regulation; justice is the human completion of relationship through recognition, value-fulfilment, evaluation, and mutual satisfaction.
+
+*Sanskar* comprises acquired acceptances, understanding, and tendencies that orient subsequent thought and conduct. It can be cultivated toward awakening or shaped by delusion; a complete constitution does not make every learned orientation correct (MVD, pp. 90, 187, 290, 315).
 
 **Primary pointers.** MVD, pp. 15, 26–27, 67, 137, 161–162, 311; SB, pp. 57, 62–63, 69.
 
@@ -176,6 +184,8 @@ The ten are enumerated in finer grain as named positions at each faculty, whose 
 
 **Concept.** *Jeevan* is the knower and seer. Existence as coexistence is the known and seen. Knowledge comprises the holistic view of coexistence, knowledge of *jeevan*, and knowledge of humane conduct. Their coherence in awakening does not erase these distinct roles.
 
+The term *gyan* also names the actionless pervasive ground. The connected senses must be distinguished: the ground, coexistence as intelligible content, and its realised understanding by *jeevan* (MVD, pp. 11, 34–35). Knowledge, wisdom, and science (*gyan–vivek–vigyan*) connect understanding reality, discerning human purpose, and developing the means of fulfilling it (MVD, p. 170).
+
 **Primary pointers.** SB, p. 81; MVD, pp. 14–15, 115, 126, 286–287; KD §§3.17–3.18, printed pp. 145–153.
 
 **Read for.** The distinction of knowledge, knower, and known; seer, seen, and seeing; realisation in coexistence; authenticity; and knowledge made meaningful through participation.
@@ -184,13 +194,15 @@ The ten are enumerated in finer grain as named positions at each faculty, whose 
 
 **Concept.** Omnipresence and units do not arise from non-being or pass into non-being. Configurations change while existence remains. *Jeevan*'s individual persistence is additionally grounded in constitutional completeness, not merely in generic quantity conservation.
 
-**Primary pointers.** MVD, pp. 13, 91; JV, pp. 20, 54; SB, pp. 55, 57, 59, 114.
+**Primary pointers.** MVD, pp. 13, 91; JV, pp. 20, 54–55; SB, pp. 55, 57, 59, 114.
 
 **Read for.** “Brahma is truth, the world is perpetual,” non-annihilation, particle closure, freedom from molecular and weight bondage, continuation after bodily death, and reassociation with another body.
 
 ### 19. Happiness, bliss, and human fulfilment
 
 **Concept.** Happiness, peace, contentment, and bliss name harmony among the faculties of *jeevan*, each borne as a named activity by the outer faculty of its pair — happiness at *mun*, peace at *vritti*, contentment at *chitta*, bliss at *buddhi*. In living, they correspond to resolution, prosperity, fearlessness, and coexistence.
+
+The fulfilment is cumulative: peace includes resolution with prosperity; contentment includes both with fearlessness; bliss includes all three in coexistence (KD §3.12, printed p. 112). The correspondences identify principal fields of evidence, while *jeevan* remains the experiencing bearer throughout.
 
 **Primary pointers.** MVD, pp. 77, 100–101, 160–163, 328–346; JV, pp. 61, 138.
 
@@ -206,9 +218,9 @@ The figure and numbered guide show the core dependency structure. The following 
 |---|---|---|
 | Levels of unithood | The atom is the root unit; a molecule, cell, body, or planet is a composite unit while its organisation persists; a body–*jeevan* joint form coordinates two distinct units; a human assembly is a relationally achieved whole | §§1.1, 1.10, 1.14 |
 | Natural and excited states | The natural state accords with definite conduct; the excited state is activity displaced from that accord by pressure and therefore liable to decline | §1.3 |
-| Relationship and contact | A relationship carries expectations inherent in fulfilment; a contact carries voluntarily adopted expectations | §1.4 |
+| Relationship and contact | A relationship carries expectations inherent in fulfilment; a contact carries voluntarily adopted expectations. Both are subject to justice and humane conduct | §1.4 |
 | Mixture, compound, biological composition, and assembly | A mixture retains component conducts; a compound establishes a new bounded composition; a biological composition transmits its method through seed and lineage; a humane assembly is sustained through recognised relationships and values | §1.10 |
-| Time and causation | Time is the duration of unit-activity. *Satta* sustains coexistence but does not perform transformations; composition, decomposition, and development occur through unit-activity in mutuality | §1.6.4 |
+| Time and causation | Time is the duration of unit-activity. *Satta* sustains coexistence but does not perform transformations; composition, decomposition, and development occur through unit-activity in mutuality | §1.14 |
 | Karma | Human activity joined to aspiration is karma. Its five limbs are doer, cause, objective, result, and wider effect. Karma is not attributed to insentient units. Freedom in action does not cancel causal consequences; awakening removes unresolved dependence while undergoing them | §1.7.1 |
 
 When a composite form disintegrates, that organisation ends while its constituent realities persist in other relations. This is why conservation must not be expressed as the permanence of every composite unit.
@@ -219,19 +231,19 @@ Value in the universal sense is essentiality (*maulikta*) and participation in o
 
 | Value family | Content |
 |---|---|
-| Object values | Utility: definite usefulness of an object; art: meaningful aesthetic enhancement of usefulness |
+| Object values | Utility: definite capacity to fulfil a purpose, whose actual fulfilment depends on material condition and circumstances; art: meaningful aesthetic enhancement of usefulness |
 | *Jeevan* values | Happiness, peace, contentment, and bliss—the four harmonies among the faculties of *jeevan*, each borne as a named activity by the outer faculty of its pair |
-| Human values | The value-domain through which humaneness becomes evident; closely related humane and higher-humane essential natures include fortitude, courage, generosity, kindness, grace, and compassion |
+| Human values | The six humane essential natures: fortitude, courage, generosity, kindness, grace, and compassion |
 | Established values | The nine relationship values—trust, respect, affection, care, guidance, reverence, gratitude, glory, and love—borne at *chitta*, *vritti*, and *mun* |
 | Expressed values (*shishta-mulya*) | The nine corresponding powers in motion: concordance, cordiality, dedication, generosity, naturalness, devoutness, simplicity, humility, and non-otherness |
 
 Object value is spread in units. The named values of the other four families are activities borne by *jeevan*'s faculties, defined in the same appendix of the primary texts that defines its activities (MVD, pp. 328–348; AVD, pp. 91–94; §§1.4, 1.7). Relationship supplies the recognised mutuality, value identifies what fulfils it, evaluation checks the fulfilment, and mutual satisfaction completes justice (§§1.4, 1.12).
 
-### Four progressions, four planes, and five human types
+### Terms for order and development, four planes, and five human types
 
 These classifications answer different questions and must not be collapsed into one ladder.
 
-| Progression | What it tracks |
+| Term | What it tracks |
 |---|---|
 | Existential progression (*niyati-kram*) | Definite manifestation of the four orders under conducive conditions; not a deterministic historical timetable |
 | Way of existence (*niyati-vidhi*) | Order-specific conformance: result-, seed-, species-, and sanskar-conformance |
@@ -270,7 +282,7 @@ An animal's hope-bound species-conformant expression is a limitation of its bodi
 
 The first three perspectives remain valid in their proper domains but cannot serve as the final standpoint for humane conduct. Justice is both the perspective that evaluates behaviour and the completed relational activity of recognition, value-fulfilment, evaluation, and mutual satisfaction. The law–justice–dharma–truth chain widens the field of evaluation rather than transforming one entity literally into another (§1.12).
 
-### Four human goals and five social dimensions
+### Four human goals and five social systems
 
 | Human goal | Principal field of evidence |
 |---|---|
@@ -279,7 +291,7 @@ The first three perspectives remain valid in their proper domains but cannot ser
 | Fearlessness | Trust in human mutuality and society |
 | Coexistence | Complementary living among humans and with the rest of nature |
 
-| Social dimension | Function |
+| Social system | Function |
 |---|---|
 | Education–sanskar | Transmits right understanding and the disposition to live by it |
 | Justice–preservation | Fulfils relationships and protects humaneness |
@@ -287,7 +299,9 @@ The first three perspectives remain valid in their proper domains but cannot ser
 | Production–work | Produces more than assessed physical needs through labour and skill |
 | Exchange–storage | Organises exchange through labour value and maintains reserves for continuity |
 
-The four goals describe widening evidence in person, family, society, and coexistence. The five dimensions are the public structures that make this evidence continuous as humane tradition (§1.15).
+The four goals describe widening evidence in person, family, society, and coexistence. The five social systems are the public structures that make this evidence continuous as humane tradition (§1.15).
+
+These five social systems differ from the four dimensions of personal living: realisation, thought, behaviour, and work. Humane conduct brings together value, character, and ethics across these dimensions (PS, printed p. 151). The normative connection to ontology includes human *dharma* as happiness, value as essential participation, and the fulfilment of understood relationships; physical coexistence alone is not the complete argument for just conduct.
 
 ### Method and evidence
 
@@ -318,6 +332,6 @@ For a detailed critical and comparative treatment, see [*The Ontology of Coexist
 - **SB** — A. Nagraj, [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf), English translation by Rakesh Gupta.
 - **JV** — A. Nagraj, [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), English translation by Rakesh Gupta.
 - **KD** — A. Nagraj, [*Manav Karm Darshan — Working English Rendering*](../../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Use the Part 3 subsection and printed-page pointers above; this is a working rendering rather than a published English translation.
-- **AVD** — A. Nagraj, [*Adhyatmvad* (*Realisation Centred Spiritualism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), English translation by Sanjeev Chopra — work in progress. Pointed to only for the tabulated enumeration of the conducts of awakened *jeevan*; definitional content is taken from MVD.
+- **AVD** — A. Nagraj, [*Adhyatmvad* (*Realisation Centred Spiritualism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf), English translation by Sanjeev Chopra — work in progress. Used for the tabulated enumeration of the conducts of awakened *jeevan*; definitions are taken from MVD. The state–strength and motion–power relation follows the Hindi headings and KD §3.8, p. 84, because AVD's English headings are reversed in places.
 - **YAT** — A. Nagraj, [“Yatharthata, Vastavikta, Satyata”](https://originals.madhyasth.org/avdharna/yatharth). Cited for the three complementary truths in concept 3.
-- **Paribhasha** — A. Nagraj, [*Paribhasha Samhita*](https://www.madhyasth.org/browse-texts/browse-topics/definitions). Cited for the thirty-value classification (pp. 151, 154).
+- **PS** — A. Nagraj, *Paribhasha Samhita*, Hindi, third edition 2012, printing 2016; [official publications](https://originals.madhyasth.org/granth/published) and [source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7), file `15_paribhasha_sanhita_2015_ocr.pdf`. Cited for the faculty account (printed pp. 40–41), humane conduct and the thirty-value classification (printed pp. 151, 154). Printed page + 8 gives the PDF position.
