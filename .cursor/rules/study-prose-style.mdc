@@ -149,6 +149,9 @@ support is carried by prose plus a parenthetical citation. Verify what remains:
 - Cross-refs only for argument (`§6.2`, `§3.3`), not for cataloguing the outline
 - One running English term per source concept in analytical prose (glossary +
   Editorial Notes); block quotes keep translation wording
+- Clear voice: ordinary English for the point being made; keep a source term
+  only when it is load-bearing and gloss it on first use; reserve dense jargon
+  and symbolic notation for mathematical or formal formulations
 - Doctrine stated in the darshan's voice with the page in parentheses: *Complete
   knowledge comprises… (KD §3.5, p. 69)* — not *KD lists four contents of
   complete knowledge*
@@ -180,6 +183,8 @@ support is carried by prose plus a parenthetical citation. Verify what remains:
   `## Editorial Notes` instead
 - [ ] English edits preserve conceptual meaning; substantive changes have source
   reasons, consistent terminology, and corresponding glossary/notes updates
+- [ ] Exposition is in a clear voice; stacked jargon is reserved for
+  mathematical or formal formulations
 - [ ] Supported synthesis is retained; no invented reconciliation or suppressed
   conflict; material interpretive choices and uncertainty remain explicit
 - [ ] Comparison confined to the comparison sections and criticism to critical

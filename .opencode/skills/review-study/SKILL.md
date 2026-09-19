@@ -1,11 +1,12 @@
 ---
 name: review-study
 description: >-
-  Critically review or revise a study for primary-text support, connected synthesis,
-  English prose, terminology, and consistency across sections and companion material.
-  Use for substantive study reviews, disputed interpretations, or a complete review
-  after revisions; routine spelling, link-only, and rendering checks use their own
-  focused workflows.
+  Critically review or revise a study for primary-text support, connected
+  multi-text synthesis, incoming comments from other reviewers, clear English
+  prose, terminology, and consistency across sections and companion material.
+  Use for substantive study reviews, disputed interpretations, supplied
+  reviewer comments, or a complete review after revisions; routine spelling,
+  link-only, and rendering checks use their own focused workflows.
 ---
 
 # Review a study
@@ -16,11 +17,12 @@ structure or require a separate published review report.
 
 ## Establish the review's scope
 
-Recover the user's original comments, later corrections, and the intended argument.
-Compare the current revision with the relevant earlier version, including prior
-agent changes. Preserve user work and determine which study and companion sources
-are actually in scope. A request for comments alone does not authorise rewriting
-the study; an authorised revision should proceed without another approval step.
+Recover the user's original comments, comments they pass on from other
+reviewers, later corrections, and the intended argument. Compare the current
+revision with the relevant earlier version, including prior agent changes.
+Preserve user work and determine which study and companion sources are actually
+in scope. A request for comments alone does not authorise rewriting the study;
+an authorised revision should proceed without another approval step.
 
 Read the complete argument before judging isolated claims. Identify the central
 definitions and relationships, then follow their use through exposition,
@@ -46,26 +48,57 @@ Distinguish:
 | Illustration or application | Does the example faithfully instantiate the framework without being attributed to the source as its own example? |
 | New or disputed extension | What additional premise is required, and is its status and uncertainty clear? |
 
-Use the source term, transliteration variants, definitions and associated topics
-to locate relevant passages. Read surrounding arguments and related primary works,
-including counterevidence. Check edition and page convention: printed pages,
-PDF positions and native-reader pages may differ; a filename is not proof of an
-edition date. Inspect scanned pages when OCR or a translation makes a decisive
-term uncertain. Resolve manifest-backed local references through the repository's
-reference-store tools when the PDF is absent from the checkout.
+The studies synthesise across several primary works. Recover that assembled
+point first, then check each contributing passage for the same scope and read
+contrary passages in the same works. Use the source term, transliteration
+variants, definitions and associated topics to locate relevant passages.
+Read surrounding arguments and related primary works, including
+counterevidence. Check edition and page convention: printed pages, PDF
+positions and native-reader pages may differ; a filename is not proof of an
+edition date. Inspect scanned pages when OCR or a translation makes a
+decisive term uncertain. Resolve manifest-backed local references through
+the repository's reference-store tools when the PDF is absent from the
+checkout.
 
 Test the relationships, not only the individual components. Definitions of two
 terms do not by themselves prove their connection; equally, a connection need not
-be repeated verbatim in one sentence to be supported. Distinguish a principal
-functional correspondence from an exclusive compartment, a developmental direction
-from rigid stages, and an enumerated position from a unique word. Apply these
-distinctions when the sources warrant them, not as automatic reconciliations.
+be repeated verbatim in one sentence to be supported. Absence of the whole
+formulation from one page is not a defect. Compatible vocabulary across books
+is not by itself a connection. Distinguish a principal functional correspondence
+from an exclusive compartment, a developmental direction from rigid stages, and
+an enumerated position from a unique word. Apply these distinctions when the
+sources warrant them, not as automatic reconciliations. Do not invent a
+reconciliation of two enumerations from their counts, and do not suppress a
+genuine conflict.
 
 Before deleting a synthesis, identify the missing or contradicted connection and
 review the relevant source context. Preserve supported connections while correcting
 precise definition, pairing, faculty, level, scope, or attribution errors. If the
 search remains limited, say what was and was not reviewed. Neither the current
 draft nor a prior review is proof; reconsider both against the primary account.
+After any local correction, reread the surrounding argument so the study still
+states one consistent account.
+
+## Incoming reviewer comments
+
+When the user supplies comments from other reviewers, treat each comment as a
+claim to evaluate, not as an instruction to apply. Number them (`R1`, `R2`, …).
+For every comment:
+
+1. Restate the **intent** in one or two sentences. If the wording is ambiguous,
+   say so and ask; do not guess a stronger objection than the comment makes.
+2. Locate the study passage it targets and the primary-text question it raises.
+3. Test that question against the retrieved primaries, using the claim-kind
+   table above. A reviewer's preference is not warrant; nor is the current draft.
+4. Give a disposition: **adopt**, **adopt-in-part**, **decline**,
+   **already-handled**, or **needs-user**. Adopt only when the primaries
+   support the change. Decline when the comment asks to delete a supported
+   synthesis, misreads scope, or substitutes a fluent synonym for a defined
+   term. Adopt-in-part when the intent is sound but the proposed fix is too
+   strong, too narrow, or would break a valid connection.
+5. Handle it: propose the study change, move a variant to Editorial Notes, or
+   leave the text and record why. Do not add the comment log to the published
+   essay.
 
 ## Revise English without changing the doctrine
 
@@ -75,12 +108,18 @@ retaining what the claim asserts and how the argument connects it to living.
 Do not replace an affirmative account with detached definitions or repeated
 disclaimers merely because that is easier to cite passage by passage.
 
+Write the synthesis in a **clear voice**. Prefer ordinary English for the point
+being made. Keep a source term only when it is load-bearing, and gloss it in
+plain words on first use. Do not stack untranslated jargon, source sigils, or
+reviewer shorthand in exposition. Mathematical or formal formulations keep
+their notation and precise terms.
+
 Use the existing glossary and original-language definitions to choose analytical
-terms. Explain a technical term in plain English instead of casually substituting
-a familiar but misleading synonym. Check whether a repeated term serves different
-defined roles before merging entries or changing a count. Record consequential
-translation choices and propagate them consistently. Quotations retain the verified
-source wording; correct a mistranscription against the source, not for stylistic fit.
+terms. Check whether a repeated term serves different defined roles before
+merging entries or changing a count. Record consequential translation choices
+and propagate them consistently. Do not replace a defined term with a familiar
+synonym that changes meaning. Quotations retain the verified source wording;
+correct a mistranscription against the source, not for stylistic fit.
 
 State well-supported synthesis positively in exposition. Put material variant and
 translation decisions in Editorial Notes; keep genuinely new or disputed extensions
@@ -111,8 +150,9 @@ conceptual and visual review; successful rendering or link validation does not
 establish doctrinal support.
 
 The handoff should identify the substantive corrections, supported interpretations
-retained, validation performed, and any specific unresolved point. Keep it
-proportionate to the user's request.
+retained, each supplied reviewer comment and its disposition, validation
+performed, and any specific unresolved point. Keep it proportionate to the
+user's request.
 
 ## Worked precedent: the Axiology review
 

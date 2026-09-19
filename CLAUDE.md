@@ -76,7 +76,7 @@ Companion decks are a **separate** pipeline — `_regenerate_pdf.py` does not to
 
 Skills in `.agents/skills/` orchestrate `Scripts/_*.py` and defer content/style rules to AGENTS.md:
 
-`manage-studies` · `add-study` · `remove-study` · `rename-study` · `set-study-status` · `download-references` · `check-references` · `regenerate-study-pdf` · `refine-studies-index` · `update-study-presentation` · `update-presenters-companion` · `transcribe-recording` · `sync-master-clean-branches`
+`manage-studies` · `add-study` · `remove-study` · `rename-study` · `set-study-status` · `download-references` · `check-references` · `regenerate-study-pdf` · `refine-studies-index` · `update-study-presentation` · `update-presenters-companion` · `transcribe-recording` · `sync-master-clean-branches` · `review-study`
 
 ---
 
