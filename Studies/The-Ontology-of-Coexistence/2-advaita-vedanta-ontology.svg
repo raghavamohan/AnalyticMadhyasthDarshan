@@ -50,7 +50,7 @@
 <rect class="frame" x="8" y="8" width="724" height="640" rx="24"/>
 
 <g transform="translate(-10,0)">
-<text class="th" x="40" y="30">Three tiers of reality — lower tiers are real only relative to the one above</text>
+<text class="th" x="40" y="30">Three levels of reality &#8212; distinguished by what knowledge sublates</text>
 
 <g class="c-amber">
   <rect x="40" y="50" width="600" height="120" rx="20" stroke-width="0.5"/>
@@ -74,8 +74,8 @@
 <g class="c-blue">
   <rect x="255" y="258" width="170" height="78" rx="10" stroke-width="0.5"/>
   <text class="th" x="340" y="288" text-anchor="middle" dominant-baseline="central">Ishvara</text>
-  <text class="ts" x="340" y="308" text-anchor="middle" dominant-baseline="central">Brahman with Maya,</text>
-  <text class="ts" x="340" y="322" text-anchor="middle" dominant-baseline="central">operative cause</text>
+  <text class="ts" x="340" y="306" text-anchor="middle" dominant-baseline="central">Brahman with Maya:</text>
+  <text class="ts" x="340" y="320" text-anchor="middle" dominant-baseline="central">efficient and material cause</text>
 </g>
 <g class="c-blue">
   <rect x="446" y="258" width="170" height="78" rx="10" stroke-width="0.5"/>
@@ -88,7 +88,7 @@
   <rect x="40" y="380" width="600" height="74" rx="12" stroke-width="0.5"/>
   <text class="th" x="60" y="407">Apparent (pratibhasika) — private error</text>
   <text class="ts" x="60" y="427">Rope seen as a snake, dream objects. Corrected by waking or a second look —</text>
-  <text class="ts" x="60" y="444">not shared, not law-governed.</text>
+  <text class="ts" x="60" y="444">the mistaken object lacks the validity of the shared empirical world.</text>
 </g>
 
 <text class="ts" x="358" y="190" text-anchor="middle">sublated by knowing Brahman</text>

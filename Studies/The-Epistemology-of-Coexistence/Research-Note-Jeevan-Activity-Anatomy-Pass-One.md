@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 6:31 PM IST
+**Edited on:** September 19, 2026, 9:30 PM IST
 
 **Status:** Internal research note (not a catalog entry). Pass One of the activity-to-sphere analysis.
 
@@ -10,7 +10,9 @@
 
 ## 1. Method and limits
 
-The AVD table governs which member occupies the *bal* and *shakti* columns (AVD, pp. 91-94). The detailed MVD definitions govern the content assigned to those names (MVD, pp. 328-348). Every record below was checked against both presentations through [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), which preserves the Hindi wording, English rendering, translation variants, and the cases in which a definition does not behave like the name of an operation.
+The Hindi headings of the AVD table govern which member occupies the *bal* and *shakti* columns; the English strength/power headings are reversed in places (AVD, pp. 91-94). The detailed MVD definitions govern the content assigned to those names (MVD, pp. 328-348). Every record below was checked against both presentations through [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md), which preserves the Hindi wording, English rendering, translation variants, and the cases in which a definition does not behave like the name of an operation.
+
+Source-content rows and source checks retain enlightenment for *bodh* and direct recognition for *sakshatkar* where they reproduce the English translation. Analytical rows use comprehension and direct apprehension, following the terminology convention in the inventory's §2.
 
 The fields have deliberately narrow meanings. **Entry form** asks what kind of item the source has placed in the activity slot. **Bearer** asks whether the item is borne by *jeevan*, a human role, a relationship, the body, a material unit, or a result. **Object** is what the member concerns. **Counterpart** is another participant or entity required by the definition; “none stated” does not deny later outward evidence. **Endpoint** is the nearest fulfilment named or implied by the definition. **Criterion** distinguishes fulfilment from a plausible imitation. Where the definition does not supply such a distinction, the field remains open rather than being filled from a preferred social model.
 
@@ -56,7 +58,7 @@ The completed corpus is:
 |---|---|---|
 | Source content | Linguistic articulation of understanding of reality, knowledge of *jeevan*, and the holistic view of existence | Repeated presentation through language of understood and directly recognised content as often as required |
 | Entry form and bearer | Cognitive-linguistic articulation in *chitta*, borne by *jeevan* and expressed by the embodied person | Retentive and re-presentational activity in *chitta*, borne by *jeevan* |
-| Object | Understood reality, *jeevan*, and existence | Reality indicated through language and accepted with direct recognition and visualisation |
+| Object | Understood reality, *jeevan*, and existence | Reality indicated through language and accepted with direct apprehension and visualisation |
 | Counterpart | A hearer is implied by communication, though no particular relationship is stated | An occasion or hearer for renewed presentation is implied, not specified |
 | Endpoint | Faithful linguistic expression of understanding | Repeatable availability of the same understood content |
 | Governing criterion | Agreement between language and understanding of reality | Fidelity to directly recognised content rather than rote verbal recurrence |
@@ -74,7 +76,7 @@ The completed corpus is:
 | Object | Remembered understanding, usefulness, and art | A form, artefact, expression, or arrangement capable of beauty and use |
 | Counterpart | The object contemplated; users or observers become relevant in application | Material or expressive medium and those for whom it is useful |
 | Endpoint | Available, discriminating integration of memory, usefulness, art, science, and wisdom | Beauty that remains useful |
-| Governing criterion | Direct recognition and wisdom-aligned usefulness, not memory display alone | Conjunction of usefulness and beauty, not ornament severed from purpose |
+| Governing criterion | Direct apprehension and wisdom-aligned usefulness, not memory display alone | Conjunction of usefulness and beauty, not ornament severed from purpose |
 
 **Pair semantics and limit:** The definitions support a relation between a capacity that carries and recognises art and the activity of artful beautification (**I**). The two formulations of *medha* are not identical, so no single causal sequence is asserted (**O**).
 

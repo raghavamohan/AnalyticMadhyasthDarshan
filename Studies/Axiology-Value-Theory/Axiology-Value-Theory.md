@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 7, 2026, 9:38 AM IST
+**Edited on:** September 19, 2026, 9:30 PM IST
 **Status:** Released
 **The question:** How does value belong to a unit as activity in coexistence, and how is it understood, established, and fulfilled in human living? What forms does value take, what endures or changes with time, and in what senses can values be compared? How does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western value theory, and the natural and social sciences?
 
@@ -46,7 +46,7 @@ The distinction between state (*sthiti*) and motion (*gati*) gives value an acti
 | Faculty | Activity in state / strength (*bal*) | Activity in motion / power (*shakti*) |
 |---|---|---|
 | *Atma* | Realisation (*anubhav*) of coexistence | Evidence (*praman*) in living |
-| *Buddhi* | Understanding (*bodh*) of actuality, reality, and truth | Resolve (*sankalp*) to express understanding |
+| *Buddhi* | Comprehension (*bodh*) of actuality, reality, and truth | Resolve (*sankalp*) to express understanding |
 | *Chitta* | Contemplation (*chintan*), with direct apprehension (*sakshatkar*) of justice, *dharma*, and truth | Visualisation (*chitran*) of meaningful forms |
 | *Vritti* | Deliberation (*tulan*) in justice, *dharma*, and truth | Analysis (*vishleshan*) of relations and means |
 | *Mun* | Tasting (*asvadan*) the accepted value | Selection (*chayan*) for its meaningful fulfilment |
@@ -632,7 +632,7 @@ Evidence about a harmony also differs from the harmony itself. An observer may h
 | *Sadupyog* / *prayojansheelta* | Right-use / purposeful-use of means in humane living and its wider purposes. |
 | *Chitta* / *chitran* | Faculty of contemplation and visualisation / its activity of visualisation. |
 | *Chintan* / *sakshatkar* | Contemplation / direct apprehension; in KD p. 84, contemplation concerns justice, *dharma*, and truth. |
-| *Bodh* / *sankalp* | Understanding at *buddhi* / resolve to express the understanding. |
+| *Bodh* / *sankalp* | Comprehension at *buddhi* / resolve to express the understanding. |
 | *Anubhav* / *praman* | Realisation / its evidence in living. |
 | *Tulan* / *vishleshan* | Deliberation or comparison / analysis at *vritti*. |
 | *Asvadan* / *chayan* | Tasting / selection at *mun*; sensory, value-based, and goal-based tasting describe orientations whose development places sensory enjoyment within understood relationship and purpose. |
@@ -686,6 +686,8 @@ MVD p. 35 names knowledge as chetana in relation to chaitanya; pp. 74–75 disti
 ### The faculties, qualitative refinement and evidence
 
 The five-faculty table follows KD §3.8, p. 84's Hindi account of *sthiti/gati*. In AVD pp. 91–94 the English strength/power headings are reversed relative to the Hindi; §1.2 follows the checked Hindi relation. *Chitta* names the faculty, *chitran* its visualising activity, and *chintan* its contemplative activity. The integrated exposition describes dependencies of meaning and expression; it does not posit a neural mechanism or a fixed temporal passage through five successive compartments.
+
+The running term for *bodh* is comprehension; ordinary understanding names the broader achievement in knowing and living. MVD's English translation also uses enlightenment for *bodh* and direct recognition for *sakshatkar*; this study uses direct apprehension for the latter and preserves source wording in quotations. Visualisation (*chitran*) is an activity of *chitta*, distinct from imaging (*pratibimban*) of units in mutual facing and from reflection (*pratyavartan*), the inward direction of knowing.
 
 MVD p. 83 presents interdependent relations among language, meaning, evaluation, worldview, and the perceiver's capacities, returning to language. Words communicate meanings concerning existing realities; what the person apprehends depends on view, evaluation, capacity, ability, and receptivity. These relations concern activities of *chitta*, whose adequacy depends on understanding. Study of meaning can reach understanding and realisation and become available for renewed expression (MVD, p. 83; KD, pp. 112–113). This is a cycle of apprehension and communication, not a linear causal sequence that generates the value of the indicated unit. Constitutional completeness identifies the capacity of *jeevan*; it does not establish that a present evaluation is correct.
 

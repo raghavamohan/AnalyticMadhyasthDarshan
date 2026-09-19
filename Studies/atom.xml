@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Analytic Madhyasth Darshan studies</title>
   <id>https://analyticmadhyasthdarshan.org/Studies/atom.xml</id>
-  <updated>2026-09-19T06:23:00+05:30</updated>
+  <updated>2026-09-19T21:44:00+05:30</updated>
   <subtitle>Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://analyticmadhyasthdarshan.org/Studies/atom.xml"/>
   <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
@@ -11,8 +11,22 @@
     <title>The Ontology of Coexistence</title>
     <id>https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/</id>
     <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"/>
-    <updated>2026-09-19T06:23:00+05:30</updated>
+    <updated>2026-09-19T21:44:00+05:30</updated>
     <summary>Madhyasth Darshan&#x27;s account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy</summary>
+  </entry>
+  <entry>
+    <title>The Epistemology of Coexistence</title>
+    <id>https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/</id>
+    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"/>
+    <updated>2026-09-19T21:43:00+05:30</updated>
+    <summary>What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science</summary>
+  </entry>
+  <entry>
+    <title>Axiology: Value Theory</title>
+    <id>https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/</id>
+    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html"/>
+    <updated>2026-09-19T21:30:00+05:30</updated>
+    <summary>Value as essentiality in active units: Madhyasth Darshan&#x27;s forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared</summary>
   </entry>
   <entry>
     <title>From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence</title>
@@ -27,20 +41,6 @@
     <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"/>
     <updated>2026-09-08T07:36:00+05:30</updated>
     <summary>Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan&#x27;s body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks</summary>
-  </entry>
-  <entry>
-    <title>The Epistemology of Coexistence</title>
-    <id>https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/</id>
-    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"/>
-    <updated>2026-09-07T19:24:00+05:30</updated>
-    <summary>What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science</summary>
-  </entry>
-  <entry>
-    <title>Axiology: Value Theory</title>
-    <id>https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/</id>
-    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html"/>
-    <updated>2026-09-07T09:38:00+05:30</updated>
-    <summary>Value as essentiality in active units: Madhyasth Darshan&#x27;s forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared</summary>
   </entry>
   <entry>
     <title>Spiritual Practice and Realization</title>

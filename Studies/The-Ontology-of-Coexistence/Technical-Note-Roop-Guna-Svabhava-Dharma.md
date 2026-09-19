@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** August 29, 2026, 5:38 PM IST
+**Edited on:** September 19, 2026, 9:36 PM IST
 
 **Status:** Internal technical note; not a catalog entry and not part of the released text of *The Ontology of Coexistence*.
 
@@ -37,7 +37,7 @@ The following audit distinguishes direct textual definitions from the reconstruc
 | Claim used in the note | Primary-text basis | Status in this note |
 |---|---|---|
 | Every unit is described through *rūpa*, *guṇa*, *svabhāva*, and *dharma* | MVD, p. 47 | Direct textual classification |
-| *Rūpa* includes shape, volume, density, boundary-framework, and reflected image | MVD, pp. 42, 50-51; SB, pp. 249-250 | Direct textual description |
+| *Rūpa* includes shape, volume, density, boundary-framework, and image in mutual facing | MVD, pp. 42, 50-51; SB, pp. 249-250 | Direct textual description |
 | *Guṇa* is relative power and the effect evident when entities come together | MVD, p. 47; SB, pp. 248-252, 256-257 | Direct textual definition and analysis |
 | *Sam*, *viṣam*, and *madhyastha* name generative, degenerative, and mediative directions of power | MVD, pp. 26, 50-51 | Direct textual classification |
 | *Svabhāva* is essentiality and the usefulness of properties, expressed as conduct | MVD, pp. 47, 77 | Direct textual definition and description |
@@ -54,7 +54,7 @@ The following audit distinguishes direct textual definitions from the reconstruc
 
 Form is real without being eternally fixed. A developing atom can change in form as its constitution changes. A compound can form and disintegrate. The persistence of a unit therefore does not require one immutable visible shape, but it does require determinacy: there must be some bounded configuration through which this unit is distinguished from another.
 
-Form is also relationally encountered. A unit's form may be reflected or imaged to another unit, and dimensions are measured comparatively. Reflection does not create the form. It is the manner in which an already configured unit becomes present across mutuality. *Rūpa* is therefore objectively unit-grounded and relationally encountered.
+Form is also relationally encountered. A unit's form is imaged to another unit in mutual facing, and dimensions are measured comparatively. Imaging (*pratibimban*) does not create the form; it is how an already configured unit becomes present across mutuality. It differs from visualisation (*chitran*), an activity of *chitta*, and from reflection (*pratyavartan*), the inward direction of knowing. *Rūpa* is therefore objectively unit-grounded and relationally encountered.
 
 ### 3.2 *Guṇa*: relative power in operation
 
@@ -116,7 +116,7 @@ The four aspects answer irreducible questions about one active bearer. The disti
 
 This is not a causal ladder. *Dharma* does not first produce *svabhāva*, which then produces *guṇa*, which finally produces *rūpa*. The effort-motion-result mapping shows overlap and simultaneity: *svabhāva* crosses effort and motion, and the other aspects qualify the same ongoing unit from different standpoints.
 
-Nor is the distinction one between intrinsic and relational aspects in a simple binary sense. All four belong to the unit. Their manifestations differ. Form can be present without being reflected to this observer; power can be borne without every possible effect being actual; characteristic conduct requires a definite situation in which it is displayed; innateness is evidenced through continuity and fulfilment. Relational manifestation does not entail relational construction.
+Nor is the distinction one between intrinsic and relational aspects in a simple binary sense. All four belong to the unit. Their manifestations differ. Form can be present without being imaged to this observer; power can be borne without every possible effect being actual; characteristic conduct requires a definite situation in which it is displayed; innateness is evidenced through continuity and fulfilment. Relational manifestation does not entail relational construction.
 
 ## 5. Worked examples across the four orders
 
@@ -150,7 +150,7 @@ Relationship makes the distinctions especially clear. Effective influence alone 
 
 Composition raises a boundary question: when several units meet, do they remain interacting units, or does a further bounded bearer appear? *Guṇa*-effect alone does not answer this question. Collision, proximity, and mixture can produce definite mutual effects without forming a new unit.
 
-Mixture (*mishran*) and compound (*yaugik*) are distinguished by conduct. In a mixture the participating units retain their respective public conducts. In a compound they combine in definite proportion and exhibit a new kind of conduct as a whole (MVD, p. 42). The constituents nevertheless remain of their order; a further composition does not convert them into a different basic entity (SB, p. 260). Composition must also be distinguished from atomic development toward constitutional completeness (SB, pp. 75-76).
+Mixture (*mishran*) and compound (*yaugik*) are distinguished by conduct. In a mixture the participating units retain their respective public conducts. In a compound they combine in definite proportion and exhibit a new kind of conduct as a whole (MVD, p. 42). The constituent atoms remain material constituents; their participation in a further composition does not turn each constituent into a different basic entity (SB, p. 260). The containing organisation can nevertheless be pranic: SB p. 77 expressly describes material nature becoming biological nature and returning to the material order. This reversible compositional transformation differs from atomic development toward constitutional completeness as *jeevan* (SB, pp. 75-77).
 
 The four questions can therefore be asked at two levels when a further bounded unit is established. Each constituent retains its own configuration, powers, essential nature, and order-specific innateness. The containing compound has a further bounded configuration, a public efficacy as one whole, a characteristic new conduct, and the innateness of that organisation. Calling these “two tetrads” is an analytical convenience, not terminology used by the primary texts.
 
@@ -186,7 +186,7 @@ No equation follows directly from the four definitions. A formal model must spec
 
 ### 8.5 Textual questions
 
-The primary-text passages used here support the principal distinctions, but several interpretive questions remain. The sense of “usefulness” needs comparison across Hindi editions and translations; the relation between essentiality and conduct requires closer comparison of MVD p. 47 and p. 77; and the effort-motion-result mapping should be checked against the full context of constitutional completeness. These are priorities for a subsequent source-language audit.
+The primary-text passages support the principal distinctions, while leaving further interpretive questions. The sense of “usefulness” warrants comparison across Hindi editions and translations. MVD pp. 47 and 77 connect essentiality with conduct, but do not by themselves settle the distinction between presently expressed conduct and a range of possible conducts (§8.1). The effort-motion-result mapping clarifies the unit's activity within the completeness account; it does not supply a general criterion for identifying a new containing unit (§8.2).
 
 ## 9. Conclusion
 
@@ -210,16 +210,16 @@ This formulation permits a process-oriented understanding without dissolving the
 
 “Bounded, active bearer,” “unit-grounded,” “relationally actualised,” and “two tetrads” are reconstructions used to organise textual claims. They are not presented as translations of primary-text terms.
 
-### Material removed from the core argument
+### Scope of the formal interpretation
 
-The earlier version developed a mathematical process-picture using a state variable, an order-typed potential, and a family of motion maps. It also extended the model into a theory of *nyāya*, *dharma*, and *satya* as universal truths followed by default in *jada* and through understanding in the human. Both extensions introduce independent claims and have been removed from the core exposition. The formal questions are routed to *A State-Dynamic Model of Coexistence*; the universal-truth thesis remains an open subject for a separate technical note.
+A mathematical account using state variables, order-specific potentials, and motion maps introduces assumptions beyond the four definitions. *A State-Dynamic Model of Coexistence* examines those formal questions. A theory connecting *nyāya*, *dharma*, and *satya* across insentient nature and human understanding likewise requires an argument beyond this note's distinction of the four aspects.
 
 ## References
 
 ### Madhyasth Darshan primary texts
 
 - **MVD** - Nagraj, A. [*Madhyasth Darshan - Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: mediative regulation (p. 26; §3.2); atomic constitution, mixture, and compound (p. 42; §§2.2, 3.1, 6); definitions of the four aspects (p. 47; §§2.2, 3); form and the *sam-viṣam-madhyastha* distinction (pp. 50-51; §§2.2, 3.1-3.4); inhumane essential nature (p. 58; §3.3); humane and inhumane perspectives (p. 67; §8.3); conduct as expression of essentiality (p. 77; §§2.2, 3.3, 8.5); order-specific *dharma* (p. 115; §§2.2, 3.4); behaviour, thought, and realisation (p. 137; §8.3); the sequence from knowledge through law to justice, *dharma*, and truth (p. 174; §8.3).
-- **SB** - Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: effort-motion-result and state-motion (pp. 58-62; §§2.1, 3.4, 4, 7, 8.5); composition is not development (pp. 75-76; §§2.2, 6); order-specific *dharma* and the body-*jeevan* distinction (pp. 179-180; §§2.2, 3.3-3.4); force, power, form, reflection, influence, recognition, and evaluation (pp. 248-252; §§2.1-2.2, 3.1-3.2); bearer and property (pp. 256-257; §§2.2, 3.2); order of constituents in a composition (p. 260; §§2.2, 6).
+- **SB** - Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: effort-motion-result and state-motion (pp. 58-62; §§2.1, 3.4, 4, 7, 8.5); composition, reversible material–pranic transformation, and atomic development (pp. 75-77; §§2.2, 6); order-specific *dharma* and the body-*jeevan* distinction (pp. 179-180; §§2.2, 3.3-3.4); force, power, form, imaging, influence, recognition, and evaluation (pp. 248-252; §§2.1-2.2, 3.1-3.2); bearer and property (pp. 256-257; §§2.2, 3.2); order of constituents in a composition (p. 260; §§2.2, 6).
 - **JV** - Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: peepal-tree illustration of the four aspects and definite conduct in the first three orders (p. 113; §5); justice on the basis of relationships, *dharma* on the basis of orderliness, and truth on the basis of existence (p. 120; §8.3).
 
 ### Related studies

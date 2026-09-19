@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 6:31 PM IST
+**Edited on:** September 19, 2026, 9:30 PM IST
 
 **Status:** Internal research note (not a catalog entry). Pass Two of the activity-to-sphere analysis.
 
@@ -48,7 +48,7 @@ Throughout this analysis, **voice** has a precise operational meaning: the effec
 | Field | B-01a - *anand* | B-01b - *dhee* |
 |---|---|---|
 | Normalized location | Locus: *buddhi*; operation: uninterrupted acceptance and celebration of awakening; consequence: inward consonance; evidence: continuity without stimulation; **J** (**D/I**) | Locus: *buddhi*; operation: readiness to project the motion of awakening; consequence and evidence: outer-faculty expression; **J/B**, then **D/C/E** by field (**D/I**) |
-| Internal dependency | Depends on *atma* for realised orientation; coordinates *chitta-vritti-mun* without being produced by them | Depends on *anand* and enlightenment for content; *chitta-vritti-mun* plan, assess, and select its projection |
+| Internal dependency | Depends on *atma* for realised orientation; coordinates *chitta-vritti-mun* without being produced by them | Depends on *anand* and comprehension for content; *chitta-vritti-mun* plan, assess, and select its projection |
 | Development and orientation | Reality-grounded study and absence of fear support receptivity; awakened content is the governing criterion | Practice in faithful, non-impulsive expression is supportive; accepted awakening is necessary to orientation |
 | Expression and consequence | Bodily festivity is optional and cannot establish the member | Expression requires communicative or practical means; consequences must remain consonant with awakened content |
 | Evidence and evaluator | The bearer evaluates continuity and non-contradiction; others can evaluate only its later evidence | Bearer, counterparts, and affected persons evaluate fidelity, proportion, and consequence |
@@ -67,7 +67,7 @@ Throughout this analysis, **voice** has a precise operational meaning: the effec
 | Evidence and evaluator | Bearer and interlocutors test definiteness, intelligibility, and consistency; authority cannot substitute | Bearer, affected persons, and skilled peers assess reasons, freedom, persistence, and intended and unintended effects |
 | Correction | Distinguish error in meaning from error in observation or formulation; reopen inquiry | Distinguish principle from failures of planning, skill, means, or timing; revise action and repair harm |
 | Continuity and transmission | Continuing inquiry without manufactured fear or status pressure supports stable acceptance | Stable responsibility, dissent without retaliation, feedback, and real learner responsibility support continuity |
-| External classification and risk | `ENAB; S-CON; U-H; I`, `EVID; S-EVD; U-H; I`; risk: borrowed doctrine or confidence mistaken for enlightenment | `PROT; S-EXP; U-H; I`, `EVID; N-EVD; U-H; I`, `CORR; N-COR; U-H; I`; risk: obedience, aggression, recklessness, or fanaticism mistaken for resolve |
+| External classification and risk | `ENAB; S-CON; U-H; I`, `EVID; S-EVD; U-H; I`; risk: borrowed doctrine or confidence mistaken for comprehension | `PROT; S-EXP; U-H; I`, `EVID; N-EVD; U-H; I`, `CORR; N-COR; U-H; I`; risk: obedience, aggression, recklessness, or fanaticism mistaken for resolve |
 
 ## 3. *Chitta*: sixteen member records
 
@@ -76,8 +76,8 @@ Throughout this analysis, **voice** has a precise operational meaning: the effec
 | Field | C-01a - *shruti* | C-01b - *smriti* |
 |---|---|---|
 | Normalized location | Locus: *chitta* and embodied speech; operation: linguistic articulation of understood reality; consequence: hearer access; evidence: fidelity of language to understanding; **J/B/D/C/T** (**D/I**) | Locus: *chitta*; operation: retained, repeatable presentation of directly recognised content; consequence: renewed access; evidence: stable fidelity across repetitions; **J/B/D/T** (**D/I**) |
-| Internal dependency | Depends on *buddhi* for definite content, *vritti* for semantic discrimination, and *mun* for selected speech | Depends on direct recognition and *shruti*; *vritti* distinguishes faithful recurrence from verbal habit and *mun* selects occasion |
-| Development and orientation | Language, listening, dialogue, and opportunities to explain are supportive; truthfulness to understood content governs | Comprehension, meaningful recall, and varied re-expression support development; direct recognition governs recurrence |
+| Internal dependency | Depends on *buddhi* for definite content, *vritti* for semantic discrimination, and *mun* for selected speech | Depends on direct apprehension and *shruti*; *vritti* distinguishes faithful recurrence from verbal habit and *mun* selects occasion |
+| Development and orientation | Language, listening, dialogue, and opportunities to explain are supportive; truthfulness to understood content governs | Comprehension, meaningful recall, and varied re-expression support development; direct apprehension governs recurrence |
 | Expression and consequence | Speech, writing, or other accessible representation requires bodily and communicative competence | Recall must become re-presentation suited to occasion without altering the recognised content |
 | Evidence and evaluator | Speaker, hearer, and competent interlocutor compare expression with meaning and consequence | Bearer and hearers test whether repeated content remains intelligible, applicable, and consistent |
 | Correction | Clarify terms, invite paraphrase and objection, and revise language where it distorts meaning | Return to recognised content, distinguish forgetting from misunderstanding, and correct rote or selective repetition |
@@ -182,7 +182,7 @@ Throughout this analysis, **voice** has a precise operational meaning: the effec
 | Field | V-01a - *vidya* | V-01b - *pragya* |
 |---|---|---|
 | Normalized location | Locus: *vritti*; operation: systematic knowing, believing, and accepting a unit as it is and for its purpose; consequence and evidence: explanation and fitting use; **J/B/D/C/E/T** (**D/I**) | Locus: *vritti*; operation: refined conception of objective, relative, and absolute truth; consequence: differentiated judgement; evidence: reality-consonant explanation and conduct; **J/B/C/E/T** (**D/I**) |
-| Internal dependency | Depends on *buddhi/chitta* for understood content and whole meaning; *mun* carries acceptance into selection and use | Depends on enlightenment and realisation for absolute truth, *chitta* for conception, and *mun* for applied discrimination |
+| Internal dependency | Depends on *buddhi/chitta* for understood content and whole meaning; *mun* carries acceptance into selection and use | Depends on comprehension and realisation for absolute truth, *chitta* for conception, and *mun* for applied discrimination |
 | Development and orientation | Object access, proposal, questioning, practice, and correction by consequence are strongly supportive; the object's actual being and purpose govern | Study across truth levels, comparison of claims, and freedom from dogma support refinement; truth rather than cleverness governs |
 | Expression and consequence | Understanding becomes evident in accurate explanation, recognition, relationship, and purpose-fitting action | Discernment shapes judgement, explanation, design, and response to conflicting kinds of claim |
 | Evidence and evaluator | Bearer, knowledgeable interlocutors, users, and affected persons test object fidelity and purpose | Bearer and competent peers test distinctions against realised, relational, and empirical evidence appropriate to each claim |
@@ -312,7 +312,7 @@ Throughout this analysis, **voice** has a precise operational meaning: the effec
 | Field | V-11a - *satya* | V-11b - *dharma* |
 |---|---|---|
 | Normalized location | Locus: existence as reality-content and *vritti* as its acceptance; operation: discrimination of what remains existent and realisable; consequence and evidence: claims and conduct across time; **J/B/C/E/T** (**D/I/O**) | Locus: a unit as inseparable essential nature and *vritti* as recognition; operation: discrimination of innateness; consequence and evidence: conduct fitted to the unit; **J/B/D/C/E/T** (**D/I/O**) |
-| Internal dependency | Depends on realisation and enlightenment for criterion, *chitta* for conception, and *vritti* for comparison; truth is not produced by the activity | Depends on truthful recognition of the unit, whole-sensitive contemplation, and analysis; *mun* carries recognition into treatment |
+| Internal dependency | Depends on realisation and comprehension for criterion, *chitta* for conception, and *vritti* for comparison; truth is not produced by the activity | Depends on truthful recognition of the unit, whole-sensitive contemplation, and analysis; *mun* carries recognition into treatment |
 | Development and orientation | Access to claims, objects, history, consequences, and correction is supportive or necessary for warranted acceptance | Study of units across conditions, comparison of separable and inseparable properties, and freedom from imposed duty support recognition |
 | Expression and consequence | Truth-directed acceptance shapes statement, judgement, work, and treatment of persons and nature | Recognised innateness guides design and relationship; misclassification can distort roles, use, and protection |
 | Evidence and evaluator | Appropriate first-person, relational, empirical, and historical evaluators test claims according to their object | Bearer, knowledgeable peers, the unit's observed continuity, and affected persons test the claimed innateness |
@@ -338,7 +338,7 @@ Throughout this analysis, **voice** has a precise operational meaning: the effec
 | Field | V-13a - *tadatmayata* | V-13b - *sahas* |
 |---|---|---|
 | Normalized location | Locus: *vritti*; operation: decision made with acceptance toward eternalness; consequence: stable orientation; evidence: conduct consonant with the decision; **J/B/D/C/T** (**D/I**) | Locus: person in embodied work and behaviour; operation: cheerful endurance; consequence and evidence: sustained humane action through difficulty; **J/B/D/C/E/T** (**D/I**) |
-| Internal dependency | Depends on enlightenment and contemplation of eternalness; *mun* reveals whether decision governs selection | Depends on understood humane purpose, stable decision, and *mun/body* for continued conduct |
+| Internal dependency | Depends on comprehension and contemplation of eternalness; *mun* reveals whether decision governs selection | Depends on understood humane purpose, stable decision, and *mun/body* for continued conduct |
 | Development and orientation | Inquiry into eternal and temporary content, reasoned decision, and freedom from identity pressure are supportive | Proportionate challenge, skill, support, and reflection on fear develop courage; humane purpose governs |
 | Expression and consequence | Decision becomes evident in consistent choice without erasing new evidence or legitimate difference | Work and behaviour require health, competence, means, and awareness of risks borne by self and others |
 | Evidence and evaluator | Bearer, interlocutors, and affected persons evaluate stability, reasons, and openness to truth | Bearer, collaborators, and affected persons evaluate endurance, happiness, justice, and outcome |
@@ -835,7 +835,7 @@ The six taste positions M-25 through M-30 share a source pattern but retain sepa
 
 ### 6.1 Internal constitution and external dependence occupy different logical levels
 
-The records consistently distinguish constitutional orientation from embodied availability. Realisation, enlightenment, contemplation, deliberation, and selection form internal dependencies at **U-J**. No family, teacher, procedure, material resource, or institution is coded as necessary for their constitutional presence. External conditions become structurally relevant when an inward member must be developed through receptivity, expressed through the body, evidenced before another standpoint, corrected after contradiction, or maintained across persons and time.
+The records consistently distinguish constitutional orientation from embodied availability. Realisation, comprehension, contemplation, deliberation, and selection form internal dependencies at **U-J**. No family, teacher, procedure, material resource, or institution is coded as necessary for their constitutional presence. External conditions become structurally relevant when an inward member must be developed through receptivity, expressed through the body, evidenced before another standpoint, corrected after contradiction, or maintained across persons and time.
 
 This distinction prevents two opposite errors. The first is environmental creationism: treating education, relationship, or organisation as if it supplied an activity absent from *jeevan*. The second is inward isolationism: treating a private claim of realisation or understanding as complete evidence even where the member's definition concerns authenticity, relationship, work, care, production, communication, or continuity.
 

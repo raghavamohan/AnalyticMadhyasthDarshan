@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 16, 2026, 10:42 AM IST
+**Edited on:** September 19, 2026, 9:30 PM IST
 
 **Status:** Internal research note (not a catalog entry). First completed use of the institution-neutral [activity-to-sphere dossier template](Research-Template-Jeevan-Activity-Environment-Dossier.md).
 
@@ -109,12 +109,14 @@ The first statement yields a micro-sphere of **realised knowing and protected in
 
 | Field | Entry |
 |---|---|
-| Faculty and generic pair | *Buddhi*: enlightenment/resolve |
+| Faculty and generic pair | *Buddhi*: comprehension/resolve |
 | Pair position | 2 of 2 |
 | Member A | B-02a, *astitva* - enlightenment or acceptance of existence |
 | Member B | B-02b, *dhruti* - dedication, fearlessness, and readiness for projection |
 | Entry forms | Definite acceptance / stable readiness and resolve |
 | Primary locations | AVD, p. 91; MVD, pp. 323, 328-329 |
+
+The source record retains MVD's enlightenment for *bodh*. The analytical running term is comprehension, as distinguished from realisation (*anubhav*).
 
 *Astitva* concerns acceptance free from delusion of state, motion, development, awakening, and the present. *Dhruti* concerns dedication in truth as coexistence, readiness for projection, absence of fear, and trust in the present. Their relation as accepted content and readiness for projection is **D**. Fearlessness does not imply disregard of risk.
 
@@ -127,7 +129,7 @@ The first statement yields a micro-sphere of **realised knowing and protected in
 | Participation topology | **J** constitutive; **B/C/E** enter through evidence | **J/B** constitutive for action; **D/C/E** according to affected field; **T** for learned continuity |
 | Endpoint | Definite understanding free from delusion | Responsible, fearless projection consistent with that understanding |
 | Criterion | Agreement with realisation and intelligible definiteness | Steadfastness without coercion, stubbornness, or denial of consequence |
-| Characteristic distortion | Borrowed formula or dogmatic certainty mistaken for enlightenment | Obedience, aggression, recklessness, or fanaticism mistaken for resolve |
+| Characteristic distortion | Borrowed formula or dogmatic certainty mistaken for comprehension | Obedience, aggression, recklessness, or fanaticism mistaken for resolve |
 
 ### 3.3 Lifecycle conditions
 

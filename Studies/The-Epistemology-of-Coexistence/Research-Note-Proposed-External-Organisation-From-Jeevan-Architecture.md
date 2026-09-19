@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** August 17, 2026, 6:14 AM IST
+**Edited on:** September 19, 2026, 9:30 PM IST
 
 **Status:** Internal research note (not a catalog entry). Synthesis of the five-pass activity-to-sphere analysis.
 
@@ -31,7 +31,7 @@ The human *dharma* first named generally as happiness is differentiated through 
 | *Sukh* | Happiness | *Mun* accords with *vritti* | Bodily needs are correctly assessed and adequately fulfilled; sensation, taste, and choice remain guided by considered evaluation. |
 | *Shanti* | Peace | *Vritti* accords with *chitta* | Thought and deliberation are free from unresolved contradiction and accord with recognised meaning and purpose. |
 | *Santosh* | Contentment | *Chitta* accords with *buddhi* | Desire, visualisation, and planning accord with definite understanding rather than assumption or appearance. |
-| *Anand* | Bliss | *Buddhi* accords with *atma* | Enlightenment and resolve accord with realisation, so understanding is not divided from the realised nature of coexistence. |
+| *Anand* | Bliss | *Buddhi* accords with *atma* | Comprehension and resolve accord with realisation, so understanding is not divided from the realised nature of coexistence. |
 | *Anubhav* or *anubhuti* | Realisation | *Atma* realises coexistence and its ever-present concurrence with *satta*, or Omnipresence | The human being knows coexistence as it is; this is the ultimate orientation and goal of *jeevan*. |
 
 This paper therefore uses **happiness**, **peace**, **contentment**, **bliss**, and **realisation** consistently for these five terms. “Resolution” remains the English term for *samadhan* and is not used as a substitute for *shanti*. *Paramanand* means ultimate bliss: the fruition and evidence of realisation in coexistence, not a sixth level alongside the five above. *Anubhav* is not one more pleasure added after four lesser pleasures. In the complete human state, realisation and satisfaction throughout the embodied and inward sequence belong together: bodily provision without inward accord is incomplete, while an inward claim contradicted by bodily neglect, confused thought, defective planning, or conduct cannot count as complete human fulfilment (MVD, pp. 207-208, 276, 307, 327; JV, p. 138).

@@ -187,6 +187,8 @@ catalog / Start here order, not proposal-number order.
 
 ## Done in the same registers (do not reopen)
 
+- `ST-ONT-01`: implemented the [ontology review](docs/ontology-review-2026-09-19.md), including primary-text corrections, comparative coverage, cross-study terminology, prose, companions and teaching decks (19 September 2026).
+
 - Website phases 1–5 (PRs #396–#403) and nav/listen fixes #404–#409.
 - Public API phases 1–3.
 - GPU transcription pipeline (VAD-off, Vulkan).
