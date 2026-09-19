@@ -126,7 +126,7 @@ Integration–disintegration occurs among material constituents; vitalising–de
 
 **Concept.** Atma is the nucleus; buddhi, chitta, vritti, and mun are associated with successive orbits. Each faculty has an outward projection (*paravartan*) and an inward reflection (*pratyavartan*) activity. The brain (*medhas*) receives and translates signals between *jeevan* and the body; it is the medium, not the knower. Higher-conformance (*purvanukram*) is guidance descending from *atma* to *mun*; lower-conformance (*paranukram*) is sensory drive pushing inward. All ten activities belong to and continuously operate in *jeevan*; “four and a half” names their restricted effective organisation and bodily evidence in deluded human living, not absent faculties.
 
-**Primary pointers.** MVD, pp. 13, 77–78, 82–83, 99–101, 126, 207–208, 277–279, 328–348; JV, pp. 73–74, 92, 138; AVD, pp. 91–94; KD §§3.6, 3.11–3.12, printed pp. 70–118.
+**Primary pointers.** MVD, pp. 13, 77–78, 82–83, 99–101, 124, 126, 203, 207–208, 277–279, 328–348; JV, pp. 73–74, 92, 138–140; AVD, pp. 91–94; KD §§3.6, 3.11–3.12, printed pp. 70–118; PS, pp. 40–41.
 
 | Faculty | Projection | Reflection |
 |---|---|---|
@@ -136,7 +136,7 @@ Integration–disintegration occurs among material constituents; vitalising–de
 | Buddhi | resolve | comprehension (*bodh*) |
 | Atma | authenticity | realisation |
 
-The ten are enumerated in finer grain as named positions at each faculty, whose two members are again what the faculty bears in state and what carries it outward. The named values of the concept-19 families belong to that enumeration rather than standing beside it.
+The ten are enumerated in finer grain as named positions at each faculty, whose two members are again what the faculty bears in state and what carries it outward. The named values of the concept-19 families belong to that enumeration rather than standing beside it. Tasting at *mun* has sensory, value-based, and goal-based forms (*ruchi-mulak*, *mulya-mulak*, *lakshya-mulak*); development changes the governing orientation from sensory attraction toward relationship-fulfilment and the human goal. Projection of realisation is authenticity, resolve, visualisation, analysis, and selection into living conduct.
 
 **Read for.** The orbital account, force and power, projection and reflection, the distinction between inherent activity and effective bodily evidence, four-and-a-half activities in deluded human living, the finer-grained positions at which named values are borne, and the regulation of the faculties from atma in awakening.
 

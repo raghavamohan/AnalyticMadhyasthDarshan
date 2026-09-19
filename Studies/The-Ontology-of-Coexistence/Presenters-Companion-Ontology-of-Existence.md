@@ -677,7 +677,7 @@ The sentient unit — jeevan — is a constitutionally complete atom.
 
 Structurally, the centre is the core self. Around it: resolve, desire, thought, and hope — the texts’ buddhi, chitta, vritti, and mun.
 
-Each works outward and inward. Hope selects and tastes. Thought analyses and deliberates. Desire visualises and contemplates — and directly apprehends. Resolve resolves and comprehends. The core self authenticates and realises.
+Each works outward and inward. Hope selects and tastes. Thought analyses and deliberates. Desire visualises and contemplates — and directly apprehends. Resolve resolves and comprehends. The core self authenticates and realises. Tasting at hope has three orientations: sensory, value-based, and goal-based. Awakening changes which of these governs what is accepted. Projection of realisation is authenticity, resolve, visualisation, analysis, and selection into living conduct.
 
 Guidance can descend from the core self through the faculties — higher-conformance — or sensory drive can push inward from the body — lower-conformance. Cognisance regulates sensitivity when the higher direction holds.
 
@@ -687,7 +687,7 @@ Study brings understanding. Practice tests and stabilises it. Practice does not 
 
 ## Primary-text background
 
-MVD, p. 78; JV, p. 92; MVD, pp. 13, 82–83, 126, 207–208, 278–279, 286–287. *Koshas*: MVD, pp. 49–50. Body mistaken for self: SB, pp. 91–92; JV, p. 93. The study renders the reflective activity of *buddhi* as comprehension (*bodh*) and of *chitta* as direct apprehension (*sakshatkar*).
+MVD, p. 78; JV, p. 92; MVD, pp. 13, 82–83, 126, 207–208, 278–279, 286–287. *Koshas*: MVD, pp. 49–50. Body mistaken for self: SB, pp. 91–92; JV, p. 93. The study renders the reflective activity of *buddhi* as comprehension (*bodh*) and of *chitta* as direct apprehension (*sakshatkar*). Tasting forms: PS pp. 40–41; Axiology §1.2.
 
 ## Likely questions from the audience
 
