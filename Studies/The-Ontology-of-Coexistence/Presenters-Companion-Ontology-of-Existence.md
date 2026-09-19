@@ -4,11 +4,11 @@
 
 Slide-by-slide delivery notes and primary-text background for Q&A.
 
-Companion to the **28-slide** presentation based on §1 of *The Ontology of Coexistence* (AnalyticMadhyasthDarshan.org). Primary texts cited: *Madhyasth Darshan* (MVD), *Manav Karm Darshan* (KD), *Samadhanatmak Bhautikvad* (SB), *Jeevan Vidya – An Introduction* (JV), and *Adhyatmvad* (AVD) — translations by Rakesh Gupta where applicable; KD section 3 working English as noted in the study.
+Companion to the **29-slide** presentation based on §1 of *The Ontology of Coexistence* (AnalyticMadhyasthDarshan.org). Primary texts cited: *Madhyasth Darshan* (MVD), *Manav Karm Darshan* (KD), *Samadhanatmak Bhautikvad* (SB), *Jeevan Vidya – An Introduction* (JV), and *Adhyatmvad* (AVD), and the Hindi *Paribhasha Samhita* (PS). Translation and edition conventions follow the study; KD section 3 is working English. PS citations use printed pages, eight below the PDF position, in the third edition (2012), printing dated 14 January 2016. The official source collection and page-level references are linked in the [study bibliography](The-Ontology-of-Coexistence.html#references).
 
 **How to use this guide:** each slide has three parts. “Delivering the slide” is a **complete read-aloud script** for live or video-conference delivery, written for a smart audience with **no prior Madhyasth Darshan or formal-philosophy background** — English first, source terms second; speak it as written (or nearly so). It is mirrored in the PowerPoint notes pane. “Primary-text background” is for pre-session study, not for reading aloud. “Likely questions” is for Q&A preparation.
 
-**House conventions:** the English translation often prints “Omnipotence” for *satta*; the study, this guide, **and now the slides** use “Omnipresence” in prose and preserve the translation's word inside quotations only. Both names point to the same *satta*. Hindi *shunya* is rendered “Space.” Where the study flags an open problem, the suggested answers say so plainly — candour about what is and is not established is part of the study's method. The former four-senses-of-*gyan* taxonomy is no longer a deck slide; vocabulary discipline lives in the study's Editorial Notes. The epistemic payoff is the epistemic ladder (slide 24) and realisation (slide 25); method and evidence close the “how known” question (slides 27 and 28).
+**House conventions:** the English translation often prints “Omnipotence” for *satta*; the study, this guide, and the slides use “Omnipresence” in prose and preserve the translation's word inside quotations only. Both names point to the same *satta*. Hindi *shunya* is rendered “Space.” Where the study flags an open problem, the suggested answers say so plainly — candour about what is and is not established is part of the study's method. The former four-senses-of-*gyan* taxonomy is no longer a deck slide; vocabulary discipline lives in the study's Editorial Notes. The epistemic payoff is the epistemic ladder (slide 24) and realisation (slide 25); presentation, communication, expression, and art connect understanding with conduct (slide 26); method and evidence close the “how known” question (slides 28 and 29).
 
 **Three movements:** the deck is signposted in the kicker line of each movement's opening slide — Movement 1 at slide 5 (what is real), Movement 2 at slide 12 (how development proceeds), Movement 3 at slide 17 (from sentience to awakened conduct).
 
@@ -30,7 +30,7 @@ One word about vocabulary. The published translations often print “Omnipotence
 
 ## Primary-text background
 
-Coverage claims are scoped to the translated corpus (MVD, SB, JV) plus KD as cited; relationship and value structure and cyclical economics may be fuller in untranslated Hindi works.
+Coverage claims are scoped to the translated corpus (MVD, SB, JV), KD as cited, and the selected Hindi PS definitions identified in this guide. Other Hindi works may develop these subjects further.
 
 “What is evident is that consciousness and matter are inseparably present. Upon examining their fundamental nature, we learn that all of existence is essentially nature (matter) saturated in Omnipotence (consciousness)… existence itself is eternally manifest in the form of coexistence.” — SB, p. 48
 
@@ -61,7 +61,7 @@ First: what is real, and how it is ordered. There is an all-pervasive ground and
 
 Second: how development proceeds along two lines that must not be collapsed. And the reason it proceeds at all — the drive is to fulfil that complementarity. One line builds larger configurations — particles, molecules, cells, bodies — but never exceeds the order of the things it is built from. The other is development in an atom that can become a complete sentient unit. Across both, activity is effort, motion, and result together — not three separate steps.
 
-Third: how sentient living becomes awakened conduct — the human as a joint form of body and sentient unit, the faculties of that sentient unit, the four harmonies it can reach, and why the higher three are reached only through action actually performed: evaluation, realisation, and participation in humane order.
+Third: how sentient living becomes awakened conduct. We examine the human joint form, jeevan's faculties and harmonies, evaluation, realisation, and the expression of understanding through humane conduct.
 
 Please keep one distinction early: the body line and the sentient-unit line meet in animal and human living, but they are not the same process. That blocks the most common confusion — treating the body as the producer of the knower.
 
@@ -117,7 +117,7 @@ JV, p. 120: justice understood on the basis of relationships; *dharma* on the ba
 Because in MD the way of knowing follows from the way of being: each aspect of a unit demands a definite scope of understanding, and knowledge has an ontological base in orderliness already present in saturated units.
 
 **Q: Why should we care about ontology — isn't this abstract?**
-In MD's reading, complementarity and value are built into existence; justice, family, and undivided society express how reality is — not conventions imposed on a value-neutral world. Slide 25 shows the ontology terminating in resolution, prosperity, fearlessness, and coexistence.
+In MD's reading, complementarity and value are built into existence; justice, family, and undivided society express how reality is — not conventions imposed on a value-neutral world. Slide 27 shows the human goals of resolution, prosperity, fearlessness, and coexistence.
 
 **Q: How is this different from Vedanta's answers?**
 Preview only: Advaita answers with Brahman alone and treats the world as *mithya* at the highest truth. MD keeps both poles real: *satta* and units are co-eternal, and the world is perpetual (*jagat satat*). Full contrast is a separate session.
@@ -162,7 +162,7 @@ Existence has two inseparable aspects.
 
 First, the ground — Omnipresence. Formless, all-pervasive, transparent, permeating, non-transforming, immeasurable. Actionless energy: it acts not at all, yet every unit is energised and regulated in it. There is no place where it is absent.
 
-Hold on to two of those words, because the next slide is built on them. *Transparent* and *permeating*. The texts say transparence, permeability, and pervasiveness taken together are what show the ground to be one indivisible reality. Permeating is the strong one: the ground does not merely surround a unit from outside, it passes through it. That will matter in about ninety seconds.
+Two words make this relation clearer. *Permeating* concerns the unit: the pervasive reality passes through every unit, which remains saturated in it. *Transparent* concerns mutuality: units become manifest to one another through imaging, which provides a basis of recognition. Transparency, permeability, and pervasiveness together evidence one indivisible reality.
 
 Second, units of nature. Formful, active, countable. Each is bounded and saturated in the ground. Each has form, capacities, a way of participating, and an inseparable innateness — we will walk those four shortly.
 
@@ -181,6 +181,8 @@ One naming caution. The texts list many English names for the ground — includi
 “The Omnipotence eternally present as omnipresence is an indivisible entity, because its reality is apparent as transparence, permeability and omnipresence.” — SB, p. 46; restated as omnipresent, eternal, ever-existent, transparent, and permeating at SB, p. 160.
 
 Naming tensions: Editorial Notes in the study. Inter-unit distance held in *satta* as Space: SB, pp. 57, 59, 79. Never-separated: SB, p. 70; JV, p. 18.
+
+MVD p. 32 locates permeation in insentient and sentient units and transparency in their mutuality. PS p. 114 connects this with images and recognition. The ground remains actionless; imaging and recognition do not make it a knowing subject.
 
 ## Likely questions from the audience
 
@@ -202,25 +204,17 @@ Not empty in MD's sense: the distance between bounded wholes is held in formless
 
 ## Delivering the slide
 
-How are ground and units related? The texts have one word for it: saturation. Every formful unit is soaked, submerged, and surrounded in Omnipresence.
+Saturation names the inseparability of units and Omnipresence. Every formful unit is soaked, submerged, and surrounded in the same pervasive reality.
 
-Now, why is that true rather than merely asserted? Because the ground is permeating — the word from the last slide. Take a unit and divide it. Divide the fragments. Divide those. However far you go, every fragment is still soaked, still submerged, still surrounded. There is no cut you can make that leaves a piece standing outside the ground.
+Because that reality is permeating, dividing a unit leaves every fragment saturated in it. There is no fragment outside the ground. This is why the texts connect saturation with non-annihilation, and why saturation names an ever-present condition.
 
-Two things follow immediately, and they are worth stating slowly.
+The three descriptions have overlapping connections. Soakedness is evidenced as energy-fullness and forcefulness. The unit bears energy and definite relative power. The texts explicitly locate the root of its manifestness, or prakashmanata, in force-endowment while saturated in Omnipresence.
 
-One: a unit cannot be annihilated. To annihilate it you would need a fragment separated from what it is saturated in, and no division produces that.
+Submersion is expressed in activeness and recognition in mutuality. Units are present in the same pervasive reality and are imaged to one another. The formula linking unit-ness and energy-fullness with activeness belongs to this connected account.
 
-Two: saturation is a condition, not an event. There is no moment at which units existed on their own and were later joined to the ground. If someone asks you *when* saturation happened, the answer is that the question does not apply.
+Surroundedness is evidenced as regulation. Units remain in definite relations and regulate their activities through their own mediative organisation. Slide 22 develops this.
 
-Here is the part I want you to notice, because it is easy to read past. Soaked, submerged, surrounded are not three words for one relation. Each carries its own entailment, and the three cards on the slide follow them in order.
-
-Soaked gives forcefulness. Being soaked *is* forcefulness — the unit is the bearer of definite relative power. On the force side of the same bond, the texts call this basic impulsion.
-
-Submerged gives energy-fullness. The ground is on every side of the unit, so the unit is never devoid of the energy evident in its activity. The texts state the relation as a bare identity: unit-ness plus energy-fullness is activeness. And activity is never one thing at a time — always effort, motion, and result together.
-
-Surrounded gives regulation. Because the formless reality stands between units, each is held at a definite distance from the others. That is where law and orderliness come from — not from a statute issued from outside. We will come back to this on slide 22.
-
-Recognition and participation in orderliness follow from the same bond, and slide 8 takes them up in their own right. And please hear the caution: this is a claim about what existence is like, not a proposed laboratory transfer mechanism. Nor does saturation destine any unit to become sentient.
+These descriptions belong together. The source passages connect them in more than one way, so each card should be read as part of one saturation. Slide 8 develops imaging and recognition. This is the darshan's ontological account; a quantitative physical mechanism would require further evidence.
 
 ## Primary-text background
 
@@ -236,6 +230,8 @@ Surroundedness as what establishes regulation: “This very surroundedness itsel
 
 Saturation endows forcefulness, basic impulsion, and regulatory order (SB, p. 57). Relative energy does not become apparent without mutuality (MVD, p. 40). Saturation itself as knowledge: MVD, pp. 32–33.
 
+SB p. 57 associates soakedness with forcefulness, submersion with activeness, and surroundedness with regulation. PS p. 114 associates soakedness with energy-endowment, submersion with mutual recognition, and surroundedness with regulation. These overlap rather than establishing exclusive compartments. SB p. 248 grounds manifestness in force-endowment under saturation. PS p. 121 identifies the image as a basis of mutual recognition. See study §§1.1–1.3 and Editorial Notes.
+
 ## Likely questions from the audience
 
 **Q: Does satta cause unit-activity?**
@@ -250,8 +246,8 @@ Complementarity is perpetual; recognition and fulfilment can fail. At the human 
 **Q: Isn't “a unit cannot be annihilated” contradicted by particle physics?**
 The claim is about what exists, not about the persistence of a particular configuration. Reactions transform arrangements. The study is explicit that this ontological claim is not the same as, and is not proved by, conservation of quantity (§1.14, §6.2).
 
-**Q: Why insist the three words differ? Isn't this over-reading a translation?**
-It is the texts' own division: SB p. 57 attaches forcefulness to being soaked, and SB p. 79 attaches regulation specifically to surroundedness. The study sets out the three entailments in §1.2 and flags that MD gives them as ontological entailment, not mechanism.
+**Q: Does each saturation term have exactly one consequence?**
+The primary descriptions overlap. SB p. 57 connects submersion with activeness, while PS p. 114 connects it with recognition in mutuality. The study preserves both connections and the shared regulation account without assigning one exclusive consequence to each term.
 
 # Slide 7
 
@@ -304,7 +300,7 @@ So complementarity is *given* in coexistence. Not created by us. Not agreed betw
 
 Three things follow, and they are the three cards.
 
-Recognition first. A unit recognises another by responding according to definite constitution, distance, force, and relation. No cognition is involved — please do not hear "recognition" as a mental act. Heat is accepted and redistributed by matter. Particles hold definite distance in an atom. Atoms combine in definite ways and not others. That is recognition in the insentient orders, and the texts name the equipment for it: capacity, ability, receptivity.
+Recognition first. Units are imaged to one another in mutual facing. The image, called pratibimb, provides a basis of mutual recognition. This includes insentient units. Their relative powers also exert effects: heat exchange and particle relations illustrate responsiveness. Imaging and influence have distinct roles in the same mutuality. Neither implies that an insentient unit understands as a person does. Human understanding involves the knowing activities of jeevan.
 
 Complementarity second. Nothing in nature exists in isolation, and each unit is a whole along with its environment. Now the consequence people find surprising: value, in the universal sense, is essentiality and participation in orderliness — the definite conduct through which a unit complements others. Usefulness is that essentiality as it appears in objects; it is not the whole of value. Value is ontological here. It is not assigned by an observer, and it is not a human invention layered on top of physics.
 
@@ -324,7 +320,7 @@ Recognition below the human order is not reflective cognition; the heat, particl
 
 The completeness drive is grounded in these endowments: SB pp. 50–51 — this is the citation behind the closing line of the script. Composition as natural inclination toward coexistence: JV p. 67 (§1.10). Integration at T1 through hungry/undigested (overfull) complementarity: MVD p. 8; SB pp. 58, 71; KD 3.3 (§1.6.1). Justice as recognising relationships, fulfilling values, evaluating the fulfilment, and achieving mutual satisfaction: §1.12.1.
 
-Note for the presenter: this slide was added because the deck previously carried recognition, complementarity, and the drive-to-fulfil-them as scattered clauses — recognition had been reduced to a single line in slide 6's footer. The study's §1.2 reference notes carry the thread heavily even though its prose mentions "complementarity" only a few times; this slide makes the through-line explicit and slides 10, 12, 13, 16, and 21 now name it where it is doing the work.
+PS p. 121 defines image and imaging through mutual recognition. SB pp. 248–252 distinguishes imaging from the influences of relative powers. Its account extends from insentient mutuality to animal recognition of essential nature and human exchange of values and evaluation of dharma. These are the source connections behind the revised study §§1.2–1.3.
 
 ## Likely questions from the audience
 
@@ -335,7 +331,7 @@ No — cooperation is something agents choose. Complementarity here is a structu
 The claim is that essentiality is objective, not that recognition and evaluation are automatic. Cultures differ in what they recognise and how they evaluate; on this account they are not differing about whether a unit is complementary to others, but about whether they have seen it correctly. The study is explicit that human evaluation can fail (§1.4, §1.12).
 
 **Q: Isn't “recognition” in a particle just a metaphor?**
-The texts use it technically: definite responsiveness to another unit according to constitution, distance, force, and relation. It carries no claim of awareness. The study is careful that knowing and believing are additional activities that appear only in sentient nature (§1.2).
+The texts give an account of mutual imaging as well as definite responsiveness. PS p. 121 names the image as a basis of recognition, and SB pp. 248–252 distinguishes imaging from influence. Neither attributes human understanding to a particle. Knowing and believing belong to sentient nature (§§1.2–1.3).
 
 **Q: How is this different from saying everything is interconnected?**
 "Interconnected" is compatible with the connections being arbitrary or merely causal. The claim here is stronger and more specific: each unit has a definite usefulness *to* others, given its order and constitution, and that definite usefulness is what value means. Vague holism does not entail an account of justice; this is meant to.
@@ -348,15 +344,15 @@ The texts use it technically: definite responsiveness to another unit according 
 
 What is every unit? Four inseparable aspects — not a static checklist pasted onto things, but how a definite bearer shows up in the world.
 
-Form is real boundary and configuration. Take the peepal tree on the slide: one bounded living form with trunk, branches, leaves, and roots.
+Form is the real configuration of the unit: shape, volume, and density. The constituted unit is bimb. Its image in mutual facing is pratibimb, and being imaged is pratibimban. Take the peepal tree: one bounded living form with trunk, branches, leaves, and roots.
 
-Properties — capacities and relative effects. In the peepal: nutrition, growth, repair, seed production, degeneration under definite conditions.
+Properties are relative powers inseparable from their bearer. In the peepal, nutrition, repair, seed production, and degeneration become effective under definite conditions.
 
 Essential nature is usefulness in context: vitalising while the living organisation holds; devitalising when it breaks down.
 
 Innateness — dharma in this technical sense — is what cannot be separated from the unit, plus order-specific fulfilment. For the peepal: existence plus growth. Seed-conformance is how it conducts itself, not an extra label piled on top.
 
-Form is real; what another unit encounters is its definite presentation in mutual facing. In non-sentient nature these aspects are definite. Misreading arises mainly in human living, when the sentient unit mistakes the body for the self.
+The whole unit is manifest, or prakashman, with all four aspects. Imaging is central to prakash. This is a claim about how units are manifest to one another; completed human understanding also requires knowing their relations and fulfilment. An image alone does not deliver that understanding. Animal recognition of essential nature becomes evident in friendliness and opposition; human living brings the exchange of values and evaluation of dharma.
 
 And notice: the tree as a composite can die while its material constituents persist. Persistence of existence is not persistence of one configuration.
 
@@ -369,6 +365,8 @@ Four aspects: MVD, pp. 11, 42, 47, 50–51; SB pp. 55, 71, 86. Three complementa
 *Dharma* definition and cumulative stack: MVD, pp. 253–254. “Dharma is understood on the basis of ‘orderliness’…” — JV, pp. 120–121. Peepal: JV, p. 113.
 
 Editorial Notes: *guna* and *svabhav* are relational in manifestation; bearer and capacities remain real.
+
+Imaging and prakash: MVD p. 45. Bimb, pratibimb, and pratibimban: PS pp. 121, 135. Being manifest with all four aspects: PS p. 119. Imaging, influence, animal recognition, and human evaluation: SB pp. 248–252. Bearer/property distinction: SB pp. 256–257. SB p. 179 describes entities as manifest, communicated, and expressed according to state, motion, plane, and order. Slide 26 develops the human definitions. The study’s Editorial Notes retain the contextual heated-body definition of prakash in PS p. 119 alongside MVD’s broader imaging formulation.
 
 ## Likely questions from the audience
 
@@ -679,7 +677,7 @@ Structurally, the centre is the core self. Around it: resolve, desire, thought, 
 
 Each works outward and inward. Hope selects and tastes. Thought analyses and deliberates. Desire visualises and contemplates — and directly apprehends. Resolve resolves and comprehends. The core self authenticates and realises. Tasting at hope has three orientations: sensory, value-based, and goal-based. Awakening changes which of these governs what is accepted. Projection of realisation is authenticity, resolve, visualisation, analysis, and selection into living conduct.
 
-Guidance can descend from the core self through the faculties — higher-conformance — or sensory drive can push inward from the body — lower-conformance. Cognisance regulates sensitivity when the higher direction holds.
+Here, reflection means pratyavartan, the inward activity of knowing. It differs from pratibimban, the imaging between units introduced on slides 8 and 9. Guidance can descend from the core self through the faculties, while sensory drive can press inward from the body. In awakening, cognisance regulates sensitivity.
 
 All five faculties and ten activities belong to the sentient unit. Presence is not the same as expression or effective organisation. Animal bodies limit expression. Humans have the medium for the full range, yet under body-confusion only part of that range may be effectively organised.
 
@@ -707,15 +705,17 @@ Happiness, peace, contentment, and bliss are not passing moods, and they are not
 
 They name harmonies within the sentient unit. Happiness: harmony of hope and thought. Peace: thought and desire. Contentment: desire and resolve. Bliss: resolve and the core self.
 
-Now hold all four in view, because they are what the knowledge order is actually after. This is the answer to “what is a human life for?” in this system — and notice that only the first of the four is reachable by sensory living. Happiness, the harmony of hope and thought, an animal can have. Peace, contentment, and bliss it cannot even see.
+These four harmonies belong to the knowledge-order account of awakening. Animal living expresses hope to live through its bodily medium. We should therefore keep animal sensory satisfaction distinct from the human development of these harmonies. Within the human account, bliss is borne at buddhi through harmony with atma. Realisation at atma is named ultimate bliss, or paramanand, whose effect reaches the remaining faculties.
 
 The living cycle is: reflection feeds projection, and projection feeds deeper reflection — that is what living means here. Continuous happiness is harmony evidenced in resolved living, not a sensory spike.
 
-The next two slides ask how a human being actually gets from the first harmony to the other three.
+The next two slides examine how understanding comes to guide evaluation, work, and relationships.
 
 ## Primary-text background
 
 JV, p. 138 (four harmonies). JV, p. 61 (values ladder / five levels). KD §3.12, pp. 110–113 (projection–reflection). SB pairs values with practical routes through justice, orderliness, and realisation. MVD, p. 77 (channelling energies toward awakening).
+
+Study §1.8 locates happiness at mun, peace at vritti, contentment at chitta, and bliss at buddhi, each through harmony with the inward faculty. MVD pp. 100–101 distinguishes ultimate bliss at realised atma; MVD pp. 328–346 enumerates the faculty activities. The knowledge-order ladder should not be extended to animals merely from the presence of the same faculties.
 
 ## Likely questions from the audience
 
@@ -733,7 +733,7 @@ Comforts and accumulation aim at happiness but carry momentariness and fragility
 
 Every sentient unit bears the same five faculties and the same ten activities. What differs is the medium and what the unit does with it.
 
-Take the animal case first, because it sets up the human one. An animal *jeevan* is complete — it has all five faculties. But its bodily medium is limited, so its activity remains within sensory satisfaction under species-conformance, and it reaches the first harmony and stops. Peace, contentment, and bliss are not failures on its part; they are simply not available through that body.
+Take the animal case first. An animal jeevan has all five faculties, but its bodily medium limits their expression. Its dharma is hope to live, expressed through sensory selection under species-conformance. The human medium supports the full range of activity and the possibility of awakening.
 
 Now the human case. The human body *can* express all ten activities — that is what the developed nervous system is for. And yet, by default, human *jeevan* goes on evaluating by exactly the same sensory criteria the animal used. The equipment changed; the habit did not. That is the fork this slide names, and it answers one practical question — what makes me happy?
 
@@ -763,7 +763,7 @@ Awakening progression is graded (planes and human types). The slide's fork names
 
 # Slide 21
 
-# The Structure of Karma — Why Knowing Is Not Enough
+# The Structure of Karma
 
 ## Delivering the slide
 
@@ -771,13 +771,13 @@ So: peace, contentment, bliss. How does a person actually get them?
 
 Let me put the shape of the answer first, because it is the hinge of this whole movement. Below the human order, fulfilment is definite — it needs no deciding. A molecule does not choose. A plant does not deliberate. Even the animal, which has a complete sentient unit, is carried by species-conformance to the fulfilment available through its body. Nothing there has to be *worked out*.
 
-The human order is the one place where complementarity has to be fulfilled *knowingly* — where the higher harmonies are on offer and nothing delivers them automatically. And here is the part people resist: understanding does not deliver them either. Study is necessary. It is not sufficient. You can recognise the higher faculties, grasp the whole account, hold it clearly — and still not have peace, contentment, or bliss, because those are harmonies of the unit in *activity*, and there is no activity in knowing about activity.
+The human order is the one place where complementarity has to be fulfilled *knowingly* — where the higher harmonies are on offer and nothing delivers them automatically. Study introduces the account; understanding must become coherent activity. Knowing is itself an activity of jeevan, and its authenticity is evidenced in work and behaviour. Book knowledge alone does not establish that completed coherence.
 
-What delivers them is performed action — specifically, action that fulfils relationships. Recognise the higher faculties; study until you understand; then act so that what you owe in each relationship is actually fulfilled. That third step is not optional decoration on the first two. It is where the harmony happens.
+Understanding is evidenced as relationships are fulfilled. We study, practise, evaluate the result, and bring work and behaviour into alignment with what we understand. The harmony within jeevan and its evidence in living belong together.
 
 That is why the text bothers with the anatomy of action at all. *Kriyā* names activity throughout nature; it is not thereby *karma*. Human activity joined to aspiration has five limbs: doer, cause, objective, result, and effect. Effect means the act's reach or consequence — not a separate ledger of destiny. Desire is the aspiration; karma is the doing, activity together with aspiration; result is the fruit. And the text's own criterion: desire, doing, and result must *balance* for the desire to be truly accomplished. Wanting without doing is not accomplishment. Doing that misses the result is not accomplishment either.
 
-So: understanding alone changes nothing. It is the doing that yields the fruit. Book knowledge is half the work — the other half is conduct that fulfils relationships.
+The intended result is accomplished through doing. Understanding guides that doing, and its authenticity is evidenced in conduct that fulfils relationships.
 
 Hold this beside the earlier triad of effort, motion, and result. This is the desire-laden human framing of the same activity ontology. The next slides show how desire and doing get reorganised under justice, innateness, and truth.
 
@@ -879,9 +879,9 @@ We turn now to knowing — how understanding widens, and how it happens in the s
 
 On the left: what must be understood as mutual context widens. Form is real structure encountered in mutual facing. Capacities show as effects between units. Essential nature needs state, order, and context. Innateness is evidenced in whole-order fulfilment. Relationships are shared expectations weighed by justice, dharma, and truth. At the top is coexistence itself — not another observed detail, but the aim of knowing.
 
-On the right: how knowing happens within the sentient unit. Hope tastes and selects. Thought deliberates. Desire contemplates and directly apprehends. Resolve comprehends and resolves. The core self realises — through truth. When each level is acted in alignment, it is felt as happiness, peace, contentment, and bliss.
+On the right: how knowing happens within the sentient unit. Hope tastes and selects. Thought deliberates. Desire contemplates and directly apprehends. Resolve comprehends and resolves. The core self realises through truth. Happiness, peace, contentment, and bliss name harmonies between paired faculties. Realisation at the core is named ultimate bliss.
 
-The ladders meet at the top: coexistence known and lived is felt as bliss. Human error belongs to confused evaluation, not to fuzziness in the reality reflected.
+Every unit is already manifest with all four aspects. The left-hand steps describe widening human understanding of that unit; they do not describe successive additions to its image. Inward reflection deepens knowing, and projection makes understanding evident through conduct. Bliss names the harmony of buddhi and atma; coexistence realised at atma is ultimate bliss.
 
 ## Primary-text background
 
@@ -893,7 +893,7 @@ JV, p. 120 (triad epistemic bases); JV, p. 121; SB, p. 50 (ultimate *dharma*); J
 Different geometries: atom diagram is structural (inward = deeper); ladder is epistemic (higher = wider context needed). All four aspects are equally present in every unit.
 
 **Q: Is this ladder stated verbatim in the texts?**
-The triad's bases are verbatim JV. The four-aspect widening is a faithful reading of the definitions; present it as the structure of the definitions.
+The ladder is an analytical arrangement of the definitions and their contexts, as explained in the study. All four aspects belong to the manifest unit. Imaging supplies a basis of recognition, while human understanding develops through jeevan’s knowing activities; the rungs should not be taught as a source-enumerated sequence of images.
 
 # Slide 25
 
@@ -905,7 +905,7 @@ This is where the developmental drive comes to rest: realisation in coexistence.
 
 The drive settles when relationships across nature are fulfilled and made evident — not because the ground becomes a knower, but because the awakened sentient unit realises and evidences the coexistence in which it has always existed.
 
-Realisation is bliss. Truth itself is abundance — coexistence; realisation of abundance is bliss; bliss is the living of the sentient unit. What is realised is the ground the unit was always saturated in.
+Realisation at atma is named ultimate bliss. Bliss names the harmony of buddhi and atma. What is known is existence as coexistence: nature saturated in Omnipresence. Understanding becomes evident as authenticity in work, behaviour, and participation. The next slide examines how it is presented, communicated, and expressed.
 
 Three roles stay distinct: the sentient unit remains the knower; existence as coexistence remains the known; knowledge becomes evident as authentic conduct. They become coherent without becoming identical. The individual knower is not dissolved into a single universal Self.
 
@@ -914,6 +914,8 @@ Three roles stay distinct: the sentient unit remains the knower; existence as co
 “The goal of development is for nature, saturated in Omnipotence, to be realised in Omnipotence…” — SB, p. 81
 
 SB, p. 116 and MVD, p. 126 (threefold knowledge); KD §§3.17–3.18 (knowledge, knower, and known); MVD, pp. 14–15, 286–287. Study §1.13.
+
+MVD pp. 100–101 distinguishes ultimate bliss at atma; MVD p. 328 connects realisation-based expression, communication, and exposition with ultimate bliss. Study §§1.8 and 1.13 preserves both this placement and bliss as buddhi–atma harmony.
 
 ## Likely questions from the audience
 
@@ -924,6 +926,43 @@ No — *gyan* as *satta* names intelligibility, not cognition. The knowing act b
 MD denies merger into a single Self. Realisation evidences coexistence; individuality of *jeevan* remains ontologically real.
 
 # Slide 26
+
+# Understanding in Expression
+
+## Delivering the slide
+
+How does understanding become available in living? The primary texts use three connected terms: presentation, communication, and expression.
+
+Presentation, prakashan, makes actuality evident through an accomplished and meaningful form. Something understood takes a form another can attend to.
+
+Communication, sampreshana, indicates completeness. The definition names constitutional completeness, activity completeness, and conduct completeness. Communication serves understanding and enabling another to understand. Words direct attention to the activity of units and its inherent meaning, including their properties, essential nature, and dharma.
+
+Expression, abhivyakti, is the mental, verbal, and bodily activity through which our existence is evidenced for all-round resolution, called abhyudaya. Understanding is expressed in speech, work, and humane behaviour.
+
+Art, kala, concerns how these activities take an accomplished form. It makes qualities evident and expression meaningful, bringing usefulness together with beauty. In making an object, art value enhances usefulness. In communicating understanding, art serves intelligibility and the purpose of resolution.
+
+These activities belong together in the participation of jeevan through the body. They carry understanding into the awakened human tradition on the next slide.
+
+## Primary-text background
+
+The general scope is unit expression according to state, motion, developmental plane, and order (SB p. 179), and all units’ expressions as activity saturated in Omnipresence (MVD p. 109). The human definitions are PS p. 119 for prakashan, p. 206 for sampreshana, and p. 22 for abhivyakti. The definition of abhivyakti itself includes prakashan and the participation of hope, thought, desire, resolve, experience, and bodily activity.
+
+MVD pp. 109–110 connects form activity, word activity, inherent meaning, and communication as understanding and enabling understanding. MVD p. 328 brings realisation-based expression, communication, and exposition together under ultimate bliss. These connections support a coherent account without assigning each term exclusively to one faculty pair.
+
+PS p. 56 defines kala through making qualities evident and expression meaningful, and the joint accomplishment of usefulness and beauty. Its object-value application, kala-mulya, concerns enhancing usefulness; the general definition also concerns communication and conduct. All PS page numbers are printed pages in the edition identified at the start of this companion. Study §1.13 and Editorial Notes give the connected reading and contextual qualifications.
+
+## Likely questions from the audience
+
+**Q: Does each term add a new layer to the unit’s image?**
+The sources do not establish three successive layers or an exhaustive partition of manifestness. The terms overlap, and abhivyakti’s definition includes prakashan. Their human definitions specify meaningful presentation, indication of completeness, and expression for all-round resolution.
+
+**Q: Can we map presentation to vritti–chitta, communication to chitta–buddhi, and expression to buddhi–atma?**
+The reviewed definitions do not establish that exclusive assignment. MVD p. 328 uses all three together for realisation-based ultimate bliss, and abhivyakti involves the full activity of jeevan through the body. The faculty harmonies on slide 19 remain distinct definitions.
+
+**Q: Does kala mean decoration?**
+Its definition joins usefulness and beauty and makes expression meaningful. A clear explanation or accomplished piece of work can evidence it. Object art value is one application of this broader account.
+
+# Slide 27
 
 # An Awakened Human Tradition
 
@@ -955,7 +994,7 @@ No — *samridhi* is felt sufficiency with proper utilisation, opposed to hoardi
 **Q: How does family-scale vision reach society?**
 By composition under recognised relationships — the same persist-or-decline rule, expressed institutionally across the five dimensions.
 
-# Slide 27
+# Slide 28
 
 # Method and Evidence
 
@@ -989,7 +1028,7 @@ Be precise: internal coherence and conceptual consonance are not instrument conf
 **Q: Then why present it?**
 Because ontology can still be examined for definitions, entailments, and lived testability — and because refusing to overclaim is part of the method.
 
-# Slide 28
+# Slide 29
 
 # The Questions, Answered
 
