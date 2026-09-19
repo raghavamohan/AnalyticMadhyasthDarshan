@@ -18,6 +18,7 @@ from _theme_icons import (
     ui_icon_html,
     verify_study_visuals_assignments,
     wait_inner_html,
+    wait_mark_html,
 )
 
 
@@ -58,6 +59,9 @@ def test_waiters_keep_identity_motion_hooks() -> None:
     loading = comments_loading_html()
     assert 'class="comments-loading"' in loading
     assert "amd-wait" in loading
+    mark = wait_mark_html("akhand-samaj")
+    assert "amd-wait" in mark
+    assert "amd-wait-label" not in mark
 
 
 def test_placeholder_fill_keeps_labels() -> None:
@@ -70,6 +74,16 @@ def test_placeholder_fill_keeps_labels() -> None:
     assert "Search" in filled
 
 
+def test_submissions_nav_uses_work_icon() -> None:
+    from _site_chrome import site_tool_links
+
+    html = site_tool_links(studies_prefix="", current="submit")
+    assert "#work" in html
+    assert "My Submissions" in html
+    assert "site-chrome-text" not in html
+    assert 'aria-current="page"' in html
+
+
 def main() -> int:
     tests = [
         test_study_visuals_cover_the_catalog,
@@ -77,6 +91,7 @@ def main() -> int:
         test_topic_icons_follow_page_theme_variables,
         test_waiters_keep_identity_motion_hooks,
         test_placeholder_fill_keeps_labels,
+        test_submissions_nav_uses_work_icon,
     ]
     failed = 0
     for test in tests:

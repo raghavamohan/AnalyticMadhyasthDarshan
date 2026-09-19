@@ -269,19 +269,28 @@ Zone settings live on `analyticmadhyasthdarshan.org` in Cloudflare, not in git. 
 | Notify SBFM skip | `amd_skip_sbfm_portal_notify` → `http_request_sbfm` skip for `/api/notify` only | `--apply-portal-edge-security` |
 | Probe-path block | `amd_block_common_probes` (`/wp-*`, `/.env`, `/.git`, …) | `--apply-edge-security` |
 | API rate limit | `amd_rl_edge_api` — 40 req / 10 s per IP (portal `/api/*`, all apex `/api/*`, and `/mcp*`); plus leaked-credential rule (Pro max **2** rate-limit rules) | `--apply-discussions-rate-limits` |
-| TLS / transport | min TLS 1.2, HSTS 1y + includeSubDomains + **preload**, HTTPS rewrites on, `browser_check` off, SSL **full** (GitHub Pages) | `--apply-security-baseline` |
+| TLS / transport | min TLS 1.2, HSTS 1y + includeSubDomains + **preload**, HTTPS rewrites on, `browser_check` off, SSL **strict** (Workers origin) | `--apply-security-baseline` |
 | Response headers | `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, **enforcing CSP** on static pages (not `/api/*`); RFC 8288 `Link` on `/` and `/Studies/index.html`; `text/markdown` on `/auth.md` and Agent Skills `SKILL.md`; `application/json` on `/.well-known/agent-skills/index.json` and `/.well-known/mcp/server-card.json`; `application/http-message-signatures-directory+json` on `/.well-known/http-message-signatures-directory`; RFC 9727 `application/linkset+json` on `/.well-known/api-catalog` | `--apply-security-headers` |
 | DNS-AID | ServiceMode HTTPS at `_index._agents`; zone DNSSEC signing on; parent DS via Cloudflare Registrar CDS/CDNSKEY scan (1–2 days) | `python Scripts/_publish_dns_aid.py` |
 
 **Re-apply full stack after drift or zone changes:** `python Scripts/_cloudflare_performance.py --apply-edge-security`
 
-### Operator next steps (not done yet)
+### Operator next steps
 
-1. **HSTS preload list** — the HSTS header now includes `preload` (stable since July 2026). Submitting `analyticmadhyasthdarshan.org` to the [HSTS preload list](https://hstspreload.org/) is still optional and hard to undo. Do that only if you want Chrome/Firefox/Safari to hard-code HTTPS for this domain and every subdomain.
-2. **Manual smoke tests** — automated checks cover TLS/HSTS, portal page load, GitHub OAuth start (`302` to GitHub), and discussion page load. Still do a signed-in pass: portal GitHub OAuth through submit, and a discussion magic-link request plus email verify. Optional [SSL Labs](https://www.ssllabs.com/ssltest/) check (TLS 1.2+ only, HSTS present).
+Tracked in [PENDING.md](../../PENDING.md#infrastructure): `CF-HSTS`,
+`CF-PDF-CACHE`, `API-SMOKE` / `UX-05`. Keep this section for how-to, not a second
+backlog.
 
-3. **Bot-policy monitoring** — review AI Crawl Control and Search Console after policy changes. Keep Search and Agent allowed, Training blocked, managed `robots.txt` synchronized, `content_bots_protection` disabled, and `crawler_protection` enabled unless observed traffic justifies a narrower exception.
-4. **Rate-limit tuning** — if users behind a shared office IP hit `amd_rl_edge_api`, raise `requests_per_period` in `edge_api_rate_limit_rules_spec()` (e.g. 50–60) and re-run `--apply-discussions-rate-limits`.
+1. **HSTS preload list** — the HSTS header already includes `preload`. Submitting
+   `analyticmadhyasthdarshan.org` to the [HSTS preload list](https://hstspreload.org/)
+   is `CF-HSTS`: optional and hard to undo.
+2. **Signed-in smoke** — automated checks cover TLS/HSTS, portal page load, GitHub
+   OAuth start (`302` to GitHub), and discussion page load. The signed-in pass is
+   `API-SMOKE` / `UX-05`.
+3. **Rate-limit tuning** — if users behind a shared office IP hit `amd_rl_edge_api`,
+   raise `requests_per_period` in `edge_api_rate_limit_rules_spec()` (e.g. 50–60)
+   and re-run `--apply-discussions-rate-limits`. Not a standing ticket until that
+   is observed.
 
 Production API telemetry, SLO queries, synthetic incident handling, and the
 redacted authenticated smoke procedure are documented in
@@ -289,7 +298,10 @@ redacted authenticated smoke procedure are documented in
 privacy-safe aggregate points to `amd_api_metrics` and emits structured logs
 keyed by the response `X-Request-ID`.
 
-Items **not** planned: SSL Full (Strict) on GitHub Pages origin; separate per-route rate limits beyond Pro’s two-rule cap (worker-side limits cover magic-link abuse).
+Items **not** planned until `CF-HSTS` is explicitly requested: submitting the
+domain to the HSTS preload list. SSL Full (Strict) is the zone baseline now that
+live HTML/PDF/API show `cfOrigin` 0. Separate per-route rate limits beyond Pro’s
+two-rule cap remain out of scope (worker-side limits cover magic-link abuse).
 
 ## Local development
 

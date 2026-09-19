@@ -110,6 +110,15 @@ class ReleaseTests(unittest.TestCase):
         self.assertNotEqual(first['files']['/index.html']['sha256'], second['files']['/index.html']['sha256'])
         self.assertEqual((self.source/'index.html').read_bytes(), self.files['/index.html'])
 
+    def test_reference_html_receives_analytics_but_is_not_archived(self):
+        self.files['/References/note.html'] = b'<html><head></head><body>ref</body></html>'
+        manifest = self.build()
+        body = (self.root/'bundle/assets/References/note.html').read_bytes()
+        self.assertEqual(body.count(b'<script data-amd-analytics>'), 1)
+        self.assertIn(b'navigator.webdriver', body)
+        self.assertFalse(manifest['files']['/References/note.html']['archive'])
+        self.assertTrue(manifest['files']['/Studies/A/A.html']['archive'])
+
     def test_analytics_browser_exclusion_policy(self):
         result = subprocess.run(['node', str(BASE/'Scripts/_test_analytics.cjs')], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0, result.stdout + '\n' + result.stderr)
@@ -172,6 +181,10 @@ class ReleaseTests(unittest.TestCase):
                 self.assertFalse(release.eligible_static(path,published))
         self.assertTrue(release.eligible_static('Studies/A/A.html',published))
         self.assertTrue(release.eligible_static('Assets/reader/reader.js',published))
+        self.assertTrue(release.eligible_static('manifest.webmanifest',published))
+        self.assertTrue(release.eligible_static('Studies/atom.xml',published))
+        self.assertEqual(release.content_type('/Studies/atom.xml'), 'application/atom+xml; charset=utf-8')
+        self.assertEqual(release.content_type('/manifest.webmanifest'), 'application/manifest+json')
 
     def test_audit_identifies_itself_on_publication_get_and_asset_get_head_requests(self):
         manifest = self.build()

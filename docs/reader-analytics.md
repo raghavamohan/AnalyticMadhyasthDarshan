@@ -4,10 +4,9 @@ Cloudflare Web Analytics measures reading on analyticmadhyasthdarshan.org.
 coexistentialism.org redirects there; it does not represent a separate readership.
 
 The release compiler embeds `infra/site-worker/analytics.js` in HTML before
-calculating content hashes and offline manifests. The public site token in that
-script is an identifier, not a credential. It loads Cloudflare's beacon only on
-the production HTTPS hostname. Reference-library HTML is currently outside this
-release transformation and is not covered by this loader.
+calculating content hashes and offline manifests, including reference-library
+HTML. The public site token in that script is an identifier, not a credential.
+It loads Cloudflare's beacon only on the production HTTPS hostname.
 
 The loader works with the existing enabled Web Analytics registration and token.
 Keep immutable responses marked `no-transform`: automatic injection cannot modify
@@ -61,9 +60,16 @@ Do not use request totals as readership: assets, API calls, monitors, scanners,
 and opted-out maintainer browsing still appear there.
 
 After publication, verify the compiled loader is present in a landing page and a
-study reader. In an opted-out browser no beacon should load; a normal browser
-should load it once. Check fresh page-load data after allowing ingestion time.
-The missing September 10–16 data cannot be recovered from Web Analytics.
+study reader:
+
+```powershell
+python Scripts/_cloudflare_performance.py --check-web-analytics
+node Scripts/_test_analytics.cjs --browser
+```
+
+In an opted-out browser no beacon should load; a normal browser should load it
+once. Check fresh page-load data after allowing ingestion time. The missing
+September 10–16 data cannot be recovered from Web Analytics.
 
 Cloudflare documents the `no-transform` restriction in its
 [Web Analytics setup guide](https://developers.cloudflare.com/web-analytics/get-started/).

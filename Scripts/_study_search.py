@@ -16,7 +16,8 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 from _common import BASE, write_text_lf, favicon_link_tags
-from _theme_icons import THEME_MOTION_CSS, identity_mark_html, search_wait_html, ui_icon_html
+from _site_chrome import SITE_CHROME_CSS, site_feed_link_tags, site_home_and_tools
+from _theme_icons import THEME_MOTION_CSS, search_wait_html, ui_icon_html
 from _study_passages import clean_text, search_text
 from _study_pdf_metadata import StudyStatus, iter_pdf_study_rows
 from _publication_inventory import public_markdown
@@ -87,6 +88,20 @@ def eligible_documents() -> dict[Path, dict]:
     return found
 
 
+GENERIC_COMPANION_TITLE = re.compile(r"^presenter['’]s companion$", re.I)
+
+
+def display_document_title(source: Path, heading: str) -> str:
+    text = heading.strip()
+    if GENERIC_COMPANION_TITLE.fullmatch(text):
+        stem = source.stem
+        prefix = "Presenters-Companion-"
+        rest = stem[len(prefix):] if stem.startswith(prefix) else stem
+        label = rest.replace("-", " ").strip() or stem.replace("-", " ")
+        return f"Presenter's Companion: {label}"
+    return text
+
+
 def document_data(source: Path, rendered: str) -> dict:
     soup = BeautifulSoup(rendered, "html.parser")
     version = soup.find("meta", attrs={"name": "amd-source-version"})
@@ -105,7 +120,7 @@ def document_data(source: Path, rendered: str) -> dict:
         section = node.get("data-reader-heading", "")
         passages.append({"id": node["id"], "heading": section, "section": headings.get(section, "Introduction"), "text": text})
     return {
-        "schema": 1, "title": clean_text(title.get_text()) if title else source.stem,
+        "schema": 1, "title": display_document_title(source, clean_text(title.get_text()) if title else source.stem),
         "language": soup.html.get("lang", "en") if soup.html else "en",
         "version": version.get("content", "") if version else "",
         "passages": passages,
@@ -124,10 +139,11 @@ def search_page(manifest_version: str) -> str:
 <title>Search study passages</title><meta name="description" content="Find words and phrases across published studies and companion notes."/>
 <link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/search.html"/>
 {favicon_link_tags()}
-<style>{THEME_MOTION_CSS}</style>
+{site_feed_link_tags()}
+<style>{THEME_MOTION_CSS}{SITE_CHROME_CSS}</style>
 <link rel="stylesheet" href="../Assets/reader/search.css?v={css}"/>
 <script defer src="../Assets/reader/search.js?v={js}"></script></head>
-<body class="search-page"><a class="search-back amd-home" href="index.html">{identity_mark_html("akhand-samaj")}<span>All studies</span></a>
+<body class="search-page">{site_home_and_tools(home_href="index.html", studies_prefix="", current="search")}
 <main><h1>Find a passage</h1><p>Search the text of published studies and companion notes. Open a result at its passage, then use its sources to check the claim.</p>
 <section class="study-search" id="collection-search" data-manifest="search-data/manifest.json?v={manifest_version}" aria-label="Search published documents">
 <form class="search-form"><label for="collection-query">Words or phrase</label><div class="search-input-row"><input id="collection-query" type="search" maxlength="200" placeholder='e.g. "duration of activity"' required/><button type="submit">{ui_icon_html("search")}<span>Search</span></button></div>

@@ -22,7 +22,8 @@ final length. Titles and review notes are not spoken.
 The scripts have had one editorial revision (Revision 2, September 18, 2026) for
 fidelity to each study's central question and for the weight of the examples
 chosen; each review file records what was added, what was cut, and the revised
-transcript hash. Status remains `Draft — awaiting author review`.
+transcript hash. Status remains `Draft — awaiting author review`. Recording
+readiness is tracked in [PENDING.md](../PENDING.md#audio) (`AUD-01`).
 
 ## Organisation
 
@@ -50,9 +51,11 @@ review and timing.
   a recording script now; after recording, reconcile any spoken changes so it
   becomes an accurate transcript of the released audio.
 - **`review-notes.md`** contains the draft state, source version, section map,
-  editorial choices, and checklist. It is the place for review comments,
+  and editorial choices. It is the place for review comments,
   pronunciation decisions, and eventual recording details. Nothing in it is
-  part of the narration.
+  part of the narration. Author-review and recording readiness for the first
+  five episodes are tracked in [PENDING.md](../PENDING.md#audio), not as a
+  second checklist in each review file.
 - **`README.md`** provides the listening/review order and links. Additional paths
   can be added here, or split into separate index files when the collection
   grows. Keep one canonical introduction per study and language.

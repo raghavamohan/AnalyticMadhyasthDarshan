@@ -146,6 +146,13 @@ def stage_icon_html(name: str) -> str:
     return _topic_svg(name, css_class="amd-stage-mark")
 
 
+def wait_mark_html(name: str) -> str:
+    if name not in IDENTITY_NAMES:
+        raise ValueError(f"waiting marks are identity-only: {name}")
+    svg = _identity_svg(name, css_class="")
+    return f'<span class="amd-wait">{svg}</span>'
+
+
 def wait_inner_html(name: str, label: str) -> str:
     if name not in IDENTITY_NAMES:
         raise ValueError(f"waiting marks are identity-only: {name}")

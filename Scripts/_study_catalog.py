@@ -353,6 +353,7 @@ def write_catalog_json_file(rows: list[StudyRow], table: StudyTable) -> None:
 
 CATALOG_ALL_PATH = STUDIES / "catalog-all.json"
 STUDIES_FEED_PATH = STUDIES / "feed.json"
+STUDIES_ATOM_PATH = STUDIES / "atom.xml"
 LLMS_TXT_PATH = BASE / "llms.txt"
 LLMS_FULL_TXT_PATH = BASE / "llms-full.txt"
 
@@ -450,6 +451,48 @@ def serialize_studies_feed_text(entries: list[dict] | None = None) -> str:
     return json.dumps(feed, ensure_ascii=False, indent=2) + "\n"
 
 
+def serialize_studies_atom_text(entries: list[dict] | None = None) -> str:
+    origin = site_base_url().rstrip("/")
+    feed_payload = json.loads(serialize_studies_feed_text(entries))
+    dates = [item.get("date_modified") for item in feed_payload["items"] if item.get("date_modified")]
+    updated = max(dates) if dates else "1970-01-01T00:00:00+00:00"
+    lines = [
+        '<?xml version="1.0" encoding="utf-8"?>',
+        '<feed xmlns="http://www.w3.org/2005/Atom">',
+        f"  <title>{html.escape(feed_payload['title'])}</title>",
+        f"  <id>{html.escape(origin)}/Studies/atom.xml</id>",
+        f"  <updated>{html.escape(updated)}</updated>",
+        f"  <subtitle>{html.escape(feed_payload['description'])}</subtitle>",
+        (
+            '  <link rel="self" type="application/atom+xml" '
+            f'href="{html.escape(origin)}/Studies/atom.xml"/>'
+        ),
+        (
+            '  <link rel="alternate" type="text/html" '
+            f'href="{html.escape(feed_payload["home_page_url"])}"/>'
+        ),
+        (
+            '  <link rel="alternate" type="application/feed+json" '
+            f'href="{html.escape(feed_payload["feed_url"])}"/>'
+        ),
+    ]
+    for item in feed_payload["items"]:
+        lines.append("  <entry>")
+        lines.append(f"    <title>{html.escape(item['title'])}</title>")
+        lines.append(f"    <id>{html.escape(item['id'])}</id>")
+        lines.append(
+            '    <link rel="alternate" type="text/html" '
+            f'href="{html.escape(item["url"])}"/>'
+        )
+        if item.get("date_modified"):
+            lines.append(f"    <updated>{html.escape(item['date_modified'])}</updated>")
+        if item.get("content_text"):
+            lines.append(f"    <summary>{html.escape(item['content_text'])}</summary>")
+        lines.append("  </entry>")
+    lines.append("</feed>")
+    return "\n".join(lines) + "\n"
+
+
 def _llms_study_url(entry: dict) -> str:
     return _absolute_from_studies(entry.get("md")) or _absolute_from_studies(
         entry.get("html")
@@ -475,6 +518,7 @@ def serialize_llms_txt(entries: list[dict] | None = None) -> str:
         f"- [Studies catalog]({origin}/Studies/index.html): topical, formal, and applied papers",
         f"- [Unified catalog JSON]({origin}/Studies/catalog-all.json): all rows with a collection tag",
         f"- [Change feed]({origin}/Studies/feed.json): JSON Feed of draft and released Edited-on dates",
+        f"- [Atom feed]({origin}/Studies/atom.xml): the same change list as the JSON Feed",
         f"- [Glossary]({origin}/Studies/glossary.json): shared terms used across studies",
         f"- [API catalog]({origin}/.well-known/api-catalog): RFC 9727 linkset",
         f"- [MCP Server Card]({origin}/.well-known/mcp/server-card.json): Streamable HTTP at /mcp",
@@ -545,6 +589,7 @@ def serialize_llms_full_txt(entries: list[dict] | None = None) -> str:
             "",
             f"- {origin}/Studies/catalog-all.json",
             f"- {origin}/Studies/feed.json",
+            f"- {origin}/Studies/atom.xml",
             f"- {origin}/Studies/glossary.json",
             f"- {origin}/.well-known/api-catalog",
             f"- {origin}/mcp",
@@ -558,6 +603,7 @@ def write_derived_catalogs() -> None:
     entries = _load_combined_catalog_entries()
     write_text_lf(CATALOG_ALL_PATH, serialize_catalog_all_text(entries))
     write_text_lf(STUDIES_FEED_PATH, serialize_studies_feed_text(entries))
+    write_text_lf(STUDIES_ATOM_PATH, serialize_studies_atom_text(entries))
     write_text_lf(LLMS_TXT_PATH, serialize_llms_txt(entries))
     write_text_lf(LLMS_FULL_TXT_PATH, serialize_llms_full_txt(entries))
 
@@ -576,6 +622,7 @@ def verify_derived_catalogs_sync() -> list[str]:
     expected = {
         CATALOG_ALL_PATH: serialize_catalog_all_text(entries),
         STUDIES_FEED_PATH: serialize_studies_feed_text(entries),
+        STUDIES_ATOM_PATH: serialize_studies_atom_text(entries),
         LLMS_TXT_PATH: serialize_llms_txt(entries),
         LLMS_FULL_TXT_PATH: serialize_llms_full_txt(entries),
     }

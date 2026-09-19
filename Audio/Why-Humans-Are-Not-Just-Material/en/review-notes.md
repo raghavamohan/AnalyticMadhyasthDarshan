@@ -49,12 +49,10 @@ Revision 2 replaced the meal-and-friendship opener with the study's own opening 
 
 ## Review checklist
 
-- [ ] The meaning and emphasis match the study and the intended introduction.
-- [ ] The spoken wording is clear for a newcomer and technical terms are explained.
-- [ ] The comparison and unresolved questions retain the study's qualifications.
-- [ ] A timed read fits 4–5 minutes, with comfortable pauses.
-- [ ] Pronunciation and the narration method are settled before recording.
-- [ ] Wording is finalised and transcript status is changed to `Ready to record`.
+Author-review and recording readiness for the five Start here episodes are
+tracked in [PENDING.md](../../../PENDING.md#audio) (`AUD-01`). Do not keep a
+second checklist here. Record episode-specific comments under Author comments
+or Points for author review.
 
 ## Initial draft provenance
 

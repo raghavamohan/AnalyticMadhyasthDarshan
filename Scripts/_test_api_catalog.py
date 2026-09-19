@@ -66,6 +66,7 @@ HOMEPAGE_LINK_HREFS = (
     "/Studies/catalog-applied.json",
     "/Studies/catalog-all.json",
     "/Studies/feed.json",
+    "/Studies/atom.xml",
     "/Studies/glossary.json",
     "/llms.txt",
     "/mcp",

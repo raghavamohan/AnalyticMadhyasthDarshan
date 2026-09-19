@@ -136,6 +136,7 @@ A synthesis of coexistence as unit activity, connecting ontology with Jeevan's c
 
 - https://analyticmadhyasthdarshan.org/Studies/catalog-all.json
 - https://analyticmadhyasthdarshan.org/Studies/feed.json
+- https://analyticmadhyasthdarshan.org/Studies/atom.xml
 - https://analyticmadhyasthdarshan.org/Studies/glossary.json
 - https://analyticmadhyasthdarshan.org/.well-known/api-catalog
 - https://analyticmadhyasthdarshan.org/mcp

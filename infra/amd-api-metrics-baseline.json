@@ -1,0 +1,221 @@
+{
+  "site": "analyticmadhyasthdarshan.org",
+  "dataset": "amd_api_metrics",
+  "captured_from": "Cloudflare Analytics Engine SQL API",
+  "captured_at": "2026-09-18T06:59:02Z",
+  "account_id": "04965e67bdd14748e755e19f40dbacbf",
+  "objectives": {
+    "public_reads_availability": 99.9,
+    "public_reads_p95_ms": 1000,
+    "authenticated_reads_availability": 99.5,
+    "authenticated_reads_p95_ms": 2500,
+    "human_writes_availability": 99.0,
+    "human_writes_p95_ms": 10000,
+    "discussion_availability": 99.5,
+    "discussion_p95_ms": 2500,
+    "note": "Raw non-5xx ratio is not the final SLO. Assess operation contracts and annotate confirmed upstream outages before evaluating these objectives. Worker metrics omit edge blocks; use synthetics too."
+  },
+  "dashboard": {
+    "url": "https://dash.cloudflare.com/04965e67bdd14748e755e19f40dbacbf/workers/observability/analytics-engine",
+    "tiles": [
+      {
+        "id": "service-availability",
+        "title": "Service availability and p95 latency",
+        "window": "1 day",
+        "sql": "SELECT blob2 AS service,\n       SUM(_sample_interval) AS requests,\n       100 * sumIf(_sample_interval, double3 < 500) / SUM(_sample_interval) AS availability,\n       quantileExactWeighted(0.95)(double2, _sample_interval) AS p95_ms\nFROM amd_api_metrics\nWHERE timestamp > NOW() - INTERVAL '1' DAY\nGROUP BY service\nORDER BY service",
+        "rows": [
+          {
+            "service": "discussions",
+            "requests": "32",
+            "availability": 100,
+            "p95_ms": 781
+          },
+          {
+            "service": "studies",
+            "requests": "88",
+            "availability": 100,
+            "p95_ms": 195
+          },
+          {
+            "service": "submissions",
+            "requests": "112",
+            "availability": 100,
+            "p95_ms": 359
+          }
+        ]
+      },
+      {
+        "id": "operation-status",
+        "title": "Operation status families",
+        "window": "1 hour",
+        "sql": "SELECT blob2 AS service, blob3 AS operation_id, blob5 AS status_family,\n       SUM(_sample_interval) AS requests,\n       quantileExactWeighted(0.95)(double2, _sample_interval) AS p95_ms\nFROM amd_api_metrics\nWHERE timestamp > NOW() - INTERVAL '1' HOUR\nGROUP BY service, operation_id, status_family\nORDER BY service, requests DESC",
+        "rows": [
+          {
+            "service": "discussions",
+            "operation_id": "listDiscussionStats",
+            "status_family": "2xx",
+            "requests": "2",
+            "p95_ms": 839
+          },
+          {
+            "service": "discussions",
+            "operation_id": "unmatchedRequest",
+            "status_family": "2xx",
+            "requests": "1",
+            "p95_ms": 0
+          },
+          {
+            "service": "discussions",
+            "operation_id": "getDiscussionsHealth",
+            "status_family": "2xx",
+            "requests": "1",
+            "p95_ms": 0
+          },
+          {
+            "service": "discussions",
+            "operation_id": "postComment",
+            "status_family": "4xx",
+            "requests": "1",
+            "p95_ms": 0
+          },
+          {
+            "service": "studies",
+            "operation_id": "handleMcp",
+            "status_family": "2xx",
+            "requests": "5",
+            "p95_ms": 21
+          },
+          {
+            "service": "studies",
+            "operation_id": "searchStudies",
+            "status_family": "2xx",
+            "requests": "5",
+            "p95_ms": 102
+          },
+          {
+            "service": "studies",
+            "operation_id": "getStudyCitation",
+            "status_family": "2xx",
+            "requests": "2",
+            "p95_ms": 67
+          },
+          {
+            "service": "studies",
+            "operation_id": "getStudyBySlug",
+            "status_family": "2xx",
+            "requests": "2",
+            "p95_ms": 85
+          },
+          {
+            "service": "studies",
+            "operation_id": "getMcpServerCard",
+            "status_family": "2xx",
+            "requests": "2",
+            "p95_ms": 0
+          },
+          {
+            "service": "studies",
+            "operation_id": "searchGlossary",
+            "status_family": "2xx",
+            "requests": "1",
+            "p95_ms": 125
+          },
+          {
+            "service": "studies",
+            "operation_id": "getStartHere",
+            "status_family": "2xx",
+            "requests": "1",
+            "p95_ms": 83
+          },
+          {
+            "service": "studies",
+            "operation_id": "getStudyCitation",
+            "status_family": "4xx",
+            "requests": "1",
+            "p95_ms": 32
+          },
+          {
+            "service": "studies",
+            "operation_id": "getStudiesHealth",
+            "status_family": "2xx",
+            "requests": "1",
+            "p95_ms": 27
+          },
+          {
+            "service": "submissions",
+            "operation_id": "getAuthMe",
+            "status_family": "2xx",
+            "requests": "3",
+            "p95_ms": 0
+          },
+          {
+            "service": "submissions",
+            "operation_id": "listStudyArtifacts",
+            "status_family": "2xx",
+            "requests": "2",
+            "p95_ms": 889
+          },
+          {
+            "service": "submissions",
+            "operation_id": "notifyContributor",
+            "status_family": "4xx",
+            "requests": "1",
+            "p95_ms": 0
+          },
+          {
+            "service": "submissions",
+            "operation_id": "unmatchedRequest",
+            "status_family": "4xx",
+            "requests": "1",
+            "p95_ms": 0
+          },
+          {
+            "service": "submissions",
+            "operation_id": "getHealth",
+            "status_family": "2xx",
+            "requests": "1",
+            "p95_ms": 0
+          },
+          {
+            "service": "submissions",
+            "operation_id": "listMySubmissions",
+            "status_family": "4xx",
+            "requests": "1",
+            "p95_ms": 0
+          }
+        ]
+      },
+      {
+        "id": "dependency-failures",
+        "title": "Dependency failures and uncertain retries",
+        "window": "1 hour",
+        "sql": "SELECT blob6 AS dependency, blob7 AS retry_outcome,\n       SUM(_sample_interval) AS requests\nFROM amd_api_metrics\nWHERE timestamp > NOW() - INTERVAL '1' HOUR\n  AND (double3 >= 500 OR blob7 IN ('uncertain', 'throttled'))\nGROUP BY dependency, retry_outcome\nORDER BY requests DESC",
+        "rows": []
+      }
+    ]
+  },
+  "slo_30d": {
+    "window": "30 days",
+    "sql": "SELECT blob2 AS service,\n       SUM(_sample_interval) AS requests,\n       100 * sumIf(_sample_interval, double3 < 500) / SUM(_sample_interval) AS availability,\n       quantileExactWeighted(0.95)(double2, _sample_interval) AS p95_ms\nFROM amd_api_metrics\nWHERE timestamp > NOW() - INTERVAL '30' DAY\nGROUP BY service\nORDER BY service",
+    "rows": [
+      {
+        "service": "discussions",
+        "requests": "240",
+        "availability": 100,
+        "p95_ms": 784
+      },
+      {
+        "service": "studies",
+        "requests": "562",
+        "availability": 100,
+        "p95_ms": 214
+      },
+      {
+        "service": "submissions",
+        "requests": "1965",
+        "availability": 100,
+        "p95_ms": 0
+      }
+    ]
+  }
+}

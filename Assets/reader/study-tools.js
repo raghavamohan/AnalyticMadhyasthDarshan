@@ -35,7 +35,40 @@
     try { channel = new BroadcastChannel('amd-study-notes'); } catch (_) { /* Reload still reads current records. */ }
     const signal = () => channel?.postMessage('changed');
     function setDirty(value) { dirty = value; $('notes-save-state').textContent = value ? 'Unsaved changes.' : 'Saved.'; }
-    const visible = () => notes.filter(n => !path || $('notes-scope').value === 'all' || n.document === path).sort((a,b) => b.updated.localeCompare(a.updated));
+    const visible = () => {
+      const scope = $('notes-scope')?.value || 'all';
+      const query = ($('notes-query')?.value || '').trim().toLowerCase();
+      return notes.filter(n => {
+        if (scope !== 'all' && n.document !== scope) return false;
+        if (!query) return true;
+        return [n.title, n.note, n.quote, n.document].join(' ').toLowerCase().includes(query);
+      }).sort((a,b) => b.updated.localeCompare(a.updated));
+    };
+    function fillScope() {
+      const select = $('notes-scope');
+      if (!select) return;
+      const current = select.value;
+      const docs = [...new Map(notes.map(n => [n.document, n.title])).entries()]
+        .sort((a,b) => String(a[1] || a[0]).localeCompare(String(b[1] || b[0])));
+      select.replaceChildren();
+      const all = document.createElement('option'); all.value = 'all'; all.textContent = 'All documents';
+      select.append(all);
+      if (path) {
+        const thisDoc = document.createElement('option');
+        thisDoc.value = path; thisDoc.textContent = 'This document';
+        select.append(thisDoc);
+      }
+      for (const [docPath, docTitle] of docs) {
+        if (docPath === path) continue;
+        const option = document.createElement('option');
+        option.value = docPath;
+        option.textContent = docTitle || docPath;
+        select.append(option);
+      }
+      const preferred = current === 'document' && path ? path : current;
+      select.value = [...select.options].some(option => option.value === preferred) ? preferred : (path || 'all');
+      select.disabled = false;
+    }
     function domRange(passage,start,end) {
       const range = document.createRange(); let offset = 0, started = false;
       for (const node of textNodes(passage.node)) {
@@ -100,7 +133,7 @@
       }
       paintNotes();
     }
-    async function refresh() { notes = await store.all(); render(); }
+    async function refresh() { notes = await store.all(); fillScope(); render(); }
     function openNotes() { if (context) { context.selectTab('notes'); context.openPanel(); } }
     function begin(note) {
       if (dirty) { status('Save or close the current editor before opening another note.'); $('notes-text').focus(); return; }
@@ -129,6 +162,7 @@
       catch (error) { $('notes-save-state').textContent = error.message + ' Export includes your unsaved text.'; }
     });
     $('notes-scope').addEventListener('change',() => { shown = 20; render(); });
+    $('notes-query')?.addEventListener('input',() => { shown = 20; render(); });
     function snapshot() {
       if (!context) return null;
       const selected = getSelection(); if (!selected?.rangeCount || selected.isCollapsed) return null;
@@ -220,6 +254,47 @@
       try { const result = await store.restore(pendingImport); pendingImport = null; $('notes-import-review').hidden = true; signal(); await refresh(); status(`Imported ${noteCount(result.added)}; ${noteCount(result.skipped)} already present and identical.${volatile ? ' Kept for this visit only.' : ''}`); }
       catch (error) { status(error.message); }
     });
+    function setupBookmarkBackup() {
+      const statusNode = $('bookmarks-status'), exportBtn = $('bookmarks-export'), importInput = $('bookmarks-import');
+      if (!statusNode || !exportBtn || !importInput) return;
+      const prefix = 'amd-reader-v1:';
+      const records = () => {
+        const found = [];
+        try {
+          for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (!key || !key.startsWith(prefix)) continue;
+            const raw = localStorage.getItem(key);
+            if (!raw) continue;
+            found.push({ key, value: JSON.parse(raw) });
+          }
+        } catch (error) { throw new Error(error.message || 'Bookmark storage could not be read.'); }
+        return found;
+      };
+      exportBtn.addEventListener('click', () => {
+        try {
+          const found = records().filter(item => Array.isArray(item.value?.bookmarks) && item.value.bookmarks.length);
+          download(JSON.stringify({ schema: 1, kind: 'amd-reader-bookmarks', records: found }, null, 2), 'study-bookmarks.json', 'application/json');
+          statusNode.textContent = found.length ? `Exported bookmarks from ${found.length} ${found.length === 1 ? 'study' : 'studies'}.` : 'No named bookmarks to export.';
+        } catch (error) { statusNode.textContent = error.message; }
+      });
+      importInput.addEventListener('change', async event => {
+        const file = event.target.files[0]; event.target.value = '';
+        if (!file) return;
+        try {
+          if (file.size > 2000000) throw new Error('Choose a bookmarks backup smaller than 2 MB.');
+          const payload = JSON.parse(await file.text());
+          const incoming = Array.isArray(payload?.records) ? payload.records : [];
+          let restored = 0;
+          for (const record of incoming) {
+            if (typeof record?.key !== 'string' || !record.key.startsWith(prefix) || !record.value || typeof record.value !== 'object') continue;
+            localStorage.setItem(record.key, JSON.stringify(record.value));
+            restored++;
+          }
+          statusNode.textContent = restored ? `Restored bookmarks for ${restored} ${restored === 1 ? 'study' : 'studies'}.` : 'No bookmarks were found in that file.';
+        } catch (error) { statusNode.textContent = error.message || 'That backup could not be read.'; }
+      });
+    }
     window.addEventListener('beforeunload',event => { if (dirty) { event.preventDefault(); event.returnValue = ''; } });
     if (channel) channel.onmessage = () => { refresh().then(() => { if (dirty) status('Notes changed in another tab. Your unsaved text is still in the editor.'); }).catch(error => status(error.message)); };
     const loadingControls = [...document.querySelectorAll('#reader-notes button,#reader-notes input,#notebook-notes button,#notebook-notes input,#selection-note,#selection-highlight')];
@@ -261,8 +336,9 @@
       $('reader-offline-tools').addEventListener('toggle',() => { if ($('reader-offline-tools').open) loadOffline().then(api => api.reader(path)).catch(error => { $('offline-status').textContent = error.message; }); });
       if (document.documentElement.hasAttribute('data-offline-copy')) { $('reader-offline-banner').hidden = false; $('reader-offline-banner').textContent = 'Reading a saved copy. Open Display → Offline reading to check its date or update it.'; }
     } else {
-      $('notes-new').hidden = true; $('notes-scope').value = 'all'; $('notes-scope').disabled = true;
+      $('notes-new').hidden = true;
       loadOffline().then(api => api.library()).catch(error => { $('offline-library-status').textContent = error.message; });
+      setupBookmarkBackup();
     }
     try { store = await C.openStore(); await refresh(); status(`${noteCount(notes.filter(n => !path || n.document === path).length)} saved on this device.`); }
     catch (_) {
@@ -272,7 +348,7 @@
         for (let n of incoming) { n = C.record(n); if (staged.has(n.id)) { if (JSON.stringify(staged.get(n.id)) === JSON.stringify(n)) { skipped++; continue; } n = {...n,id:crypto.randomUUID(),revision:crypto.randomUUID()}; } staged.set(n.id,n); added++; }
         C.limits([...staged.values()]); memory.clear(); for (const [id,n] of staged) memory.set(id,n); return {added,skipped};
       }};
-      status('Device storage is unavailable or unreadable. Existing stored data is untouched. New notes last only for this visit; export before leaving.'); render();
+      status('Device storage is unavailable or unreadable. Existing stored data is untouched. New notes last only for this visit; export before leaving.'); fillScope(); render();
     }
     loadingControls.forEach(node => { node.disabled = false; });
   };

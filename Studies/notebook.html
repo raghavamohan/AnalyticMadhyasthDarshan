@@ -5,7 +5,10 @@
 <link rel="icon" type="image/svg+xml" href="/Assets/Icons/akhand-samaj-favicon.svg"/>
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Icons/akhand-samaj-favicon-16.png"/>
-<link rel="apple-touch-icon" sizes="180x180" href="/Assets/Icons/akhand-samaj-apple-touch-icon.png"/><script>
+<link rel="apple-touch-icon" sizes="180x180" href="/Assets/Icons/akhand-samaj-apple-touch-icon.png"/>
+<link rel="manifest" href="/manifest.webmanifest"/>
+<meta name="theme-color" content="#1A5276"/><link rel="alternate" type="application/feed+json" href="/Studies/feed.json" title="Studies change feed"/>
+<link rel="alternate" type="application/atom+xml" href="/Studies/atom.xml" title="Studies Atom feed"/><script>
 (()=>{try{
  const r=document.documentElement,t=localStorage.getItem('amd-theme');
  if(['light','dark','sepia'].includes(t))r.dataset.theme=t;
@@ -17,13 +20,13 @@
 </script>
 <script type="application/json" id="reader-document-visual">{"icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" class=\"amd-topic-icon\" aria-hidden=\"true\" focusable=\"false\"><g fill=\"none\" stroke=\"var(--amd-icon,#1A5276)\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 6C9 3 5 3 2 4v15c4-1 7 0 10 2 3-2 6-3 10-2V4c-3-1-7-1-10 2ZM12 6v15\"/><g stroke=\"var(--amd-accent,#B47B46)\"><path d=\"M5 8h3M16 8h3M5 12h3M16 12h3\"/><\/g><\/g><\/svg>", "status": ""}</script>
 <link rel="stylesheet" media="screen" href="../Assets/reader/reader.css?v=7529355e01285032"/>
-<link rel="stylesheet" media="screen" href="../Assets/reader/search.css?v=5a9f6333117dedb7"/>
-<link rel="stylesheet" media="screen" href="../Assets/reader/study-tools.css?v=4290a1b1171cdcfb"/><script defer src="../Assets/reader/search.js?v=db4f6211550a4195"></script>
+<link rel="stylesheet" media="screen" href="../Assets/reader/search.css?v=a419b4f54c4437ff"/>
+<link rel="stylesheet" media="screen" href="../Assets/reader/study-tools.css?v=4290a1b1171cdcfb"/><script defer src="../Assets/reader/search.js?v=f9194e7cdcfef23f"></script>
 <script defer src="../Assets/reader/reader-features.js?v=507b4490fab797a0"></script>
 <script defer src="../Assets/reader/notes-core.js?v=cf0d5435124d9148"></script>
 <script defer src="../Assets/reader/speech-core.js?v=45e096e2a4fe78eb"></script>
-<script defer src="../Assets/reader/study-tools.js?v=70cdbaae3681b12a" data-offline-client="../Assets/reader/offline-client.js?v=3eb68287b9159c33"></script>
-<script defer src="../Assets/reader/reader.js?v=c5f7749805354c09"></script><style media="screen">:root {
+<script defer src="../Assets/reader/study-tools.js?v=464b29bd9b4851fb" data-offline-client="../Assets/reader/offline-client.js?v=3eb68287b9159c33"></script>
+<script defer src="../Assets/reader/reader.js?v=3f71fa4aa00cf4c4"></script><style media="screen">:root {
   --amd-navy: #1a5276;
   --amd-gold: #b47b46;
   --amd-gold-text: #8b5e34;
@@ -75,9 +78,15 @@
   .amd-home .amd-mark { width: 32px; height: 32px; }
   .amd-action { display: inline-flex; align-items: center; gap: 6px; }
   .amd-action .amd-icon { width: 18px; height: 18px; }
-
+.site-chrome-nav { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin:0 0 18px; }
+.site-chrome-tools { display:flex; flex-wrap:wrap; align-items:center; gap:4px 14px; }
+.site-chrome-link { display:inline-flex; align-items:center; gap:6px; color:inherit; text-decoration:none; font-weight:600; font-size:14px; min-height:44px; }
+.site-chrome-link .amd-icon { width:18px; height:18px; }
+.site-chrome-link[aria-current="page"] { text-decoration:underline; text-underline-offset:3px; }
+.site-chrome-nav .amd-home { display:inline-flex; align-items:center; gap:8px; color:inherit; text-decoration:none; font-weight:600; min-height:44px; }
+.site-chrome-nav .amd-home .amd-mark { width:32px; height:32px; }
 .notebook-nav .amd-topic-icon { width: 20px; height: 20px; }</style></head>
-<body class="notebook-page reader-chrome"><a class="amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a>
+<body class="notebook-page reader-chrome"><nav class="site-chrome-nav" aria-label="Study navigation"><a class="amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><div class="site-chrome-tools"><a class="site-chrome-link" href="search.html" title="Find words and phrases inside studies and companion notes."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span class="nav-link-label">Search</span></a><a class="site-chrome-link" href="notebook.html" aria-current="page" title="Open your highlights, notes and offline studies saved in this browser."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#notes"></use></svg><span class="nav-link-label">My Notes</span></a><a class="site-chrome-link" href="submit.html" title="Use GitHub sign-in to propose studies, submit drafts and follow reviews."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#work"></use></svg><span class="nav-link-label">My Submissions</span></a></div></nav>
 <main id="notebook"><h1>My notes &amp; saved studies</h1>
 <nav class="notebook-nav" aria-label="Notebook sections"><a class="amd-action" href="#notebook-notes"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="amd-topic-icon" aria-hidden="true" focusable="false"><g fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2h12l4 4v16H4ZM15 2v5h5M8 11h8M8 15h8M8 19h5"/></g></svg>Private notes</a><a class="amd-action" href="#saved-studies"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="amd-topic-icon" aria-hidden="true" focusable="false"><g fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 6C9 3 5 3 2 4v15c4-1 7 0 10 2 3-2 6-3 10-2V4c-3-1-7-1-10 2ZM12 6v15"/><g stroke="var(--amd-accent,#B47B46)"><path d="M5 8h3M16 8h3M5 12h3M16 12h3"/></g></g></svg>Saved studies</a></nav>
 <h2>Private notes</h2><section id="notebook-notes">
@@ -93,7 +102,8 @@
 <button hidden="" id="notes-reload" type="button">Reload saved note</button>
 <button id="notes-reattach" type="button">Attach to current selection</button>
 </form>
-<label for="notes-scope">Show notes</label><select id="notes-scope"><option value="document">This document</option><option value="all">All documents</option></select>
+<label for="notes-query">Find in notes</label><input id="notes-query" maxlength="200" placeholder="Search titles, quotes, and note text" type="search"/>
+<label for="notes-scope">Show notes</label><select id="notes-scope"><option value="all">All documents</option></select>
 <ol aria-label="Private notes" class="study-note-list" id="notes-list"></ol>
 <details><summary>Export or restore notes</summary><p class="reader-helper">Exports include the notes shown above and any unsaved editor text. Conflicting imported notes are kept as separate copies.</p>
 <div class="study-tool-actions"><button id="notes-export-md" type="button">Export Markdown</button><button id="notes-export-json" type="button">Export JSON</button></div>
@@ -101,9 +111,15 @@
 <div hidden="" id="notes-import-review"><p id="notes-import-description"></p><button id="notes-import-confirm" type="button">Import these notes</button><button id="notes-import-cancel" type="button">Cancel import</button></div>
 </details>
 <p class="reader-helper">Notes stay on this device and are not sent to the website. Anyone using this browser profile can read them. Export a backup before clearing browser data.</p>
-<a href="/Studies/notebook.html">My notes &amp; saved studies →</a>
+
 </section>
 <section id="saved-studies"><h2>Saved studies</h2><p id="offline-library-status" role="status" aria-live="polite">Checking saved copies…</p><ol id="offline-library" class="study-note-list"></ol>
 <p>Saved copies include the study and its reading assets. Linked source PDFs, discussions and collection search require a connection. Browser storage can be evicted; keep exported backups of your notes.</p></section>
+<section id="bookmark-backup"><h2>Bookmark backup</h2>
+<p>Export or restore named bookmarks saved by study readers in this browser. Notes use the separate export above.</p>
+<div class="study-tool-actions"><button type="button" id="bookmarks-export">Export bookmarks</button></div>
+<label for="bookmarks-import">Restore a bookmarks JSON backup</label><input id="bookmarks-import" type="file" accept="application/json,.json"/>
+<p id="bookmarks-status" role="status" aria-live="polite"></p>
+</section>
 <noscript>JavaScript is needed to open your device’s notes and saved-study list. Your downloaded Markdown and JSON backups remain readable independently.</noscript>
 </main></body></html>

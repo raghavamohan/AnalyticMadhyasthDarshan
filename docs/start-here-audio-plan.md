@@ -3,7 +3,8 @@
 Status: Five English draft scripts prepared for author review in
 [Audio/README.md](../Audio/README.md); one editorial revision applied (September 18,
 2026) for fidelity to each study's central question and the weight of its examples.
-Recording, site integration, and publication remain planned.
+Recording, site integration, and publication remain planned. Open items:
+[PENDING.md](../PENDING.md#audio).
 
 ## Objective and agreed scope
 
@@ -191,10 +192,9 @@ produces no tracked diff. Avoid unrelated document/PDF rebuilds.
 
 ## Resume here
 
-Start with the draft transcripts linked from [Audio/README.md](../Audio/README.md).
-Finalise their wording, then confirm recording language and human versus AI
-narration before recording **Why Humans Are Not Just Material** as the pilot.
-Re-read current repository instructions and this plan before implementation.
-No recording, site edit, infrastructure change, scheduled reminder, or publication
-has been performed. The top-level Audio directory is now the authoring location;
-future publishing and lifecycle integration must account for it explicitly.
+Open audio items live in [PENDING.md](../PENDING.md#audio). Start with author
+review of the draft transcripts linked from [Audio/README.md](../Audio/README.md)
+(`AUD-01`), then confirm recording language and human versus AI narration
+(`AUD-02`) before recording the Human episode (`AUD-03`). Keep this file for
+format, phases, and verification how-to. Do not add a second remaining-work
+list here.

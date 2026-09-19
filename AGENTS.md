@@ -8,7 +8,7 @@ It is the **source of truth** for ZCode, OpenCode, and other agents that read
 per section below). **OpenCode / ZCode** loads `AGENTS.md` automatically and also reads
 `.cursor/rules/*.mdc` via `opencode.json` → `instructions`.
 
-**After editing `AGENTS.md` (§1–§9) or any `.agents/skills/**/SKILL.md`**, run sync before
+**After editing `AGENTS.md` (§1–§10) or any `.agents/skills/**/SKILL.md`**, run sync before
 you finish the task or commit:
 
 ```powershell
@@ -47,11 +47,12 @@ Available skills: `manage-studies`, `add-study`, `remove-study`, `rename-study`,
 | §7 | Study submission process: branches, PR labels, templates | `study-submission-process.mdc` |
 | §8 | Line endings: LF everywhere | `line-endings.mdc` |
 | §9 | Windows shell: PowerShell conventions | `powershell-terminal.mdc` |
+| §10 | Project backlog lives only in `PENDING.md` | `pending-work.mdc` |
 
-There are nine rule sections below. The first, fourth, fifth, and sixth apply when
+There are ten rule sections below. The first, fourth, fifth, and sixth apply when
 their stated conditions are met; §1 also applies to every catalog study edit; §7 always
-applies to any change under `Studies/` or `Applications/`; §8 and §9 always apply (line endings and the
-Windows/PowerShell shell).
+applies to any change under `Studies/` or `Applications/`; §8, §9, and §10 always apply
+(line endings, the Windows/PowerShell shell, and the single pending-work list).
 
 ---
 
@@ -1185,3 +1186,48 @@ use PowerShell syntax, never bash. The repo root path contains a space
 
 - No `&&`, `||`, or bash heredocs in commands issued this session.
 - Paths containing spaces are wrapped in double quotes.
+
+---
+
+## 10. Keep pending work in PENDING.md *(always applies)*
+
+[PENDING.md](PENDING.md) at the repository root is the **only** project backlog.
+Agents and maintainers add, update, and close work items there, under the
+existing categories (Website, Audio, CI, API, Infrastructure, References,
+Transcription, Theme, Studies). Do not start a second remaining-work table,
+follow-up register, or TODO checklist in a subdirectory plan, review note, or
+skill document.
+
+### What belongs in PENDING.md
+
+- Implementation and evaluation follow-ups that are not finished
+- Deferred items that must not be started without a stated gate
+- First drafts still to write (catalog `ongoing` rows) and flagged study edits
+  that are not yet in a study PR
+
+### What does not belong there
+
+- Skill, PR, and CI process checklists for finishing one change
+- Scholarly Open problems inside a study
+- Session-only agent TodoWrite lists
+
+### Mandatory workflow
+
+1. **New follow-up** — add a row to the matching category in `PENDING.md` with a
+   stable ID, priority, status, and one-line remaining need. Link the plan or
+   how-to; do not copy the item into that plan as a second list.
+2. **Status change** — update the row in the same change that starts, defers, or
+   finishes the work. Mark **done** or remove the row when it is complete.
+3. **Plans and review notes** — keep design, history, and how-to. If they
+   previously held a remaining-work table, they point at `PENDING.md` instead.
+   Episode-specific author comments may stay in review notes; recording readiness
+   is tracked under Audio in `PENDING.md`.
+4. **Do not create** `TODO.md`, `TODOS.md`, or a `## Remaining work` /
+   `## Follow-up register` table under `docs/`, `Audio/`, `References/`,
+   `.github/`, `outputs/`, or `Assets/`. Point to `PENDING.md`.
+
+### Check
+
+- [ ] Open project work is listed in `PENDING.md`
+- [ ] The change that created or finished the work updated that file
+- [ ] No new remaining-work table or follow-up register was added in a subdirectory

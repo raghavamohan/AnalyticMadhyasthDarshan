@@ -38,6 +38,8 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/Assets/Icons/akhand-samaj-favicon-32.png"/>
 <link rel="icon" type="image/png" sizes="16x16" href="/Assets/Icons/akhand-samaj-favicon-16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/Assets/Icons/akhand-samaj-apple-touch-icon.png"/>
+<link rel="manifest" href="/manifest.webmanifest"/>
+<meta name="theme-color" content="#1A5276"/>
 <style>
 :root{--bg:#f7f4ef;--surface:#ffffff;--text:#2a241c;--text-muted:#5c5348;--accent:#1a5276;--accent-soft:#e8f1f6;--accent-hover:#13405c;--warm:#8b5e34;--warm-soft:#f5ebe0;--border:#e3dcd2;--shadow:0 2px 12px rgba(42,36,28,0.06);--radius:10px;--sans:'Segoe UI',system-ui,sans-serif;}*{box-sizing:border-box;}html{scroll-behavior:smooth;}body{font-family:'Georgia','Times New Roman',serif;font-size:16px;line-height:1.6;color:var(--text);background:var(--bg);margin:0;padding:0;}a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px;transition:color 0.15s ease;}a:hover{color:var(--accent-hover);}.page{max-width:960px;margin:0 auto;padding:28px 20px 56px;}.page-header{margin-bottom:16px;}h1{font-size:38px;font-weight:normal;line-height:1.15;margin:0 0 14px;color:#1a1612;border:none;padding:0;}.hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;}.hero-row h1{margin:0;flex:1 1 auto;min-width:0;}.hero-row .auth-btn{flex:0 0 auto;margin-top:4px;}.auth-user-line{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin:0 0 8px;line-height:1.4;}.auth-user-line strong{color:var(--text);}.notify-compact{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;font-family:var(--sans);font-size:13px;margin:0 0 10px;padding:0;}
 .notify-compact[hidden]{display:none !important;}.notify-compact .checkbox-group label{font-size:13px;}.lead{font-size:17px;line-height:1.45;color:var(--text-muted);margin:0 0 12px;}
@@ -98,6 +100,17 @@ html[data-github-auth="signed-in"]:not([data-github-auth-ready]) #dashboard-sign
 .hub-toolbar-spacer{flex:1;min-width:12px;}
 .dashboard-refresh-status{font-family:var(--sans);font-size:13px;color:var(--text-muted);margin:0;}
 .auth-btn:disabled{opacity:0.65;cursor:progress;}
+.auth-btn.theme-toggle,.auth-btn.amd-action{display:inline-flex;align-items:center;gap:6px;}
+.auth-btn .amd-icon{width:16px;height:16px;flex:0 0 auto;}
+.theme-toggle-icon{display:inline-flex;align-items:center;}
+.theme-icon-sun{display:none;}
+[data-theme="dark"] .theme-icon-sun{display:inline-flex;}
+[data-theme="dark"] .theme-icon-moon{display:none;}
+@media (prefers-color-scheme:dark){html:not([data-theme="light"]) .theme-icon-sun{display:inline-flex;}html:not([data-theme="light"]) .theme-icon-moon{display:none;}}
+#theme-toggle-label{display:inline-block;min-width:2.75em;text-align:left;}
+.dashboard-refresh-status{display:inline-flex;align-items:center;gap:10px;}
+.dashboard-refresh-status .amd-wait svg,.proposal-status .amd-wait svg,.skeleton-card .amd-wait svg{width:28px;height:28px;}
+.proposal-status.loading,.skeleton-card{display:flex;flex-direction:row;align-items:center;gap:12px;}
 .submission-grid{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-direction:column;gap:12px;}
 .submission-card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--border);border-left:4px solid var(--warm);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px 12px;font-family:var(--sans);}
 .submission-card--pending{border-left-color:var(--warm);}
@@ -257,15 +270,22 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
   .amd-home .amd-mark { width: 32px; height: 32px; }
   .amd-action { display: inline-flex; align-items: center; gap: 6px; }
   .amd-action .amd-icon { width: 18px; height: 18px; }
-</style><!-- /theme-styles -->
+.site-chrome-nav { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:8px 16px; margin:0 0 18px; }
+.site-chrome-tools { display:flex; flex-wrap:wrap; align-items:center; gap:4px 14px; }
+.site-chrome-link { display:inline-flex; align-items:center; gap:6px; color:inherit; text-decoration:none; font-weight:600; font-size:14px; min-height:44px; }
+.site-chrome-link .amd-icon { width:18px; height:18px; }
+.site-chrome-link[aria-current="page"] { text-decoration:underline; text-underline-offset:3px; }
+.site-chrome-nav .amd-home { display:inline-flex; align-items:center; gap:8px; color:inherit; text-decoration:none; font-weight:600; min-height:44px; }
+.site-chrome-nav .amd-home .amd-mark { width:32px; height:32px; }</style><!-- /theme-styles -->
 </head>
 <body>
 <div class="page">
+  <template id="amd-portal-wait"><!-- theme-wait --><span class="amd-wait"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg></span><!-- /theme-wait --></template>
   <header class="page-header">
-    <p class="back-link" id="hub-back-link"><!-- theme-home --><a class="amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><!-- /theme-home --></p>
+    <p class="back-link" id="hub-back-link"><!-- theme-home --><nav class="site-chrome-nav" aria-label="Study navigation"><a class="amd-home" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" class="amd-mark" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg><span>All studies</span></a><div class="site-chrome-tools"><a class="site-chrome-link" href="search.html" title="Find words and phrases inside studies and companion notes."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#search"></use></svg><span class="nav-link-label">Search</span></a><a class="site-chrome-link" href="notebook.html" title="Open your highlights, notes and offline studies saved in this browser."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#notes"></use></svg><span class="nav-link-label">My Notes</span></a><a class="site-chrome-link" href="submit.html" aria-current="page" title="Use GitHub sign-in to propose studies, submit drafts and follow reviews."><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#work"></use></svg><span class="nav-link-label">My Submissions</span></a></div></nav><!-- /theme-home --></p>
     <div class="hero-row">
       <h1>My Submissions</h1>
-      <button type="button" class="auth-btn" id="theme-toggle" aria-label="Switch color theme">Dark</button>
+      <button type="button" class="auth-btn theme-toggle" id="theme-toggle" aria-label="Switch color theme"><span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true"><span class="theme-icon-moon"><!-- theme-ui-moon --><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#moon"></use></svg><!-- /theme-ui-moon --></span><span class="theme-icon-sun"><!-- theme-ui-sun --><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#sun"></use></svg><!-- /theme-ui-sun --></span></span><span id="theme-toggle-label">Dark</span></button>
       <button type="button" class="auth-btn primary" id="auth-action-btn">Sign in with GitHub</button>
     </div>
     <p class="lead" id="hub-lead">Propose a study, submit a draft, and track review, checks, revisions, and release status.</p>
@@ -290,7 +310,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
       <div class="hub-toolbar" id="hub-toolbar">
         <a class="auth-btn primary" href="?tab=propose">New study proposal</a>
         <span class="hub-toolbar-spacer"></span>
-        <p class="dashboard-refresh-status" id="dashboard-refresh-status" hidden></p>
+        <p class="dashboard-refresh-status" id="dashboard-refresh-status" hidden><span id="dashboard-wait" hidden><!-- theme-wait --><span class="amd-wait"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" aria-hidden="true" focusable="false"><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(0 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(90 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(180 120 120)" fill="none" stroke="var(--amd-icon,#1A5276)" stroke-width="20"/><path class="goal" d="M120 36H163Q204 36 204 77V120" transform="rotate(270 120 120)" fill="none" stroke="var(--amd-accent,#B47B46)" stroke-width="20"/><circle cx="120" cy="120" r="22" fill="var(--amd-accent,#B47B46)" stroke="none"/></svg></span><!-- /theme-wait --></span><span id="dashboard-refresh-text"></span></p>
         <button type="button" class="auth-btn" id="dashboard-refresh-btn" hidden aria-label="Refresh submissions" title="Reload GitHub review status and the public site">Refresh</button>
       </div>
 
@@ -358,7 +378,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
   <p id="propose-draft-status" role="status" aria-live="polite">Sign in to recover your browser drafts.</p>
   <div class="draft-buttons">
     <button type="button" class="auth-btn" id="propose-save-now">Save now</button>
-    <button type="button" class="auth-btn" id="propose-download-draft">Download draft backup</button>
+    <button type="button" class="auth-btn amd-action" id="propose-download-draft"><!-- theme-ui-download --><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#download"></use></svg><!-- /theme-ui-download -->Download draft backup</button>
   </div>
   <details><summary>Recovery options</summary><div class="draft-buttons">
     <button type="button" class="auth-btn" id="propose-recover-draft">Recover saved draft</button>
@@ -469,7 +489,7 @@ html[data-theme="dark"] .action-btn.danger{color:#f28b82;border-color:#712b26;ba
   <p id="submit-draft-status" role="status" aria-live="polite">Sign in to recover your browser drafts.</p>
   <div class="draft-buttons">
     <button type="button" class="auth-btn" id="submit-save-now">Save now</button>
-    <button type="button" class="auth-btn" id="submit-download-draft">Download draft backup</button>
+    <button type="button" class="auth-btn amd-action" id="submit-download-draft"><!-- theme-ui-download --><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#download"></use></svg><!-- /theme-ui-download -->Download draft backup</button>
   </div>
   <details><summary>Recovery options</summary><div class="draft-buttons">
     <button type="button" class="auth-btn" id="submit-recover-draft">Recover saved draft</button>
@@ -1672,11 +1692,12 @@ document.getElementById('dashboard-cards').addEventListener('click', (e) => {
 
 function showDashboardSkeleton() {
   const list = document.getElementById('dashboard-cards');
+  const wait = document.getElementById('amd-portal-wait');
   list.innerHTML = '';
   for (let i = 0; i < 3; i++) {
     const li = document.createElement('li');
     li.className = 'submission-card skeleton-card';
-    li.textContent = 'Loading…';
+    li.innerHTML = (wait ? wait.innerHTML : '') + '<span>Loading…</span>';
     list.appendChild(li);
   }
 }
@@ -1768,24 +1789,28 @@ function applyPublicPublication(submissions, repositorySha, publicState) {
 function setDashboardRefreshState(state) {
   const btn = document.getElementById('dashboard-refresh-btn');
   const status = document.getElementById('dashboard-refresh-status');
+  const wait = document.getElementById('dashboard-wait');
+  const text = document.getElementById('dashboard-refresh-text');
   if (state === 'loading') {
     btn.disabled = true;
     btn.setAttribute('aria-busy', 'true');
     btn.textContent = 'Refreshing…';
     status.hidden = false;
-    status.textContent = 'Checking GitHub and the public site…';
+    if (wait) wait.hidden = false;
+    if (text) text.textContent = 'Checking GitHub and the public site…';
     return;
   }
   btn.disabled = false;
   btn.removeAttribute('aria-busy');
   btn.textContent = 'Refresh';
+  if (wait) wait.hidden = true;
   if (state === 'done') {
     status.hidden = false;
-    status.textContent = 'Updated just now';
+    if (text) text.textContent = 'Updated just now';
     return;
   }
   status.hidden = true;
-  status.textContent = '';
+  if (text) text.textContent = '';
 }
 
 async function loadDashboard(options = {}) {
@@ -2413,9 +2438,10 @@ function hideProposalStatus() {
 
 function showProposalStatus(className, message) {
   const el = document.getElementById('proposal-status');
+  const wait = document.getElementById('amd-portal-wait');
   el.className = 'proposal-status ' + className;
-  el.innerHTML = message;
-  el.style.display = 'block';
+  el.innerHTML = (className === 'loading' && wait ? wait.innerHTML : '') + message;
+  el.style.display = className === 'loading' ? 'flex' : 'block';
 }
 
 let proposalStatusTimer = null;
@@ -2994,7 +3020,8 @@ document.getElementById('submit-form').addEventListener('submit', async (e) => {
   const active = () => root.getAttribute("data-theme") || (system.matches ? "dark" : "light");
   const paint = () => {
     const next = active() === "dark" ? "Light" : "Dark";
-    toggle.textContent = next;
+    const label = document.getElementById("theme-toggle-label");
+    if (label) label.textContent = next;
     toggle.setAttribute("aria-label", `Switch to ${next.toLowerCase()} theme`);
   };
   toggle.addEventListener("click", () => {

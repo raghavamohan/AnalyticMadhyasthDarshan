@@ -1,7 +1,7 @@
 """Sync AGENTS.md rule sections and skills to Cursor/OpenCode mirrors.
 
 Source of truth:
-  - Rules: AGENTS.md sections 1–7 → .cursor/rules/*.mdc (OpenCode via opencode.json)
+  - Rules: AGENTS.md sections 1–10 → .cursor/rules/*.mdc (OpenCode via opencode.json)
   - Skills: .agents/skills/ → .cursor/skills/ (.opencode/skills/ is a junction to .agents/skills/;
     its separately tracked fallback copies are verified in Git's index)
   - Discovery: .agents/skills/ → .well-known/agent-skills/ (RFC v0.2.0 index + SKILL.md)
@@ -130,6 +130,15 @@ MDC_CONFIG: dict[int, dict[str, str]] = {
         "section_ref": "§9",
         "extra_globs": "",
     },
+    10: {
+        "file": "pending-work.mdc",
+        "description": "Keep project follow-ups in PENDING.md by category; do not scatter remaining-work tables",
+        "globs": "PENDING.md,docs/**,Audio/**,Assets/Theme/**,outputs/**,.github/CI-IMPLEMENTATION.md,References/CLOUDFLARE-R2-MIGRATION-PLAN.md",
+        "alwaysApply": "true",
+        "title": "Keep pending work in PENDING.md",
+        "section_ref": "§10",
+        "extra_globs": "",
+    },
 }
 
 
@@ -240,6 +249,8 @@ def agents_body_to_mdc(body: str, section_num: int) -> str:
         ".\n",
         out,
     )
+    if section_num == 10:
+        out = out.replace("[PENDING.md](PENDING.md)", "[PENDING.md](../PENDING.md)")
     if section_num == 1:
         out = out.replace(
             "using the pipeline in [AGENTS.md](../AGENTS.md) §3\n   (never ad-hoc converters)",

@@ -12,7 +12,11 @@ Automation intentionally leaves every segment `UNREVIEWED`. `[R]`, `[P]`, or `[U
 | `a1ARueeihmA` | Level 2 | 18 | 18 | PENDING |
 | `pk3UxjDkhiE` | Level 2 | 113 | 113 | PENDING |
 
-## Remaining human gates
+## Human gates (TR-PILOT)
+
+Tracked as `TR-PILOT` in [PENDING.md](../../PENDING.md#transcription). This
+file keeps the per-video segment counts and workbook instructions. Do not add a
+second remaining-work list here. The gates themselves are:
 
 1. Listen through all five recordings and fill reviewed Hindi segment by segment.
 2. Repair every `U+FFFD`, loop and boilerplate neighbourhood from audio.

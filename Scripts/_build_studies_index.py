@@ -17,6 +17,7 @@ if str(SCRIPTS) not in sys.path:
 
 from _build_discussion_pages import ASSET_VERSION as DISCUSS_ASSET_VERSION  # noqa: E402
 from _common import BASE, STUDIES, favicon_link_tags, write_text_lf  # noqa: E402
+from _site_chrome import site_feed_link_tags  # noqa: E402
 from _theme_icons import (  # noqa: E402
     STUDY_VISUALS_PLACEHOLDER,
     fill_theme_placeholders,
@@ -50,6 +51,7 @@ CATALOG_PRESENTATIONS_PLACEHOLDER = "@catalog-presentations@"
 DISCUSS_ASSET_VERSION_PLACEHOLDER = "@discuss-asset-version@"
 HERO_SCOPE_PLACEHOLDER = "<!-- @hero-scope@ -->"
 FAVICON_LINKS_PLACEHOLDER = "<!-- @favicon-links@ -->"
+FEED_LINKS_PLACEHOLDER = "<!-- @feed-links@ -->"
 START_HERE_STATUS_PLACEHOLDER = "@start-here-status@"
 PILL_STATUS_SUB_RE = r'(<span class="path-status )[a-z-]+("[^>]*data-study-status[^>]*>)[^<]*(</span>)'
 PILL_STATUS_SUB_REPL = (
@@ -81,6 +83,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 <meta name="color-scheme" content="light dark"/>
 <link rel="canonical" href="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
 <!-- @favicon-links@ -->
+<!-- @feed-links@ -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="AnalyticMadhyasthDarshan.org"/>
 <meta property="og:title" content="Studies of Madhyasth Darshan"/>
@@ -334,15 +337,17 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .page-nav-link {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    min-height: 40px;
+    height: 32px;
+    min-height: 32px;
     font-family: var(--sans);
     font-size: 13px;
     font-weight: 600;
+    line-height: 1;
     color: var(--accent);
     text-decoration: none;
     white-space: nowrap;
-    padding: 5px 8px;
+    padding: 0 8px;
+    gap: 6px;
     border: 1px solid transparent;
     border-radius: 999px;
   }
@@ -403,10 +408,13 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .toc li { flex: 0 0 auto; }
 
   .toc a {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    height: 32px;
     font-family: var(--sans);
     font-size: 13px;
-    padding: 6px 13px;
+    line-height: 1;
+    padding: 0 13px;
     background: var(--warm-soft);
     border: 1px solid #e0d0be;
     border-radius: 999px;
@@ -506,6 +514,21 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
   }
+  .follow-updates {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 16px 18px 14px;
+    margin: 0 0 14px;
+  }
+  .follow-updates h3 { margin: 0 0 6px; font-size: 16px; }
+  .follow-updates p { margin: 0 0 8px; color: var(--text-muted); font-size: 14px; }
+  .follow-updates ol { margin: 0 0 10px; padding-left: 20px; }
+  .follow-updates li { margin: 4px 0; font-size: 14px; }
+  .follow-updates .follow-meta { color: var(--text-muted); }
+  .follow-feeds { font-size: 14px; font-weight: 600; }
+  .install-hint { font-size: 13px; }
   .toolbar {
     display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 12px;
     background: var(--surface); border: 1px solid var(--border);
@@ -534,10 +557,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .search.has-value .search-clear { display: inline-flex; }
   .theme-toggle {
     flex: 0 0 auto;
-    font-family: var(--sans); font-size: 13px; font-weight: 600;
+    font-family: var(--sans); font-size: 13px; font-weight: 600; line-height: 1;
     color: var(--text-muted); background: #fdfcfa; border: 1px solid var(--border);
-    border-radius: 999px; padding: 5px 12px; cursor: pointer; white-space: nowrap;
+    border-radius: 999px; padding: 0 12px; cursor: pointer; white-space: nowrap;
     display: inline-flex; align-items: center; gap: 6px;
+    height: 32px; min-height: 32px;
     min-width: 6.75rem; justify-content: center;
     transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
   }
@@ -1445,10 +1469,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
   @media (max-width: 600px) {
     .toc { gap: 4px; }
-    .toc a { padding: 6px 9px; font-size: 12px; }
+    .toc a { padding: 0 9px; font-size: 12px; }
     .page-nav-tools { width: 100%; justify-content: space-between; gap: 4px; }
-    .page-nav-search .nav-link-label { display: none; }
-    .page-nav-tools .theme-toggle { min-width: 36px; min-height: 40px; padding: 5px 8px; }
+    .page-nav-tools .nav-link-label { display: none; }
+    .page-nav-tools .theme-toggle { min-width: 36px; min-height: 32px; padding: 0 8px; }
     #theme-toggle-label { display: none; }
     .page { padding: calc(var(--page-nav-offset, 56px) + 18px) 14px 44px; }
     .hero { padding: 0; }
@@ -1557,6 +1581,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   [data-theme="dark"] .approach-illustration .illustration-light { display: none; }
   [data-theme="dark"] .approach-illustration .illustration-dark { display: block; }
   @media (min-width: 821px) {
+    .page-nav-inner { gap: 8px 10px; }
+    .page-nav-tools { gap: 2px; }
+    .page-nav-link { padding: 0 6px; gap: 4px; }
+    .toc { flex-wrap: nowrap; gap: 4px; }
+    .toc a { padding: 0 10px; }
+    .theme-toggle { min-width: 5.25rem; padding: 0 10px; gap: 4px; }
     #grid-formal > .card:only-child { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); gap: 12px 32px; }
     #grid-formal > .card:only-child .card-title-row { grid-column: 1; grid-row: 2; }
     #grid-formal > .card:only-child .chips { grid-column: 1; grid-row: 3; }
@@ -1624,11 +1654,11 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
         <span class="nav-tooltip" role="tooltip" id="nav-search-tip">Find words and phrases inside studies and companion notes.</span>
       </div>
       <div class="nav-tool">
-        <a class="page-nav-link" href="notebook.html" aria-describedby="nav-notes-tip">@amd-ui:notes@<span class="nav-link-label">My Notes</span></a>
+        <a class="page-nav-link" href="notebook.html" aria-label="My Notes" aria-describedby="nav-notes-tip">@amd-ui:notes@<span class="nav-link-label">My Notes</span></a>
         <span class="nav-tooltip" role="tooltip" id="nav-notes-tip">Open your highlights, notes and offline studies saved in this browser.</span>
       </div>
       <div class="nav-tool">
-        <a class="page-nav-link page-nav-submit" href="submit.html" aria-describedby="nav-submit-tip">My Submissions</a>
+        <a class="page-nav-link page-nav-submit" href="submit.html" aria-label="My Submissions" aria-describedby="nav-submit-tip">@amd-ui:work@<span class="nav-link-label">My Submissions</span></a>
         <span class="nav-tooltip" role="tooltip" id="nav-submit-tip">Use GitHub sign-in to propose studies, submit drafts and follow reviews.</span>
       </div>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
@@ -1850,6 +1880,14 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="browse-heading" id="browse-studies">
     <h2>Browse all studies</h2>
   </div>
+
+  <aside class="follow-updates" id="follow-updates" aria-labelledby="follow-updates-heading">
+    <h3 id="follow-updates-heading">Follow updates</h3>
+    <p>Newest published studies, then subscribe in a feed reader. Ongoing rows stay off this list.</p>
+    <ol id="follow-list"></ol>
+    <p class="follow-feeds"><a href="feed.json">JSON Feed</a> · <a href="atom.xml">Atom</a></p>
+    <p class="install-hint">On a phone, use the browser menu to Add to Home Screen. The icon opens this catalog.</p>
+  </aside>
 
   <div class="toolbar" role="search">
     <label class="search">
@@ -2694,9 +2732,28 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     window.setTimeout(() => { target.classList.remove("is-targeted"); }, 1600);
   };
 
+  const renderFollow = () => {
+    const list = document.getElementById("follow-list");
+    if (!list) return;
+    const newest = STUDIES.filter(isAvail).slice().sort((a, b) => ts(b) - ts(a)).slice(0, 5);
+    list.replaceChildren();
+    for (const study of newest) {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      link.href = studyHtmlHref(study);
+      link.textContent = study.t;
+      const meta = document.createElement("span");
+      meta.className = "follow-meta";
+      meta.textContent = study.updated ? " · " + updatedDate(study.updated) : "";
+      item.append(link, meta);
+      list.append(item);
+    }
+  };
+
   const bootCatalog = () => {
     updateHeroScope();
     renderCatalog();
+    renderFollow();
     syncStartHere(STUDIES);
   };
 
@@ -3454,7 +3511,9 @@ def _presentation_source_paths() -> list[Path]:
 
 
 INDEX_TEMPLATE = fill_theme_placeholders(
-    INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags())
+    INDEX_TEMPLATE.replace(FAVICON_LINKS_PLACEHOLDER, favicon_link_tags()).replace(
+        FEED_LINKS_PLACEHOLDER, site_feed_link_tags()
+    )
 )
 
 

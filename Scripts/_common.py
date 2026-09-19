@@ -111,7 +111,9 @@ def favicon_link_tags(*, icon_dir: str = FAVICON_ICON_DIR) -> str:
         f'<link rel="icon" type="image/svg+xml" href="{base}/{FAVICON_SVG}"/>\n'
         f'<link rel="icon" type="image/png" sizes="32x32" href="{base}/{FAVICON_PNG_32}"/>\n'
         f'<link rel="icon" type="image/png" sizes="16x16" href="{base}/{FAVICON_PNG_16}"/>\n'
-        f'<link rel="apple-touch-icon" sizes="180x180" href="{base}/{FAVICON_APPLE_TOUCH}"/>'
+        f'<link rel="apple-touch-icon" sizes="180x180" href="{base}/{FAVICON_APPLE_TOUCH}"/>\n'
+        f'<link rel="manifest" href="/manifest.webmanifest"/>\n'
+        f'<meta name="theme-color" content="#1A5276"/>'
     )
 
 

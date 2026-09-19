@@ -13,21 +13,29 @@ from urllib.parse import parse_qsl, urlencode, urljoin, urlsplit, urlunsplit
 from _common import BASE, site_base_url
 from _publication_inventory import public_studies
 
-ROOT_PUBLIC = {"index.html", "404.html", "robots.txt", "sitemap.xml", "llms.txt", "llms-full.txt", "reader-sw.js", "webmcp.js", "LICENSE", "LICENSE-CODE"}
+ROOT_PUBLIC = {"index.html", "404.html", "robots.txt", "sitemap.xml", "llms.txt", "llms-full.txt", "reader-sw.js", "webmcp.js", "LICENSE", "LICENSE-CODE", "manifest.webmanifest"}
 ROOT_PUBLIC.update({"api-docs.html", "catalog-all.json"})
 MIME = {'.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8',
         '.json':'application/json', '.txt':'text/plain; charset=utf-8', '.md':'text/markdown; charset=utf-8',
         '.xml':'application/xml', '.pdf':'application/pdf', '.svg':'image/svg+xml', '.png':'image/png',
         '.jpg':'image/jpeg', '.jpeg':'image/jpeg', '.webp':'image/webp', '.avif':'image/avif', '.gif':'image/gif', '.ico':'image/x-icon',
         '.woff':'font/woff', '.woff2':'font/woff2', '.ttf':'font/ttf',
+        '.webmanifest':'application/manifest+json',
         '.pptx':'application/vnd.openxmlformats-officedocument.presentationml.presentation',
         '.docx':'application/vnd.openxmlformats-officedocument.wordprocessingml.document'}
-STATIC_SUFFIXES = {".html", ".css", ".js", ".json", ".txt", ".md", ".svg", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".webp", ".ico", ".woff", ".woff2", ".ttf", ".pdf", ".pptx", ".docx"}
+STATIC_SUFFIXES = {".html", ".css", ".js", ".json", ".txt", ".md", ".xml", ".svg", ".png", ".jpg", ".jpeg", ".gif", ".avif", ".webp", ".ico", ".woff", ".woff2", ".ttf", ".pdf", ".pptx", ".docx", ".webmanifest"}
 INTERNAL_STUDIES = {"proposal-registry.json", "companion-artifacts.json", "README.md"}
 
 
 def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
+
+
+def content_type(path: str) -> str:
+    posix = PurePosixPath(path)
+    if posix.name == "atom.xml":
+        return "application/atom+xml; charset=utf-8"
+    return MIME.get(posix.suffix.lower(), "application/octet-stream")
 
 
 def encode(value: object) -> bytes:
@@ -140,7 +148,7 @@ def build(output: Path, artifact_root: Path | None, *, root: Path = BASE, source
     from _release_assets import compile_assets, compile_html, asset_url
     asset_hashes = compile_assets(bodies)
     for path, body in list(bodies.items()):
-        if path.endswith(".html") and not path.startswith("/References/"):
+        if path.endswith(".html"):
             bodies[path] = compile_html(body, path, asset_hashes)
     # Saved-reader checksums describe the deployed copies, including release
     # links. Never modify the canonical offline manifest in Git.
@@ -168,7 +176,7 @@ def build(output: Path, artifact_root: Path | None, *, root: Path = BASE, source
         target.write_bytes(body)
         checksum = digest(body)
         records[path] = {"sha256": checksum, "bytes": len(body), "key": f"site/objects/{checksum}",
-                         "type": MIME.get(PurePosixPath(path).suffix.lower(), "application/octet-stream"),
+                         "type": content_type(path),
                          "archive": not path.startswith("/References/")}
         if len(body) > 25 * 1024 * 1024 and not records[path]["archive"]:
             # Large git-retained references remain static deployment assets;
