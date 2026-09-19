@@ -461,7 +461,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     animation: section-target-flash 1.6s ease-out forwards;
   }
   #start-here .path-core.is-targeted > .path-study-title,
-  #start-here a.path-related-chip.is-targeted,
   #start-here li[data-study-slug].is-targeted .related-study-title {
     animation: section-target-flash 1.6s ease-out forwards;
   }
@@ -1049,32 +1048,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   .path-core > :is(.path-core-meta, .path-study-title, .path-study-blurb, .path-core-actions) {
     grid-column: 2;
   }
-  .path-core > .path-related,
-  .path-core > .path-related-chips {
+  .path-core > .path-related {
     grid-column: 1 / -1;
   }
-  .path-related-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin: 10px 0 4px;
-  }
-  .path-related-chip {
-    display: inline-flex;
-    align-items: center;
-    max-width: 100%;
-    padding: 5px 10px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-family: var(--sans);
-    font-size: 12px;
-    font-weight: 600;
-    line-height: 1.3;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .path-related-chip:hover { border-color: var(--accent); background: var(--accent-soft); }
-  .path-related-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .path-core-meta {
     display: flex;
     align-items: center;
@@ -1153,7 +1129,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     font-weight: 700;
   }
   .path-related {
-    margin-top: 6px;
+    margin-top: 12px;
     padding-top: 0;
     font-family: var(--sans);
     font-size: 13px;
@@ -1414,8 +1390,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   [data-theme="dark"] .path-status.draft { color: #f0c78a; background: #3a2818; }
   [data-theme="dark"] .parallel-study { background: #1e1b18; }
   [data-theme="dark"] .path-continue { border-color: #3d6278; }
-  [data-theme="dark"] .path-related-chip { border-color: #423b33; color: #7ebbed; }
-  [data-theme="dark"] .path-related-chip:hover { background: #1a3344; }
   [data-theme="dark"] .page-nav { background: rgba(26, 24, 21, 0.92); }
   [data-theme="dark"] .search input, [data-theme="dark"] .seg, [data-theme="dark"] .triad-item { background: #1e1b18; }
   [data-theme="dark"] .search input::placeholder { color: #6f655a; }
@@ -1783,13 +1757,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
               <a class="path-action" data-study-action href="Why-Humans-Are-Not-Just-Material/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
               <a class="path-slides" data-study-slides href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material-presentation.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
-            <nav class="path-related-chips" aria-label="Related studies">
-              <a class="path-related-chip" data-study-slug="Philosophy-Of-Mind-And-Jeevan" data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a>
-              <a class="path-related-chip" data-study-slug="Chitta-Brain-And-Memory" data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a>
-              <a class="path-related-chip" data-study-slug="Death-Continuity-And-Rebirth" data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death, Continuity, and Rebirth</a>
-            </nav>
             <details class="path-related">
-              <summary>About these related studies</summary>
+              <summary>Related studies</summary>
               <ul>
                 <li data-study-slug="Philosophy-Of-Mind-And-Jeevan"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Philosophy-Of-Mind-And-Jeevan"></span><a data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Philosophy-Of-Mind-And-Jeevan"></p></li>
                 <li data-study-slug="Chitta-Brain-And-Memory"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Chitta-Brain-And-Memory"></span><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Chitta-Brain-And-Memory"></p></li>
@@ -1818,13 +1787,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
               <a class="path-action" data-study-action href="The-Ontology-of-Coexistence/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
               <a class="path-slides" data-study-slides href="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
-            <nav class="path-related-chips" aria-label="Related studies">
-              <a class="path-related-chip" data-study-slug="Nature-Of-Time" data-study-link href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a>
-              <a class="path-related-chip" data-study-slug="Nature-Ecology-And-Right-Use" data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a>
-              <a class="path-related-chip" data-study-slug="God-Divinity-And-The-Sacred" data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God, Divinity, and the Sacred</a>
-            </nav>
             <details class="path-related">
-              <summary>About these related studies</summary>
+              <summary>Related studies</summary>
               <ul>
                 <li data-study-slug="Nature-Of-Time"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Nature-Of-Time"></span><a data-study-link href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="Nature-Of-Time"></p></li>
                 <li data-study-slug="Nature-Ecology-And-Right-Use"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Nature-Ecology-And-Right-Use"></span><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Nature-Ecology-And-Right-Use"></p></li>
@@ -1853,14 +1817,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
               <a class="path-action" data-study-action href="The-Epistemology-of-Coexistence/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
               <a class="path-slides" data-study-slides href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
-            <nav class="path-related-chips" aria-label="Related studies">
-              <a class="path-related-chip" data-study-slug="Methodology-And-Hermeneutics" data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a>
-              <a class="path-related-chip" data-study-slug="Work-Action-And-Karma" data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a>
-              <a class="path-related-chip" data-study-slug="Free-Will-Choice-And-Agency" data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will, Choice, and Agency</a>
-              <a class="path-related-chip" data-study-slug="Language-Meaning-And-Definition" data-study-link href="Language-Meaning-And-Definition/discussion.html">Language, Meaning, and Definition</a>
-            </nav>
             <details class="path-related">
-              <summary>About these related studies</summary>
+              <summary>Related studies</summary>
               <ul>
                 <li data-study-slug="Methodology-And-Hermeneutics"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Methodology-And-Hermeneutics"></span><a data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Methodology-And-Hermeneutics"></p></li>
                 <li data-study-slug="Work-Action-And-Karma"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Work-Action-And-Karma"></span><a data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Work-Action-And-Karma"></p></li>
@@ -1890,13 +1848,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
               <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
               <a class="path-slides" data-study-slides href="Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
-            <nav class="path-related-chips" aria-label="Related studies">
-              <a class="path-related-chip" data-study-slug="Ethics-And-Morals-In-Human-Beings" data-study-link href="Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a>
-              <a class="path-related-chip" data-study-slug="Family-Relationships-And-Values" data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a>
-              <a class="path-related-chip" data-study-slug="Aesthetics" data-study-link href="Aesthetics/Aesthetics.html">Aesthetics</a>
-            </nav>
             <details class="path-related">
-              <summary>About these related studies</summary>
+              <summary>Related studies</summary>
               <ul>
                 <li data-study-slug="Ethics-And-Morals-In-Human-Beings"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Ethics-And-Morals-In-Human-Beings"></span><a data-study-link href="Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Ethics-And-Morals-In-Human-Beings"></p></li>
                 <li data-study-slug="Family-Relationships-And-Values"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Family-Relationships-And-Values"></span><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Family-Relationships-And-Values"></p></li>
@@ -1925,13 +1878,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
               <a class="path-action" data-study-action href="How-Undivided-Society-Is-Established/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
               <a class="path-slides" data-study-slides href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a>
             </div>
-            <nav class="path-related-chips" aria-label="Related studies">
-              <a class="path-related-chip" data-study-slug="Human-Behavior-And-Society" data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a>
-              <a class="path-related-chip" data-study-slug="How-To-Form-Self-Sustaining-Organizations" data-study-link href="How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a>
-              <a class="path-related-chip" data-study-slug="Education-And-Sanskar" data-study-link href="Education-And-Sanskar/discussion.html">Education and Sanskar</a>
-            </nav>
             <details class="path-related">
-              <summary>About these related studies</summary>
+              <summary>Related studies</summary>
               <ul>
                 <li data-study-slug="Human-Behavior-And-Society"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Human-Behavior-And-Society"></span><a data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Human-Behavior-And-Society"></p></li>
                 <li data-study-slug="How-To-Form-Self-Sustaining-Organizations"><div class="related-study-title"><span class="related-study-icon" data-related-icon="How-To-Form-Self-Sustaining-Organizations"></span><a data-study-link href="How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="How-To-Form-Self-Sustaining-Organizations"></p></li>
@@ -2799,6 +2747,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     const match = /^#study-(.+)$/.exec(window.location.hash);
     hashStudySlug = match ? decodeURIComponent(match[1]) : null;
     hashStudyExpiresAt = hashStudySlug ? Date.now() + 4000 : 0;
+    hashStudyScrolled = false;
   };
 
   const applyHashStudyTarget = () => {
@@ -2827,6 +2776,10 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     target.classList.add("is-targeted");
     window.setTimeout(() => { target.classList.remove("is-targeted"); }, 1600);
   };
+  window.addEventListener("hashchange", () => {
+    initHashStudyTarget();
+    applyHashStudyTarget();
+  });
 
   const renderFollow = () => {
     const list = document.getElementById("follow-list");
