@@ -1028,6 +1028,14 @@ def convert_to_html(
 
     kd_document_css = ""
     kd_print_css = ""
+    # Companion sections use consecutive h1 slide numbers and titles, followed
+    # by the delivery h2. Keep that heading chain with the script's first text.
+    companion_print_css = (
+        "    h1 { page-break-after: avoid; break-after: avoid; "
+        "page-break-inside: avoid; break-inside: avoid; }\n"
+        if input_path.name.startswith("Presenters-Companion-")
+        else ""
+    )
     page_margin = "2.2cm 2cm 2.2cm 2cm"
     if input_path.name == "KD-Karm-Darshan-English.md":
         page_margin = "1.6cm 1.5cm 1.6cm 1.5cm"
@@ -1545,7 +1553,7 @@ def convert_to_html(
     }}
     pre {{ page-break-inside: avoid; white-space: pre-wrap; overflow-wrap: anywhere; word-break: break-word; }}
     blockquote {{ page-break-inside: avoid; }}
-{kd_print_css}    .page-marker {{
+{kd_print_css}{companion_print_css}    .page-marker {{
       page-break-before: always;
       break-before: page;
       visibility: hidden;

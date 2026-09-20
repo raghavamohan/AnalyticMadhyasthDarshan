@@ -51,3 +51,40 @@ Eight canonical studies were rebuilt: the ontology and the seven studies that re
 Reference checks cover every changed canonical study, with separate local/manifest-backed link and PDF-annotation checks for the companion notes. Section-reference checks, SVG validation, catalog/index freshness, companion-output freshness, glossary consistency, and reader tests passed. Source/page inspection supplements the quotation tool where OCR or unsupported attribution tags prevent automatic matching.
 
 These required checks found three older transcription differences in related studies already being rebuilt: the Mandukya opening quotation in *Nature of Time*, and two KD working-English quotations in *Spiritual Practice and Realization*. They were aligned with the cited editions; the KD working-translation caveat remains. No new reference work or mirror was added. The MU and Brihadaranyaka scan text layers still contain OCR defects, so their quotations were checked against page images rather than altered to match faulty extracted text.
+
+## Presentation harmonisation
+
+The follow-up presentation review examined slide text, teaching order and complete spoken scripts. The 29-slide teaching deck keeps its established design while following the revised study's dependencies more closely:
+
+| Slides | Teaching purpose |
+|---|---|
+| 1–4 | Orientation, questions and the conceptual map |
+| 5–9 | Coexistence, saturation, mutuality, four aspects, perpetuity and time |
+| 10–11 | Four orders and their modes of conformance together |
+| 12–14 | Two developments, their joint form, and the constitutional threshold T1 |
+| 15–19 | Body and jeevan, faculties, harmonies, restricted deliberation, and karma |
+| 20–21 | T1–T3 and the distinct vocabularies for order and development |
+| 22–27 | Values, evaluation, knowing, realisation, expression and humane tradition |
+| 28–29 | Methods of evidence and closing answers |
+
+Values now follow the account of faculties; the full T2/T3 account follows sentience, understanding and action. The companion's 29 sections, all slide references, the delivery JSON and the PowerPoint notes follow the same order. The spoken scripts introduce the limited cloth/water and driver/body illustrations, distinguish animal bodily limits from human mis-evaluation, explain restricted deliberation without a numerical capacity claim, and locate each harmony at the outer faculty of its pair. The action account now includes the distinction between freedom in doing and dependence in undergoing results, checked against MVD pp. 15, 27 and 192.
+
+Visible copy and scripts also distinguish unit dharma from evaluative dharma, general expression throughout nature from its fuller human meaning, and kala as expressive activity from kala-mulya as object value. The realisation script names all three contents of knowledge. Three inherited KD passages concerning widening evidence, aspiration/action/result, and the justice–dharma–truth chain are now identified as paraphrases, matching the study's source-status conventions rather than implying verified verbatim quotations.
+
+The 18-slide comparison deck retains its sequence and design. Its condensed claims now preserve the study's qualifications about physicalist functionalism, emergence, panpsychism, modern idealism, ethics, brain death and particle-number change. It distinguishes bliss from ultimate bliss and Advaita's sublation of independently real individuality from causal destruction. Its open-problem summary now includes all four questions in §6.2, including the premises connecting coexistence to obligation. These are harmonisations with the existing study, not a new comparative-literature review.
+
+Both decks passed structural, editable-table, font, source-layout and pinned production-render checks. Every slide was visually reviewed, with changed slides compared against the originals. The Presenter's Companion, speaker notes and both deck PDF pairs were rebuilt. The companion reflow exposed an inherited pagination defect: its consecutive level-one slide headings could be stranded at page bottoms. A print rule scoped to presenter companions now keeps those headings with the following content. This follow-up leaves the canonical study's content, timestamp and status unchanged.
+
+## Light, manifestness and sentient expression
+
+The subsequent review asked whether the study and deck correctly connect satta as light, units as prakashman, and abhivyakti, sampreshana and prakashan as aspects of sentient manifestation. Adopt the connected account while preserving the source contexts. The earlier version grounded manifestness in saturation but introduced prakash chiefly through imaging and left the explicit connection to human expression unstated.
+
+PS printed p. 137 names Brahm as uniform satta, knowledge and jyoti; p. 80 defines jyoti through realisation in the pervasive as enduring prakash. AVD bilingual PDF pp. 115–116 explicitly derives units’ force-endowment, activity and manifestness from satta permeating them, corroborated by SB PDF p. 248. These passages support the synthesis. The exact bare equation “satta is prakash” was not located verbatim in this bounded search; it is not presented as a quotation. Imaging (MVD p. 45) and the heated-body definition (PS p. 119) remain distinct contexts within the light vocabulary.
+
+SB pp. 52, 63 and 66 supply the missing sentient bridge: jeevan manifests through the body, its faculties are active and manifest, and humans communicate and express their capacities even during awakening progression. SB p. 66 explicitly calls this a meaning of prakashmanata. The fuller definitions at PS pp. 22, 119, 206 and MVD pp. 327–328 describe their fulfilment in awakened human living. General expression across all units (SB p. 179; MVD p. 109) remains supported. The verified Hindi term is संप्रेषणा, rendered sampreshana; the user’s samprekshan is not the spelling of that headword.
+
+The correction reaches the study’s foundations, manifestation and human-expression passages, glossary, Editorial Notes and page citations; main teaching slides 5, 6, 8 and 26; and the corresponding complete presenter scripts and background. The 29-slide order, headings and study status are preserved. The comparison deck contains no conflicting prakash terminology and needs no additional change for this clarification.
+
+A related physics-note sentence incorrectly attached the source’s exclusion of motion/pressure to heat, magnetism, electricity and weight. It now assigns that claim to radiance/imaging and distinguishes the physical properties’ mutual influence (SB pp. 251–252). No section identifiers changed.
+
+The revised study (97 pages), physics note (31 pages), presenter companion (40 pages), and main slides/read-aloud notes (29 pages each) were regenerated and visually checked. The DOCX was also privately rendered for review. Only main slides 5, 6, 8 and 26 changed visually in this follow-up; all other slides are pixel-identical. Repository-wide reference checks, direct companion-link checks, companion source/output consistency, catalog/index freshness, glossary checks, reader tests and offline verification passed. Existing quotations were unchanged; their previously documented scan/verifier exceptions remain manually verified. The canonical timestamp and catalogs were refreshed together; status remains Released.

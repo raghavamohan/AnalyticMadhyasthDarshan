@@ -74,6 +74,7 @@ Operating contract: [.github/CI.md](.github/CI.md).
 | R5 | P2 | pending | One run summary across PDF/R2/Worker change classes. JSON plans exist. |
 | R6 | P3 | pending | Remove transitional CI paths after R2. Disabled Pages retry must not resume publishing. |
 | R7 | P3 | pending | Retention, withdrawal, and safe garbage-collection policy. Decision first; no production object deletion as routine publication. |
+| PPTX-DIAG-01 | P3 | pending | Fix `_pptx_to_pdf.py` diagnostic default-output handling: an unregistered deck outside `Studies/` without `--output` reaches an undefined `STUDIES` name. Explicit output paths and the manifested production builder work. |
 | R8 | P3 | deferred | Broader reviewed-artifact recovery lookup. Optional; normal reuse through the active receipt already works. |
 
 ## API
@@ -187,7 +188,7 @@ catalog / Start here order, not proposal-number order.
 
 ## Done in the same registers (do not reopen)
 
-- `ST-ONT-02`: implemented the [Section 1 teaching-order and Editorial Notes review](docs/ontology-review-2026-09-20.md), including source-qualified prose changes, consolidated notes, section-reference repairs across related studies and teaching material, and rebuilt artifacts (20 September 2026).
+- `ST-ONT-02`: implemented the [Section 1 teaching-order and Editorial Notes review](docs/ontology-review-2026-09-20.md), including source-qualified prose changes, consolidated notes, section-reference repairs across related studies, substantive harmonisation of both teaching decks and the presenter's scripts, and rebuilt artifacts (20 September 2026).
 
 - `ST-ONT-01`: implemented the [ontology review](docs/ontology-review-2026-09-19.md), including primary-text corrections, comparative coverage, cross-study terminology, prose, companions and teaching decks (19 September 2026).
 
