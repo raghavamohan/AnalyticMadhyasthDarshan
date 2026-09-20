@@ -51,3 +51,26 @@ Eight canonical studies were rebuilt: the ontology and the seven studies that re
 Reference checks cover every changed canonical study, with separate local/manifest-backed link and PDF-annotation checks for the companion notes. Section-reference checks, SVG validation, catalog/index freshness, companion-output freshness, glossary consistency, and reader tests passed. Source/page inspection supplements the quotation tool where OCR or unsupported attribution tags prevent automatic matching.
 
 These required checks found three older transcription differences in related studies already being rebuilt: the Mandukya opening quotation in *Nature of Time*, and two KD working-English quotations in *Spiritual Practice and Realization*. They were aligned with the cited editions; the KD working-translation caveat remains. No new reference work or mirror was added. The MU and Brihadaranyaka scan text layers still contain OCR defects, so their quotations were checked against page images rather than altered to match faulty extracted text.
+
+## Presentation harmonisation
+
+The follow-up presentation review examined slide text, teaching order and complete spoken scripts. The 29-slide teaching deck keeps its established design while following the revised study's dependencies more closely:
+
+| Slides | Teaching purpose |
+|---|---|
+| 1–4 | Orientation, questions and the conceptual map |
+| 5–9 | Coexistence, saturation, mutuality, four aspects, perpetuity and time |
+| 10–11 | Four orders and their modes of conformance together |
+| 12–14 | Two developments, their joint form, and the constitutional threshold T1 |
+| 15–19 | Body and jeevan, faculties, harmonies, restricted deliberation, and karma |
+| 20–21 | T1–T3 and the distinct vocabularies for order and development |
+| 22–27 | Values, evaluation, knowing, realisation, expression and humane tradition |
+| 28–29 | Methods of evidence and closing answers |
+
+Values now follow the account of faculties; the full T2/T3 account follows sentience, understanding and action. The companion's 29 sections, all slide references, the delivery JSON and the PowerPoint notes follow the same order. The spoken scripts introduce the limited cloth/water and driver/body illustrations, distinguish animal bodily limits from human mis-evaluation, explain restricted deliberation without a numerical capacity claim, and locate each harmony at the outer faculty of its pair. The action account now includes the distinction between freedom in doing and dependence in undergoing results, checked against MVD pp. 15, 27 and 192.
+
+Visible copy and scripts also distinguish unit dharma from evaluative dharma, general expression throughout nature from its fuller human meaning, and kala as expressive activity from kala-mulya as object value. The realisation script names all three contents of knowledge. Three inherited KD passages concerning widening evidence, aspiration/action/result, and the justice–dharma–truth chain are now identified as paraphrases, matching the study's source-status conventions rather than implying verified verbatim quotations.
+
+The 18-slide comparison deck retains its sequence and design. Its condensed claims now preserve the study's qualifications about physicalist functionalism, emergence, panpsychism, modern idealism, ethics, brain death and particle-number change. It distinguishes bliss from ultimate bliss and Advaita's sublation of independently real individuality from causal destruction. Its open-problem summary now includes all four questions in §6.2, including the premises connecting coexistence to obligation. These are harmonisations with the existing study, not a new comparative-literature review.
+
+Both decks passed structural, editable-table, font, source-layout and pinned production-render checks. Every slide was visually reviewed, with changed slides compared against the originals. The Presenter's Companion, speaker notes and both deck PDF pairs were rebuilt. The companion reflow exposed an inherited pagination defect: its consecutive level-one slide headings could be stranded at page bottoms. A print rule scoped to presenter companions now keeps those headings with the following content. This follow-up leaves the canonical study's content, timestamp and status unchanged.
