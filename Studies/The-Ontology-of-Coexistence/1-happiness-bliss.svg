@@ -80,7 +80,7 @@
   </defs>
   <rect class="bg" width="880" height="400"/>
   <text class="title" x="440" y="28" text-anchor="middle" font-size="18" font-weight="700">Sentient face of the completeness drive</text>
-  <text class="sub" x="440" y="48" text-anchor="middle" font-size="11.5">One drive; developmental names T2/T3; felt name happiness &#8594; bliss (&#167;1.6, &#167;1.8)</text>
+  <text class="sub" x="440" y="48" text-anchor="middle" font-size="11.5">One drive; developmental names T2/T3; felt name happiness &#8594; bliss (&#167;1.11, &#167;1.9)</text>
   <rect class="panel-warm" x="40" y="72" width="180" height="88" rx="8" stroke-width="1.2"/>
   <text class="ink-warm" x="130" y="98" text-anchor="middle" font-size="12" font-weight="700">T1 precondition</text>
   <text class="ink" x="130" y="118" text-anchor="middle" font-size="11">hope to live</text>
@@ -88,7 +88,7 @@
   <text class="ink-dim" x="130" y="152" text-anchor="middle" font-size="9.5" font-style="italic">not yet bliss ladder</text>
   <line x1="220" y1="116" x2="268" y2="116" class="stroke-purple" stroke-width="2" marker-end="url(#ahH)"/>
   <rect class="panel-purple" x="270" y="72" width="520" height="88" rx="8" stroke-width="1.2"/>
-  <text class="ink-purple" x="530" y="94" text-anchor="middle" font-size="12" font-weight="700">Knowledge-order felt ladder (owned in &#167;1.8)</text>
+  <text class="ink-purple" x="530" y="94" text-anchor="middle" font-size="12" font-weight="700">Knowledge-order felt ladder (owned in &#167;1.9)</text>
   <rect class="chip" x="290" y="108" width="100" height="36" rx="6"/>
   <text class="ink-purple" x="340" y="130" text-anchor="middle" font-size="11" font-weight="700">happiness</text>
   <line x1="390" y1="126" x2="412" y2="126" class="stroke-purple" stroke-width="1.6" marker-end="url(#ahH)"/>
@@ -109,7 +109,7 @@
   <rect class="panel" x="480" y="216" width="320" height="100" rx="8" stroke-width="1.2"/>
   <text class="ink-purple" x="640" y="242" text-anchor="middle" font-size="12" font-weight="700">Felt / knowledge names</text>
   <text class="ink" x="640" y="266" text-anchor="middle" font-size="11">happiness &#8594; peace &#8594; contentment</text>
-  <text class="ink" x="640" y="286" text-anchor="middle" font-size="11">&#8594; bliss = realisation (&#167;1.13)</text>
+  <text class="ink" x="640" y="286" text-anchor="middle" font-size="11">ultimate bliss = realisation (&#167;1.14)</text>
   <text class="ink-dim" x="640" y="306" text-anchor="middle" font-size="10" font-style="italic">not Omnipresence&#8217;s ananda</text>
   <text class="ink" x="440" y="350" text-anchor="middle" font-size="11">Not a fourth T-stage &#183; not particle teleology &#183; animal hope &#8800; knowledge-order bliss</text>
   <text class="sub" x="440" y="372" text-anchor="middle" font-size="10.5">Societal evidence (&#167;1.15) is the public face of the same sentient drive.</text>

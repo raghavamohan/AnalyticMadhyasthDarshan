@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** September 19, 2026, 9:36 PM IST
+**Edited on:** September 20, 2026, 9:48 AM IST
 
 **Status:** Internal technical note; not a catalog entry and not part of the released text of *The Ontology of Coexistence*.
 
@@ -224,6 +224,6 @@ A mathematical account using state variables, order-specific potentials, and mot
 
 ### Related studies
 
-- [*The Ontology of Coexistence*](The-Ontology-of-Coexistence.pdf), especially §1.3 on definite insentient mutuality and §1.10 on composition and assemblies.
+- [*The Ontology of Coexistence*](The-Ontology-of-Coexistence.pdf), especially §1.3 on definite insentient mutuality and §1.5 on composition and §1.13.3 on human assemblies.
 - [*From Unit Activity to Human Orderliness*](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf), especially §§2–5 on effort–motion–result, the four aspects, and compositional closure, and §8.3 and §11.1 on evaluation and justice as mutual satisfaction.
 - [*The Epistemology of Coexistence*](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf), especially §1.4 on the six perspectives and on *niyam-niyantran-santulan* with *nyāya-dharma-satya*.

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Analytic Madhyasth Darshan studies</title>
   <id>https://analyticmadhyasthdarshan.org/Studies/atom.xml</id>
-  <updated>2026-09-19T21:44:00+05:30</updated>
+  <updated>2026-09-20T10:01:00+05:30</updated>
   <subtitle>Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.</subtitle>
   <link rel="self" type="application/atom+xml" href="https://analyticmadhyasthdarshan.org/Studies/atom.xml"/>
   <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/index.html"/>
@@ -11,50 +11,57 @@
     <title>The Ontology of Coexistence</title>
     <id>https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/</id>
     <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html"/>
-    <updated>2026-09-19T21:44:00+05:30</updated>
+    <updated>2026-09-20T10:01:00+05:30</updated>
     <summary>Madhyasth Darshan&#x27;s account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy</summary>
-  </entry>
-  <entry>
-    <title>The Epistemology of Coexistence</title>
-    <id>https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/</id>
-    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"/>
-    <updated>2026-09-19T21:43:00+05:30</updated>
-    <summary>What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science</summary>
-  </entry>
-  <entry>
-    <title>Axiology: Value Theory</title>
-    <id>https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/</id>
-    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html"/>
-    <updated>2026-09-19T21:30:00+05:30</updated>
-    <summary>Value as essentiality in active units: Madhyasth Darshan&#x27;s forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared</summary>
-  </entry>
-  <entry>
-    <title>From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence</title>
-    <id>https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/</id>
-    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"/>
-    <updated>2026-09-14T20:43:00+05:30</updated>
-    <summary>A synthesis of coexistence as unit activity, connecting ontology with Jeevan&#x27;s concentric faculties, evaluation, values, justice, and continuous realised fulfilment. It explains how humane living extends through five social functions, universal participation, and awakened tradition, with the formal model developed in appendices.</summary>
-  </entry>
-  <entry>
-    <title>Why Humans Are Not Just Material</title>
-    <id>https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/</id>
-    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"/>
-    <updated>2026-09-08T07:36:00+05:30</updated>
-    <summary>Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan&#x27;s body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks</summary>
   </entry>
   <entry>
     <title>Spiritual Practice and Realization</title>
     <id>https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/</id>
     <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html"/>
-    <updated>2026-09-06T18:31:00+05:30</updated>
+    <updated>2026-09-20T10:01:00+05:30</updated>
     <summary>Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and liberation from mystery, compared with Advaita Vedanta and with modern philosophy of religious experience and contemplative science</summary>
   </entry>
   <entry>
     <title>Nature of Time</title>
     <id>https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/</id>
     <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html"/>
-    <updated>2026-09-06T18:31:00+05:30</updated>
+    <updated>2026-09-20T09:59:00+05:30</updated>
     <summary>What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)</summary>
+  </entry>
+  <entry>
+    <title>Why Humans Are Not Just Material</title>
+    <id>https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/</id>
+    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html"/>
+    <updated>2026-09-20T09:48:00+05:30</updated>
+    <summary>Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan&#x27;s body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks</summary>
+  </entry>
+  <entry>
+    <title>The Epistemology of Coexistence</title>
+    <id>https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/</id>
+    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html"/>
+    <updated>2026-09-20T09:48:00+05:30</updated>
+    <summary>What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science</summary>
+  </entry>
+  <entry>
+    <title>How to Form Self-Sustaining Organizations</title>
+    <id>https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/</id>
+    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html"/>
+    <updated>2026-09-20T09:48:00+05:30</updated>
+    <summary>Examines Madhyasth Darshan&#x27;s claim that organisations grounded in fear or accumulation become extractive, and its account of organisations that sustain themselves without instrumentalising their members</summary>
+  </entry>
+  <entry>
+    <title>From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence</title>
+    <id>https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/</id>
+    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html"/>
+    <updated>2026-09-20T09:48:00+05:30</updated>
+    <summary>A synthesis of coexistence as unit activity, connecting ontology with Jeevan&#x27;s concentric faculties, evaluation, values, justice, and continuous realised fulfilment. It explains how humane living extends through five social functions, universal participation, and awakened tradition, with the formal model developed in appendices.</summary>
+  </entry>
+  <entry>
+    <title>Axiology: Value Theory</title>
+    <id>https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/</id>
+    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html"/>
+    <updated>2026-09-20T09:48:00+05:30</updated>
+    <summary>Value as essentiality in active units: Madhyasth Darshan&#x27;s forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared</summary>
   </entry>
   <entry>
     <title>Human Behavior and Society</title>
@@ -62,13 +69,6 @@
     <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.html"/>
     <updated>2026-09-06T18:31:00+05:30</updated>
     <summary>Humane conduct and social organisation in Madhyasth Darshan, compared with the natural sciences, Advaita Vedanta, and religious and technocratic approaches</summary>
-  </entry>
-  <entry>
-    <title>How to Form Self-Sustaining Organizations</title>
-    <id>https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/</id>
-    <link rel="alternate" type="text/html" href="https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html"/>
-    <updated>2026-09-06T18:31:00+05:30</updated>
-    <summary>Examines Madhyasth Darshan&#x27;s claim that organisations grounded in fear or accumulation become extractive, and its account of organisations that sustain themselves without instrumentalising their members</summary>
   </entry>
   <entry>
     <title>How Undivided Society Is Established</title>

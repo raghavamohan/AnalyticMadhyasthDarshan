@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 8, 2026, 7:36 AM IST
+**Edited on:** September 20, 2026, 9:48 AM IST
 **Status:** Released
 **The question:** Can a wholly physical account explain conscious experience, individual selfhood, and our ability to understand reasons and values? What grounds Madhyasth Darshan's proposal that their bearer is *jeevan*?
 
@@ -40,13 +40,13 @@ Its six **perspectives** (*drishti*) explain the direction of evaluation. *Priya
 
 Truth concerns reality as coexistence, including the person's own place within it. *Dharma* concerns what is inherent in beings and their participation in order; happiness is the human *dharma*. Justice joins the recognition of relationships to the fulfilment of their values, evaluation of that fulfilment, and mutual satisfaction. These perspectives direct activity towards fulfilment in a shared world (MVD, pp. 100, 115, 336).
 
-Pleasure, health, and provision retain their place under this guidance. Prosperity replaces accumulation for its own sake, and production proceeds through the fulfilment of relationships. Exploitation can yield a private gain while harming both the person and the wider world on which that gain depends. The change therefore concerns what counts as fulfilment, as well as the means of attaining it (JV, pp. 138–139; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.12).
+Pleasure, health, and provision retain their place under this guidance. Prosperity replaces accumulation for its own sake, and production proceeds through the fulfilment of relationships. Exploitation can yield a private gain while harming both the person and the wider world on which that gain depends. The change therefore concerns what counts as fulfilment, as well as the means of attaining it (JV, pp. 138–139; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13.2).
 
 ### 1.2.2 The aspiration for continuous fulfilment
 
 Food, rest, and sensory pleasure have occasions and limits. The human aspiration, as Madhyasth Darshan understands it, is for happiness that continues: a settled way of living rather than an endless succession of pleasant sensations. This aspiration is often pursued through comfort and accumulation, yet acquiring more does not necessarily resolve the uncertainty about how to live. Nagraj connects that search to *jeevan* and interprets human production beyond immediate bodily needs as another expression of its capacity (JV, pp. 24–25).
 
-Art, mathematics, philosophy, and institutions illustrate how human activity extends beyond immediate subsistence. Other animals also produce, learn, and transmit practices; the comparison concerns how these capacities are organised and extended (§2.3.4). Within Madhyasth Darshan, the positive answer to the search for fulfilment is four *jeevan* values: happiness, peace, contentment, and bliss. These name harmonies among its faculties, progressively joining hope, thought, desire, resolve, and realisation. Fulfilment is therefore a quality of the sentient self's activity and relationships, rather than a quantity of goods consumed (JV, p. 137; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.8).
+Art, mathematics, philosophy, and institutions illustrate how human activity extends beyond immediate subsistence. Other animals also produce, learn, and transmit practices; the comparison concerns how these capacities are organised and extended (§2.3.4). Within Madhyasth Darshan, the positive answer to the search for fulfilment is four *jeevan* values: happiness, peace, contentment, and bliss. These name harmonies among its faculties, progressively joining hope, thought, desire, resolve, and realisation. Fulfilment is therefore a quality of the sentient self's activity and relationships, rather than a quantity of goods consumed (JV, p. 137; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.9).
 
 ### 1.2.3 The experienced self and the changing body
 
@@ -70,7 +70,7 @@ Madhyasth Darshan places the sentient self within a real and perpetual nature. I
 
 Nature is described through four orders: material, biological, animal, and knowledge. Each is distinguished by characteristic activity, essential nature, and *dharma*. Material constituents compose biological forms, and biological cells compose animal and human bodies. In the animal order, a sentient unit works through a body with the hope to live. In the human or **knowledge order**, the same kind of unit can understand, evaluate, and responsibly participate in the other orders. Happiness is the human *dharma*; fortitude, courage, generosity, kindness, grace, and compassion characterise humane conduct (SB, PDF pp. 55, 179–180; MVD, p. 115).
 
-Two developments must remain distinct. Compositional progression provides bodies and their environments. Development in an insentient atom reaches the sentient status called *jeevan*. Increasing bodily complexity is therefore not itself the production of sentience in this account ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.5–1.6).
+Two developments must remain distinct. Compositional progression provides bodies and their environments. Development in an insentient atom reaches the sentient status called *jeevan*. Increasing bodily complexity is therefore not itself the production of sentience in this account ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.5, 1.7).
 
 Material, biological, and animal nature already exhibit definite forms of orderliness. Human awakening makes possible an understood participation in that order through relationships, production, and the nurture and right use of nature (MVD, p. 27; SB, PDF pp. 236–237).
 
@@ -83,13 +83,13 @@ Material, biological, and animal nature already exhibit definite forms of orderl
 
 This transition belongs to the darshan's account of development within nature. The question of how constitutional completeness could be independently established is considered in §5.1.
 
-The continuing identity of *jeevan* after bodily death follows within Madhyasth Darshan from this closed constitution. Bodies form and decompose; the sentient unit persists and can work through another body. Conservation of quantity alone would not establish that survival: the additional claim is that this particular constitution cannot disintegrate (JV, pp. 19, 54; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.14, 6.2.2).
+The continuing identity of *jeevan* after bodily death follows within Madhyasth Darshan from this closed constitution. Bodies form and decompose; the sentient unit persists and can work through another body. Conservation of quantity alone would not establish that survival: the additional claim is that this particular constitution cannot disintegrate (JV, pp. 19, 54; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.4, 1.7.1, 6.2.2).
 
 ### 1.3.3 Body and self are not the same
 
 The **joint form** gives the body and *jeevan* different but connected roles. The body supplies sensory organs, the brain, movement, and the bodily conditions of expression. *Jeevan* is the sentient participant: it experiences, selects, evaluates, and understands through this medium. Sensation belongs to their joint activity: a body constructed without *jeevan* would not evidence sensitivity, let alone understanding (JV, pp. 36–37).
 
-**Sensitivity** concerns experience and response through the body and senses; **comprehension** concerns understanding relationships, values, and order. Both involve *jeevan*. Awakening brings them into balance by guiding sensory activity through understanding (SB, PDF p. 64). Bodily impairment constrains expression through the medium; delusion concerns how the already-present sentient self identifies and directs itself ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.7, 6.2.2).
+**Sensitivity** concerns experience and response through the body and senses; **comprehension** concerns understanding relationships, values, and order. Both involve *jeevan*. Awakening brings them into balance by guiding sensory activity through understanding (SB, PDF p. 64). Bodily impairment constrains expression through the medium; delusion concerns how the already-present sentient self identifies and directs itself ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.8, 6.2.2).
 
 ### 1.3.4 Knowledge in the human order
 
@@ -103,7 +103,7 @@ The brain (*medhas*) is described as receiving and processing signals associated
 
 ### 1.3.5 The wisdom layer
 
-Madhyasth Darshan also uses *kosha* vocabulary for the capacities expressed across nature's orders. In awakened humans, *vigyanmaya* names the opening of knowledge, wisdom, and science, through which the causes of unhappiness and their resolution become understandable (MVD, pp. 49–50). These are capacities expressed through the developing joint form. The five enduring faculties within *jeevan* — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — belong to a different part of the account. Advaita's five sheaths also serve a different purpose (§3.2.4; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.7).
+Madhyasth Darshan also uses *kosha* vocabulary for the capacities expressed across nature's orders. In awakened humans, *vigyanmaya* names the opening of knowledge, wisdom, and science, through which the causes of unhappiness and their resolution become understandable (MVD, pp. 49–50). These are capacities expressed through the developing joint form. The five enduring faculties within *jeevan* — *mun*, *vritti*, *chitta*, *buddhi*, and *atma* — belong to a different part of the account. Advaita's five sheaths also serve a different purpose (§3.2.4; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.6, 1.8).
 
 ### 1.4 The proposed test
 
@@ -273,7 +273,7 @@ The three positions differ over what experience reveals, what a human being is, 
 
 For Madhyasth Darshan, both the world and individual sentient selves are fully real. This allows relationships, understanding, and responsible conduct to retain their place in the account of existence. Advaita gives them their place within everyday reality but holds that their apparent separateness is overcome in knowledge of Brahman. Physicalism treats the embodied person as sufficient for experience and action, while asking how capacities develop through biological and social life.
 
-Madhyasth Darshan's position between these two answers is not the origin of its name. *Madhyasth* refers to the mediative or regulative role through which Omnipresence and atomic nuclei sustain order ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.11). Its affirmation of a perpetual world and many distinct *jeevan* units must be understood through that account, rather than as a compromise between materialism and Advaita.
+Madhyasth Darshan's position between these two answers is not the origin of its name. *Madhyasth* refers to the mediative or regulative role through which Omnipresence and atomic nuclei sustain order ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.6.1). Its affirmation of a perpetual world and many distinct *jeevan* units must be understood through that account, rather than as a compromise between materialism and Advaita.
 
 The traditions also differ over the reach of their methods. First-person examination can reveal distinctions within experience. Public experiments can identify conditions on which reported experience and action depend. Reasoning can examine whether a proposed explanation follows from its premises. Conduct can show whether an understanding is lived and conveyed. The question is how these kinds of evidence support one another without allowing success in one domain to settle every claim in another.
 
@@ -397,15 +397,15 @@ Key terms from §§1–5 are collected here for quick reference. Each term is al
 
 | Term | Plain meaning |
 |------|---------------|
-| ***Jeevan*** | The sentient self — in Shri A. Nagraj's view a real, eternal, constitutionally complete unit that works *through* the body. It is neither brain activity nor an immaterial soul added from outside nature. For its ontology and conservation claims, see [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.6–1.8, 1.14, 6.2. |
-| **Constitutional completeness (*gathanpurnata*)** | The claimed irreversible transition at which an evolving atom's constitution closes and the unit becomes sentient *jeevan*. Developed in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.6.1. |
+| ***Jeevan*** | The sentient self — in Shri A. Nagraj's view a real, eternal, constitutionally complete unit that works *through* the body. It is neither brain activity nor an immaterial soul added from outside nature. For its ontology and conservation claims, see [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.4, 1.7–1.9, 1.11, 6.2. |
+| **Constitutional completeness (*gathanpurnata*)** | The claimed irreversible transition at which an evolving atom's constitution closes and the unit becomes sentient *jeevan*. Developed in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.7.1. |
 | **Coexistence (*saha-astitva*)** | Existence seen as all units inseparably present together. |
 | **Knowledge order (*gyan avastha*)** | The human level of nature — able to know and evaluate every other level. |
 | ***Gyan udghatan*** | Knowledge becoming clear and evident in thought and conduct through the awakened human joint form; *jeevan* is the knower and the body its medium ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.1). |
 | ***Pramanikta*** | Authenticity: understanding made evident in conduct, teaching, and humane tradition ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.6). |
 | ***Rahasyata*** | Mysteriousness: what remains unclear to the knower and can become understandable through inquiry ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §§3.4, 7.1). |
 | **Sensitivity / comprehension** | Experience and response through body and senses / understanding relationship, value, and order. Both involve *jeevan* in the joint form ([The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.5). |
-| **Six perspectives (*drishti*)** | Evaluative lenses in human behaviour — *priya*/*hita*/*labh* and humane *nyaya*/*dharma*/*satya* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.12). |
+| **Six perspectives (*drishti*)** | Evaluative lenses in human behaviour — *priya*/*hita*/*labh* and humane *nyaya*/*dharma*/*satya* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13.2). |
 | **Truth (*satya*)** | Reality as coexistence, understood by the knower who also participates within it (§1.2.1). |
 | ***Dharma*** | What is inherent in a being and its participation in order. Happiness is the human *dharma* (§§1.2.1, 1.3.1). |
 | **Justice (*nyaya*)** | Recognition of relationships, fulfilment of their values, evaluation, and mutual satisfaction, made evident in humane conduct (§§1.2.1, 4.4). |
@@ -449,7 +449,7 @@ The Advaita account follows the translations and commentaries linked below, usin
 
 ### Related studies in this collection
 
-- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — four orders and completeness (§§1.5–1.6); *jeevan* faculties and harmonies (§§1.7–1.8); regulation and evaluative perspectives (§§1.11–1.12); conservation (§1.14); comparative traditions (§5); completeness, persistence, interaction, and evidence standards (§§6.2.1–6.2.3).
+- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — four orders and completeness (§§1.6–1.7, 1.11); *jeevan* faculties and harmonies (§§1.8–1.9); regulation and evaluative perspectives (§§1.6.1, 1.13.2); conservation (§1.4); comparative traditions (§5); completeness, persistence, interaction, and evidence standards (§§6.2.1–6.2.3).
 - [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — knowing, evaluation, and authenticity (§§1.1, 1.3–1.6); experience and mystery (§3.4); evidence, interaction, and persistence (§§7.1–7.4).
 - [Ethics and Morals in Human Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) — moral development and the scope of childhood evidence (§§3.3, 6.1).
 
