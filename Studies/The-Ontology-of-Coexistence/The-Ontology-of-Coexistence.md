@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 20, 2026, 2:20 PM IST
+**Edited on:** September 20, 2026, 7:07 PM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
@@ -980,7 +980,7 @@ The principal open questions concern identifying *jeevan*, explaining persistenc
 
 #### 6.2.1 Constitutional completeness and public identification
 
-Madhyasth Darshan gives a definite account of the sentience threshold. An evolving-constitution atom remains under molecular and weight bondage; through contraction and expansion it becomes free from those bondages, its particle constitution closes, and it becomes the hope-bound sentient atom called *jeevan* (MVD, p. 91; SB, pp. 55, 59, 114). The primary texts locate sentience in constitutionally complete *jeevan*, not in biological complexity alone. Omnipresence remains actionless; the knower is *jeevan*. The darshan locates a qualitative transition within development in the atom and distinguishes it from the compositional progression that produces molecules, cells, and bodies (§§1.7–1.8).
+Madhyasth Darshan gives a definite account of the sentience threshold. An evolving-constitution atom remains under molecular and weight bondage; through contraction and expansion it becomes free from those bondages, its particle constitution closes, and it becomes the hope-bound sentient atom called *jeevan* (MVD, p. 91; SB, pp. 55, 59, 114). The primary texts locate sentience in constitutionally complete *jeevan*, not in biological complexity alone. Omnipresence remains actionless; the knower is *jeevan*. The darshan locates a qualitative transition within development in the atom and distinguishes it from the compositional progression that produces molecules, cells, and bodies (§§1.5, 1.7–1.8).
 
 This is a specific ontological proposal. Its open evidential problem is that the texts do not provide a public procedure for identifying the proposed closed particle constitution, release from weight bondage, or hope-bondage in contemporary physical terms. A resemblance to thresholds in emergentism or integrated-information theories does not establish identity: those theories locate their thresholds in organised systems (§§3.3, 4.6). The question is what observation could distinguish constitutional completeness from the capacities already attributed to a living physical system.
 
@@ -1067,7 +1067,7 @@ Key terms introduced in §§1–4 and used in the §5 comparison are collected h
 | Presentation, communication, expression (*prakashan*, *sampreshana*, *abhivyakti*) | Connected aspects of manifestness according to state, motion, plane, and order. In sentient life these include bodily expression and the communication of capacity; in awakened human living they fulfil meaningful presentation of actuality, indication of completeness, and mental, verbal, and bodily activity for all-round resolution (§§1.3, 1.14). |
 | Property / property-endowed (*guna* / *guni*) | *Guni* is the force-bearing unit and *guna* its inseparable relative power, effective as generative, degenerative, or mediative influence when units come together (§1.3). |
 | Essential nature (*svabhav*) | Essentiality or the usefulness of *guna*, expressed and recognised according to state, motion, plane, order, and the particular mutuality (§§1.3, 1.13.1, 1.6). |
-| *Dharma* (unit innateness) | What is inseparable from an underlying unit and fulfilled through its order: existence, with growth, hope to live, and happiness cumulatively stated in higher orders. A composite form may disintegrate without its constituents becoming non-existent. Distinct from the human *dharma–adharma* evaluative perspective (§§1.3, 1.13.2, 1.4). |
+| *Dharma* (unit innateness) | What is inseparable from an underlying unit and fulfilled through its order: existence, with growth, hope to live, and happiness cumulatively stated in higher orders. A composite form may disintegrate without its constituents becoming non-existent. Distinct from the human *dharma–adharma* evaluative perspective (§§1.3, 1.13.2). |
 | Mutual facing (*sammukhata*) | The unit–unit relation in which imaging and recognition occur. Imaging and the influences of relative powers are distinguished within the wider account of mutuality (§1.3). |
 | Saturation (*sampriktata*) | The ever-present bond in which each unit is soaked, submerged, and surrounded in Omnipresence. Energy-fullness, forcefulness, activeness, manifestness, recognition, and regulation belong to this inseparable condition. Their connections are ontological, not stages in time or an explicitly described physical mechanism (§1.2). |
 | Three truths (*teen satya*) | Inherent truth of the unit (*vastugat satya*), positional truth in mutuality (*vastu-sthiti satya*), and existential truth as nature saturated in Omnipresence (*sthiti satya*). Complementary aspects, not three worlds and not Advaita's three tiers (§1.3; §5.7.4). |
@@ -1227,7 +1227,7 @@ The cloth-in-water illustration in §1.2 explains the three everyday relations; 
 
 “Properties” (*guna*) and “essential nature” (*svabhav*) can suggest predicates understood in isolation. Here they retain their relational definitions: relative powers and their effects, and the essentiality or usefulness of those effects (MVD p. 47). The bearer and its capacities remain real; manifested effects depend on the actual mutuality. *Dharma* names inseparable innateness and fulfilment. These translations preserve the distinctions among constitution, imaging, effects, usefulness, and understanding.
 
-The reviewed passages connect constitution with activity and conduct without quantitatively deriving every *guna*, *svabhav*, or *dharma* from particle structure alone. The effort–motion–result correspondences overlap (SB pp. 60–62); they do not reassign the four aspects one-to-one. “Evaluation” also has different scopes: animal recognition of essential nature as friendliness or opposition (SB pp. 249–250), and human judgment of values, dharma, and resolution (§1.3).
+The reviewed passages connect constitution with activity and conduct without quantitatively deriving every *guna*, *svabhav*, or *dharma* from particle structure alone. The effort–motion–result correspondences overlap (SB pp. 60–62); they do not reassign the four aspects one-to-one. “Evaluation” also has different scopes: animal recognition of essential nature as friendliness or opposition (SB pp. 249–250), and human judgment of values, dharma, and resolution (§§1.3, 1.13.1–1.13.2).
 
 ### Value families, faculty pairings, and thirty-value enumeration
 
