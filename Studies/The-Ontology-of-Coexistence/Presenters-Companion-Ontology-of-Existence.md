@@ -153,7 +153,7 @@ We now enter the foundations — what this account says exists.
 
 Existence has two inseparable aspects.
 
-First, the ground — Omnipresence. Formless, all-pervasive, transparent, permeating, non-transforming, immeasurable. Actionless energy: it acts not at all, yet every unit is energised and regulated in it. There is no place where it is absent. The same pervasive reality is also named jyoti, light; realisation in it is described as enduring prakash.
+First, the ground — Omnipresence. Formless, all-pervasive, transparent, permeating, non-transforming, immeasurable. Actionless energy: it acts not at all, yet every unit is energised and regulated in it. There is no place where it is absent. The pervasive ground is prakash, light; realisation in it is described as enduring prakash.
 
 Two words make this relation clearer. *Permeating* concerns the unit: the pervasive reality passes through every unit, which remains saturated in it. *Transparent* concerns mutuality: units become manifest to one another through imaging, which provides a basis of recognition. Transparency, permeability, and pervasiveness together evidence one indivisible reality.
 
@@ -173,7 +173,7 @@ One naming caution. The texts list many English names for the ground — includi
 
 “The Omnipotence eternally present as omnipresence is an indivisible entity, because its reality is apparent as transparence, permeability and omnipresence.” — SB, p. 46; restated as omnipresent, eternal, ever-existent, transparent, and permeating at SB, p. 160.
 
-Source-defined names and translation risks: MVD p. 35 and Editorial Notes in the study. PS p. 137 names Brahm as pervasive reality, uniform satta, knowledge and jyoti; p. 80 defines jyoti through realisation in the pervasive as enduring prakash. This is the source basis of the light vocabulary for the ground. These are connected passages, rather than a verbatim definition equating satta and prakash. Inter-unit distance held in *satta* as Space: SB, pp. 57, 59, 79. Never-separated: SB, p. 70; JV, p. 18.
+Source-defined names and translation risks: MVD p. 35 and Editorial Notes in the study. Prakash (Light) is the term used for the pervasive ground in this study. PS p. 137 includes jyoti among the names of Brahm, alongside pervasive reality, uniform satta and knowledge; p. 80 describes realisation in the pervasive as enduring prakash and gives it the name jyoti. Jyoti is retained here to identify the source's wording. These are connected passages, rather than a verbatim definition equating satta and prakash. Inter-unit distance held in *satta* as Space: SB, pp. 57, 59, 79. Never-separated: SB, p. 70; JV, p. 18.
 
 MVD p. 32 locates permeation in insentient and sentient units and transparency in their mutuality. PS p. 114 connects this with images and recognition. The ground remains actionless; imaging and recognition do not make it a knowing subject.
 
@@ -202,7 +202,7 @@ Picture a cloth immersed in water. Water is within the cloth, the cloth is subme
 
 Soakedness means that the unit is endowed with energy and force. Submersion means that it is active and stands in mutual recognition with other units. Surroundedness means that it remains regulated in definite relations. We will meet this regulation again alongside the four orders of nature.
 
-These are connected aspects of one saturation. Energy becomes evident in activity, recognition in mutuality, and regulation in definite conduct. The ground is named jyoti, light; each unit saturated in it is prakashman, manifest. The texts explicitly connect this manifestness with satta permeating the unit and its being endowed with force. Manifestness belongs to all units, including sentient jeevan.
+These are connected aspects of one saturation. Energy becomes evident in activity, recognition in mutuality, and regulation in definite conduct. The ground is prakash, light; each unit saturated in it is prakashman, manifest. The texts explicitly connect this manifestness with satta permeating the unit and its being endowed with force. Manifestness belongs to all units, including sentient jeevan.
 
 Because the pervasive reality permeates every unit, dividing a unit leaves every fragment saturated. The texts connect this continuing presence with their doctrine that what exists is not annihilated. Particular arrangements can end while their constituents remain. We will return to that distinction when we consider perpetuity and time.
 
@@ -224,7 +224,7 @@ Surroundedness as what establishes regulation: “This very surroundedness itsel
 
 Saturation endows forcefulness, basic impulsion, and regulatory order (SB, p. 57). Relative energy does not become apparent without mutuality (MVD, p. 40). Saturation itself as knowledge: MVD, pp. 32–33.
 
-SB p. 57 associates soakedness with forcefulness, submersion with activeness, and surroundedness with regulation. PS p. 114 associates soakedness with energy-endowment, submersion with mutual recognition, and surroundedness with regulation. These overlap rather than establishing exclusive compartments. AVD pp. 115–116 derives units’ force-endowment, activity and manifestness from satta permeating them; SB p. 248 independently grounds manifestness in force-endowment under saturation. PS pp. 80, 137 supply the connected jyoti/prakash vocabulary for the ground. PS p. 121 identifies the image as a basis of mutual recognition. See study §§1.1–1.3 and Editorial Notes.
+SB p. 57 associates soakedness with forcefulness, submersion with activeness, and surroundedness with regulation. PS p. 114 associates soakedness with energy-endowment, submersion with mutual recognition, and surroundedness with regulation. These overlap rather than establishing exclusive compartments. AVD pp. 115–116 derives units’ force-endowment, activity and manifestness from satta permeating them; SB p. 248 independently grounds manifestness in force-endowment under saturation. PS pp. 80, 137 supply the connected light vocabulary discussed in slide 5's background; the ground is termed prakash in the teaching account. PS p. 121 identifies the image as a basis of mutual recognition. See study §§1.1–1.3 and Editorial Notes.
 
 ## Likely questions from the audience
 
@@ -317,7 +317,7 @@ Four aspects: MVD, pp. 11, 42, 47, 50–51; SB pp. 55, 71, 86. Three complementa
 
 Editorial Notes: *guna* and *svabhav* are relational in manifestation; bearer and capacities remain real.
 
-Prakash in the imaging context: MVD p. 45. The ground’s light vocabulary and the grounding of unit manifestness are established on slides 5–6 from PS pp. 80, 137; AVD pp. 115–116; SB p. 248. Bimb, pratibimb, and pratibimban: PS pp. 121, 135. Being manifest with all four aspects: PS p. 119. Imaging, influence, animal recognition, and human evaluation: SB pp. 248–252. Bearer/property distinction: SB pp. 256–257. SB p. 179 describes entities as manifest, communicated, and expressed according to state, motion, plane, and order. Slide 26 develops the human definitions. The study’s Editorial Notes distinguish the ground’s jyoti/prakash vocabulary, MVD’s imaging formulation and PS p. 119’s heated-body definition. The imaging definition is one context of prakash, not an exhaustive account of the light vocabulary.
+Prakash in the imaging context: MVD p. 45. The ground’s light vocabulary and the grounding of unit manifestness are established on slides 5–6 from PS pp. 80, 137; AVD pp. 115–116; SB p. 248. Bimb, pratibimb, and pratibimban: PS pp. 121, 135. Being manifest with all four aspects: PS p. 119. Imaging, influence, animal recognition, and human evaluation: SB pp. 248–252. Bearer/property distinction: SB pp. 256–257. SB p. 179 describes entities as manifest, communicated, and expressed according to state, motion, plane, and order. Slide 26 develops the human definitions. The study’s Editorial Notes distinguish prakash as Light in the ground-level account, MVD’s imaging formulation and PS p. 119’s heated-body definition. The imaging definition is one context of prakash, not an exhaustive account of the light vocabulary.
 
 ## Likely questions from the audience
 
