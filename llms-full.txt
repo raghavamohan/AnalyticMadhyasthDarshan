@@ -7,7 +7,7 @@
 Madhyasth Darshan's account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy
 
 - Collection: topical · Status: released
-- Edited on: Sep 19, 2026, 9:44 PM IST
+- Edited on: Sep 20, 2026, 10:01 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf
@@ -17,7 +17,7 @@ Madhyasth Darshan's account of existence as the coexistence of satta and units �
 What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)
 
 - Collection: topical · Status: released
-- Edited on: Sep 6, 2026, 6:31 PM IST
+- Edited on: Sep 20, 2026, 9:59 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf
@@ -27,7 +27,7 @@ What time (kaal) is: the duration of unit-activity against timeless satta, numer
 Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan's body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks
 
 - Collection: topical · Status: released
-- Edited on: Sep 8, 2026, 7:36 AM IST
+- Edited on: Sep 20, 2026, 9:48 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf
@@ -37,7 +37,7 @@ Whether a human being is reducible to an insentient physicochemical body: Madhya
 What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science
 
 - Collection: topical · Status: released
-- Edited on: Sep 19, 2026, 9:43 PM IST
+- Edited on: Sep 20, 2026, 9:48 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf
@@ -47,7 +47,7 @@ What knowledge is, who the knower is, and what can be known: coexistence, jeevan
 Value as essentiality in active units: Madhyasth Darshan's forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared
 
 - Collection: topical · Status: released
-- Edited on: Sep 19, 2026, 9:30 PM IST
+- Edited on: Sep 20, 2026, 9:48 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf
@@ -97,7 +97,7 @@ Humane conduct and social organisation in Madhyasth Darshan, compared with the n
 Examines Madhyasth Darshan's claim that organisations grounded in fear or accumulation become extractive, and its account of organisations that sustain themselves without instrumentalising their members
 
 - Collection: topical · Status: released
-- Edited on: Sep 6, 2026, 6:31 PM IST
+- Edited on: Sep 20, 2026, 9:48 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf
@@ -107,7 +107,7 @@ Examines Madhyasth Darshan's claim that organisations grounded in fear or accumu
 Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and liberation from mystery, compared with Advaita Vedanta and with modern philosophy of religious experience and contemplative science
 
 - Collection: topical · Status: draft
-- Edited on: Sep 6, 2026, 6:31 PM IST
+- Edited on: Sep 20, 2026, 10:01 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf
@@ -127,7 +127,7 @@ Madhyasth Darshan's account of how undivided society is established through coex
 A synthesis of coexistence as unit activity, connecting ontology with Jeevan's concentric faculties, evaluation, values, justice, and continuous realised fulfilment. It explains how humane living extends through five social functions, universal participation, and awakened tradition, with the formal model developed in appendices.
 
 - Collection: formal · Status: released
-- Edited on: Sep 14, 2026, 8:43 PM IST
+- Edited on: Sep 20, 2026, 9:48 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf

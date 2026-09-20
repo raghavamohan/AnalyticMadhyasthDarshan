@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 19, 2026, 9:43 PM IST
+**Edited on:** September 20, 2026, 9:48 AM IST
 **Status:** Released
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How are these concepts grounded in experience, and how does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western philosophy, and the natural sciences?
 
@@ -819,7 +819,7 @@ Section 1 states the darshan's own positions in continuous prose, with page-leve
 
 ### Related studies in this collection
 
-- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — Omnipresence and saturation (§§1.1–1.2), *jeevan* faculties and projection–reflection (§1.7), realisation and the knowledge–knower–known relation (§1.13), Sat-Chit-Ananda contrast (§5.6), and open evidence problems (§6.2).
+- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — Omnipresence and saturation (§§1.1–1.2), *jeevan* faculties and projection–reflection (§1.8), realisation and the knowledge–knower–known relation (§1.14), Sat-Chit-Ananda contrast (§5.6), and open evidence problems (§6.2).
 - [From Unit Activity to Human Orderliness](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) — process reconstruction of knowing, karma, conduct-evidence, domain-specific verification (§12.6 and Appendix C), and source/model boundaries (Editorial Notes); used conceptually here without its notation.
 - [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — manifest, effable knowledge versus mystery-based ineffability (§3).
 - *Spiritual-Practice-And-Realization* (Ongoing) — *dhyan*, yoga, six flaws, and the detailed practice path related to §1.6.

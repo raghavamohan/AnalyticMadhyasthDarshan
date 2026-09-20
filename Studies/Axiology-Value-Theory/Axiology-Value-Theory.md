@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 19, 2026, 9:30 PM IST
+**Edited on:** September 20, 2026, 9:48 AM IST
 **Status:** Released
 **The question:** How does value belong to a unit as activity in coexistence, and how is it understood, established, and fulfilled in human living? What forms does value take, what endures or changes with time, and in what senses can values be compared? How does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western value theory, and the natural and social sciences?
 
@@ -782,7 +782,7 @@ The scientific discussion separates reward prediction error from decision valuat
 
 - [Technical Note: Four Aspects of the Active Unit](../The-Ontology-of-Coexistence/Technical-Note-Roop-Guna-Svabhava-Dharma.pdf) — the active bearer, effort–motion–result, relative power, characteristic conduct, and order-specific innateness; used in the Editorial Notes on activity and refinement.
 - [A State-Dynamic Model of Coexistence](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) — analytical treatment of saturation and activity, knowledge and faculties, human refinement, consequences, and verification (§§1–3, 7–8, 10–11); used in the Editorial Notes on continuing evaluation and learning.
-- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — saturation and activity (§1.2), completeness transitions (§§1.6–1.6.3), law and conformance (§1.11), and human goals and institutional fields of fulfilment (§1.15); supplies the ontological and social background to the continuity of value. Its account of Brahman as being, consciousness, and bliss (§2.2) supplies the Advaita background to dearness and fullness.
+- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — saturation and activity (§1.2), completeness transitions (§§1.7, 1.11), law and conformance (§1.6.1), and human goals and institutional fields of fulfilment (§1.15); supplies the ontological and social background to the continuity of value. Its account of Brahman as being, consciousness, and bliss (§2.2) supplies the Advaita background to dearness and fullness.
 - [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — actionless knowledge and the active knower (§1.1); knowing, accepting, evaluation, study, and transmission (§§1.5–1.6). Develops the activities of learning invoked in the present study's concise account of continuity, with the fuller educational programme left for subsequent study. Its account of superimposition, sublation, and levels of reality (§2.3) supports the Advaita discussion of mistaken valuation.
 - [Ethics and Morals in Human Beings](../Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf) — the detailed account of values, character, and right-use (§§3.1, 3.5–3.6).
 - [Aesthetics](../Aesthetics/Aesthetics.pdf) — beauty, taste, and aesthetic judgment (§2.2); usefulness, aesthetic addition, and the taste of values (§§4.1, 4.5).

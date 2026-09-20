@@ -1,6 +1,6 @@
 # Madhyasth Darshan Ontology: A Core Conceptual Map and Primary-Text Guide
 
-**Edited on:** September 19, 2026, 9:39 PM IST
+**Edited on:** September 20, 2026, 9:48 AM IST
 
 This study aid presents the core ontological architecture of Madhyasth Darshan as a single map. It is intended for repeated study: first follow the large structure in the figure, then use the numbered reading guide to locate each concept in the primary texts. The figure follows the shortest path from coexistence to humane fulfilment; a final classification key explicitly maps the value families, karma, terms for order and development, planes, human types, evaluative perspectives, social systems, and evidence standards that would overload one diagram.
 
@@ -216,12 +216,12 @@ The figure and numbered guide show the core dependency structure. The following 
 
 | Distinction | Meaning | Main-study location |
 |---|---|---|
-| Levels of unithood | The atom is the root unit; a molecule, cell, body, or planet is a composite unit while its organisation persists; a body–*jeevan* joint form coordinates two distinct units; a human assembly is a relationally achieved whole | §§1.1, 1.10, 1.14 |
+| Levels of unithood | The atom is the root unit; a molecule, cell, body, or planet is a composite unit while its organisation persists; a body–*jeevan* joint form coordinates two distinct units; a human assembly is a relationally achieved whole | §§1.1, 1.4–1.5, 1.13.3 |
 | Natural and excited states | The natural state accords with definite conduct; the excited state is activity displaced from that accord by pressure and therefore liable to decline | §1.3 |
-| Relationship and contact | A relationship carries expectations inherent in fulfilment; a contact carries voluntarily adopted expectations. Both are subject to justice and humane conduct | §1.4 |
-| Mixture, compound, biological composition, and assembly | A mixture retains component conducts; a compound establishes a new bounded composition; a biological composition transmits its method through seed and lineage; a humane assembly is sustained through recognised relationships and values | §1.10 |
-| Time and causation | Time is the duration of unit-activity. *Satta* sustains coexistence but does not perform transformations; composition, decomposition, and development occur through unit-activity in mutuality | §1.14 |
-| Karma | Human activity joined to aspiration is karma. Its five limbs are doer, cause, objective, result, and wider effect. Karma is not attributed to insentient units. Freedom in action does not cancel causal consequences; awakening removes unresolved dependence while undergoing them | §1.7.1 |
+| Relationship and contact | A relationship carries expectations inherent in fulfilment; a contact carries voluntarily adopted expectations. Both are subject to justice and humane conduct | §1.13.1 |
+| Mixture, compound, biological composition, and assembly | A mixture retains component conducts; a compound establishes a new bounded composition; a biological composition transmits its method through seed and lineage; a humane assembly is sustained through recognised relationships and values | §§1.5, 1.13.3 |
+| Time and causation | Time is the duration of unit-activity. *Satta* sustains coexistence but does not perform transformations; composition, decomposition, and development occur through unit-activity in mutuality | §1.4 |
+| Karma | Human activity joined to aspiration is karma. Its five limbs are doer, cause, objective, result, and wider effect. Karma is not attributed to insentient units. Freedom in action does not cancel causal consequences; awakening removes unresolved dependence while undergoing them | §1.10 |
 
 When a composite form disintegrates, that organisation ends while its constituent realities persist in other relations. This is why conservation must not be expressed as the permanence of every composite unit.
 
@@ -237,7 +237,7 @@ Value in the universal sense is essentiality (*maulikta*) and participation in o
 | Established values | The nine relationship values—trust, respect, affection, care, guidance, reverence, gratitude, glory, and love—borne at *chitta*, *vritti*, and *mun* |
 | Expressed values (*shishta-mulya*) | The nine corresponding powers in motion: concordance, cordiality, dedication, generosity, naturalness, devoutness, simplicity, humility, and non-otherness |
 
-Object value is spread in units. The named values of the other four families are activities borne by *jeevan*'s faculties, defined in the same appendix of the primary texts that defines its activities (MVD, pp. 328–348; AVD, pp. 91–94; §§1.4, 1.7). Relationship supplies the recognised mutuality, value identifies what fulfils it, evaluation checks the fulfilment, and mutual satisfaction completes justice (§§1.4, 1.12).
+Object value is spread in units. The named values of the other four families are activities borne by *jeevan*'s faculties, defined in the same appendix of the primary texts that defines its activities (MVD, pp. 328–348; AVD, pp. 91–94; §§1.8, 1.13.1). Relationship supplies the recognised mutuality, value identifies what fulfils it, evaluation checks the fulfilment, and mutual satisfaction completes justice (§§1.13.1–1.13.3).
 
 ### Terms for order and development, four planes, and five human types
 
@@ -267,7 +267,7 @@ The five human types classify consciousness and conduct, not biological species 
 | Deific-human | T2; realisation and resolution |
 | Divine-human | T3; authentic conduct and living proof in humane tradition |
 
-An animal's hope-bound species-conformant expression is a limitation of its bodily medium, not the specifically human error of body-identification (§1.9).
+An animal's hope-bound species-conformant expression is a limitation of its bodily medium, not the specifically human error of body-identification (§1.12.2).
 
 ### Six evaluative perspectives and the dual role of justice
 
@@ -280,7 +280,7 @@ An animal's hope-bound species-conformant expression is a limitation of its bodi
 | Dharma–adharma | Thought and resolution |
 | Truth–untruth | Existence as coexistence |
 
-The first three perspectives remain valid in their proper domains but cannot serve as the final standpoint for humane conduct. Justice is both the perspective that evaluates behaviour and the completed relational activity of recognition, value-fulfilment, evaluation, and mutual satisfaction. The law–justice–dharma–truth chain widens the field of evaluation rather than transforming one entity literally into another (§1.12).
+The first three perspectives remain valid in their proper domains but cannot serve as the final standpoint for humane conduct. Justice is both the perspective that evaluates behaviour and the completed relational activity of recognition, value-fulfilment, evaluation, and mutual satisfaction. The law–justice–dharma–truth chain widens the field of evaluation rather than transforming one entity literally into another (§§1.13.2–1.13.3).
 
 ### Four human goals and five social systems
 

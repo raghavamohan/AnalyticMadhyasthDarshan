@@ -69,7 +69,7 @@ Each movement is marked in the small line at the top of its opening slide, so yo
 
 ## Primary-text background
 
-The three-movement framing is a teaching scaffold for §1, not a separate textual division. Compositional vs atomic development: study §1.6; KD 3.2–3.3. Joint form without identity of process: §1.7; MVD pp. 13, 115.
+The three-movement framing is a teaching scaffold for §1, not a separate textual division. Compositional vs atomic development: study §1.7; KD 3.2–3.3. Joint form without identity of process: §1.8; MVD pp. 13, 115.
 
 ## Likely questions from the audience
 
@@ -140,7 +140,7 @@ Most of the deck is a zoom into one region of this map.
 
 ## Primary-text background
 
-Companion conceptual map materials under this study folder (SVG/PDF) mirror §1. Primary pointers: MVD, KD, SB, JV as footered on the slide. Two developments and T1–T3: §1.6–§1.6.1; joint form: §1.7; the four classification vocabularies: §1.9.
+Companion conceptual map materials under this study folder (SVG/PDF) mirror §1. Primary pointers: MVD, KD, SB, JV as footered on the slide. Two developments and T1–T3: §§1.7, 1.11; joint form: §1.8; the four classification vocabularies: §1.12.
 
 ## Likely questions from the audience
 
@@ -244,7 +244,7 @@ The texts treat it as ontological endowment. Relative energy appears in unit-mut
 Complementarity is perpetual; recognition and fulfilment can fail. At the human order, mis-evaluation under body-identification leaves complementarity incompletely expressed (MVD, p. 112).
 
 **Q: Isn't “a unit cannot be annihilated” contradicted by particle physics?**
-The claim is about what exists, not about the persistence of a particular configuration. Reactions transform arrangements. The study is explicit that this ontological claim is not the same as, and is not proved by, conservation of quantity (§1.14, §6.2).
+The claim is about what exists, not about the persistence of a particular configuration. Reactions transform arrangements. The study is explicit that this ontological claim is not the same as, and is not proved by, conservation of quantity (§1.4, §6.2).
 
 **Q: Does each saturation term have exactly one consequence?**
 The primary descriptions overlap. SB p. 57 connects submersion with activeness, while PS p. 114 connects it with recognition in mutuality. The study preserves both connections and the shared regulation account without assigning one exclusive consequence to each term.
@@ -269,11 +269,11 @@ Third, time. Time here is not a container existing alongside the ground and the 
 
 The primary connection between permeability and non-annihilation: “Being soaked itself is forcefulness. It becomes clear that units are soaked because Omnipotence is permeating. No matter how many times we divide a unit, each fragment remains submerged, surrounded, and soaked. It also becomes clear that a unit cannot be annihilated.” — SB, p. 57
 
-Perpetuity of existence, and the world's reality alongside the ground: SB p. 70; JV p. 18. “Brahma is truth, the world is perpetual” — study §1.14, where it is contrasted with the Advaita reading developed in §2.
+Perpetuity of existence, and the world's reality alongside the ground: SB p. 70; JV p. 18. “Brahma is truth, the world is perpetual” — study §1.4, where it is contrasted with the Advaita reading developed in §2.
 
-Omnipresence as sustaining rather than efficient cause: SB pp. 48–49; study §1.14. Time as duration of unit-activity: study §1.14, with the full treatment of *kaal*, *trikaalabadh*, and spacetime in *Nature of Time*.
+Omnipresence as sustaining rather than efficient cause: SB pp. 48–49; study §1.4. Time as duration of unit-activity: study §1.4, with the full treatment of *kaal*, *trikaalabadh*, and spacetime in *Nature of Time*.
 
-The study keeps two claims apart: general indestructibility — nothing existent becomes non-existent — and *jeevan*'s constitutional completeness (§1.6.1). The second is a further and stronger claim, and is not established by the first.
+The study keeps two claims apart: general indestructibility — nothing existent becomes non-existent — and *jeevan*'s constitutional completeness (§1.7.1). The second is a further and stronger claim, and is not established by the first.
 
 ## Likely questions from the audience
 
@@ -316,9 +316,9 @@ Complementarity given in the bond rather than created: SB pp. 49–50, 53. “No
 
 The equipment of recognition — capacity (*kshamata*), ability (*yogyata*), receptivity (*patrata*): SB pp. 57, 62, 79; MVD p. 62. “Transparent in mutuality”: MVD p. 32.
 
-Recognition below the human order is not reflective cognition; the heat, particle-distance, and atomic-combination examples are the study's own (§1.2). Value as essentiality and participation in orderliness: §1.4.
+Recognition below the human order is not reflective cognition; the heat, particle-distance, and atomic-combination examples are the study's own (§1.2). Value as essentiality and participation in orderliness: §1.13.1.
 
-The completeness drive is grounded in these endowments: SB pp. 50–51 — this is the citation behind the closing line of the script. Composition as natural inclination toward coexistence: JV p. 67 (§1.10). Integration at T1 through hungry/undigested (overfull) complementarity: MVD p. 8; SB pp. 58, 71; KD 3.3 (§1.6.1). Justice as recognising relationships, fulfilling values, evaluating the fulfilment, and achieving mutual satisfaction: §1.12.1.
+The completeness drive is grounded in these endowments: SB pp. 50–51 — this is the citation behind the closing line of the script. Composition as natural inclination toward coexistence: JV p. 67 (§1.5). Integration at T1 through hungry/undigested (overfull) complementarity: MVD p. 8; SB pp. 58, 71; KD 3.3 (§1.7.1). Justice as recognising relationships, fulfilling values, evaluating the fulfilment, and achieving mutual satisfaction: §1.13.3.
 
 PS p. 121 defines image and imaging through mutual recognition. SB pp. 248–252 distinguishes imaging from the influences of relative powers. Its account extends from insentient mutuality to animal recognition of essential nature and human exchange of values and evaluation of dharma. These are the source connections behind the revised study §§1.2–1.3.
 
@@ -328,7 +328,7 @@ PS p. 121 defines image and imaging through mutual recognition. SB pp. 248–252
 No — cooperation is something agents choose. Complementarity here is a structural feature of bounded plurality in one ground: it holds between particles that choose nothing. Cooperation, at the human order, is one way of fulfilling it knowingly.
 
 **Q: If value is built into existence, why do people disagree about values?**
-The claim is that essentiality is objective, not that recognition and evaluation are automatic. Cultures differ in what they recognise and how they evaluate; on this account they are not differing about whether a unit is complementary to others, but about whether they have seen it correctly. The study is explicit that human evaluation can fail (§1.4, §1.12).
+The claim is that essentiality is objective, not that recognition and evaluation are automatic. Cultures differ in what they recognise and how they evaluate; on this account they are not differing about whether a unit is complementary to others, but about whether they have seen it correctly. The study is explicit that human evaluation can fail (§1.13.1, §1.13.2).
 
 **Q: Isn't “recognition” in a particle just a metaphor?**
 The texts give an account of mutual imaging as well as definite responsiveness. PS p. 121 names the image as a basis of recognition, and SB pp. 248–252 distinguishes imaging from influence. Neither attributes human understanding to a particle. Knowing and believing belong to sentient nature (§§1.2–1.3).
@@ -401,7 +401,7 @@ At the human order the path runs: knowing, then believing, then recognising, the
 
 Relationship / contact definitions: MVD, pp. 61–62. Values and mutuality: SB, pp. 50, 53, 61; MVD, p. 27. Motherly care example: JV, pp. 137–138.
 
-The thirty-value enumeration is explicit in *Paribhasha Samhita* pp. 151, 154; definitions and connections are developed across several passages. *Manav Abhyas Darshan*, native-reader p. 30, gives the principal nine established values and their paired expressions. The English translation of MVD uses *civic values* for *shishta-mulya*; this companion treats them as the expressed pair of the established values. See the study's §1.4 and Axiology §1.3.
+The thirty-value enumeration is explicit in *Paribhasha Samhita* pp. 151, 154; definitions and connections are developed across several passages. *Manav Abhyas Darshan*, native-reader p. 30, gives the principal nine established values and their paired expressions. The English translation of MVD uses *civic values* for *shishta-mulya*; this companion treats them as the expressed pair of the established values. See the study's §1.13.1 and Axiology §1.3.
 
 ## Likely questions from the audience
 
@@ -472,7 +472,7 @@ The next slide follows both paths through their convergence in animal and human 
 
 “Every physical-chemical activity is an inseparable presence of effort, motion and result…” — SB, p. 58
 
-SB, p. 62 chain; goals: SB, p. 71; MVD, p. 104. Span: SB, pp. 51, 91. Two developments: study §1.6; KD 3.2–3.3.
+SB, p. 62 chain; goals: SB, p. 71; MVD, p. 104. Span: SB, pp. 51, 91. Two developments: study §1.7; KD 3.2–3.3.
 
 ## Likely questions from the audience
 
@@ -506,7 +506,7 @@ MVD, p. 13 traces chemical and physical composition into biological cells and bo
 
 MVD, p. 79 gives the developmental sequence used on the slide. Animal-order bodies are composed of biological cells while the sentient atom advances toward fuller expression. Knowledge-order bodies remain biological compositions, but the human body is capable of evidencing all ten activities of *jeevan*. The activities belong to *jeevan*; bodily organisation supplies the medium of expression. MVD, p. 80 restates the categorical distinction: the body is physicochemical composition, while *jeevan* is the constitutionally complete sentient atom.
 
-SB, p. 55 places constitutional completeness in the atom; SB, pp. 76–77 classify material and biological compositions as insentient and animal and knowledge orders as joint expressions. Study §§1.5–1.6, 1.9.
+SB, p. 55 places constitutional completeness in the atom; SB, pp. 76–77 classify material and biological compositions as insentient and animal and knowledge orders as joint expressions. Study §§1.6–1.7, 1.12.
 
 ## Likely questions from the audience
 
@@ -578,15 +578,15 @@ The one caution worth stating out loud: an order is not a plane. The knowledge o
 
 ## Primary-text background
 
-Study §1.6 (the completeness drive), §1.9.1 (terms for order and development), §1.9.2 (four planes, five human types), and the conceptual map's classification key.
+Study §§1.7, 1.11 (the completeness drive), §1.12.1 (terms for order and development), §1.12.2 (four planes, five human types), and the conceptual map's classification key.
 
-The four terms for order and development are *niyati-kram* (existential progression), *niyati-vidhi* (way of existence), *vikas-kram* (development progression), and *jagriti-kram* (awakening progression): MVD, pp. 13–14; study §1.9.1.
+The four terms for order and development are *niyati-kram* (existential progression), *niyati-vidhi* (way of existence), *vikas-kram* (development progression), and *jagriti-kram* (awakening progression): MVD, pp. 13–14; study §1.12.1.
 
-The four planes are physicochemical, delusional, deific, and divine or complete: study §1.9.2. Order vs plane asymmetry: SB, p. 52 — two orders can share one plane; one order can span three planes.
+The four planes are physicochemical, delusional, deific, and divine or complete: study §1.12.2. Order vs plane asymmetry: SB, p. 52 — two orders can share one plane; one order can span three planes.
 
-The five human types are animalistic-human, demonic-human, humane or discerning human, deific-human, and divine-human: MVD, p. 160; study §1.9.2.
+The five human types are animalistic-human, demonic-human, humane or discerning human, deific-human, and divine-human: MVD, p. 160; study §1.12.2.
 
-Note for the presenter: an earlier version of this slide had the plane and progression labels swapped, and listed a set of “planes” (substance, life, intellectual, experiential) that appears nowhere in the study — those are the four orders under another naming. It also ended the human-type list with “transcendental,” which is not a term in this corpus. The table now follows §1.9.1–§1.9.2 exactly. If you have delivered the old version, this is the correction to flag.
+Note for the presenter: an earlier version of this slide had the plane and progression labels swapped, and listed a set of “planes” (substance, life, intellectual, experiential) that appears nowhere in the study — those are the four orders under another naming. It also ended the human-type list with “transcendental,” which is not a term in this corpus. The table now follows §1.12.1–§1.12.2 exactly. If you have delivered the old version, this is the correction to flag.
 
 ## Likely questions from the audience
 
@@ -621,7 +621,7 @@ The transition to sentience is therefore a claim of reclassification at atomic c
 
 MVD, p. 91 (increased contraction-expansion, release from the molecular group, and the bondage shift). Closed particle constitution: SB, p. 55. Particle inclusion and expulsion as the route to completeness: SB, pp. 58, 71; KD 3.3. Qualitative change tied to quantitative change in matter, and the separation of the two at completeness: SB, p. 86 — this is the criterion stated in the script. Irreversibility: SB, p. 92. Not neural/molecular size: SB, p. 52.
 
-Continuity beyond the body and later association with another body: study §1.8, §1.14; JV as cited there. The study keeps this apart from general indestructibility (slide 7): constitutional completeness is MD's *additional* reason for identifying *jeevan* as a persistent individual, not a corollary of quantity conservation.
+Continuity beyond the body and later association with another body: study §§1.7.1, 1.9; JV as cited there. The study keeps this apart from general indestructibility (slide 7): constitutional completeness is MD's *additional* reason for identifying *jeevan* as a persistent individual, not a corollary of quantity conservation.
 
 ## Likely questions from the audience
 
@@ -687,7 +687,7 @@ Study brings understanding. Practice tests and stabilises it. Practice does not 
 
 MVD, p. 78; JV, p. 92; MVD, pp. 13, 82–83, 93, 126, 207–208, 278–279, 286–287. Faculties, characteristic powers, and their paired activities: SB p. 63. Atma's characteristic power, evidence (*praman*), is distinguished from authenticity (*pramanikta*) as its projection activity. At the activity level, *bal* names state and *shakti* motion; KD §3.8, printed p. 84 supplies the orientation, which the AVD English appendix headings reverse. Body mistaken for self: SB, pp. 91–92; JV, p. 93. The study renders *bodh* as comprehension and *sakshatkar* as direct apprehension. Tasting forms: PS pp. 40–41; Axiology §1.2.
 
-The koshas in MVD pp. 49–50 describe manifestations across the orders: annamaya/pranamaya already in material nature, manomaya in pranic nature, anandamaya in animal and deluded human living, and vigyanmaya in awakened human living. They are distinct from these five faculties and from the four planes (study §1.5).
+The koshas in MVD pp. 49–50 describe manifestations across the orders: annamaya/pranamaya already in material nature, manomaya in pranic nature, anandamaya in animal and deluded human living, and vigyanmaya in awakened human living. They are distinct from these five faculties and from the four planes (study §1.6).
 
 ## Likely questions from the audience
 
@@ -719,7 +719,7 @@ The next two slides examine how understanding comes to guide evaluation, work, a
 
 JV, PDF p. 138 (four harmonies), PDF p. 61 (experienced values and their evidence). KD §3.12, printed p. 112 gives cumulative fulfilment; pp. 110–113 develops projection–reflection. SB pairs values with practical routes through justice, orderliness, and realisation. MVD, p. 77 (channelling energies toward awakening).
 
-Study §1.8 locates happiness at mun, peace at vritti, contentment at chitta, and bliss at buddhi, each through harmony with the inward faculty. MVD pp. 100–101 distinguishes ultimate bliss at realised atma; MVD pp. 328–346 enumerates the faculty activities. The knowledge-order ladder should not be extended to animals merely from the presence of the same faculties.
+Study §1.9 locates happiness at mun, peace at vritti, contentment at chitta, and bliss at buddhi, each through harmony with the inward faculty. MVD pp. 100–101 distinguishes ultimate bliss at realised atma; MVD pp. 328–346 enumerates the faculty activities. The knowledge-order ladder should not be extended to animals merely from the presence of the same faculties.
 
 ## Likely questions from the audience
 
@@ -753,9 +753,9 @@ Awakening requires more than preferring the right things or having an insight th
 
 ## Primary-text background
 
-SB, p. 64 (cognisance–sensitivity balance); JV, pp. 73–74, 92–94 (four-and-a-half activities); MVD, pp. 274–275; study §§1.7–1.8, 1.10, 1.12, 1.15.
+SB, p. 64 (cognisance–sensitivity balance); JV, pp. 73–74, 92–94 (four-and-a-half activities); MVD, pp. 274–275; study §§1.8–1.9, 1.13, 1.15.
 
-The animal case: hope to live is the animal-order *dharma*, expressed through *mun*; the animal body provides for hope-bound, species-conformant expression without providing for the complete evidence of understanding (study §§1.5, 1.7). The four-and-a-half activities organised around bodily sensitivity in deluded human living: study §1.7; JV, pp. 73–74, 92–94.
+The animal case: hope to live is the animal-order *dharma*, expressed through *mun*; the animal body provides for hope-bound, species-conformant expression without providing for the complete evidence of understanding (study §§1.6, 1.8). The four-and-a-half activities organised around bodily sensitivity in deluded human living: study §1.8; JV, pp. 73–74, 92–94.
 
 ## Likely questions from the audience
 
@@ -791,9 +791,9 @@ Hold this beside the earlier triad of effort, motion, and result. This is the de
 
 Five limbs as on the slide. Relate to effort–motion–result (slide 12) without collapsing the vocabularies — *kriyā* names activity throughout nature, while karma names human activity together with aspiration.
 
-Why this slide sits here: the four harmonies are *jeevan* values (study §1.8), and the study is explicit that they correspond to widening fields of *evidence* — resolution in the person, peace tested in family prosperity, contentment in fearless social participation, bliss in the living and communicating of coexistence. Evidence requires projection, and projection is conduct. Hence KD's insistence that book knowledge is not the completion of the process: “Study, practice, work, behaviour, result, and purpose must become coherent” (study §1.8). Definite fulfilment below the human order: study §§1.4, 1.11 — recognition and fulfilment are definite according to structural, seed, and species conformance.
+Why this slide sits here: the four harmonies are *jeevan* values (study §1.9), and the study is explicit that they correspond to widening fields of *evidence* — resolution in the person, peace tested in family prosperity, contentment in fearless social participation, bliss in the living and communicating of coexistence. Evidence requires projection, and projection is conduct. Hence KD's insistence that book knowledge is not the completion of the process: “Study, practice, work, behaviour, result, and purpose must become coherent” (study §1.9). Definite fulfilment below the human order: study §§1.13.1, 1.6.1 — recognition and fulfilment are definite according to structural, seed, and species conformance.
 
-Also relevant: “Living proof requires understanding to become conduct; insight that does not regulate action has not completed the projection–reflection cycle” (study §1.7.1).
+Also relevant: “Living proof requires understanding to become conduct; insight that does not regulate action has not completed the projection–reflection cycle” (study §1.10).
 
 ## Likely questions from the audience
 
@@ -804,10 +804,10 @@ KD here analyses the structure of intentional activity. Post-body continuity is 
 Same underlying activity ontology; karma names human activity-with-aspiration and its fruit in the desire register. Keep the five limbs available for Q&A on responsibility and result.
 
 **Q: If action is what matters, why spend so long on the ontology?**
-Because action without truthful understanding reproduces the confusion it came from — the study's phrase is that projection without truthful understanding can reproduce delusion (§1.6.3). The claim is not that study is unnecessary. It is that study is half. Reflection without projection remains unevidenced; projection without reflection goes wrong.
+Because action without truthful understanding reproduces the confusion it came from — the study's phrase is that projection without truthful understanding can reproduce delusion (§1.11.2). The claim is not that study is unnecessary. It is that study is half. Reflection without projection remains unevidenced; projection without reflection goes wrong.
 
 **Q: Can't I just be a good person without any of this?**
-Good conduct is valuable, but conduct completeness means the individual's continuous expression of realised understanding. MVD pp. 15–16 distinguishes completeness in an individual from completeness in society. A person's humane participation helps establish and transmit an awakened tradition; it does not require an already completed universal society. The claim is assessed through understanding, fulfilled relationships and continuity of conduct (§1.6.3, §1.15).
+Good conduct is valuable, but conduct completeness means the individual's continuous expression of realised understanding. MVD pp. 15–16 distinguishes completeness in an individual from completeness in society. A person's humane participation helps establish and transmit an awakened tradition; it does not require an already completed universal society. The claim is assessed through understanding, fulfilled relationships and continuity of conduct (§1.11.2, §1.15).
 
 # Slide 22
 
@@ -833,7 +833,7 @@ Material, bio, and animal regulation is definite. An animal body’s expressive 
 
 Surroundedness as the specific ground of regulation: “This very surroundedness itself clarifies the regulation of every unit, because every unit … remains regulated within a definite distance from one another, which itself is formless existence.” — SB, p. 79
 
-Human conformance is *sanskar*-conformance in the study's table (§1.11); human bodily composition remains species-conformant, but human conduct is principally *jeevan*-based and *sanskar*-conformant. The three levels of the account — sustaining condition, mediative nucleus, order-specific conformance — are set out in §1.11.
+Human conformance is *sanskar*-conformance in the study's table (§1.6.1); human bodily composition remains species-conformant, but human conduct is principally *jeevan*-based and *sanskar*-conformant. The three levels of the account — sustaining condition, mediative nucleus, order-specific conformance — are set out in §1.6.1.
 
 KD, p. 14 (law across family, nation, world). Justice definition reserved for next slides: MVD, p. 311.
 
@@ -863,7 +863,7 @@ Keep this distinct from unit-innateness earlier. One word, two levels: what a un
 
 ## Primary-text background
 
-KD, pp. 10, 13, 60, 86; study §1.12–§1.12.1. MVD, p. 67 (six perspectives); MVD, p. 137 (justice regulates behaviour, *dharma* disciplines thought, realisation only through truth); MVD, p. 311 (justice as recognising relationships, fulfilling values, evaluating, mutual satisfaction). JV, pp. 138–139 (deliberation bases).
+KD, pp. 10, 13, 60, 86; study §§1.13.2–1.13.3. MVD, p. 67 (six perspectives); MVD, p. 137 (justice regulates behaviour, *dharma* disciplines thought, realisation only through truth); MVD, p. 311 (justice as recognising relationships, fulfilling values, evaluating, mutual satisfaction). JV, pp. 138–139 (deliberation bases).
 
 ## Likely questions from the audience
 
@@ -889,7 +889,7 @@ Every unit is already manifest with all four aspects. The left-hand steps descri
 
 ## Primary-text background
 
-JV, p. 120 (triad epistemic bases); JV, p. 121; SB, p. 50 (ultimate *dharma*); JV, p. 120 (understanding of existence, *jeevan*, and humane conduct); MVD, pp. 78, 101, 137; JV, p. 61; study §§1.3–1.4, 1.7–1.13.
+JV, p. 120 (triad epistemic bases); JV, p. 121; SB, p. 50 (ultimate *dharma*); JV, p. 120 (understanding of existence, *jeevan*, and humane conduct); MVD, pp. 78, 101, 137; JV, p. 61; study §§1.3, 1.8–1.9, 1.13–1.14.
 
 ## Likely questions from the audience
 
@@ -917,9 +917,9 @@ Three roles stay distinct: the sentient unit remains the knower; existence as co
 
 “The goal of development is for nature, saturated in Omnipotence, to be realised in Omnipotence…” — SB, p. 81
 
-SB, p. 116 and MVD, p. 126 (threefold knowledge); KD §§3.17–3.18 (knowledge, knower, and known); MVD, pp. 14–15, 286–287. Study §1.13.
+SB, p. 116 and MVD, p. 126 (threefold knowledge); KD §§3.17–3.18 (knowledge, knower, and known); MVD, pp. 14–15, 286–287. Study §1.14.
 
-MVD pp. 100–101 distinguishes ultimate bliss at atma; MVD p. 328 connects realisation-based expression, communication, and exposition with ultimate bliss. Study §§1.8 and 1.13 preserves both this placement and bliss as buddhi–atma harmony.
+MVD pp. 100–101 distinguishes ultimate bliss at atma; MVD p. 328 connects realisation-based expression, communication, and exposition with ultimate bliss. Study §§1.9 and 1.14 preserves both this placement and bliss as buddhi–atma harmony.
 
 ## Likely questions from the audience
 
@@ -953,7 +953,7 @@ The general scope is unit expression according to state, motion, developmental p
 
 MVD pp. 109–110 connects form activity, word activity, inherent meaning, and communication as understanding and enabling understanding. MVD p. 328 brings realisation-based expression, communication, and exposition together under ultimate bliss. These connections support a coherent account without assigning each term exclusively to one faculty pair.
 
-PS p. 56 defines kala through making qualities evident and expression meaningful, and the joint accomplishment of usefulness and beauty. Its object-value application, kala-mulya, concerns enhancing usefulness; the general definition also concerns communication and conduct. All PS page numbers are printed pages in the edition identified at the start of this companion. Study §1.13 and Editorial Notes give the connected reading and contextual qualifications.
+PS p. 56 defines kala through making qualities evident and expression meaningful, and the joint accomplishment of usefulness and beauty. Its object-value application, kala-mulya, concerns enhancing usefulness; the general definition also concerns communication and conduct. All PS page numbers are printed pages in the edition identified at the start of this companion. Study §1.14 and Editorial Notes give the connected reading and contextual qualifications.
 
 ## Likely questions from the audience
 
@@ -988,7 +988,7 @@ MD connects this social aim with human dharma as happiness, values fulfilled in 
 
 JV, PDF p. 61; MVD, pp. 13–16; SB, pp. 51, 81, 91. Individual and social completeness are distinguished in MVD pp. 15–16. Five social systems: study §1.15 and governance-related works in the series. SB on operating scale of self-sustaining systems (100–200 families) if useful for Q&A.
 
-Human assemblies as achieved rather than chemically definite: study §1.10, final paragraph; MVD, p. 42; SB, p. 14 (persist or decline). This is the counterpart of slide 13 — the compositional half of §1.10 was delivered there, the relational half here.
+Human assemblies as achieved rather than chemically definite: study §1.13.3; MVD, p. 42; SB, p. 14 (persist or decline). This is the counterpart of slide 13 — physical composition (§1.5) was delivered there, human assemblies (§1.13.3) here.
 
 ## Likely questions from the audience
 

@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 6, 2026, 6:31 PM IST
+**Edited on:** September 20, 2026, 10:01 AM IST
 **Status:** Draft
 **The question:** What is realisation, what practice leads to it, and how would anyone know it had occurred? How does Madhyasth Darshan's answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
@@ -10,7 +10,7 @@ This study examines *anubhav* — realisation — and the practice Madhyasth Dar
 
 The relevance of modern philosophy is worth stating in advance, because the natural assumption is that spiritual practice lies outside its range. It does not. Ancient philosophy was itself organised around spiritual exercises, as Hadot's work established; the epistemology of religious experience is a developed field; the perennialist–constructivist dispute is exactly the question of whether contemplative states have content independent of the tradition that trains them; L. A. Paul's account of transformative experience formalises the problem of appraising a state one has not undergone; and contemplative science has produced both suggestive findings and a serious methodological reckoning. Each bears directly on claims the darshan makes.
 
-[The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.6 states the transmission and evidence conditions in outline and §§7.1–7.5 records the resulting evidential problems; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13 sets out realisation in coexistence as an activity of *jeevan*. This study takes the practice itself as its subject: what is done, what is claimed to result, and what would count as knowing that it had.
+[The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) §1.6 states the transmission and evidence conditions in outline and §§7.1–7.5 records the resulting evidential problems; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.14 sets out realisation in coexistence as an activity of *jeevan*. This study takes the practice itself as its subject: what is done, what is claimed to result, and what would count as knowing that it had.
 
 ## 1. The Madhyasth Darshan Answer
 
@@ -18,7 +18,7 @@ Madhyasth Darshan holds that realisation is the understanding of existence as co
 
 ### 1.1 What realisation is
 
-Realisation has a definite object and a definite location. It is realisation in the ultimate truth which is in the form of coexistence, and it is distinguished from contemplation, the awareness of truth (MVD, p. 316). Realisation is an activity of *jeevan* in the harmony of *buddhi* and *atma*, not a state of the body and not an event befalling a person from outside ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13).
+Realisation has a definite object and a definite location. It is realisation in the ultimate truth which is in the form of coexistence, and it is distinguished from contemplation, the awareness of truth (MVD, p. 316). Realisation is an activity of *jeevan* in the harmony of *buddhi* and *atma*, not a state of the body and not an event befalling a person from outside ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.14).
 
 Put that way the definition is thin, and it invites the misreading that realisation is an inner condition with no determinate content. It has determinate content, specified as three capacities, each seated in a different faculty of *jeevan* (§1.9).
 
@@ -93,10 +93,10 @@ Experimentation is defined as the endeavour continued until success is achieved 
 
 The one traditional practice term the darshan keeps and rebuilds is *upasana*. Its inherited sense is devotional practice towards deities, or ritual (MVD, p. 4; JV, p. 9). In this darshan its content is different altogether:
 
-> **“Upasana itself is the process of refining and transforming the root tendencies. This very study is also the transformation of sanskar and essential nature.”**
+> **“Upasana is an important part of human jeevan. It is the process of refining and transforming the fundamental tendencies, and this study also transforms sanskar and essential nature.”**
 > — KD, p. 30
 
-> **“Wisdom — that is, the human goal — and jeevan-value — that is, resolution [and] prosperity — is itself the direct result of upasana, in which sociality remains naturally contained.”**
+> **“Wisdom—the human goal—and jeevan-value—resolution and prosperity—are the direct results of upasana, within which sociality is naturally contained.”**
 > — KD, p. 37
 
 *Upasana* is education and orderliness in its own nature (KD, p. 42); its chief utility lies in immersion in universal values (KD, p. 35); at the root of all *upasanas* the aim is undivided society and universal orderliness (KD, p. 35); *upasanas* exist only for capacity-for-awakening, not for decline (KD, p. 36); and symbol-directed *upasana* is judged secondary and unsociable to the extent of its incompleteness, because in it the human goal is neither clarified nor attained (KD, p. 42).
@@ -510,7 +510,7 @@ KD Chapter 2 is available in this repository only as a machine-assisted working 
 ### Related studies in this collection
 
 - [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — study, realisation, and transmission (§1.6), the active knower (§1.4), and the evidential open problems (§§7.1–7.5).
-- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — realisation in coexistence as an activity of *jeevan* (§1.13) and *jeevan*'s faculties (§1.7).
+- [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — realisation in coexistence as an activity of *jeevan* (§1.14) and *jeevan*'s faculties (§1.8).
 - [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — bliss as the harmony of *buddhi* and *atma* (§1.2), correct evaluation and awakening (§1.7), and education, establishment, and continuity through conduct (§§1.4, 1.8).
 - [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — the natal family as where *upasana* is initiated, and its feedback circuit with external behaviour (*vyavahar*) (§1.4.2).
 - *God, Divinity, and the Sacred* (Ongoing) — divinity, theism, and the sacred, which §3 deliberately leaves aside.
