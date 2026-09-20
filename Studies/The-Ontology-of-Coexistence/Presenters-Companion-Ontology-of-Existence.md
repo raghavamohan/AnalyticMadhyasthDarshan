@@ -29,7 +29,7 @@ One word about vocabulary. The published translations often print “Omnipotence
 
 ## Primary-text background
 
-Coverage claims are scoped to the translated corpus (MVD, SB, JV), KD as cited, and the selected Hindi PS definitions identified in this guide. Other Hindi works may develop these subjects further.
+Coverage claims are scoped to the translated corpus (MVD, SB, JV, AVD), KD as cited, and the selected Hindi PS definitions identified in this guide. Other Hindi works may develop these subjects further.
 
 “What is evident is that consciousness and matter are inseparably present. Upon examining their fundamental nature, we learn that all of existence is essentially nature (matter) saturated in Omnipotence (consciousness)… existence itself is eternally manifest in the form of coexistence.” — SB, p. 48
 
@@ -153,7 +153,7 @@ We now enter the foundations — what this account says exists.
 
 Existence has two inseparable aspects.
 
-First, the ground — Omnipresence. Formless, all-pervasive, transparent, permeating, non-transforming, immeasurable. Actionless energy: it acts not at all, yet every unit is energised and regulated in it. There is no place where it is absent.
+First, the ground — Omnipresence. Formless, all-pervasive, transparent, permeating, non-transforming, immeasurable. Actionless energy: it acts not at all, yet every unit is energised and regulated in it. There is no place where it is absent. The same pervasive reality is also named jyoti, light; realisation in it is described as enduring prakash.
 
 Two words make this relation clearer. *Permeating* concerns the unit: the pervasive reality passes through every unit, which remains saturated in it. *Transparent* concerns mutuality: units become manifest to one another through imaging, which provides a basis of recognition. Transparency, permeability, and pervasiveness together evidence one indivisible reality.
 
@@ -173,7 +173,7 @@ One naming caution. The texts list many English names for the ground — includi
 
 “The Omnipotence eternally present as omnipresence is an indivisible entity, because its reality is apparent as transparence, permeability and omnipresence.” — SB, p. 46; restated as omnipresent, eternal, ever-existent, transparent, and permeating at SB, p. 160.
 
-Source-defined names and translation risks: MVD p. 35 and Editorial Notes in the study. Inter-unit distance held in *satta* as Space: SB, pp. 57, 59, 79. Never-separated: SB, p. 70; JV, p. 18.
+Source-defined names and translation risks: MVD p. 35 and Editorial Notes in the study. PS p. 137 names Brahm as pervasive reality, uniform satta, knowledge and jyoti; p. 80 defines jyoti through realisation in the pervasive as enduring prakash. This is the source basis of the light vocabulary for the ground. These are connected passages, rather than a verbatim definition equating satta and prakash. Inter-unit distance held in *satta* as Space: SB, pp. 57, 59, 79. Never-separated: SB, p. 70; JV, p. 18.
 
 MVD p. 32 locates permeation in insentient and sentient units and transparency in their mutuality. PS p. 114 connects this with images and recognition. The ground remains actionless; imaging and recognition do not make it a knowing subject.
 
@@ -202,7 +202,7 @@ Picture a cloth immersed in water. Water is within the cloth, the cloth is subme
 
 Soakedness means that the unit is endowed with energy and force. Submersion means that it is active and stands in mutual recognition with other units. Surroundedness means that it remains regulated in definite relations. We will meet this regulation again alongside the four orders of nature.
 
-These are connected aspects of one saturation. Energy becomes evident in activity, recognition in mutuality, and regulation in definite conduct. The unit is also manifest to others: the texts connect its manifestness with being force-endowed in Omnipresence.
+These are connected aspects of one saturation. Energy becomes evident in activity, recognition in mutuality, and regulation in definite conduct. The ground is named jyoti, light; each unit saturated in it is prakashman, manifest. The texts explicitly connect this manifestness with satta permeating the unit and its being endowed with force. Manifestness belongs to all units, including sentient jeevan.
 
 Because the pervasive reality permeates every unit, dividing a unit leaves every fragment saturated. The texts connect this continuing presence with their doctrine that what exists is not annihilated. Particular arrangements can end while their constituents remain. We will return to that distinction when we consider perpetuity and time.
 
@@ -224,7 +224,7 @@ Surroundedness as what establishes regulation: “This very surroundedness itsel
 
 Saturation endows forcefulness, basic impulsion, and regulatory order (SB, p. 57). Relative energy does not become apparent without mutuality (MVD, p. 40). Saturation itself as knowledge: MVD, pp. 32–33.
 
-SB p. 57 associates soakedness with forcefulness, submersion with activeness, and surroundedness with regulation. PS p. 114 associates soakedness with energy-endowment, submersion with mutual recognition, and surroundedness with regulation. These overlap rather than establishing exclusive compartments. SB p. 248 grounds manifestness in force-endowment under saturation. PS p. 121 identifies the image as a basis of mutual recognition. See study §§1.1–1.3 and Editorial Notes.
+SB p. 57 associates soakedness with forcefulness, submersion with activeness, and surroundedness with regulation. PS p. 114 associates soakedness with energy-endowment, submersion with mutual recognition, and surroundedness with regulation. These overlap rather than establishing exclusive compartments. AVD pp. 115–116 derives units’ force-endowment, activity and manifestness from satta permeating them; SB p. 248 independently grounds manifestness in force-endowment under saturation. PS pp. 80, 137 supply the connected jyoti/prakash vocabulary for the ground. PS p. 121 identifies the image as a basis of mutual recognition. See study §§1.1–1.3 and Editorial Notes.
 
 ## Likely questions from the audience
 
@@ -301,7 +301,7 @@ Essential nature is usefulness in mutuality. The peepal's effects are vitalising
 
 Dharma means inseparable innateness: what belongs to the unit and is fulfilled in its activity. For the peepal: existence plus growth. Seed-conformance is how it conducts itself, not an extra label piled on top.
 
-The whole unit is manifest, or prakashman, with all four aspects. Imaging is central to prakash. This is a claim about how units are manifest to one another; completed human understanding also requires knowing their relations and fulfilment. An image alone does not deliver that understanding. Animal recognition of essential nature becomes evident in friendliness and opposition; human living brings the exchange of values and evaluation of dharma.
+The whole unit is manifest, or prakashman, with all four aspects, grounded in its saturation in satta. In the context of mutuality, prakash names a unit’s imaging. This describes how units are manifest to one another within the wider account of light and manifestness; completed human understanding also requires knowing their relations and fulfilment. An image alone does not deliver that understanding. Animal recognition of essential nature becomes evident in friendliness and opposition; human living brings the exchange of values and evaluation of dharma.
 
 And notice: the tree as a composite can die while its material constituents persist. Persistence of existence is not persistence of one configuration.
 
@@ -317,7 +317,7 @@ Four aspects: MVD, pp. 11, 42, 47, 50–51; SB pp. 55, 71, 86. Three complementa
 
 Editorial Notes: *guna* and *svabhav* are relational in manifestation; bearer and capacities remain real.
 
-Imaging and prakash: MVD p. 45. Bimb, pratibimb, and pratibimban: PS pp. 121, 135. Being manifest with all four aspects: PS p. 119. Imaging, influence, animal recognition, and human evaluation: SB pp. 248–252. Bearer/property distinction: SB pp. 256–257. SB p. 179 describes entities as manifest, communicated, and expressed according to state, motion, plane, and order. Slide 26 develops the human definitions. The study’s Editorial Notes retain the contextual heated-body definition of prakash in PS p. 119 alongside MVD’s broader imaging formulation.
+Prakash in the imaging context: MVD p. 45. The ground’s light vocabulary and the grounding of unit manifestness are established on slides 5–6 from PS pp. 80, 137; AVD pp. 115–116; SB p. 248. Bimb, pratibimb, and pratibimban: PS pp. 121, 135. Being manifest with all four aspects: PS p. 119. Imaging, influence, animal recognition, and human evaluation: SB pp. 248–252. Bearer/property distinction: SB pp. 256–257. SB p. 179 describes entities as manifest, communicated, and expressed according to state, motion, plane, and order. Slide 26 develops the human definitions. The study’s Editorial Notes distinguish the ground’s jyoti/prakash vocabulary, MVD’s imaging formulation and PS p. 119’s heated-body definition. The imaging definition is one context of prakash, not an exhaustive account of the light vocabulary.
 
 ## Likely questions from the audience
 
@@ -905,7 +905,7 @@ MD denies merger into a single Self. Realisation evidences coexistence; individu
 
 ## Delivering the slide
 
-Presentation, communication and expression have a scope throughout nature. Every unit makes its characteristic contribution evident according to its state, activity and order. In human living, the same vocabulary also describes the purposeful expression of understanding.
+Every unit is prakashman, manifest through its form, properties, essential nature and dharma. Presentation, communication and expression describe this participation throughout nature. In sentient jeevan, manifestness includes its active faculties and the capacities it expresses through the body. Humans already communicate and express their capacities during awakening progression. With awakening, these activities carry realised understanding into meaningful presentation, communication and conduct. The three definitions here describe that fuller human fulfilment.
 
 Presentation, prakashan, makes actuality evident through an accomplished and meaningful form. Something understood becomes available for another to attend to.
 
@@ -915,17 +915,20 @@ Expression, abhivyakti, is the mental, verbal and bodily activity through which 
 
 Art, kala, is skilful expressive activity: it makes qualities evident and expression meaningful, joining usefulness with beauty. Art value, kala-mulya, is the value realised in an object when meaningful convenience and beauty enhance its usefulness. A well-made object can evidence that value; a clear explanation can evidence art in making understanding intelligible.
 
-These activities overlap and work together. In awakened human living they involve jeevan through the body, carrying understanding into conduct and the humane tradition.
+These are connected, overlapping aspects of sentient manifestation. Their fulfilment in awakened human living carries realised understanding through the body into conduct and the humane tradition.
 
 ## Primary-text background
 
-The general scope is unit expression according to state, motion, developmental plane, and order (SB p. 179), and all units’ expressions as activity saturated in Omnipresence (MVD p. 109). The human definitions are PS p. 119 for prakashan, p. 206 for sampreshana, and p. 22 for abhivyakti. The definition of abhivyakti itself includes prakashan and the participation of hope, thought, desire, resolve, experience, and bodily activity.
+The general scope is unit expression according to state, motion, developmental plane, and order (SB p. 179), and all units’ expressions as activity saturated in Omnipresence (MVD p. 109). The sentient connection is explicit in SB pp. 52, 63, 66, 90–92: jeevan manifests through the body, its faculties are active and manifest, and communication/expression during awakening progression is itself a meaning of prakashmanata (p. 66). The fuller human definitions are PS p. 119 for prakashan, p. 206 for sampreshana, and p. 22 for abhivyakti. The definition of abhivyakti itself includes prakashan and the participation of hope, thought, desire, resolve, experience, and bodily activity.
 
 MVD pp. 109–110 connects form activity, word activity, inherent meaning, and communication as understanding and enabling understanding. MVD p. 328 brings realisation-based expression, communication, and exposition together under ultimate bliss. These connections support a coherent account without assigning each term exclusively to one faculty pair.
 
 PS p. 56 defines kala through making qualities evident and expression meaningful, and the joint accomplishment of usefulness and beauty. Its object-value application, kala-mulya, concerns enhancing usefulness; the general definition also concerns communication and conduct. All PS page numbers are printed pages in the edition identified at the start of this companion. Study §1.14 and Editorial Notes give the connected reading and contextual qualifications.
 
 ## Likely questions from the audience
+
+**Q: Does sentient expression begin only after awakening?**
+SB p. 66 explicitly describes communication and expression during awakening progression as prakashmanata. Awakening brings their fulfilment as realised understanding and humane conduct. SB p. 179 also preserves the wider use of expression vocabulary across all four orders.
 
 **Q: Does each term add a new layer to the unit’s image?**
 The sources do not establish three successive layers or an exhaustive partition of manifestness. The terms overlap, and abhivyakti’s definition includes prakashan. Their human definitions specify meaningful presentation, indication of completeness, and expression for all-round resolution.

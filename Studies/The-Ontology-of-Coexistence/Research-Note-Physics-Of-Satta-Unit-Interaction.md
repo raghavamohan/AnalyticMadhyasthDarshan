@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** September 20, 2026, 9:48 AM IST
+**Edited on:** September 20, 2026, 2:19 PM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support drafting on *The Ontology of Coexistence* §1.2 and related studies.
 
@@ -278,7 +278,7 @@ For *jeevan*, this must be read alongside the distinction between inherent activ
 4. Applying magnetic force to an atom generates a charge within it, leading to disintegration of its components; this reveals that the disintegrating force — electromagnetic force — is external to the atom itself, interacting with and altering its natural state (SB, p. 128).
 5. Humans came to recognise the natural phenomenon of electricity through natural correlation, imaginativeness, and freedom of action, having already identified magnetic elements from prior events, which established the tradition of studying magnetism (SB, p. 128).
 
-**Our reading:** heat, magnetism, electricity, and weight are grouped together explicitly as one family — properties that "influence one another" through a "field of influence," and are explicitly *not* forms of motion or pressure in themselves (they are effects of the underlying excitation/pressure dynamics, not identical to them). Heat is given a specific reductive definition: heat = excitation (claim 2). Claim 4's critique of experimental particle physics is philosophical, not technical: it reads magnetic/electromagnetic manipulation of atoms as an *externally imposed* distortion, and contrasts this with the darshan's preferred method of studying wholes without destroying them (a recurring methodological theme — see also §6.4.2 of *The Ontology of Coexistence* on evidence standards).
+**Our reading:** heat, magnetism, electricity, and weight are grouped together explicitly as one family — properties that "influence one another" through a "field of influence." The passage distinguishes radiance and imaging, which it does not classify as motion or pressure, from these properties' mutual influence (SB, pp. 251–252). Heat is given a specific reductive definition: heat = excitation (claim 2). Claim 4's critique of experimental particle physics is philosophical, not technical: it reads magnetic/electromagnetic manipulation of atoms as an *externally imposed* distortion, and contrasts this with the darshan's preferred method of studying wholes without destroying them (a recurring methodological theme — see also §6.4.2 of *The Ontology of Coexistence* on evidence standards).
 
 **9.1 The Sun, excess heat, and the "law of complementariness."** Directly following the heat = excitation passage, SB gives its one worked cosmological-scale application of the excitation doctrine.
 
