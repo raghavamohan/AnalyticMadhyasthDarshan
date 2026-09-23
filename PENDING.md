@@ -29,6 +29,8 @@ When an item is finished, remove the row and add a one-line note under
 4. `R2-RIGHTS` (fourteen retained third-party PDFs).
 5. `TR-PILOT` (listen through the five-video transcription pilot).
 
+YouTube (`YT-01`) is planned and is not in this cycle.
+
 ## Website
 
 Design and evaluation matrix:
@@ -59,6 +61,23 @@ Recording (`AUD-03`) waits on `AUD-01` and `AUD-02`.
 | AUD-04 | P1 | pending | Audio registry, R2 delivery, and Start here Listen player. `Scripts/audio-pipeline.json` is not implemented. May proceed in parallel with `AUD-01`. |
 | AUD-03 | P1 | pending | Record the Human pilot, time it, and align the transcript. No recording exists yet. After `AUD-01` and `AUD-02`. |
 | AUD-05 | P2 | pending | Record the remaining four episodes after the pilot is accepted. |
+
+## YouTube
+
+How-to: [docs/youtube-channel-plan.md](docs/youtube-channel-plan.md).
+
+Weekly current-affairs series. Separate from Start here audio (`AUD-*`) and
+from catalog studies. `coexistentialism.org` is the public door; studies stay
+on analyticmadhyasthdarshan.org.
+
+`YT-02` waits on `YT-01`. `YT-03` stays deferred until at least four episodes
+are public.
+
+| ID | Pri | Status | Remaining need |
+| --- | --- | --- | --- |
+| YT-01 | P2 | pending | Create the YouTube channel: name, art, About, and website `https://coexistentialism.org`. Confirm the spoken language before recording. |
+| YT-02 | P2 | pending | Publish the first episode in the plan's format, with one primary study URL on analyticmadhyasthdarshan.org. After `YT-01`. |
+| YT-03 | P3 | deferred | Thin channel home on coexistentialism.org, and a light Watch link from the cited study. Start only after four published episodes. Do not clone the catalog or embed YouTube in study readers. |
 
 ## CI
 
