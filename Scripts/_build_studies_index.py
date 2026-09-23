@@ -517,21 +517,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     padding-bottom: 8px;
     border-bottom: 1px solid var(--border);
   }
-  .follow-updates {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    padding: 16px 18px 14px;
-    margin: 0 0 14px;
-  }
-  .follow-updates h3 { margin: 0 0 6px; font-size: 16px; }
-  .follow-updates p { margin: 0 0 8px; color: var(--text-muted); font-size: 14px; }
-  .follow-updates ol { margin: 0 0 10px; padding-left: 20px; }
-  .follow-updates li { margin: 4px 0; font-size: 14px; }
-  .follow-updates .follow-meta { color: var(--text-muted); }
-  .follow-feeds { font-size: 14px; font-weight: 600; }
-  .install-hint { font-size: 13px; }
   .toolbar {
     display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px 12px;
     background: var(--surface); border: 1px solid var(--border);
@@ -1910,14 +1895,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     <h2>Browse all studies</h2>
   </div>
 
-  <aside class="follow-updates" id="follow-updates" aria-labelledby="follow-updates-heading">
-    <h3 id="follow-updates-heading">Follow updates</h3>
-    <p>Newest published studies, then subscribe in a feed reader. Ongoing rows stay off this list.</p>
-    <ol id="follow-list"></ol>
-    <p class="follow-feeds"><a href="feed.json">JSON Feed</a> · <a href="atom.xml">Atom</a></p>
-    <p class="install-hint">On a phone, use the browser menu to Add to Home Screen. The icon opens this catalog.</p>
-  </aside>
-
   <div class="toolbar" role="search">
     <label class="search">
       <span class="sr-only">Search studies</span>
@@ -2781,28 +2758,9 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     applyHashStudyTarget();
   });
 
-  const renderFollow = () => {
-    const list = document.getElementById("follow-list");
-    if (!list) return;
-    const newest = STUDIES.filter(isAvail).slice().sort((a, b) => ts(b) - ts(a)).slice(0, 5);
-    list.replaceChildren();
-    for (const study of newest) {
-      const item = document.createElement("li");
-      const link = document.createElement("a");
-      link.href = studyHtmlHref(study);
-      link.textContent = study.t;
-      const meta = document.createElement("span");
-      meta.className = "follow-meta";
-      meta.textContent = study.updated ? " · " + updatedDate(study.updated) : "";
-      item.append(link, meta);
-      list.append(item);
-    }
-  };
-
   const bootCatalog = () => {
     updateHeroScope();
     renderCatalog();
-    renderFollow();
     syncStartHere(STUDIES);
   };
 
