@@ -1208,7 +1208,7 @@ use PowerShell syntax, never bash. The repo root path contains a space
 
 [PENDING.md](PENDING.md) at the repository root is the **only** project backlog.
 Agents and maintainers add, update, and close work items there, under the
-existing categories (Website, Audio, CI, API, Infrastructure, References,
+existing categories (Website, Audio, YouTube, CI, API, Infrastructure, References,
 Transcription, Theme, Studies). Do not start a second remaining-work table,
 follow-up register, or TODO checklist in a subdirectory plan, review note, or
 skill document.
