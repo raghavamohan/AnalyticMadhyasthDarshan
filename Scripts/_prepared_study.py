@@ -13,6 +13,7 @@ from pathlib import Path
 import re
 import subprocess
 import tempfile
+import time
 
 from _generated_artifacts import BASE, changed_paths, permits
 
@@ -85,6 +86,28 @@ def read_source_manifests(head: str, *, root: Path = BASE) -> dict:
     return manifests
 
 
+def wait_for_prepared_head(repo: str, number: int, head: str, branch: str, payload: dict) -> dict:
+    """Wait only for post-push API propagation, never a changed source or intent."""
+    from _bootstrap_ci import gh
+    from _verification_identity import intent_hash
+
+    deadline = time.monotonic() + 30
+    while True:
+        pr = gh('api', f'repos/{repo}/pulls/{number}')
+        if (pr.get('state') != 'open' or not pr.get('draft')
+                or pr['head']['repo']['full_name'] != repo or pr['head']['ref'] != branch
+                or pr['base']['repo']['full_name'] != repo or pr['base']['ref'] != 'master'
+                or pr['base']['sha'] != payload['base'] or intent_hash(pr) != payload['intent']):
+            raise ValueError('Prepared PR ownership, base or lifecycle intent changed after push.')
+        if pr['head']['sha'] == head:
+            return pr
+        if pr['head']['sha'] != payload['head']:
+            raise ValueError('Prepared source moved after push.')
+        if time.monotonic() >= deadline:
+            raise ValueError('GitHub did not report the prepared head before the propagation deadline.')
+        time.sleep(1)
+
+
 def accept(path: Path) -> None:
     from _bootstrap_ci import gh, command, status
     if path.stat().st_size > 140_000_000:
@@ -144,7 +167,7 @@ def accept(path: Path) -> None:
             git(BASE, 'worktree', 'remove', '--force', str(checkout))
     try:
         from _verification_identity import dispatch
-        dispatch(repo, gh('api', f'repos/{repo}/pulls/{number}'))
+        dispatch(repo, wait_for_prepared_head(repo, number, head, branch, payload))
     except Exception:
         status(repo, head, 'failure', 'Prepared-head verification could not be queued.')
         raise
