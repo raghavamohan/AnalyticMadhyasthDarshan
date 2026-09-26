@@ -3,6 +3,7 @@ import base64
 from contextlib import redirect_stdout
 import io
 import json
+import os
 import re
 from pathlib import Path
 import subprocess
@@ -167,6 +168,42 @@ class PreparationTests(unittest.TestCase):
                 output.assert_called_once_with('complete','true')
                 self.assertTrue(any('publish-site.yml' in call.args for call in command.call_args_list))
                 self.assertFalse(any('switch' in call.args for call in command.call_args_list))
+
+    def test_bootstrap_resumes_divergent_branch_without_runner_git_identity(self):
+        with tempfile.TemporaryDirectory() as directory:
+            folder = Path(directory)
+            remote, seed, root = folder/'remote.git', folder/'seed', folder/'runner'
+            config = folder/'empty.gitconfig'
+            config.write_bytes(b'')
+            with patch.dict(os.environ, {'GIT_CONFIG_NOSYSTEM':'1', 'GIT_CONFIG_GLOBAL':str(config)}):
+                def git(cwd, *args):
+                    return subprocess.check_output(['git', *args], cwd=cwd, stderr=subprocess.PIPE, text=True).strip()
+                git(folder, 'init', '--bare', str(remote))
+                git(folder, 'init', '-b', 'master', str(seed))
+                (seed/'Studies').mkdir()
+                (seed/'Studies/proposal-registry.json').write_bytes(b'{"proposals":[]}')
+                git(seed, 'add', '.')
+                def commit(message):
+                    git(seed, '-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.test', 'commit', '-m', message)
+                commit('base')
+                git(seed, 'remote', 'add', 'origin', str(remote))
+                branch = 'ci/bootstrap-proposal-5'
+                git(seed, 'switch', '-c', branch)
+                (seed/'proposal.txt').write_bytes(b'proposal')
+                git(seed, 'add', '.'); commit('proposal'); git(seed, 'push', 'origin', branch)
+                git(seed, 'switch', 'master')
+                (seed/'base-update.txt').write_bytes(b'new base')
+                git(seed, 'add', '.'); commit('base update'); git(seed, 'push', 'origin', 'master')
+                git(folder, 'clone', '--branch', 'master', str(remote), str(root))
+                with patch.object(bootstrap, 'BASE', root), patch.object(bootstrap, 'gh') as gh, patch.object(bootstrap, 'output'):
+                    gh.side_effect = [{'state':'open','labels':[{'name':'proposal-approved'}]},
+                                      {'can_approve_pull_request_reviews':True}, [{'state':'OPEN'}]]
+                    bootstrap.prepare('owner/repo', 5, branch)
+                self.assertTrue((root/'proposal.txt').is_file())
+                self.assertTrue((root/'base-update.txt').is_file())
+                self.assertEqual(len(git(root, 'show', '-s', '--format=%P', 'HEAD').split()), 2)
+                self.assertEqual(git(root, 'show', '-s', '--format=%cn|%ce', 'HEAD'),
+                                 'github-actions[bot]|41898282+github-actions[bot]@users.noreply.github.com')
 
     def test_disabled_pr_creation_fails_before_source_generation(self):
         with patch.object(bootstrap,'gh') as gh,patch.object(bootstrap,'command') as command:
