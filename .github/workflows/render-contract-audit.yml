@@ -23,6 +23,10 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup-study-env
+      - name: Install production renderer before observing Windows fonts
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./Scripts/_install_presentation_renderer.ps1 -Profile libreoffice-production -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
       - name: Record actual runtime and font inventory
         shell: bash
         run: python Scripts/_render_environment.py --record "$RUNNER_TEMP/render-environment.json"
