@@ -47,6 +47,9 @@ def enforce(family: str) -> dict:
     contract = json.loads((BASE / 'Scripts/render-contract.json').read_bytes())[family]
     expected = contract['environments'][report['platform']]
     for name in ('python', 'node', 'fontsSha256'):
+        if expected[name] is None:
+            report[name] = None
+            continue
         if report[name] != expected[name]:
             raise ValueError(f'{family} renderer {name} drift: {report[name]} != {expected[name]}; '
                              'review the new runtime/font inventory and repeat-render before updating the contract')

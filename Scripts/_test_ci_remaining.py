@@ -89,5 +89,44 @@ class RecoveryTests(unittest.TestCase):
         self.assertEqual(gh.call_count, 2)
 
 
+class RetentionTests(unittest.TestCase):
+    def test_only_old_unreachable_exact_backup_matches_are_candidates(self):
+        from _plan_r2_gc import plan
+        now = datetime.now(timezone.utc)
+        sha = 'a'*64
+        row = {'bucket': 'bucket', 'key': 'site/objects/' + sha, 'etag': 'etag', 'bytes': 4,
+               'last_modified': (now-timedelta(days=100)).isoformat()}
+        backup = {'objects': [{**row, 'sha256': sha}]}
+        result = plan([row], set(), backup, now)
+        self.assertEqual(len(result['candidates']), 1)
+        self.assertFalse(result['deletionAuthorized'])
+        for rows, protected, saved in [([row], {row['key']}, backup),
+                                        ([{**row, 'last_modified':now.isoformat()}], set(), backup),
+                                        ([row], set(), {'objects':[{**row, 'etag':'changed', 'sha256':sha}]}),
+                                        ([{**row, 'key':'References/source.pdf'}], set(), backup)]:
+            self.assertFalse(plan(rows, protected, saved, now)['candidates'])
+
+    def test_all_retained_releases_and_shared_asset_bindings_protect_blobs(self):
+        from _plan_r2_gc import reachable
+        sha = 'a'*64
+        record = {'key':'site/objects/'+sha, 'sha256':sha, 'bytes':4, 'archive':True}
+        release = {'schema':1,'revision':'b'*64,'files':{'/Studies/Retired/Retired.pdf':record}}
+        self.assertIn(record['key'], reachable({'site/releases/'+'b'*64+'.json':release}))
+        with self.assertRaises(ValueError):
+            reachable({'site/releases/'+'b'*64+'.json':{**release,'files':{'/../secret':record}}})
+
+
+class SummaryTests(unittest.TestCase):
+    def test_failed_jobs_do_not_turn_selection_into_completion(self):
+        from _publication_summary import summary
+        plan = {'nodes':{'A':{'family':'markdown'}},'build':['A'],'reuse':{},'sourceSha':'source'}
+        text = summary(plan, [{'kind':'worker','name':'amd-site','outcome':'audit failed; restored prior version'}],
+                       {'pdfs':{'result':'failure'}})
+        self.assertIn('1 selected for build', text)
+        self.assertIn('restored prior version', text)
+        self.assertIn('| pdfs | failure |', text)
+        self.assertIn('No staging receipt', text)
+
+
 if __name__ == '__main__':
     unittest.main()

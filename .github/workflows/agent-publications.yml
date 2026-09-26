@@ -113,6 +113,7 @@ jobs:
     env:
       AMD_REQUIRE_CANARY: '1'
       AMD_CANARY_RECEIPT: ${{ runner.temp }}/publication-canary.json
+      AMD_PUBLICATION_EVENTS: ${{ runner.temp }}/publication-events.jsonl
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -218,3 +219,7 @@ jobs:
             echo "Live publication verification attempt $attempt failed; waiting for edge propagation."
             sleep 10
           done
+
+      - name: Summarize observed Worker deployments
+        if: always() && github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        run: python Scripts/_publication_summary.py --events "$AMD_PUBLICATION_EVENTS" --output "$RUNNER_TEMP/publication-summary.md"

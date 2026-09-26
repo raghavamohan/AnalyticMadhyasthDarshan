@@ -42,15 +42,21 @@ def active_fingerprint(token: str, account: str, name: str) -> str | None:
 
 
 def deploy_source(token: str, account: str, name: str, source: str, metadata: dict, uploader) -> dict:
+    from _publication_summary import record
     if os.environ.get('AMD_REQUIRE_CANARY') == '1':
         from _canary_publications import require_receipt
         require_receipt(Path(os.environ['AMD_CANARY_RECEIPT']), name, source, metadata, account)
     key = digest({'schema': 1, 'source': source, 'metadata': metadata})
     if active_fingerprint(token, account, name) == key:
         print(f'{name}: executable and bindings are unchanged; deployment skipped.')
+        record('worker', name=name, outcome='unchanged', fingerprint=key)
         return {'result': {'skipped': True, 'fingerprint': key}}
     annotated = {**metadata, 'annotations': {**metadata.get('annotations', {}), 'workers/message': ANNOTATION + key}}
-    return uploader(f'{cf.API_BASE}/accounts/{account}/workers/scripts/{name}', token, 'index.js', source, annotated)
+    result = uploader(f'{cf.API_BASE}/accounts/{account}/workers/scripts/{name}', token, 'index.js', source, annotated)
+    if not result.get('success'):
+        raise ValueError('Worker upload did not succeed: ' + name)
+    record('worker', name=name, outcome='deployed', fingerprint=key)
+    return result
 
 
 def directory_fingerprint(directory: Path) -> str:
@@ -69,7 +75,7 @@ def directory_fingerprint(directory: Path) -> str:
         imports = re.findall(r'(?:from\s*|import\s*(?:\(\s*)?|require\s*\()\s*[\"\x27](\.[^\"\x27]+)[\"\x27]', source)
         pending.extend((path.parent / item).resolve() for item in imports)
     files['package-lock.json'] = hashlib.sha256((directory / 'package-lock.json').read_bytes()).hexdigest()
-    return digest({'schema': 1, 'node': '24', 'config': config, 'files': files})
+    return digest({'schema': 1, 'node': '24.21.0', 'config': config, 'files': files})
 
 
 def observability_settings(config: dict) -> dict | None:

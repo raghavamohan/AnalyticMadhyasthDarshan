@@ -120,6 +120,12 @@ def import_merged(plan_path: Path, output: Path) -> None:
     prs = recovery_prs(repo, plan['sourceSha'], gh) if plan['build'] else []
     candidates = []
     for pr in prs:
+        changed = subprocess.check_output(['git', 'diff', '--name-only', pr['merge_commit_sha'], plan['sourceSha']],
+                                          cwd=BASE, text=True).splitlines()
+        # A changed consumed source/toolchain cannot match the proof. This cheap
+        # prefilter avoids downloading old PDF bundles after a contract upgrade.
+        if all(set(changed).intersection(plan['nodes'][key]['inputs']) for key in plan['build']):
+            continue
         heads = {pr['head']['sha']}
         commit = gh('api', f"repos/{repo}/commits/{pr['head']['sha']}")
         for line in commit.get('commit', {}).get('message', '').splitlines():
