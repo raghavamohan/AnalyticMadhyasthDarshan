@@ -108,7 +108,8 @@ def document_fingerprint(spec: GeneratedPdfSpec) -> str:
 
 def build(specs: tuple[GeneratedPdfSpec, ...], output_root: Path, cache_root: Path | None = None) -> None:
     from _render_environment import enforce_ci, contract_fields, host_fields
-    environment = enforce_ci('markdown') if specs else None
+    environment = None
+    environment_checked = False
     from _artifact_graph import document_node
     proof_path = output_root / 'review-build-proof.json'
     prepared = json.loads(proof_path.read_bytes()).get('artifacts', {}) if proof_path.is_file() else {}
@@ -119,6 +120,11 @@ def build(specs: tuple[GeneratedPdfSpec, ...], output_root: Path, cache_root: Pa
         if prior.get('node') == document_node(spec.source) and target.is_file() and prior.get('sha256') == file_hash(target):
             print(f'Reused exact-input preparation PDF: {spec.key}', flush=True)
             continue
+        # Restored preparation bytes were already rendered by a verified producer.
+        # Only work requiring this host's renderer needs its runtime/font contract.
+        if not environment_checked:
+            environment = enforce_ci('markdown')
+            environment_checked = True
         fingerprint = document_fingerprint(spec) if cache_root else None
         cached = cache_root / f"{fingerprint}.pdf" if cache_root else None
         seal = cache_root / f"{fingerprint}.json" if cache_root else None
