@@ -7,6 +7,7 @@ import os
 import re
 from pathlib import Path
 import subprocess
+import sys
 import tempfile
 from types import SimpleNamespace
 import unittest
@@ -23,6 +24,26 @@ from _study_catalog import StudyStatus
 
 
 class PreparationTests(unittest.TestCase):
+    def test_trusted_writer_inspects_exact_source_without_site_packages(self):
+        root = Path(__file__).resolve().parents[1]
+        head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
+        script = '''
+import sys
+sys.path.insert(0, 'Scripts')
+from _prepared_study import read_source_manifests, validate
+from _verification_identity import intent_hash
+manifests = read_source_manifests(sys.argv[1])
+head = sys.argv[1]
+pr = {'number':1, 'state':'open', 'draft':True,
+      'head':{'sha':head, 'repo':{'full_name':'fixture/repo'}},
+      'base':{'ref':'master', 'sha':head}}
+payload = {'schema':1, 'pr':1, 'repository':'fixture/repo', 'head':head,
+           'base':head, 'intent':intent_hash(pr), 'files':{'Studies/index.html':'b3V0cHV0'}}
+assert validate(payload, pr, 'fixture/repo', source_manifests=manifests) == {'Studies/index.html':b'output'}
+assert 'pypdf' not in sys.modules
+'''
+        subprocess.run([sys.executable, '-S', '-c', script, head], cwd=root, check=True, capture_output=True)
+
     def test_live_api_audit_keeps_quota_checks_off_static_publication_files(self):
         import _test_studies_api as audit
         from unittest.mock import MagicMock
