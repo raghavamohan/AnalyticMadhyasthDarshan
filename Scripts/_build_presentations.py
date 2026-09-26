@@ -113,7 +113,7 @@ def main(argv: list[str] | None = None) -> int:
     if not specs:
         print('No presentation outputs selected.')
         return 0
-    from _render_environment import enforce_ci
+    from _render_environment import enforce_ci, contract_fields, host_fields
     environment = enforce_ci('presentations')
     profile = renderer_profile_for_engine(None, args.profile)
     destination_root = BASE if args.in_place else args.output_root.expanduser().resolve()
@@ -148,7 +148,7 @@ def main(argv: list[str] | None = None) -> int:
                     f"Presentation verification failed for {spec.id}:\n  - "
                     + "\n  - ".join(deck_errors)
                 )
-            records.append(artifact_record(spec, slides_pdf, notes_pdf))
+            records.append({**artifact_record(spec, slides_pdf, notes_pdf), "host": host_fields(environment)})
             print(f"Verified {spec.id} ({engine} {version})")
 
         copy_verified_tree(staging, destination_root, specs)
@@ -158,7 +158,7 @@ def main(argv: list[str] | None = None) -> int:
         "rendererProfile": profile.name,
         "rendererEngine": profile.engine,
         "rendererVersion": profile.version,
-        "environment": environment,
+        "environment": contract_fields(environment),
         "artifacts": records,
     }
     provenance_path = args.provenance

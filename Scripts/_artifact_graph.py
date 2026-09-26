@@ -31,7 +31,7 @@ PRINT_ROOTS = ('_study_pdf_pipeline.py',)
 PRINT_EXTRA = {
     'CNAME', 'requirements.txt', 'Scripts/package.json', 'Scripts/package-lock.json',
     'Scripts/_chrome.js', 'Scripts/_html_to_pdf.js', 'Scripts/_pdf_resource_policy.cjs',
-    'Scripts/_render_katex_math.js', 'Scripts/render-contract.json',
+    'Scripts/_render_katex_math.js', 'Scripts/render-contract.json', 'Scripts/_render_environment.py',
 }
 
 

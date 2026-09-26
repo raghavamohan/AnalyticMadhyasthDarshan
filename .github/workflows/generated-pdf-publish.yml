@@ -177,7 +177,6 @@ jobs:
     environment: github-pages
     env:
       PYTHONUNBUFFERED: '1'
-      AMD_PUBLICATION_EVENTS: ${{ runner.temp }}/publication-events.jsonl
       R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
       R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
       R2_REGION: ${{ vars.R2_REGION }}
@@ -187,6 +186,8 @@ jobs:
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
     steps:
+      - name: Initialize observed outcome path
+        run: echo "AMD_PUBLICATION_EVENTS=$RUNNER_TEMP/publication-events.jsonl" >> "$GITHUB_ENV"
       - uses: actions/checkout@v7
         with:
           ref: ${{ inputs.source_sha }}

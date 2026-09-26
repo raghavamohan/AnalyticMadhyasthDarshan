@@ -107,7 +107,7 @@ def document_fingerprint(spec: GeneratedPdfSpec) -> str:
 
 
 def build(specs: tuple[GeneratedPdfSpec, ...], output_root: Path, cache_root: Path | None = None) -> None:
-    from _render_environment import enforce_ci
+    from _render_environment import enforce_ci, contract_fields, host_fields
     environment = enforce_ci('markdown') if specs else None
     from _artifact_graph import document_node
     proof_path = output_root / 'review-build-proof.json'
@@ -140,6 +140,8 @@ def build(specs: tuple[GeneratedPdfSpec, ...], output_root: Path, cache_root: Pa
     verified = verify_artifacts(specs, output_root)
     manifest = {
         "schemaVersion": 1,
+        "environment": contract_fields(environment),
+        "host": host_fields(environment),
         "artifacts": [
             {
                 "key": artifact.spec.key,

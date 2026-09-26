@@ -112,9 +112,11 @@ jobs:
     runs-on: ubuntu-24.04
     env:
       AMD_REQUIRE_CANARY: '1'
-      AMD_CANARY_RECEIPT: ${{ runner.temp }}/publication-canary.json
-      AMD_PUBLICATION_EVENTS: ${{ runner.temp }}/publication-events.jsonl
     steps:
+      - name: Initialize audit and outcome paths
+        run: |
+          echo "AMD_CANARY_RECEIPT=$RUNNER_TEMP/publication-canary.json" >> "$GITHUB_ENV"
+          echo "AMD_PUBLICATION_EVENTS=$RUNNER_TEMP/publication-events.jsonl" >> "$GITHUB_ENV"
       - name: Checkout
         uses: actions/checkout@v7
 

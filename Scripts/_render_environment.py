@@ -62,6 +62,15 @@ def enforce_ci(family: str) -> dict | None:
     return None
 
 
+def contract_fields(report: dict | None) -> dict | None:
+    """Image labels are evidence, not rendering inputs when runtime/fonts match."""
+    return {name: report[name] for name in ('platform', 'machine', 'python', 'node', 'fontsSha256')} if report else None
+
+
+def host_fields(report: dict | None) -> dict | None:
+    return {name: report[name] for name in ('imageOS', 'imageVersion')} if report else None
+
+
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--record', type=Path, required=True)

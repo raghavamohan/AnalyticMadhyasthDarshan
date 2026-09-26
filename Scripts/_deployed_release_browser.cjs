@@ -36,7 +36,9 @@ const {resolveChromeExecutable,puppeteerLaunchOptions,assertPinnedChrome} = requ
           assert.equal(new URL(page.url()).searchParams.get('r'),command.savedRevision);
           // The shipped navigation helper keeps this open reader's links pinned.
           const hrefs=await page.$$eval('a[href]',nodes=>nodes.map(node=>node.href));
-          for(const href of hrefs.filter(href=>href.startsWith(base+'/Studies/') && href.endsWith('.html?r='+command.savedRevision))) {
+          const readerLinks=hrefs.filter(href=>href.startsWith(base+'/Studies/') && new URL(href).pathname.endsWith('.html'));
+          assert(readerLinks.some(href=>new URL(href).pathname==='/Studies/notebook.html'),'The open reader has its notebook link');
+          for(const href of readerLinks) {
             assert.equal(new URL(href).searchParams.get('r'),command.savedRevision);
           }
           await page.setOfflineMode(true);

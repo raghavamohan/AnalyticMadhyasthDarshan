@@ -117,6 +117,15 @@ class RetentionTests(unittest.TestCase):
 
 
 class SummaryTests(unittest.TestCase):
+    def test_runner_image_changes_do_not_change_contract_when_consumed_inputs_match(self):
+        from _render_environment import contract_fields, host_fields
+        first={'platform':'Windows','machine':'AMD64','python':'3.12.10','node':None,
+               'fontsSha256':'a'*64,'imageOS':'win25','imageVersion':'first'}
+        second={**first,'imageVersion':'second'}
+        self.assertEqual(contract_fields(first), contract_fields(second))
+        self.assertNotEqual(host_fields(first),host_fields(second))
+        self.assertNotEqual(contract_fields(first),contract_fields({**second,'fontsSha256':'b'*64}))
+
     def test_failed_jobs_do_not_turn_selection_into_completion(self):
         from _publication_summary import summary
         plan = {'nodes':{'A':{'family':'markdown'}},'build':['A'],'reuse':{},'sourceSha':'source'}
@@ -126,6 +135,14 @@ class SummaryTests(unittest.TestCase):
         self.assertIn('restored prior version', text)
         self.assertIn('| pdfs | failure |', text)
         self.assertIn('No staging receipt', text)
+
+    def test_removed_pages_retry_cannot_regain_publication_authority(self):
+        root=Path(__file__).resolve().parent.parent/'.github/workflows'
+        self.assertFalse((root/'pages-deploy-retry.yml').exists())
+        for file in root.glob('*.yml'):
+            source=file.read_text(encoding='utf-8')
+            self.assertNotIn('pages build and deployment', source)
+            self.assertNotIn('actions/deploy-pages', source)
 
 
 if __name__ == '__main__':

@@ -28,12 +28,16 @@ from _r2_s3 import R2S3Client, load_r2_config
 
 
 def run(output: Path, bucket_receipt: Path | None = None):
+    if (output / 'source').exists():
+        raise ValueError('Use a new isolated drill output directory')
     output.mkdir(parents=True, exist_ok=True)
+    os.environ['AMD_PUBLICATION_EVENTS']=str(output/'publication-events.jsonl')
     cf.load_repo_env()
     token = cf.cloudflare_api_token()
     from _publish_mcp_server_card import resolve_account_id
     account = resolve_account_id(token)
     subdomain = publisher._workers_subdomain(token, account)
+    configuration = load_r2_config()
     nonce = uuid.uuid4().hex[:16]
     worker, canary = 'amd-ci-drill-' + nonce, 'amd-ci-drill-canary-' + nonce
     if bucket_receipt:
@@ -44,15 +48,19 @@ def run(output: Path, bucket_receipt: Path | None = None):
     else:
         bucket = 'amd-ci-acceptance-' + nonce
         cf._api_request('POST', f'/accounts/{account}/r2/buckets', token, {'name': bucket})
-    client = R2S3Client(replace(load_r2_config(), bucket=bucket))
+    client = R2S3Client(replace(configuration, bucket=bucket))
+    tracked = subprocess.check_output(['git','status','--porcelain','--untracked-files=no'],cwd=BASE,text=True).strip()
+    from _build_inputs import file_hash
+    inputs=('Scripts/_deployed_release_drill.py','Scripts/_deployed_release_browser.cjs',
+            'Scripts/_publish_site_release.py','Scripts/_site_release.py','infra/site-worker/src/index.js',
+            'infra/site-worker/withdrawals.json','reader-sw.js','Assets/reader/offline-policy.js')
     report = {'schema': 1, 'sourceSha': subprocess.check_output(['git','rev-parse','HEAD'],cwd=BASE,text=True).strip(),
+              'dirty':bool(tracked), 'inputs':{name:file_hash(BASE/name) for name in inputs},
               'environment': 'isolated deployed Cloudflare Worker and R2 bucket', 'worker': worker, 'bucket': bucket,
               'productionMutations': 0, 'externalLifecycle': 'not exercised: approved GitHub proposal/submission matrix is separate',
               'checks': [], 'cleanup': 'pending'}
     root = output / 'source'
-    root.mkdir()
     study = root / 'Studies/CI-Acceptance/CI-Acceptance.md'
-    study.parent.mkdir(parents=True)
     browser = None
     def git(*args):
         return subprocess.check_output(['git','-c','user.name=CI fixture','-c','user.email=fixture@example.test',*args],cwd=root,text=True).strip()
@@ -62,6 +70,7 @@ def run(output: Path, bucket_receipt: Path | None = None):
         file.write_bytes(body.encode() if isinstance(body, str) else body)
     def check(name, **fields):
         report['checks'].append({'name': name, 'passed': True, **fields})
+        (output/'acceptance.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
         print(name + ': passed', flush=True)
     def browser_action(value):
         browser.stdin.write(json.dumps(value)+'\n'); browser.stdin.flush()
@@ -75,6 +84,8 @@ def run(output: Path, bucket_receipt: Path | None = None):
                     raise ValueError('Deployed browser check failed: ' + str(result))
                 return result
     try:
+        (output/'acceptance.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')
+        study.parent.mkdir(parents=True)
         git('init', '-b', 'master')
         write('Scripts/_cloudflare_performance.py',(BASE/'Scripts/_cloudflare_performance.py').read_bytes())
         write('infra/site-worker/withdrawals.json',(BASE/'infra/site-worker/withdrawals.json').read_bytes())
@@ -86,7 +97,8 @@ def run(output: Path, bucket_receipt: Path | None = None):
         from _build_reader_offline import notebook_html
         write('Studies/notebook.html', notebook_html())
         write('index.html', '<!doctype html><html><body><h1>Isolated CI publication acceptance</h1><a href="/Studies/CI-Acceptance/CI-Acceptance.html">Reader</a></body></html>')
-        stamp = subprocess.check_output(['powershell.exe','-NoProfile','-Command','Get-Date -Format "MMMM d, yyyy, h:mm tt"'],text=True).strip()+' IST' if sys.platform=='win32' else datetime.now(timezone.utc).strftime('%B %d, %Y, %I:%M %p UTC')
+        from zoneinfo import ZoneInfo
+        stamp=datetime.now(ZoneInfo('Asia/Kolkata')).strftime('%B %d, %Y, %I:%M %p IST')
         versions, releases = {}, {}
         with ExitStack() as stack:
             stack.enter_context(patch.object(publisher, 'WORKER', worker))
@@ -109,7 +121,9 @@ def run(output: Path, bucket_receipt: Path | None = None):
                     _regenerate_pdf(study, StudyStatus.DRAFT if phase=='draft' else StudyStatus.RELEASED, study.with_suffix('.html'), False)
                     specs = (inventory.GeneratedPdfSpec('Studies/CI-Acceptance/CI-Acceptance.pdf',study,study.with_suffix('.pdf'),'markdown'),)
                     resources = []
-                    files = [study.with_suffix('.html'),root/'Studies/notebook.html'] + [p for p in (root/'Assets').rglob('*') if p.is_file() and p.suffix in ('.js','.css','.woff2','.svg','.png','.ico')]
+                    from _build_reader_offline import allowed_resource
+                    document='/Studies/CI-Acceptance/CI-Acceptance.html'
+                    files = [study.with_suffix('.html'),root/'Studies/notebook.html'] + [p for p in (root/'Assets').rglob('*') if p.is_file() and allowed_resource('/'+p.relative_to(root).as_posix(),document)]
                     for file in files:
                         resources.append({'url':'/'+file.relative_to(root).as_posix(),'sha256':release.digest(file.read_bytes()),'bytes':file.stat().st_size})
                     write('Studies/offline-manifest.json',json.dumps({'schema':1,'documents':[{'path':'/Studies/CI-Acceptance/CI-Acceptance.html','title':'CI acceptance',
@@ -138,9 +152,9 @@ def run(output: Path, bucket_receipt: Path | None = None):
                     check('open reader through deployment and disconnection', **browser_action({'action':'after','savedRevision':releases['draft']}))
                 if phase=='retired':
                     from urllib.error import HTTPError
-                    from urllib.request import urlopen
+                    from urllib.request import Request, urlopen
                     try:
-                        urlopen(base+'/Studies/CI-Acceptance/CI-Acceptance.html',timeout=30)
+                        urlopen(Request(base+'/Studies/CI-Acceptance/CI-Acceptance.html',headers={'User-Agent':publisher.AUDIT_USER_AGENT}),timeout=30)
                     except HTTPError as error:
                         if error.code != 404: raise
                     else:
@@ -151,6 +165,49 @@ def run(output: Path, bucket_receipt: Path | None = None):
                     publisher.activate_version(token,account,versions['retired'])
                     publisher.audit(base,bundle,manifest)
                     check('forward recovery promotion',revision=revision)
+            retired_manifest = manifest
+            def candidate(name):
+                write('index.html','<!doctype html><html><body><h1>CI acceptance '+name+'</h1></body></html>')
+                git('add','.');git('commit','-m','Fixture '+name)
+                sha=git('rev-parse','HEAD')
+                files={'/'+p.relative_to(root).as_posix():p for p in root.rglob('*') if p.is_file()
+                       and '.git' not in p.parts and not p.is_relative_to(root/'Scripts')
+                       and not p.is_relative_to(root/'infra') and not p.is_relative_to(study.parent)}
+                with patch.object(inventory,'generated_pdf_specs',return_value=()), patch.object(release,'static_sources',return_value=files):
+                    folder=output/name
+                    receipt=release.build(folder,None,root=root,source_sha=sha)
+                return folder,receipt
+            failed, failed_manifest=candidate('failed-audit')
+            injected=output/'failed-worker.js'
+            source=publisher.SOURCE.read_text(encoding='utf-8')
+            injection=f"if (url.hostname === {json.dumps(worker+'.'+subdomain+'.workers.dev')} && current.sourceSha === {json.dumps(failed_manifest['sourceSha'])} && url.pathname === '/index.html') return fail(503,'Deliberate isolated audit failure');"
+            injected.write_text(source.replace('const url=new URL(request.url);','const url=new URL(request.url);\n  '+injection,1),encoding='utf-8',newline='\n')
+            with patch.object(publisher,'SOURCE',injected), patch.object(inventory,'generated_pdf_specs',return_value=()):
+                try: publisher.publish(failed,promote=True)
+                except Exception as error:
+                    if getattr(error,'code',None) != 503: raise
+                    events=[json.loads(line) for line in (output/'publication-events.jsonl').read_text(encoding='utf-8').splitlines()]
+                    if not any(event.get('outcome')=='audit failed; restored prior version' for event in events):
+                        raise ValueError('Failure was not a production audit with verified recovery') from error
+                    publisher.audit_publication_marker(base,retired_manifest)
+                else: raise ValueError('Deliberate production-audit failure did not stop promotion')
+            check('failed deployed audit restores previous complete version',revision=retired_manifest['revision'])
+            superseded, superseded_manifest=candidate('superseded')
+            actual_audit=publisher.audit
+            def competing_recovery(endpoint,*args,**kwargs):
+                actual_audit(endpoint,*args,**kwargs)
+                if endpoint.startswith('https://'+canary+'.'):
+                    publisher.activate_version(token,account,versions['released'])
+                    publisher.audit_publication_marker(base,json.loads((output/'released/release.json').read_bytes()))
+            with patch.object(publisher,'audit',side_effect=competing_recovery), patch.object(inventory,'generated_pdf_specs',return_value=()):
+                try: publisher.publish(superseded,promote=True)
+                except ValueError as error:
+                    if 'moved during staging' not in str(error): raise
+                else: raise ValueError('Superseded candidate changed the active deployment')
+            publisher.audit_publication_marker(base,json.loads((output/'released/release.json').read_bytes()))
+            check('superseded candidate cannot overwrite concurrent recovery')
+            publisher.activate_version(token,account,versions['retired'])
+            actual_audit(base,output/'retired',retired_manifest)
         report['passed'] = True
     finally:
         if browser:
