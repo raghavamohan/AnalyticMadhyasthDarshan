@@ -2,6 +2,8 @@
 from __future__ import annotations
 
 import sys
+import json
+import tempfile
 from pathlib import Path
 
 SCRIPTS = Path(__file__).resolve().parent
@@ -20,6 +22,7 @@ from _theme_icons import (
     wait_inner_html,
     wait_mark_html,
 )
+from _study_visuals import sync_study_visuals, rename_study_visual
 
 
 def test_study_visuals_cover_the_catalog() -> None:
@@ -29,6 +32,31 @@ def test_study_visuals_cover_the_catalog() -> None:
     assert mapped["Why-Humans-Are-Not-Just-Material"] == "jeevan"
     assert mapped["How-Undivided-Society-Is-Established"] == "akhand-samaj"
     assert set(mapped) == set(load_study_visuals())
+
+
+def test_lifecycle_visuals_preserve_curated_marks_and_clean_retired_slugs() -> None:
+    with tempfile.TemporaryDirectory() as temp:
+        root = Path(temp)
+        path = root / "Assets/Theme/study-visuals.json"
+        path.parent.mkdir(parents=True)
+        original = {"note": "curated", "studies": [
+            {"slug": "Existing", "title": "Existing", "icon": "jeevan", "theme": "jeevan", "illustration": "inner-life.svg"},
+            {"slug": "Retired", "icon": "time"}]}
+        path.write_bytes(json.dumps(original).encode())
+        rows = [{"slug": "Existing", "title": "Existing"}, {"slug": "Planned", "title": "New proposal"}]
+        sync_study_visuals(rows, root=root)
+        data = json.loads(path.read_bytes())
+        assert data["note"] == "curated"
+        assert data["studies"][0] == original["studies"][0]
+        assert [row["slug"] for row in data["studies"]] == ["Existing", "Planned"]
+        assert data["studies"][1]["icon"] == "learning"
+        before = path.read_bytes()
+        sync_study_visuals(rows, root=root)
+        assert path.read_bytes() == before
+        rename_study_visual("Existing", "Renamed", root=root)
+        sync_study_visuals([{"slug": "Renamed", "title": "Renamed"}, rows[1]], root=root)
+        assert json.loads(path.read_bytes())["studies"][0]["icon"] == "jeevan"
+        assert b"\r\n" not in path.read_bytes()
 
 
 def test_ui_icons_use_the_theme_sprite() -> None:
@@ -98,6 +126,7 @@ def test_shared_chrome_includes_theme_toggle() -> None:
 def main() -> int:
     tests = [
         test_study_visuals_cover_the_catalog,
+        test_lifecycle_visuals_preserve_curated_marks_and_clean_retired_slugs,
         test_ui_icons_use_the_theme_sprite,
         test_topic_icons_follow_page_theme_variables,
         test_waiters_keep_identity_motion_hooks,
