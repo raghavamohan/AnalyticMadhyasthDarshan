@@ -4,10 +4,13 @@ from __future__ import annotations
 
 import tempfile
 import unittest
+import hashlib
+import json
 from datetime import datetime
 from fnmatch import fnmatchcase
 from pathlib import Path
 from unittest.mock import patch
+from types import SimpleNamespace
 
 import _generated_pdf_inventory as generated_inventory
 from _bootstrap_proposal_study import ProposalFields, build_proposal_stub_markdown
@@ -28,6 +31,47 @@ class GeneratedPdfBuildSelectionTests(unittest.TestCase):
         rel = repo_relative(source)
         selected = select_specs((rel,), self.specs, base='HEAD')
         self.assertEqual([spec.source for spec in selected], [source])
+
+    def test_prepared_pdf_reuse_does_not_require_unused_renderer(self) -> None:
+        import _build_markdown_pdfs as builder
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            spec = SimpleNamespace(key='Studies/A/A.pdf', source=root/'A.md')
+            target = root/spec.key
+            target.parent.mkdir(parents=True)
+            target.write_bytes(b'verified preparation PDF')
+            node = {'fingerprint':'exact inputs'}
+            record = {'node':node, 'sha256':hashlib.sha256(target.read_bytes()).hexdigest()}
+            proof = root/'review-build-proof.json'
+            proof.write_text(json.dumps({'artifacts':{spec.key:record}}), encoding='utf-8')
+            with patch('_artifact_graph.document_node', return_value=node), \
+                 patch('_render_environment.enforce_ci', side_effect=ValueError('unused host drift')) as enforce, \
+                 patch.object(builder, 'regenerate_pdf') as render, \
+                 patch.object(builder, 'verify_artifacts', return_value=[]) as verify:
+                builder.build((spec,), root)
+                enforce.assert_not_called()
+                render.assert_not_called()
+                verify.assert_called_once_with((spec,), root)
+            provenance = json.loads((root/'markdown-build-provenance.json').read_bytes())
+            self.assertIsNone(provenance['environment'])
+            self.assertIsNone(provenance['host'])
+            for mismatch in ('source', 'checksum', 'missing'):
+                with self.subTest(mismatch=mismatch):
+                    changed = dict(record)
+                    if mismatch == 'source':
+                        changed['node'] = {'fingerprint':'stale inputs'}
+                    elif mismatch == 'checksum':
+                        changed['sha256'] = '0'*64
+                    else:
+                        target.unlink()
+                    proof.write_text(json.dumps({'artifacts':{spec.key:changed}}), encoding='utf-8')
+                    with patch('_artifact_graph.document_node', return_value=node), \
+                         patch('_render_environment.enforce_ci', side_effect=ValueError('renderer drift')) as enforce, \
+                         patch.object(builder, 'regenerate_pdf') as render:
+                        with self.assertRaisesRegex(ValueError, 'renderer drift'):
+                            builder.build((spec,), root)
+                        enforce.assert_called_once_with('markdown')
+                        render.assert_not_called()
 
     def test_study_figure_selects_markdown_outputs_in_that_directory(self) -> None:
         directory = "Studies/The-Ontology-of-Coexistence/"
