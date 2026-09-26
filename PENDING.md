@@ -11,6 +11,8 @@ Editorial follow-ups added on 26 September 2026 from the
 [studies readability review](docs/studies-readability-review-2026-09-26.md);
 this was not a new audit of the other categories.
 
+CI R1–R8 completed on 27 September 2026 after the public and isolated deployed acceptance exercises.
+
 Status: **pending** (not started), **partial** (started, unfinished),
 **later** (needed, not this cycle), **deferred** (do not start unless a stated
 gate is met).
@@ -29,9 +31,8 @@ When an item is finished, remove the row and add a one-line note under
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
 2. Website next: `AUTH-01` Phase 0 (isolated staging), followed by its four product/cutover phases; coordinate recovery acceptance with `UX-05`. `UX-04`/`UX-06` remain later and `DIS-01` remains outside this cycle.
-3. CI `R2` (public lifecycle acceptance).
-4. `R2-RIGHTS` (fourteen retained third-party PDFs).
-5. `TR-PILOT` (listen through the five-video transcription pilot).
+3. `R2-RIGHTS` (fourteen retained third-party PDFs).
+4. `TR-PILOT` (listen through the five-video transcription pilot).
 
 YouTube (`YT-01`) is planned and is not in this cycle.
 
@@ -89,9 +90,8 @@ are public.
 How-to: [.github/CI-IMPLEMENTATION.md](.github/CI-IMPLEMENTATION.md).
 Operating contract: [.github/CI.md](.github/CI.md).
 
-| ID | Pri | Status | Remaining need |
-| --- | --- | --- | --- |
-| R2 | P1 | partial | Complete public authenticated proposal → Planned → first draft → revision → release → retire acceptance after #517 is merged and published; record fixture issue/PRs, catalog/API/HTML/PDF/dashboard and older-dashboard Live navigation. Six local portal browser scenarios and all 11 real deployed offline/recovery checks pass, with test-resource cleanup complete. Public dashboard sign-in is required. See [.github/STUDY-LIFECYCLE.md](.github/STUDY-LIFECYCLE.md#deployed-recovery-and-offline-drill). |
+No pending CI workitems. R1–R8 completion and its public/deployed acceptance
+receipts are recorded in the implementation document above.
 
 ## API
 
@@ -208,7 +208,7 @@ here order, not proposal-number order.
 
 ## Done in the same registers (do not reopen)
 
-- CI `R1`, `R3`–`R8` and `PPTX-DIAG-01`: implemented in [PR #517](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517), with live same-zone canaries, strict repeat-render evidence, verified hosted font contracts, publication summaries, obsolete Pages authority removed, conservative retention/withdrawal policy and read-only GC planning, and bounded trusted historical artifact recovery (26 September 2026). Public R2 integration remains listed above; see [.github/CI-IMPLEMENTATION.md](.github/CI-IMPLEMENTATION.md#r1r8-implementation-in-517) for evidence and limits.
+- CI `R1`–`R8` and `PPTX-DIAG-01`: completed through [PR #517](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517) and its tested lifecycle repairs, with all five public phases, older-dashboard Live navigation, six retained-history reads, 11 isolated deployed offline/recovery checks, same-zone canaries, strict PDF repeat renders, font contracts, summaries, retention policy and trusted recovery verified; fixture #518 retired and closed (27 September 2026). See [.github/CI-IMPLEMENTATION.md](.github/CI-IMPLEMENTATION.md#public-lifecycle-acceptance-26-27-september).
 
 - `ST-ONT-02`: implemented the [Section 1 teaching-order and Editorial Notes review](docs/ontology-review-2026-09-20.md), including source-qualified prose changes, consolidated notes, section-reference repairs across related studies, substantive harmonisation of both teaching decks and the presenter's scripts, and rebuilt artifacts (20 September 2026).
 

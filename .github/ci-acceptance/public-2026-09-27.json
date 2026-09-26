@@ -1,0 +1,599 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-09-26T19:43:23.145435+00:00",
+  "passed": true,
+  "site": "https://analyticmadhyasthdarshan.org",
+  "slug": "CI-Pipeline-Acceptance-September-2026",
+  "proposal": {
+    "number": 518,
+    "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/518",
+    "state": "closed",
+    "closedAt": "2026-09-26T19:37:55Z"
+  },
+  "coreImplementation": {
+    "number": 517,
+    "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517",
+    "headSha": "ae82fdcf123fbe148d651101dde7d1f0f7d7b4dc",
+    "sourceSha": "1725280e8cc055a62a32d3e4ca4b6b879490ae8c",
+    "mergedAt": "2026-09-26T17:11:01Z",
+    "verification": {
+      "id": 36257601659,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36257601659",
+      "sourceSha": "ae82fdcf123fbe148d651101dde7d1f0f7d7b4dc",
+      "event": "pull_request",
+      "conclusion": "success"
+    },
+    "publication": {
+      "id": 36258110582,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36258110582",
+      "sourceSha": "1725280e8cc055a62a32d3e4ca4b6b879490ae8c",
+      "event": "push",
+      "conclusion": "success"
+    },
+    "agentWorkers": {
+      "id": 36258110356,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36258110356",
+      "sourceSha": "1725280e8cc055a62a32d3e4ca4b6b879490ae8c",
+      "event": "push",
+      "conclusion": "success"
+    },
+    "submissionWorkers": {
+      "id": 36258110352,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36258110352",
+      "sourceSha": "1725280e8cc055a62a32d3e4ca4b6b879490ae8c",
+      "event": "push",
+      "conclusion": "success"
+    }
+  },
+  "phases": [
+    {
+      "phase": "planned",
+      "checkedAt": "2026-09-26T17:43:36.279889+00:00",
+      "sourceSha": "da8b3a0a65deecd044edc953eca5bbc31ae971cc",
+      "revision": "d33bd040ff3400469c128c2b304da48ca11d0c4c90f548af5e634aee819b8fc0",
+      "buildReceiptKey": "site/builds/0d250b45f6f9287d5bca44b449ca4911fd4f76023de0dfc7fc62ad4467b9b78c.json",
+      "catalogRow": {
+        "slug": "CI-Pipeline-Acceptance-September-2026",
+        "title": "CI Pipeline Acceptance September 2026",
+        "category": "Other",
+        "categories": [
+          "Other"
+        ],
+        "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
+        "status": "ongoing",
+        "collection": "topical"
+      },
+      "apiRow": {
+        "slug": "CI-Pipeline-Acceptance-September-2026",
+        "title": "CI Pipeline Acceptance September 2026",
+        "collection": "topical",
+        "status": "ongoing",
+        "category": "Other",
+        "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
+        "updated": null,
+        "htmlUrl": null,
+        "pdfUrl": null,
+        "mdUrl": null
+      },
+      "files": {
+        "html": {
+          "status": 404,
+          "bytes": 13,
+          "sha256": "c652001687f159239efc391b65f949221c5032c8f648e7326c3992fe2f73e976"
+        },
+        "pdf": {
+          "status": 404,
+          "bytes": 13,
+          "sha256": "c652001687f159239efc391b65f949221c5032c8f648e7326c3992fe2f73e976"
+        }
+      },
+      "passed": true,
+      "pullRequest": {
+        "number": 519,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/519",
+        "headSha": "6398c37e4ad053aa66f1c7946ac3850fb510cfec",
+        "sourceSha": "da8b3a0a65deecd044edc953eca5bbc31ae971cc",
+        "mergedAt": "2026-09-26T17:38:54Z"
+      },
+      "verification": {
+        "id": 36259647164,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36259647164",
+        "sourceSha": "6398c37e4ad053aa66f1c7946ac3850fb510cfec",
+        "event": "workflow_dispatch",
+        "conclusion": "success"
+      },
+      "publication": {
+        "id": 36259772359,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36259772359",
+        "sourceSha": "da8b3a0a65deecd044edc953eca5bbc31ae971cc",
+        "event": "workflow_dispatch",
+        "conclusion": "success"
+      }
+    },
+    {
+      "phase": "draft",
+      "checkedAt": "2026-09-26T18:58:27.759464+00:00",
+      "sourceSha": "3aa1572362099a08ef41bc83c52cda4277427804",
+      "revision": "991100793b9955dff7df18bded2adaeb0daa8337f069ff0612fc4e6971694b14",
+      "buildReceiptKey": "site/builds/547013d151c19d941db8647061c5d0265fc208cc2653a5a5035a3b421a628856.json",
+      "catalogRow": {
+        "slug": "CI-Pipeline-Acceptance-September-2026",
+        "title": "CI Pipeline Acceptance September 2026",
+        "category": "Other",
+        "categories": [
+          "Other"
+        ],
+        "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
+        "status": "draft",
+        "updated": "Sep 26, 2026, 11:15 PM IST",
+        "pdf": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.pdf",
+        "html": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html",
+        "md": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.md",
+        "discussion": "CI-Pipeline-Acceptance-September-2026/discussion.html",
+        "collection": "topical"
+      },
+      "apiRow": {
+        "slug": "CI-Pipeline-Acceptance-September-2026",
+        "title": "CI Pipeline Acceptance September 2026",
+        "collection": "topical",
+        "status": "draft",
+        "category": "Other",
+        "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
+        "updated": "Sep 26, 2026, 11:15 PM IST",
+        "htmlUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=991100793b9955dff7df18bded2adaeb0daa8337f069ff0612fc4e6971694b14",
+        "pdfUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.pdf?r=991100793b9955dff7df18bded2adaeb0daa8337f069ff0612fc4e6971694b14",
+        "mdUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.md?r=991100793b9955dff7df18bded2adaeb0daa8337f069ff0612fc4e6971694b14"
+      },
+      "files": {
+        "html": {
+          "status": 200,
+          "bytes": 62997,
+          "sha256": "286608f24442571d27f996e83bb13e8d4816662857ea621341a20387bef99d1f",
+          "url": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=991100793b9955dff7df18bded2adaeb0daa8337f069ff0612fc4e6971694b14",
+          "manifestSha256": "286608f24442571d27f996e83bb13e8d4816662857ea621341a20387bef99d1f"
+        },
+        "pdf": {
+          "status": 206,
+          "bytes": 36768,
+          "sha256": "e767938135d33fcf249f939ea27d43a2a5a37e4a50f706eaab95b492c086276e",
+          "contentRange": "bytes 0-36767/36768",
+          "draftWatermark": true,
+          "manifestSha256": "e767938135d33fcf249f939ea27d43a2a5a37e4a50f706eaab95b492c086276e"
+        }
+      },
+      "passed": true,
+      "sourceSha256": "9261d39ff22cb0cc9f666fd5d6b034da0a394527c425e90d689d46ec946b367b",
+      "pullRequest": {
+        "number": 522,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/522",
+        "headSha": "707a37c63184d1fbd4b710539e239fcaacc2bfbb",
+        "sourceSha": "3aa1572362099a08ef41bc83c52cda4277427804",
+        "mergedAt": "2026-09-26T18:52:35Z"
+      },
+      "verification": {
+        "id": 36263894818,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36263894818",
+        "sourceSha": "707a37c63184d1fbd4b710539e239fcaacc2bfbb",
+        "event": "workflow_dispatch",
+        "conclusion": "success"
+      },
+      "publication": {
+        "id": 36264084604,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36264084604",
+        "sourceSha": "3aa1572362099a08ef41bc83c52cda4277427804",
+        "event": "push",
+        "conclusion": "success"
+      }
+    },
+    {
+      "phase": "revision",
+      "checkedAt": "2026-09-26T19:10:12.369613+00:00",
+      "sourceSha": "c2de0d723deaf092c888daef42976b9c2ee33ad8",
+      "revision": "f402afcc937be2d8950c9c69242d9cdeeb78635dc496ca53618a151e3a3c3fc5",
+      "buildReceiptKey": "site/builds/e7883c03b9653306ad758099905470c6a96c2f4af8f6baacf96e2597997d84f7.json",
+      "catalogRow": {
+        "slug": "CI-Pipeline-Acceptance-September-2026",
+        "title": "CI Pipeline Acceptance September 2026",
+        "category": "Other",
+        "categories": [
+          "Other"
+        ],
+        "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
+        "status": "draft",
+        "updated": "Sep 27, 2026, 12:29 AM IST",
+        "pdf": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.pdf",
+        "html": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html",
+        "md": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.md",
+        "discussion": "CI-Pipeline-Acceptance-September-2026/discussion.html",
+        "collection": "topical"
+      },
+      "apiRow": {
+        "slug": "CI-Pipeline-Acceptance-September-2026",
+        "title": "CI Pipeline Acceptance September 2026",
+        "collection": "topical",
+        "status": "draft",
+        "category": "Other",
+        "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
+        "updated": "Sep 27, 2026, 12:29 AM IST",
+        "htmlUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=f402afcc937be2d8950c9c69242d9cdeeb78635dc496ca53618a151e3a3c3fc5",
+        "pdfUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.pdf?r=f402afcc937be2d8950c9c69242d9cdeeb78635dc496ca53618a151e3a3c3fc5",
+        "mdUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.md?r=f402afcc937be2d8950c9c69242d9cdeeb78635dc496ca53618a151e3a3c3fc5"
+      },
+      "files": {
+        "html": {
+          "status": 200,
+          "bytes": 63301,
+          "sha256": "a52b8e5755a5e00e494b4cdddcd11a9b639c900b7b53a89a50bb2133c662eb9a",
+          "url": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=f402afcc937be2d8950c9c69242d9cdeeb78635dc496ca53618a151e3a3c3fc5",
+          "manifestSha256": "a52b8e5755a5e00e494b4cdddcd11a9b639c900b7b53a89a50bb2133c662eb9a"
+        },
+        "pdf": {
+          "status": 206,
+          "bytes": 38369,
+          "sha256": "4f6a9b6c5dca853153118aeab824ef7c4d97bf4eca3819f4a78afdd5317848ed",
+          "contentRange": "bytes 0-38368/38369",
+          "draftWatermark": true,
+          "manifestSha256": "4f6a9b6c5dca853153118aeab824ef7c4d97bf4eca3819f4a78afdd5317848ed"
+        }
+      },
+      "passed": true,
+      "sourceSha256": "3ad48ac7e8a5a6d111b07494cc868592898865c84af5828bc2a6d0638be9a7fb",
+      "pullRequest": {
+        "number": 528,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/528",
+        "headSha": "a8c558012272296ccd2962ca27ac31c6f66dd669",
+        "sourceSha": "c2de0d723deaf092c888daef42976b9c2ee33ad8",
+        "mergedAt": "2026-09-26T19:05:55Z"
+      },
+      "verification": {
+        "id": 36264635086,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36264635086",
+        "sourceSha": "a8c558012272296ccd2962ca27ac31c6f66dd669",
+        "event": "workflow_dispatch",
+        "conclusion": "success"
+      },
+      "publication": {
+        "id": 36264856716,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36264856716",
+        "sourceSha": "c2de0d723deaf092c888daef42976b9c2ee33ad8",
+        "event": "push",
+        "conclusion": "success"
+      }
+    },
+    {
+      "phase": "released",
+      "checkedAt": "2026-09-26T19:22:09.010492+00:00",
+      "sourceSha": "4ad46d2df6f3a77dc3d0b666a2b53ed0a598c2f9",
+      "revision": "4097f8276cf1ce93e9456b2fb8d3a8cc38d8a036c49c487018e0956c9b913b4a",
+      "buildReceiptKey": "site/builds/d9abb8d50cf02ae5fa726b9462d60fe189b21db06a27e9b4b37c2eb9c1e88085.json",
+      "catalogRow": {
+        "slug": "CI-Pipeline-Acceptance-September-2026",
+        "title": "CI Pipeline Acceptance September 2026",
+        "category": "Other",
+        "categories": [
+          "Other"
+        ],
+        "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
+        "status": "released",
+        "updated": "Sep 27, 2026, 12:42 AM IST",
+        "pdf": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.pdf",
+        "html": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html",
+        "md": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.md",
+        "discussion": "CI-Pipeline-Acceptance-September-2026/discussion.html",
+        "collection": "topical"
+      },
+      "apiRow": {
+        "slug": "CI-Pipeline-Acceptance-September-2026",
+        "title": "CI Pipeline Acceptance September 2026",
+        "collection": "topical",
+        "status": "released",
+        "category": "Other",
+        "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
+        "updated": "Sep 27, 2026, 12:42 AM IST",
+        "htmlUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=4097f8276cf1ce93e9456b2fb8d3a8cc38d8a036c49c487018e0956c9b913b4a",
+        "pdfUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.pdf?r=4097f8276cf1ce93e9456b2fb8d3a8cc38d8a036c49c487018e0956c9b913b4a",
+        "mdUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.md?r=4097f8276cf1ce93e9456b2fb8d3a8cc38d8a036c49c487018e0956c9b913b4a"
+      },
+      "files": {
+        "html": {
+          "status": 200,
+          "bytes": 63304,
+          "sha256": "8fa01a4d2c95287e9e35dc2f48ce9cc25b0c3c0174509a9a1b503c525a3fc050",
+          "url": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=4097f8276cf1ce93e9456b2fb8d3a8cc38d8a036c49c487018e0956c9b913b4a",
+          "manifestSha256": "8fa01a4d2c95287e9e35dc2f48ce9cc25b0c3c0174509a9a1b503c525a3fc050"
+        },
+        "pdf": {
+          "status": 206,
+          "bytes": 43760,
+          "sha256": "c47dc831256fd0e7c17d29a5e9a1f00b148b69bb29ec4a0d60a67e809c5710d9",
+          "contentRange": "bytes 0-43759/43760",
+          "draftWatermark": false,
+          "manifestSha256": "c47dc831256fd0e7c17d29a5e9a1f00b148b69bb29ec4a0d60a67e809c5710d9"
+        }
+      },
+      "passed": true,
+      "sourceSha256": "5e79688066a6dd76211a1238e9af8cdb2f91bba0782e434a737cc1a2cb675f57",
+      "pullRequest": {
+        "number": 529,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/529",
+        "headSha": "b37e716417808e3a228a0e98ca2dd12d28bdf69a",
+        "sourceSha": "4ad46d2df6f3a77dc3d0b666a2b53ed0a598c2f9",
+        "mergedAt": "2026-09-26T19:16:59Z"
+      },
+      "verification": {
+        "id": 36265291178,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36265291178",
+        "sourceSha": "b37e716417808e3a228a0e98ca2dd12d28bdf69a",
+        "event": "workflow_dispatch",
+        "conclusion": "success"
+      },
+      "publication": {
+        "id": 36265509902,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36265509902",
+        "sourceSha": "4ad46d2df6f3a77dc3d0b666a2b53ed0a598c2f9",
+        "event": "push",
+        "conclusion": "success"
+      }
+    },
+    {
+      "phase": "retired",
+      "checkedAt": "2026-09-26T19:36:03.352633+00:00",
+      "sourceSha": "95d51bd32e6c6d184b6c62ebe443b6f556eca5be",
+      "revision": "0c74ad64ff14311a6398187f74b3dc5e07e9e156515c1cc58bc2e858496159ea",
+      "buildReceiptKey": "site/builds/f6a28170ef909400c47e2668f408ae6b4bfcdb66f83923da0c08ef9ef9a7629c.json",
+      "catalogRow": null,
+      "apiRow": null,
+      "files": {
+        "html": {
+          "status": 404,
+          "bytes": 13,
+          "sha256": "c652001687f159239efc391b65f949221c5032c8f648e7326c3992fe2f73e976"
+        },
+        "pdf": {
+          "status": 404,
+          "bytes": 13,
+          "sha256": "c652001687f159239efc391b65f949221c5032c8f648e7326c3992fe2f73e976"
+        }
+      },
+      "passed": true,
+      "pullRequest": {
+        "number": 530,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/530",
+        "headSha": "8f65ddf79b5069554965afa821c43181979de7bf",
+        "sourceSha": "95d51bd32e6c6d184b6c62ebe443b6f556eca5be",
+        "mergedAt": "2026-09-26T19:31:46Z"
+      },
+      "verification": {
+        "id": 36266149680,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36266149680",
+        "sourceSha": "8f65ddf79b5069554965afa821c43181979de7bf",
+        "event": "pull_request",
+        "conclusion": "success"
+      },
+      "publication": {
+        "id": 36266366971,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36266366971",
+        "sourceSha": "95d51bd32e6c6d184b6c62ebe443b6f556eca5be",
+        "event": "push",
+        "conclusion": "success"
+      }
+    }
+  ],
+  "dashboard": {
+    "draft": {
+      "checkedAt": "2026-09-26T19:00:48.473Z",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/submit.html",
+      "internalStudiesHref": "https://analyticmadhyasthdarshan.org/Studies/index.html?r=d33bd040ff3400469c128c2b304da48ca11d0c4c90f548af5e634aee819b8fc0",
+      "text": "Proposal #518 CI Pipeline Acceptance September 2026\nWORKFLOW\nMerged\nPUBLICATION\nDraft\nLive as Draft\nCATEGORY\nOther\nCI\n\u2014\nPULL REQUEST\n\u2014\n\nNext action: The study is live. Open the public page from Publication, or use Manage files for later updates.\n\nSubmit new version\nRelease study",
+      "liveHref": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=991100793b9955dff7df18bded2adaeb0daa8337f069ff0612fc4e6971694b14"
+    },
+    "navigation": {
+      "checkedAt": "2026-09-26T19:10:59.729Z",
+      "olderDashboardInternalHref": "https://analyticmadhyasthdarshan.org/Studies/index.html?r=d33bd040ff3400469c128c2b304da48ca11d0c4c90f548af5e634aee819b8fc0",
+      "newLiveHref": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=f402afcc937be2d8950c9c69242d9cdeeb78635dc496ca53618a151e3a3c3fc5",
+      "openedUrl": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=f402afcc937be2d8950c9c69242d9cdeeb78635dc496ca53618a151e3a3c3fc5",
+      "title": "CI Pipeline Acceptance September 2026",
+      "markerVisible": true,
+      "passed": true
+    },
+    "released": {
+      "checkedAt": "2026-09-26T19:22:38.458Z",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/submit.html?r=4097f8276cf1ce93e9456b2fb8d3a8cc38d8a036c49c487018e0956c9b913b4a",
+      "text": "Study #518 CI Pipeline Acceptance September 2026\nWORKFLOW\nMerged\nPUBLICATION\nReleased\nLive as Released\nCATEGORY\nOther\nCI\n\u2014\nPULL REQUEST\n\u2014\n\nNext action: The study is live. Open the public page from Publication, or use Manage files for later updates.\n\nManage files\n1 file\nRevert to draft",
+      "liveHref": "CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html?r=4097f8276cf1ce93e9456b2fb8d3a8cc38d8a036c49c487018e0956c9b913b4a"
+    },
+    "retired": {
+      "checkedAt": "2026-09-26T19:38:30.889Z",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/submit.html?r=0c74ad64ff14311a6398187f74b3dc5e07e9e156515c1cc58bc2e858496159ea",
+      "text": "Proposal #518 CI Pipeline Acceptance September 2026\nWORKFLOW\nRetired\nPUBLICATION\n\u2014\nRemoved from public site\nCATEGORY\nOther\nCI\n\u2014\nPULL REQUEST\n\u2014\n\nNext action: Open the GitHub conversation for the decision and any suggested next steps.\n\nView proposal",
+      "liveLinks": 0,
+      "screenshot": {
+        "path": "public-retired-2026-09-27.png",
+        "sha256": "ac9c1e674001d92009c0e3bacdb0bff05a0dd6915af2f67618649937b9530e85",
+        "caption": "Signed-in submissions dashboard: fixture #518 Retired, Removed from public site, no Live link."
+      }
+    }
+  },
+  "retainedHistory": {
+    "checkedAt": "2026-09-26T19:37:20.073059+00:00",
+    "passed": true,
+    "currentRetiredRevision": "0c74ad64ff14311a6398187f74b3dc5e07e9e156515c1cc58bc2e858496159ea",
+    "productionObjectsDeleted": 0,
+    "checks": [
+      {
+        "phase": "draft",
+        "kind": "html",
+        "revision": "991100793b9955dff7df18bded2adaeb0daa8337f069ff0612fc4e6971694b14",
+        "status": 206,
+        "contentRange": "bytes 0-62996/62997",
+        "bytes": 62997,
+        "sha256": "286608f24442571d27f996e83bb13e8d4816662857ea621341a20387bef99d1f",
+        "passed": true
+      },
+      {
+        "phase": "draft",
+        "kind": "pdf",
+        "revision": "991100793b9955dff7df18bded2adaeb0daa8337f069ff0612fc4e6971694b14",
+        "status": 206,
+        "contentRange": "bytes 0-36767/36768",
+        "bytes": 36768,
+        "sha256": "e767938135d33fcf249f939ea27d43a2a5a37e4a50f706eaab95b492c086276e",
+        "passed": true
+      },
+      {
+        "phase": "revision",
+        "kind": "html",
+        "revision": "f402afcc937be2d8950c9c69242d9cdeeb78635dc496ca53618a151e3a3c3fc5",
+        "status": 206,
+        "contentRange": "bytes 0-63300/63301",
+        "bytes": 63301,
+        "sha256": "a52b8e5755a5e00e494b4cdddcd11a9b639c900b7b53a89a50bb2133c662eb9a",
+        "passed": true
+      },
+      {
+        "phase": "revision",
+        "kind": "pdf",
+        "revision": "f402afcc937be2d8950c9c69242d9cdeeb78635dc496ca53618a151e3a3c3fc5",
+        "status": 206,
+        "contentRange": "bytes 0-38368/38369",
+        "bytes": 38369,
+        "sha256": "4f6a9b6c5dca853153118aeab824ef7c4d97bf4eca3819f4a78afdd5317848ed",
+        "passed": true
+      },
+      {
+        "phase": "released",
+        "kind": "html",
+        "revision": "4097f8276cf1ce93e9456b2fb8d3a8cc38d8a036c49c487018e0956c9b913b4a",
+        "status": 206,
+        "contentRange": "bytes 0-63303/63304",
+        "bytes": 63304,
+        "sha256": "8fa01a4d2c95287e9e35dc2f48ce9cc25b0c3c0174509a9a1b503c525a3fc050",
+        "passed": true
+      },
+      {
+        "phase": "released",
+        "kind": "pdf",
+        "revision": "4097f8276cf1ce93e9456b2fb8d3a8cc38d8a036c49c487018e0956c9b913b4a",
+        "status": 206,
+        "contentRange": "bytes 0-43759/43760",
+        "bytes": 43760,
+        "sha256": "c47dc831256fd0e7c17d29a5e9a1f00b148b69bb29ec4a0d60a67e809c5710d9",
+        "passed": true
+      }
+    ]
+  },
+  "repairs": [
+    {
+      "number": 520,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/520",
+      "headSha": "9799b42a768cfe894f1002558c84329b9e51edaa",
+      "sourceSha": "19f86360f75d459b0fe4c67da771fce95ead826e",
+      "mergedAt": "2026-09-26T17:29:10Z",
+      "verification": {
+        "id": 36258928325,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36258928325",
+        "sourceSha": "9799b42a768cfe894f1002558c84329b9e51edaa",
+        "event": "pull_request",
+        "conclusion": "success"
+      },
+      "reason": "Register and retire neutral visual assignments with catalog lifecycle"
+    },
+    {
+      "number": 521,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/521",
+      "headSha": "0a3b24d0af3255a8981c3532732a16f40b001e22",
+      "sourceSha": "e9a749705b2c4cae513fa8c30b2c1b87b02b7401",
+      "mergedAt": "2026-09-26T17:35:21Z",
+      "verification": {
+        "id": 36259357526,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36259357526",
+        "sourceSha": "0a3b24d0af3255a8981c3532732a16f40b001e22",
+        "event": "pull_request",
+        "conclusion": "success"
+      },
+      "reason": "Supply bot identity when resuming divergent Planned bootstrap branches"
+    },
+    {
+      "number": 523,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/523",
+      "headSha": "8ca47f1900730192322aa8156442cf39b3ae82d1",
+      "sourceSha": "7112301d156a4a25579e2f897a1349316e31ab09",
+      "mergedAt": "2026-09-26T17:57:02Z",
+      "verification": {
+        "id": 36260535402,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36260535402",
+        "sourceSha": "8ca47f1900730192322aa8156442cf39b3ae82d1",
+        "event": "pull_request",
+        "conclusion": "success"
+      },
+      "reason": "Keep trusted ownership inspection free of PDF runtime imports"
+    },
+    {
+      "number": 524,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/524",
+      "headSha": "8eade1cbd4ce518ad4d7bbccbcf1899865e521ed",
+      "sourceSha": "74957ff8f77247864d4ac553904c46cccb850f24",
+      "mergedAt": "2026-09-26T18:09:51Z",
+      "verification": {
+        "id": 36261203916,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36261203916",
+        "sourceSha": "8eade1cbd4ce518ad4d7bbccbcf1899865e521ed",
+        "event": "pull_request",
+        "conclusion": "success"
+      },
+      "reason": "Wait for API visibility of the pushed prepared head"
+    },
+    {
+      "number": 525,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/525",
+      "headSha": "32e3248d1a58f7e4707060843b29282441341b7f",
+      "sourceSha": "ab80d77fb4d4dceb2768a80f04d708d86ce60f58",
+      "mergedAt": "2026-09-26T18:18:41Z",
+      "verification": {
+        "id": 36261894081,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36261894081",
+        "sourceSha": "32e3248d1a58f7e4707060843b29282441341b7f",
+        "event": "pull_request",
+        "conclusion": "success"
+      },
+      "reason": "Enforce the renderer contract only when restored preparation PDFs need rendering"
+    },
+    {
+      "number": 526,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/526",
+      "headSha": "5d0df696edc2f654db414ee8b9fb59c65b9a5eac",
+      "sourceSha": "c6ce9a9f3004aa313b733373dace3412e4914755",
+      "mergedAt": "2026-09-26T18:32:41Z",
+      "verification": {
+        "id": 36262778606,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36262778606",
+        "sourceSha": "5d0df696edc2f654db414ee8b9fb59c65b9a5eac",
+        "event": "pull_request",
+        "conclusion": "success"
+      },
+      "reason": "Grant trusted readiness consumer the required repository write permission"
+    },
+    {
+      "number": 527,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/527",
+      "headSha": "ded91a60d0fd2257a076414e406cd927f537d197",
+      "sourceSha": "1cee36ad6ddd95547d40f34b626889a71eb0929f",
+      "mergedAt": "2026-09-26T18:47:52Z",
+      "verification": {
+        "id": 36263619234,
+        "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36263619234",
+        "sourceSha": "ded91a60d0fd2257a076414e406cd927f537d197",
+        "event": "pull_request",
+        "conclusion": "success"
+      },
+      "reason": "Complete readiness from the trusted writer after exact successful verification"
+    }
+  ],
+  "retirementEntryPoint": "standard maintainer remove-study CLI and ready study-update PR; IAB typed deletion prompt was not exposed",
+  "productionObjectsDeleted": 0,
+  "scope": [
+    "Public proposal, first draft, revision and release used the authenticated shipped portal.",
+    "Retirement used the normal maintainer source workflow; catalog/API/HTML/PDF/dashboard removal was verified publicly.",
+    "Rollback, failure, supersession and disconnected/offline exercises ran on isolated owned deployed resources, recorded separately in 2026-09-26.json."
+  ]
+}

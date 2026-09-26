@@ -1,12 +1,12 @@
 # CI implementation and acceptance evidence
 
-Updated 26 September 2026 with the R1–R8 implementation in
-[#517](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517).
-The 10 September record below describes the lifecycle completion implementation merged in
-#463 and its publication collector repair. Production CI migration evidence below remains attributed
-to #459, source `63e68a03c536e94ed6559172581d7f635afbf77f`; new local acceptance
-does not supersede that deployed evidence. See [CI.md](CI.md) for the operating
-contract and [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md) for the operation/acceptance matrix.
+CI **R1–R8 is complete**, verified on 26–27 September 2026.
+[#517](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517) delivered the core implementation;
+the authenticated public exercise exposed seven additional lifecycle fixes, all merged with required checks.
+The [core receipt](ci-acceptance/2026-09-26.json) and
+[public lifecycle receipt](ci-acceptance/public-2026-09-27.json) record separate deployed scopes.
+See [CI.md](CI.md) for the operating contract and [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md) for repeatable acceptance.
+Older September deployment records below remain historical evidence attributed to their original PRs.
 
 ## R1–R8 implementation in #517
 
@@ -54,21 +54,57 @@ qualify, with exact consumed inputs, successful allowlisted producers, verified
 output hashes, safe archive paths and complete deck pairs. Normal active-receipt
 reuse remains the first choice.
 
-The 59 enforced Python suites, workflow lint, PR checks and local six-case
-portal browser acceptance pass. Four pre-existing held suites are not counted as
-passing enforced suites. R2 additionally has a repeatable deployed recovery/offline
-harness described in [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md). All 11 deployed
-checks passed on clean source `438cd9d2`, and cleanup completed. The
-[committed acceptance receipt](ci-acceptance/2026-09-26.json) binds that evidence
-to its exact inputs, versions and revisions. Public authenticated
-proposal/submission/dashboard acceptance remains explicitly tracked in
-[PENDING.md](../PENDING.md#ci); an isolated fixture does not prove that integration.
+The 59 enforced Python suites, workflow lint, required PR checks and six local portal browser cases pass.
+Four pre-existing held suites are not counted as passing enforced suites. All 11 isolated deployed
+recovery/offline checks passed on clean source `438cd9d2`, with test resources cleaned up.
+Their [receipt](ci-acceptance/2026-09-26.json) binds exact inputs, versions and revisions.
 
-The production site publication following #516 failed its Worker-origin checksum
-audit and restored the previous version. The publisher now retries bounded origin
-asset propagation while still requiring exact bytes on every attempt. This PR's
-green checks and isolated canaries do not establish a successful production merge
-or publication of #517.
+[#517 production publication](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36258110582)
+passed at merge source `1725280e8cc055a62a32d3e4ca4b6b879490ae8c`, as did both Worker deployment workflows.
+Its bounded origin-propagation retry repaired the #516 audit failure while retaining exact-byte requirements.
+
+## Public lifecycle acceptance 26-27 September
+
+Approved disposable [proposal #518](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/518)
+used the shipped authenticated portal for proposal, first draft, canonical revision and release.
+Each reviewed source merged through required checks and the ordinary protected publisher.
+
+| Phase | PR | Protected publication | Catalog/API/reader/PDF result | Revision |
+|---|---|---|---|---|
+| Planned | [#519](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/519) | [Passed](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36259772359) | Ongoing; canonical HTML/PDF 404 | `d33bd040ff34` |
+| Draft | [#522](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/522) | [Passed](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36264084604) | Draft; every page watermarked | `991100793b99` |
+| Revision | [#528](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/528) | [Passed](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36264856716) | Draft; distinct source and PDF hashes | `f402afcc937b` |
+| Released | [#529](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/529) | [Passed](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36265509902) | Released; no Draft watermark | `4097f8276cf1` |
+| Retired | [#530](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/530) | [Passed](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36266366971) | Absent; canonical HTML/PDF 404 | `0c74ad64ff14` |
+
+Every public phase matched the active source, build receipt, catalog/API status and timestamps.
+Complete reader/PDF bytes matched their release-manifest SHA-256 and length. A full-object R2 HTTP 206
+was accepted only when its Content-Range covered every expected byte. Draft watermarks were checked
+on every page; Released PDFs contained none.
+
+The dashboard retained its Planned navigation revision `d33bd040ff34` across both draft publications.
+Clicking its refreshed Live link opened revision `f402afcc937b` and the visible `PUBLIC-LIFECYCLE-REVISION-2`
+paragraph. The Released dashboard reported Released/Live as Released. Retirement used the standard
+maintainer remove-study CLI because IAB did not expose the typed deletion prompt; no live portal-delete
+success is claimed. After public removal, issue #518 was closed and the dashboard reported Retired/Removed
+from public site with no Live link. All six retained Draft/revision/Released reader/PDF reads still matched
+their original checksums. No production R2 objects were deleted. The [retired dashboard screenshot](ci-acceptance/public-retired-2026-09-27.png)
+shows the completed fixture; its SHA-256 is recorded in the public receipt.
+
+The public exercise found and repaired these failures:
+
+- [#520](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/520): Register and retire neutral visual assignments with catalog lifecycle.
+- [#521](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/521): Supply bot identity when resuming divergent Planned bootstrap branches.
+- [#523](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/523): Keep trusted ownership inspection free of PDF runtime imports.
+- [#524](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/524): Wait for API visibility of the pushed prepared head.
+- [#525](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/525): Enforce the renderer contract only when restored preparation PDFs need rendering.
+- [#526](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/526): Grant trusted readiness consumer the required repository write permission.
+- [#527](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/527): Complete readiness from the trusted writer after exact successful verification.
+
+Each repair includes regression coverage and passed its required exact-head verifier. The
+[public receipt](ci-acceptance/public-2026-09-27.json) includes PR heads/merges, successful CI/publication runs,
+all phase bytes/hashes, dashboard navigation and retained-history results. Controlled rollback, failed/superseded
+promotion and disconnection remain explicitly scoped to the real isolated deployed drill, not production rollback.
 
 ## Lifecycle completion after #462
 
@@ -84,12 +120,10 @@ or publication of #517.
   lifecycle tests also cover Applied registration, final-deck removal, relocation,
   restoration and exact-source binary permissions.
 
-At the time of #463, these changes advanced R2's repeatable local coverage. The deployed lifecycle,
-offline and controlled recovery matrix remains open; R1 and R3–R8 are tracked in
-[PENDING.md](../PENDING.md#ci). #463 is merged and both Worker workflows passed, but its site
-publication failed during artifact collection before staging or promotion.
-Next: merge the collector repair, verify the resulting site publication, then
-execute the remaining deployed acceptance matrix.
+At the time of #463, the deployed lifecycle, offline and recovery matrix and R1/R3–R8
+were still open. Both Worker workflows passed, but #463 site publication failed during
+artifact collection before staging or promotion. Subsequent collector repairs and #517
+resolved those failures; the current completion evidence is recorded above.
 
 The F1–F15 implementation is merged and running in production. Both the site and Agent-facing Workers deployments passed at the recorded migration revisions. The initial migration/build-receipt bootstrap is complete. #517 completes strict slide-PDF byte reproducibility and the implemented follow-ups described above. A green deployment does not establish that every lifecycle, offline, recovery, or renderer scenario has been exercised.
 
@@ -99,19 +133,19 @@ The F1–F15 implementation is merged and running in production. Both the site a
 
 | Finding | Status | Delivered behavior |
 |---|---|---|
-| F1 Content reverts | Implemented | Immutable content manifests exclude source/runtime provenance; deployment receipts are separate. A → B → A is covered by regression tests; a controlled live rollback exercise remains. |
+| F1 Content reverts | Implemented | Immutable content manifests exclude source/runtime provenance; deployment receipts are separate. A → B → A is covered by regression tests; controlled deployed rollback/forward recovery passed on isolated resources in #517. |
 | F2 Runtime audits | Implemented | The fast path requires the same content and complete runtime/binding fingerprint. Audits verify the new marker, including its build receipt. |
 | F3 Live dashboard navigation | Implemented | Live links carry the verified publication revision and an explicit navigation exemption. An older-dashboard → newer-Live browser check passed. |
 | F4 Active baseline | Implemented; production reuse verified | Plans compare consumed inputs with the active deployment's protected build receipt and R2 checksums, never the last push. #458 established the receipt; #459 reused it. |
 | F5 Public API state | Implemented; live checks passed | MCP/Studies API reads the active publication and its catalog/Markdown, with no Git HEAD fallback. #458/#459 corrected Cloudflare cache/routing configuration and the live audit. |
 | F6 Generator ownership and determinism | Implemented; strict slide/notes bytes verified in #517 | One Markdown PDF owner; declared companion source chain and freshness gate; deterministic DOCX/no-op notes; per-card seals; approved reference source and byte hashes. Strict slide-PDF byte determinism is now enforced. |
-| F7 Preparation readiness | Implemented | Source-only portal drafts report Preparing; complete verification follows accepted preparation; readiness follows successful verification. Repeat the full portal lifecycle under the new pipeline in R2. |
+| F7 Preparation readiness | Implemented | Source-only portal drafts report Preparing; complete verification follows accepted preparation; readiness follows successful verification. The public proposal/draft/revision/release/retirement exercise passed on 26–27 September 2026. |
 | F8 Duplicate verification | Implemented | Exact head/base/intent identities, idempotent dispatch, and live identity rechecks before acceptance and success. |
 | F9 Dependency selectors | Implemented | One consumed-input graph for Markdown, recursive embedded resources, used link metadata, deck pairs and references. Static files retain a complete release inventory. |
 | F10 Output cache inputs | Implemented | Ignored PDFs never enter input fingerprints; link decisions use source/catalog/HTML availability. |
 | F11 Jobs/transfers | Implemented; production skips verified | Plan before renderers, skip empty families, transfer selected files, reuse unchanged R2 records without PDF body downloads. |
 | F12 Packaging churn | Implemented; unchanged-content path verified | Stable asset hashes and dependency URLs; canonical HTML redirects to a release URL; shared navigation carries revision without embedding it in every file. |
-| F13 Repeated builds | Implemented within current proof scope | Verified same-repo preparation/review PDFs can feed later phases; parallel checks/renderers; one master validation owner. Broader recovery lookup is optional R8. |
+| F13 Repeated builds | Implemented within current proof scope | Verified same-repo preparation/review PDFs can feed later phases; parallel checks/renderers; one master validation owner. Bounded trusted historical lookup is delivered in #517. |
 | F14 Generator fan-out | Implemented | Disposable HTML for PDF verification; batch search/offline finalization for preparation. |
 | F15 Worker selection | Implemented; production skips verified | Compare each executable/configuration fingerprint with its active Cloudflare version; one serialized shared edge-policy owner. Only MCP changed among the four Agent-facing Workers in #459. |
 
@@ -156,15 +190,14 @@ A temporary Worker on a unique same-zone Cloudflare route reproduced #458's exac
 
 The [#457 presentation smoke run](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/34422569722) rendered all eight deck pairs twice. All rendered/text comparisons passed. **All eight slides PDFs reported `byte-identical=no`; all eight notes PDFs reported `byte-identical=yes`.** This established the R3 defect; #517 fixes it and now fails the smoke on any differing PDF bytes.
 
-## Open follow-ups
+## CI backlog
 
-Open CI follow-ups live in [PENDING.md](../PENDING.md#ci). They are not failed
-or pending deployments. Planning them does not authorize production rollback,
-deletion, or new lifecycle submissions. Keep completion evidence and how-to in
-this file when implementing a listed ID; do not add a second remaining-work
-table here.
+The sole CI backlog is [PENDING.md](../PENDING.md#ci), which now has no pending CI items.
+Keep completion evidence and how-to in this file; do not add a second remaining-work table here.
 
-## Earlier seven steps: current disposition
+## Historical disposition after #459
+
+This table describes the historical #459 state. The completed R1–R8 evidence above supersedes it.
 
 | Earlier item | Historical status after #459 |
 |---|---|
