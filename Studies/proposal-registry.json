@@ -22,17 +22,6 @@
       "phase": "published"
     },
     {
-      "slug": "CI-Pipeline-Acceptance-September-2026",
-      "title": "CI Pipeline Acceptance September 2026",
-      "issueNumber": 518,
-      "submitter": "raghavamohan",
-      "category": "Other",
-      "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
-      "formal": false,
-      "applied": false,
-      "phase": "catalog-draft"
-    },
-    {
       "slug": "Chitta-Brain-And-Memory",
       "title": "Chitta, the Brain, and the Architecture of Memory",
       "issueNumber": 27,

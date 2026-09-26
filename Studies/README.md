@@ -56,7 +56,6 @@ Select any linked title to open the full study in your browser.
 | *Free Will Choice and Agency* <!-- slug: Free-Will-Choice-And-Agency --> | Philosophy of Mind | Whether human conduct is free or determined: definite conduct in the lower orders versus achieved selection at the knowledge order, compared with debates on free will and determinism | Ongoing |
 | *Health Body and Restraint* <!-- slug: Health-Body-And-Restraint --> | Health, Axiology | The jeevan-body relationship in health: ahar-vihar, restraint (sanyam), and well-being as the health-restraint dimension of universal orderliness | Ongoing |
 | *God Divinity and the Sacred* <!-- slug: God-Divinity-And-The-Sacred --> | Philosophy of Religion | How Madhyasth Darshan reframes God and the divine: satta as omnipresence and the awakened (divya) human, compared with theism, Advaita Vedanta's Ishvara, and secular critiques of religion | Ongoing |
-| [CI Pipeline Acceptance September 2026](CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html) · [Discuss](CI-Pipeline-Acceptance-September-2026/discussion.html) | Other | Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification. | Released<br>Last updated on: Sep 27, 2026, 12:42 AM IST |
 <!-- /studies-catalog -->
 
 ### Formal studies
