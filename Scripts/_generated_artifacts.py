@@ -19,6 +19,7 @@ ROOT_OUTPUTS = {
     "Scripts/presentation-pipeline.json",
     "Scripts/companion-pipeline.json",  # Writer separately restricts this to retirement/relocation.
     "Scripts/social-cards.json",
+    "Assets/Theme/study-visuals.json",
 }
 STUDIES_OUTPUTS = {
     "README.md", "index.html", "catalog-topical.json", "catalog-formal.json",
