@@ -37,7 +37,12 @@ async function save(path,port,release) {
   if (manifest.schema !== 1 || !Array.isArray(manifest.documents) || manifest.documents.length > 2000) throw new Error('Offline catalog is invalid.');
   const item = manifest.documents.find(doc => doc.path === path); if (!item) throw new Error('This document is not available for offline saving.');
   P.bundle(item,origin);
-  if (release && item.resources.some(r => new URL(r.url,origin).searchParams.get('r') !== release)) throw new Error('Offline catalog belongs to another release.');
+  if (release && item.resources.some(resource => {
+    const url = new URL(resource.url,origin);
+    const asset = !url.pathname.endsWith('.html') && url.searchParams.get('v') === resource.sha256;
+    return asset ? url.searchParams.has('r') && url.searchParams.get('r') !== release
+      : url.searchParams.get('r') !== release;
+  })) throw new Error('Offline catalog belongs to another release.');
   const current = await entries(true), old = current.find(doc => doc.path === path), registry = await caches.open(P.REGISTRY);
   if (!old && current.length >= 30) throw new Error('Keep up to 30 offline documents. Remove an older saved copy first.');
   // A browser shutdown can interrupt staging. Reclaim only our unreferenced bundles.

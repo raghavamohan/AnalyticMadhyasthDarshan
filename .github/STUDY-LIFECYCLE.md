@@ -33,7 +33,7 @@ inventory and removes or hides its landing-page Slides links.
 
 These are changes to the current published inventory. Routine lifecycle work
 does not purge R2 objects or retained releases. Withdrawal and garbage collection
-remain separate policy work in R7.
+follow the separate [retention/withdrawal policy](../docs/publication-retention.md).
 
 ## Supported operations
 
@@ -119,10 +119,49 @@ upload anything to R2 as part of these fixture tests.
 | Multi-file validation, stale member, bulk canonical exclusion, manifest cleanup | `_test_submission_files.mjs`, `_test_api_worker_routes.mjs`; passed locally |
 | Presenter source recovery/update, note+SVG recovery, lost-response receipt, Applied selection, bulk removal | Six `_lifecycle_browser_acceptance.js` scenarios; passed locally |
 | Production lifecycle across catalog/API/HTML/PDF/dashboard | Pending post-merge deployed fixtures; record approved fixture issue/PR, source/revision and publication run |
-| Already-open dashboard, saved/offline readers through deployment/disconnection | Pending deployed-revision browser matrix |
-| Failed/superseded publication, rollback and forward promotion | Isolated recovery unit coverage exists; controlled deployed drill remains R2 |
+| Already-open dashboard, saved/offline readers through deployment/disconnection | Saved/open readers passed on the deployed isolated origin in #517; authenticated older-dashboard integration remains public R2 acceptance |
+| Failed/superseded publication, rollback and forward promotion | All four passed on real deployed disposable resources in #517; receipt includes cleanup and exact tested source |
 
 After merge, first verify the site and submission Worker deployments. Then record
 the remaining deployed matrix using an approved disposable study. Do not use
 closed/declined issue #420. Recovery/rollback drills need a controlled window and
 separate evidence; their completion is not implied by green PR fixture checks.
+
+### Deployed recovery and offline drill
+
+`python Scripts/_deployed_release_drill.py --output tmp/deployed-acceptance-<new-id>`
+uses the real publisher, Cloudflare deployments, R2 objects, HTTP audits and pinned
+Chrome on a uniquely named disposable Worker and bucket. It leaves production
+routes, Workers and buckets untouched. Repository Cloudflare/R2 credentials need
+permission to create and clean up those test resources. Use a fresh output
+directory and run outside any sandbox that prevents pinned Chrome from starting.
+
+The harness publishes Planned, Draft, Released and Retired fixture inputs, builds
+and audits the real study PDFs, saves a reader with the shipped service worker,
+keeps the reader open across deployment, then disconnects it. It verifies canonical
+retirement, retained-version rollback and forward recovery. A deliberate HTTP 503
+after candidate success must restore the previous complete deployment. A concurrent
+recovery during staging must prevent the superseded candidate from promoting.
+Cleanup removes only the harness's named Workers and newly created test bucket.
+
+`acceptance.json` records source SHA, dirty-tree state, relevant input hashes,
+individual revisions/version IDs and cleanup; publication events and browser logs
+are retained beside it. A failed run has no passing completion receipt. These are
+deployed protocol exercises using fixture lifecycle inputs. They do not establish
+authenticated GitHub proposal/submission/dashboard integration on the public site.
+That approval-dependent matrix remains in [PENDING.md](../PENDING.md#ci).
+
+The [26 September receipt](ci-acceptance/2026-09-26.json) records all **11 passed
+deployed checks**, tested clean source `438cd9d2`, and completed cleanup. The six
+local portal cases and this deployed drill establish separate kinds of evidence;
+neither is substituted for the remaining public authenticated integration.
+
+For the public integration exercise, use a new approved disposable proposal with
+a clearly named CI fixture slug; record its issue and every resulting PR. Verify
+Planned registration, accepted first draft, a content revision, Draft → Released
+and retirement after each protected publication. Record the exact source, active
+publication marker, API catalog state, canonical HTML/PDF bytes and dashboard Live
+link. Keep the older dashboard open through the next publication and check that
+its Live link opens the new revision. Retire the fixture through the normal source
+workflow and close its issue after verifying public removal. Preserve historical
+R2 releases under the retention policy.

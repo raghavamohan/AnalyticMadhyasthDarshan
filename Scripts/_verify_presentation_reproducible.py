@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Compare two presentation builds without trusting volatile PDF metadata."""
+"""Require byte-identical presentation builds and compare rendered content."""
 from __future__ import annotations
 
 import argparse
@@ -45,12 +45,15 @@ def compare_artifact(label: str, left: Path, right: Path) -> list[str]:
         f"{label}: byte-identical={'yes' if left_bytes == right_bytes else 'no'}; "
         f"rendered-content={left_content}"
     )
+    errors = []
+    if left_bytes != right_bytes:
+        errors.append(f'{label}: PDF bytes differ ({left_bytes} != {right_bytes})')
     if left_content != right_content:
-        return [
+        errors.extend([
             f"{label}: rendered/text content differs "
             f"({left_content} != {right_content})"
-        ]
-    return []
+        ])
+    return errors
 
 
 def compare_deck(spec: DeckSpec, left_root: Path, right_root: Path) -> list[str]:
@@ -76,8 +79,7 @@ def main(argv: list[str] | None = None) -> int:
     configure_utf8_stdio()
     parser = argparse.ArgumentParser(
         description=(
-            "Require stable rendered/text content across two presentation builds; "
-            "also report whether each PDF is byte-identical."
+            "Require byte-identical PDFs and stable rendered/text content across two presentation builds."
         )
     )
     parser.add_argument("--left-root", type=Path, required=True)
@@ -102,7 +104,7 @@ def main(argv: list[str] | None = None) -> int:
         for error in errors:
             print(f"  - {error}")
         return 1
-    print("Presentation rendered/text content is reproducible.")
+    print("Presentation PDF bytes and rendered/text content are reproducible.")
     return 0
 
 

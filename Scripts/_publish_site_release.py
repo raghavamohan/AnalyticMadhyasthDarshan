@@ -27,6 +27,7 @@ from _publish_generated_pdf_worker import _multipart_put, _zone_account_id, _wor
 from _publish_reference_artifacts import bucket_name as reference_bucket_name
 from _r2_s3 import R2S3Client, load_r2_config
 from _site_release import digest, encode, validate_bundle
+from _publication_summary import record as record_outcome
 
 WORKER = "amd-site"
 CANARY = "amd-site-canary"
@@ -141,6 +142,7 @@ def stage_objects(client, root: Path, manifest: dict) -> None:
         f'R2 staging complete in {time.monotonic() - started:.0f}s '
         f'({outcomes["uploaded"]} uploaded, {outcomes["reused"]} reused).'
     )
+    record_outcome('r2', **outcomes)
 
 
 def upload_assets(token: str, account: str, worker: str, root: Path, manifest: dict) -> str:
@@ -200,6 +202,7 @@ def deploy(token: str, account: str, worker: str, client, root: Path, manifest: 
     progress(f'Uploading Worker modules and asset binding for {worker}.')
     result = _multipart_put(endpoint + ("/versions" if version_only else ""), token,
         {"index.js": SOURCE.read_text(encoding="utf-8"), "release.js": "export default " + encode(manifest).decode() + ";\n",
+         "withdrawals.js": "export default " + encode(__import__('_withdrawal_policy').load()).decode() + ";\n",
          "pdf.js": WORKER_SOURCE.read_text(encoding="utf-8"), "generated-pdf-keys.js": KEYS_SOURCE.read_text(encoding="utf-8")},
         metadata, method="POST" if version_only else "PUT")
     if not result.get("success"):
@@ -214,6 +217,7 @@ def deploy(token: str, account: str, worker: str, client, root: Path, manifest: 
     if not version:
         raise ValueError('Worker upload did not resolve a deployment version')
     progress(f'{worker}: uploaded version {version}.')
+    record_outcome('worker', name=worker, outcome='candidate staged' if version_only else 'deployed', version=version)
     return version
 
 
@@ -222,6 +226,7 @@ def runtime_fingerprint(client) -> str:
     modules = {name: digest(path.read_bytes()) for name, path in {
         'site': SOURCE, 'pdf': WORKER_SOURCE, 'keys': KEYS_SOURCE,
         'edge-policy': BASE / 'Scripts/_cloudflare_performance.py',
+        'withdrawals': BASE / 'infra/site-worker/withdrawals.json',
     }.items()}
     return digest(encode({'schema': 1, 'modules': modules,
         'compatibilityDate': '2026-09-09', 'htmlHandling': 'none', 'runWorkerFirst': True,
@@ -327,6 +332,12 @@ def audit(base: str, root: Path, manifest: dict, *, origin_base: str | None = No
                             with audit_retry(lambda: urlopen(source, timeout=60), path + ' release origin') as original:
                                 expected = original.read()
                         if not managed_host or not edge_response_matches(path, body, record, expected):
+                            # Version activation and static binding propagation
+                            # may reach the same POP at different instants. Wait
+                            # only on our origin; every attempt still requires
+                            # complete matching bytes and eventually fails closed.
+                            if (urlsplit(base).hostname or '').endswith('.workers.dev'):
+                                raise ReleaseNotReady(f'Public checksum/size mismatch while assets propagate: {path}')
                             raise ValueError(f"Public checksum/size mismatch: {path}")
                         progress(f'Validated Cloudflare-managed response while preserving release content: {path}')
                 if not full and int(response.headers.get("Content-Length", "-1")) != record["bytes"]:
@@ -479,6 +490,7 @@ def publish(root: Path, *, promote: bool) -> None:
             audit_public_if_active(token, zone, root, manifest)
             record_deployment(client, manifest, prior[0]['versions'][0]['version_id'])
             print("This release is already published.")
+            record_outcome('worker', name=WORKER, outcome='unchanged')
             return
     stage_objects(client, root, manifest)
     deploy(token, account, CANARY, client, root, manifest, version_only=False)
@@ -502,9 +514,11 @@ def publish(root: Path, *, promote: bool) -> None:
         if prior:
             previous_version = prior[0]["versions"][0]["version_id"]
             activate_version(token, account, previous_version)
+            record_outcome('worker', name=WORKER, outcome='audit failed; restored prior version', version=previous_version)
         raise
     record_deployment(client, manifest, deployments(token, account)[0]['versions'][0]['version_id'])
     print(f'Published coherent site release {manifest["revision"]}')
+    record_outcome('worker', name=WORKER, outcome='promoted and audited', revision=manifest['revision'])
 
 
 def store_build_receipt(client, root: Path, manifest: dict) -> None:
@@ -533,6 +547,9 @@ def record_source_deployment(client, manifest: dict, version: str) -> None:
 def rollback(revision: str) -> None:
     if not re.fullmatch(r'[a-f0-9]{64}', revision):
         raise ValueError('Rollback requires an explicit retained revision.')
+    from _withdrawal_policy import load as withdrawal_policy
+    if withdrawal_policy()['withdrawals']:
+        raise ValueError('Hard withdrawal policy prevents activating a retained Worker version; use a reviewed current-runtime recovery plan')
     cf.load_repo_env()
     token = cf.cloudflare_api_token()
     zone = cf.resolve_zone_id(token, cf.cloudflare_zone_id())

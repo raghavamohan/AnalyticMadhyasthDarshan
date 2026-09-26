@@ -22,7 +22,7 @@ import sys
 import tempfile
 from pathlib import Path
 
-from _common import configure_utf8_stdio, study_dir as resolve_study_dir
+from _common import APPLICATIONS, STUDIES, configure_utf8_stdio, study_dir as resolve_study_dir
 from _presentation_pipeline import load_manifest
 
 POWERPOINT_CONVERTER = Path(__file__).with_name("_powerpoint_to_pdf.ps1")
@@ -73,6 +73,12 @@ def find_powerpoint() -> Path | None:
 
 
 def find_libreoffice() -> Path | None:
+    configured = os.environ.get('AMD_LIBREOFFICE_PATH')
+    if configured:
+        executable = Path(configured).resolve()
+        if not executable.is_file():
+            raise RuntimeError(f'Configured LibreOffice executable is missing: {executable}')
+        return executable
     return _find_first(
         LIBREOFFICE_CANDIDATES,
         path_names=("soffice.com", "soffice", "soffice.exe"),
@@ -121,12 +127,10 @@ def resolve_output(pptx: Path, output: Path | None) -> Path:
         declared = _manifest_output(pptx)
         if declared is not None:
             return declared
-        try:
-            pptx.resolve().relative_to(STUDIES.resolve())
-        except ValueError:
+        if not any(pptx.resolve().is_relative_to(root.resolve()) for root in (STUDIES, APPLICATIONS)):
             return pptx.with_suffix(".pdf")
         raise SystemExit(
-            f"Deck is under Studies but absent from presentation-pipeline.json: {pptx}"
+            f"Repository deck is absent from presentation-pipeline.json: {pptx}"
         )
     out = output.expanduser().resolve()
     if out.suffix.lower() != ".pdf":
@@ -170,6 +174,7 @@ def convert_with_libreoffice(pptx: Path, pdf: Path) -> None:
         tmp_dir = Path(tmp)
         cmd = [
             str(soffice),
+            '-env:UserInstallation=' + (tmp_dir / 'profile').as_uri(),
             "--headless",
             "--nologo",
             "--nofirststartwizard",
@@ -298,6 +303,8 @@ def convert_pptx_to_pdf(
             convert_with_libreoffice(pptx, temp_pdf)
         if not temp_pdf.is_file() or temp_pdf.stat().st_size < 100:
             raise RuntimeError(f"{selected} produced a missing or empty PDF: {temp_pdf}")
+        from _presentation_pdf_metadata import canonicalize
+        canonicalize(pptx, temp_pdf)
         os.replace(temp_pdf, pdf)
     finally:
         temp_pdf.unlink(missing_ok=True)

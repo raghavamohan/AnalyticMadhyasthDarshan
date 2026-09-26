@@ -19,7 +19,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   reconcile:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       issues: write
@@ -35,7 +35,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
         run: python Scripts/_reconcile_proposal_issues.py
   source:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       sha: ${{ steps.source.outputs.sha }}
     steps:

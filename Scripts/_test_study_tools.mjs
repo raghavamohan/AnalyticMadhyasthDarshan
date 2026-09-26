@@ -62,9 +62,9 @@ const fetch = async (request,options) => {
 };
 const self = {AMDOfflinePolicy:P,location:{origin},clients:{claim:async () => {},get:async () => ({url:origin+path})},addEventListener:(type,fn) => { handlers[type] = fn; }};
 vm.runInNewContext(fs.readFileSync(new URL('../reader-sw.js',import.meta.url),'utf8'),{self,importScripts:() => {},caches,fetch,crypto:webcrypto,URL,Response,Headers,Uint8Array,TextDecoder,AbortController,setTimeout,clearTimeout});
-async function message(type,requested=path,source=origin+path) {
+async function message(type,requested=path,source=origin+path,release) {
   const output = []; let task;
-  handlers.message({data:{type,path:requested},source:{url:source},ports:[{postMessage:data => output.push(data)}],waitUntil:p => { task=p; }});
+  handlers.message({data:{type,path:requested,release},source:{url:source},ports:[{postMessage:data => output.push(data)}],waitUntil:p => { task=p; }});
   await task; return output.at(-1);
 }
 async function request(url,mode='navigate',method='GET') {
@@ -96,6 +96,24 @@ assert.equal(await request(path,'navigate','POST'),undefined);
 assert.equal(await request('https://evil.test'+path),undefined);
 offline=false; status=404; assert.equal((await request(path)).status,404,'An online withdrawal must not serve an obsolete copy'); status=200;
 const beforeFetch=fetched.length; assert.equal(await (await request('/Assets/reader/reader.js?v=aaaaaaaaaaaaaaaa','cors')).text(),asset); assert.equal(fetched.length,beforeFetch);
+// Production release manifests pin HTML by revision and immutable assets by
+// their full checksum. Saving must accept this mix and reject other revisions.
+const release='b'.repeat(64), otherRelease='c'.repeat(64);
+const releasedBundle={...bundle,resources:bundle.resources.map(r=>{
+  const url=new URL(r.url,origin);
+  url.search=url.pathname.endsWith('.html') ? '?r='+release : '?v='+r.sha256;
+  contents.set(url.pathname+url.search,contents.get(r.url));
+  return {...r,url:url.pathname+url.search};
+})};
+manifest={schema:1,documents:[releasedBundle]};
+assert((await message('SAVE',path,origin+path,release)).result,'Content-addressed assets save with release-pinned HTML');
+const releasedSaved=(await message('LIST')).result[0];
+assert((await message('SAVE',path,origin+path,otherRelease)).error,'A different release cannot replace the saved document');
+badAsset='/Assets/reader/reader.js';badKind='hash';
+assert((await message('SAVE',path,origin+path,release)).error,'A content hash in the URL still requires verified bytes');
+assert.equal((await message('LIST')).result[0].cache,releasedSaved.cache,'Failed saves retain the verified previous copy');
+badAsset='';
+manifest={schema:1,documents:[bundle]};
 await caches.open('unrelated-app');
 const concurrent = await Promise.all([message('SAVE'),message('SAVE')]); assert(concurrent.every(r => r.result));
 assert.equal((await message('LIST')).result.length,1); assert.equal([...storage.keys()].filter(n => n.startsWith(P.PREFIX) && n!==P.REGISTRY).length,1);

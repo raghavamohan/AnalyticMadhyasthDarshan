@@ -91,7 +91,7 @@ class PresentationVerifierTests(unittest.TestCase):
                 doc.close()
 
             self.assertNotEqual(left.read_bytes(), right.read_bytes())
-            self.assertEqual(compare_artifact("sample", left, right), [])
+            self.assertTrue(compare_artifact("sample", left, right))
             self.assertTrue(compare_artifact("sample", left, changed))
 
 

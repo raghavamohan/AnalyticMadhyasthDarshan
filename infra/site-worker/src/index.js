@@ -1,4 +1,5 @@
 import RELEASE from './release.js';
+import WITHDRAWALS from './withdrawals.js';
 import { servePdf } from './pdf.js';
 import { REFERENCE_PDF_KEYS } from './generated-pdf-keys.js';
 
@@ -97,6 +98,12 @@ async function staticResponse(request, env, key, record, revision, historical) {
 
 export async function handle(request, env, current = RELEASE) {
   const url=new URL(request.url);
+  const policyPath=canonicalPath(url.pathname,{});
+  if (!policyPath) return fail(400,'Invalid path');
+  if (WITHDRAWALS.schema!==1 || !Array.isArray(WITHDRAWALS.withdrawals)) return fail(503,'Invalid withdrawal policy');
+  if (WITHDRAWALS.withdrawals.some(item=>policyPath===item.path || (item.path.endsWith('/') && policyPath.startsWith(item.path)))) {
+    return fail(410,'This publication has been withdrawn.');
+  }
   if (url.pathname.startsWith('/api/')) return fetch(request);
   if (url.pathname === '/.well-known/publication.json') {
     return new Response(request.method==='HEAD'?null:JSON.stringify({schema:1,revision:current.revision,sourceSha:current.sourceSha,runtimeFingerprint:current.runtimeFingerprint,buildReceiptKey:current.buildReceiptKey,studies:current.studies}),

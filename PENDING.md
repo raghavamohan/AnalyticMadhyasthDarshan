@@ -29,7 +29,7 @@ When an item is finished, remove the row and add a one-line note under
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
 2. Website next: `AUTH-01` Phase 0 (isolated staging), followed by its four product/cutover phases; coordinate recovery acceptance with `UX-05`. `UX-04`/`UX-06` remain later and `DIS-01` remains outside this cycle.
-3. CI `R1` (Worker canaries before promotion).
+3. CI `R2` (public lifecycle acceptance).
 4. `R2-RIGHTS` (fourteen retained third-party PDFs).
 5. `TR-PILOT` (listen through the five-video transcription pilot).
 
@@ -91,15 +91,7 @@ Operating contract: [.github/CI.md](.github/CI.md).
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| R1 | P1 | pending | Automate pre-promotion API/Worker canaries. Manual same-zone canary existed; `agent-publications.yml` still deploys before the live audit. |
-| R2 | P1 | partial | Finish operational acceptance under the new pipeline (proposal through retire, offline readers, rollback). Local coverage advanced; deployed matrix is unfinished. |
-| R3 | P2 | pending | Strict slide-PDF byte reproducibility. PR #457: all eight slides PDFs `byte-identical=no`; notes PDFs yes. |
-| R4 | P2 | partial | Complete Python/Node patch, runner-image, and font version policy. Pins and fingerprints exist. |
-| R5 | P2 | pending | One run summary across PDF/R2/Worker change classes. JSON plans exist. |
-| R6 | P3 | pending | Remove transitional CI paths after R2. Disabled Pages retry must not resume publishing. |
-| R7 | P3 | pending | Retention, withdrawal, and safe garbage-collection policy. Decision first; no production object deletion as routine publication. |
-| PPTX-DIAG-01 | P3 | pending | Fix `_pptx_to_pdf.py` diagnostic default-output handling: an unregistered deck outside `Studies/` without `--output` reaches an undefined `STUDIES` name. Explicit output paths and the manifested production builder work. |
-| R8 | P3 | deferred | Broader reviewed-artifact recovery lookup. Optional; normal reuse through the active receipt already works. |
+| R2 | P1 | partial | Complete public authenticated proposal → Planned → first draft → revision → release → retire acceptance after #517 is merged and published; record fixture issue/PRs, catalog/API/HTML/PDF/dashboard and older-dashboard Live navigation. Six local portal browser scenarios and all 11 real deployed offline/recovery checks pass, with test-resource cleanup complete. Public dashboard sign-in is required. See [.github/STUDY-LIFECYCLE.md](.github/STUDY-LIFECYCLE.md#deployed-recovery-and-offline-drill). |
 
 ## API
 
@@ -145,10 +137,8 @@ Live on 18 September 2026: `SITE_RELEASES_ENABLED=true`; catalog HTML carries
 `/api/studies/health`. Zone SSL is Full (Strict). GitHub Pages is no longer the
 public HTML/PDF origin. Do not reopen that cutover.
 
-Already listed elsewhere: `UX-06` (field RUM), `R1` (Worker canaries before
-promotion), `R2-BACKUP` (R2 deletion protection), `API-SMOKE` (authenticated
-write smoke), `R6` (remove the inactive Pages retry workflow after operational
-acceptance).
+Already listed elsewhere: `UX-06` (field RUM), `R2-BACKUP` (R2 deletion
+protection), and `API-SMOKE` (authenticated write smoke).
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
@@ -217,6 +207,8 @@ here order, not proposal-number order.
 - Session-only agent TodoWrite lists.
 
 ## Done in the same registers (do not reopen)
+
+- CI `R1`, `R3`–`R8` and `PPTX-DIAG-01`: implemented in [PR #517](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517), with live same-zone canaries, strict repeat-render evidence, verified hosted font contracts, publication summaries, obsolete Pages authority removed, conservative retention/withdrawal policy and read-only GC planning, and bounded trusted historical artifact recovery (26 September 2026). Public R2 integration remains listed above; see [.github/CI-IMPLEMENTATION.md](.github/CI-IMPLEMENTATION.md#r1r8-implementation-in-517) for evidence and limits.
 
 - `ST-ONT-02`: implemented the [Section 1 teaching-order and Editorial Notes review](docs/ontology-review-2026-09-20.md), including source-qualified prose changes, consolidated notes, section-reference repairs across related studies, substantive harmonisation of both teaching decks and the presenter's scripts, and rebuilt artifacts (20 September 2026).
 

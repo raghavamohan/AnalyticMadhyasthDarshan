@@ -131,6 +131,45 @@ The MCP Worker reads the active marker and revision-pinned files through the pub
 
 The first publication after migration has no prior build receipt. Generated PDFs need a verified reviewed artifact or cold build; approved R2 references with matching metadata are reused immediately. That deployment establishes the durable baseline used by later merges, including after failed or superseded runs. Stable rendering contracts are declared in `Scripts/render-contract.json`; the local render cache additionally records actual runtime/font bytes. Renderer or font changes intended for publication must update the contract in a new commit.
 
+### Candidate gates and rendering environment
+
+`agent-publications.yml` audits all four exact candidates before its first live
+deployment. `_canary_publications.py` deploys unique, temporary same-zone routes,
+exercises discovery, MCP catalog/Markdown/glossary/reading-path reads and Studies
+API reads, then removes only its owned routes and scripts. Failed checks or cleanup
+prevent a passing receipt. The protected uploader requires a receipt no older than
+one hour with the same account, executable and bindings. PR jobs have no deployment
+credentials. Post-deployment live audits remain required.
+
+Python is pinned to 3.12.14 on Ubuntu and 3.12.10 on Windows; Node is pinned to
+24.21.0 wherever it is used. Runner labels are explicit `ubuntu-24.04` and
+`windows-2025`. Hosted image releases roll; the image version is observed evidence,
+not an immutable image pin. `_render_environment.py` hashes the complete installed
+font inventory and Linux fontconfig rules. CI rendering rejects changed runtime or
+font hashes against the checked-in family contract. A runner update with identical
+consumed fonts remains eligible; changed fonts require a reviewed contract update
+and repeat-render evidence. `render-contract-audit.yml` records new inventories
+without approving them. Local diagnostic rendering does not establish CI authority.
+
+Slides PDFs are canonicalized after export: source-derived dates/IDs and sorted
+object traversal remove metadata and object-order variation. Every normalization
+compares page geometry, text and raster pixels and preserves tagged structure,
+bookmarks and annotations. Presentation smoke requires byte-identical slides
+**and** notes, with the exact LibreOffice renderer.
+
+Historical reviewed-artifact recovery is bounded to the latest 100 closed PRs.
+Only same-repository PRs merged into master and ancestral to the intended source
+qualify. Changed consumed inputs skip old bundle downloads. Successful allowlisted
+producers, preparation-parent identity, exact input/output proofs, ZIP safety,
+structural verification and atomic deck pairs remain required.
+
+The publication `summary` job runs even after failure/skips and retains one table
+covering PDF build/review/reuse selections, observed R2 staging, Worker deployment/
+rollback outcomes and every publication job result. Selections are not reported as
+completed builds. Backend publication also records its observed Worker outcomes.
+See [retention and withdrawal policy](../docs/publication-retention.md) for the
+read-only, independently backed-up orphan planner; publication never runs deletion.
+
 Retry a failed publication for the intended master SHA. `force_rebuild=true` on the publication dispatch bypasses review/cache reuse. It does not waive byte checks, reference approval or canary gates. Different bytes for an already published source require a new pinned-contract commit. Rollback uses `_publish_site_release.py --rollback <retained-revision>` to activate a retained complete deployment; failed rollback auditing restores the previous version.
 
 Proposal approval registers Planned metadata with no public reader/PDF. Bootstrap rechecks open/approved state and uses exact-SHA verification and merge. It does not wait for Pages. Proposal issue reconciliation runs independently of publication. Closed/declined issue #420 must not be used as a fixture.

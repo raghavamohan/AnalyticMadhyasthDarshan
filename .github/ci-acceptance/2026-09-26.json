@@ -1,0 +1,182 @@
+{
+  "schema": 1,
+  "pullRequest": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517",
+  "testedSourceSha": "438cd9d2099c18ae9d7042b6a8086a6f6937923f",
+  "sameZoneCanary": {
+    "passed": true,
+    "checkedAt": "2026-09-26T16:18:15.219102+00:00",
+    "candidates": {
+      "amd-agent-skills": {
+        "fingerprint": "a53063a4b0a010e6a52b3a2821957fe49738b89260aad8d929ee5d7a9d143a58",
+        "checks": [
+          "/.well-known/agent-skills/index.json",
+          "/.well-known/agent-skills/index-maintainer.json",
+          "/.well-known/agent-skills/add-study/SKILL.md"
+        ]
+      },
+      "amd-mcp": {
+        "fingerprint": "e5af8e20035f361b6b2bda761b70b5de258f4a0d6a5c87a07454ed800c8a4522",
+        "checks": [
+          "/.well-known/mcp/server-card.json",
+          "studies://catalog-all",
+          "studies://glossary",
+          "studies://start-here",
+          "search_studies",
+          "get_study_outline",
+          "deployed-markdown",
+          "/api/studies",
+          "/api/glossary",
+          "/api/start-here",
+          "/api/studies/The-Ontology-of-Coexistence"
+        ]
+      },
+      "amd-auth-md": {
+        "fingerprint": "71337d50c5d54fe067142b69e3ace8328bfba509fe334455f45935d4ed60a25a",
+        "checks": [
+          "/auth.md"
+        ]
+      },
+      "amd-api-catalog": {
+        "fingerprint": "d7b7028502202f615a6550eb2ab701d208b92f56e8e1819a4f9be6e01eb33c72",
+        "checks": [
+          "/.well-known/api-catalog"
+        ]
+      }
+    },
+    "cleanup": "complete"
+  },
+  "deployedRecovery": {
+    "schema": 1,
+    "sourceSha": "438cd9d2099c18ae9d7042b6a8086a6f6937923f",
+    "dirty": false,
+    "inputs": {
+      "Scripts/_deployed_release_drill.py": "eca2000b3d9fc9cefe2772f3246f0bbe302b323f117e7bf4dcdb648ac8dd7b25",
+      "Scripts/_deployed_release_browser.cjs": "bafd9c6c08f9b10edd86f132c87231668e420420919654870d922820afd31c0e",
+      "Scripts/_publish_site_release.py": "3e7e987762002a444a96efba273fa33c1066f6d3104e803325d89c1e7ddcd715",
+      "Scripts/_site_release.py": "79a2779832c94ad207b4efbab8a143b22341bd1e4ec0542649f935a71d0c6ae3",
+      "infra/site-worker/src/index.js": "b4d60095846e400329c7f06e48efd2445aa12ac9f68c444dc6f2d7bad57a6dd7",
+      "infra/site-worker/withdrawals.json": "d683c56eb5490f07267a4a7a8d44e730b922dac0d4daa2f1fe9fd8b27562082e",
+      "reader-sw.js": "0d5b463c690731b9ea6bbe10cc1792a6ead0aace62f0df6d72d7b31f104b20d6",
+      "Assets/reader/offline-policy.js": "71726f826bfc1a7ab2b921afda4a497b19d59fd4d7820413c14dc6acbdb2ee35"
+    },
+    "environment": "isolated deployed Cloudflare Worker and R2 bucket",
+    "worker": "amd-ci-drill-a6aaf6f4b9894e3c",
+    "bucket": "amd-ci-acceptance-a6aaf6f4b9894e3c",
+    "productionMutations": 0,
+    "externalLifecycle": "not exercised: approved GitHub proposal/submission matrix is separate",
+    "checks": [
+      {
+        "name": "planned publication",
+        "passed": true,
+        "revision": "238799ec94fdc15d412c35b0103a207ab411beee73d0a8864a88aaca1a19d1cf",
+        "sourceSha": "f9248e68bf775b166b82e717f177dec72dde5c83",
+        "version": "c39b5009-bf61-43c3-aaeb-b06eaef22336"
+      },
+      {
+        "name": "draft publication",
+        "passed": true,
+        "revision": "3eaa44f07414bc6beb786748ebe3c6aee715affb6ee5000f4559bcf8dbf9fe36",
+        "sourceSha": "1ef8259626fbf8aec499c4beb4f50e2c05aa2267",
+        "version": "7675ebde-fefc-46f1-99d1-2312c7db8b9a"
+      },
+      {
+        "name": "deployed offline save",
+        "passed": true,
+        "action": "save",
+        "url": "https://amd-ci-drill-a6aaf6f4b9894e3c.raghavamohan.workers.dev/Studies/CI-Acceptance/CI-Acceptance.html?r=3eaa44f07414bc6beb786748ebe3c6aee715affb6ee5000f4559bcf8dbf9fe36"
+      },
+      {
+        "name": "released publication",
+        "passed": true,
+        "revision": "285e6ea9bf6ea10711e038aee6e1d06cb6e30fa202fecbf521c119cd7b71d585",
+        "sourceSha": "f1a8336ff3a5e76ef60f1f1a254a8c1e07f4c718",
+        "version": "01f68bf4-5de8-4c09-ae53-42063b67b4b9"
+      },
+      {
+        "name": "open reader through deployment and disconnection",
+        "passed": true,
+        "action": "after",
+        "offline": true,
+        "url": "https://amd-ci-drill-a6aaf6f4b9894e3c.raghavamohan.workers.dev/Studies/CI-Acceptance/CI-Acceptance.html?r=3eaa44f07414bc6beb786748ebe3c6aee715affb6ee5000f4559bcf8dbf9fe36"
+      },
+      {
+        "name": "retired publication",
+        "passed": true,
+        "revision": "9bf9e41ef91c3bb309e5ebede67bdc06956b88a3cef6bd065fbc49976cc728be",
+        "sourceSha": "b7a9de42c96b9e5ca909ad8e6cb8e0babb99866d",
+        "version": "a1794028-9955-40e2-b1b9-23f6100a45e7"
+      },
+      {
+        "name": "retired canonical path absent",
+        "passed": true
+      },
+      {
+        "name": "controlled deployed rollback",
+        "passed": true,
+        "revision": "3eaa44f07414bc6beb786748ebe3c6aee715affb6ee5000f4559bcf8dbf9fe36"
+      },
+      {
+        "name": "forward recovery promotion",
+        "passed": true,
+        "revision": "9bf9e41ef91c3bb309e5ebede67bdc06956b88a3cef6bd065fbc49976cc728be"
+      },
+      {
+        "name": "failed deployed audit restores previous complete version",
+        "passed": true,
+        "revision": "9bf9e41ef91c3bb309e5ebede67bdc06956b88a3cef6bd065fbc49976cc728be"
+      },
+      {
+        "name": "superseded candidate cannot overwrite concurrent recovery",
+        "passed": true
+      }
+    ],
+    "cleanup": "complete",
+    "passed": true,
+    "generatedAt": "2026-09-26T17:00:15.910767+00:00"
+  },
+  "hostedFonts": {
+    "markdown": {
+      "platform": "Linux",
+      "machine": "x86_64",
+      "python": "3.12.14",
+      "node": "24.21.0",
+      "imageOS": "ubuntu24",
+      "imageVersion": "20260920.314.1",
+      "fontsSha256": "0de475aa5d3c8252f5fa52032a362a0012b00fc0b011e5b1828c7f6e0ddf1d25",
+      "fontRecords": 101
+    },
+    "presentations": {
+      "platform": "Windows",
+      "machine": "AMD64",
+      "python": "3.12.10",
+      "node": "24.21.0",
+      "imageOS": "win25-vs2026",
+      "imageVersion": "20260922.246.2",
+      "fontsSha256": "1c6d8447263ad151de0fa6753b59bd2e93cee29c59800190bd301044d1a353bc",
+      "fontRecords": 474
+    }
+  },
+  "ciRuns": {
+    "verification": 36257055547,
+    "strictPresentationRepeat": 36257055323,
+    "markdownRepeat": 36257055318,
+    "hostedFonts": 36257055368,
+    "workers": 36257055404
+  },
+  "garbageCollection": {
+    "schema": 1,
+    "readOnly": true,
+    "deletionAuthorized": false,
+    "generatedAt": "2026-09-26T16:27:21.075521+00:00",
+    "retentionDays": 90,
+    "retainedRecords": 3123,
+    "candidates": [],
+    "verifiedBackupObjects": 3322,
+    "verifiedArchiveParts": 12,
+    "productionObjectsDeleted": 0
+  },
+  "limits": [
+    "Public authenticated proposal/submission/dashboard integration remains R2 in PENDING.md.",
+    "This evidence does not assert that PR #517 has been merged or deployed to production."
+  ]
+}

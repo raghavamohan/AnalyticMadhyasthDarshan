@@ -606,6 +606,7 @@ class ReleaseTests(unittest.TestCase):
                                (BASE/'infra/generated-pdf-worker/src/generated-pdf-keys.js','generated-pdf-keys.js')]:
             shutil.copyfile(source,worker/target)
         (worker/'release.js').write_bytes(b'export default {};')
+        (worker/'withdrawals.js').write_bytes(b'export default {schema:1,withdrawals:[{path:"/Studies/Withdrawn/"}]};')
         (worker/'package.json').write_bytes(b'{"type":"module"}')
         shutil.copyfile(BASE/'Scripts/_test_site_worker.mjs',worker/'test.mjs')
         result = subprocess.run(['node',str(worker/'test.mjs')],capture_output=True,text=True)
