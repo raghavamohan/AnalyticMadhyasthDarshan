@@ -1,8 +1,9 @@
 # Start here audio introductions: implementation plan
 
-Status: Five English draft scripts prepared for author review in
-[Audio/README.md](../Audio/README.md); one editorial revision applied (September 18,
-2026) for fidelity to each study's central question and the weight of its examples.
+Status: Five English draft scripts available in
+[Audio/README.md](../Audio/README.md); Revision 3 completed on September 26, 2026,
+against the current studies for conceptual coverage, comparative fairness, and
+spoken clarity. Wording acceptance and timed delivery remain before recording.
 Recording, site integration, and publication remain planned. Open items:
 [PENDING.md](../PENDING.md#audio).
 

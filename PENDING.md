@@ -21,7 +21,7 @@ When an item is finished, remove the row and add a one-line note under
 
 ## Next
 
-1. Author-review the five Start here audio transcripts, beginning with
+1. Accept wording and check timed delivery of the revised Start here audio transcripts, beginning with
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
 2. Website next: `AUTH-01` Phase 0 (isolated staging), followed by its four product/cutover phases; coordinate recovery acceptance with `UX-05`. `UX-04`/`UX-06` remain later and `DIS-01` remains outside this cycle.
@@ -56,7 +56,7 @@ Recording (`AUD-03`) waits on `AUD-01` and `AUD-02`.
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| AUD-01 | P1 | pending | Author-review the five English drafts (meaning, spoken clarity, qualifications, 4–5 minute timing, pronunciation). Start with the Human episode. |
+| AUD-01 | P1 | partial | Revision 3 editorial review against the current studies completed on 26 September 2026; [all five scripts](Audio/README.md) revised for coverage, accuracy, and spoken clarity. Remaining: author wording acceptance, pronunciation, and a timed read to confirm 4–5 minutes. Start with the Human episode. |
 | AUD-02 | P1 | pending | Confirm recording language and human versus AI narration. |
 | AUD-04 | P1 | pending | Audio registry, R2 delivery, and Start here Listen player. `Scripts/audio-pipeline.json` is not implemented. May proceed in parallel with `AUD-01`. |
 | AUD-03 | P1 | pending | Record the Human pilot, time it, and align the transcript. No recording exists yet. After `AUD-01` and `AUD-02`. |
@@ -214,8 +214,10 @@ catalog / Start here order, not proposal-number order.
 - Website phases 1–5 (PRs #396–#403) and nav/listen fixes #404–#409.
 - Public API phases 1–3.
 - GPU transcription pipeline (VAD-off, Vulkan).
-- Revision 2 of the five Start here transcripts (18 September 2026). Author
-  review of that result is `AUD-01`.
+- Revisions 2 and 3 of the five Start here transcripts (18 and 26 September
+  2026). Revision 3 reconciles the current studies and strengthens conceptual
+  coverage, comparisons, and spoken introductions. Wording acceptance and timed
+  delivery remain in `AUD-01`.
 - Shared icon/illustration kit in `Assets/Theme/`. Site surfaces (landing
   nav, social cards, portal wait/toggle) shipped as `THEME-SITE`. Deck
   rollout remains `THEME-DECKS`.
