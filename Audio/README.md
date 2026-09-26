@@ -11,19 +11,32 @@ Each targets **4–5 minutes**. Read the transcript aloud at a measured pace,
 allowing short pauses between paragraphs; actual recording time decides the
 final length. Titles and review notes are not spoken.
 
-| Order | Stage | Transcript | Spoken words | Review notes |
-| --- | --- | --- | ---: | --- |
-| 1 | Human | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/en/transcript.md) | 649 | [Sources and review](Why-Humans-Are-Not-Just-Material/en/review-notes.md) |
-| 2 | Existence | [The Ontology of Coexistence](The-Ontology-of-Coexistence/en/transcript.md) | 644 | [Sources and review](The-Ontology-of-Coexistence/en/review-notes.md) |
-| 3 | Knowledge | [The Epistemology of Coexistence](The-Epistemology-of-Coexistence/en/transcript.md) | 646 | [Sources and review](The-Epistemology-of-Coexistence/en/review-notes.md) |
-| 4 | Value | [Axiology: Value Theory](Axiology-Value-Theory/en/transcript.md) | 645 | [Sources and review](Axiology-Value-Theory/en/review-notes.md) |
-| 5 | Living | [How Undivided Society Is Established](How-Undivided-Society-Is-Established/en/transcript.md) | 649 | [Sources and review](How-Undivided-Society-Is-Established/en/review-notes.md) |
+| Order | Stage | Transcript | Spoken words | Estimated time | Review notes |
+| --- | --- | --- | ---: | ---: | --- |
+| 1 | Human | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/en/transcript.md) | 641 | 5:00 | [Sources and review](Why-Humans-Are-Not-Just-Material/en/review-notes.md) |
+| 2 | Existence | [The Ontology of Coexistence](The-Ontology-of-Coexistence/en/transcript.md) | 610 | 4:46 | [Sources and review](The-Ontology-of-Coexistence/en/review-notes.md) |
+| 3 | Knowledge | [The Epistemology of Coexistence](The-Epistemology-of-Coexistence/en/transcript.md) | 627 | 4:54 | [Sources and review](The-Epistemology-of-Coexistence/en/review-notes.md) |
+| 4 | Value | [Axiology: Value Theory](Axiology-Value-Theory/en/transcript.md) | 622 | 4:51 | [Sources and review](Axiology-Value-Theory/en/review-notes.md) |
+| 5 | Living | [How Undivided Society Is Established](How-Undivided-Society-Is-Established/en/transcript.md) | 609 | 4:46 | [Sources and review](How-Undivided-Society-Is-Established/en/review-notes.md) |
 
-The scripts have had one editorial revision (Revision 2, September 18, 2026) for
-fidelity to each study's central question and for the weight of the examples
-chosen; each review file records what was added, what was cut, and the revised
-transcript hash. Status remains `Draft — awaiting author review`. Recording
-readiness is tracked in [PENDING.md](../PENDING.md#audio) (`AUD-01`).
+Times assume 135 words per minute plus 15 seconds of pauses and are rounded to
+the nearest second. They are estimates, not timed readings. Word counts exclude
+the title and use whitespace-separated words.
+
+Revision 3 (September 26, 2026) reviews all five introductions against the current
+complete studies. It strengthens conceptual connections, clarifies technical
+terms, corrects overstated comparisons, and preserves the questions each study
+leaves open. The Human episode restores reasons and purposes alongside felt
+experience; Existence clarifies the ground, units, and development; Knowledge
+connects inward reflection to outward evidence; Value adds learning and sustained
+fulfilment; Living connects universal relationships to councils and institutions
+through the neighbourhood example. Each review file records the current source
+map, consequential changes, and source/transcript hashes, while retaining earlier
+provenance. This establishes alignment with the studies, not a fresh independent
+audit of all their primary references.
+
+Status remains `Draft — awaiting author review`; wording acceptance, pronunciation,
+and timed delivery remain in [PENDING.md](../PENDING.md#audio) (`AUD-01`).
 
 ## Organisation
 
@@ -84,8 +97,9 @@ has been updated to use this directory.
 The lifecycle above is for audio authoring and does not change a study's
 Draft/Released status. A later substantive study revision calls for audio review;
 mark the affected entry `Needs review` until its claims have been reconciled.
-The source and transcript hashes in each review file identify the initial draft
-baseline. They are provenance, not automatic freshness checks. Update the baseline
+The source and transcript hashes in each review file identify historical draft
+baselines and the current Revision 3 review. They are provenance, not automatic
+freshness checks. Update the baseline
 when a reviewed version replaces it, and recalculate the word-count summary when
 wording changes.
 
