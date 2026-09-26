@@ -131,6 +131,46 @@ class PublicationProofTests(unittest.TestCase):
         self.assertIn('persist-credentials: false', workflow)
         self.assertNotIn('ref: ${{ github.event.workflow_run.head_sha }}', workflow)
 
+    def test_trusted_writer_waits_for_verified_readiness_without_completion_event(self):
+        pr = {'number':1, 'state':'open', 'draft':True, 'body':'Portal-GitHub: @maintainer',
+              'head':{'sha':'a'*40, 'repo':{'full_name':'owner/repo'}},
+              'base':{'sha':'b'*40, 'ref':'master', 'repo':{'full_name':'owner/repo'}}}
+        key = identity.verification_key(pr)
+        run = {'display_title':'verify / '+key, 'status':'completed', 'conclusion':'success',
+               'head_sha':'a'*40, 'path':'.github/workflows/studies-index-check.yml',
+               'event':'workflow_dispatch', 'head_repository':{'full_name':'owner/repo'}}
+        pending = {**run, 'status':'in_progress', 'conclusion':None}
+        with patch('_bootstrap_ci.gh', side_effect=[pr, {'workflow_runs':[pending]}, pr,
+                                                   {'workflow_runs':[run]}, [pr]]), \
+             patch('_bootstrap_ci.command') as command, patch.object(identity.time, 'sleep') as sleep:
+            identity.wait_complete('owner/repo', pr)
+            sleep.assert_called_once_with(15)
+            command.assert_called_once_with('gh', 'pr', 'ready', '1', '--repo', 'owner/repo')
+        with patch('_bootstrap_ci.gh', side_effect=[pr, {'workflow_runs':[{**run, 'conclusion':'failure'}]}]), \
+             patch('_bootstrap_ci.command') as command:
+            with self.assertRaisesRegex(ValueError, 'did not succeed'):
+                identity.wait_complete('owner/repo', pr)
+            command.assert_not_called()
+        with patch('_bootstrap_ci.gh', return_value={**pr, 'body':'changed intent'}), \
+             patch('_bootstrap_ci.command') as command:
+            with self.assertRaisesRegex(ValueError, 'intent changed'):
+                identity.wait_complete('owner/repo', pr)
+            command.assert_not_called()
+        with patch('_bootstrap_ci.gh', return_value={**pr, 'draft':False}), \
+             patch('_bootstrap_ci.command') as command:
+            identity.wait_complete('owner/repo', pr)
+            command.assert_not_called()
+        for invalid in ({**run, 'head_sha':'c'*40}, {**run, 'event':'pull_request'},
+                        {**run, 'path':'.github/workflows/other.yml'},
+                        {**run, 'head_repository':{'full_name':'fork/repo'}}):
+            with self.subTest(invalid=invalid), \
+                 patch('_bootstrap_ci.gh', side_effect=[pr, {'workflow_runs':[invalid]}]), \
+                 patch('_bootstrap_ci.command') as command, \
+                 patch.object(identity.time, 'monotonic', side_effect=[0, 901]):
+                with self.assertRaisesRegex(ValueError, 'Timed out'):
+                    identity.wait_complete('owner/repo', pr)
+                command.assert_not_called()
+
     def test_readiness_requires_exact_successful_same_repository_verification(self):
         pr = {'number':1, 'state':'open', 'draft':True, 'body':'Portal-GitHub: @maintainer',
               'head':{'sha':'a'*40, 'repo':{'full_name':'owner/repo'}}, 'base':{'sha':'b'*40}}
