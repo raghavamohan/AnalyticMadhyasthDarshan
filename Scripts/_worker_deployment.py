@@ -9,6 +9,7 @@ not import ``_common`` or any module that requires repository pip packages.
 import argparse
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -41,6 +42,9 @@ def active_fingerprint(token: str, account: str, name: str) -> str | None:
 
 
 def deploy_source(token: str, account: str, name: str, source: str, metadata: dict, uploader) -> dict:
+    if os.environ.get('AMD_REQUIRE_CANARY') == '1':
+        from _canary_publications import require_receipt
+        require_receipt(Path(os.environ['AMD_CANARY_RECEIPT']), name, source, metadata, account)
     key = digest({'schema': 1, 'source': source, 'metadata': metadata})
     if active_fingerprint(token, account, name) == key:
         print(f'{name}: executable and bindings are unchanged; deployment skipped.')

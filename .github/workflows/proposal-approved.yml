@@ -22,7 +22,7 @@ permissions:
 jobs:
   comment:
     if: github.event.label.name == 'proposal-approved'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Ensure study-proposal label remains
         uses: actions/github-script@v9
@@ -118,7 +118,7 @@ jobs:
     if: >-
       github.event_name == 'workflow_dispatch' ||
       github.event.label.name == 'proposal-approved'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     env:
       ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue }}
     concurrency:

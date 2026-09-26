@@ -89,16 +89,37 @@ def read_proof(data: bytes, *, repository: str, head: str, nodes: dict, wanted: 
         return accepted, bodies
 
 
+def recovery_prs(repo: str, source_sha: str, gh) -> list[dict]:
+    """Bound recovery to 100 recently closed PRs already merged into this source.
+
+    The current merge is preferred. Closure alone is insufficient, and a newer
+    merge cannot establish authority for a publication of an older source.
+    """
+    direct = gh('api', f'repos/{repo}/commits/{source_sha}/pulls')
+    recent = gh('api', f'repos/{repo}/pulls?state=closed&sort=updated&direction=desc&per_page=100')
+    accepted, seen = [], set()
+    for pr in direct + recent:
+        number = pr.get('number')
+        merge = pr.get('merge_commit_sha', '')
+        if (number in seen or not pr.get('merged_at') or not merge
+                or pr.get('head', {}).get('repo', {}).get('full_name') != repo
+                or pr.get('base', {}).get('repo', {}).get('full_name') != repo
+                or pr.get('base', {}).get('ref') != 'master'):
+            continue
+        seen.add(number)
+        if subprocess.run(['git', 'merge-base', '--is-ancestor', merge, source_sha], cwd=BASE,
+                          capture_output=True).returncode == 0:
+            accepted.append(pr)
+    return accepted
+
+
 def import_merged(plan_path: Path, output: Path) -> None:
     from _bootstrap_ci import gh
     plan = validate_plan(json.loads(plan_path.read_bytes()))
     repo = os.environ['GITHUB_REPOSITORY']
-    prs = gh('api', f"repos/{repo}/commits/{plan['sourceSha']}/pulls")
+    prs = recovery_prs(repo, plan['sourceSha'], gh) if plan['build'] else []
     candidates = []
     for pr in prs:
-        if (not pr.get('merged_at') or pr.get('merge_commit_sha') != plan['sourceSha']
-                or pr.get('head', {}).get('repo', {}).get('full_name') != repo):
-            continue
         heads = {pr['head']['sha']}
         commit = gh('api', f"repos/{repo}/commits/{pr['head']['sha']}")
         for line in commit.get('commit', {}).get('message', '').splitlines():

@@ -31,6 +31,7 @@ on:
       - "Scripts/_build_sitemap.py"
       - "Scripts/_verify_studies_index.py"
       - "Scripts/_worker_deployment.py"
+      - "Scripts/_canary_publications.py"
       - "Scripts/_cloudflare_performance.py"
       - "Scripts/_build_contributor_assets.py"
       - "Scripts/_build_discussion_pages.py"
@@ -79,6 +80,7 @@ on:
       - "Scripts/_build_sitemap.py"
       - "Scripts/_verify_studies_index.py"
       - "Scripts/_worker_deployment.py"
+      - "Scripts/_canary_publications.py"
       - "Scripts/_cloudflare_performance.py"
       - "Scripts/_build_contributor_assets.py"
       - "Scripts/_build_discussion_pages.py"
@@ -107,7 +109,10 @@ concurrency:
 
 jobs:
   workers:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    env:
+      AMD_REQUIRE_CANARY: '1'
+      AMD_CANARY_RECEIPT: ${{ runner.temp }}/publication-canary.json
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -116,12 +121,12 @@ jobs:
         uses: ./.github/actions/setup-study-env
         with:
           node: 'false'
-          python-version: "3.13"
+          python-version: "3.12.14"
 
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
-          node-version: "24"
+          node-version: "24.21.0"
 
       - name: Validate canonical publications
         run: |
@@ -148,6 +153,23 @@ jobs:
           node --check infra/mcp-worker/src/index.js
           node --check infra/auth-md-worker/src/index.js
           node Scripts/_test_mcp_api_errors.mjs
+
+      - name: Audit all candidates on disposable same-zone routes
+        if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_ZONE_ID: ${{ vars.CLOUDFLARE_ZONE_ID }}
+        run: python Scripts/_canary_publications.py --output "$AMD_CANARY_RECEIPT"
+
+      - name: Retain candidate audit evidence
+        if: always() && github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v6
+        with:
+          name: publication-canary
+          path: ${{ runner.temp }}/publication-canary.json
+          if-no-files-found: warn
+          retention-days: 30
 
       - name: Deploy Agent Skills Worker
         if: github.ref == 'refs/heads/master' && github.event_name != 'pull_request'
