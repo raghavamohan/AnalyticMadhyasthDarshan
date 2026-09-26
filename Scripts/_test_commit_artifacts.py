@@ -219,7 +219,8 @@ def test_regenerated_pull_request_head_gets_required_verification() -> None:
     assert '-f context=verify' in verify_workflow
     writer = (BASE / "Scripts/_prepared_study.py").read_text(encoding="utf-8")
     assert "payload.get('head') != pr['head']['sha']" in writer
-    assert "'failure', 'Prepared-head verification could not be queued.'" in writer
+    assert "wait_complete(repo, accepted)" in writer
+    assert "status(repo, head, 'failure'," in writer
 
 
 
