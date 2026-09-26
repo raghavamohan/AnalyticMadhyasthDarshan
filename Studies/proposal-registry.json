@@ -30,7 +30,7 @@
       "description": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
       "formal": false,
       "applied": false,
-      "phase": "pre-catalog"
+      "phase": "catalog-draft"
     },
     {
       "slug": "Chitta-Brain-And-Memory",

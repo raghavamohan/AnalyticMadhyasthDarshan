@@ -12,6 +12,7 @@ export const GENERATED_PDF_KEYS = [
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan-notes.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",
+  "Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.pdf",
   "Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf",
   "Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf",
   "Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf",
