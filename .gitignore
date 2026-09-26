@@ -16,6 +16,8 @@ Scripts/_reference_cache/
 /tmp/rights-text/
 /tmp/pdfs/
 /tmp/site-release-*/
+/tmp/r2-backup/
+/tmp/r2-recovery-*/
 /tmp/ci-suites.log
 /tmp/ci-*.log
 /tmp/ci-*.py

@@ -171,8 +171,10 @@ Complete for routing and delivery. The existing Worker now has separate generate
 and reference bucket bindings. The reference route, allowlist, pass-through behavior,
 GET/HEAD/range/ETag/MIME handling, and canary deployment have been verified.
 
-Deletion protection and an independent off-provider backup remain operational
-hardening tasks. Do not add an expiry lifecycle to canonical objects. Apply a bucket
+An independent private Google Drive backup of both R2 buckets is implemented;
+see the [backup and recovery guide](../docs/r2-google-drive-backup.md).
+Deletion protection remains an operational hardening task in `R2-BACKUP`.
+Do not add an expiry lifecycle to canonical objects. Apply a bucket
 lock only after choosing a retention period, because an over-broad lock can prevent
 legitimate corrections.
 
