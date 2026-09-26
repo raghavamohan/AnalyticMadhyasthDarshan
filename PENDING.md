@@ -7,6 +7,10 @@ table.
 Reviewed: 18 September 2026 against `master` `4f471bf4` and live
 [analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org).
 
+Editorial follow-ups added on 26 September 2026 from the
+[studies readability review](docs/studies-readability-review-2026-09-26.md);
+this was not a new audit of the other categories.
+
 Status: **pending** (not started), **partial** (started, unfinished),
 **later** (needed, not this cycle), **deferred** (do not start unless a stated
 gate is met).
@@ -43,7 +47,8 @@ Design and evaluation matrix:
 | UX-05 | P1 | later | Production contributor/discussion recovery check. Composer text is not preserved across sign-in; implement preservation and verify cutover recovery with `AUTH-01` Phases 1 and 4. |
 | UX-06 | P1 | later | Fresh Cloudflare RUM sample, segmented by catalog / large reader / search / portal and mobile / desktop. Saved baseline is still 30 August 2026 (45 views, catalog LCP p75 2.6 s, TTFB 1.3 s, CLS p75 1.0, INP p75 0). That sample predates `amd-site` cutover. Live catalog HTML is Worker-served (`cfOrigin` 0). Investigate CLS/INP before optimizing. Re-run `python Scripts/_cloudflare_performance.py --export-rum-baseline`. Related: `CF-PDF-CACHE`. |
 | DIS-01 | P2 | pending | Reply mail and report control. Session revocation already shipped. Not this cycle. |
-| UX-07 | P2 | later | Reading-time cues, argument routes, public reference-library browser. |
+| UX-08 | P2 | pending | Clarify the homepage's first reading action and tool hierarchy using the existing Start here path; test newcomer and returning-reader tasks as described in the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
+| UX-07 | P2 | later | Reading-time cues, argument routes, public reference-library browser. Include persistent path orientation for direct/search arrivals, meaningful stage names, and distinct satellite/formal-study placement; see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
 | WEB-P6 | P3 | deferred | Optional semantic retrieval. Start only if lexical search shows unmet need. |
 
 ## Audio
@@ -174,15 +179,21 @@ The icon kit itself is delivered.
 ## Studies
 
 Catalog `ongoing` rows remain the public catalog. This table is the working
-list of first drafts still to write, plus one flagged study edit. Drafts that
+list of first drafts still to write, plus flagged study edits. Drafts that
 already exist are not listed here.
 
-`ST-ILL-01` is the only existing-study edit. The `ST-DRAFT-*` rows follow
-catalog / Start here order, not proposal-number order.
+The `ST-READ-*` work follows the [readability review](docs/studies-readability-review-2026-09-26.md):
+preserve every study's full substantive information and improve understanding,
+with no length target or removal of detail as a readability remedy. Completed
+ontology reviews remain closed. The `ST-DRAFT-*` rows follow catalog / Start
+here order, not proposal-number order.
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
+| ST-READ-01 | P1 | pending | Pilot clearer explanations in Why Humans and Axiology while preserving all information: retain the six-perspective definitions and full value/faculty tables, use the caregiver example to explain their relationships, verify content retention, and assess comprehension with a small reader exercise under the [review design](docs/studies-readability-review-2026-09-26.md#9-order-of-implementation-and-evidence-of-improvement). |
+| ST-READ-02 | P1 | pending | After the prose pilot, improve Ontology and Epistemology through explanations, sequencing, examples, and transitions while retaining all substantive information and detail; verify content retention, with no length target or removal to appendices/companions for readability. Repair affected references/companions and rebuild affected outputs under the [review design](docs/studies-readability-review-2026-09-26.md#4-recommended-changes-by-study). |
 | ST-ILL-01 | P2 | pending | Add a neighbourhood / group-boundary illustration to [How Undivided Society](Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md) §3.2. Flagged during audio revision. |
+| ST-READ-03 | P2 | pending | Extend the validated explanatory and comparative-fairness approach to the other released studies, including Nature of Time, Self-Sustaining Organizations, Undivided Society, and the formal reconstruction; preserve all substantive and formal information, verify content retention, and inspect companion/audio consequences under the [review](docs/studies-readability-review-2026-09-26.md#4-recommended-changes-by-study). |
 | ST-DRAFT-01 | Catalog | pending | First draft: [Philosophy of Mind and Jeevan](Studies/Philosophy-Of-Mind-And-Jeevan/) (proposal #11). |
 | ST-DRAFT-02 | Catalog | pending | First draft: [Chitta, the Brain, and the Architecture of Memory](Studies/Chitta-Brain-And-Memory/) (proposal #27). |
 | ST-DRAFT-03 | Catalog | pending | First draft: [Methodology and Hermeneutics](Studies/Methodology-And-Hermeneutics/) (proposal #12). |
