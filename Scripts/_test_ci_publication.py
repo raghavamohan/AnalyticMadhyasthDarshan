@@ -24,6 +24,29 @@ from _study_catalog import StudyStatus
 
 
 class PreparationTests(unittest.TestCase):
+    def test_post_push_api_lag_waits_for_exact_prepared_head(self):
+        from _verification_identity import intent_hash
+        import copy
+        pr = {'number':1, 'state':'open', 'draft':True, 'body':'Portal-GitHub: @author',
+              'head':{'sha':'a'*40, 'ref':'branch', 'repo':{'full_name':'owner/repo'}},
+              'base':{'ref':'master', 'sha':'b'*40, 'repo':{'full_name':'owner/repo'}}}
+        payload = {'head':'a'*40, 'base':'b'*40, 'intent':intent_hash(pr)}
+        current = copy.deepcopy(pr); current['head']['sha'] = 'c'*40
+        with patch.object(bootstrap, 'gh', side_effect=[pr, current]), patch.object(prepared.time, 'sleep') as sleep:
+            self.assertEqual(prepared.wait_for_prepared_head('owner/repo', 1, 'c'*40, 'branch', payload), current)
+            sleep.assert_called_once_with(1)
+        for field in ('head', 'base', 'body'):
+            moved = copy.deepcopy(pr)
+            if field == 'body': moved['body'] += '\nTarget status: released'
+            else: moved[field]['sha'] = 'd'*40
+            with patch.object(bootstrap, 'gh', return_value=moved), patch.object(prepared.time, 'sleep') as sleep:
+                with self.assertRaises(ValueError):
+                    prepared.wait_for_prepared_head('owner/repo', 1, 'c'*40, 'branch', payload)
+                sleep.assert_not_called()
+        with patch.object(bootstrap, 'gh', return_value=pr), patch.object(prepared.time, 'monotonic', side_effect=[0, 31]):
+            with self.assertRaisesRegex(ValueError, 'deadline'):
+                prepared.wait_for_prepared_head('owner/repo', 1, 'c'*40, 'branch', payload)
+
     def test_trusted_writer_inspects_exact_source_without_site_packages(self):
         root = Path(__file__).resolve().parents[1]
         head = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=root, text=True).strip()
