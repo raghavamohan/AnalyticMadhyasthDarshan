@@ -11,8 +11,6 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote
 
-from pypdf import PdfReader
-
 SCRIPTS = Path(__file__).resolve().parent
 BASE = SCRIPTS.parent
 STUDIES = BASE / "Studies"
@@ -479,6 +477,9 @@ def _read_pdf_cache(cache_file: Path, source: Path) -> list[tuple[int, str]] | N
 
 def _extract_pdf_pages(path: Path) -> list[tuple[int, str]]:
     try:
+        # Ownership/path-only CI consumers must work without PDF dependencies.
+        from pypdf import PdfReader
+
         reader = PdfReader(str(path))
     except Exception as exc:
         raise ValueError(f"Could not read PDF: {exc}") from exc
