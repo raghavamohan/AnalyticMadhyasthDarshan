@@ -1,0 +1,181 @@
+{
+  "schema": "amd-r2-drive-receipt-v1",
+  "verified_at": "2026-09-26 15:22:54 UTC",
+  "destination": {
+    "root_folder_id": "1PV_XnPewdSzJ-gFS10Z54HyFTNVowhWY",
+    "snapshot_folder_id": "1B0IOm--9Qd2O0_fNNOdSCUPuJccVlLs5",
+    "snapshot_url": "https://drive.google.com/drive/folders/1B0IOm--9Qd2O0_fNNOdSCUPuJccVlLs5",
+    "private": true
+  },
+  "snapshot": {
+    "started_at": "2026-09-26T15:09:20.241715+00:00",
+    "completed_at": "2026-09-26T15:13:01.640140+00:00",
+    "buckets": [
+      {
+        "name": "amd-public-pdfs",
+        "objects": 3288,
+        "bytes": 436260426
+      },
+      {
+        "name": "amd-reference-archive",
+        "objects": 34,
+        "bytes": 287651379
+      }
+    ],
+    "object_count": 3322,
+    "source_bytes": 723911805,
+    "unique_blobs": 3274,
+    "archive_parts": 12
+  },
+  "verification": {
+    "all_files_downloaded_from_drive": true,
+    "sha256_match": true,
+    "archive_and_blob_checks": true,
+    "local_recovery_drill": "passed",
+    "recovered_blobs": 3274,
+    "source_writes": 0,
+    "scheduled": false
+  },
+  "files": [
+    {
+      "name": "objects-001.zip",
+      "bytes": 41566376,
+      "sha256": "d1b0dd97cb791f8510f17302f2912cf4330304cf88f38ea971b4b7b527d9187c",
+      "md5": "505178474016d4dd89a25dbc17b92887",
+      "id": "1NK2AP4GKLhfVrdBMcOiI3Z4HhOyTyZ6C",
+      "url": "https://drive.google.com/file/d/1NK2AP4GKLhfVrdBMcOiI3Z4HhOyTyZ6C/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-002.zip",
+      "bytes": 66332895,
+      "sha256": "61a2e69d69d95d1b3a73d881b11e6280889865fa7f847e2c64ab8a607095978b",
+      "md5": "1d1111b0b4be23ed842061df643d0ec3",
+      "id": "1bfXI04jk4ZHsmMJx4-UpAT1UmPALxzd3",
+      "url": "https://drive.google.com/file/d/1bfXI04jk4ZHsmMJx4-UpAT1UmPALxzd3/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-003.zip",
+      "bytes": 60274341,
+      "sha256": "40585bd5cbbeae4fb97363a800c59dbf47406a7ec8d9a6680774b4ac3332c3df",
+      "md5": "04cf2ac1c44eecdd6b8d9e63d6572a6b",
+      "id": "1b06YXlpXmgcTGPp43b8pgYIGFR_6SLUx",
+      "url": "https://drive.google.com/file/d/1b06YXlpXmgcTGPp43b8pgYIGFR_6SLUx/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-004.zip",
+      "bytes": 66122554,
+      "sha256": "c1d79a4d699679fdcdd4bcaee1383bd96940871a5d168dd5af0d2a784dba066b",
+      "md5": "1f8332d8d5cdff2a14e23eb4a6bf9d11",
+      "id": "1BkFVWYcIErqnbBRAYsTprySWSr7yXSU2",
+      "url": "https://drive.google.com/file/d/1BkFVWYcIErqnbBRAYsTprySWSr7yXSU2/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-005.zip",
+      "bytes": 65599253,
+      "sha256": "110c8d311869893acad53ecf7cc303a76e8c8ab9cd1a4886d6bd161abf84054c",
+      "md5": "5041009b355f75ab00ef20f57fce0e68",
+      "id": "15gRRkIFLFxq0-sB5gIEXlJqUVbtFlzg6",
+      "url": "https://drive.google.com/file/d/15gRRkIFLFxq0-sB5gIEXlJqUVbtFlzg6/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-006.zip",
+      "bytes": 52992881,
+      "sha256": "706dcccb005e095c8c5e45fedf52b1ac193d30933c061235dbbd244e3bad92ee",
+      "md5": "2e6fcff7aea07166616708d00cc01ed4",
+      "id": "1gDOkRL_NaW_-G2ujhJBG1oWajyjFAqxs",
+      "url": "https://drive.google.com/file/d/1gDOkRL_NaW_-G2ujhJBG1oWajyjFAqxs/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-007.zip",
+      "bytes": 67031585,
+      "sha256": "efb8594caa643b4876a9c619564b4979372b5de9420f46876eabfad5272156b1",
+      "md5": "a9b0654c358cd2ba67c5853de78ec9a1",
+      "id": "1tyvgfFKCGmPxIK112oPLHnpk8v3qwkGJ",
+      "url": "https://drive.google.com/file/d/1tyvgfFKCGmPxIK112oPLHnpk8v3qwkGJ/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-008.zip",
+      "bytes": 63347329,
+      "sha256": "99a35f6daf6c1fce72e1f0ac195dfc70ba3e5ddc35f80d412b41a98d25dbdf5d",
+      "md5": "e878b75b728f6858dde3f46dad86ec26",
+      "id": "1wq5nGUiKYN4DN7IZhOS0dRXyvd0sNgLv",
+      "url": "https://drive.google.com/file/d/1wq5nGUiKYN4DN7IZhOS0dRXyvd0sNgLv/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-009.zip",
+      "bytes": 67145323,
+      "sha256": "34d827e7d5702f3a52e502c111dd0f015f6448319c1767af5c76589f60f33c20",
+      "md5": "d77b8299971f2bbf042f1ae2f225f164",
+      "id": "1dTSdwOym2gNb-cu9f4OCofeCtJjECMPj",
+      "url": "https://drive.google.com/file/d/1dTSdwOym2gNb-cu9f4OCofeCtJjECMPj/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-010.zip",
+      "bytes": 66998798,
+      "sha256": "fa9d6503cc41a920aa23178319356fbd0dca4adcbb7cba6458da4464ce74dcfb",
+      "md5": "7b001792fb6bdb7c96d485611649aca2",
+      "id": "1uQ-9sTuArlqu2FQ0bBxlEKlV7V8hN9pE",
+      "url": "https://drive.google.com/file/d/1uQ-9sTuArlqu2FQ0bBxlEKlV7V8hN9pE/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-011.zip",
+      "bytes": 66646043,
+      "sha256": "9595b75730cd5363792ee55f1052890de09c106147d14234a27d180bb308e62c",
+      "md5": "72c6bc01f23ebb2c20417eacaac7f885",
+      "id": "1y7HxY-2qVS2fdPSKmHG94QlPUZdOsB7E",
+      "url": "https://drive.google.com/file/d/1y7HxY-2qVS2fdPSKmHG94QlPUZdOsB7E/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "objects-012.zip",
+      "bytes": 15533002,
+      "sha256": "925f271aa742e0a703ecebcb71c8109e079b329360eaf6b548e806b5f6d5b9bb",
+      "md5": "7a532af5f6bcf32ca3d063c24531714a",
+      "id": "1AYTphI5lY-_45pGwYTSOqBQ6OsH1U8as",
+      "url": "https://drive.google.com/file/d/1AYTphI5lY-_45pGwYTSOqBQ6OsH1U8as/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "manifest.json",
+      "bytes": 2522127,
+      "sha256": "d918c6d59e22ce1acdea4f5f6596e3ef8fd95582a9a156355efa88d98596f226",
+      "md5": "36234b8a2a1c14956c35b52ec96c9985",
+      "id": "1iQ1mN0S9PBq7j31SXvdacGfr6yOVfnD2",
+      "url": "https://drive.google.com/file/d/1iQ1mN0S9PBq7j31SXvdacGfr6yOVfnD2/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    },
+    {
+      "name": "RECOVERY-GUIDE.md",
+      "bytes": 6413,
+      "sha256": "6daaeceb2df563f83cddd3decefe666eee3467072a98e6099f987361ed42add3",
+      "md5": "cbe5e5b1184928c7eac0fa9276757da0",
+      "id": "1XNWWHNDUomal60-hecsn3P2OGb91F9IZ",
+      "url": "https://drive.google.com/file/d/1XNWWHNDUomal60-hecsn3P2OGb91F9IZ/view?usp=drivesdk",
+      "download_verified": true,
+      "private": true
+    }
+  ]
+}

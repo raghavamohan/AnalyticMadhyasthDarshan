@@ -128,7 +128,7 @@ How-to:
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
 | R2-RIGHTS | P1 | pending | Rights review for 14 retained third-party PDFs. Move to R2 with a redistribution basis, or cite the canonical external URL. |
-| R2-BACKUP | P2 | pending | R2 deletion protection and independent backup. Apply a bucket lock only after confirming legitimate corrections still work. |
+| R2-BACKUP | P2 | partial | Independent private [Google Drive backup](docs/r2-google-drive-backup.md) of both R2 buckets completed on 26 September 2026: 3,322 objects, 12 archive parts, download SHA-256 verification and local recovery drill. Remaining: choose deletion-protection retention and confirm legitimate corrections/withdrawals still work before applying bucket locks. |
 | R2-KD | P2 | partial | Keep KD and MSM source PDFs and the two generated KD review PDFs in Git until that translation workflow no longer needs them. Standing exception, not a new job. |
 | R2-HISTORY | P3 | deferred | Git history rewrite to drop old reference blobs. Owner deferred 4 September 2026. Needs a separate freeze/re-clone window. Also covers generated-PDF Git history (`M5` in the publishing ledger). |
 
