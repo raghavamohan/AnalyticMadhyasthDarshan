@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan
 
-**Edited on:** September 26, 2026, 11:15 PM IST
+**Edited on:** September 27, 2026, 12:29 AM IST
 **Status:** Draft
 
 Can a reviewed source change reach the public catalog, API, HTML reader and PDF as one coherent revision? This temporary maintainer document supplies a controlled input for that question. It exists solely to verify CI workitem R2 and will be retired after the acceptance exercise. It makes no philosophical claim and uses no primary text, quotation or external research reference.
@@ -12,6 +12,8 @@ Can a reviewed source change reach the public catalog, API, HTML reader and PDF 
 A reader needs the title, lifecycle status and document content to describe the same approved source. A catalog that advertises a new draft while serving an older PDF would give the reader conflicting information. The protected publication workflow therefore builds or reuses verified outputs, binds their checksums to a release manifest, audits a staged candidate and then promotes that complete revision.
 
 The acceptance exercise observes this document first as a Planned entry, then as a Draft with a reader and a watermarked PDF. A later content revision supplies a distinct source checksum while preserving Draft status. Changing the document to Released must remove the Draft watermark and update the metadata in the public catalog and API together.
+
+This content revision adds a distinct acceptance marker: PUBLIC-LIFECYCLE-REVISION-2. A reader opened from the older dashboard must show this paragraph and the new publication revision together.
 
 ## 2. Reader and dashboard navigation
 
