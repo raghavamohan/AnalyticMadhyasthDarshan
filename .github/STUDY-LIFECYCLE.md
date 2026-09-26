@@ -118,14 +118,15 @@ upload anything to R2 as part of these fixture tests.
 | Exact source ownership authorizes only its generated binaries | Lifecycle/publication trust suites; passed locally |
 | Multi-file validation, stale member, bulk canonical exclusion, manifest cleanup | `_test_submission_files.mjs`, `_test_api_worker_routes.mjs`; passed locally |
 | Presenter source recovery/update, note+SVG recovery, lost-response receipt, Applied selection, bulk removal | Six `_lifecycle_browser_acceptance.js` scenarios; passed locally |
-| Production lifecycle across catalog/API/HTML/PDF/dashboard | Pending post-merge deployed fixtures; record approved fixture issue/PR, source/revision and publication run |
-| Already-open dashboard, saved/offline readers through deployment/disconnection | Saved/open readers passed on the deployed isolated origin in #517; authenticated older-dashboard integration remains public R2 acceptance |
+| Public lifecycle across catalog/API/HTML/PDF/dashboard | Passed all five phases for approved fixture #518, PRs #519/#522/#528/#529/#530; [exact public receipt](ci-acceptance/public-2026-09-27.json) |
+| Already-open dashboard, saved/offline readers through deployment/disconnection | Public older-dashboard Live navigation passed; saved/open/disconnected readers passed on the real isolated deployed origin in #517 |
 | Failed/superseded publication, rollback and forward promotion | All four passed on real deployed disposable resources in #517; receipt includes cleanup and exact tested source |
 
-After merge, first verify the site and submission Worker deployments. Then record
-the remaining deployed matrix using an approved disposable study. Do not use
-closed/declined issue #420. Recovery/rollback drills need a controlled window and
-separate evidence; their completion is not implied by green PR fixture checks.
+The site and both Worker deployments passed after #517. The public matrix used approved
+disposable issue #518 and recorded every PR, protected publication, source/revision,
+canonical response and dashboard result. The fixture was retired and the issue closed.
+Recovery/rollback drills have separate isolated-deployment evidence; their completion
+is not inferred from green PR fixture checks. Do not resurrect closed/declined issue #420.
 
 ### Deployed recovery and offline drill
 
@@ -149,12 +150,14 @@ individual revisions/version IDs and cleanup; publication events and browser log
 are retained beside it. A failed run has no passing completion receipt. These are
 deployed protocol exercises using fixture lifecycle inputs. They do not establish
 authenticated GitHub proposal/submission/dashboard integration on the public site.
-That approval-dependent matrix remains in [PENDING.md](../PENDING.md#ci).
+The completed authenticated public matrix is recorded separately in the
+[public receipt](ci-acceptance/public-2026-09-27.json).
 
 The [26 September receipt](ci-acceptance/2026-09-26.json) records all **11 passed
 deployed checks**, tested clean source `438cd9d2`, and completed cleanup. The six
 local portal cases and this deployed drill establish separate kinds of evidence;
-neither is substituted for the remaining public authenticated integration.
+the separate public receipt establishes authenticated integration without substituting
+local or isolated results for public observations.
 
 For the public integration exercise, use a new approved disposable proposal with
 a clearly named CI fixture slug; record its issue and every resulting PR. Verify
@@ -165,3 +168,11 @@ link. Keep the older dashboard open through the next publication and check that
 its Live link opens the new revision. Retire the fixture through the normal source
 workflow and close its issue after verifying public removal. Preserve historical
 R2 releases under the retention policy.
+
+The 26–27 September public exercise passed Planned, Draft, a distinct content revision,
+Released and retirement. The older dashboard opened the new revision and its visible marker;
+Draft/Released PDF watermark expectations passed. Retirement used the ordinary maintainer
+CLI/source PR because IAB did not expose the portal slug prompt. Current canonical paths
+returned 404, catalog/API omitted the fixture, the closed-issue dashboard showed Retired
+without a Live link, and all six retained historical reader/PDF reads matched original hashes.
+No historical R2 objects were purged.

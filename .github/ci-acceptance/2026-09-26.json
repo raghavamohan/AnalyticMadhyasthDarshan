@@ -176,7 +176,44 @@
     "productionObjectsDeleted": 0
   },
   "limits": [
-    "Public authenticated proposal/submission/dashboard integration remains R2 in PENDING.md.",
-    "This evidence does not assert that PR #517 has been merged or deployed to production."
-  ]
+    "The recovery/offline drill used owned isolated deployed resources; no production rollback was performed.",
+    "Four pre-existing held Python suites are not counted as passing enforced suites.",
+    "Retirement retains historical R2 objects; deletion-protection bucket locks are a separate R2-BACKUP decision."
+  ],
+  "production": {
+    "number": 517,
+    "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517",
+    "headSha": "ae82fdcf123fbe148d651101dde7d1f0f7d7b4dc",
+    "sourceSha": "1725280e8cc055a62a32d3e4ca4b6b879490ae8c",
+    "mergedAt": "2026-09-26T17:11:01Z",
+    "verification": {
+      "id": 36257601659,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36257601659",
+      "sourceSha": "ae82fdcf123fbe148d651101dde7d1f0f7d7b4dc",
+      "event": "pull_request",
+      "conclusion": "success"
+    },
+    "publication": {
+      "id": 36258110582,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36258110582",
+      "sourceSha": "1725280e8cc055a62a32d3e4ca4b6b879490ae8c",
+      "event": "push",
+      "conclusion": "success"
+    },
+    "agentWorkers": {
+      "id": 36258110356,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36258110356",
+      "sourceSha": "1725280e8cc055a62a32d3e4ca4b6b879490ae8c",
+      "event": "push",
+      "conclusion": "success"
+    },
+    "submissionWorkers": {
+      "id": 36258110352,
+      "url": "https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36258110352",
+      "sourceSha": "1725280e8cc055a62a32d3e4ca4b6b879490ae8c",
+      "event": "push",
+      "conclusion": "success"
+    }
+  },
+  "publicLifecycleReceipt": "public-2026-09-27.json"
 }
