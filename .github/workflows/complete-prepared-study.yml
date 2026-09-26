@@ -4,7 +4,9 @@ on:
     workflows: [Studies index]
     types: [completed]
 permissions:
-  contents: read
+  # GitHub's ready-for-review mutation also requires repository write access.
+  # This consumer executes master code only, with checkout credentials disabled.
+  contents: write
   pull-requests: write
 jobs:
   ready:

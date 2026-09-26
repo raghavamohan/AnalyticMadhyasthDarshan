@@ -122,6 +122,39 @@ class PublicationProofTests(unittest.TestCase):
             identity.dispatch('owner/repo', pr)
             command.assert_not_called()
 
+    def test_readiness_consumer_has_write_access_only_with_trusted_checkout(self):
+        from _common import BASE
+        workflow = (BASE/'.github/workflows/complete-prepared-study.yml').read_text(encoding='utf-8')
+        self.assertIn('contents: write', workflow)
+        self.assertIn('pull-requests: write', workflow)
+        self.assertIn('ref: master', workflow)
+        self.assertIn('persist-credentials: false', workflow)
+        self.assertNotIn('ref: ${{ github.event.workflow_run.head_sha }}', workflow)
+
+    def test_readiness_requires_exact_successful_same_repository_verification(self):
+        pr = {'number':1, 'state':'open', 'draft':True, 'body':'Portal-GitHub: @maintainer',
+              'head':{'sha':'a'*40, 'repo':{'full_name':'owner/repo'}}, 'base':{'sha':'b'*40}}
+        run = {'display_title':'verify / '+identity.verification_key(pr), 'conclusion':'success',
+               'head_sha':'a'*40, 'path':'.github/workflows/studies-index-check.yml',
+               'event':'workflow_dispatch', 'head_repository':{'full_name':'owner/repo'}}
+        with patch('_bootstrap_ci.gh', return_value=[pr]), patch('_bootstrap_ci.command') as command:
+            identity.complete('owner/repo', run)
+            command.assert_called_once_with('gh', 'pr', 'ready', '1', '--repo', 'owner/repo')
+        for invalid in ({**run, 'conclusion':'failure'}, {**run, 'event':'pull_request'},
+                        {**run, 'path':'.github/workflows/other.yml'},
+                        {**run, 'head_repository':{'full_name':'fork/repo'}}):
+            with self.subTest(invalid=invalid), patch('_bootstrap_ci.gh') as gh, \
+                 patch('_bootstrap_ci.command') as command:
+                identity.complete('owner/repo', invalid)
+                gh.assert_not_called()
+                command.assert_not_called()
+        for changed in ({**pr, 'body':'changed intent'}, {**pr, 'head':{**pr['head'], 'sha':'c'*40}},
+                        {**pr, 'base':{'sha':'c'*40}}, {**pr, 'state':'closed'}):
+            with self.subTest(changed=changed), patch('_bootstrap_ci.gh', return_value=[changed]), \
+                 patch('_bootstrap_ci.command') as command:
+                identity.complete('owner/repo', run)
+                command.assert_not_called()
+
     def test_unchanged_worker_skips_upload_but_changed_binding_does_not(self):
         metadata = {'bindings': [{'name': 'STORE', 'bucket_name': 'one'}]}
         key = workers.digest({'schema': 1, 'source': 'export default {}', 'metadata': metadata})
