@@ -1,10 +1,74 @@
-# CI implementation and remaining plan
+# CI implementation and acceptance evidence
 
-Updated 10 September 2026 with the lifecycle completion implementation merged in
+Updated 26 September 2026 with the R1–R8 implementation in
+[#517](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517).
+The 10 September record below describes the lifecycle completion implementation merged in
 #463 and its publication collector repair. Production CI migration evidence below remains attributed
 to #459, source `63e68a03c536e94ed6559172581d7f635afbf77f`; new local acceptance
 does not supersede that deployed evidence. See [CI.md](CI.md) for the operating
 contract and [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md) for the operation/acceptance matrix.
+
+## R1–R8 implementation in #517
+
+The four discovery Workers now pass an automated audit on disposable same-zone
+routes before production deployment is permitted. The receipt binds the exact
+executable, metadata, account and audit time; failed audit or cleanup produces no
+passing receipt. A live pre-merge execution passed all 16 checks and removed all
+four candidate Workers and their routes.
+
+Slides and notes now require identical PDF bytes across repeat builds. The
+normalizer preserves visible pages, text, tagged structure and navigation while
+canonicalizing source-derived metadata and PDF object traversal. The hosted
+[eight-deck repeat render](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36256046447)
+passed for all 16 outputs. A separate local repeat also passed; the old #457
+result below is historical evidence of the defect, not the current contract.
+The adjacent default-output diagnostic defect, `PPTX-DIAG-01`, is repaired.
+
+Runtime patches, runner families and complete font inventories are now explicit
+and enforced before rendering. The Ubuntu inventory contains 101 font/config
+files. Windows is observed after installing the exact production LibreOffice,
+because its installation adds fonts. The
+[hosted font audit](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36256046461)
+confirmed both checked-in inventories. Rolling image labels are recorded as
+host evidence; matching consumed runtime/font bytes establish the rendering
+contract. Local diagnostic environments do not acquire publication authority.
+
+Every site publication now retains one PDF/R2/Worker summary, including failure
+and skipped job results. Selected builds are distinguished from observed staging
+and deployment. The inactive Pages retry workflow has been deleted; regressions
+reject any return of its publication authority. The existing coherent-site
+publisher remains the owner.
+
+The [retention/withdrawal policy](../docs/publication-retention.md) retains all
+published revisions and shared assets, separates hard withdrawal from retirement,
+and requires an independently verified backup before planning aged unreachable
+objects. The planner has no deletion operation. A live scan against the downloaded,
+verified Google Drive backup covered 3,322 objects and found **zero candidates**.
+No production objects were deleted. A checked-in empty hard-withdrawal policy is
+enforced before historical reads; retained-version rollback is blocked when a
+hard withdrawal is registered.
+
+Historical review recovery now searches at most 100 recently closed PRs. Only
+same-repository PRs merged into master and ancestral to the intended source can
+qualify, with exact consumed inputs, successful allowlisted producers, verified
+output hashes, safe archive paths and complete deck pairs. Normal active-receipt
+reuse remains the first choice.
+
+The 59 enforced Python suites, workflow lint, PR checks and local six-case
+portal browser acceptance pass. Four pre-existing held suites are not counted as
+passing enforced suites. R2 additionally has a repeatable deployed recovery/offline
+harness described in [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md). All 11 deployed
+checks passed on clean source `438cd9d2`, and cleanup completed. The
+[committed acceptance receipt](ci-acceptance/2026-09-26.json) binds that evidence
+to its exact inputs, versions and revisions. Public authenticated
+proposal/submission/dashboard acceptance remains explicitly tracked in
+[PENDING.md](../PENDING.md#ci); an isolated fixture does not prove that integration.
+
+The production site publication following #516 failed its Worker-origin checksum
+audit and restored the previous version. The publisher now retries bounded origin
+asset propagation while still requiring exact bytes on every attempt. This PR's
+green checks and isolated canaries do not establish a successful production merge
+or publication of #517.
 
 ## Lifecycle completion after #462
 
@@ -20,14 +84,14 @@ contract and [STUDY-LIFECYCLE.md](STUDY-LIFECYCLE.md) for the operation/acceptan
   lifecycle tests also cover Applied registration, final-deck removal, relocation,
   restoration and exact-source binary permissions.
 
-These changes advance R2's repeatable local coverage. The deployed lifecycle,
+At the time of #463, these changes advanced R2's repeatable local coverage. The deployed lifecycle,
 offline and controlled recovery matrix remains open; R1 and R3–R8 are tracked in
 [PENDING.md](../PENDING.md#ci). #463 is merged and both Worker workflows passed, but its site
 publication failed during artifact collection before staging or promotion.
 Next: merge the collector repair, verify the resulting site publication, then
 execute the remaining deployed acceptance matrix.
 
-The F1–F15 implementation is merged and running in production. Both the site and Agent-facing Workers deployments passed. The initial migration/build-receipt bootstrap is complete. Strict slide-PDF byte reproducibility remains unfinished within F6; broader operational acceptance and the follow-ups in [PENDING.md](../PENDING.md#ci) are also still open. A green deployment does not establish that every lifecycle, offline, recovery, or renderer scenario has been exercised.
+The F1–F15 implementation is merged and running in production. Both the site and Agent-facing Workers deployments passed at the recorded migration revisions. The initial migration/build-receipt bootstrap is complete. #517 completes strict slide-PDF byte reproducibility and the implemented follow-ups described above. A green deployment does not establish that every lifecycle, offline, recovery, or renderer scenario has been exercised.
 
 ## Completed implementation
 
@@ -40,7 +104,7 @@ The F1–F15 implementation is merged and running in production. Both the site a
 | F3 Live dashboard navigation | Implemented | Live links carry the verified publication revision and an explicit navigation exemption. An older-dashboard → newer-Live browser check passed. |
 | F4 Active baseline | Implemented; production reuse verified | Plans compare consumed inputs with the active deployment's protected build receipt and R2 checksums, never the last push. #458 established the receipt; #459 reused it. |
 | F5 Public API state | Implemented; live checks passed | MCP/Studies API reads the active publication and its catalog/Markdown, with no Git HEAD fallback. #458/#459 corrected Cloudflare cache/routing configuration and the live audit. |
-| F6 Generator ownership and determinism | Ownership implemented; slide bytes still open | One Markdown PDF owner; declared companion source chain and freshness gate; deterministic DOCX/no-op notes; per-card seals; approved reference source and byte hashes. Strict slide-PDF byte determinism remains R3. |
+| F6 Generator ownership and determinism | Implemented; strict slide/notes bytes verified in #517 | One Markdown PDF owner; declared companion source chain and freshness gate; deterministic DOCX/no-op notes; per-card seals; approved reference source and byte hashes. Strict slide-PDF byte determinism is now enforced. |
 | F7 Preparation readiness | Implemented | Source-only portal drafts report Preparing; complete verification follows accepted preparation; readiness follows successful verification. Repeat the full portal lifecycle under the new pipeline in R2. |
 | F8 Duplicate verification | Implemented | Exact head/base/intent identities, idempotent dispatch, and live identity rechecks before acceptance and success. |
 | F9 Dependency selectors | Implemented | One consumed-input graph for Markdown, recursive embedded resources, used link metadata, deck pairs and references. Static files retain a complete release inventory. |
@@ -88,9 +152,9 @@ Confirmed for #459:
 
 All 45 enforced Python suites and eight MCP JavaScript tests passed for the repair; all applicable PR checks passed. The main implementation also passed actionlint, freshness/agent-mirror checks, Worker/navigation tests, and real byte-identical Draft and Released Markdown-PDF rerenders with pinned Chrome. Four pre-existing held Python suites remain documented in `_run_test_suites.py`; they are not counted as passing enforced suites.
 
-A temporary Worker on a unique same-zone Cloudflare route reproduced #458's exact failure using its old configuration. The repaired configuration then passed the complete live API audit plus nine additional MCP tool/resource reads. The temporary route and Worker were removed. This was a manual pre-merge canary; `agent-publications.yml` still deploys before running its automated live audit, which is why R1 remains.
+A temporary Worker on a unique same-zone Cloudflare route reproduced #458's exact failure using its old configuration. The repaired configuration then passed the complete live API audit plus nine additional MCP tool/resource reads. The temporary route and Worker were removed. This was a manual pre-merge canary; #517 now automates that gate before production deployment.
 
-The [#457 presentation smoke run](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/34422569722) rendered all eight deck pairs twice. All rendered/text comparisons passed. **All eight slides PDFs reported `byte-identical=no`; all eight notes PDFs reported `byte-identical=yes`.** `_verify_presentation_reproducible.py` currently accepts rendered/text equivalence. This is not proof of strict slide-byte determinism.
+The [#457 presentation smoke run](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/34422569722) rendered all eight deck pairs twice. All rendered/text comparisons passed. **All eight slides PDFs reported `byte-identical=no`; all eight notes PDFs reported `byte-identical=yes`.** This established the R3 defect; #517 fixes it and now fails the smoke on any differing PDF bytes.
 
 ## Open follow-ups
 
@@ -102,7 +166,7 @@ table here.
 
 ## Earlier seven steps: current disposition
 
-| Earlier item | Status after #459 |
+| Earlier item | Historical status after #459 |
 |---|---|
 | Merge #440 | Complete; subsequent implementation and repairs #457–#459 are also merged. |
 | Verify automatic publication | Complete for current deployment: both #459 production workflows and live checks passed. |
@@ -112,4 +176,7 @@ table here.
 | Retention/withdrawal | Still open; R7. No production objects have been deleted as part of this migration. |
 | Toolchain consistency | Partial. Explicit family contracts, pinned renderers and stronger cache fingerprints are delivered; finish R4. |
 
-The next recommended implementation is **R1**, followed by **R2**. No re-enable action, migration bootstrap, blanket PDF rebuild, or rerun of the failed #457/#458 deployments is needed for the current live site.
+The earlier recommendation to start with R1 is superseded by #517's implementation.
+Current remaining work lives only in [PENDING.md](../PENDING.md#ci). No re-enable
+action, migration bootstrap, blanket PDF rebuild, or rerun of the failed #457/#458
+deployments is needed.
