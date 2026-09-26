@@ -190,13 +190,6 @@
       "icon": "model",
       "theme": "jeevan",
       "illustration": "inner-life.svg"
-    },
-    {
-      "slug": "CI-Pipeline-Acceptance-September-2026",
-      "title": "CI Pipeline Acceptance September 2026",
-      "icon": "learning",
-      "theme": "",
-      "illustration": ""
     }
   ]
 }
