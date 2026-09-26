@@ -71,6 +71,8 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 | [Technical-Note-Physical-Dynamics-And-Unit-Activity.md](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Physical-Dynamics-And-Unit-Activity.md) | MVD, SB; Tong-L, SICM-H, Tong-H, MIT-D, LYAP | registered primary PDFs; mechanics and stability sources external |
 
 
+| [CI-Pipeline-Acceptance-September-2026.pdf](../Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.pdf) | MVD, SB, JV | TBD |
+
 ## By tag
 
 For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that quote verification checks against. Companion `.md` extracts are for analysis only — do not edit them by hand, and do not link them from Studies bibliographies.

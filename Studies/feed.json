@@ -6,6 +6,27 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.html",
+      "title": "CI Pipeline Acceptance September 2026",
+      "content_text": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
+      "tags": [
+        "topical",
+        "draft"
+      ],
+      "date_modified": "2026-09-26T23:15:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html",
       "title": "The Ontology of Coexistence",
