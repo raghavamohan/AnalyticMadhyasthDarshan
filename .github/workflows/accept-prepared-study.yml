@@ -18,6 +18,7 @@ jobs:
       github.event.workflow_run.event == 'pull_request' &&
       github.event.workflow_run.head_repository.full_name == github.repository
     runs-on: ubuntu-24.04
+    timeout-minutes: 20
     steps:
       - name: Check whether this run prepared a payload
         id: payload
@@ -41,7 +42,7 @@ jobs:
           path: ${{ runner.temp }}/prepared-study
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ github.token }}
-      - name: Commit prepared files and queue exact-head verification
+      - name: Commit prepared files and await exact-head verification before readiness
         if: steps.payload.outputs.present == 'true'
         env:
           GH_TOKEN: ${{ github.token }}

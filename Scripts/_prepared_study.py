@@ -129,9 +129,10 @@ def accept(path: Path) -> None:
         if (trailer in current.get('commit', {}).get('message', '').splitlines()
                 and payload.get('head') in {item['sha'] for item in current.get('parents', [])}
                 and pr['head']['repo']['full_name'] == repo and pr.get('state') == 'open'):
-            from _verification_identity import intent_hash, dispatch
+            from _verification_identity import intent_hash, dispatch, wait_complete
             if payload.get('base') == pr['base']['sha'] and payload.get('intent') == intent_hash(pr):
                 dispatch(repo, pr)
+                wait_complete(repo, pr)
                 return
     # Check identity using the ordinary file contract before fetching candidate
     # data. The full path contract below then uses that exact head's ownership.
@@ -166,10 +167,12 @@ def accept(path: Path) -> None:
         finally:
             git(BASE, 'worktree', 'remove', '--force', str(checkout))
     try:
-        from _verification_identity import dispatch
-        dispatch(repo, wait_for_prepared_head(repo, number, head, branch, payload))
+        from _verification_identity import dispatch, wait_complete
+        accepted = wait_for_prepared_head(repo, number, head, branch, payload)
+        dispatch(repo, accepted)
+        wait_complete(repo, accepted)
     except Exception:
-        status(repo, head, 'failure', 'Prepared-head verification could not be queued.')
+        status(repo, head, 'failure', 'Prepared-head verification or readiness did not complete.')
         raise
 
 
