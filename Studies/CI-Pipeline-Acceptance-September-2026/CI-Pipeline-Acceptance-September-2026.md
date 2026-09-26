@@ -2,8 +2,8 @@
 
 **Author:** Raghava Mohan
 
-**Edited on:** September 27, 2026, 12:29 AM IST
-**Status:** Draft
+**Edited on:** September 27, 2026, 12:41 AM IST
+**Status:** Released
 
 Can a reviewed source change reach the public catalog, API, HTML reader and PDF as one coherent revision? This temporary maintainer document supplies a controlled input for that question. It exists solely to verify CI workitem R2 and will be retired after the acceptance exercise. It makes no philosophical claim and uses no primary text, quotation or external research reference.
 
