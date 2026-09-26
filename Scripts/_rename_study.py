@@ -160,6 +160,9 @@ def update_catalog_row(old_slug: str, new_slug: str, new_title: str | None, *, d
     if dry_run:
         print(f"Would update {table.value} catalog: {old_slug} -> {new_slug}")
         return
+    from _study_visuals import rename_study_visual
+
+    rename_study_visual(old_slug, new_slug, root=BASE)
     write_studies_catalog(rows, table, rebuild_discussion=[new_slug])
     print(f"Updated {table.value} catalog: {old_slug} -> {new_slug}")
 

@@ -73,7 +73,11 @@ def prepare(repo: str, issue_number: int, branch: str) -> None:
     if remote:
         command("git", "fetch", "origin", f"refs/heads/{branch}")
         command("git", "switch", "-c", branch, "FETCH_HEAD")
-        command("git", "merge", "--no-edit", "origin/master")
+        # A resumed branch may need a real merge before commit-artifacts runs.
+        # Fresh Actions checkouts have no author identity at that point.
+        command("git", "-c", "user.name=github-actions[bot]", "-c",
+                "user.email=41898282+github-actions[bot]@users.noreply.github.com",
+                "merge", "--no-edit", "origin/master")
     else:
         command("git", "switch", "-c", branch)
     output("complete", "false")

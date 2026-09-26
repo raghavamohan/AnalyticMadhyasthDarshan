@@ -989,6 +989,12 @@ def write_studies_catalog(
 ) -> None:
     write_catalog_json_file(rows, table)
     write_derived_catalogs()
+    from _study_visuals import sync_study_visuals
+
+    sync_study_visuals([
+        {"slug": row.slug, "title": display_title(row)}
+        for current_table in CATALOG_TABLES for row in load_catalog_rows(current_table)
+    ], root=BASE)
 
     readme_path = STUDIES / "README.md"
     readme_text = readme_path.read_text(encoding="utf-8")
