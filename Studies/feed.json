@@ -12,9 +12,9 @@
       "content_text": "Temporary maintainer fixture for CI R2 lifecycle acceptance; it will be retired after verification.",
       "tags": [
         "topical",
-        "draft"
+        "released"
       ],
-      "date_modified": "2026-09-27T00:29:00+05:30",
+      "date_modified": "2026-09-27T00:42:00+05:30",
       "attachments": [
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/CI-Pipeline-Acceptance-September-2026/CI-Pipeline-Acceptance-September-2026.md",
