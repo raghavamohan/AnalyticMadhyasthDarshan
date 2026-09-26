@@ -24,7 +24,7 @@ jobs:
       github.event.label.name == 'proposal-approved' ||
       github.event.label.name == 'proposal-declined' ||
       (github.event.pull_request != null && github.event.pull_request.merged == true)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Send notification to portal worker
         uses: actions/github-script@v9

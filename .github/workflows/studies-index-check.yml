@@ -33,7 +33,7 @@ jobs:
       contents: read
       pull-requests: read
       statuses: write
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       ready: ${{ steps.source.outputs.ready }}
       identity: ${{ steps.source.outputs.identity }}
@@ -59,7 +59,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: read
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       head: ${{ steps.source.outputs.head }}
       base: ${{ steps.source.outputs.base }}
@@ -101,7 +101,7 @@ jobs:
     if: needs.context.outputs.ready == 'true'
     permissions:
       contents: read
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 12
     steps:
       - uses: actions/checkout@v7
@@ -139,7 +139,7 @@ jobs:
       statuses: write
     if: always() && (needs.context.result != 'success' || needs.context.outputs.ready == 'true')
     needs: [context, checks, study-check, lifecycle]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Require every applicable check to succeed
         env:

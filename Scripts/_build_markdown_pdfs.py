@@ -107,6 +107,8 @@ def document_fingerprint(spec: GeneratedPdfSpec) -> str:
 
 
 def build(specs: tuple[GeneratedPdfSpec, ...], output_root: Path, cache_root: Path | None = None) -> None:
+    from _render_environment import enforce_ci
+    environment = enforce_ci('markdown') if specs else None
     from _artifact_graph import document_node
     proof_path = output_root / 'review-build-proof.json'
     prepared = json.loads(proof_path.read_bytes()).get('artifacts', {}) if proof_path.is_file() else {}

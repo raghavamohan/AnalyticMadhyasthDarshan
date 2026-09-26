@@ -13,6 +13,10 @@ const env={ASSETS:{async fetch(request){assetReads++;return new Response('new');
   return null;
 }}};
 const get=(path,init)=>handle(new Request('https://example.test'+path,init),env,current);
+for (const suffix of ['', '?r='+old, '?v='+checksum]) {
+  assert.equal((await get('/Studies/Withdrawn/Withdrawn.pdf'+suffix)).status,410);
+  assert.equal((await get('/Studies/%57ithdrawn/Withdrawn.html'+suffix)).status,410);
+}
 let response=await get('/Studies/A/A.html');
 assert.equal(await response.text(),'new');assert.equal(response.headers.get('X-AMD-Release'),revision);
 assert.match(response.headers.get('Cache-Control'),/must-revalidate/);

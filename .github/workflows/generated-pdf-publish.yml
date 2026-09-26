@@ -177,6 +177,7 @@ jobs:
     environment: github-pages
     env:
       PYTHONUNBUFFERED: '1'
+      AMD_PUBLICATION_EVENTS: ${{ runner.temp }}/publication-events.jsonl
       R2_ENDPOINT: ${{ vars.R2_ENDPOINT }}
       R2_BUCKET_NAME: ${{ vars.R2_BUCKET_NAME }}
       R2_REGION: ${{ vars.R2_REGION }}
@@ -228,3 +229,41 @@ jobs:
           args=()
           if [ "$PROMOTE" = "true" ]; then args+=(--promote); fi
           python Scripts/_publish_site_release.py --release-root "$RUNNER_TEMP/site-release" "${args[@]}"
+
+      - name: Retain observed publication outcomes
+        if: always()
+        uses: actions/upload-artifact@v6
+        with:
+          name: publication-outcomes
+          path: ${{ runner.temp }}/publication-events.jsonl
+          if-no-files-found: warn
+          retention-days: 30
+
+  summary:
+    needs: [plan, validate, pdfs, presentations, coherent-site]
+    if: always()
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.source_sha }}
+          persist-credentials: false
+      - uses: actions/download-artifact@v7
+        continue-on-error: true
+        with:
+          name: publication-plan
+          path: ${{ runner.temp }}
+      - uses: actions/download-artifact@v7
+        continue-on-error: true
+        with:
+          name: publication-outcomes
+          path: ${{ runner.temp }}
+      - name: Summarize PDF, R2 and Worker outcomes even on failure
+        env:
+          AMD_PUBLICATION_JOBS: ${{ toJSON(needs) }}
+        run: python Scripts/_publication_summary.py --plan "$RUNNER_TEMP/publication-plan.json" --events "$RUNNER_TEMP/publication-events.jsonl" --output "$RUNNER_TEMP/publication-summary.md"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: publication-summary
+          path: ${{ runner.temp }}/publication-summary.md
+          retention-days: 30

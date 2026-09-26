@@ -1,0 +1,38 @@
+name: Render contract audit
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'Scripts/_render_environment.py'
+      - 'Scripts/render-contract.json'
+      - '.github/actions/setup-study-env/action.yml'
+      - '.github/workflows/render-contract-audit.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  inventory:
+    strategy:
+      matrix:
+        os: [ubuntu-24.04, windows-2025]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup-study-env
+      - name: Install production renderer before observing Windows fonts
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./Scripts/_install_presentation_renderer.ps1 -Profile libreoffice-production -CacheDirectory "$env:RUNNER_TEMP\presentation-renderers"
+      - name: Record actual runtime and font inventory
+        shell: bash
+        run: python Scripts/_render_environment.py --record "$RUNNER_TEMP/render-environment.json"
+      - uses: actions/upload-artifact@v6
+        with:
+          name: render-environment-${{ matrix.os }}
+          path: ${{ runner.temp }}/render-environment.json
+          retention-days: 30
+          if-no-files-found: error
