@@ -49,7 +49,7 @@
   } catch(e) {}
 })();
 </script>
-<link rel="stylesheet" href="../assets/discuss.css?v=9">
+<link rel="stylesheet" href="../assets/discuss.css?v=10">
 </head>
 <body>
 <div class="wrap">
@@ -89,7 +89,7 @@
           <a id="discuss-read-study" class="discuss-toolbar-link amd-action" href="Nature-Of-Time.html"><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#learning"></use></svg>Read the study</a>
           <a class="discuss-toolbar-link discuss-toolbar-download amd-action" href="Nature-Of-Time.pdf" download><svg class="amd-icon" aria-hidden="true" focusable="false"><use href="/Assets/Theme/icons/sprite.svg#download"></use></svg>Download PDF</a>
           <a class="discuss-toolbar-link discuss-toolbar-feedback" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml&amp;title=Study%20feedback%3A%20Nature%20of%20Time" rel="noopener">Suggest a correction</a>
-          <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Log in</button>
+          <button type="button" id="toolbar-auth-btn" class="btn btn-sm btn-auth btn-primary">Sign in with email</button>
         </span>
       </div>
     </nav>
@@ -99,8 +99,8 @@
   <div id="discuss-alert" class="alert hidden" role="status"></div>
 
   <section id="sign-in-panel" class="action-panel hidden" aria-labelledby="sign-in-heading">
-    <h2 id="sign-in-heading">Sign in to comment</h2>
-    <p class="auth-sign-in-note">Commenting uses an email sign-in link, not GitHub. Study proposals on My Submissions use GitHub. Enter your email and display name, and we will send a one-time sign-in link.</p>
+    <h2 id="sign-in-heading">Sign in with email to comment</h2>
+    <p class="auth-sign-in-note">Discussions use email sign-in. Proposals, submissions and corrections use GitHub. Open the email link in this browser, then confirm. Links expire after 15 minutes; you can request another here. Your saved text is kept and is never posted automatically. Display names are set when an account is first created.</p>
     <form id="magic-link-form" class="auth-row">
       <div class="auth-grid">
         <label>Email<input type="email" name="email" autocomplete="email" required></label>
@@ -123,6 +123,9 @@
         <button type="submit" class="btn btn-primary">Post comment</button>
       </div>
     </form>
+    <p id="discussion-draft-status" role="status">Text saves in this browser. Use the same browser to recover it after sign-in.</p>
+    <div id="discussion-draft-list"></div>
+    <button type="button" id="discussion-download-draft" class="btn btn-tiny">Download current text</button>
   </section>
 
   <section class="comments-section" aria-labelledby="comments-heading">
@@ -149,13 +152,14 @@
   var button=document.getElementById("toolbar-auth-btn");
   var panel=document.getElementById("comment-panel");
   if(button){
-    button.textContent="Log out";
+    button.textContent="Sign out of discussions";
     button.classList.remove("btn-primary");
     button.setAttribute("aria-label","Sign out of discussion");
   }
   if(panel)panel.classList.remove("hidden");
 })();
 </script>
-<script src="../assets/discuss.js?v=9"></script>
+<script src="../assets/discussion-drafts.js?v=10"></script>
+<script src="../assets/discuss.js?v=10"></script>
 </body>
 </html>

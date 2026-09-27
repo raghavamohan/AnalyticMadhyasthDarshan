@@ -895,6 +895,14 @@ async function apiFetch(path, options = {}) {
       const response = await fetch(API_BASE + path, {credentials:'include', ...options, signal:controller.signal,
         headers:{...(!read ? {'Content-Type':'application/json'} : {}), ...(options.headers || {})}});
       if (read && attempt === 0 && [502,503,504].includes(response.status)) { await new Promise(r => setTimeout(r,700)); continue; }
+      if (response.status === 401 && currentUser) {
+        await contributor.flush();
+        currentUser = null;
+        dashboardOperations.auth(null);
+        cacheAuthState({loggedIn:false});
+        updateAuthUi(false);
+        document.getElementById('auth-user').textContent = 'Your GitHub session expired. Your draft and receipt are saved. Sign in with the same GitHub account, then check any pending submission result before retrying.';
+      }
       return response;
     } catch (error) {
       if (!read || attempt) throw new Error(read ? 'Could not connect. Check your connection and retry.' : 'The connection ended before confirmation. Your draft and receipt are saved; choose Check submission result.');
@@ -939,9 +947,13 @@ function safeGitHubUrl(value) {
 }
 
 async function startGitHubLogin() {
-  await contributor.flush();
-  try { sessionStorage.setItem(LOGIN_PENDING_KEY, '1'); } catch (e) { /* ignore */ }
-  window.location.href = API_BASE + '/api/auth/github?return_to=' + encodeURIComponent(window.location.href);
+  try {
+    await contributor.flush();
+    try { sessionStorage.setItem(LOGIN_PENDING_KEY, '1'); } catch (e) { /* ignore */ }
+    window.location.href = API_BASE + '/api/auth/github?return_to=' + encodeURIComponent(window.location.href);
+  } catch (error) {
+    document.getElementById('auth-user').textContent = error.message + ' Sign-in has not started. Download your draft before leaving.';
+  }
 }
 
 let authErrorShown = false;
@@ -2589,7 +2601,8 @@ async function applyQueryParams() {
   }
 
   if (tab === 'propose') switchTab('propose', false);
-  else if (tab === 'submit') {
+  if (tab === 'propose' && /^[a-f0-9-]{36}$/i.test(params.get('draft') || '')) document.getElementById('p-draft-id').value = params.get('draft');
+  if (tab === 'submit') {
     switchTab('submit', false);
     const requestedMode = params.get('mode');
     const mode = requestedMode === 'revise' ? 'revise' : requestedMode === 'update' ? 'update' : 'new';
@@ -2621,7 +2634,7 @@ async function applyQueryParams() {
     if (isUpdate && selectedArtifactType() === 'study' && params.get('slug') && !document.getElementById('s-content').value.trim()) {
       // Load after the account's browser draft has been recovered.
     }
-  } else {
+  } else if (tab !== 'propose') {
     switchTab('dashboard', false);
   }
 

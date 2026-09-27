@@ -1831,6 +1831,7 @@ router.get('/api/auth/github', async (request, env) => {
 });
 
 router.get('/api/auth/callback', async (request, env) => {
+  let returnTo = sanitizeReturnTo(null, env);
   try {
     if (!env.GITHUB_CLIENT_ID || !env.GITHUB_CLIENT_SECRET || !env.SESSION_SECRET || !env.SESSIONS) {
       throw new Error('GitHub sign-in is not configured.');
@@ -1838,6 +1839,10 @@ router.get('/api/auth/callback', async (request, env) => {
     const url = new URL(request.url);
     const code = url.searchParams.get('code');
     const oauthState = await parseOAuthState(request, env);
+    if (oauthState) returnTo = sanitizeReturnTo(oauthState.returnTo, env);
+    if (url.searchParams.get('error') && oauthState) {
+      throw new Error('GitHub sign-in was cancelled. Your browser draft is kept; sign in again when ready.');
+    }
     if (!code || !oauthState) {
       throw new Error('Invalid OAuth callback.');
     }
@@ -1860,15 +1865,14 @@ router.get('/api/auth/callback', async (request, env) => {
     } catch {
       // Notifications are optional; never block sign-in on this.
     }
-    const returnTo = sanitizeReturnTo(oauthState.returnTo, env);
     const headers = new Headers({ Location: returnTo });
     headers.append('Set-Cookie', setSessionCookie(sessionToken, env));
     headers.append('Set-Cookie', clearOAuthStateCookie(env));
     return new Response(null, { status: 302, headers });
   } catch (err) {
-    const fallback = sanitizeReturnTo(null, env);
-    const message = encodeURIComponent(err.message || 'Sign-in failed');
-    return redirectResponse(`${fallback}?auth_error=${message}`, {
+    const destination = new URL(returnTo);
+    destination.searchParams.set('auth_error', err.message || 'Sign-in failed. Please retry.');
+    return redirectResponse(destination.href, {
       'Set-Cookie': clearOAuthStateCookie(env),
     });
   }

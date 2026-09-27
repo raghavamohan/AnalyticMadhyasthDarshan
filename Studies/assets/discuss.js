@@ -37,6 +37,60 @@
   let initialLastSeen = null;
   const DISCUSS_SEEN_KEY = "amd-discuss-seen";
   const DISPLAY_NAME_KEY = "amd-discuss-name";
+  let draftOwner = '', drafts = null, authVerified = false;
+  const unsavedDrafts = new Set();
+  let guestId = new URLSearchParams(location.search).get('discuss_draft');
+  if (!/^[a-f0-9-]{36}$/i.test(guestId || '')) {
+    try { guestId = sessionStorage.getItem('amd-discuss-guest'); } catch (_) {}
+    if (!/^[a-f0-9-]{36}$/i.test(guestId || '')) guestId = crypto.randomUUID();
+  }
+  try { sessionStorage.setItem('amd-discuss-guest', guestId); } catch (_) {}
+  const guestOwner = 'guest:' + guestId;
+  const draftStatus = document.getElementById('discussion-draft-status');
+  const draftList = document.getElementById('discussion-draft-list');
+  const draftStore = () => drafts || (drafts = AMDDiscussionDrafts.create(localStorage, STUDY_SLUG));
+  const saveDraft = (parent = '', body = commentForm.body.value) => {
+    if (!authVerified || !draftOwner) return;
+    try { draftStore().put(draftOwner, parent, body); unsavedDrafts.delete(parent); draftStatus.textContent = 'Saved in this browser. Sign-in never posts your text automatically.'; }
+    catch (error) { unsavedDrafts.add(parent); draftStatus.textContent = error.message + ' Download your text before leaving.'; throw error; }
+  };
+  const saveVisibleDrafts = () => {
+    saveDraft();
+    commentList.querySelectorAll('.reply-form').forEach(form => saveDraft(form.closest('.comment-reply').dataset.replyFor, form.body.value));
+  };
+  const paintDrafts = () => {
+    draftList.replaceChildren();
+    if (!authVerified) return;
+    try {
+      const owned = draftStore().list(draftOwner);
+      const guests = currentSession.loggedIn ? draftStore().list(guestOwner) : [];
+      for (const row of [...owned, ...guests]) {
+        const button = document.createElement('button'); button.type = 'button'; button.className = 'btn btn-tiny';
+        button.textContent = (row.owner === guestOwner && currentSession.loggedIn ? 'Recover pre-sign-in ' : 'Recover saved ') + (row.parent ? 'reply' : 'comment');
+        button.onclick = () => {
+          if (!confirm('Recover this text into the current composer? Confirm it belongs to you. Download any current text first.')) return;
+          try {
+            if (row.parent) { openReply(row.parent, true); const form = commentList.querySelector(`.comment-reply[data-reply-for="${CSS.escape(row.parent)}"] .reply-form`); if (!form) throw new Error('Load the original comment before recovering this reply.'); form.body.value = row.body; }
+            else { commentForm.body.value = row.body; commentForm.body.focus(); }
+            saveDraft(row.parent, row.body);
+            if (row.owner !== draftOwner) draftStore().put(row.owner, row.parent, '');
+            paintDrafts();
+          } catch (error) { showAlert('error', error.message); }
+        };
+        draftList.append(button, ' ');
+      }
+    } catch (error) { draftStatus.textContent = error.message; }
+  };
+  commentForm.addEventListener('input', () => { try { saveDraft(); } catch (_) {} });
+  commentList.addEventListener('input', event => { const form = event.target.closest('.reply-form'); if (form) { try { saveDraft(form.closest('.comment-reply').dataset.replyFor, form.body.value); } catch (_) {} } });
+  addEventListener('pagehide', () => { try { saveVisibleDrafts(); } catch (_) {} });
+  addEventListener('beforeunload', event => { if (unsavedDrafts.size) { event.preventDefault(); event.returnValue = ''; } });
+  document.getElementById('discussion-download-draft').onclick = () => {
+    const text = [commentForm.body.value, ...Array.from(commentList.querySelectorAll('.reply-form')).map(form => 'Reply to ' + form.closest('.comment-reply').dataset.replyFor + '\n' + form.body.value)].join('\n\n');
+    const url = URL.createObjectURL(new Blob([text], {type:'text/plain'}));
+    const a = document.createElement('a'); a.href = url; a.download = STUDY_SLUG + '-discussion-draft.txt'; a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  };
   const readStudy = document.getElementById("discuss-read-study");
   if (readStudy && /^#[^#\s]+$/.test(location.hash)) {
     try {
@@ -172,7 +226,6 @@
 
   const showSignInPanel = () => {
     signInPanel.classList.remove("hidden");
-    commentPanel.classList.add("hidden");
     destroySignInTurnstile();
     resetSignInTurnstileContainer();
     scheduleSignInTurnstile();
@@ -202,6 +255,7 @@
 
   const handleLogout = async () => {
     try {
+      saveVisibleDrafts();
       await fetchJson("/api/discuss-auth/logout", { method: "POST", body: "{}" });
       setAuthUi({ loggedIn: false });
       await loadComments();
@@ -221,7 +275,7 @@
   const params = new URLSearchParams(window.location.search);
   const discussError = params.get("discuss_error");
   if (discussError) {
-    showAlert("error", decodeURIComponent(discussError));
+    showAlert("error", discussError);
     showSignInPanel();
     params.delete("discuss_error");
     const clean = params.toString();
@@ -229,19 +283,30 @@
   }
 
   const fetchJson = async (path, options = {}) => {
-    const response = await fetch(apiBase() + path, {
+    const commentWrite = options.method === 'POST' && path.endsWith('/comments');
+    let response;
+    try { response = await fetch(apiBase() + path, {
       credentials: "include",
       headers: { "Content-Type": "application/json", ...(options.headers || {}) },
       ...options,
-    });
+    }); } catch (error) {
+      if (commentWrite) throw new Error('Could not confirm whether your comment was posted. Your text is kept. Reload the comments and check before posting again.');
+      throw error;
+    }
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
+      if (response.status === 401) {
+        try { saveVisibleDrafts(); } catch (_) {}
+        toolbarAuthBtn.textContent = 'Sign in with email';
+        currentSession = {loggedIn:false};
+        showSignInPanel();
+      }
       const message = typeof data.error === "string" ? data.error : data.error?.message || data.message;
       const retryAfter = response.headers.get("Retry-After");
       const guidance = response.status === 429 && retryAfter
         ? ` Retry after ${retryAfter} seconds.`
         : "";
-      throw new Error((message || `Request failed (${response.status})`) + guidance);
+      throw new Error((message || `Request failed (${response.status})`) + guidance + (commentWrite && response.status >= 500 ? ' Check the comments before posting again; your text is kept.' : ''));
     }
     return data;
   };
@@ -397,10 +462,24 @@
     });
     commentList.innerHTML = html.join("");
     updateLoadMore();
+    paintDrafts();
   };
 
   const setAuthUi = (session) => {
+    const nextOwner = session?.loggedIn && session.userId ? 'user:' + session.userId : guestOwner;
+    if (authVerified && draftOwner !== nextOwner) {
+      try { saveVisibleDrafts(); } catch (error) { showAlert('error', error.message); return; }
+      commentForm.body.value = '';
+      commentList.querySelectorAll('.comment-reply').forEach(box => { box.innerHTML = ''; box.classList.add('hidden'); });
+    }
     currentSession = session || { loggedIn: false };
+    const changed = !authVerified || draftOwner !== nextOwner;
+    draftOwner = nextOwner; authVerified = true;
+    if (changed) {
+      try { const row = draftStore().get(draftOwner); if (row && !commentForm.body.value) commentForm.body.value = row.body; }
+      catch (error) { draftStatus.textContent = error.message; }
+    }
+    paintDrafts();
     const loggedIn = Boolean(currentSession.loggedIn);
     document.documentElement.dataset.discussAuth = loggedIn ? "signed-in" : "signed-out";
     try {
@@ -413,17 +492,18 @@
       // storage can be unavailable
     }
     if (loggedIn) {
-      toolbarAuthBtn.textContent = "Log out";
+      toolbarAuthBtn.textContent = "Sign out of discussions";
       toolbarAuthBtn.classList.remove("btn-primary");
       toolbarAuthBtn.setAttribute("aria-label", "Sign out of discussion");
       showCommentPanel();
     } else {
-      toolbarAuthBtn.textContent = "Log in";
+      toolbarAuthBtn.textContent = "Sign in with email";
       toolbarAuthBtn.classList.add("btn-primary");
       toolbarAuthBtn.setAttribute("aria-label", "Sign in to discuss");
-      hideCommentPanel();
+      commentPanel.classList.remove("hidden");
       hideSignInPanel();
     }
+    commentForm.querySelector('button[type="submit"]').textContent = loggedIn ? 'Post comment' : 'Sign in to post';
   };
 
   const removeComment = async (commentId, action) => {
@@ -444,16 +524,17 @@
     await loadComments();
   };
 
-  const openReply = (commentId) => {
+  const openReply = (commentId, force = false) => {
+    try { saveVisibleDrafts(); } catch (error) { showAlert('error', error.message); return; }
     commentList.querySelectorAll(".comment-reply").forEach((el) => {
       if (el.dataset.replyFor !== commentId) {
         el.classList.add("hidden");
         el.innerHTML = "";
       }
     });
-    const box = commentList.querySelector(`.comment-reply[data-reply-for="${commentId}"]`);
+    const box = commentList.querySelector(`.comment-reply[data-reply-for="${CSS.escape(commentId)}"]`);
     if (!box) return;
-    if (!box.classList.contains("hidden") && box.innerHTML) {
+    if (!force && !box.classList.contains("hidden") && box.innerHTML) {
       box.classList.add("hidden");
       box.innerHTML = "";
       return;
@@ -467,12 +548,14 @@
       </form>`;
     box.classList.remove("hidden");
     const ta = box.querySelector("textarea");
+    try { const row = draftStore().get(draftOwner, commentId); if (row && ta) ta.value = row.body; } catch (error) { showAlert('error', error.message); }
     if (ta) ta.focus();
   };
 
   commentList.addEventListener("click", async (event) => {
     const cancel = event.target.closest(".reply-cancel");
     if (cancel) {
+      try { saveVisibleDrafts(); } catch (error) { showAlert('error', error.message); return; }
       const box = cancel.closest(".comment-reply");
       if (box) {
         box.classList.add("hidden");
@@ -498,11 +581,17 @@
     }
   });
 
-  const postComment = (body, parentId) =>
-    fetchJson(`/api/discussions/${encodeURIComponent(STUDY_SLUG)}/comments`, {
+  const postComment = async (body, parentId) => {
+    const verified = await fetchJson('/api/discuss-auth/me');
+    if (!verified.loggedIn || 'user:' + verified.userId !== draftOwner) {
+      setAuthUi(verified);
+      throw new Error('Discussion sign-in changed. Your draft stays with its original account. Sign in to that account to continue.');
+    }
+    return fetchJson(`/api/discussions/${encodeURIComponent(STUDY_SLUG)}/comments`, {
       method: "POST",
       body: JSON.stringify({ body, title: STUDY_TITLE, parentId: parentId || null }),
     });
+  };
 
   commentList.addEventListener("submit", async (event) => {
     const form = event.target.closest(".reply-form");
@@ -516,18 +605,27 @@
       return;
     }
     const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn?.disabled) return;
     if (submitBtn) submitBtn.disabled = true;
+    form.body.readOnly = true;
     try {
+      saveDraft(parentId, form.body.value);
+      if (!currentSession.loggedIn) { showSignInPanel(); return; }
       await postComment(body, parentId);
+      form.body.value = '';
+      try { draftStore().put(draftOwner, parentId, ''); } catch (_) { /* Keep a newer draft written in another tab. */ }
       showAlert("success", "Reply posted.");
       await loadComments();
     } catch (err) {
       showAlert("error", readableError(err));
+    } finally {
       if (submitBtn) submitBtn.disabled = false;
+      form.body.readOnly = false;
     }
   });
 
   const loadComments = async ({ append = false } = {}) => {
+    try { saveVisibleDrafts(); } catch (error) { showAlert('error', error.message); return; }
     if (!append) {
       nextOffset = 0;
       allComments = [];
@@ -607,13 +705,17 @@
       return;
     }
     try {
+      saveVisibleDrafts();
+      const returnUrl = new URL(location.href);
+      returnUrl.searchParams.delete('discuss_error');
+      returnUrl.searchParams.set('discuss_draft', guestId);
       const data = await fetchJson("/api/discuss-auth/magic-link", {
         method: "POST",
         body: JSON.stringify({
           email,
           displayName,
           turnstileToken: turnstileTokenValue,
-          returnTo: window.location.href.split("#")[0],
+          returnTo: returnUrl.href,
         }),
       });
       try {
@@ -622,6 +724,7 @@
         // ignore storage errors
       }
       showAlert("success", data.message || "Check your email for a sign-in link.");
+      paintDrafts();
       resetSignInTurnstile();
     } catch (err) {
       showAlert("error", readableError(err));
@@ -637,17 +740,29 @@
       showAlert("error", "Comment cannot be empty.");
       return;
     }
+    const button = form.querySelector('button[type="submit"]');
+    if (button.disabled) return;
+    button.disabled = true;
+    form.body.readOnly = true;
     try {
+      saveDraft();
+      if (!currentSession.loggedIn) { showSignInPanel(); return; }
       await postComment(body, null);
       form.body.value = "";
+      try { draftStore().put(draftOwner, '', ''); } catch (_) { /* Keep a newer draft written in another tab. */ }
       showAlert("success", "Comment posted.");
       await loadComments();
       const textarea = form.querySelector('textarea[name="body"]');
       if (textarea) textarea.focus();
     } catch (err) {
       showAlert("error", readableError(err));
+    } finally {
+      button.disabled = false;
+      form.body.readOnly = false;
     }
   });
 
+  addEventListener('pageshow', event => { if (event.persisted) loadComments().catch(error => showAlert('error', readableError(error))); });
+  document.addEventListener('visibilitychange', () => { if (!document.hidden && authVerified) loadComments().catch(error => showAlert('error', readableError(error))); });
   loadComments().catch((err) => showAlert("error", readableError(err)));
 })();

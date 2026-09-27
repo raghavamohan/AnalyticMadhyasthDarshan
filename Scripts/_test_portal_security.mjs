@@ -109,10 +109,36 @@ test('magic-link storage and consumption use only the token digest', async () =>
     run: async () => { stored = args; },
     first: async () => { assert.match(sql, /UPDATE magic_tokens/); assert.equal(args[1], digest); return null; },
   }) }) };
-  await db.storeMagicToken(fake, { token, email: 'USER@example.org', displayName: 'Test', expiresAt: 123 });
+  await db.storeMagicToken(fake, { token, email: 'USER@example.org', displayName: 'Test', expiresAt: 123, returnTo:origin + '/Studies/Test/discussion.html' });
   assert.equal(stored[0], digest);
   assert.ok(!stored.includes(token));
   assert.equal(await db.consumeMagicToken(fake, token), null);
+});
+
+test('repeat email sign-in never changes the existing display name', async () => {
+  const fake = {prepare:sql => ({bind:() => ({first:async () => ({id:'user-a',email:'a@example.org',display_name:'Original'}),run:async () => {throw new Error('Unexpected profile write');}})})};
+  assert.deepEqual(await db.findOrCreateUser(fake,'A@example.org','Replacement'), {id:'user-a',email:'a@example.org',displayName:'Original'});
+});
+
+test('discussion drafts isolate users, studies, replies and stale tabs', () => {
+  const {create} = createRequire(import.meta.url)('../Studies/assets/discussion-drafts.js');
+  const values = new Map(), storage = {get length(){return values.size;},key:i => [...values.keys()][i],getItem:k => values.get(k) || null,setItem:(k,v) => values.set(k,v),removeItem:k => values.delete(k)};
+  const alice = create(storage, 'Study'), otherTab = create(storage, 'Study'), otherStudy = create(storage,'Other');
+  assert.equal(otherTab.get('user:a'), null);
+  alice.get('user:a'); alice.put('user:a','','First comment');
+  alice.get('user:a','parent'); alice.put('user:a','parent','A reply');
+  alice.get('guest:one'); alice.put('guest:one','','Before sign-in');
+  assert.deepEqual(alice.list('user:b'), []);
+  assert.deepEqual(otherStudy.list('user:a'), []);
+  assert.equal(alice.get('user:a','parent').body, 'A reply');
+  assert.equal(alice.list('user:a').length, 2);
+  assert.throws(() => otherTab.put('user:a','','Stale text'), /Another tab/);
+  assert.equal(alice.get('user:a').body, 'First comment');
+  assert.equal(alice.list('guest:one')[0].body, 'Before sign-in');
+  assert.deepEqual(alice.list('guest:two'), []);
+  alice.put('user:a','parent',''); assert.equal(alice.get('user:a','parent'), null);
+  const blocked = create({...storage,setItem:() => {throw new Error('Storage unavailable');}},'Study');
+  blocked.get('user:b'); assert.throws(() => blocked.put('user:b','','Keep me'), /Storage unavailable/);
 });
 
 test('catalog dates sort correctly across AM/PM, month boundaries and invalid dates', async () => {

@@ -10,6 +10,10 @@ is documented in [OpenAPI](../openapi/submissions.json) and the
 
 - Sign in with GitHub for proposals and pull requests. Discussion email sign-in
   is separate. Proposals, submitted source and review conversations are public.
+- Sign-in keeps the active proposal or source/revision workspace. Cancellation
+  returns to that workspace when the signed OAuth state is valid. Expired
+  sessions keep the draft and receipt; sign back in to the same account and
+  check an unresolved receipt before retrying. Returning never submits work.
 - Drafts save after a short pause, with an explicit saved/unsaved/error message.
   Each account, study, artifact filename and pull-request revision has its own
   workspace. **Start another proposal** creates an independent proposal draft.
@@ -57,6 +61,22 @@ invalid previews leave the source available. Draft listings load metadata only,
 without reading every presentation into memory.
 
 ## Submission receipts and deployment
+
+Discussion comments and replies save separately in this browser by discussion
+account, study and parent comment. Signed-out text uses a temporary browser
+workspace and requires explicit recovery after email sign-in. A different
+account cannot automatically load an account-owned draft. **Download current
+text** preserves a backup when storage is unavailable or another tab conflicts.
+Use the same browser/device as the draft. Email links open a confirmation page;
+only an explicit confirmation POST consumes the single-use token. Existing
+display names are unchanged by subsequent sign-ins. Discussion comment writes
+are not contribution receipts: after an uncertain response, check the comments
+before posting again.
+
+Apply discussion D1 migration `0003_magic_return.sql` before deploying the
+updated Worker. Legacy outstanding email links require requesting a new link;
+existing sessions and comment ownership remain valid. Deploy the Worker before
+the updated discussion pages through the normal protected workflows.
 
 `POST /api/propose`, `/api/submit`, `/api/revise`, `/api/status-change`, and
 `/api/delete-artifact` require a client-generated UUIDv4 `operationId`. The

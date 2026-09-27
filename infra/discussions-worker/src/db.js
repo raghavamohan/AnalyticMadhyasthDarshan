@@ -16,12 +16,6 @@ export async function findOrCreateUser(db, email, displayName) {
     'SELECT id, email, display_name FROM users WHERE email = ?',
   ).bind(normalizedEmail).first();
   if (existing) {
-    if (displayName && existing.display_name !== displayName) {
-      await db.prepare(
-        'UPDATE users SET display_name = ? WHERE id = ?',
-      ).bind(displayName.trim(), existing.id).run();
-      return { id: existing.id, email: existing.email, displayName: displayName.trim() };
-    }
     return {
       id: existing.id,
       email: existing.email,
@@ -40,10 +34,10 @@ export async function hashMagicToken(token) {
   return Array.from(new Uint8Array(hash), b => b.toString(16).padStart(2, '0')).join('');
 }
 
-export async function storeMagicToken(db, { token, email, displayName, expiresAt }) {
+export async function storeMagicToken(db, { token, email, displayName, expiresAt, returnTo }) {
   await db.prepare(
-    'INSERT INTO magic_tokens (token, email, display_name, expires_at) VALUES (?, ?, ?, ?)',
-  ).bind(await hashMagicToken(token), email.trim().toLowerCase(), displayName.trim(), expiresAt).run();
+    'INSERT INTO magic_tokens (token, email, display_name, expires_at, return_to) VALUES (?, ?, ?, ?, ?)',
+  ).bind(await hashMagicToken(token), email.trim().toLowerCase(), displayName.trim(), expiresAt, returnTo).run();
 }
 
 export async function consumeMagicToken(db, token) {
@@ -51,10 +45,10 @@ export async function consumeMagicToken(db, token) {
   // Old unhashed tokens intentionally expire at rollout; request a new link.
   const row = await db.prepare(`
     UPDATE magic_tokens SET used_at = ?
-    WHERE token = ? AND used_at IS NULL AND expires_at > ?
-    RETURNING email, display_name
+    WHERE token = ? AND used_at IS NULL AND expires_at > ? AND return_to IS NOT NULL
+    RETURNING email, display_name, return_to
   `).bind(nowMs(), await hashMagicToken(token), nowMs()).first();
-  return row ? { email: row.email, displayName: row.display_name } : null;
+  return row ? { email: row.email, displayName: row.display_name, returnTo: row.return_to } : null;
 }
 
 export async function listComments(db, slug, { limit = 50, offset = 0 } = {}) {

@@ -20,13 +20,15 @@ class PortalSecurityTests(unittest.TestCase):
 
     def test_magic_link_consumption_is_atomic_and_checks_expiry(self):
         source = (BASE / "infra/discussions-worker/src/db.js").read_text(encoding="utf-8")
-        sql = re.search(r"UPDATE magic_tokens SET used_at = \?[\s\S]*?RETURNING email, display_name", source)[0]
+        sql = re.search(r"UPDATE magic_tokens SET used_at = \?[\s\S]*?RETURNING email, display_name, return_to", source)[0]
         with tempfile.TemporaryDirectory() as directory:
             database = str(Path(directory) / "tokens.sqlite")
             with closing(sqlite3.connect(database)) as connection, connection:
                 connection.executescript((BASE / "infra/discussions-worker/migrations/0001_init.sql").read_text(encoding="utf-8"))
                 connection.executescript((BASE / "infra/discussions-worker/migrations/0002_sessions.sql").read_text(encoding="utf-8"))
-                connection.executemany("INSERT INTO magic_tokens (token,email,display_name,expires_at) VALUES (?, 'test@example.org', 'Test', ?)", [("valid", 200), ("expired", 100)])
+                connection.executescript((BASE / "infra/discussions-worker/migrations/0003_magic_return.sql").read_text(encoding="utf-8"))
+                connection.executemany("INSERT INTO magic_tokens (token,email,display_name,expires_at,return_to) VALUES (?, 'test@example.org', 'Test', ?, '/Studies/Test/discussion.html')", [("valid", 200), ("expired", 100)])
+                connection.execute("INSERT INTO magic_tokens (token,email,display_name,expires_at) VALUES ('legacy','test@example.org','Test',200)")
 
             def consume(token):
                 with closing(sqlite3.connect(database, timeout=5)) as connection, connection:
@@ -37,6 +39,7 @@ class PortalSecurityTests(unittest.TestCase):
             self.assertEqual(sum(result is not None for result in results), 1)
             self.assertIsNone(consume("expired"))
             self.assertIsNone(consume("missing"))
+            self.assertIsNone(consume("legacy"))
 
 
 if __name__ == "__main__":

@@ -121,6 +121,8 @@ Open **Discuss** to ask a question, challenge an interpretation, suggest sources
 
 Corrections go directly to the maintainers for review; a separate study proposal is not required. A GitHub account is required to file a correction.
 
+Discussions use a separate email sign-in. You can write a comment before signing in; browser drafts can be recovered when you return. Reading studies never requires sign-in.
+
 ### Write or substantially revise a study
 
 Use the Web Submission Portal if you want to take responsibility for a new analytic paper or a substantial revision.

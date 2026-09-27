@@ -98,7 +98,11 @@ Readers who comment on a study request a magic link to their email.
 
 - Request: `POST https://analyticmadhyasthdarshan.org/api/discuss-auth/magic-link`
   (Turnstile required)
-- Verify: `GET https://analyticmadhyasthdarshan.org/api/discuss-auth/verify`
+- Confirm page: `GET https://analyticmadhyasthdarshan.org/api/discuss-auth/verify`
+  (does not consume the link or create a session)
+- Confirm: `POST https://analyticmadhyasthdarshan.org/api/discuss-auth/confirm`
+  with JSON `{ "token": "..." }`, after the reader presses the confirmation button.
+  The destination is bound to the issued token. Opening the link does not post a comment.
 - Session: first-party cookie
 - Docs: [api-docs.html](api-docs.html), OpenAPI at
   [openapi/discussions.json](/openapi/discussions.json)
