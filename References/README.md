@@ -74,7 +74,7 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | [How-Undivided-Society-Is-Established.pdf](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf) | MVD, SB, JV, JVD, AVD |
 | [Axiology-Value-Theory.pdf](../Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf) | MVD, SB, JV, AVD, KD; MAD and PS (external); Advaita (BU, TU, BG, BSB, VC); Western value theory and scientific valuation research, including Killingsworth 2021 and Killingsworth, Kahneman, and Mellers 2023 (external) |
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, KD |
-| [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD, AVD, SB; RG (Rakesh Gupta's supplied interpretation, reproduced in the study's Editorial Notes) |
+| [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD, AVD, SB; Advaita (BSB, BU, CU, MU with Gaudapada Karika, BG, VC); RG (Rakesh Gupta's supplied interpretation, reproduced in the study's Editorial Notes) |
 | [A-State-Dynamic-Model-Of-Coexistence.pdf](../Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) | MVD, SB, JV, AVD, KD, MSM, JVD; MAD and PS |
 <!-- /studies-catalog -->
 
