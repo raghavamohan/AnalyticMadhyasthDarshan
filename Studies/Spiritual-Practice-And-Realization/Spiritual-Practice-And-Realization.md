@@ -2,8 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 27, 2026, 5:48 PM IST
-**Status:** Draft
+**Edited on:** September 27, 2026, 6:04 PM IST
+**Status:** Released
 **The question:** What does Madhyasth Darshan mean by spirituality and realisation, what practice leads to realisation, and how would anyone know it had occurred? How does its answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
 This study examines *anubhav* — realisation — and the practice Madhyasth Darshan holds leads to it. The darshan presents its account of these matters as *anubhavatmak adhyatmvad*, realisation-centred spiritualism (AVD, p. 2), and the account is compared here with **Advaita Vedanta**, whose path of knowledge is its nearest and most demanding rival, and with **modern Western philosophy and contemplative science**, which turn out to have a great deal to say about this subject and not what one might expect.
