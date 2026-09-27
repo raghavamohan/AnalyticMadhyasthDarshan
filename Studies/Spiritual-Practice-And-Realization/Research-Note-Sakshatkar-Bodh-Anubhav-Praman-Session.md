@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** September 27, 2026, 2:53 PM IST
+**Edited on:** September 27, 2026, 5:40 PM IST
 
 **Status:** Internal research note (not a catalog entry). Compiled to support [*Spiritual Practice and Realization*](Spiritual-Practice-And-Realization.md), especially §§1.2–1.16, §4.2, and the open problems in §6.
 
@@ -12,7 +12,7 @@
 
 ## Provenance and reliability — read before quoting
 
-This is an **oral source**, machine-transcribed. Nothing here has the standing of the printed texts, and the note is written so that the difference stays visible.
+The recorded session is an **oral source**, machine-transcribed. Its reconstructed wording is distinguished from the printed texts throughout. Rakesh Gupta's separately supplied interpretation of study, discussed in §4, has its own attribution and is not part of this transcript.
 
 **How the transcript was produced.** YouTube's own Hindi auto-captions are unusable: ~6,700 characters for 45 minutes, with multi-minute holes and heavy corruption (*बोध* rendered as "वोट"). The transcript underlying this note was produced locally with **Whisper `large-v3`** (int8, CPU) at 16 kHz: ~20,500 characters across 130 segments, continuous with no gap over 60 seconds — roughly three times the text, without holes. Two decoding passes were used, and the difference matters for how much weight a passage can bear:
 
@@ -100,6 +100,10 @@ Stated twice, and this is the single most consequential claim for the study (12:
 The point recurs (06:12, **reliable**): *इसका बैकग्राउंड क्या है? अध्ययन।* — "What is the background of this? Study." And 05:13: *उसके लिए क्या करता है? अध्ययन विधि* — study is what one actually does.
 
 **This speaks directly to §6.6 of the study** ("The detail of practice"). The session places study at the centre of the recommended practice and calls *sakshatkar* its success. The printed account says "Study itself is worship" (MVD, p. 150), and begins the journey with methodical study (AVD, p. 223). Study includes listening, reflection, and understanding meaning (MVD, p. 257); *dhyan* focuses the faculties for understanding and, after realisation, for evidence (MVD, pp. 284–285). This supports study together with refinement, attention, and conduct. It does not establish that these have no practical disciplines or that sustained contemplation is excluded.
+
+**Gupta's interpretation of the method.** In an explanation supplied for this study on 27 September 2026, Rakesh Gupta describes *shravan* as listening with the intention of understanding meaning and *manan* as ratiocination: bringing different threads of listening into a coherent view, drawing conclusions about reality and how to live, and practising in living. Listening and reasoning overlap. He describes *nididhyasan* as the unfolding of direct cognition (*sakshatkar*), conception in *buddhi* and resolve, and thereafter realisation in *atma*. Understanding and realisation of coexistence become established as an indelible impression (*sanskar*) in *jeevan*. The main study reproduces the supplied explanation under Editorial Notes and cites it as RG.
+
+This interpretation gives the study a positive account of how the three terms work together. The broad teaching-method sense of *manan* includes reasoning and practice; MVD p. 126's faculty correspondence names affirmation in *mun* in the form of acceptance. Gupta's ordered unfolding extends through the faculties into established realisation. The printed account of complete *bodh* and *anubhav* becoming effective together (MVD, pp. 207, 286–287) concerns their completion; it does not erase the developmental direction. Gupta's explanation is accepted here as an attributed interpretation in its own right. It does not authenticate the recorded wording or the stronger automaticity claim at 03:03.
 
 ---
 
@@ -244,6 +248,7 @@ This matters for the study directly, and it needs a distinction this note first 
 | 8 | Read *तद्रूप/तदाकार विधि* in its p. 80 context of pursuing the ideal | §1.11 | **MVD p. 80**, published English; MVD p. 150; KD p. 40 | **Printed** |
 | 9 | Glossary: the faculty and practice terms, distinguishing *shravan* from *shruti* and removing compulsory *manan–tulan* chronology | Appendix | MVD pp. 126, 257, 295, 324, 329; throughout | Printed |
 | 10 | Editorial Note on the oral corpus as evidence; References entry for the session | Editorial Notes; References | §Provenance above | — |
+| 11 | Explain overlapping listening and ratiocination with practice, and *nididhyasan* as unfolding into established understanding, realisation, and *sanskar*; compare the three terms with Advaita | §§1.6, 1.11, 2.3, 4.1; glossary and Editorial Notes | Rakesh Gupta's explanation supplied for this study on 27 September 2026; §4 above | Attributed translator interpretation, independent of the working recording |
 
 **Standing after the printed-corpus passes.** The stage-names, automaticity, the stronger claim that nothing further is understood, and the particular oral statements about pedagogy still depend on the working transcript. Printed definitions support a connected account without independently proving every stronger oral formulation. The load-bearing passages at 22:28, 34:07, and 14:12 require the checks identified in the transcript's verification section. Oral material should remain attributed by timestamp with this limit visible; neither this note nor its agreement with print substitutes for listening to the recording.
 

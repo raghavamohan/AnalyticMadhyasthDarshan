@@ -64,6 +64,7 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, AVD, KD | present |
 | [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD, AVD, SB | present |
 | | Nagraj 2010 Sakshatkar | transcript present; recording external |
+| | RG | supplied interpretation; full wording reproduced in the study's Editorial Notes |
 
 | [A-State-Dynamic-Model-Of-Coexistence.pdf](../Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) | MVD, SB, JV, AVD, KD, MSM, JVD; MAD and PS | registered primary PDFs; MAD and PS external |
 | [Research-Note-Jeevan-Activities-Values-And-Human-Order.md](../Studies/A-State-Dynamic-Model-Of-Coexistence/Research-Note-Jeevan-Activities-Values-And-Human-Order.md) | MVD, AVD, MSM, KD, JV; MAD, PS and MIT quantum numbers | registered primary PDFs; MAD, PS and MIT external |
@@ -73,6 +74,8 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 
 
 ## By tag
+
+**RG** is Rakesh Gupta's explanation of *shravan*, *manan*, and *nididhyasan*, supplied for this study on 27 September 2026. The original wording is preserved in [*Spiritual Practice and Realization*, Editorial Notes](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md#editorial-notes). It is an attributed translator interpretation, not a published passage by Nagraj or part of the recorded-session transcript. No separate reference mirror or public source URL was supplied.
 
 For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that quote verification checks against. Companion `.md` extracts are for analysis only — do not edit them by hand, and do not link them from Studies bibliographies.
 
