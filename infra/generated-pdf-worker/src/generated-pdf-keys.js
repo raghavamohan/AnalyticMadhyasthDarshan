@@ -21,6 +21,8 @@ export const GENERATED_PDF_KEYS = [
   "Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf",
   "Studies/Nature-Of-Time/Nature-Of-Time.pdf",
   "Studies/Spiritual-Practice-And-Realization/Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session.pdf",
+  "Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization-Madhyasth-Darshan-notes.pdf",
+  "Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization-Madhyasth-Darshan.pdf",
   "Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf",
   "Studies/The-Epistemology-of-Coexistence/Epistemology-in-Comparison-MD-Advaita-Philosophy-Science-notes.pdf",
   "Studies/The-Epistemology-of-Coexistence/Epistemology-in-Comparison-MD-Advaita-Philosophy-Science.pdf",
