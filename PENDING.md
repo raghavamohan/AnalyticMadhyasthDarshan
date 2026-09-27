@@ -91,8 +91,12 @@ are public.
 How-to: [.github/CI-IMPLEMENTATION.md](.github/CI-IMPLEMENTATION.md).
 Operating contract: [.github/CI.md](.github/CI.md).
 
-No pending CI workitems. R1–R8 completion and its public/deployed acceptance
-receipts are recorded in the implementation document above.
+R1–R8 completion and its public/deployed acceptance receipts are recorded in
+the implementation document above.
+
+| ID | Pri | Status | Remaining need |
+| --- | --- | --- | --- |
+| CI-D1-DEPLOY | P1 | partial | Discussion deployment after PR #532 failed because the CI token cannot write D1 (Cloudflare error 7500). Configure Account D1 Edit for the migration credential, then rerun and verify the protected deployment. Workflow separates migration from deployment and permits an optional dedicated D1 token. See [Worker deployment credentials](infra/discussions-worker/README.md#deploy). |
 
 ## API
 

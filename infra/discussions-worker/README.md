@@ -89,6 +89,19 @@ npx wrangler deploy
 
 `CLOUDFLARE_API_TOKEN` must include **Account → Workers Scripts → Edit**. A zone-only token can attach routes (`--apply-discussions-api`) but `wrangler deploy` fails with API error 10000.
 
+The remote migration step additionally requires **Account → D1 → Edit** on the
+account containing `amd-discussions`. D1 Read can list pending migrations but
+cannot apply them; Cloudflare returns error `7500` when the query is denied.
+Prefer a separate GitHub Actions secret `CLOUDFLARE_D1_API_TOKEN` scoped to that
+account with D1 Edit. Only the migration step uses it. If that secret is absent,
+the step uses `CLOUDFLARE_API_TOKEN`, which must then also have D1 Edit.
+The Worker deployment continues to use the existing Worker token.
+
+To recover a permission-only failed deployment, correct the appropriate token
+permission or secret and rerun the failed job. Migrations are tracked in D1;
+already-applied migrations are skipped. Do not bypass the migration gate or
+deploy the new Worker against a schema missing `return_to`.
+
 Default worker URL: `https://amd-discussions.<account>.workers.dev`
 
 Discussion pages use same-origin `/api/...` when Worker routes are configured on `analyticmadhyasthdarshan.org`; otherwise they fall back to the workers.dev URL.

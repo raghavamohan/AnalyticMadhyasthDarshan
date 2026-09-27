@@ -127,6 +127,14 @@ the Codex host being available; it is not an always-on hosted uptime service.
 
 Each API/discovery Worker compares its executable/configuration fingerprint with its **active Cloudflare version annotation**, including after rollback. Frontend changes can run compatibility tests without uploading unchanged backends. Shared headers and API edge policy belong only to serialized `edge-policy.yml`.
 
+The submissions/discussions deployment matrix does not cancel the other Worker
+when one fails. Discussion D1 migrations run in a separate protected step before
+its Worker deployment; failure prevents deploying code against an old schema.
+That step uses `CLOUDFLARE_D1_API_TOKEN` when configured, otherwise the existing
+`CLOUDFLARE_API_TOKEN`. Its account scope must include D1 Edit; D1 Read can list
+migrations but cannot apply them. Worker uploads continue to use the existing
+Worker token. See [discussion deployment and recovery](../infra/discussions-worker/README.md#deploy).
+
 The MCP Worker reads the active marker and revision-pinned files through the public site Worker. Its Wrangler configuration is also the API uploader's runtime contract: `cache_option_enabled` permits uncached marker requests, and `global_fetch_strictly_public` makes same-zone fetches reach Worker routes instead of bypassing them to the old origin. The required MCP configuration check rejects either missing capability. Node fetch mocks cannot verify Cloudflare routing; changes to this contract also need a same-zone edge canary that exercises catalog, Markdown, glossary, reading-path and MCP reads before promotion.
 
 The first publication after migration has no prior build receipt. Generated PDFs need a verified reviewed artifact or cold build; approved R2 references with matching metadata are reused immediately. That deployment establishes the durable baseline used by later merges, including after failed or superseded runs. Stable rendering contracts are declared in `Scripts/render-contract.json`; the local render cache additionally records actual runtime/font bytes. Renderer or font changes intended for publication must update the contract in a new commit.
