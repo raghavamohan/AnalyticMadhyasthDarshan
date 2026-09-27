@@ -1,6 +1,10 @@
 # Unified email sign-in and contribution plan
 
-Design status: final implementation baseline; implementation remains pending.
+Design status: deferred by the owner on 27 September 2026. The current scope
+retains GitHub sign-in for contributions and separate email sign-in for
+discussions, with draft recovery, clearer return navigation and safer magic
+links. This document retains the future migration design; activation requires
+an explicit decision to resume AUTH-01. Current work is tracked in PENDING.md.
 The five phases are Phase 0 (isolation) and Phases 1-4 (product and cutover).
 Resource names and credentials are provisioning inputs, not architecture gaps.
 

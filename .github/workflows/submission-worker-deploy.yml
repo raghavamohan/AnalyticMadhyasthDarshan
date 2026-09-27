@@ -11,7 +11,7 @@ on:
       - "Studies/submit.html"
       - "Studies/index.html"
       - "Studies/portal/**"
-      - "Studies/assets/discuss.js"
+      - "Studies/assets/discuss*.js"
       - "Scripts/requirements-api.txt"
       - "Scripts/_validate_openapi.py"
       - "Scripts/_test_api_catalog.py"
@@ -38,7 +38,7 @@ on:
       - "Studies/submit.html"
       - "Studies/index.html"
       - "Studies/portal/**"
-      - "Studies/assets/discuss.js"
+      - "Studies/assets/discuss*.js"
       - "Scripts/requirements-api.txt"
       - "Scripts/_validate_openapi.py"
       - "Scripts/_test_api_catalog.py"
@@ -128,4 +128,8 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-        run: python ../../Scripts/_worker_deployment.py --directory . --deploy
+        run: |
+          if [ "${{ matrix.directory }}" = "infra/discussions-worker" ]; then
+            npx wrangler d1 migrations apply amd-discussions --remote
+          fi
+          python ../../Scripts/_worker_deployment.py --directory . --deploy

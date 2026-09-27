@@ -68,11 +68,12 @@ Magic-link responses then include `verifyUrl` in JSON (never enable in productio
 
 The `submission-worker-deploy.yml` matrix bundle-checks and tests both API
 Workers on PRs and deploys them after merge to `master`. The commands below
-remain available for an intentional manual deployment. No new D1 migration is
-needed for the Phase 1 magic-link change: the existing token column now stores
-SHA-256 digests, and consumption uses one conditional `UPDATE ... RETURNING`.
-Links issued before the change are intentionally invalidated; request a new
-link. The change does not remove existing comments or user identities.
+remain available for an intentional manual deployment. The protected deployment
+applies ordered D1 migrations before updating the discussion Worker. Migration
+`0003_magic_return.sql` binds each new token to its allowed return destination.
+Tokens store SHA-256 digests and use a conditional `UPDATE ... RETURNING`.
+Outstanding links issued before this migration require requesting a new link.
+Existing comments, identities and sessions are preserved.
 
 POST requests require a trusted Origin and JSON content type. Add local preview
 origins explicitly with `ALLOWED_ORIGINS`. Responses are private/no-store,
@@ -122,8 +123,9 @@ contract: `success: false`, stable `code`, human-readable `message`,
 | `POST /api/discussions/:slug/comments/:id/hide` | admin cookie | Soft-hide another user's comment |
 | `POST /api/discussions/:slug/comments/:id/delete` | author cookie | Soft-hide your own comment |
 | `POST /api/discuss-auth/magic-link` | Turnstile | Send email sign-in link |
-| `GET /api/discuss-auth/verify?token=…&return_to=…` | — | Verify token; set session cookie; redirect |
-| `GET /api/discuss-auth/me` | cookie | `{ loggedIn, email, displayName, isAdmin }` |
+| `GET /api/discuss-auth/verify#token=…` | — | Read-only confirmation page; no session creation or token consumption |
+| `POST /api/discuss-auth/confirm` | token + trusted Origin | Confirm JSON `{token}`; set session cookie and return the stored destination |
+| `GET /api/discuss-auth/me` | cookie | `{ loggedIn, userId, email, displayName, isAdmin }` |
 | `POST /api/discuss-auth/logout` | cookie | Revoke the stored session and clear the cookie |
 
 Auth routes use the **`/api/discuss-auth/`** prefix so they do not clash with the submissions worker (`/api/auth/github`, etc.). `health` and `stats` are reserved slugs so `GET /api/discussions/:slug` cannot swallow the liveness or stats routes. Unauthenticated writes return JSON `401` responses and rely on the documented first-party session-cookie flow; they do not advertise bearer authentication.

@@ -255,6 +255,10 @@ if ($rows.Count -ne $page.total) {
 <p class="muted">
   Base URL: <code>https://analyticmadhyasthdarshan.org</code>.
   Readers sign in with an email magic link to comment on a study.
+  Opening the emailed link shows a confirmation page; only pressing
+  <strong>Confirm email sign-in</strong> sends the token to
+  <code>POST /api/discuss-auth/confirm</code>. Browser drafts can be recovered
+  after sign-in, and no comment is posted automatically.
 </p>
 <table>
   <thead>

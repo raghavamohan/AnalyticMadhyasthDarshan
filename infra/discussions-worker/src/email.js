@@ -8,8 +8,8 @@ export async function sendMagicLinkEmail(env, { to, displayName, verifyUrl }) {
   const subject = 'Sign in to Analytic Madhyasth Darshan discussions';
   const html = `
     <p>Hello ${escapeHtml(displayName)},</p>
-    <p>Click the link below to sign in and post on the study discussion board. This link expires in 15 minutes.</p>
-    <p><a href="${escapeHtml(verifyUrl)}">Sign in</a></p>
+    <p>Open the link below, then choose Confirm email sign-in. This link expires in 15 minutes. Use the same browser and device as your draft to recover it. No comment is posted automatically.</p>
+    <p><a href="${escapeHtml(verifyUrl)}">Confirm discussion sign-in</a></p>
     <p>If you did not request this email, you can ignore it.</p>
   `.trim();
 

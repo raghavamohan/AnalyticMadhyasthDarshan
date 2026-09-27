@@ -2013,6 +2013,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
           <li>For an in-progress study, contribute questions, sources, proposed structure, or comparative material through its discussion.</li>
         </ol>
         <p class="path-note">Corrections go directly to the maintainers for review; a separate study proposal is not required. A GitHub account is required to file a correction.</p>
+        <p class="path-note">Discussions use a separate email sign-in. You can write a comment before signing in; browser drafts can be recovered when you return. Reading studies never requires sign-in.</p>
         <p class="path-action"><a class="contribute-action" href="?status=all&amp;sort=recent#browse-studies">@amd-topic:discussion@<span>Browse discussions</span></a> <a class="contribute-action" href="https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/new?template=study-feedback.yml">@amd-topic:art@<span>Suggest a correction</span></a></p>
       </div>
       <div class="contribute-path contribute-path--study" id="propose-a-new-study">

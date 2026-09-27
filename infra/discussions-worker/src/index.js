@@ -40,6 +40,7 @@ import {
   storeMagicToken,
 } from './db.js';
 import { sendMagicLinkEmail } from './email.js';
+import { confirmationPage } from './confirm.js';
 
 const router = Router();
 const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
@@ -65,7 +66,8 @@ const OBSERVABILITY_ROUTES = Object.freeze([
   ['POST', /^\/api\/discussions\/[A-Za-z0-9-]+\/comments\/[^/]+\/hide$/, 'hideComment', 'd1'],
   ['POST', /^\/api\/discussions\/[A-Za-z0-9-]+\/comments\/[^/]+\/delete$/, 'deleteComment', 'd1'],
   ['POST', '/api/discuss-auth/magic-link', 'requestMagicLink', 'd1_resend'],
-  ['GET', '/api/discuss-auth/verify', 'verifyMagicLink', 'd1'],
+  ['GET', '/api/discuss-auth/verify', 'showMagicLinkConfirmation', 'none'],
+  ['POST', '/api/discuss-auth/confirm', 'verifyMagicLink', 'd1'],
   ['GET', '/api/discuss-auth/me', 'getDiscussAuthMe', 'none'],
   ['POST', '/api/discuss-auth/logout', 'discussLogout', 'none'],
 ].map(([method, path, operationId, dependency]) => ({method, path, operationId, dependency})));
@@ -229,6 +231,7 @@ function discussionViewer(session, env) {
   if (!session) return { loggedIn: false };
   return {
     loggedIn: true,
+    userId: session.userId,
     isAdmin: isAdmin(session, env),
   };
 }
@@ -426,9 +429,9 @@ router.post('/api/discuss-auth/magic-link', async (request, env) => {
 
     const token = crypto.randomUUID();
     const expiresAt = nowMs() + MAGIC_LINK_TTL_MS;
-    await storeMagicToken(db, { token, email, displayName, expiresAt });
+    await storeMagicToken(db, { token, email, displayName, expiresAt, returnTo });
 
-    const verifyUrl = `${workerOrigin(request)}/api/discuss-auth/verify?token=${encodeURIComponent(token)}&return_to=${encodeURIComponent(returnTo)}`;
+    const verifyUrl = `${env.SITE_ORIGIN || 'https://analyticmadhyasthdarshan.org'}/api/discuss-auth/verify#token=${encodeURIComponent(token)}`;
 
     if (env.RESEND_API_KEY) {
       await sendMagicLinkEmail(env, { to: email, displayName, verifyUrl });
@@ -451,17 +454,13 @@ router.post('/api/discuss-auth/magic-link', async (request, env) => {
   }
 });
 
-router.get('/api/discuss-auth/verify', async (request, env) => {
+router.get('/api/discuss-auth/verify', () => confirmationPage());
+
+router.post('/api/discuss-auth/confirm', async (request, env) => {
   try {
     const db = requireDb(env);
-    const url = new URL(request.url);
-    const token = url.searchParams.get('token');
-    const returnToParam = url.searchParams.get('return_to');
-    if (String(returnToParam || '').length > MAX_RETURN_TO_LENGTH) {
-      throw validationError(`return_to must be ${MAX_RETURN_TO_LENGTH} characters or fewer.`);
-    }
-    const returnTo = sanitizeReturnTo(returnToParam, env);
-    if (!token || token.length > 64) {
+    const {token} = await readJson(request);
+    if (typeof token !== 'string' || !token || token.length > 64) {
       throw validationError('Missing sign-in token.');
     }
 
@@ -477,11 +476,10 @@ router.get('/api/discuss-auth/verify', async (request, env) => {
       displayName: user.displayName,
     });
 
-    return redirectResponse(returnTo, { 'Set-Cookie': setSessionCookie(sessionToken, env) });
+    return jsonResponse(request, env, {success:true, returnTo:sanitizeReturnTo(payload.returnTo, env)}, 200,
+      { 'Set-Cookie': setSessionCookie(sessionToken, env) });
   } catch (err) {
-    const fallback = sanitizeReturnTo(null, env);
-    const message = encodeURIComponent(err.message);
-    return redirectResponse(`${fallback}?discuss_error=${message}`);
+    return jsonResponse(request, env, errorPayload(err), err.status || 500, err.headers);
   }
 });
 
@@ -492,6 +490,7 @@ router.get('/api/discuss-auth/me', async (request, env) => {
   }
   return jsonResponse(request, env, {
     loggedIn: true,
+    userId: session.userId,
     email: session.email,
     displayName: session.displayName,
     isAdmin: isAdmin(session, env),

@@ -30,7 +30,7 @@ When an item is finished, remove the row and add a one-line note under
 1. Accept wording and check timed delivery of the revised Start here audio transcripts, beginning with
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
-2. Website next: `AUTH-01` Phase 0 (isolated staging), followed by its four product/cutover phases; coordinate recovery acceptance with `UX-05`. `UX-04`/`UX-06` remain later and `DIS-01` remains outside this cycle.
+2. Website next: deploy and accept the smaller sign-in/recovery scope (`AUTH-02` / `UX-05`). Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later and `DIS-01` remains outside this cycle.
 3. `R2-RIGHTS` (fourteen retained third-party PDFs).
 4. `TR-PILOT` (listen through the five-video transcription pilot).
 
@@ -43,10 +43,11 @@ Design and evaluation matrix:
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| AUTH-01 | P1 | pending | Implement the [final unified email sign-in plan](docs/unified-email-sign-in-plan.md): Phase 0 isolates staging/auth infrastructure and publication; Phases 1-4 deliver shared identity/UI, contribution ownership and PR revisions, review replies/corrections, then single-user cutover. Includes Issue/PR and API contracts, notification ownership, and public-read preservation. Confirm resource names before provisioning; architecture is settled. Incorporates former `FBK-01`. |
+| AUTH-02 | P1 | partial | Smaller sign-in improvements implemented: explicit discussion link confirmation, destination binding, stable display names, draft recovery and GitHub workspace returns. Remaining: merge/deploy the verified change with D1 migration `0003_magic_return.sql`, then accept the real email/GitHub return flows. See [contributor reliability](docs/contributor-reliability.md). |
+| UX-05 | P1 | partial | Account-scoped contributor/discussion draft recovery implemented; local Windows Chromium and Playwright WebKit desktop/narrow viewport, mobile/touch emulation and keyboard checks passed. Remaining: deployed recovery acceptance with an agreed test mailbox/account, including expiry, cancellation, reply recovery and real Safari/iOS checks. No unified-account cutover is planned. |
 | UX-04 | P1 | later | Device/AT matrix (Safari/iOS, Firefox, TalkBack/VoiceOver/NVDA). Mobile read-aloud shipped; that does not close the evaluation. |
-| UX-05 | P1 | later | Production contributor/discussion recovery check. Composer text is not preserved across sign-in; implement preservation and verify cutover recovery with `AUTH-01` Phases 1 and 4. |
 | UX-06 | P1 | later | Fresh Cloudflare RUM sample, segmented by catalog / large reader / search / portal and mobile / desktop. Saved baseline is still 30 August 2026 (45 views, catalog LCP p75 2.6 s, TTFB 1.3 s, CLS p75 1.0, INP p75 0). That sample predates `amd-site` cutover. Live catalog HTML is Worker-served (`cfOrigin` 0). Investigate CLS/INP before optimizing. Re-run `python Scripts/_cloudflare_performance.py --export-rum-baseline`. Related: `CF-PDF-CACHE`. |
+| AUTH-01 | P1 | deferred | Full [unified email sign-in migration](docs/unified-email-sign-in-plan.md), including email-owned contributions, website review replies/corrections and OAuth retirement. Owner chose the smaller existing-login scope on 27 September 2026. Start only on an explicit decision to resume. |
 | DIS-01 | P2 | pending | Reply mail and report control. Session revocation already shipped. Not this cycle. |
 | UX-08 | P2 | pending | Clarify the homepage's first reading action and tool hierarchy using the existing Start here path; test newcomer and returning-reader tasks as described in the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
 | UX-07 | P2 | later | Reading-time cues, argument routes, public reference-library browser. Include persistent path orientation for direct/search arrivals, meaningful stage names, and distinct satellite/formal-study placement; see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |

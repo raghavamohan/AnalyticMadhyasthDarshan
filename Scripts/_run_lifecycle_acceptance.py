@@ -15,13 +15,14 @@ import threading
 
 BASE = Path(__file__).resolve().parents[1]
 BROWSER_INPUTS = {'Studies/submit.html', 'Scripts/_serve_contributor_fixture.py',
+                  'Scripts/_build_discussion_pages.py',
                   'Scripts/_test_contributor_harness.js', 'Scripts/_lifecycle_browser_acceptance.js',
                   'Scripts/_run_lifecycle_acceptance.py', '.github/workflows/studies-index-check.yml'}
 
 
 def needs_browser(base: str) -> bool:
     paths = subprocess.check_output(['git','diff','--name-only',f'{base}...HEAD'],cwd=BASE,text=True).splitlines()
-    return any(path in BROWSER_INPUTS or path.startswith(('Studies/portal/','infra/worker/src/')) for path in paths)
+    return any(path in BROWSER_INPUTS or path == 'Scripts/_test_signin_browser.cjs' or path.startswith(('Studies/portal/','Studies/assets/discuss','infra/worker/src/','infra/discussions-worker/')) for path in paths)
 
 
 def run(output: Path, *, browser: bool = True, browser_only: bool = False) -> bool:
@@ -56,6 +57,7 @@ def run(output: Path, *, browser: bool = True, browser_only: bool = False) -> bo
                                          f'http://127.0.0.1:{server.server_port}',str(output)]) and passed
         finally:
             server.shutdown();server.server_close();thread.join(timeout=5)
+        passed = execute('signin-browser',[shutil.which('node') or 'node',str(BASE/'Scripts/_test_signin_browser.cjs')]) and passed
     write_text_lf(output/'acceptance.json',json.dumps(report,indent=2)+'\n')
     return passed
 

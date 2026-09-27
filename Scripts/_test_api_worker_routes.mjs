@@ -404,7 +404,7 @@ if (discussion) test('comment listing includes an email-free viewer summary', as
     headers:{Cookie:auth.setSessionCookie(token,env).split(';')[0]},
   }), env);
   const payload = await signedIn.json();
-  assert.deepEqual(payload.viewer, {loggedIn:true,isAdmin:true});
+  assert.deepEqual(payload.viewer, {loggedIn:true,userId:'user-1',isAdmin:true});
   assert.equal(JSON.stringify(payload).includes('alice@example.test'), false);
 });
 
@@ -437,6 +437,73 @@ if (discussion) test('logout deletes the stored session so the cookie cannot be 
   }), env);
   assert.equal(response.status, 200);
   assert.equal(await auth.getSession(new Request(origin, authed), env), null);
+});
+
+if (discussion) test('link scanners cannot consume tokens; confirmation requires trusted POST and uses the stored return', async () => {
+  const tokens = new Map(), users = new Map(), sessions = new Map();
+  let writes = 0;
+  const env = {SESSION_SECRET:'fixture-only',SITE_ORIGIN:origin,TURNSTILE_SECRET_KEY:'fixture',DEV_EXPOSE_MAGIC_LINK:'true',DB:{
+    prepare(sql) { return {bind(...args) { return {
+      async run() {
+        writes++;
+        if (sql.includes('INSERT INTO magic_tokens')) tokens.set(args[0], {email:args[1],display_name:args[2],expires_at:args[3],return_to:args[4]});
+        else if (sql.includes('INSERT INTO users')) users.set(args[1], {id:args[0],email:args[1],display_name:args[2]});
+        else if (sql.includes('INSERT INTO sessions')) sessions.set(args[0], {sid:args[0],user_id:args[1],email:args[2],display_name:args[3],expires_at:args[5]});
+        else throw new Error('Unexpected write: '+sql);
+        return {meta:{changes:1}};
+      },
+      async first() {
+        if (sql.includes('COUNT(*)')) return {count:0};
+        if (sql.includes('UPDATE magic_tokens')) {
+          const row = tokens.get(args[1]);
+          if (!row || row.used_at || row.expires_at <= args[2] || !row.return_to) return null;
+          writes++; row.used_at = args[0]; return row;
+        }
+        if (sql.includes('FROM users')) return users.get(args[0]) || null;
+        if (sql.includes('FROM sessions')) return sessions.get(args[0]) || null;
+        throw new Error('Unexpected read: '+sql);
+      },
+    };}};},
+  }};
+  const original = globalThis.fetch;
+  globalThis.fetch = async input => { assert.ok(String(input).includes('siteverify')); return Response.json({success:true}); };
+  const post = (path, body, suppliedOrigin = origin) => worker.fetch(new Request(origin+path,{method:'POST',headers:{Origin:suppliedOrigin,'Content-Type':'application/json'},body:JSON.stringify(body)}),env);
+  try {
+    const returnTo = origin+'/Studies/Test/discussion.html?discuss_draft=123#c-comment';
+    const issued = await post('/api/discuss-auth/magic-link',{email:'a@example.org',displayName:'Original',returnTo,turnstileToken:'test'});
+    assert.equal(issued.status,200);
+    const link = new URL((await issued.json()).verifyUrl);
+    assert.equal(link.search,'');
+    const token = new URLSearchParams(link.hash.slice(1)).get('token');
+    const before = writes;
+    for (let i=0;i<2;i++) {
+      const page = await worker.fetch(new Request(link.href), env);
+      assert.equal(page.status,200); assert.equal(page.headers.get('Set-Cookie'),null);
+      assert.equal(page.headers.get('Referrer-Policy'),'no-referrer');
+      assert.match(page.headers.get('Content-Security-Policy'), /frame-ancestors 'none'/);
+      assert.match(await page.text(), /Confirm email sign-in/);
+      assert.equal(writes,before);
+    }
+    await assertErrorEnvelope(await post('/api/discuss-auth/confirm',{token},'https://evil.test'),{status:403,code:'forbidden'});
+    assert.equal(writes,before);
+    const confirmed = await post('/api/discuss-auth/confirm',{token,returnTo:'https://evil.test'});
+    assert.equal(confirmed.status,200);
+    assert.equal((await confirmed.json()).returnTo, returnTo);
+    const cookie = confirmed.headers.get('Set-Cookie').split(';')[0];
+    const me = await worker.fetch(new Request(origin+'/api/discuss-auth/me',{headers:{Cookie:cookie}}),env);
+    assert.equal((await me.json()).displayName,'Original');
+    await assertErrorEnvelope(await post('/api/discuss-auth/confirm',{token}),{status:400,code:'invalid_request'});
+    await assertErrorEnvelope(await post('/api/discuss-auth/confirm',{token:'missing'}),{status:400,code:'invalid_request'});
+    const expired = await post('/api/discuss-auth/magic-link',{email:'a@example.org',displayName:'Replacement',returnTo,turnstileToken:'test'});
+    const expiredToken = new URLSearchParams(new URL((await expired.json()).verifyUrl).hash.slice(1)).get('token');
+    [...tokens.values()].at(-1).expires_at = 0;
+    await assertErrorEnvelope(await post('/api/discuss-auth/confirm',{token:expiredToken}),{status:400,code:'invalid_request'});
+    const fresh = await post('/api/discuss-auth/magic-link',{email:'a@example.org',displayName:'Replacement',returnTo:'https://evil.test',turnstileToken:'test'});
+    const freshToken = new URLSearchParams(new URL((await fresh.json()).verifyUrl).hash.slice(1)).get('token');
+    const repeat = await post('/api/discuss-auth/confirm',{token:freshToken});
+    assert.equal((await repeat.json()).returnTo,origin+'/Studies/index.html');
+    assert.equal(users.get('a@example.org').display_name,'Original');
+  } finally { globalThis.fetch = original; }
 });
 
 if (!discussion) test('auth snapshot includes notification state without exposing the email address', async () => {
@@ -496,6 +563,20 @@ if (!discussion) test('callback rejects mismatched state before any GitHub reque
     assert.equal(calls, 0);
     assert.match(result.headers.get('Set-Cookie'), /Max-Age=0/);
   } finally { globalThis.fetch = original; }
+});
+
+if (!discussion) test('OAuth cancellation keeps the signed workspace destination', async () => {
+  const env = {GITHUB_CLIENT_ID:'fixture',GITHUB_CLIENT_SECRET:'fixture',SESSION_SECRET:'fixture',SESSIONS:{}};
+  const destination=origin+'/Studies/submit.html?tab=propose&draft=11111111-1111-4111-8111-111111111111#editor';
+  const login=await worker.fetch(new Request(url('/github?return_to='+encodeURIComponent(destination))),env);
+  const state=new URL(login.headers.get('Location')).searchParams.get('state');
+  const cancelled=await worker.fetch(new Request(url('/callback?error=access_denied&state='+state),{headers:{Cookie:login.headers.get('Set-Cookie').split(';')[0]}}),env);
+  const target=new URL(cancelled.headers.get('Location'));
+  assert.equal(target.searchParams.get('tab'),'propose');
+  assert.equal(target.searchParams.get('draft'),'11111111-1111-4111-8111-111111111111');
+  assert.equal(target.hash,'#editor');
+  assert.match(target.searchParams.get('auth_error'), /cancelled/);
+  assert.match(cancelled.headers.get('Set-Cookie'), /Max-Age=0/);
 });
 
 if (!discussion) test('status changes and deletions require the durable receipt service before handlers run',async () => {
