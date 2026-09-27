@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 27, 2026, 12:01 PM IST
+**Edited on:** September 27, 2026, 12:06 PM IST
 **Status:** Draft
 **The question:** What does Madhyasth Darshan mean by spirituality and realisation, what practice leads to realisation, and how would anyone know it had occurred? How does its answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
@@ -379,7 +379,7 @@ On this the darshan is the outlier, and it is a genuine contribution. Advaita's 
 
 Madhyasth Darshan sets the most exacting evidential standard of the three positions here and grounds it on the least examinable foundation.
 
-### 5.2 Advaita Vedanta — rigorous about the goal, silent about verification
+### 5.2 Advaita Vedanta — rigorous about the goal, internal about verification
 
 **Strengths.**
 
@@ -392,10 +392,10 @@ Madhyasth Darshan sets the most exacting evidential standard of the three positi
 
 - The criterion of realisation is internal, so the tradition cannot distinguish realisation from confident self-ascription.
 - Dependence on *sruti* limits the argument's reach to those who grant the source's authority.
-- The world's *mithya* status leaves conduct expressive rather than evidential, so nothing in a liberated person's life could count for or against the claim.
+- The world's *mithya* status leaves conduct expressive rather than evidential. The marks of the one steady in wisdom describe the knower, but nothing in a liberated person's life is offered as a test of the claim.
 - The internal dispute over *samadhi* between Shankara and later texts is unresolved, which weakens appeals to "the Advaita position" on practice.
 
-Advaita is the more rigorous of the two traditions about what the goal cannot be, and it declines the question of how anyone else could tell.
+Advaita is the more rigorous of the two traditions about what the goal cannot be, and it answers the question of how anyone else could tell by holding that no one else can.
 
 ### 5.3 Modern philosophy and science — sharp on the problems, empty on the goal
 
