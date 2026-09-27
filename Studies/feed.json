@@ -6,6 +6,27 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html",
+      "title": "Spiritual Practice and Realization",
+      "content_text": "Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and liberation from mystery, compared with Advaita Vedanta and with modern philosophy of religious experience and contemplative science",
+      "tags": [
+        "topical",
+        "draft"
+      ],
+      "date_modified": "2026-09-27T12:01:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html",
       "title": "The Ontology of Coexistence",
@@ -22,27 +43,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html",
-      "title": "Spiritual Practice and Realization",
-      "content_text": "Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and liberation from mystery, compared with Advaita Vedanta and with modern philosophy of religious experience and contemplative science",
-      "tags": [
-        "topical",
-        "draft"
-      ],
-      "date_modified": "2026-09-20T10:01:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf",
           "mime_type": "application/pdf"
         }
       ]
