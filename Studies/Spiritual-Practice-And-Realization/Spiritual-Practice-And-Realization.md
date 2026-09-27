@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 27, 2026, 12:06 PM IST
+**Edited on:** September 27, 2026, 12:10 PM IST
 **Status:** Draft
 **The question:** What does Madhyasth Darshan mean by spirituality and realisation, what practice leads to realisation, and how would anyone know it had occurred? How does its answer compare with Advaita Vedanta's path of knowledge, and with what modern philosophy and contemplative science have established about practice and religious experience?
 
@@ -569,7 +569,7 @@ AVD defines *moksha* as freedom from the bondage of delusion (AVD, p. 84) and sa
 
 ### The 122 activities and their inventory
 
-§1.9 names representative pairs from the 122 activities. The complete tabulation, its bal–shakti assignments, and the points at which the tabulated assignment and the definitions diverge are recorded in [*The Sixty-One Activity Pairs of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.pdf); this study does not depend on resolving those points. The translation renders the members of several pairs differently in different places. §1.9 follows MVD's definitions — devotedness for *anurag*, devoutness for *pujyata*, and fearlessness for *dhruti*, defined as the absence of fear (MVD, p. 324).
+§1.9 names representative pairs from the 122 activities. The translation renders the members of several pairs differently in different places, and §1.9 follows MVD's definitions — devotedness for *anurag*, devoutness for *pujyata*, and fearlessness for *dhruti*, defined as the absence of fear (MVD, p. 324). The complete tabulation, its bal–shakti assignments, and the points at which the tabulated assignment and the definitions diverge are recorded in [*The Sixty-One Activity Pairs of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.pdf); this study does not depend on resolving those points.
 
 ### Working translations and page conventions
 
@@ -605,8 +605,8 @@ MVD page numbers follow the printed page footers of the bilingual edition; where
 ### Related studies in this collection
 
 - [The Epistemology of Coexistence](../The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf) — study, realisation, and transmission (§1.6), the active knower (§1.4), and the evidential open problems (§§7.1–7.5).
-- [*The Sixty-One Activity Pairs of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.pdf) — the pair-by-pair inventory of the 122 activities of *jeevan* drawn on in §1.9.
-- [*Jeevan Architecture*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.pdf) — the faculties, the ten and the four and a half activities, and their reception conditions, related to §§1.9–1.10.
+- [*The Sixty-One Activity Pairs of Jeevan*](../The-Epistemology-of-Coexistence/Research-Note-Activity-Pair-Inventory.pdf) — the pair-by-pair inventory of the 122 activities of *jeevan* and their bal–shakti assignments.
+- [*Jeevan Architecture*](../The-Epistemology-of-Coexistence/Research-Note-Jeevan-Architecture.pdf) — the faculties, the ten and the four and a half activities, and their reception conditions.
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — realisation in coexistence as an activity of *jeevan* (§1.14) and *jeevan*'s faculties (§1.8).
 - [Axiology Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) — correct evaluation and awakening (§1.7), and education, establishment, and continuity through conduct (§§1.4, 1.8).
 - [Family Relationships and Values](../Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) — the natal family as where *upasana* is initiated, and its feedback circuit with external behaviour (*vyavahar*) (§1.4.2).
