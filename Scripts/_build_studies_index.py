@@ -262,12 +262,27 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     flex-wrap: wrap;
     align-items: center;
     gap: 10px 14px;
-    margin: 0 0 20px;
+    margin: 14px 0 6px;
     font-family: var(--sans);
+  }
+
+  .hero-browse {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 0;
+    font-size: 15px;
+  }
+  .hero-reading-note {
+    margin: 0 0 16px;
+    font-family: var(--sans);
+    font-size: 14px;
+    color: var(--text-muted);
   }
 
   .btn-primary {
     display: inline-block;
+    min-height: 44px;
     font-family: var(--sans);
     font-size: 15px;
     font-weight: 600;
@@ -1364,6 +1379,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   }
   [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3 { color: #f5f1ec; }
   [data-theme="dark"] .start-here h2 { color: var(--accent); }
+  [data-theme="dark"] .btn-primary { color: #10202b; }
   [data-theme="dark"] .path-dot { background: #1e1b18; }
   [data-theme="dark"] .path-rail-step:has(.path-radio:checked) .path-dot {
     background: var(--accent);
@@ -1470,7 +1486,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     .toc { gap: 4px; }
     .toc a { padding: 0 9px; font-size: 12px; }
     .page-nav-tools { width: auto; justify-content: flex-end; gap: 2px; }
-    .page-nav-tools .nav-link-label { display: none; }
     .page-nav-tools .page-nav-link { padding: 0 6px; }
     .page-nav-tools .theme-toggle { min-width: 36px; min-height: 32px; padding: 0 8px; }
     #theme-toggle-label { display: none; }
@@ -1636,6 +1651,12 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 
 <header class="hero" id="site-header">
   <div class="hero-identity">@amd-mark:akhand-samaj@<h1>Studies of Madhyasth Darshan</h1></div>
+  <div class="hero-actions">
+    <a class="btn-primary" href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html?from=start-here&amp;stage=1" aria-describedby="hero-first-reading">Begin with the human question</a>
+    <a class="hero-browse" href="#browse-studies">Browse all studies</a>
+  </div>
+  <p class="hero-reading-note" id="hero-first-reading">Recommended first reading: <cite>Why Humans Are Not Just Material</cite>.</p>
+
   <img class="hero-book" src="../Assets/Theme/illustrations/open-book.png" width="1536" height="1024" alt="" decoding="async"/>
   <p class="lead">An open and growing collection of comparative studies of <strong>Madhyasth Darshan</strong> (Co-existentialism), the philosophy founded by <strong>Shri A. Nagraj</strong>. The collection follows a single line of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.</p>
 
@@ -1659,7 +1680,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <li><a href="#start-here">Start here</a></li>
       <li><a href="#browse-studies">Browse studies</a></li>
       <li><a href="#approach">How we work</a></li>
-      <li><a href="#contribute">How to contribute</a></li>
+      <li><a href="#contribute">Contribute</a></li>
       <li><a href="#about">About</a></li>
     </ul>
     <div class="page-nav-tools">
@@ -1670,10 +1691,6 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <div class="nav-tool">
         <a class="page-nav-link" href="notebook.html" aria-label="My Notes" aria-describedby="nav-notes-tip">@amd-ui:notes@<span class="nav-link-label">My Notes</span></a>
         <span class="nav-tooltip" role="tooltip" id="nav-notes-tip">Open your highlights, notes and offline studies saved in this browser.</span>
-      </div>
-      <div class="nav-tool">
-        <a class="page-nav-link page-nav-submit" href="submit.html" aria-label="My Submissions" aria-describedby="nav-submit-tip">@amd-ui:work@<span class="nav-link-label">My Submissions</span></a>
-        <span class="nav-tooltip" role="tooltip" id="nav-submit-tip">Use GitHub sign-in to propose studies, submit drafts and follow reviews.</span>
       </div>
       <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch color theme">
         <span class="theme-toggle-icon" id="theme-toggle-icon" aria-hidden="true"><span class="theme-icon-moon">@amd-ui:moon@</span><span class="theme-icon-sun">@amd-ui:sun@</span></span>
@@ -1698,7 +1715,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="start-here" id="start-here">
     <p class="start-here-kicker">A guided path through the collection</p>
     <h2>Start here: the study path we are following</h2>
-    <p class="start-here-intro">Is a human only matter? The body by itself does not settle it, and what that leaves open becomes the next question, and the next: existence, then knowledge, then value, then living. Each stage below is the question the one before it could not close.</p>
+    <p class="start-here-intro">We begin with the human being, then examine existence, knowledge, value, and social life. Each study asks what the different accounts explain and what remains unresolved.</p>
 
     <div class="study-path">
       <div class="path-rail" role="radiogroup" aria-label="Five stages in the study path">
