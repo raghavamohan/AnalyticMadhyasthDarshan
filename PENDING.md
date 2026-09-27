@@ -30,7 +30,7 @@ When an item is finished, remove the row and add a one-line note under
 1. Accept wording and check timed delivery of the revised Start here audio transcripts, beginning with
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
-2. Website next: deploy and accept the smaller sign-in/recovery scope (`AUTH-02` / `UX-05`). Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later and `DIS-01` remains outside this cycle.
+2. Website next: accept the deployed smaller sign-in/recovery scope (`AUTH-02` / `UX-05`). Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later and `DIS-01` remains outside this cycle.
 3. `R2-RIGHTS` (fourteen retained third-party PDFs).
 4. `TR-PILOT` (listen through the five-video transcription pilot).
 
@@ -43,7 +43,7 @@ Design and evaluation matrix:
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| AUTH-02 | P1 | partial | Smaller sign-in improvements implemented: explicit discussion link confirmation, destination binding, stable display names, draft recovery and GitHub workspace returns. Remaining: merge/deploy the verified change with D1 migration `0003_magic_return.sql`, then accept the real email/GitHub return flows. See [contributor reliability](docs/contributor-reliability.md). |
+| AUTH-02 | P1 | partial | Smaller sign-in improvements deployed with D1 migration `0003_magic_return.sql`; active Worker fingerprint, live confirmation page and 13 production read-only checks verified on 27 September 2026. Remaining: accept the real email/GitHub return flows. See [contributor reliability](docs/contributor-reliability.md). |
 | UX-05 | P1 | partial | Account-scoped contributor/discussion draft recovery implemented; local Windows Chromium and Playwright WebKit desktop/narrow viewport, mobile/touch emulation and keyboard checks passed. Remaining: deployed recovery acceptance with an agreed test mailbox/account, including expiry, cancellation, reply recovery and real Safari/iOS checks. No unified-account cutover is planned. |
 | UX-04 | P1 | later | Device/AT matrix (Safari/iOS, Firefox, TalkBack/VoiceOver/NVDA). Mobile read-aloud shipped; that does not close the evaluation. |
 | UX-06 | P1 | later | Fresh Cloudflare RUM sample, segmented by catalog / large reader / search / portal and mobile / desktop. Saved baseline is still 30 August 2026 (45 views, catalog LCP p75 2.6 s, TTFB 1.3 s, CLS p75 1.0, INP p75 0). That sample predates `amd-site` cutover. Live catalog HTML is Worker-served (`cfOrigin` 0). Investigate CLS/INP before optimizing. Re-run `python Scripts/_cloudflare_performance.py --export-rum-baseline`. Related: `CF-PDF-CACHE`. |
@@ -208,6 +208,8 @@ here order, not proposal-number order.
 - Session-only agent TodoWrite lists.
 
 ## Done in the same registers (do not reopen)
+
+- `CI-D1-DEPLOY`: owner corrected the migration token's D1 Edit permission; [deployment retry](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/actions/runs/36290075273) succeeded for both Workers, applied `0003_magic_return.sql`, and passed active-version, confirmation-page and 13 production read-only checks (27 September 2026). Workflow diagnostics and credential isolation are in [PR #533](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/533).
 
 - CI `R1`–`R8` and `PPTX-DIAG-01`: completed through [PR #517](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/pull/517) and its tested lifecycle repairs, with all five public phases, older-dashboard Live navigation, six retained-history reads, 11 isolated deployed offline/recovery checks, same-zone canaries, strict PDF repeat renders, font contracts, summaries, retention policy and trusted recovery verified; fixture #518 retired and closed (27 September 2026). See [.github/CI-IMPLEMENTATION.md](.github/CI-IMPLEMENTATION.md#public-lifecycle-acceptance-26-27-september).
 
