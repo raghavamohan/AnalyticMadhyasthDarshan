@@ -172,6 +172,24 @@ or lost-response outcome using the fixture controls. The standalone
 real IndexedDB conflicts, recovery checkpoints, attachment bytes and cleanup.
 These fixtures are never linked from the contributor UI.
 
+The sign-in regression suite defaults to the pinned Chromium renderer:
+`node Scripts/_test_signin_browser.cjs`. For optional local WebKit verification on
+Windows, install Playwright separately from the PDF toolchain and run the same
+assertions in desktop and mobile/touch contexts:
+
+```powershell
+npm install --prefix tmp/webkit-verification --save-exact --no-audit --no-fund playwright@1.63.0
+node tmp/webkit-verification/node_modules/playwright/cli.js install webkit
+$env:NODE_PATH = (Resolve-Path 'tmp/webkit-verification/node_modules').Path
+node Scripts/_test_signin_browser.cjs --webkit
+node Scripts/_test_signin_browser.cjs --webkit --mobile
+```
+
+The fixture blocks external requests and uses mock email/authentication APIs.
+Mobile emulation exercises WebKit with touch and a mobile viewport; it does not
+establish real Safari/iOS or production email-return compatibility. CI continues
+to run Chromium; optional WebKit dependencies and browser binaries stay local.
+
 Preview libraries are vendored with licenses, versions and SHA-256 checksums in
 `Studies/portal/vendor/manifest.json`. markdown-it has its own pinned package
 lock; KaTeX matches the PDF toolchain, and Mermaid uses the existing pinned
