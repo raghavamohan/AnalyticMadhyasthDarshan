@@ -259,6 +259,9 @@ if ($rows.Count -ne $page.total) {
   <strong>Confirm email sign-in</strong> sends the token to
   <code>POST /api/discuss-auth/confirm</code>. Browser drafts can be recovered
   after sign-in, and no comment is posted automatically.
+  Reply emails are off by default and can be enabled for direct replies to your
+  comments. Each email has an explicit-confirmation unsubscribe link. Signed-in
+  readers can submit private reports; only moderators can review or resolve them.
 </p>
 <table>
   <thead>

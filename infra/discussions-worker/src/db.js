@@ -80,10 +80,21 @@ export async function insertComment(db, {
   body,
 }) {
   const ts = nowMs();
-  await db.prepare(`
+  const insert = db.prepare(`
     INSERT INTO comments (id, thread_slug, parent_id, user_id, body, status, created_at, updated_at)
     VALUES (?, ?, ?, ?, ?, 'visible', ?, ?)
-  `).bind(id, threadSlug, parentId || null, userId, body, ts, ts).run();
+  `).bind(id, threadSlug, parentId || null, userId, body, ts, ts);
+  if (parentId) {
+    // D1 batches are transactional: every accepted reply has its eligible mail
+    // job recorded even if the Worker stops before returning its response.
+    await db.batch([insert, db.prepare(`INSERT INTO reply_outbox (comment_id, recipient_id, epoch, next_at, created_at)
+      SELECT ?, parent.user_id, p.epoch, ?, ? FROM comments parent
+      JOIN discussion_preferences p ON p.user_id = parent.user_id
+      WHERE parent.id = ? AND parent.thread_slug = ? AND parent.status = 'visible'
+      AND parent.user_id != ? AND p.reply_email = 1
+      AND (SELECT COUNT(*) FROM reply_outbox WHERE recipient_id = parent.user_id AND created_at > ?) < 10`)
+      .bind(id,ts,ts,parentId,threadSlug,userId,ts-3600000)]);
+  } else await insert.run();
   return ts;
 }
 

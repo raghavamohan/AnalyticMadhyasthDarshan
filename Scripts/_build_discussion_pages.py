@@ -544,6 +544,12 @@ DISCUSS_JS = r"""(() => {
   const guestOwner = 'guest:' + guestId;
   const draftStatus = document.getElementById('discussion-draft-status');
   const draftList = document.getElementById('discussion-draft-list');
+  const preferencePanel = document.getElementById('discussion-preferences');
+  const preferenceCheckbox = document.getElementById('discussion-reply-email');
+  const preferenceStatus = document.getElementById('discussion-preference-status');
+  const moderatorPanel = document.getElementById('discussion-moderation');
+  const reportDialog = document.getElementById('discussion-report-dialog');
+  let reportTarget = '', reportOffset = 0;
   const draftStore = () => drafts || (drafts = AMDDiscussionDrafts.create(localStorage, STUDY_SLUG));
   const saveDraft = (parent = '', body = commentForm.body.value) => {
     if (!authVerified || !draftOwner) return;
@@ -795,6 +801,8 @@ DISCUSS_JS = r"""(() => {
         try { saveVisibleDrafts(); } catch (_) {}
         toolbarAuthBtn.textContent = 'Sign in with email';
         currentSession = {loggedIn:false};
+        preferencePanel.classList.add('hidden'); moderatorPanel.classList.add('hidden');
+        document.getElementById('discussion-reports').replaceChildren();
         showSignInPanel();
       }
       const message = typeof data.error === "string" ? data.error : data.error?.message || data.message;
@@ -875,6 +883,7 @@ DISCUSS_JS = r"""(() => {
     const parts = [];
     if (currentSession.loggedIn) {
       parts.push(`<button type="button" class="comment-action comment-action--reply" data-action="reply" data-comment-id="${escapeHtml(item.id)}">Reply</button>`);
+      if (!item.canDelete) parts.push(`<button type="button" class="comment-action" data-action="report" data-comment-id="${escapeHtml(item.id)}">Report</button>`);
     }
     if (item.canDelete) {
       parts.push(`<button type="button" class="comment-action comment-action--delete" data-action="delete" data-comment-id="${escapeHtml(item.id)}">Delete</button>`);
@@ -1000,7 +1009,92 @@ DISCUSS_JS = r"""(() => {
       hideSignInPanel();
     }
     commentForm.querySelector('button[type="submit"]').textContent = loggedIn ? 'Post comment' : 'Sign in to post';
+    preferencePanel.classList.toggle('hidden', !loggedIn);
+    moderatorPanel.classList.toggle('hidden', !loggedIn || !currentSession.isAdmin);
+    if (changed) {
+      document.getElementById('discussion-reports').replaceChildren();
+      reportOffset = 0;
+      preferenceCheckbox.checked = false; preferenceCheckbox.disabled = true;
+      if (loggedIn) {
+        const owner = draftOwner;
+        fetchJson('/api/discuss-auth/preferences').then(data => {
+          if (owner !== draftOwner || !currentSession.loggedIn) return;
+          preferenceCheckbox.checked = data.replyEmail === true;
+          preferenceCheckbox.disabled = false;
+          preferenceStatus.textContent = 'Direct replies only. You can disable these emails here or from an email link.';
+        }).catch(error => { if (owner === draftOwner) preferenceStatus.textContent = readableError(error); });
+      }
+    }
   };
+
+  preferenceCheckbox.addEventListener('change', async () => {
+    const owner = draftOwner, enabled = preferenceCheckbox.checked;
+    preferenceCheckbox.disabled = true;
+    try {
+      const data = await fetchJson('/api/discuss-auth/preferences', {method:'POST',body:JSON.stringify({replyEmail:enabled})});
+      if (owner === draftOwner) { preferenceCheckbox.checked = data.replyEmail; preferenceStatus.textContent = enabled ? 'Reply emails enabled for your account.' : 'Reply emails disabled.'; }
+    } catch (error) { if (owner === draftOwner) { preferenceCheckbox.checked = !enabled; preferenceStatus.textContent = readableError(error); } }
+    finally { if (owner === draftOwner && currentSession.loggedIn) preferenceCheckbox.disabled = false; }
+  });
+  reportDialog.querySelector('.report-cancel').onclick = () => reportDialog.close();
+  reportDialog.querySelector('form').onsubmit = async event => {
+    event.preventDefault();
+    const form = event.currentTarget, button = form.querySelector('button[type="submit"]');
+    if (button.disabled) return;
+    button.disabled = true;
+    try {
+      await fetchJson(`/api/discussions/${encodeURIComponent(STUDY_SLUG)}/comments/${encodeURIComponent(reportTarget)}/report`,
+        {method:'POST',body:JSON.stringify({reason:form.reason.value})});
+      reportDialog.close(); form.reset(); showAlert('success','Report received privately. A moderator will review it.');
+    } catch (error) { document.getElementById('discussion-report-status').textContent = readableError(error); }
+    finally { button.disabled = false; }
+  };
+  const loadReports = async (append = false) => {
+    const owner = draftOwner;
+    const button = document.getElementById('discussion-load-reports');
+    if (button.disabled) return;
+    button.disabled = true;
+    try {
+      const offset = append ? reportOffset : 0;
+      const data = await fetchJson(`/api/discussions/reports?limit=50&offset=${offset}`);
+      if (owner !== draftOwner || !currentSession.isAdmin) return;
+      const list = document.getElementById('discussion-reports');
+      if (!append) list.replaceChildren();
+      for (const report of data.reports || []) {
+        const item = document.createElement('article');
+        const reason = document.createElement('p'); reason.textContent = 'Report: ' + report.reason;
+        const body = document.createElement('p'); body.textContent = report.authorName + ': ' + report.body;
+        const link = document.createElement('a'); link.href = '../' + encodeURIComponent(report.slug) + '/discussion.html#c-' + encodeURIComponent(report.commentId); link.textContent = 'Open comment';
+        const resolve = document.createElement('button'); resolve.type = 'button'; resolve.className = 'btn btn-tiny'; resolve.textContent = 'Resolve report';
+        const resolveAction = async () => {
+          await fetchJson('/api/discussions/reports/' + encodeURIComponent(report.id) + '/resolve',{method:'POST',body:'{}'});
+          item.remove();
+          reportOffset = Math.max(0, reportOffset - 1);
+        };
+        resolve.onclick = async () => { resolve.disabled = true; try { await resolveAction(); } catch (error) { showAlert('error',readableError(error)); resolve.disabled = false; } };
+        item.append(reason, body, link, ' ', resolve);
+        if (report.status === 'visible') {
+          const hide = document.createElement('button'); hide.type = 'button'; hide.className = 'btn btn-tiny'; hide.textContent = 'Hide comment and resolve';
+          hide.onclick = async () => {
+            if (!confirm('Hide this comment from the public discussion and resolve this report?')) return;
+            hide.disabled = true; resolve.disabled = true;
+            try {
+              await fetchJson(`/api/discussions/${encodeURIComponent(report.slug)}/comments/${encodeURIComponent(report.commentId)}/hide`,{method:'POST',body:JSON.stringify({sourceUpdatedAt:report.sourceUpdatedAt})});
+              await resolveAction(); await loadComments();
+            } catch (error) { showAlert('error',readableError(error)); hide.disabled = false; resolve.disabled = false; }
+          };
+          item.append(' ',hide);
+        }
+        list.append(item);
+      }
+      reportOffset = offset + (data.reports || []).length;
+      document.getElementById('discussion-more-reports').classList.toggle('hidden', !data.meta?.hasMore);
+      document.getElementById('discussion-reports-status').textContent = list.children.length ? 'Reports are private. Resolving alone keeps the comment visible.' : 'No open reports.';
+    } catch (error) { showAlert('error',readableError(error)); }
+    finally { button.disabled = false; }
+  };
+  document.getElementById('discussion-load-reports').onclick = () => loadReports();
+  document.getElementById('discussion-more-reports').onclick = () => loadReports(true);
 
   const removeComment = async (commentId, action) => {
     const prompt = action === "hide" ? "Hide this comment?" : "Delete this comment?";
@@ -1049,6 +1143,12 @@ DISCUSS_JS = r"""(() => {
   };
 
   commentList.addEventListener("click", async (event) => {
+    const report = event.target.closest('[data-action="report"]');
+    if (report) {
+      reportTarget = report.dataset.commentId;
+      document.getElementById('discussion-report-status').textContent = '';
+      reportDialog.showModal(); reportDialog.querySelector('textarea').focus(); return;
+    }
     const cancel = event.target.closest(".reply-cancel");
     if (cancel) {
       try { saveVisibleDrafts(); } catch (error) { showAlert('error', error.message); return; }
@@ -1376,6 +1476,27 @@ def render_discussion_page(row: StudyRow) -> str:
   </header>
 
   <div id="discuss-alert" class="alert hidden" role="status"></div>
+  <section id="discussion-preferences" class="action-panel hidden" aria-label="Discussion email preferences">
+    <label><input id="discussion-reply-email" type="checkbox" disabled> Email me when someone replies to my comments</label>
+    <p id="discussion-preference-status" role="status">Loading your preference…</p>
+  </section>
+  <section id="discussion-moderation" class="action-panel hidden" aria-labelledby="discussion-moderation-heading">
+    <h2 id="discussion-moderation-heading">Private moderator reports</h2>
+    <button id="discussion-load-reports" type="button" class="btn btn-sm">Load reports</button>
+    <p id="discussion-reports-status" role="status"></p>
+    <div id="discussion-reports"></div>
+    <button id="discussion-more-reports" type="button" class="btn btn-sm hidden">Load more reports</button>
+  </section>
+  <dialog id="discussion-report-dialog" aria-labelledby="discussion-report-heading" style="max-width:min(560px,90vw)">
+    <h2 id="discussion-report-heading">Report a comment</h2>
+    <p>Your report is private. Reporting does not automatically hide the comment.</p>
+    <form>
+      <label>Reason<textarea name="reason" required maxlength="1000" rows="4" style="width:100%;box-sizing:border-box"></textarea></label>
+      <p id="discussion-report-status" role="status"></p>
+      <button type="submit" class="btn btn-primary">Send report</button>
+      <button type="button" class="btn report-cancel">Cancel</button>
+    </form>
+  </dialog>
 {planned_callout}
   <section id="sign-in-panel" class="action-panel hidden" aria-labelledby="sign-in-heading">
     <h2 id="sign-in-heading">Sign in with email to comment</h2>

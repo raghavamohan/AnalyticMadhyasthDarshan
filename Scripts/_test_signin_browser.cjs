@@ -11,12 +11,16 @@ const navigation = {waitUntil:useWebKit ? 'networkidle' : 'networkidle0'};
   const source = fs.readFileSync(path.join(root,'infra/discussions-worker/src/confirm.js'),'utf8');
   const {confirmationPage} = await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
   let viewer = {loggedIn:false}, posts = 0, confirmations = 0, expired = false;
+  let replyEmail = false, reports = [], reportWrites = 0;
   const server = http.createServer(async (req,res) => {
     const url = new URL(req.url, 'http://localhost');
     if (url.pathname === '/api/discuss-auth/verify') {
       const response = confirmationPage();
       response.headers.forEach((v,k) => res.setHeader(k,v));
       return res.end(await response.text());
+    }
+    if (url.pathname === '/api/discuss-auth/unsubscribe' && req.method === 'GET') {
+      const response = confirmationPage(true); response.headers.forEach((v,k)=>res.setHeader(k,v)); return res.end(await response.text());
     }
     if (url.pathname.startsWith('/api/')) {
       res.setHeader('Content-Type','application/json'); res.setHeader('Cache-Control','private, no-store');
@@ -27,6 +31,18 @@ const navigation = {waitUntil:useWebKit ? 'networkidle' : 'networkidle0'};
         return res.end(JSON.stringify({success:true,returnTo:`http://127.0.0.1:${server.address().port}/Studies/Nature-Of-Time/discussion.html`}));
       }
       if (url.pathname === '/api/discuss-auth/me') return res.end(JSON.stringify(viewer));
+      if (url.pathname === '/api/discuss-auth/preferences') {
+        if (req.method === 'POST') {let body='';for await(const chunk of req) body+=chunk; replyEmail=JSON.parse(body).replyEmail;}
+        return res.end(JSON.stringify({replyEmail}));
+      }
+      if (url.pathname === '/api/discuss-auth/unsubscribe') {replyEmail=false;return res.end('{"success":true}');}
+      if (url.pathname.endsWith('/report')) {
+        let body='';for await(const chunk of req) body+=chunk;
+        reports.push({id:'report',commentId:'parent',reason:JSON.parse(body).reason,slug:'Nature-Of-Time',body:'A question',authorName:'Reader',status:'visible',sourceUpdatedAt:1}); reportWrites++;
+        return res.end('{"success":true}');
+      }
+      if (url.pathname.endsWith('/resolve')) {reports=[];return res.end('{"success":true}');}
+      if (url.pathname === '/api/discussions/reports') return res.end(JSON.stringify({reports,meta:{hasMore:false}}));
       if (url.pathname === '/api/discuss-auth/logout') {viewer={loggedIn:false};return res.end('{"success":true}');}
       if (req.method === 'POST' && url.pathname.endsWith('/comments')) {
         if (expired) {res.statusCode=401;return res.end('{"message":"Your discussion session expired."}');}
@@ -103,6 +119,30 @@ const navigation = {waitUntil:useWebKit ? 'networkidle' : 'networkidle0'};
       await page.reload(navigation);
       await page.click('[data-action="reply"]');
       assert.equal(await page.$eval('.reply-form textarea',n=>n.value),'Saved reply');
+      await page.waitForSelector('#discussion-reply-email:not([disabled])');
+      assert.equal(await page.$eval('#discussion-reply-email',n=>n.checked),false);
+      await page.click('#discussion-reply-email');
+      await page.waitForFunction(()=>document.getElementById('discussion-preference-status').textContent.includes('enabled'));
+      assert.equal(replyEmail,true);
+      await page.click('[data-action="report"]');
+      await page.type('#discussion-report-dialog textarea','Please review <script>unsafe</script>');
+      await page.click('#discussion-report-dialog button[type="submit"]');
+      await page.waitForFunction(()=>!document.getElementById('discussion-report-dialog').open);
+      assert.equal(reportWrites,1);
+      viewer={loggedIn:true,userId:'admin',displayName:'Moderator',isAdmin:true};
+      await page.reload(navigation);
+      await page.click('#discussion-load-reports');
+      await page.waitForSelector('#discussion-reports article');
+      assert.ok(await page.$eval('#discussion-reports',n=>n.textContent.includes('<script>unsafe</script>')));
+      assert.equal(await page.$eval('#discussion-reports',n=>n.querySelector('script')),null);
+      await page.click('#discussion-reports button');
+      await page.waitForFunction(()=>!document.querySelector('#discussion-reports article'));
+      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth));
+      await page.goto(origin+'/api/discuss-auth/unsubscribe#token=fixture-unsubscribe',navigation);
+      assert.equal(replyEmail,true); assert.equal(new URL(page.url()).hash,'');
+      await page.click('#confirm');
+      await page.waitForFunction(()=>document.getElementById('status').textContent.startsWith('Reply emails are disabled'));
+      assert.equal(replyEmail,false);reports=[];reportWrites=0;
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth <= innerWidth));
       await page.evaluate(()=>{localStorage.clear();sessionStorage.clear();});
     }
@@ -143,7 +183,7 @@ const navigation = {waitUntil:useWebKit ? 'networkidle' : 'networkidle0'};
     await page.waitForFunction(()=>currentUser?.login==='bob' && document.getElementById('propose-draft-status').textContent);
     assert.equal(await page.$eval('#p-title',n=>n.value),'');
     assert.deepEqual(errors,[]);
-    console.log(`${useWebKit ? 'WebKit' : 'Chromium'} ${await browser.version()} (${mobileWebKit ? 'mobile/touch emulation' : 'desktop/narrow viewport'}): discussion confirmation, guest/account/reply recovery, expiry, keyboard focus, and GitHub proposal recovery passed.`);
+    console.log(`${useWebKit ? 'WebKit' : 'Chromium'} ${await browser.version()} (${mobileWebKit ? 'mobile/touch emulation' : 'desktop/narrow viewport'}): discussion confirmation, draft recovery, reply preferences, private reports, moderator resolution, unsubscribe, expiry, keyboard focus, and GitHub proposal recovery passed.`);
   } catch (error) {
     console.error('Sign-in browser failure:',stage,page?.url());
     if(page) console.error(await page.evaluate(()=>document.body.innerText.slice(-1600)));

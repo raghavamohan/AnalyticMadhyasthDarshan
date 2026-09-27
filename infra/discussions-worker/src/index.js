@@ -41,6 +41,8 @@ import {
 } from './db.js';
 import { sendMagicLinkEmail } from './email.js';
 import { confirmationPage } from './confirm.js';
+import { deliverReplies, getPreferences, setPreferences, unsubscribe } from './notifications.js';
+import { reportComment, listReports, resolveReport } from './moderation.js';
 
 const router = Router();
 const SITEVERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
@@ -57,10 +59,17 @@ const MAGIC_LINK_LIMIT = 5;
 const MAGIC_LINK_WINDOW_SECONDS = 3600;
 const MAGIC_LINK_POLICY = `"magic-link-email";q=${MAGIC_LINK_LIMIT};w=${MAGIC_LINK_WINDOW_SECONDS}, "edge-ip";q=40;w=10`;
 const SLUG_RE = /^[A-Za-z0-9][A-Za-z0-9-]*$/;
-const RESERVED_SLUGS = new Set(['health', 'stats']);
+const RESERVED_SLUGS = new Set(['health', 'stats', 'reports']);
 const OBSERVABILITY_ROUTES = Object.freeze([
   ['GET', '/api/discussions/health', 'getDiscussionsHealth', 'none'],
   ['GET', '/api/discussions/stats', 'listDiscussionStats', 'd1'],
+  ['GET', '/api/discussions/reports', 'listDiscussionReports', 'd1'],
+  ['POST', /^\/api\/discussions\/reports\/[^/]+\/resolve$/, 'resolveDiscussionReport', 'd1'],
+  ['POST', /^\/api\/discussions\/[A-Za-z0-9-]+\/comments\/[^/]+\/report$/, 'reportDiscussionComment', 'd1'],
+  ['GET', '/api/discuss-auth/preferences', 'getDiscussionPreferences', 'd1'],
+  ['POST', '/api/discuss-auth/preferences', 'setDiscussionPreferences', 'd1'],
+  ['GET', '/api/discuss-auth/unsubscribe', 'showDiscussionUnsubscribe', 'none'],
+  ['POST', '/api/discuss-auth/unsubscribe', 'unsubscribeDiscussionReplies', 'd1'],
   ['GET', /^\/api\/discussions\/[A-Za-z0-9-]+$/, 'listComments', 'd1'],
   ['POST', /^\/api\/discussions\/[A-Za-z0-9-]+\/comments$/, 'postComment', 'd1'],
   ['POST', /^\/api\/discussions\/[A-Za-z0-9-]+\/comments\/[^/]+\/hide$/, 'hideComment', 'd1'],
@@ -260,6 +269,48 @@ router.get('/api/discussions/stats', async (request, env) => {
   } catch (err) {
     return jsonResponse(request, env, { error: err.message }, err.status || 500);
   }
+});
+
+router.get('/api/discussions/reports', async (request, env) => {
+  const session = requireSession(await getSession(request, env));
+  if (!isAdmin(session, env)) throw httpError(403, 'Moderator access required.');
+  const {limit, offset} = parsePagination(new URL(request.url));
+  const result = await listReports(requireDb(env), limit, offset);
+  return jsonResponse(request, env, {reports:result.reports, meta:paginationMeta(result.total,limit,offset)});
+});
+router.post('/api/discussions/reports/:reportId/resolve', async (request, env) => {
+  const session = requireSession(await getSession(request, env));
+  if (!isAdmin(session, env)) throw httpError(403, 'Moderator access required.');
+  await readJson(request);
+  if (!await resolveReport(requireDb(env), request.params.reportId, session.userId)) throw httpError(404, 'Open report not found.');
+  return jsonResponse(request, env, {success:true});
+});
+router.post('/api/discussions/:slug/comments/:commentId/report', async (request, env) => {
+  const session = requireSession(await getSession(request, env));
+  const db = requireDb(env), slug = validateSlug(request.params.slug);
+  const data = await readJson(request);
+  if (typeof data.reason !== 'string' || !data.reason.trim() || data.reason.length > 1000) throw validationError('Enter a report reason of 1–1000 characters.');
+  const comment = await getComment(db, request.params.commentId, slug);
+  if (!comment || comment.status !== 'visible') throw httpError(404, 'Comment not found.');
+  if (comment.user_id === session.userId) throw validationError('Use Delete to remove your own comment.');
+  const state = await reportComment(db, session.userId, comment.id, slug, data.reason.trim());
+  if (state === 'limited') throw httpError(429, 'Report limit reached. Try again later.', {headers:{'Retry-After':'3600'}});
+  return jsonResponse(request, env, {success:true,duplicate:state === 'duplicate'}, state === 'created' ? 201 : 200);
+});
+router.get('/api/discuss-auth/preferences', async (request, env) => {
+  const session = requireSession(await getSession(request, env));
+  return jsonResponse(request, env, await getPreferences(requireDb(env), session.userId));
+});
+router.post('/api/discuss-auth/preferences', async (request, env) => {
+  const session = requireSession(await getSession(request, env)), data = await readJson(request);
+  if (typeof data.replyEmail !== 'boolean') throw validationError('replyEmail must be true or false.');
+  return jsonResponse(request, env, await setPreferences(requireDb(env), session.userId, data.replyEmail));
+});
+router.get('/api/discuss-auth/unsubscribe', () => confirmationPage(true));
+router.post('/api/discuss-auth/unsubscribe', async (request, env) => {
+  const data = await readJson(request);
+  if (!await unsubscribe(requireDb(env), env, data.token)) throw validationError('Invalid unsubscribe link. Change your preference while signed in.');
+  return jsonResponse(request, env, {success:true});
 });
 
 router.get('/api/discussions/:slug', async (request, env) => {
@@ -507,16 +558,18 @@ router.post('/api/discuss-auth/logout', async (request, env) => {
 router.all('*', (request, env) => new Response('Not Found', { status: 404, headers: corsHeaders(request, env) }));
 
 export default {
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(deliverReplies(env));
+  },
   async fetch(request, env, ctx) {
     const startedAt = Date.now();
     let response = rejectUnsafeWrite(request, allowedOrigins(env), {});
     if (!response) {
       try {
         response = await router.fetch(request, env, ctx);
-      } catch {
-        response = new Response(JSON.stringify({ error: 'Request failed. Please try again.' }), {
-          status: 500, headers: { 'Content-Type': 'application/json' },
-        });
+      } catch (error) {
+        const safe = error.status ? error : httpError(500, 'Request failed. Please try again.');
+        response = jsonResponse(request, env, errorPayload(safe), safe.status, safe.headers);
       }
     }
     response = await normalizeApiErrorResponse(request, response);

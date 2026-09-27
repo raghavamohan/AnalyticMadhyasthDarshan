@@ -2,8 +2,8 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Analytic Madhyasth Darshan discussions API",
-    "version": "1.4.0",
-    "description": "Per-study discussion boards on https://analyticmadhyasthdarshan.org. Readers sign in with an email magic link (no GitHub account required) to post comments. Structured corrections still use GitHub Issues. All POST requests require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store, include comment permissions where applicable, and carry an X-Request-ID header. Magic links are single-use and expire after 15 minutes. JSON error responses use one envelope: success=false, code, message, requestId, and optional details; the error body uses the same request ID. Opening a sign-in link is read-only; an explicit confirmation POST consumes it. Tokens bind the allowed return destination. Repeated sign-in does not change an existing display name. Legacy outstanding links must be replaced."
+    "version": "1.5.0",
+    "description": "Per-study discussion boards on https://analyticmadhyasthdarshan.org. Readers sign in with an email magic link (no GitHub account required) to post comments. Structured corrections still use GitHub Issues. All POST requests require an exact trusted Origin and Content-Type: application/json, including logout. Local preview origins must be explicitly configured. All responses are private/no-store, include comment permissions where applicable, and carry an X-Request-ID header. Magic links are single-use and expire after 15 minutes. JSON error responses use one envelope: success=false, code, message, requestId, and optional details; the error body uses the same request ID. Opening a sign-in link is read-only; an explicit confirmation POST consumes it. Tokens bind the allowed return destination. Repeated sign-in does not change an existing display name. Legacy outstanding links must be replaced. Direct-reply email is account-scoped and opt-in, off by default. Unsubscribe links require explicit confirmation and do not authenticate. Reports require sign-in and are visible only to moderators."
   },
   "servers": [
     {
@@ -644,6 +644,619 @@
             "$ref": "#/components/responses/ServiceUnavailable"
           }
         }
+      }
+    },
+    "/api/discuss-auth/preferences": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Read your direct-reply email preference",
+        "operationId": "getDiscussionPreferences",
+        "responses": {
+          "200": {
+            "description": "Read your direct-reply email preference",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "replyEmail"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "replyEmail": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
+        },
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Enable or disable your direct-reply emails",
+        "operationId": "setDiscussionPreferences",
+        "requestBody": {
+          "required": true,
+          "x-maxBodyBytes": 16384,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "replyEmail"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "replyEmail": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Enable or disable your direct-reply emails",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "replyEmail"
+                  ],
+                  "additionalProperties": false,
+                  "properties": {
+                    "replyEmail": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          }
+        },
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ]
+      }
+    },
+    "/api/discuss-auth/unsubscribe": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Read-only reply-email unsubscribe confirmation page",
+        "operationId": "showDiscussionUnsubscribe",
+        "description": "New emailed links carry the token in the URL fragment so it is not sent in GET requests. The page removes it from browser history and requires an explicit button press. Legacy query-token links show this page too; legacy database tokens have no bound destination and cannot confirm.",
+        "responses": {
+          "200": {
+            "description": "Private HTML confirmation page; no session cookie or token consumption.",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              }
+            },
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Explicitly disable reply emails without signing in",
+        "operationId": "unsubscribeDiscussionReplies",
+        "requestBody": {
+          "required": true,
+          "x-maxBodyBytes": 16384,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "token"
+                ],
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "maxLength": 512
+                  }
+                },
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Explicitly disable reply emails without signing in",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success"
+                  ],
+                  "properties": {
+                    "success": {
+                      "const": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
+        }
+      }
+    },
+    "/api/discussions/{slug}/comments/{commentId}/report": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Privately report another reader comment; ten reports per account per hour",
+        "operationId": "reportDiscussionComment",
+        "requestBody": {
+          "required": true,
+          "x-maxBodyBytes": 16384,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "reason"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1000
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Privately report another reader comment; ten reports per account per hour",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success"
+                  ],
+                  "properties": {
+                    "success": {
+                      "const": true
+                    },
+                    "duplicate": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "201": {
+            "description": "Privately report another reader comment; ten reports per account per hour",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success"
+                  ],
+                  "properties": {
+                    "success": {
+                      "const": true
+                    },
+                    "duplicate": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "name": "slug",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 60
+            }
+          },
+          {
+            "name": "commentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 128
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ]
+      }
+    },
+    "/api/discussions/reports": {
+      "get": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Moderator-only list of open reports across discussions",
+        "operationId": "listDiscussionReports",
+        "responses": {
+          "200": {
+            "description": "Moderator-only list of open reports across discussions",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "reports",
+                    "meta"
+                  ],
+                  "properties": {
+                    "reports": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "required": [
+                          "id",
+                          "commentId",
+                          "reason",
+                          "slug",
+                          "body",
+                          "status",
+                          "sourceUpdatedAt"
+                        ],
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "commentId": {
+                            "type": "string"
+                          },
+                          "reason": {
+                            "type": "string"
+                          },
+                          "createdAt": {
+                            "type": "integer"
+                          },
+                          "slug": {
+                            "type": "string"
+                          },
+                          "body": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "string"
+                          },
+                          "sourceUpdatedAt": {
+                            "type": "integer"
+                          },
+                          "authorName": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "meta": {
+                      "$ref": "#/components/schemas/PaginationMeta"
+                    }
+                  }
+                }
+              }
+            },
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              }
+            }
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          }
+        },
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 50
+            },
+            "description": "Maximum rows returned in this page."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 10000,
+              "default": 0
+            },
+            "description": "Zero-based offset into matching rows."
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ]
+      }
+    },
+    "/api/discussions/reports/{reportId}/resolve": {
+      "post": {
+        "tags": [
+          "auth"
+        ],
+        "summary": "Moderator-only resolution; does not hide the comment",
+        "operationId": "resolveDiscussionReport",
+        "requestBody": {
+          "required": true,
+          "x-maxBodyBytes": 16384,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": false
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Moderator-only resolution; does not hide the comment",
+            "headers": {
+              "RateLimit-Policy": {
+                "$ref": "#/components/headers/RateLimitPolicy"
+              },
+              "X-Request-ID": {
+                "$ref": "#/components/headers/RequestId"
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "success"
+                  ],
+                  "properties": {
+                    "success": {
+                      "const": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "413": {
+            "$ref": "#/components/responses/PayloadTooLarge"
+          },
+          "415": {
+            "$ref": "#/components/responses/UnsupportedMediaType"
+          },
+          "429": {
+            "$ref": "#/components/responses/RateLimited"
+          },
+          "500": {
+            "$ref": "#/components/responses/InternalError"
+          },
+          "503": {
+            "$ref": "#/components/responses/ServiceUnavailable"
+          },
+          "401": {
+            "$ref": "#/components/responses/AuthenticationRequired"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          }
+        },
+        "parameters": [
+          {
+            "name": "reportId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "maxLength": 128
+            }
+          }
+        ],
+        "security": [
+          {
+            "sessionCookie": []
+          }
+        ]
       }
     }
   },

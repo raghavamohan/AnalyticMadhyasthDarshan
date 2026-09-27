@@ -80,6 +80,13 @@ jobs:
       - uses: ./.github/actions/setup-study-env
         with:
           node: 'false'
+      - name: Set up discussion integration test runtime
+        uses: actions/setup-node@v7
+        with:
+          node-version: '24.21.0'
+      - name: Install locked discussion runtime dependencies
+        working-directory: infra/discussions-worker
+        run: npm ci --omit=dev --ignore-scripts --no-audit --no-fund
       - name: Validate the exact publication commit
         run: |
           python Scripts/_verify_studies_index.py
