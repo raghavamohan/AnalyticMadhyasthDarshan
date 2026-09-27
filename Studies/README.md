@@ -2,20 +2,31 @@
 
 An open and growing collection of comparative studies of **Madhyasth Darshan** (Co-existentialism), the philosophy founded by **Shri A. Nagraj**. The collection follows a single line of inquiry while inviting others to examine its arguments, question its interpretations, and contribute to its development.
 
+**[Begin with the human question](https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html?from=start-here&stage=1)** · [Browse all studies](#the-studies)
+
+Recommended first reading: *Why Humans Are Not Just Material*.
+
 Browse the published collection at **[analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org)** (or open [index.html](index.html) locally for search, filters, and card layout).
 
-[Search](https://analyticmadhyasthdarshan.org/Studies/search.html "Find words and phrases inside studies and companion notes") · [My Notes](https://analyticmadhyasthdarshan.org/Studies/notebook.html "Highlights, notes and offline studies saved in this browser") · [My Submissions](https://analyticmadhyasthdarshan.org/Studies/submit.html "Propose studies, submit drafts and follow reviews with GitHub")
+[Search](https://analyticmadhyasthdarshan.org/Studies/search.html "Find words and phrases inside studies and companion notes") · [My Notes](https://analyticmadhyasthdarshan.org/Studies/notebook.html "Highlights, notes and offline studies saved in this browser")
 
 **Want to contribute?** See [How to contribute](#how-to-contribute) — [discuss or improve a study](#discuss-or-improve-a-study) or [write or substantially revise one](#write-or-substantially-revise-a-study).
 
 **On this page**
 
+- [Start here](#start-here)
 - [Topical studies](#topical-studies)
 - [Formal studies](#formal-studies)
 - [Applied studies](#applied-studies)
 - [How we work](#how-we-work)
 - [How to contribute](#how-to-contribute)
 - [About us](#about-us)
+
+## Start here
+
+We begin with the human being, then examine existence, knowledge, value, and social life. Each study asks what the different accounts explain and what remains unresolved.
+
+Follow the stages in order, question the order, or [take up a stage that is still unwritten](#how-to-contribute). To read outside the path, [browse the full collection](#the-studies).
 
 ## The studies
 
