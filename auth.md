@@ -107,6 +107,14 @@ Readers who comment on a study request a magic link to their email.
 - Docs: [api-docs.html](api-docs.html), OpenAPI at
   [openapi/discussions.json](/openapi/discussions.json)
 
+Discussion accounts can opt in to direct-reply emails through
+`GET/POST /api/discuss-auth/preferences`. Existing accounts remain opted out.
+`GET /api/discuss-auth/unsubscribe` is read-only; explicit POST verifies a
+purpose-bound unsubscribe token and disables that enrollment without signing in.
+Signed-in readers can privately report another reader's comment; only discussion
+moderators can list or resolve reports. These controls are documented in the
+discussion OpenAPI contract and are interactive website actions.
+
 Do not call those discussion routes from a passive agent scan. A magic-link
 request sends email.
 

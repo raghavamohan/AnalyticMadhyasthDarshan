@@ -30,7 +30,7 @@ When an item is finished, remove the row and add a one-line note under
 1. Accept wording and check timed delivery of the revised Start here audio transcripts, beginning with
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
-2. Website next: accept the deployed smaller sign-in/recovery scope (`AUTH-02` / `UX-05`). Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later and `DIS-01` remains outside this cycle.
+2. Website next: accept the deployed smaller sign-in/recovery scope (`AUTH-02` / `UX-05`). Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `DIS-01` is awaiting mailbox acceptance; `UX-04`/`UX-06` remain later.
 3. `R2-RIGHTS` (fourteen retained third-party PDFs).
 4. `TR-PILOT` (listen through the five-video transcription pilot).
 
@@ -48,7 +48,7 @@ Design and evaluation matrix:
 | UX-04 | P1 | later | Device/AT matrix (Safari/iOS, Firefox, TalkBack/VoiceOver/NVDA). Mobile read-aloud shipped; that does not close the evaluation. |
 | UX-06 | P1 | later | Fresh Cloudflare RUM sample, segmented by catalog / large reader / search / portal and mobile / desktop. Saved baseline is still 30 August 2026 (45 views, catalog LCP p75 2.6 s, TTFB 1.3 s, CLS p75 1.0, INP p75 0). That sample predates `amd-site` cutover. Live catalog HTML is Worker-served (`cfOrigin` 0). Investigate CLS/INP before optimizing. Re-run `python Scripts/_cloudflare_performance.py --export-rum-baseline`. Related: `CF-PDF-CACHE`. |
 | AUTH-01 | P1 | deferred | Full [unified email sign-in migration](docs/unified-email-sign-in-plan.md), including email-owned contributions, website review replies/corrections and OAuth retirement. Owner chose the smaller existing-login scope on 27 September 2026. Start only on an explicit decision to resume. |
-| DIS-01 | P2 | pending | Reply mail and report control. Session revocation already shipped. Not this cycle. |
+| DIS-01 | P2 | partial | Opt-in direct-reply mail with durable retries/unsubscribe and private reporting/moderation implemented. SQLite and Chromium/WebKit checks pass. Resend accepted the authorized test, but the recipient reports no arrival; mailbox delivery acceptance remains open. |
 | UX-08 | P2 | pending | Clarify the homepage's first reading action and tool hierarchy using the existing Start here path; test newcomer and returning-reader tasks as described in the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
 | UX-07 | P2 | later | Reading-time cues, argument routes, public reference-library browser. Include persistent path orientation for direct/search arrivals, meaningful stage names, and distinct satellite/formal-study placement; see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
 | WEB-P6 | P3 | deferred | Optional semantic retrieval. Start only if lexical search shows unmet need. |

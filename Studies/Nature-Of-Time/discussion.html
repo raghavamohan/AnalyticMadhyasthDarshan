@@ -49,7 +49,7 @@
   } catch(e) {}
 })();
 </script>
-<link rel="stylesheet" href="../assets/discuss.css?v=10">
+<link rel="stylesheet" href="../assets/discuss.css?v=11">
 </head>
 <body>
 <div class="wrap">
@@ -97,6 +97,27 @@
   </header>
 
   <div id="discuss-alert" class="alert hidden" role="status"></div>
+  <section id="discussion-preferences" class="action-panel hidden" aria-label="Discussion email preferences">
+    <label><input id="discussion-reply-email" type="checkbox" disabled> Email me when someone replies to my comments</label>
+    <p id="discussion-preference-status" role="status">Loading your preference…</p>
+  </section>
+  <section id="discussion-moderation" class="action-panel hidden" aria-labelledby="discussion-moderation-heading">
+    <h2 id="discussion-moderation-heading">Private moderator reports</h2>
+    <button id="discussion-load-reports" type="button" class="btn btn-sm">Load reports</button>
+    <p id="discussion-reports-status" role="status"></p>
+    <div id="discussion-reports"></div>
+    <button id="discussion-more-reports" type="button" class="btn btn-sm hidden">Load more reports</button>
+  </section>
+  <dialog id="discussion-report-dialog" aria-labelledby="discussion-report-heading" style="max-width:min(560px,90vw)">
+    <h2 id="discussion-report-heading">Report a comment</h2>
+    <p>Your report is private. Reporting does not automatically hide the comment.</p>
+    <form>
+      <label>Reason<textarea name="reason" required maxlength="1000" rows="4" style="width:100%;box-sizing:border-box"></textarea></label>
+      <p id="discussion-report-status" role="status"></p>
+      <button type="submit" class="btn btn-primary">Send report</button>
+      <button type="button" class="btn report-cancel">Cancel</button>
+    </form>
+  </dialog>
 
   <section id="sign-in-panel" class="action-panel hidden" aria-labelledby="sign-in-heading">
     <h2 id="sign-in-heading">Sign in with email to comment</h2>
@@ -159,7 +180,7 @@
   if(panel)panel.classList.remove("hidden");
 })();
 </script>
-<script src="../assets/discussion-drafts.js?v=10"></script>
-<script src="../assets/discuss.js?v=10"></script>
+<script src="../assets/discussion-drafts.js?v=11"></script>
+<script src="../assets/discuss.js?v=11"></script>
 </body>
 </html>

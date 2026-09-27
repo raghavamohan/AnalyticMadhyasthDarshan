@@ -80,8 +80,51 @@ origins explicitly with `ALLOWED_ORIGINS`. Responses are private/no-store,
 including comment lists whose permissions depend on the signed-in reader.
 Existing discussion sessions are signed JWTs bound to a D1 `sessions` row.
 Logout deletes that row so the cookie cannot be reused. Remaining discussion
-work is reply mail and a report control (`DIS-01`). Per-user/IP quotas and a
-reviewed retention policy stay later follow-ups.
+controls include opt-in direct-reply mail and private signed-in reporting
+(`DIS-01`). Authors can delete their own comments; moderators can hide comments
+and review/resolve reports separately.
+
+### Reply emails and reports
+
+Reply email is off by default for every existing and new discussion account.
+Enable it in any discussion using **Email me when someone replies to my comments**.
+The account setting covers direct replies to your comments across studies. It
+excludes your own replies and top-level comments. Email contains a link, not the
+comment text. A maximum of ten notification jobs per recipient per hour bounds
+reply-mail volume; extra replies remain published without additional email.
+
+Migration `0004_notifications_reports.sql` adds preferences, a durable mail
+outbox and private reports. A reply and its eligible notification job are one D1
+transaction. The Worker cron runs every five minutes and handles at most ten jobs
+per invocation. Atomic leases prevent concurrent sends. Retries use an unchanged
+provider payload and Resend idempotency key; after 23 hours from the first attempt,
+unconfirmed jobs become `uncertain` and are not resent. Never manually replay an
+uncertain job without checking the provider. Provider acceptance is recorded as
+`sent` with its provider message ID for delivery investigation; it does not
+guarantee inbox delivery. Mail failures do not undo comments.
+
+Unsubscribe links carry purpose-bound signed tokens in the fragment. GET only
+opens a confirmation page; explicit same-origin POST disables the corresponding
+opt-in enrollment without signing in. A link from an older enrollment cannot
+disable a newer opt-in. Preferences can also be disabled while signed in.
+Workers retain sent/cancelled outbox metadata for 30 days, uncertain jobs for
+90 days, and resolved reports for 90 days. Provider payloads are cleared after
+terminal outcomes. Open reports remain until moderators resolve them.
+
+Reports require discussion sign-in, a reason of 1–1000 characters, and a visible
+comment belonging to another account in the indicated discussion. Each account
+can create at most ten reports per hour. Repeated reports of the same comment
+return success without creating another report or changing its reason. Reports
+never hide comments automatically and are not public. Accounts in `ADMIN_EMAILS`
+can load the private report list on any discussion, resolve a report while
+leaving the comment visible, or explicitly hide the comment and resolve it.
+Hide retains the existing version-conflict protection.
+
+Run `python Scripts/_test_discussion_features.py` for real SQLite outbox,
+preference, unsubscribe and moderation regressions. The existing browser suite
+also exercises preferences, reporting, moderator resolution and unsubscribe on
+desktop and narrow layouts (optional local WebKit/touch coverage is documented
+in [contributor reliability](../../docs/contributor-reliability.md)).
 
 ```powershell
 npx wrangler deploy
