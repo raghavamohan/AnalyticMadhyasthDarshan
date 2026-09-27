@@ -122,6 +122,7 @@ How-to:
 | R2-RIGHTS | P1 | pending | Rights review for 14 retained third-party PDFs. Move to R2 with a redistribution basis, or cite the canonical external URL. |
 | R2-BACKUP | P2 | partial | Independent private [Google Drive backup](docs/r2-google-drive-backup.md) of both R2 buckets completed on 26 September 2026: 3,322 objects, 12 archive parts, download SHA-256 verification and local recovery drill. Remaining: choose deletion-protection retention and confirm legitimate corrections/withdrawals still work before applying bucket locks. |
 | R2-KD | P2 | partial | Keep KD and MSM source PDFs and the two generated KD review PDFs in Git until that translation workflow no longer needs them. Standing exception, not a new job. |
+| REF-KD-LEDGER | P3 | pending | Record in [`KD-Source-Image-Review-Ledger.md`](References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Source-Image-Review-Ledger.md) that KD printed pp. 30, 35–37, and 42 were compared with the Hindi source pages for Spiritual Practice and Realization and support the working translation at the points used, with the p. 37 note on the referent of *जिसमें*. |
 | R2-HISTORY | P3 | deferred | Git history rewrite to drop old reference blobs. Owner deferred 4 September 2026. Needs a separate freeze/re-clone window. Also covers generated-PDF Git history (`M5` in the publishing ledger). |
 
 ## Infrastructure
@@ -156,6 +157,7 @@ How-to:
 | TR-PILOT | P1 | pending | Human listening pass on the five-video pilot. Excel workbooks exist; 394 native segments remain UNREVIEWED. |
 | TR-SERIES | P2 | pending | Transcribe the 17-part सहअस्तित्ववादी विज्ञान series (20.1 h). Not started. |
 | TR-CHANNEL | P3 | pending | Full-channel transcription of the remaining ~150 h. |
+| TR-SBAP | P2 | pending | Before Spiritual Practice and Realization is released, check the audio of the 2010 Amarkantak session *Sakshatkar – Bodh – Anubhav – Praman* at the segments the study cites (03:03–03:30, 04:43, 12:54, 13:09, 17:30, 21:13, 22:28, 26:50, 31:15–32:48, 34:07, 41:14). |
 
 ## Theme
 
@@ -182,6 +184,7 @@ here order, not proposal-number order.
 | --- | --- | --- | --- |
 | ST-READ-01 | P1 | pending | Pilot clearer explanations in Why Humans and Axiology while preserving all information: retain the six-perspective definitions and full value/faculty tables, use the caregiver example to explain their relationships, verify content retention, and assess comprehension with a small reader exercise under the [review design](docs/studies-readability-review-2026-09-26.md#9-order-of-implementation-and-evidence-of-improvement). |
 | ST-READ-02 | P1 | pending | After the prose pilot, improve Ontology and Epistemology through explanations, sequencing, examples, and transitions while retaining all substantive information and detail; verify content retention, with no length target or removal to appendices/companions for readability. Repair affected references/companions and rebuild affected outputs under the [review design](docs/studies-readability-review-2026-09-26.md#4-recommended-changes-by-study). |
+| ST-FIX-01 | P2 | pending | Flagged edits from the Spiritual Practice review, outside that study: the Related studies entry in [The Epistemology of Coexistence](Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md) still lists Spiritual Practice and Realization as Ongoing with an out-of-date scope; and [Activity Anatomy Pass One](Studies/The-Epistemology-of-Coexistence/Research-Note-Jeevan-Activity-Anatomy-Pass-One.md) cites MVD p. 338 for *bhakti*/*tanmayata* (printed p. 339) and pp. 338–339 for *mamta*/*udarta* (pp. 339–340). |
 | ST-ILL-01 | P2 | pending | Add a neighbourhood / group-boundary illustration to [How Undivided Society](Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md) §3.2. Flagged during audio revision. |
 | ST-READ-03 | P2 | pending | Extend the validated explanatory and comparative-fairness approach to the other released studies, including Nature of Time, Self-Sustaining Organizations, Undivided Society, and the formal reconstruction; preserve all substantive and formal information, verify content retention, and inspect companion/audio consequences under the [review](docs/studies-readability-review-2026-09-26.md#4-recommended-changes-by-study). |
 | ST-DRAFT-01 | Catalog | pending | First draft: [Philosophy of Mind and Jeevan](Studies/Philosophy-Of-Mind-And-Jeevan/) (proposal #11). |
