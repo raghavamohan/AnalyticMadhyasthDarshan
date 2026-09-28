@@ -202,6 +202,14 @@ here order, not proposal-number order.
 | ST-DRAFT-13 | Catalog | pending | First draft: [Health Body and Restraint](Studies/Health-Body-And-Restraint/) (proposal #25). |
 | ST-DRAFT-14 | Catalog | pending | First draft: [God Divinity and the Sacred](Studies/God-Divinity-And-The-Sacred/) (proposal #26). |
 
+## Extensions
+
+Projects that extend the collection beyond the site's catalog studies.
+
+| ID | Pri | Status | Remaining need |
+| --- | --- | --- | --- |
+| BOOK-01 | P2 | pending | Develop the accessible English Madhyasth Darshan primer from its [book plan](Primer/madhyasth-darshan-primer-book-plan.md), including primary-source grounding and chapter drafting. This book is a separate project extension, maintained in `Primer/` outside the study catalog. |
+
 ## What does not belong here
 
 - Skill, PR, and CI **process checklists** (how to finish one change).
