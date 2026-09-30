@@ -208,7 +208,7 @@ Projects that extend the collection beyond the site's catalog studies.
 
 | ID | Pri | Status | Remaining need |
 | --- | --- | --- | --- |
-| BOOK-01 | P2 | pending | Develop the accessible English Madhyasth Darshan primer from its [book plan](Primer/madhyasth-darshan-primer-book-plan.md), including primary-source grounding and chapter drafting. This book is a separate project extension, maintained in `Primer/` outside the study catalog. |
+| BOOK-01 | P2 | in progress | Develop the accessible English Madhyasth Darshan primer from its [revised book plan](Primer/madhyasth-darshan-primer-book-plan.md). Complete chapter source verification, including natural acceptance, health/restraint, continuity of dispositions, council terminology, and the evaluative-perspective mapping in the Ethics source study; then draft chapters and their four planned figures. This book remains a separate extension in `Primer/` outside the study catalog. |
 
 ## What does not belong here
 
