@@ -1,0 +1,7 @@
+# Standalone Primer renderers; separate from the study publication pipeline.
+reportlab==4.5.1
+uharfbuzz==0.56.2
+markdown==3.10.3
+beautifulsoup4==4.12.3
+Pillow==12.3.0
+svglib==1.6.0
