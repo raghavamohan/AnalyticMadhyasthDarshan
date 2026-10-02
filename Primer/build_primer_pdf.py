@@ -96,7 +96,8 @@ def main():
         return re.sub(r'[^\w\s-]', '', text.lower()).strip().replace(' ', '-')
 
     def normal(text):
-        return text.replace('\u2011','-').replace('—',' - ').replace('–','-')
+        # Preserve the dashes; spaces around em-dash clauses allow line wrapping.
+        return re.sub(r'\s*—\s*', ' — ', text.replace('\u2011','-'))
 
     raw = source.read_text(encoding='utf-8')
     soup = BeautifulSoup(markdown.markdown(raw, extensions=['tables', 'toc']), 'html.parser')
@@ -192,6 +193,7 @@ def main():
         fractions = {2:[.33,.67],3:[.18,.49,.33],4:[.20,.23,.27,.30],5:[.15,.20,.20,.25,.20]}.get(count,[1/count]*count)
         header = rows[0].get_text(' ',strip=True)
         if 'Faculty' in header: fractions=[.18,.23,.59]
+        if header.startswith('Context') and count==3: fractions=[.27,.37,.36]
         if 'Established' in header and count==3: fractions=[.28,.28,.44]
         if header.startswith('Established') and count==2: fractions=[.48,.52]
         if header.startswith('Value family') and count==3: fractions=[.24,.12,.64]
@@ -200,7 +202,7 @@ def main():
         def cell_markup(cell):
             return (markup(cell).replace('Plant/biological','Plant/ biological')
                     .replace('Human/knowledge','Human/ knowledge')
-                    .replace('putreshana-vitteshana-lokeshana','putreshana - vitteshana - lokeshana'))
+                    .replace('putreshana–vitteshana–lokeshana','putreshana – vitteshana – lokeshana'))
         data = [[Paragraph(cell_markup(c),styles['thead' if i==0 else 'cell'])
                  for c in row.find_all(['td','th'],recursive=False)] for i,row in enumerate(rows)]
         result = Table(data,colWidths=[body_width*f for f in fractions],repeatRows=1,hAlign='LEFT',
