@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="610" viewBox="0 0 720 610" role="img">
+<defs><marker id="head" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8" fill="#28717a"/></marker><marker id="back" markerWidth="8" markerHeight="8" refX="1" refY="4" orient="auto"><path d="M8,0 L0,4 L8,8" fill="#28717a"/></marker></defs>
+<rect width="720" height="610" fill="white"/>
+<text x="360" y="32" font-family="Arial" font-size="25" font-weight="700" text-anchor="middle" fill="#183c47">Justice in a continuing relationship</text>
+<rect x="135" y="65" width="450" height="95" rx="12" fill="#edf4f2" stroke="#28717a" stroke-width="2"/><text x="360.0" y="100" font-family="Arial" font-size="23" font-weight="700" text-anchor="middle" fill="#183c47">Recognise the relationship</text><text x="360.0" y="132" font-family="Arial" font-size="18" font-weight="400" text-anchor="middle" fill="#183c47">Who are we to one another?</text>
+<line x1="360" y1="171" x2="360" y2="196" stroke="#28717a" stroke-width="3"/><polygon points="360.00,196.00 365.00,186.00 355.00,186.00" fill="#28717a"/>
+<rect x="135" y="209" width="450" height="95" rx="12" fill="#edf4f2" stroke="#28717a" stroke-width="2"/><text x="360.0" y="244" font-family="Arial" font-size="23" font-weight="700" text-anchor="middle" fill="#183c47">Fulfil its values</text><text x="360.0" y="276" font-family="Arial" font-size="18" font-weight="400" text-anchor="middle" fill="#183c47">What care and participation are needed?</text>
+<line x1="360" y1="315" x2="360" y2="340" stroke="#28717a" stroke-width="3"/><polygon points="360.00,340.00 365.00,330.00 355.00,330.00" fill="#28717a"/>
+<rect x="135" y="353" width="450" height="95" rx="12" fill="#edf4f2" stroke="#28717a" stroke-width="2"/><text x="360.0" y="388" font-family="Arial" font-size="23" font-weight="700" text-anchor="middle" fill="#183c47">Evaluate actual fulfilment</text><text x="360.0" y="420" font-family="Arial" font-size="18" font-weight="400" text-anchor="middle" fill="#183c47">What happened, and what needs correction?</text>
+<line x1="360" y1="459" x2="360" y2="484" stroke="#28717a" stroke-width="3"/><polygon points="360.00,484.00 365.00,474.00 355.00,474.00" fill="#28717a"/>
+<rect x="135" y="497" width="450" height="95" rx="12" fill="#edf4f2" stroke="#28717a" stroke-width="2"/><text x="360.0" y="532" font-family="Arial" font-size="23" font-weight="700" text-anchor="middle" fill="#183c47">Mutual satisfaction</text><text x="360.0" y="564" font-family="Arial" font-size="18" font-weight="400" text-anchor="middle" fill="#183c47">Needs and values are actually fulfilled.</text>
+<path d="M120,400 L62,400 L62,110 L120,110" fill="none" stroke="#b78043" stroke-width="3"/><polygon points="120,110 110,105 110,115" fill="#b78043"/>
+</svg>

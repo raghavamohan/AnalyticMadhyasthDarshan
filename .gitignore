@@ -45,6 +45,9 @@ Scripts/_reference_cache/
 /Studies/*/*.pdf
 /Applications/*/*.pdf
 
+# Standalone Primer PDFs are rebuilt from Markdown, assets and local renderers.
+/Primer/*.pdf
+
 infra/worker/.wrangler/
 infra/worker/.turnstile-secret.tmp
 infra/discussions-worker/.wrangler/
