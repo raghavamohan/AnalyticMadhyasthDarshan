@@ -184,6 +184,23 @@ class LifecycleExtensions(unittest.TestCase):
         (self.root/'Studies/A/A.md').write_text('Invented replacement')
         self.assertTrue(restore.restoration_errors('A',body,'master',root=self.root))
 
+    def test_restore_from_revision_predating_companion_manifest(self):
+        (self.root/'Scripts/companion-pipeline.json').unlink()
+        revision = self.historical()
+        self.write('Scripts/companion-pipeline.json', {'schema':1,'companions':[]})
+        self.git('rm','-r','Studies/A')
+        self.write('Studies/catalog-topical.json', [])
+        self.git('add','.'); self.git('commit','-m','Retire fixture and introduce companion manifest')
+        before = self.snapshot()
+        self.assertEqual(restore.restore('A',revision,base='master',root=self.root,dry_run=True),['Studies/A/A.md'])
+        self.assertEqual(before,self.snapshot())
+        manifests = {name:(self.root/'Scripts'/name).read_bytes() for name in ('presentation-pipeline.json','companion-pipeline.json')}
+        restore.restore('A',revision,base='master',root=self.root)
+        self.assertTrue((self.root/'Studies/A/A.md').is_file())
+        self.assertEqual(manifests,{name:(self.root/'Scripts'/name).read_bytes() for name in manifests})
+        body = f'Operation: restore-study\nRestore from: {revision}\n'
+        self.assertEqual(restore.restoration_errors('A',body,'master',root=self.root),[])
+
     def test_restore_companion_keeps_parent_and_does_not_overwrite_changed_shared_asset(self):
         self.deck(); revision = self.historical()
         remove.remove_selected('A',['Technical-Note-One.md'],root=self.root)

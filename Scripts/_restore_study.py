@@ -18,6 +18,22 @@ def git_bytes(root: Path, *args: str) -> bytes:
     return subprocess.check_output(['git', *args], cwd=root, stderr=subprocess.PIPE)
 
 
+# Ownership manifests were introduced after some studies were retired. A
+# revision that predates a manifest declared nothing in it, so restoration
+# from that revision treats the manifest as empty rather than failing.
+EMPTY_HISTORICAL_MANIFESTS = {
+    'presentation-pipeline.json': {'decks': []},
+    'companion-pipeline.json': {'companions': []},
+}
+
+
+def historical_manifest(root: Path, revision: str, name: str) -> dict:
+    path = f'{revision}:Scripts/{name}'
+    if subprocess.run(['git', 'cat-file', '-e', path], cwd=root, capture_output=True).returncode:
+        return json.loads(json.dumps(EMPTY_HISTORICAL_MANIFESTS[name]))
+    return json.loads(git_bytes(root, 'show', path))
+
+
 def historical_row(slug: str, revision: str, base: str, *, root: Path = BASE) -> tuple[str, dict]:
     validate_study_slug(slug)
     if not re.fullmatch(r'[a-f0-9]{40}', revision):
@@ -84,8 +100,7 @@ def restore(slug: str, revision: str, *, base: str = 'origin/master', names: lis
             raise ValueError(f'Historical path escapes the study: {name}')
         if path.suffix != '.pdf':
             all_files[name] = git_bytes(root, 'show', f'{revision}:{name}')
-    historical = {name: json.loads(git_bytes(root, 'show', f'{revision}:Scripts/{name}'))
-                  for name in ('presentation-pipeline.json', 'companion-pipeline.json')}
+    historical = {name: historical_manifest(root, revision, name) for name in EMPTY_HISTORICAL_MANIFESTS}
     selected = {f'{prefix}/{name}' for name in names} if names else set(all_files)
     if selected - all_files.keys():
         raise ValueError('One or more selected sources did not exist at that revision')
@@ -126,6 +141,7 @@ def restore(slug: str, revision: str, *, base: str = 'origin/master', names: lis
         if names and name in {f'{prefix}/{selected_name}' for selected_name in names} and target.exists():
             raise ValueError(f'Companion is already present: {name}')
     manifests = {}
+    changed_manifests = set()
     for name, field, additions, key in (
         ('presentation-pipeline.json', 'decks', decks, 'id'),
         ('companion-pipeline.json', 'companions', companions, 'deck'),
@@ -137,6 +153,7 @@ def restore(slug: str, revision: str, *, base: str = 'origin/master', names: lis
                 raise ValueError(f'Restoration conflicts with active ownership: {item[key]}')
             if not old:
                 data[field].append(item)
+                changed_manifests.add(name)
         manifests[name] = data
     from _companion_lifecycle import output_contract
     _, required_sources = output_contract(manifests)
@@ -170,8 +187,10 @@ def restore(slug: str, revision: str, *, base: str = 'origin/master', names: lis
         target = root / name
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(content)
-    for name, data in manifests.items():
-        write_text_lf(root / 'Scripts' / name, json.dumps(data, indent=2) + '\n')
+    # Unchanged manifests keep their authored bytes; rewriting them would only
+    # reformat hand-maintained JSON.
+    for name in sorted(changed_manifests):
+        write_text_lf(root / 'Scripts' / name, json.dumps(manifests[name], indent=2) + '\n')
     if not names:
         write_text_lf(registry_path, json.dumps(registry, indent=2) + '\n')
         from _study_catalog import StudyTable, catalog_entry_to_row, load_catalog_rows, write_studies_catalog
