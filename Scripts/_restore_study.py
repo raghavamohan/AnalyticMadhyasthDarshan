@@ -18,6 +18,22 @@ def git_bytes(root: Path, *args: str) -> bytes:
     return subprocess.check_output(['git', *args], cwd=root, stderr=subprocess.PIPE)
 
 
+# Ownership manifests were introduced after some studies were retired. A
+# revision that predates a manifest declared nothing in it, so restoration
+# from that revision treats the manifest as empty rather than failing.
+EMPTY_HISTORICAL_MANIFESTS = {
+    'presentation-pipeline.json': {'decks': []},
+    'companion-pipeline.json': {'companions': []},
+}
+
+
+def historical_manifest(root: Path, revision: str, name: str) -> dict:
+    path = f'{revision}:Scripts/{name}'
+    if subprocess.run(['git', 'cat-file', '-e', path], cwd=root, capture_output=True).returncode:
+        return json.loads(json.dumps(EMPTY_HISTORICAL_MANIFESTS[name]))
+    return json.loads(git_bytes(root, 'show', path))
+
+
 def historical_row(slug: str, revision: str, base: str, *, root: Path = BASE) -> tuple[str, dict]:
     validate_study_slug(slug)
     if not re.fullmatch(r'[a-f0-9]{40}', revision):
@@ -84,8 +100,7 @@ def restore(slug: str, revision: str, *, base: str = 'origin/master', names: lis
             raise ValueError(f'Historical path escapes the study: {name}')
         if path.suffix != '.pdf':
             all_files[name] = git_bytes(root, 'show', f'{revision}:{name}')
-    historical = {name: json.loads(git_bytes(root, 'show', f'{revision}:Scripts/{name}'))
-                  for name in ('presentation-pipeline.json', 'companion-pipeline.json')}
+    historical = {name: historical_manifest(root, revision, name) for name in EMPTY_HISTORICAL_MANIFESTS}
     selected = {f'{prefix}/{name}' for name in names} if names else set(all_files)
     if selected - all_files.keys():
         raise ValueError('One or more selected sources did not exist at that revision')
