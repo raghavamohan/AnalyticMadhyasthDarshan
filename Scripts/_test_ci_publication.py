@@ -181,6 +181,43 @@ assert 'pypdf' not in sys.modules
             self.assertIn('https://cdn.example/Book.pdf', changed.read_text(encoding='utf-8'))
             self.assertEqual(unchanged.read_text(encoding='utf-8'), link)
 
+    def test_required_verifier_checks_reference_links_without_pdf_selection(self):
+        workflow = (Path(__file__).resolve().parent.parent /
+                    '.github/workflows/studies-index-check.yml').read_text(encoding='utf-8')
+        checks = re.search(r'^  checks:\n((?:    .*\n|\s*\n)*)', workflow, re.M)
+        self.assertIsNotNone(checks)
+        steps = re.split(r'^      - ', checks[1], flags=re.M)[1:]
+        link_checks = [step for step in steps if '_rewrite_manifest_reference_links.py' in step]
+        self.assertEqual(len(link_checks), 1)
+        self.assertRegex(link_checks[0],
+                         r'(?m)^        run: python Scripts/_rewrite_manifest_reference_links.py --check$')
+        self.assertNotRegex(link_checks[0], r'(?m)^        (?:if|continue-on-error):')
+
+    def test_reference_link_check_rejects_unregistered_companion_without_writes(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            source = root / 'Studies/Planned/Technical-Note-Example.md'
+            source.parent.mkdir(parents=True)
+            stale = '[source](../../References/Book.pdf)\n'
+            current = '[source](https://cdn.example/Book.pdf)\n'
+            with patch.object(reference_links, 'BASE', root), \
+                 patch.object(reference_links, 'STUDIES', root / 'Studies'), \
+                 patch.object(reference_links, 'APPLICATIONS', root / 'Applications'), \
+                 patch.object(reference_links, 'REFERENCES', root / 'References'), \
+                 patch.object(reference_links, 'delivery_map', return_value={
+                     'References/Book.pdf': 'https://cdn.example/Book.pdf'}), \
+                 patch.object(sys, 'argv', ['reference-links', '--check']):
+                for text, expected in ((stale, 1), (current, 0)):
+                    with self.subTest(expected=expected):
+                        source.write_bytes(text.encode('utf-8'))
+                        output, errors = io.StringIO(), io.StringIO()
+                        with redirect_stdout(output), patch.object(sys, 'stderr', errors):
+                            self.assertEqual(reference_links.main(), expected)
+                        self.assertEqual(source.read_bytes(), text.encode('utf-8'))
+                        if expected:
+                            self.assertIn(source.relative_to(root).as_posix(), output.getvalue())
+                            self.assertIn('still require rewriting', errors.getvalue())
+
     def test_accept_requires_exact_head_open_draft_and_same_repository(self):
         pr={'number':1,'state':'open','draft':True,'head':{'sha':'a'*40,'repo':{'full_name':'owner/repo'}},'base':{'ref':'master','sha':'b'*40}}
         payload={'schema':1,'pr':1,'repository':'owner/repo','head':'a'*40,'files':{'sitemap.xml':base64.b64encode(b'new').decode(),'Studies/A/discussion.html':None}}

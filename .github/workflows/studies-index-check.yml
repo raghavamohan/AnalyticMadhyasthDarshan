@@ -88,6 +88,8 @@ jobs:
         run: python Scripts/_validate_study_change.py --base-ref "$BASE_SHA" --body-file "$RUNNER_TEMP/verified-pr-body.txt"
       - name: Verify catalog JSON and index shell
         run: python Scripts/_verify_studies_index.py
+      - name: Verify migrated reference links
+        run: python Scripts/_rewrite_manifest_reference_links.py --check
       - name: Verify shared glossary tooltips in generated study HTML
         run: python Scripts/_sync_glossary_html.py --check
       - name: Set up discussion integration test runtime
