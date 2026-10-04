@@ -2,13 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** October 4, 2026, 6:17 PM IST
+**Edited on:** October 4, 2026, 6:35 PM IST
 
 Working technical note for the planned study *Artificial Intelligence and the Conscious Knower*.
 
 Why should a person have an AI assistant? The strongest reason is that it can help the person learn, examine the purposes governing decisions, fulfil responsibilities, and sustain attention to what matters in living. In the coexistential perspective developed here, these contributions serve a larger human aspiration: freedom from delusion, realisation of coexistence, and participation in an undivided society.
 
-The argument rests on four connected claims. Every instrument is valued by what it contributes to that human purpose (§1). AI is a material instrument, *yantra*, while knowledge and realisation belong to *jeevan*, the conscious unit (§2). AI is nevertheless a special instrument: unlike a calculator, it can select, evaluate, imagine alternatives, and plan, and so it can act like a deluded jeevan, reproducing the four and a half activities effective in body-centred living and pursuing what appears pleasant, advantageous, or profitable (§3). This capacity can go in two directions. Left to optimise restricted purposes, it becomes an **amplified 4.5 machine**. Prepared with the primary texts and directed by explicit humane criteria, it can become a **diagnostic mirror**: an instrument that helps the human see the assumptions, omissions, and consequences of those same purposes (§4).
+The argument rests on four connected claims. Every instrument is valued by what it contributes to that human purpose (§1). AI is a material instrument, *yantra*, while knowledge and realisation belong to *jeevan*, the conscious unit (§2). AI is nevertheless a special instrument: unlike a basic calculator, it can select, evaluate, imagine alternatives, and plan, and so it can act like a deluded jeevan, reproducing the outward decision pattern of the four and a half activities effective in body-centred living and pursuing what appears pleasant, advantageous, or profitable (§3). This capacity can go in two directions. Left to optimise restricted purposes, it becomes an **amplified 4.5 machine**. Prepared with the primary texts and directed by explicit humane criteria, it can become a **diagnostic mirror**: an instrument that helps the human see the assumptions, omissions, and consequences of those same purposes (§4).
 
 The personal assistant proposed in this note has three roles: a **diagnostic mirror** that helps a person examine what governs a decision, an **educational companion** that supports continuing study, and a **practical assistant** that carries commitments and routine work. Together they serve the person's participation in undivided society and make room for study, dialogue, competent work, and the human endeavour towards *sakshatkar*, *bodh*, and *anubhav*. The argument proceeds within Madhyasth Darshan, the philosophy of coexistence propounded by Shri A. Nagraj. The AI architecture and applications are this note's proposals, developed from that account and informed by contemporary research.
 
@@ -40,7 +40,7 @@ Within Madhyasth Darshan, AI is a material instrument, *yantra*. Its operation c
 
 This distinction establishes the assistant's role. The instrument handles representations and performs operations; the human understands their meaning, examines their purpose, and participates in relationships. Increasing computational power enlarges instrumental capacity, while knowledge and realisation belong to jeevan (KD, p. 148). The proposed assistant is valuable precisely as an instrument placed in the service of that conscious human endeavour.
 
-AI is nevertheless a special kind of yantra. A calculator performs an operation that someone has already chosen: given numbers and an operator, it returns a result. A planning AI receives a goal and observations, then selects what is relevant, evaluates alternatives, imagines possible outcomes, and chooses means. It remains an instrument, but its operation follows the outward shape of human evaluation. This is why it can be compared with the activities of jeevan (§3), and why the purpose directing it matters far more than the purpose directing a calculator.
+AI is nevertheless a special kind of yantra. A basic calculator performs an operation that someone has already chosen: given numbers and an operator, it returns a result. A planning AI receives a goal and observations, then selects what is relevant, evaluates alternatives, imagines possible outcomes, and chooses means. It remains an instrument, but its operation follows the outward shape of human evaluation, which makes comparison with the activities of jeevan useful (§3). The delegation extends to intermediate steps and proposed criteria and, where permitted, to carrying a plan into action. Its governing purpose therefore shapes a wider course of decisions and consequences.
 
 ### 2.2 What the instrument cannot supply: understanding and living evidence
 
@@ -56,22 +56,22 @@ Instrumental evidence has its human basis in those who construct, interpret, and
 
 Jeevan is the inseparable form of five faculties, each with two activities. Mun selects and tastes; vritti analyses and deliberates; chitta visualises and contemplates; buddhi resolves and understands; atma authenticates and realises. Every jeevan continuously operates through these ten activities. In body-centred living, four and a half are effective: selection, taste, analysis, visualisation, and restricted deliberation. Deliberation then operates through *priya*, what is pleasant; *hita*, health or bodily benefit; and *labha*, gain. The remaining five and a half activities awaken through understanding (JV, pp. 72–74, 91–93; MVD, p. 89; KD, p. 147).
 
-The table sets each activity beside the computational counterpart proposed in this note.
+The table sets the activities beside the computational analogues or assistance proposed in this note. Its AI entries concern representations and outward functions; the conscious activities themselves, including experienced taste, belong to jeevan. Where no analogue is proposed, the assistant can still support the learner's study and inquiry (§5.1).
 
-| Faculty | Activity | In body-centred living | Functional counterpart in AI |
+| Faculty | Activity | In body-centred living | Proposed computational analogue or assistance |
 | --- | --- | --- | --- |
 | Mun | Selection (*chayan*) and taste (*asvadan*) | Effective, governed by sensation | Represent preferences, rank options, and select what is rewarded or preferred. |
 | Vritti | Analysis (*vishleshan*) | Effective | Compare means and consequences. |
 | Vritti | Deliberation (*tulan*) through priya–hita–labha | Effective: the half activity | Evaluate alternatives within assigned criteria of pleasure, bodily benefit, or gain. |
 | Vritti | Deliberation (*tulan*) through nyaya–dharma–satya | Awakens through understanding | Can apply these as explicit criteria drawn from the texts (§3.3). |
 | Chitta | Visualisation (*chitran*) | Effective | Construct scenarios, plans, images, and accounts of possible outcomes. |
-| Chitta | Contemplation (*chintan*) | Awakens through understanding | None |
-| Buddhi | Resolve (*sankalp*) and enlightenment (*bodh*) | Awakens through understanding | None |
-| Atma | Authenticity (*pramanikta*) and realisation (*anubhav*) | Awakens through understanding | None |
+| Chitta | Contemplation (*chintan*) | Awakens through understanding | No analogue proposed here. |
+| Buddhi | Resolve (*sankalp*) and enlightenment (*bodh*) | Awakens through understanding | No analogue proposed here. |
+| Atma | Authenticity (*pramanikta*) and realisation (*anubhav*) | Awakens through understanding | No analogue proposed here. |
 
 The decisive restriction concerns what governs evaluation. A person may calculate carefully, construct elaborate plans, and imagine many alternatives while continuing to judge them by pleasure, bodily advantage, and gain. Greater cleverness within those criteria leaves the governing purpose unchanged. Deliberation from that perspective is unbalanced, and visualisation from it is imposition rather than the real (MVD, pp. 126–127). In this condition, the understanding and taste of relational values have yet to become the established basis of living.
 
-Awakening changes that basis. Deliberation is grounded in *nyaya–dharma–satya*—justice, human dharma, and truth—and mun tastes the values fulfilled in relationships, including love, trust, affection, gratitude, and guidance (JV, pp. 72, 93, 137–138; MVD, pp. 99–100). Pleasure, bodily care, and material sufficiency then find their place within a more comprehensive understanding of living (JV, pp. 138–139). The recognition, understanding, and realisation hoped for in §1.2 belong to this awakened functioning of chitta, buddhi, and atma.
+Awakening changes the basis of all ten activities. Realisation and authenticity ground enlightenment and resolve; this understanding informs contemplation, visualisation, deliberation, analysis, taste, and selection (JV, p. 74). Deliberation is grounded in *nyaya–dharma–satya*—justice, human dharma, and truth—and mun tastes the values fulfilled in relationships, including love, trust, affection, gratitude, and guidance (JV, pp. 72, 93, 137–138; MVD, pp. 99–100). Pleasure, bodily care, and material sufficiency then find their place within a more comprehensive understanding of living (JV, pp. 138–139). The recognition, understanding, and realisation hoped for in §1.2 belong to this awakened functioning of chitta, buddhi, and atma.
 
 ### 3.2 The same pattern, computed
 
@@ -85,7 +85,9 @@ The qualitative question is what makes a purpose worth pursuing and a relationsh
 
 A repair budget illustrates the distinction. Calculating the cheapest option answers one question; examining the need served, responsibility to those relying on the equipment, and continuity of provision establishes the purpose of the calculation. Numbers then help fulfil an understood responsibility.
 
-This is the opening for the assistant's most consequential role. Because the instrument can compute the four-and-a-half pattern, it can also recognise that pattern in a request, a plan, or a record of conduct: the restricted criterion, the omitted relationship, the cost left uncounted. Supplied from the primary texts with the knowledge of coexistence, of jeevan, and of humane conduct (MVD, p. 127), and with nyaya–dharma–satya as explicit criteria, it can make the pattern visible, compare alternatives, and show why the criteria should change. These criteria enter the instrument as stated meanings, as words do (§2.2); seeing what they indicate and changing the basis of one's living is the human's work. Reproducing a decision pattern supplies the material for a mirror; faithful criteria from the complete corpus and tested reasoning make it useful (§6).
+This is the opening for the assistant's most consequential role. An assistant can be designed to extract stated goals and criteria from a request, plan, or record of conduct and compare them with the primary texts' account of coexistence, jeevan, and humane conduct (MVD, p. 127). With nyaya–dharma–satya as explicit criteria and relevant information about the situation, it can draw attention to a restricted purpose, an omitted relationship, or a cost left uncounted, and compare alternatives. Where it infers a purpose from incomplete information, it should show the evidence and inference for the person to examine and correct.
+
+These criteria enter the instrument as stated meanings, as words do (§2.2); seeing what they indicate and changing the basis of one's living is the human's work. The mirror's usefulness depends on this explicit comparison, faithful criteria from the complete corpus, adequate context, and tested reasoning (§6).
 
 ## 4. The decisive choice: amplified 4.5 machine or diagnostic mirror
 
@@ -334,7 +336,7 @@ The instrument–knower distinction is applied within Madhyasth Darshan. It shou
 
 ### Activity counts and the functional analogy
 
-The four-and-a-half enumeration counts taste and selection separately and restricts deliberation. The source distinguishes the ten activities' continuous operation from the four and a half effective in delusion, and locates the awakening of the remaining five and a half in understanding (JV, pp. 72–73). It is an account of conscious human activity, not a measured quantity of machine consciousness. The table in §3.1 sets proposed computational counterparts beside these activities. The analogy concerns governing criteria, planning, and observable decisions. It neither identifies a computational component with a faculty of jeevan nor makes diagnostic competence an automatic consequence of similar output. The line between effective and awakening activities runs through vritti and chitta, so the analogy does not divide the five faculties into three computable and two human faculties.
+The four-and-a-half enumeration counts taste and selection separately and restricts deliberation. The source distinguishes the ten activities' continuous operation from the four and a half effective in delusion, and locates the awakening of the remaining five and a half in understanding (JV, pp. 72–73). It is an account of conscious human activity, not a measured quantity of machine consciousness. The table in §3.1 sets proposed computational analogues or assistance beside these activities. The analogy concerns representations, governing criteria, planning, and observable decisions; rows without an analogue leave room for educational assistance. It neither identifies a computational component with a faculty of jeevan nor makes diagnostic competence an automatic consequence of similar output. The line between effective and awakening activities runs through vritti and chitta, so the analogy does not divide the five faculties into three computable and two human faculties.
 
 Quantitative/qualitative in §3.3 names a distinction in the proposal. The source connects deliberation with a qualitative method; it does not equate every priya–hita–labha judgement with numerical calculation. Bhaya, fear, is considered as a pathway of control in §4.2, not an additional member of that triad. Nor are the three restricted orientations paired one by one with nyaya, dharma, and satya.
 
