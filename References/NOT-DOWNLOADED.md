@@ -8,6 +8,7 @@ Works cited in `Studies/` that are **not** copied into `References/`. Each paper
 
 | Tag | Full reference | Original location |
 |-----|----------------|-------------------|
+| **MD Publications** | Madhyasth Darshan official website. *Published Books*. Consulted 4 October 2026 as the starting inventory for the AI assistant note's proposed corpus audit; not evidence that repository coverage is complete. | https://www.madhyasth.org/books/published |
 | **MAD** | Nagraj, A. *Manav Abhyas Darshan* (Hindi). Native reader, 222-page version; page-specific links in Axiology-Value-Theory and The-Ontology-of-Coexistence (reader p. 30 for the nine established values and their expressions). External reader retained because a usable canonical PDF mirror was not available during review. | https://db.madhyasth.org/books/read/144/ |
 | **PS** | Nagraj, A. *Paribhasha Samhita* (Hindi). Third edition 2012, printed 14 January 2016; Jeevan Vidya Prakashan, Divyapath Sansthan. Official file `15_paribhasha_sanhita_2015_ocr.pdf`, 234 PDF pages. Cited by printed page in Axiology-Value-Theory and The-Ontology-of-Coexistence. External source retained; the copy inspected for review is not a repository mirror. Distinct from the selected English definitions below. | [Official publications](https://originals.madhyasth.org/granth/published) · [official source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7) |
 | **Paribhasha** | Nagraj, A. *Paribhasha Samhita* (Hindi, ed. 2008). English selection of definitions. | https://www.madhyasth.org/browse-texts/browse-topics/definitions |
@@ -37,6 +38,22 @@ Author-hosted copies kept for quote verification.
 | **Ashtekar and Singh 2011** | Ashtekar, A., and Singh, P. "Loop Quantum Cosmology: A Status Report." arXiv:1108.0893. | https://arxiv.org/abs/1108.0893 |
 | **Friston 2010** | Friston, K. "The free-energy principle: a unified brain theory?" *Nature Reviews Neuroscience*, 11(2), 127?138. | https://doi.org/10.1038/nrn2787 |
 | **Guth 2007** | Guth, A. H. "Eternal inflation and its implications." *Journal of Physics A: Mathematical and Theoretical*, 40(25), 6811. | https://doi.org/10.1088/1751-8113/40/25/S09 |
+
+## AI assistant research — external only
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **Kestin et al. 2025** | Kestin, G., et al. *AI tutoring outperforms in-class active learning: an RCT introducing a novel research-based design in an authentic educational setting*. Scientific Reports, 15, 17458. | https://doi.org/10.1038/s41598-025-97652-6 |
+| **Bastani et al. 2025** | Bastani, H., et al. *Generative AI without guardrails can harm learning: Evidence from high school mathematics*. PNAS, 122(26), e2422633122. | https://doi.org/10.1073/pnas.2422633122 |
+| **Lewis et al. 2020** | Lewis, P., et al. *Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks*. NeurIPS 2020; arXiv:2005.11401v4, April 2021. | https://arxiv.org/abs/2005.11401v4 |
+| **Gao et al. 2023** | Gao, T., Yen, H., Yu, J., and Chen, D. *Enabling Large Language Models to Generate Text with Citations*. EMNLP 2023; arXiv:2305.14627v2, October 2023. | https://arxiv.org/abs/2305.14627v2 |
+| **Butlin et al. 2023** | Butlin, P., et al. *Consciousness in Artificial Intelligence: Insights from the Science of Consciousness*. arXiv:2308.08708v3. | https://arxiv.org/abs/2308.08708v3 |
+| **Driess et al. 2023** | Driess, D., et al. *PaLM-E: An Embodied Multimodal Language Model*. arXiv:2303.03378. | https://arxiv.org/abs/2303.03378 |
+| **Brynjolfsson, Li, and Raymond 2023** | Brynjolfsson, E., Li, D., and Raymond, L. R. *Generative AI at Work*. NBER Working Paper 31161, revised November 2023; this version supplies the note's reported figures. | https://www.nber.org/papers/w31161 |
+| **Sharma et al. 2023/2025** | Sharma, M., et al. *Towards Understanding Sycophancy in Language Models*. First submitted 2023; arXiv:2310.13548v4, May 2025. | https://arxiv.org/abs/2310.13548v4 |
+| **NIST 2024** | National Institute of Standards and Technology. *Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile*. NIST AI 600-1, July 2024. | https://doi.org/10.6028/NIST.AI.600-1 |
+| **FTC 2024** | Federal Trade Commission. *A Look Behind the Screens: Examining the Data Practices of Social Media and Video Streaming Services*. Staff report, September 2024. | https://www.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf |
+| **ICRC 2021** | International Committee of the Red Cross. *ICRC Position on Autonomous Weapon Systems*. 12 May 2021. | https://www.icrc.org/en/document/icrc-position-autonomous-weapon-systems |
 
 ## Moral psychology and moral science ? external only
 
