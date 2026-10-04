@@ -176,9 +176,9 @@ For now, the completed task has opened a question worth keeping. We seek bodily 
 
 **Questions to sit with**
 
-- Recall an accomplishment that still gives you satisfaction. What understanding, material support and relationships helped make it possible?
-- Where do you see resolution, prosperity, trust and participation with nature supporting one another in your present life?
-- Which question about fulfilment would you want an explanation of human life to answer clearly?
+1. Recall an accomplishment that still gives you satisfaction. What understanding, material support and relationships helped make it possible?
+2. Where do you see resolution, prosperity, trust and participation with nature supporting one another in your present life?
+3. Which question about fulfilment would you want an explanation of human life to answer clearly?
 
 ## 2. The Body and the Conscious Self
 
@@ -276,9 +276,9 @@ The next question turns inward. When Ravi expects to be understood, Meera consid
 
 **Questions to sit with**
 
-- Think of a situation in which bodily support and understanding in a relationship were both needed. What response was appropriate to each?
-- How can you tell whether an object, a reassurance or an arrangement has fulfilled the requirement it was meant to address?
-- What changes when a person's bodily capacity changes while their place in the relationship continues?
+1. Think of a situation in which bodily support and understanding in a relationship were both needed. What response was appropriate to each?
+2. How can you tell whether an object, a reassurance or an arrangement has fulfilled the requirement it was meant to address?
+3. What changes when a person's bodily capacity changes while their place in the relationship continues?
 
 ## 3. Our Inner Life: Expectation, Thought, and Desire
 
@@ -368,9 +368,9 @@ Our inner life is therefore connected to the world in which we live. To understa
 
 **Questions to sit with**
 
-- In a recent misunderstanding, what did each person expect, consider and imagine? Which parts were known, and which were assumed?
-- How might justice, resolution and truth guide attention to bodily needs and resources in that situation?
-- What would show that a corrected decision had become understanding you could use in a changed circumstance?
+1. In a recent misunderstanding, what did each person expect, consider and imagine? Which parts were known, and which were assumed?
+2. How might justice, resolution and truth guide attention to bodily needs and resources in that situation?
+3. What would show that a corrected decision had become understanding you could use in a changed circumstance?
 
 # Part II — Understanding the World We Belong To
 
@@ -462,9 +462,9 @@ This chapter has offered the core proposal clearly enough for its terms to be ex
 
 **Questions to sit with**
 
-- How would you explain the difference between a bounded unit and all-pervading satta in your own words?
-- What does the room help you notice, and which parts of the philosophical proposal go beyond that observation?
-- What questions arise for you about the relation between understanding existence and fulfilling a responsibility within it?
+1. How would you explain the difference between a bounded unit and all-pervading satta in your own words?
+2. What does the room help you notice, and which parts of the philosophical proposal go beyond that observation?
+3. What questions arise for you about the relation between understanding existence and fulfilling a responsibility within it?
 
 ## 5. Our Place in Nature
 
@@ -574,9 +574,9 @@ We can imagine many ways to live. Which of them fulfil our relationships, and ho
 
 **Questions to sit with**
 
-- Choose one thing or being in your surroundings. How do questions about its form, effects, characteristic participation and innateness differ?
-- What natural and human contributions make an ordinary meal possible, and which of those relationships would you like to understand better?
-- How would you explain the distinction between a body's changing composition, jeevan's constitutional completeness and awakening?
+1. Choose one thing or being in your surroundings. How do questions about its form, effects, characteristic participation and innateness differ?
+2. What natural and human contributions make an ordinary meal possible, and which of those relationships would you like to understand better?
+3. How would you explain the distinction between a body's changing composition, jeevan's constitutional completeness and awakening?
 
 ## 6. From Assumption to Understanding
 
@@ -668,9 +668,9 @@ The question now becomes more concrete. What exactly is fulfilled when the famil
 
 **Questions to sit with**
 
-- Choose a statement you readily agree with. What can you explain about its meaning, and where would you still need clarification?
-- In the care example, how did a changed understanding alter belief, recognition and fulfilment?
-- What would count as evidence of learning in a changed situation, and what larger claims would remain to be examined?
+1. Choose a statement you readily agree with. What can you explain about its meaning, and where would you still need clarification?
+2. In the care example, how did a changed understanding alter belief, recognition and fulfilment?
+3. What would count as evidence of learning in a changed situation, and what larger claims would remain to be examined?
 
 # Part III — Living Well with Other People
 
@@ -698,7 +698,7 @@ Human *dharma*, introduced through the four orders of nature, is happiness. Here
 
 A meal can be pleasant. A celebration can be joyful. Their pleasure has its occasion and duration, and it belongs in human living. The question of continuing happiness asks what happens when the dishes have been cleared, a responsibility returns, or another person needs something inconvenient. Can the clarity and mutuality of our living continue through such changes?
 
-Madhyasth Darshan names four connected values within jeevan: happiness, peace, contentment and bliss—*sukh–shanti–santosh–anand*. Each concerns harmony in conscious activity, with its own meaning. They describe the fulfilment of understanding in the person, rather than four strengths of the same passing mood.
+Madhyasth Darshan names four connected values within jeevan: happiness, peace, contentment and bliss. Their source names are *sukh–shanti–santosh–anand*. Each concerns harmony in conscious activity, with its own meaning. They describe the fulfilment of understanding in the person, rather than four strengths of the same passing mood.
 
 Happiness, *sukh*, is connected with resolution. What one expects and selects can agree with what one understands and evaluates. Suppose Anu understands why everyone should have the opportunity to eat comfortably and willingly makes the required arrangement. There is no need to maintain an inward argument between that understanding and a contrary action. This modest example makes an agreement intelligible. The fuller human possibility is a dependable resolution expressed in just behaviour.
 
@@ -862,13 +862,13 @@ A role's responsibilities remain meaningful even when the person in that role fa
 
 Madhyasth Darshan identifies seven relationships in human living. They are distinguished by their purposes and complementary responsibilities. A family helps us encounter several of them, and the same inquiry carries us outward into learning, work, friendship and social participation.
 
-Parents and children, *mata-pita/putra-putri*, have the responsibilities we have begun to explore: nourishment, protection, education, gratitude and growing participation. The relationship of husband and wife, *pati-patni*, concerns committed partnership and the continuity of humane family life. Meera and Ravi fulfil it through mutual trust, fidelity, shared care and provision. They also support each other's learning. Earning income and managing a home contain many different tasks; a just arrangement has to recognise the actual work and capacities involved.
+Parents and children, *mata–pita/putra–putri*, have the responsibilities we have begun to explore: nourishment, protection, education, gratitude and growing participation. The relationship of husband and wife, *pati–patni*, concerns committed partnership and the continuity of humane family life. Meera and Ravi fulfil it through mutual trust, fidelity, shared care and provision. They also support each other's learning. Earning income and managing a home contain many different tasks; a just arrangement has to recognise the actual work and capacities involved.
 
-The teacher–learner relationship, *guru-shishya*, has awakening through understanding as its purpose. A teacher helps make meaning accessible and demonstrates the understanding being offered. The learner listens, reflects and grasps that meaning. Practical skill can participate in this relationship, but the philosophical purpose extends to knowing oneself, existence and humane conduct. A person may teach a repair technique successfully while still needing to study these wider matters.
+The teacher–learner relationship, *guru–shishya*, has awakening through understanding as its purpose. A teacher helps make meaning accessible and demonstrates the understanding being offered. The learner listens, reflects and grasps that meaning. Practical skill can participate in this relationship, but the philosophical purpose extends to knowing oneself, existence and humane conduct. A person may teach a repair technique successfully while still needing to study these wider matters.
 
-Siblings, *bhai-bahin*, share opportunities for trust, respect, affection and mutual development. The category includes brothers with brothers and sisters with sisters as well as brothers and sisters together. The texts also recognise accepted sibling-like relationships. Such acceptance carries meaning and responsibility; merely being of similar age does not make every peer a sibling. When Anu helps a cousin or close family friend, the particular relationship and what has been accepted within it deserve recognition in their own terms.
+Siblings, *bhai–bahin*, share opportunities for trust, respect, affection and mutual development. The category includes brothers with brothers and sisters with sisters as well as brothers and sisters together. The texts also recognise accepted sibling-like relationships. Such acceptance carries meaning and responsibility; merely being of similar age does not make every peer a sibling. When Anu helps a cousin or close family friend, the particular relationship and what has been accepted within it deserve recognition in their own terms.
 
-The working relationship, *sathi-sahyogi*, joins responsibility and dependable contribution. Its source treatment includes an experienced or guiding participant and an associate, with clearly understood roles and material reciprocation. The more responsible participant is accountable for the associate, while the associate fulfils accepted duties. In Iqbal's workshop, this means clear instruction, appropriate tools, fair payment and attention to the learner's development, alongside careful work and truthful reporting by the learner. A title or unequal expertise does not remove reciprocal responsibility.
+The working relationship, *sathi–sahyogi*, joins responsibility and dependable contribution. Its source treatment includes an experienced or guiding participant and an associate, with clearly understood roles and material reciprocation. The more responsible participant is accountable for the associate, while the associate fulfils accepted duties. In Iqbal's workshop, this means clear instruction, appropriate tools, fair payment and attention to the learner's development, alongside careful work and truthful reporting by the learner. A title or unequal expertise does not remove reciprocal responsibility.
 
 Participation in *vyavastha* and *samagra-vyavastha* connects a particular arrangement with the wider order of human living. A household, workshop or local council has responsibilities within a larger society. Its members need to understand how their work contributes to resolution, prosperity, trust and coexistence. Later chapters examine the organisation of these responsibilities. Already, the family buying food participates with growers, transporters, traders and the natural conditions of production.
 
@@ -962,7 +962,7 @@ Expectation, thought and desire can acquire a common direction here. The repaire
 
 **Questions to sit with**
 
-1. For one use of your body, mind or wealth, identify the human purpose served and the conditions that make the contribution right.
+1. In one use of your body, mind or wealth, what human purpose is served, and what conditions make the contribution right?
 2. How would justice, resolution and truth together change a decision that is presently being evaluated mainly for gain?
 3. What would acknowledging and correcting an error make possible in a responsibility you currently carry?
 
@@ -1211,7 +1211,7 @@ When Anu next questions an adult's conduct, the conversation may still be uncomf
 **Questions to sit with**
 
 1. What can you explain and adapt today that you once followed only as an instruction?
-2. In one useful task, distinguish understanding the reality involved, recognising its humane purpose and knowing how to accomplish it.
+2. In one useful task, how do you distinguish understanding the reality involved, recognising its humane purpose and knowing how to accomplish it?
 3. How could your response to an error help another person learn a dependable way of acknowledging and correcting mistakes?
 
 ## 14. Beauty in What We Make and How We Live
@@ -1931,7 +1931,7 @@ The [official published Hindi collection](https://originals.madhyasth.org/granth
 
 The notes preserve distinctions that short English words can obscure. In particular, dharma has connected uses as innateness and as a humane evaluative perspective; the natural acceptance of justice, dharma and truth is distinguished from already understanding their meaning; and the continuity of an individual jeevan is distinguished from the understanding communicated between people. The source's philosophical atom vocabulary is not a claim that the book has experimentally established a particle model in contemporary physics.
 
-### Chapter 1. What Are We Really Looking For?
+### Chapter 1 — What Are We Really Looking For?
 
 The connected aspirations of resolution (*samadhan*), prosperity (*samriddhi*), fearlessness (*abhay*) and coexistence (*sah-astitva*) are developed in *Jeevan Vidya: An Introduction*, printed pp. 45, 60 and 68 (PDF pp. 46, 61 and 69). Their connection is retained throughout the book: the person, family, society and nature are overlapping relations of fulfilment. The opening accomplishment and its surrounding household responsibilities are fictional applications.
 
@@ -1939,7 +1939,7 @@ For resolution as answering how and why, see *Manav Vyavahar Darshan*, pp. 34 an
 
 Prosperity is introduced here only in outline. See *Jeevan Vidya: An Introduction*, printed pp. 127–128 (PDF pp. 128–129), and the fuller conditions and sources in Chapter 12. The chapter's insistence on actual material provision preserves the difference between an aspiration, assurance and available means.
 
-### Chapter 2. The Body and the Conscious Self
+### Chapter 2 — The Body and the Conscious Self
 
 For the human being as the joint expression of body and jeevan, see *Manav Vyavahar Darshan*, pp. 75–76, and *Samadhanatmak Bhautikvad*, PDF p. 63. For enduring jeevan and bodily change, see *Jeevan Vidya: An Introduction*, printed pp. 19 and 48–49 (PDF pp. 20 and 49–50); Chapters 5 and 19 explain the constitutional and continuity claims further. *Anubhavatmak Adhyatmvad*, PDF pp. 70 and 79, also relates the joint body–jeevan account to imagination, freedom of action and study.
 
@@ -1947,7 +1947,7 @@ For the human being as the joint expression of body and jeevan, see *Manav Vyava
 
 The figure shows distinct requirements and joint participation, without claiming a demonstrated physical mechanism for interaction between body and jeevan.
 
-### Chapter 3. Our Inner Life: Expectation, Thought, and Desire
+### Chapter 3 — Our Inner Life: Expectation, Thought, and Desire
 
 *Manav Vyavahar Darshan*, p. 76, defines *asha* as expectation on a basis, which can be bodily or grounded in realisation; *vichar* as analysis directed towards acceptance and resolution; and *ichha* through receiving and forming images of form, purpose and possibility. The main English correspondences are expectation, thought and desire. “Hope” is an introductory aid for *asha*, not a reduction to optimism. These are connected powers, not three compulsory successive steps.
 
@@ -1982,7 +1982,7 @@ The three eshanas have positive humane definitions in *Manav Vyavahar Darshan*, 
 
 The tap example applies the account of action, doer, cause, purpose, effect and consequence in *Manav Vyavahar Darshan*, p. 118. The example does not imply that good intentions secure competent results or that every misfortune is the sufferer's responsibility.
 
-### Chapter 4. Existence Is Coexistence
+### Chapter 4 — Existence Is Coexistence
 
 The central definitions are in *Manav Vyavahar Darshan*, pp. 32–35: all-pervading satta, bounded units, their inseparable presence, and the relation of coexistence to law, resolution, realisation and humane participation. Pages 32–33 explicitly retain pervasiveness through material and conscious nature and presence where units are and are not. This grounds the chapter's explanation of within, around and between.
 
@@ -1994,7 +1994,7 @@ For the familiar room/interval entrance, see *Jeevan Vidya: An Introduction*, pr
 
 “Mediative” is used for *madhyasth* in the source account of sustainment and order. It does not mean indifference or merely an average between opinions. “Darshan” is explained through understanding and realisation of reality; see *Manav Vyavahar Darshan*, p. 33. For the relation of *adhyatma* to satta as the basis of conscious selves, see p. 65, with the full treatment in Chapter 20.
 
-### Chapter 5. Our Place in Nature
+### Chapter 5 — Our Place in Nature
 
 The four orders and four-aspect account follow *Manav Vyavahar Darshan*, pp. 50–51. The primary distinctions are gathered below. Form and properties concern every order; each order also has a specified characteristic nature and cumulative dharma.
 
@@ -2020,7 +2020,7 @@ The developmental group is *vikas-kram–vikas–jagriti-kram–jagriti*: develo
 
 The three completions are *gathan-poornata* (constitution), *kriya-poornata* (conscious activity) and *acharan-poornata* (conduct). The first belongs to jeevan's constitution; the latter two concern awakening and its fulfilment. The prose introduces these together and leaves the fuller comparison to Chapter 20. Neither the four orders nor the developmental group is offered as a scientific cosmic timeline or a guarantee of progress through successive embodiments.
 
-### Chapter 6. From Assumption to Understanding
+### Chapter 6 — From Assumption to Understanding
 
 The knowing–believing–recognising–fulfilling account, *janna–manna–pehchanna–nirvah karna*, follows *Jeevan Vidya: An Introduction*, printed pp. 68–69 (PDF pp. 69–70), with pp. 72–74 (PDF pp. 73–75) connecting knowing and believing to awakened fulfilment. Recognition and fulfilment in nonhuman nature have the scope of lawful relationship and participation; the book does not attribute human deliberation to a stone.
 
@@ -2086,17 +2086,17 @@ The distinction among a general wish for happiness, a particular intention, prac
 
 | Relationship | Purpose and complementary responsibilities |
 |---|---|
-| *Mata-pita/putra-putri*: parents and children | Birth and lineage together with nourishment, protection, education-sanskar, preparation for production and awakening; the developing child's acceptance of care, gratitude and responsible participation. |
-| *Pati-patni*: husband and wife | Complementary participation in marriage and humane family continuity, with fidelity, care, trust and shared fulfilment. |
-| *Guru-shishya*: teacher and learner | The shared aim of understanding and awakening: authentic explanation and guidance; listening, reflection, grasping meaning and corresponding practice. |
-| *Bhai-bahin*: siblings | Trust, respect, affection and mutually supportive development; includes same-sex siblings and accepted sibling-like relationships. |
-| *Sathi-sahyogi*: responsible participant and associate | Complementarity through the responsible participant's accountability and the associate's fulfilment of duties, with recognised competence, clear roles and material reciprocation. |
+| *Mata–pita/putra–putri*: parents and children | Birth and lineage together with nourishment, protection, education–sanskar, preparation for production and awakening; the developing child's acceptance of care, gratitude and responsible participation. |
+| *Pati–patni*: husband and wife | Complementary participation in marriage and humane family continuity, with fidelity, care, trust and shared fulfilment. |
+| *Guru–shishya*: teacher and learner | The shared aim of understanding and awakening: authentic explanation and guidance; listening, reflection, grasping meaning and corresponding practice. |
+| *Bhai–bahin*: siblings | Trust, respect, affection and mutually supportive development; includes same-sex siblings and accepted sibling-like relationships. |
+| *Sathi–sahyogi*: responsible participant and associate | Complementarity through the responsible participant's accountability and the associate's fulfilment of duties, with recognised competence, clear roles and material reciprocation. |
 | Participation in *vyavastha* and *samagra-vyavastha* | Participation in particular and wider orderliness, from family towards world-family, through the fulfilment of resolution, prosperity, fearlessness and coexistence. |
 | *Mitra*: friends | Participation in resolution and prosperity; absence of animosity, dependable help in adversity, and continuity through just behaviour. |
 
 Pages 245–247 use maternal and paternal emphases of nurturing and protection in the parental account; the family scenes make these responsibilities visible through shared care. Page 341 retains birth, nourishment, protection, education and productive capability in the parent–child definitions. The separate adoptive-family example is an application to continuing parental responsibilities, not a replacement of the source's account of birth and lineage.
 
-Pages 251–252 use the related *swami/sevak* language within its treatment of *sathi-sahyogi*. The passage specifies responsibility on one side, duty on the other, and definite rank and material reciprocation; it is not a generic label for every group of colleagues. Pages 253–254 give friendship its connection with resolution, prosperity, help and justice. Pages 344–345 explicitly recognise sibling-like acceptance, including sisters with sisters. The seven relationships are a classification of purposes, not a sequence of developmental stages.
+Pages 251–252 use the related *swami/sevak* language within its treatment of *sathi–sahyogi*. The passage specifies responsibility on one side, duty on the other, and definite rank and material reciprocation; it is not a generic label for every group of colleagues. Pages 253–254 give friendship its connection with resolution, prosperity, help and justice. Pages 344–345 explicitly recognise sibling-like acceptance, including sisters with sisters. The seven relationships are a classification of purposes, not a sequence of developmental stages.
 
 The three humane motives follow p. 65. Putreshana retains progeny and lineage together with people's participation in family and society. Vitteshana concerns resources through justice for right use; lokeshana concerns recognition guided by justice and dharma towards undivided society. Chapters 12, 17 and 20 develop their further connections.
 
