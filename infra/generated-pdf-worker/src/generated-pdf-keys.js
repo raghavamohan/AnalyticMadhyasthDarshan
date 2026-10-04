@@ -9,6 +9,7 @@ export const GENERATED_PDF_KEYS = [
   "Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Physical-Dynamics-And-Unit-Activity.pdf",
   "Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Wolfram-Computational-Universe-And-EMR.pdf",
   "Studies/Aesthetics/Aesthetics.pdf",
+  "Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan-notes.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",

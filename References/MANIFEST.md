@@ -74,6 +74,7 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 | [Technical-Note-The-Personal-AI-Assistant.md](../Studies/Artificial-Intelligence-And-The-Conscious-Knower/Technical-Note-The-Personal-AI-Assistant.md) (unpublished working note) | MVD, JV, KD; MD Publications; Kestin et al. 2025, Bastani et al. 2025, Lewis et al. 2020, Gao et al. 2023, Butlin et al. 2023, Driess et al. 2023, Brynjolfsson, Li, and Raymond 2023, Sharma et al. 2023/2025, NIST 2024, FTC 2024, ICRC 2021 | registered primary PDFs; publication inventory, AI research and guidance external |
 
 
+| [Artificial-Intelligence-And-Coexistence.pdf](../Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf) | MVD, SB, JV | TBD |
 
 ## By tag
 

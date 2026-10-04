@@ -76,6 +76,7 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, KD |
 | [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD, AVD, SB; Advaita (BSB, BU, CU, MU with Gaudapada Karika, BG, VC); RG (Rakesh Gupta's supplied interpretation, reproduced in the study's Editorial Notes) |
 | [A-State-Dynamic-Model-Of-Coexistence.pdf](../Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) | MVD, SB, JV, AVD, KD, MSM, JVD; MAD and PS |
+| [Artificial-Intelligence-And-Coexistence.pdf](../Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf) | MVD, SB, JV |
 <!-- /studies-catalog -->
 
 ## Madhyasth-Darshan/

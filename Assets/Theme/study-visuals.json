@@ -190,6 +190,13 @@
       "icon": "model",
       "theme": "jeevan",
       "illustration": "inner-life.svg"
+    },
+    {
+      "slug": "Artificial-Intelligence-And-Coexistence",
+      "title": "Artificial Intelligence and Coexistence",
+      "icon": "learning",
+      "theme": "",
+      "illustration": ""
     }
   ]
 }
