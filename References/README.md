@@ -136,6 +136,10 @@ The external quantum-number clarification used by the Jeevan activities research
 
 The [physical-dynamics technical note](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Physical-Dynamics-And-Unit-Activity.md) uses the registered MVD and SB primary PDFs together with external mechanics and stability sources: David Tong's Lagrangian and Hamiltonian chapters, Sussman and Wisdom's Hamiltonian mechanics chapter, Matthew Evans's damped-oscillation lecture, and Russ Tedrake's Lyapunov analysis. Their canonical links are registered in [physics teaching resources](NOT-DOWNLOADED.md#physics-teaching-resources--external-only).
 
+## AI assistant research (external)
+
+The unpublished [personal AI assistant technical note](../Studies/Artificial-Intelligence-And-The-Conscious-Knower/Technical-Note-The-Personal-AI-Assistant.md) uses the registered MVD, JV, and KD primary PDFs. Its eleven external research and guidance sources cover artificial-consciousness indicators, embodied sensor input, workplace assistance, sycophancy, generative-AI risks, engagement incentives, humanitarian concerns about autonomous weapons, retrieval-augmented generation, citation evaluation, and educational outcomes with and without AI assistance. Canonical links are recorded in [AI assistant research](NOT-DOWNLOADED.md#ai-assistant-research--external-only). The separately registered official published-books listing supplies a starting inventory for the proposed primary-corpus audit; the repository collection is not asserted to be complete. No new reference payloads are mirrored.
+
 ## Modern-Philosophy/
 
 | Tag | File | Notes |
