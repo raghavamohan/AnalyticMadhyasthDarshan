@@ -2,7 +2,7 @@
 
 **Author:** Raghava Mohan Madhwapathi ([analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org))
 
-**Edited on:** September 19, 2026, 9:30 PM IST
+**Edited on:** October 4, 2026, 9:06 AM IST
 
 **Status:** Internal research note (not a catalog entry). Pass One of the activity-to-sphere analysis.
 
@@ -401,7 +401,7 @@ The completed corpus is:
 
 ### M-01 - *Bhakti / tanmayata*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 338.
+**Source check:** AVD, pp. 92-94; MVD, p. 339.
 
 | Field | M-01a - *bhakti* | M-01b - *tanmayata* |
 |---|---|---|
@@ -416,7 +416,7 @@ The completed corpus is:
 
 ### M-02 - *Mamta / udarta*
 
-**Source check:** AVD, pp. 92-94; MVD, pp. 338-339.
+**Source check:** AVD, pp. 92-94; MVD, pp. 339-340.
 
 | Field | M-02a - *mamta* | M-02b - *udarta* |
 |---|---|---|
@@ -431,7 +431,7 @@ The completed corpus is:
 
 ### M-03 - *Samman / sauhardta*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 339. The Hindi definition of *sauhardta* names *shruti*; the English source mistranslates it once as direct recognition.
+**Source check:** AVD, pp. 92-94; MVD, p. 340. The Hindi definition of *sauhardta* names *shruti*; the English source mistranslates it once as direct recognition.
 
 | Field | M-03a - *samman* | M-03b - *sauhardta* |
 |---|---|---|
@@ -446,7 +446,7 @@ The completed corpus is:
 
 ### M-04 - *Sneha / nishtha*
 
-**Source check:** AVD, pp. 92-94; MVD, pp. 339-340.
+**Source check:** AVD, pp. 92-94; MVD, p. 340.
 
 | Field | M-04a - *sneha* | M-04b - *nishtha* |
 |---|---|---|
@@ -461,7 +461,7 @@ The completed corpus is:
 
 ### M-05 - *Putra-putri / anurag*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 340. The detailed *putra-putri* passage is syntactically irregular: its first Hindi clause ends by naming the father, and subsequent clauses describe recognition of parental contributions.
+**Source check:** AVD, pp. 92-94; MVD, p. 341. The detailed *putra-putri* passage is syntactically irregular: its first Hindi clause ends by naming the father, and subsequent clauses describe recognition of parental contributions.
 
 | Field | M-05a - *putra-putri* | M-05b - *anurag* |
 |---|---|---|
@@ -476,7 +476,7 @@ The completed corpus is:
 
 ### M-06 - *Sathi / dayitva*
 
-**Source check:** AVD, pp. 92-94; MVD, pp. 340-341. AVD and translations vary among *swami*, master, and *sathi*, companion; the detailed heading and definition use *sathi* while the English rendering says “master.”
+**Source check:** AVD, pp. 92-94; MVD, pp. 341-342. AVD and translations vary among *swami*, master, and *sathi*, companion; the detailed heading and definition use *sathi* while the English rendering says “master.”
 
 | Field | M-06a - *sathi* | M-06b - *dayitva* |
 |---|---|---|
@@ -491,7 +491,7 @@ The completed corpus is:
 
 ### M-07 - *Sahyogi / kartavya*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 341.
+**Source check:** AVD, pp. 92-94; MVD, p. 342.
 
 | Field | M-07a - *sahyogi* | M-07b - *kartavya* |
 |---|---|---|
@@ -506,7 +506,7 @@ The completed corpus is:
 
 ### M-09 - *Hita / svasthya*
 
-**Source check:** AVD, pp. 92-94; MVD, pp. 341-342.
+**Source check:** AVD, pp. 92-94; MVD, p. 342.
 
 | Field | M-09a - *hita* | M-09b - *svasthya* |
 |---|---|---|
@@ -521,7 +521,7 @@ The completed corpus is:
 
 ### M-10 - *Priya / pravrittiyan*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 342.
+**Source check:** AVD, pp. 92-94; MVD, p. 343.
 
 | Field | M-10a - *priya* | M-10b - *pravrittiyan* |
 |---|---|---|
@@ -536,7 +536,7 @@ The completed corpus is:
 
 ### M-11 - *Ullas / haas*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 342. The Hindi line appears as *hras* while its definition and English rendering concern joyousness or merriness; the tabulated assignment governs the retained name *haas*.
+**Source check:** AVD, pp. 92-94; MVD, p. 343. The Hindi line appears as *hras* while its definition and English rendering concern joyousness or merriness; the tabulated assignment governs the retained name *haas*.
 
 | Field | M-11a - *ullas* | M-11b - *haas* |
 |---|---|---|
@@ -551,7 +551,7 @@ The completed corpus is:
 
 ### M-12 - *Sheel / sankoch*
 
-**Source check:** AVD, pp. 92-94; MVD, pp. 342-343.
+**Source check:** AVD, pp. 92-94; MVD, p. 343.
 
 | Field | M-12a - *sheel* | M-12b - *sankoch* |
 |---|---|---|
@@ -566,7 +566,7 @@ The completed corpus is:
 
 ### M-14 - *Shishya / jigyasu*
 
-**Source check:** AVD, pp. 92-94; MVD, pp. 343-344.
+**Source check:** AVD, pp. 92-94; MVD, p. 344.
 
 | Field | M-14a - *shishya* | M-14b - *jigyasu* |
 |---|---|---|
@@ -581,7 +581,7 @@ The completed corpus is:
 
 ### M-15 - *Bhai-mitra / pragati*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 344.
+**Source check:** AVD, pp. 92-94; MVD, pp. 344-345.
 
 | Field | M-15a - *bhai-mitra* | M-15b - *pragati* |
 |---|---|---|
@@ -596,7 +596,7 @@ The completed corpus is:
 
 ### M-16 - *Bahan / unnati*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 344.
+**Source check:** AVD, pp. 92-94; MVD, p. 345.
 
 | Field | M-16a - *bahan* | M-16b - *unnati* |
 |---|---|---|
@@ -611,7 +611,7 @@ The completed corpus is:
 
 ### M-17 - *Sweekruti / swagat*
 
-**Source check:** AVD, pp. 92-94; MVD, pp. 344-345. The *bal* definition itself uses the language of projection and evidencing, so the column assignment cannot be reconstructed from a static-versus-dynamic gloss.
+**Source check:** AVD, pp. 92-94; MVD, p. 345. The *bal* definition itself uses the language of projection and evidencing, so the column assignment cannot be reconstructed from a static-versus-dynamic gloss.
 
 | Field | M-17a - *sweekruti* | M-17b - *swagat* |
 |---|---|---|
@@ -626,7 +626,7 @@ The completed corpus is:
 
 ### M-18 - *Ruchi / pehchan*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 345.
+**Source check:** AVD, pp. 92-94; MVD, p. 346.
 
 | Field | M-18a - *ruchi* | M-18b - *pehchan* |
 |---|---|---|
@@ -641,7 +641,7 @@ The completed corpus is:
 
 ### M-19 - *Sukh / sfoorti*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 345.
+**Source check:** AVD, pp. 92-94; MVD, p. 346.
 
 | Field | M-19a - *sukh* | M-19b - *sfoorti* |
 |---|---|---|
@@ -656,7 +656,7 @@ The completed corpus is:
 
 ### M-20 - *Pati-patni / yatitva-satitva*
 
-**Source check:** AVD, pp. 92-94; MVD, pp. 345-346. The detailed passage names the spousal relation but defines the right-hand slot at length; it does not separately define the values or endpoint of the spousal role.
+**Source check:** AVD, pp. 92-94; MVD, pp. 346-347. The detailed passage names the spousal relation but defines the right-hand slot at length; it does not separately define the values or endpoint of the spousal role.
 
 | Field | M-20a - *pati-patni* | M-20b - *yatitva-satitva* |
 |---|---|---|
@@ -671,7 +671,7 @@ The completed corpus is:
 
 ### M-21 - *Mata / poshan*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 346. The MVD prose treats mother and father together before defining *poshan*.
+**Source check:** AVD, pp. 92-94; MVD, p. 347. The MVD prose treats mother and father together before defining *poshan*.
 
 | Field | M-21a - *mata* | M-21b - *poshan* |
 |---|---|---|
@@ -686,7 +686,7 @@ The completed corpus is:
 
 ### M-22 - *Pita / sanrakshan*
 
-**Source check:** AVD, pp. 92-94; MVD, p. 346. The parent-role clauses are shared with the preceding passage; *sanrakshan* is separately defined.
+**Source check:** AVD, pp. 92-94; MVD, p. 347. The parent-role clauses are shared with the preceding passage; *sanrakshan* is separately defined.
 
 | Field | M-22a - *pita* | M-22b - *sanrakshan* |
 |---|---|---|
@@ -701,7 +701,7 @@ The completed corpus is:
 
 ### M-23 - *Mridu-kathor / vahan-samvahan*
 
-**Source check:** AVD, pp. 93-94; MVD, pp. 346-347. The detailed wording interweaves softness, hardness, bearing, and contraction rather than defining four terms separately.
+**Source check:** AVD, pp. 93-94; MVD, p. 347. The detailed wording interweaves softness, hardness, bearing, and contraction rather than defining four terms separately.
 
 | Field | M-23a - *mridu-kathor* | M-23b - *vahan-samvahan* |
 |---|---|---|
@@ -716,7 +716,7 @@ The completed corpus is:
 
 ### M-25 - *Khatta / poshan*
 
-**Source check:** AVD, pp. 93-94; MVD, p. 347. The AVD table assigns *poshan* to the *shakti* column; the MVD definition presents sour through the recurring *poshan/shoshan* contrast without a separate second activity.
+**Source check:** AVD, pp. 93-94; MVD, p. 348. The AVD table assigns *poshan* to the *shakti* column; the MVD definition presents sour through the recurring *poshan/shoshan* contrast without a separate second activity.
 
 | Field | M-25a - *khatta* | M-25b - *poshan* |
 |---|---|---|
@@ -731,7 +731,7 @@ The completed corpus is:
 
 ### M-26 - *Meetha / poshan*
 
-**Source check:** AVD, pp. 93-94; MVD, p. 347. The same column-definition mismatch as M-25 applies.
+**Source check:** AVD, pp. 93-94; MVD, p. 348. The same column-definition mismatch as M-25 applies.
 
 | Field | M-26a - *meetha* | M-26b - *poshan* |
 |---|---|---|
@@ -746,7 +746,7 @@ The completed corpus is:
 
 ### M-27 - *Chirchira-charpara / poshan*
 
-**Source check:** AVD, pp. 93-94; MVD, p. 347. The AVD table gives *chirchira* and the MVD heading gives *charpara*. Both are retained as a lexical variant for pungency.
+**Source check:** AVD, pp. 93-94; MVD, p. 348. The AVD table gives *chirchira* and the MVD heading gives *charpara*. Both are retained as a lexical variant for pungency.
 
 | Field | M-27a - *chirchira-charpara* | M-27b - *poshan* |
 |---|---|---|
@@ -761,7 +761,7 @@ The completed corpus is:
 
 ### M-28 - *Kadua / poshan*
 
-**Source check:** AVD, pp. 93-94; MVD, p. 347. The same column-definition mismatch as M-25 applies.
+**Source check:** AVD, pp. 93-94; MVD, p. 348. The same column-definition mismatch as M-25 applies.
 
 | Field | M-28a - *kadua* | M-28b - *poshan* |
 |---|---|---|
@@ -776,7 +776,7 @@ The completed corpus is:
 
 ### M-29 - *Kasaila / poshan*
 
-**Source check:** AVD, pp. 93-94; MVD, p. 347. The same column-definition mismatch as M-25 applies.
+**Source check:** AVD, pp. 93-94; MVD, p. 348. The same column-definition mismatch as M-25 applies.
 
 | Field | M-29a - *kasaila* | M-29b - *poshan* |
 |---|---|---|
@@ -791,7 +791,7 @@ The completed corpus is:
 
 ### M-30 - *Khara / poshan*
 
-**Source check:** AVD, pp. 93-94; MVD, p. 347. The same column-definition mismatch as M-25 applies.
+**Source check:** AVD, pp. 93-94; MVD, p. 348. The same column-definition mismatch as M-25 applies.
 
 | Field | M-30a - *khara* | M-30b - *poshan* |
 |---|---|---|
@@ -806,7 +806,7 @@ The completed corpus is:
 
 ### M-31 - *Sugandh-durgandh / shvasan-nihshvasan*
 
-**Source check:** AVD, pp. 93-94; MVD, pp. 347-348. The AVD table gives *shvasan/nihshvasan*; the MVD defining line gives *prashvasan/vishvasan*.
+**Source check:** AVD, pp. 93-94; MVD, p. 348. The AVD table gives *shvasan/nihshvasan*; the MVD defining line gives *prashvasan/vishvasan*.
 
 | Field | M-31a - *sugandh-durgandh* | M-31b - *shvasan-nihshvasan* |
 |---|---|---|
@@ -821,7 +821,7 @@ The completed corpus is:
 
 ### M-32 - *Suroop-kuroop / swagat-aswagat*
 
-**Source check:** AVD, pp. 93-94; MVD, pp. 347-348. The AVD table names *swagat/aswagat*; the MVD definition presents the response as *apanapan/parayapan*, affinity and otherness.
+**Source check:** AVD, pp. 93-94; MVD, p. 348. The AVD table names *swagat/aswagat*; the MVD definition presents the response as *apanapan/parayapan*, affinity and otherness.
 
 | Field | M-32a - *suroop-kuroop* | M-32b - *swagat-aswagat* |
 |---|---|---|
@@ -933,5 +933,5 @@ The normalization gate and Pass Two are now completed in the [Pass-Two Lifecycle
 
 - [*Bottom-Up Pilot Derivation of Jeevan Activity Spheres*](Research-Note-Jeevan-Activity-Environment-Pilot-Dossiers.md) - the sixteen pilot member records, method, and later-pass protocol.
 - [*The Sixty-One Activity Pairs of Jeevan*](Research-Note-Activity-Pair-Inventory.md) - bilingual source record, column assignments, and documentary variants.
-- [*Jeevan Activity-to-Sphere Dossier Template*](Research-Template-Jeevan-Activity-Environment-Dossier.md) - fields governing this pass and the later lifecycle analysis.
+- [*Jeevan Activity-to-Sphere Dossier Template*](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/blob/master/Studies/The-Epistemology-of-Coexistence/Research-Template-Jeevan-Activity-Environment-Dossier.md) - fields governing this pass and the later lifecycle analysis.
 - [*Pass-Two Lifecycle and Evidence Coding of All 122 Jeevan Members*](Research-Note-Jeevan-Activity-Lifecycle-Pass-Two.md) - the completed normalization and lifecycle extension of all records in this register and the pilot.

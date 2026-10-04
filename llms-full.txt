@@ -7,7 +7,7 @@
 Madhyasth Darshan's account of existence as the coexistence of satta and units — saturation, the four orders, sentience, causation, conservation, and the reality of the world — compared in depth with Advaita Vedanta and modern physics and philosophy
 
 - Collection: topical · Status: released
-- Edited on: Sep 20, 2026, 7:19 PM IST
+- Edited on: Oct 4, 2026, 9:02 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf
@@ -27,7 +27,7 @@ What time (kaal) is: the duration of unit-activity against timeless satta, numer
 Whether a human being is reducible to an insentient physicochemical body: Madhyasth Darshan's body-and-jeevan account compared with scientific evidence, its physicalist interpretation, and Advaita Vedanta, followed by a critical review of all three frameworks
 
 - Collection: topical · Status: released
-- Edited on: Sep 20, 2026, 9:48 AM IST
+- Edited on: Oct 4, 2026, 8:56 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf
@@ -37,7 +37,7 @@ Whether a human being is reducible to an insentient physicochemical body: Madhya
 What knowledge is, who the knower is, and what can be known: coexistence, jeevan, humane conduct, evidence, and epistemic error — compared with Advaita Vedanta, modern Western philosophy, and natural science
 
 - Collection: topical · Status: released
-- Edited on: Sep 20, 2026, 9:48 AM IST
+- Edited on: Oct 4, 2026, 8:57 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.pdf
@@ -47,7 +47,7 @@ What knowledge is, who the knower is, and what can be known: coexistence, jeevan
 Value as essentiality in active units: Madhyasth Darshan's forms of value, their recognition and fulfilment, what endures or changes, and the distinct senses in which values are compared
 
 - Collection: topical · Status: released
-- Edited on: Sep 20, 2026, 9:48 AM IST
+- Edited on: Oct 4, 2026, 8:56 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf
@@ -57,7 +57,7 @@ Value as essentiality in active units: Madhyasth Darshan's forms of value, their
 Whether ethics is divine command, convention, evolution, reason, or evidence of understanding: Madhyasth Darshan's account of humane conduct through justice, dharma, truth, and right-use, compared with Advaita Vedanta and modern moral science
 
 - Collection: topical · Status: draft
-- Edited on: Sep 4, 2026, 5:31 AM IST
+- Edited on: Oct 4, 2026, 9:08 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.pdf
@@ -117,7 +117,7 @@ Realization and awakening in Madhyasth Darshan: anubhav, samyama, upasana, and l
 Madhyasth Darshan's account of how undivided society is established through coexistence, justice, family, institutions, and education — compared with science-only materialism, Advaita Vedanta, and Hindu religious authority
 
 - Collection: topical · Status: released
-- Edited on: Sep 6, 2026, 6:31 PM IST
+- Edited on: Oct 4, 2026, 8:57 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf

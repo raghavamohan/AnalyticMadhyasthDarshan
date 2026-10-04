@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) - a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 4, 2026, 5:31 AM IST
+**Edited on:** October 4, 2026, 9:08 AM IST
 **Status:** Draft
 
 **The question:** What are ethics and morals in human beings? Are they divine commands, social conventions, evolutionary adaptations, rational principles, neural/emotional mechanisms, or evidence of correct understanding? How does **Madhyasth Darshan** answer these questions, and how does its answer compare with **Advaita Vedanta** and **modern scientific approaches**?
@@ -91,9 +91,9 @@ This definition is unusually concrete. It avoids two common extremes:
 
 The human being must evidence humane conduct in relationship, wealth, body, mind, speech, family, society, and nature.
 
-### 3.2 The ethical hierarchy: pleasant, useful, profitable, just, dharmic, true
+### 3.2 Evaluating pleasure, health, and gain through humane perspectives
 
-Madhyasth Darshan distinguishes lower and higher standpoints of evaluation:
+Madhyasth Darshan distinguishes the perspectives that organise evaluation and the basis on which conduct becomes humane:
 
 > **"All human behaviour is manifest in six perspectives: - (1) pleasant-unpleasant, (2) healthy-unhealthy, (3) profit-loss, (4) justice-injustice, (5) dharma-adharma, and (6) truth-untruth."**  
 > - MVD, p. 67
@@ -101,15 +101,9 @@ Madhyasth Darshan distinguishes lower and higher standpoints of evaluation:
 > **"The behaviour of humans with inhumane perspective is in the refuge of pleasant-unpleasant, healthy-unhealthy, and profit-loss. The behaviour of humans with humane perspective is in the refuge of justice-injustice, dharma-adharma, and truth-untruth."**  
 > - MVD, p. 67
 
-This is one of the strongest ethical claims in the darshan. It does not deny pleasure, health, or profit. It denies their sufficiency. A human being who lives only by liking, bodily benefit, and gain is not yet living as a fully human being.
+Pleasantness (*priya*) concerns sensory gratification; bodily benefit (*hita*) concerns health and nourishment; and profit (*labha*) concerns obtaining more value than the labour performed or the value given in exchange (MVD, p. 58). These three perspectives explain liking, care for the body, and the pursuit of gain. They do not by themselves establish whether conduct is humane.
 
-The ethical transition is:
-
-```text
-Pleasant/unpleasant -> Justice/injustice
-Healthy/unhealthy   -> Dharma/adharma
-Profit/loss         -> Truth/untruth
-```
+Humane evaluation considers the whole field of pleasure, bodily benefit, and gain through justice, dharma, and truth together. The ethical transition changes the basis governing a decision: what is pleasant or advantageous is examined for its place in just relationships, resolved thought, and understood coexistence (MVD, pp. 67, 102, 126). Care for the body and provision for living become part of that shared humane purpose.
 
 Modern public life often remains trapped in the first three perspectives:
 
@@ -117,7 +111,7 @@ Modern public life often remains trapped in the first three perspectives:
 2. biomedical culture optimizes healthy/unhealthy;
 3. market culture optimizes profit/loss.
 
-Madhyasth Darshan does not reject these domains, but subordinates them to justice, dharma, and truth. This is the basis of its critique of both consumer materialism and purely instrumental science.
+Madhyasth Darshan places these domains within the combined guidance of justice, dharma, and truth. This is the basis of its critique of both consumer materialism and purely instrumental science.
 
 ### 3.3 Justice, dharma, and truth are not optional ideals
 
@@ -145,7 +139,7 @@ Madhyasth Darshan therefore does not treat ethics as only external conduct. Beha
 
 MVD defines sociality as value-fulfilment:
 
-> **"Sociality (samajikta): - Fulfilling the values inherent in relationships and contacts itself is sociality."**  
+> **"Sociality (samajikta): - Fulfilling the values inherent in relationships and associations itself is sociality."**
 > - MVD, p. 56
 
 This has major implications. The primary site of ethics is neither the isolated individual nor the state. It is the human being in relationship.
@@ -264,8 +258,8 @@ Advaita Vedanta gives a very different foundation. Its final claim is not coexis
 
 The *Bhagavad Gita*, read through Shankara, teaches detached witness-consciousness:
 
-> **"Though seeing, hearing, touching, smelling, eating, walking, sleeping, breathing... he knows that in reality he does nothing at all."**  
-> - BG, 5.8–9
+> **"Remaining absorbed in the Self, the knower of Reality should think, 'I certainly do not do anything', even while seeing, hearing, touching, smelling, eating, moving, sleeping, breathing, speaking, releasing, holding, opening and closing the eyes-remembering that the organs function in relation to the objects of the organs."**
+> - BG, 5.8–9, printed p. 227 (PDF p. 228)
 
 Shankara's *Vivekachudamani* states the discrimination between real and unreal:
 
@@ -406,7 +400,7 @@ For Madhyasth Darshan, the criterion is not "what humans commonly moralize." The
 
 - It refuses to separate knowledge and conduct. A person who claims realization but cannot evidence justice, right-use, relationship-values, and social responsibility is not ethically complete.
 - It integrates body, mind, wealth, sexuality, relationship, society, and nature. Many ethical theories focus on one domain: rights, consequences, virtue, duty, liberation, emotion, or cooperation. Madhyasth Darshan links all of them through humane conduct.
-- It gives a concrete test of moral maturity. The move from pleasant/healthy/profitable to just/dharmic/true is a powerful diagnostic tool for individuals, families, markets, politics, education, and technology.
+- It gives a concrete test of moral maturity. Examining pleasure, bodily benefit, and gain through justice, dharma, and truth together gives individuals, families, markets, politics, education, and technology a shared criterion of humane purpose.
 - It avoids both moral relativism and command morality. Moral rules are not merely local customs, but neither are they arbitrary commands. They are to be understood and evidenced.
 - It treats wealth and production ethically without rejecting them. The sequence from need to production to right-use is more socially complete than renunciation-only spirituality and more humane than growth-only economics.
 
@@ -468,17 +462,23 @@ Compared with science, Madhyasth Darshan is more normative and ontological. Scie
 
 Madhyasth Darshan offers a rigorous ethical anthropology in which morality is neither divine command, nor social convention, nor evolutionary strategy, nor private emotion. It is the evidence of understanding coexistence. Its practical strength lies in integrating values, character, ethics, wealth, family, society, and nature. Its philosophical vulnerability lies in the need to make its ontology of `jeevan`, awakening, and coexistence publicly examinable for those outside the darshan.
 
+## Editorial Notes
+
+### Two relationships among evaluative perspectives
+
+The six perspectives in §3.2 form two groups: *priya–hita–labha* and *nyaya–dharma–satya*. The definitions and connected discussion establish the humane group as a whole basis of evaluation; they do not establish a one-to-one conversion of pleasantness into justice, bodily benefit into dharma, or profit into truth (MVD, pp. 58, 67, 102, 126). The correspondence in §3.3 concerns a different relationship: justice regulates behaviour, dharma disciplines thought, and truth grounds realisation (MVD, pp. 67, 137). These functional distinctions hold within an integrated account of humane conduct.
+
 ## References
 
 ### Madhyasth Darshan (primary sources)
 
-- **MVD** - Nagraj, A. [*Madhyasth Darshan - Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: Sociality and right-use sequence (p. 56); six perspectives and necessary behaviour/thought (p. 67); justice, dharma, truth and just behaviour (p. 102); regulation of behaviour/thought/realization (p. 137); moral development and decline (p. 160).
+- **MVD** - Nagraj, A. [*Madhyasth Darshan - Co-existentialism*, Part 1: *Holistic View of Human Behaviour*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: sociality and right-use sequence (p. 56; §§3.4, 3.6); definitions of pleasantness, bodily benefit, and profit (p. 58; §3.2 and Editorial Notes); six perspectives in two groups and necessary behaviour/thought (p. 67; §§3.2–3.3 and Editorial Notes); the integrality of justice, dharma, and truth, and just behaviour (p. 102; §§3.2, 3.5 and Editorial Notes); the humane group as the basis of balanced evaluation (p. 126; §3.2 and Editorial Notes); regulation of behaviour/thought/realisation (p. 137; §3.3 and Editorial Notes); moral development and decline (p. 160; §3.7).
 - **SB** - Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: threefold knowledge of `jeevan`, existence, and humane conduct (p. 116); human being as seer in coexistence (p. 188).
 - **JV** - Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: humane conduct as values, character, and ethics; ethics as right-use and protection of body, mind, and wealth; human goal (p. 165).
 
 ### Advaita Vedanta
 
-- **BG** - [*Bhagavad Gita with the Commentary of Shankaracharya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: detached witness-consciousness (5.8–9); divine qualities, non-injury, truthfulness, absence of anger, renunciation, kindness, and purity (16.2-16.3, pp. 640-642).
+- **BG** - [*Bhagavad Gita with the Commentary of Shankaracharya*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/BG-Bhagavad-Gita-Shankara-Gambhirananda.pdf). English translation by Swami Gambhirananda. Cited: detached witness-consciousness (5.8–9, printed p. 227 / PDF p. 228; §5); divine qualities, non-injury, truthfulness, absence of anger, renunciation, kindness, and purity (16.2-16.3, pp. 640-642).
 - **VC** - Shankaracharya, [*Vivekachudamani*](https://analyticmadhyasthdarshan.org/References/Advaita-Vedanta/VC-Vivekachudamani-Madhavananda.pdf). English translation by Swami Madhavananda. Cited: discrimination between real and unreal (v. 20); *jiva* as Brahman (v. 216); liberation disciplines and virtues (vv. 69, 82).
 
 ### Traditional Religious Ethics
