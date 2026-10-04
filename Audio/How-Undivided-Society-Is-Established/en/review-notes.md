@@ -55,7 +55,7 @@ methods from a complete account of human ends. Transition practices and safeguar
 remain the study's proposals for examination, with no claim of success at scale.
 The shorter ending retains education across generations and closes all five stages.
 
-**Study follow-up (flagged, not done here):** [How Undivided Society](../../../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md) §3.2 still has no worked group-boundary illustration. That study edit is `ST-ILL-01` in [PENDING.md](../../../PENDING.md#studies).
+**Study illustration aligned:** [How Undivided Society](../../../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md) §3.2 now develops the neighbourhood water-source illustration: cooperation within a group becomes division when access and responsibility exclude other households. The study extends the same setting into shared needs, maintenance, and evaluation; the transcript remains consistent with it. This is a hypothetical illustration, not evidence of programme success.
 
 ## Points for author review
 
@@ -97,6 +97,14 @@ and recording checksums can be added here once a recording exists.
 This is the current editorial review baseline. Historical hashes above remain
 unchanged. Wording acceptance and a timed narrator read are still outstanding;
 this review does not mark the episode ready to record.
+
+## Study alignment check, 4 October 2026
+
+The canonical study now includes the transcript's neighbourhood/shared-water illustration in §3.2. The transcript wording remains consistent with the added explanation. This records a source-alignment check, not a new script revision or author acceptance; the Revision 3 hashes above remain historical.
+
+- Checked study Edited on: October 4, 2026, 8:57 AM IST
+- Checked study SHA-256: `db109dea4ae5b50a5d9c873827dd86218191b0159f28f1aec716f44e0f07195e`
+- Transcript unchanged from Revision 3: `d0b2046dcb60384a72981ceb8609cd5e863e84147c3e072bb53f82ac6f98e6df`
 
 ## Author comments
 

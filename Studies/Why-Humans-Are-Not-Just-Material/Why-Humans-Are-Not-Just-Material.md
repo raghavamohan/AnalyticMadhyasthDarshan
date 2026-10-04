@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 20, 2026, 9:48 AM IST
+**Edited on:** October 4, 2026, 8:56 AM IST
 **Status:** Released
 **The question:** Can a wholly physical account explain conscious experience, individual selfhood, and our ability to understand reasons and values? What grounds Madhyasth Darshan's proposal that their bearer is *jeevan*?
 
@@ -36,11 +36,13 @@ A meal answers hunger, but it does not settle a broken relationship or the knowl
 > **“Activities such as eating and sleeping serve the body’s needs, while values and evaluation serve jeevan’s purpose. Mere sustenance of the body does not equate to jeevan's fulfilment.”**
 > — SB, Ch. 7, PDF p. 92
 
-Its six **perspectives** (*drishti*) explain the direction of evaluation. *Priya* concerns sensory pleasure, *hita* bodily health and nourishment, and *labh* gain, particularly obtaining more value than one gives. These concerns guide much ordinary activity. When they govern life on their own, acquisition can continue without resolving how to live. Awakening brings them under the guidance of justice (*nyaya*), *dharma*, and truth (*satya*) (MVD, pp. 58, 66; JV, pp. 138–139).
+How a person evaluates an activity depends on what they seek from it. Madhyasth Darshan names six **perspectives** (*drishti*). Three concern sensory pleasure (*priya*), bodily health and nourishment (*hita*), and acquisitive gain (*labh*), particularly obtaining more value than one gives. A meal can be pleasant and nourishing; obtaining it can also be judged by the advantage gained in exchange. These concerns guide much ordinary activity. When they govern life on their own, acquisition can continue without resolving how to live. Awakening brings them under the guidance of justice (*nyaya*), *dharma*, and truth (*satya*) (MVD, pp. 58, 66; JV, pp. 138–139).
 
-Truth concerns reality as coexistence, including the person's own place within it. *Dharma* concerns what is inherent in beings and their participation in order; happiness is the human *dharma*. Justice joins the recognition of relationships to the fulfilment of their values, evaluation of that fulfilment, and mutual satisfaction. These perspectives direct activity towards fulfilment in a shared world (MVD, pp. 100, 115, 336).
+Justice concerns the relationship in which an activity takes place. It joins recognition of that relationship to fulfilment of its values, evaluation of that fulfilment, and mutual satisfaction. Consider a caregiver preparing food for a child. Recognising the responsibility, providing appropriate nourishment, and examining whether the care was fulfilled belong together. The child's enjoyment matters, while the responsibility also includes the nourishment and protection the child needs. This illustrates why a pleasant experience and a fulfilled relationship require different judgments (MVD, p. 336).
 
-Pleasure, health, and provision retain their place under this guidance. Prosperity replaces accumulation for its own sake, and production proceeds through the fulfilment of relationships. Exploitation can yield a private gain while harming both the person and the wider world on which that gain depends. The change therefore concerns what counts as fulfilment, as well as the means of attaining it (JV, pp. 138–139; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13.2).
+*Dharma* concerns what is inherent in beings and their participation in order; happiness is the human *dharma*. As a perspective of human evaluation, it concerns resolution: understanding how to live so that this aspiration for happiness can be fulfilled. Truth concerns reality as coexistence, including nature, other people, and the person's own place within it. In caregiving, these perspectives place the immediate act within the wider question of understood, continuing participation in a shared world (MVD, pp. 66, 100, 115, 336).
+
+Pleasure, health, and provision retain their place under this guidance. The point of preparing food is clarified by the care it serves, and the pleasure of eating finds its place within that purpose. Prosperity replaces accumulation for its own sake, and production proceeds through the fulfilment of relationships. Exploitation can yield a private gain while harming both the person and the wider world on which that gain depends. The change therefore concerns what counts as fulfilment, as well as the means of attaining it (JV, pp. 138–139; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.13.2).
 
 ### 1.2.2 The aspiration for continuous fulfilment
 

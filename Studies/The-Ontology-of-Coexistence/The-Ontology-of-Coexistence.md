@@ -2,12 +2,14 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 20, 2026, 7:19 PM IST
+**Edited on:** October 4, 2026, 9:02 AM IST
 **Status:** Released
 
 **The question:** What is Existence? What exists? Does what exists begin at some time? Does the individual self (*jeevan*) begin or end with the body? Is the world finally real?
 
 This study examines those questions in Madhyasth Darshan (Co-existentialism), as presented by Shri A. Nagraj, and compares its answers with Advaita Vedanta and selected modern philosophical and scientific approaches to physical reality, consciousness, and selfhood. The core claim about time is stated in §1.4 — that *kaal* is duration of unit-activity and *satta* is timeless as ground; full treatment of time (*kaal*), *trikaalabadh*, and spacetime physics is in [*Nature of Time*](../Nature-Of-Time/Nature-Of-Time.pdf).
+
+The central disagreement concerns whether distinct things and conscious selves remain real at the deepest level of understanding. Madhyasth Darshan answers that an actionless, all-pervading ground and countless active units coexist; understanding this reality fulfils, rather than dissolves, their relationships. Advaita Vedanta gives absolute reality to non-dual consciousness while retaining the world's validity in empirical life. Physicalist philosophies locate mind within physical reality; other modern philosophies dispute that account. Science tests physical and biological explanations without thereby choosing a complete metaphysics. This study finds a connected Madhyasth Darshan account in the primary texts, but textual support alone does not establish that account against its rivals. The constitution and persistence of the sentient self, its operation through a body, and the grounds of humane obligation require further argument and evidence. The detailed classifications matter because they specify what the account claims and what would need to be established.
 
 ## 1. The Madhyasth Darshan Answer
 
@@ -51,6 +53,8 @@ Nature saturated in Omnipresence is also called knowledge: coexistence itself is
 
 ### 1.3 The unit and its four aspects in mutuality
 
+To understand a unit, we need to ask more than what shape it has. What can it do when it meets other units? What contribution do those effects make in that relationship? What is innate to the unit and fulfilled through its activity? Form, properties, essential nature, and *dharma* answer these connected questions about the same reality.
+
 Every unit is manifest (*prakashman*) with four inseparable aspects: form (*roop*), properties (*guna*), essential nature (*svabhav*), and *dharma* (PS p. 119). Form is shape, volume, and density: the real framework by which a unit is bounded and individuated. The unit in its constituted configuration is the *bimb*; its image in mutual facing is *pratibimb*, and its being imaged is *pratibimban* (PS pp. 121, 135; SB pp. 249–250). What is imaged is a real unit with its own form.
 
 Properties (*guna*) are the relative powers of a unit, inseparable from the unit that bears them (*guni*). They produce generative, degenerative, or mediative effects when units interact. Essential nature (*svabhav*) is the usefulness or characteristic contribution of those effects in a given order and context. *Dharma* is innateness: what is inseparable from the unit and fulfilled in its activity. Existence is common to all orders; growth, hope to live, and happiness are added cumulatively in the higher orders.
@@ -68,6 +72,8 @@ The peepal tree illustrates the four aspects:
 | Essential nature (*svabhav*) | Effects are vitalising or devitalising according to the affected body and conditions. Their usefulness is definite in that mutuality. |
 | *Dharma* | Existence and growth. The living tree grows and produces seeds that carry its composition method forward. |
 
+The roots and leaves identify the tree's constituted form. Their presence alone does not tell us everything about its effects: growth also involves its relations with soil, water, and climate. Calling an effect vitalising asks what it contributes to a particular body's nourishment and protection; the answer depends on that body and those conditions. Existence and growth, the tree's *dharma*, name what is innate and fulfilled in this order. They give the account a different scope from a judgment that the tree happens to be useful to one observer. The example therefore moves from the bounded tree to its activity and contribution while continuing to describe one unit (MVD p. 47; JV p. 113).
+
 Every entity's characteristic contribution is manifest, communicated, and expressed according to its state, motion, developmental standing, and order (SB p. 179). Presentation (*prakashan*), communication (*sampreshana*), and expression (*abhivyakti*) are connected aspects of this manifestness. In insentient nature, they concern the unit's manifest form, properties, and participation in mutuality. Sentient *jeevan* manifests and communicates through a body, while its inexhaustible forces and powers are active and manifest through its inward and outward activities (SB pp. 52, 63). During human awakening progression, communicating and expressing capacity, ability, and receptivity are themselves aspects of manifestness (SB p. 66). Their fulfilment in awakened living carries understood coexistence into speech, work, and behaviour (§1.14).
 
 Atomic constitution and motion-path differentiate a unit's form and the capacities through which its relative powers operate. Atomic kind, state, and measure vary with nuclear and orbital particle constitution. As a developing atom changes constitution, its form and properties change. Structure therefore bears and constrains what the unit can express.
@@ -77,6 +83,8 @@ Those capacities become effective in definite mutualities. *Guna* concerns the e
 Given the participating units, their constitutions, state, motion, distance, and environment, insentient effects and conduct are definite. Different mutualities yield different definite effects. In human living, understanding and evaluation additionally guide how relationships are fulfilled.
 
 Each unit is a whole along with its environment. It retains its constitution and capacities while participating in definite mutualities. Its characteristic identity in orderliness—its own “ness”—is expressed through its images, effects, and usefulness to others (SB pp. 51, 250).
+
+An account of the unit's constitution and an account of its relations now belong together. Constitution explains the capacities it bears; the actual encounter explains how those capacities take effect. The same connection applies when activity is considered as effort, motion, and result, and when truth is considered through the unit itself, its position among others, and its presence in coexistence.
 
 The four aspects also describe the unit's activity. Effort is associated with *dharma* and essential nature; motion with essential nature and properties; result with form and, in the completeness account, immortality (SB pp. 60–62). The overlap matters: essential nature concerns both effort and motion. These are interconnected descriptions of an active unit, whose developmental goals are explained through constitutional, activity, and conduct completeness (§§1.7.1, 1.11).
 
@@ -162,6 +170,8 @@ This closed constitution supplies Madhyasth Darshan's specific account of indivi
 
 *Jeevan* is the constitutionally complete sentient atom; the body is the biological instrument through which it acts. As an illustration, the body serves as a vehicle and *jeevan* as its conscious driver and knower. The body supplies sense organs, the brain (*medhas*), and capacities for physical expression. The brain receives and translates signals between *jeevan* and the body. *Jeevan* supplies hope, thought, desire, resolve, comprehension (*bodh*), authenticity, and realisation. A bodily limitation constrains expression through that medium; delusion concerns how *jeevan* identifies itself and organises its activity.
 
+The faculty account distinguishes what happens in knowing and in acting on what is known. Receiving an experience, considering it, understanding it, and giving that understanding expression have different functions within one sentient unit. The inward direction concerns knowing; the outward direction concerns making understanding evident. Each faculty participates through a paired activity, so the table relates the two directions at every level.
+
 The primary texts describe five inseparable strengths or faculties in *jeevan*. Atma is the nucleus; buddhi, chitta, vritti, and mun are associated with the first through fourth orbits. Each faculty's characteristic power has paired activities in projection (*paravartan*) and reflection (*pratyavartan*) (SB p. 63).
 
 | Faculty and characteristic power | Projection | Reflection |
@@ -174,17 +184,25 @@ The primary texts describe five inseparable strengths or faculties in *jeevan*. 
 
 These are the ten activities of *jeevan*. Every *jeevan* operates through all ten; their effective organisation and evidence in living differ. The same inexhaustible strengths and powers underlie the equal capacity of *jeevan* in every human (SB p. 91). Equal capacity does not imply identical present understanding or bodily ability. Projection is the outward evidencing direction: understanding is expressed through resolve, thought, selection, work, and behaviour. Reflection (*pratyavartan*) is the inward knowing direction: experience and study are accepted, compared, directly apprehended, comprehended, and realised.
 
+At *mun*, hope has the paired activities of taste-recognition and selection: what is accepted or relished bears on what is selected. *Vritti*, the faculty of thought, deliberates inwardly and analyses outwardly. Its deliberation brings criteria to bear on what has been accepted, while analysis participates in giving thought expression. *Chitta*, the faculty of desire, contemplates and directly apprehends; its outward activity is visualisation. Apprehending what is present and giving it an envisioned form have distinct roles in understanding and expression.
+
+At *buddhi*, comprehension is paired with resolve: what is understood provides the content of resolute direction. At *atma*, realisation is paired with authenticity: realised coexistence is evidenced in living. Together, these five pairs explain how the account connects acceptance and evaluation with understanding, and understanding with conduct. Their inward and outward relations concern coordinated activities of the same *jeevan*; an ordinary decision does not by itself establish that the complete circuit has been realised (SB p. 63; §§1.11, 1.16).
+
 Reflection concerns *jeevan*'s understanding. Imaging (*pratibimban*, §1.3) is a unit's presence in mutual facing; visualisation (*chitran*) is an activity of *chitta*. At the activity level, force (*bal*) names activity in state and power (*shakti*) activity in motion. The faculty-level strengths and their characteristic powers are distinguished in the table above.
 
 The source also places five insentient forces alongside the sentient faculties: electromagnetic force with *mun*, gravitational force with *vritti*, weak interaction with *chitta*, strong interaction with *buddhi*, and mediative force with *atma* (SB pp. 84–85). This is a further relation proposed by the text. Whether it is a structural analogy or a literal physical correspondence, and what evidence would establish it, requires the assessment in §6.2.
 
 Study proceeds inward by the reflection circuit. Truth in the form of coexistence is accepted through tasting in *mun*, deliberated in *vritti*, directly apprehended (*sakshatkar*) through contemplation in *chitta*, and comprehended (*bodh*) in *buddhi*. Buddhi's accordance with atma culminates in realisation. Projection expresses this understanding through authenticity, resolve, visualisation, analysis, and selection into living conduct.
 
+What is accepted at the outer faculty can have different content. A pleasant sensation, the fulfilment of a relationship, and the accomplishment of a human goal each matter differently to a person. The three forms of tasting distinguish these orientations within the same activity of *mun*.
+
 Tasting (*asvadan*) at *mun* has sensory, value-based, and goal-based forms (*ruchi-mulak*, *mulya-mulak*, and *lakshya-mulak*). Sensory tasting concerns sound, touch, form, taste, and smell through the body. Value-based tasting concerns fulfilment in recognised relationships. Goal-based tasting concerns the purpose of activity; awakening makes that purpose definite as resolution, prosperity, fearlessness, and coexistence. Development changes the governing orientation from sensory attraction toward relationship-fulfilment and the human goal, so what is accepted at *mun* is no longer organised by bodily sensation alone.
 
 In animal living, the body has a brain and sensory organisation but not the fully enriched nervous system of the human body. It therefore mediates hope-bound selection, taste-recognition, and species-conformant conduct without providing for the complete evidence of understanding. This is a limitation of bodily expression, not an animal's erroneous attempt at human evaluation.
 
 The human body supplies the developed medium required for the full circuit, but bodily provision does not itself produce awakening. In deluded human living, *jeevan* identifies itself with the body and organises only four and a half activities effectively around bodily sensitivity: selection, taste, analysis, visualisation, and deliberation restricted to pleasant–unpleasant, healthy–unhealthy, and profit–loss.
+
+The question is therefore what governs the person's consideration of an action. Judging its pleasantness, bodily benefit, and material gain leaves further questions about the relationship, the resolution of thought, and the truth of what is understood. The full set of perspectives makes those further questions explicit.
 
 Deliberation has six perspectives: pleasant–unpleasant (*priya–apriya*), healthy–unhealthy (*hita–ahita*), profit–loss (*labh–alabh*), justice–injustice (*nyaya–anyaya*), dharma–adharma, and truth–untruth (*satya–asatya*). Only the first three govern deliberation in deluded living; justice, dharma, and truth have yet to guide it. In this restricted sense, deliberation is called a *half* activity. The remaining activities are present but lack the content and coherent direction of understanding in conduct. The human recognises and fulfils sensory aims without joining them to complete knowing and believing.
 
@@ -198,9 +216,13 @@ The seer–doer–enjoyer account describes three coordinated roles of the same 
 
 ### 1.9 Jeevan harmonies and experience
 
+The faculties can also be considered through how well their activities accord. Hope may be guided by thought, thought by desire, desire by comprehension, and comprehension by realisation. The corresponding harmonies describe how the knowing and expressive activities cohere within *jeevan*.
+
 Happiness, peace, contentment, and bliss are *jeevan* values: harmonies between adjacent faculties, each experienced at the outer faculty of its pair. Happiness is the harmony of *mun* with *vritti*, peace of *vritti* with *chitta*, contentment of *chitta* with *buddhi*, and bliss of *buddhi* with *atma*. These are also described as four stages of happiness.
 
 Each harmony is borne at the outer faculty of its pair: happiness at *mun*, peace at *vritti*, contentment at *chitta*, and bliss at *buddhi* (MVD pp. 328–346). For example, peace at *vritti* is the absence of resistance between desire and thought, the orientations of *chitta* and *vritti*. Naming its location and naming the faculties in harmony thus describe the same activity. Realisation at *atma* is ultimate bliss (*paramanand*), whose effect reaches the remaining faculties (MVD pp. 100–101).
+
+Thus happiness at *mun* concerns hope in accord with thought at *vritti*. Peace carries the relation inward: thought accords with desire at *chitta*. Contentment at *chitta* concerns desire in accord with comprehension at *buddhi*. Bliss at *buddhi* concerns its accord with realised *atma*. In each case, the name of the experienced harmony, its location, and its relation to the inward faculty belong together. Realisation names the knowing activity at *atma* on which this fullest accord rests (JV p. 138).
 
 The movement is not a sequence of temporary moods. It describes progressively complete coherence in the activity of *jeevan*. Curiosity in mun, enthusiasm in vritti, delight in chitta, elation and immersion in buddhi, and realisation in atma name the inward channel of energies toward awakening. Inward regulation is the discipline of the orbital faculties by mediative atma, followed by regulation of bodily activity through understanding.
 
@@ -261,6 +283,8 @@ T2 concerns the settlement of *jeevan*'s internal activity in realisation and re
 
 ### 1.12 Progressions and planes
 
+The preceding account has asked both what kinds of beings are manifest and what becomes complete through development. Those questions require different classifications. A human remains within the knowledge order while understanding and conduct develop; material and pranic manifestations differ in order while both remain physicochemical in their developmental standing. To describe either case accurately, the kind of manifestation and the standing reached must both be stated.
+
 Four terms distinguish the order of manifestation, definite conduct, atomic development, and awakening.
 
 ### 1.12.1 Terms for order and development
@@ -273,6 +297,8 @@ Four terms distinguish the order of manifestation, definite conduct, atomic deve
 | Awakening progression (*jagriti-kram*) | Qualitative development within constitutionally complete *jeevan* toward activity and conduct completeness |
 
 Existential progression and the way of existence describe the four orders and their conformance (§1.6). Development progression and awakening progression describe the atomic and sentient path. At the animal-order junction, compositional progression supplies the body and development in the atom supplies *jeevan*. In the knowledge order, the human body becomes the medium for the full awakening progression. The relation between this ontological ordering and evolutionary history is examined in §6.2.3.
+
+The first two terms therefore connect a kind of manifestation with its mode of conduct: for example, the pranic order with seed-conformance. The latter two describe the distinction between developing constitution and awakening within a constitutionally complete unit. Bodily growth belongs to composition; acquiring understanding belongs to *jeevan*'s awakening. Joining them in human living preserves the contribution of each.
 
 ### 1.12.2 Four planes
 
@@ -298,6 +324,8 @@ Orders and planes are therefore not interchangeable. The crosswalk below shows h
 
 The five human types classify modes of consciousness and conduct, not biological species or fixed social classes. The traditional plane name *delusional* covers sentient standing before realisation, but the specific error of taking the body as self applies to humans; an animal's narrower expression is a limitation of its bodily medium.
 
+The crosswalk can therefore be applied to the same human without changing the human's order of nature. The human body provides the medium for knowing; the plane records the standing of development toward complete understanding and conduct; the human type describes the mode of consciousness and conduct being expressed. The discerning human's movement toward realisation is intelligible within the four planes. The diagrams preserve these relations by distinguishing the line supplying bodies from the line reaching sentience and awakening.
+
 The completion of this development is also called *padmukti*, release from the planes in the divine or complete condition (SB p. 52). The term concerns freedom from incomplete developmental standing; the realised *jeevan* continues to exist and evidence understanding.
 
 ![Four orders mapped to four planes: compositional progression supplies bodies; constitutional completeness establishes jeevan; activity and conduct completeness mark human awakening](1-orders-planes.svg)
@@ -316,6 +344,8 @@ A relationship (*sambandh*) carries definite expectations toward completeness; a
 
 Value has order-specific expression. In its universal ontological sense, value is essentiality (*maulikta*) and participation in orderliness (*vyavastha mein bhaagidari*): the definite conduct through which a unit complements others in coexistence (SB p. 50). Usefulness (*upyogita*) is that essentiality as it appears in objects. Human living has four connected dimensions—realisation, thought, behaviour, and work—across which thirty core values are enumerated in five families (PS pp. 151, 154). Their definitions and connections are developed across the primary works.
 
+Caring for another person brings several of these questions into one activity. There are the useful things employed, the caregiver's own harmony and humane disposition, the relationship recognised, and the conduct through which its values are expressed. The five families distinguish these contributions. Their members need to be understood together because neither useful equipment nor a kindly intention alone completes the care.
+
 | Value family | Principal content and field |
 |---|---|
 | Object values | Usefulness is the definite utility of a material object; art or aesthetic value (*kala-mulya*) adds meaningful convenience and beauty to that usefulness. Here art names a value realised in the object; *kala* also names the skilful activity of expression (§1.14). These are two values within one object-value family. |
@@ -326,7 +356,19 @@ Value has order-specific expression. In its universal ontological sense, value i
 
 These families are related but not interchangeable. Inner harmony, humane disposition, relationship-fulfilment, expressed conduct in relationship, and the usefulness of objects answer different evaluative questions.
 
-Taken together, the four *jeevan* values, six human values, nine established values, nine expressed values, and two object values are the thirty values (*tees mulya*) across realisation, thought, behaviour, and work (Paribhasha, pp. 151, 154). The nine established values in state are paired with the nine expressed values in motion: trust with concordance, respect with cordiality, affection with dedication, care with generosity, guidance with naturalness, reverence with devoutness, glory with simplicity, gratitude with humility, and love with non-otherness (*vishwas–saujanyata*, *samman–sauhardta*, *sneha–nishtha*, *mamta–udarta*, *vatsalya–sahajta*, *shraddha–pujyata*, *gaurav–saralta*, *kritagyata–saumyata*, *prem–ananyata*).
+Taken together, the four *jeevan* values, six human values, nine established values, nine expressed values, and two object values are the thirty values (*tees mulya*) across realisation, thought, behaviour, and work (Paribhasha, pp. 151, 154). The nine established values in state are paired with the nine expressed values in motion. A pair joins the value borne in a recognised relationship with its characteristic expression. Care and generosity, for example, connect what is recognised in the relationship with what is given in its fulfilment. State and motion name coordinated aspects of activity, rather than two values acquired in successive stages.
+
+| Established value in state | Corresponding expressed value in motion | Original terms |
+|---|---|---|
+| Trust | Concordance | *vishwas–saujanyata* |
+| Respect | Cordiality | *samman–sauhardta* |
+| Affection | Dedication | *sneha–nishtha* |
+| Care | Generosity | *mamta–udarta* |
+| Guidance | Naturalness | *vatsalya–sahajta* |
+| Reverence | Devoutness | *shraddha–pujyata* |
+| Glory | Simplicity | *gaurav–saralta* |
+| Gratitude | Humility | *kritagyata–saumyata* |
+| Love | Non-otherness | *prem–ananyata* |
 
 Object values belong to material units and become evident in their usefulness. The other four families concern activities of *jeevan*. Named values are also located at particular faculties and paired with the expressions through which they are carried outward (MVD pp. 328–348; AVD pp. 91–94).
 
@@ -363,6 +405,8 @@ Humane conduct brings together value, character, and ethics (*mulya–charitra�
 
 Consider a person caring for an ill parent. Recognising the relationship, understanding the parent's needs, arranging suitable care, and checking whether it has helped distinguish knowing from fulfilment and evaluation. A kind intention alone does not establish adequate care. Nor does purchasing a useful object complete the relationship: the object supports bodily need, while attention, trust, respect, and care concern how the people relate. The example connects the unit's useful capacity, the caregiver's understanding, and the test of mutual satisfaction.
 
+The five value families make this distinction more precise. Suitable food or equipment supplies object usefulness; convenient, well-made equipment can also carry art value. The caregiver's harmony concerns the *jeevan* values, while human values concern the humane disposition evidenced in action. Care is an established relationship value, paired with generosity as its expression. These are different aspects of the same participation, each requiring its own fulfilment. An object's price records an exchange assessment; it does not establish adequate nourishment, respect, or care. Nor does one satisfactory act establish all four inner harmonies or complete awakening. The practical question remains whether the recognised relationship is fulfilled, the result evaluated, and mutual satisfaction achieved.
+
 Law applies across the four orders as definite regulation. In human living, regulation and balance are fulfilled as justice in behaviour, resolved thought as dharma, and realisation in truth as coexistence (MVD p. 174). These connections join happiness as human dharma, definite values in relationships, and understanding fulfilled in conduct. Evaluation is the human way of knowingly recognising and fulfilling those relations (§6.1). Statutory law is an institutional codification; its adequacy is judged by whether it supports justice and mutual satisfaction.
 
 Human families and social assemblies achieve continuity through relationship-fulfilment. Their members remain distinct units who recognise relationships, fulfil values, evaluate the fulfilment, and achieve mutual satisfaction. This is the basis of humane continuity in family, community, and society. It gives social assembly a different basis from the definite composition of a chemical compound (§1.5).
@@ -371,13 +415,19 @@ Human families and social assemblies achieve continuity through relationship-ful
 
 ### 1.14 Realisation in coexistence
 
+The account of justice makes understanding answerable to fulfilment. Its wider ground is the understanding of coexistence itself: what is known, who knows it, and how knowing guides living. Realisation brings these earlier relations together while preserving the reality of both the knower and what is known.
+
 Through realisation, *jeevan* understands nature as inseparably present in Omnipresence. It knows existence as coexistence, knows itself as the knower, and expresses that understanding as authenticity. This is the goal of development: an activity of *jeevan*, with the distinction between the knowing unit and the pervasive reality preserved.
 
 Knowledge, knower, and known remain distinguishable in realisation. *Jeevan* is the knower. The threefold content of knowledge comprises the holistic view of coexistence, knowledge of *jeevan*, and knowledge of humane conduct. Existence as coexistence is what is seen and known, while the human and *jeevan* goals become meaningful through awakened participation in undivided society and universal orderliness. Their coherence lies in accurate knowing and evidence, not in ontological identity.
 
 Knowledge (*gyan*) is also a name for the actionless pervasive reality in which knowing occurs (MVD p. 35). This usage and knowledge as understood content are related through realisation: *jeevan* knows coexistence without becoming the pervasive reality. Wisdom (*vivek*) recognises the human goals of resolution, prosperity, fearlessness, and coexistence; science (*vigyan*) determines how material means and human activity serve those goals (MVD p. 170). Knowing, judging purpose, and arranging its material fulfilment are thus connected but distinguishable.
 
+In caring for a parent, for example, understanding the relationship establishes what calls for fulfilment; judging the purpose keeps the activity directed toward human well-being; arranging suitable material means makes bodily support possible. The example illustrates the connection between knowing, purpose, and means. The full knowledge claimed here extends to coexistence, *jeevan*, and humane conduct, so practical competence in this one task is only part of what must be evidenced.
+
 Realisation settles the search arising from delusion. Ultimate bliss is named at realised atma, and bliss names the harmony of buddhi and atma (§1.9). Authenticity is the projection of realisation: understanding becomes evident through behaviour, work, and participation. Recognition and fulfilment in orderliness are therefore expressions of realisation, not substitutes for it.
+
+Understood meaning must also become available to other people. An intelligible explanation and conduct that fulfils its meaning allow understanding to be shared, examined, and carried forward. Presentation, communication, expression, and art concern how this becomes possible in human living.
 
 In awakened human living, presentation, communication, and expression carry realised understanding into a shared tradition (AVD pp. 115–116). Presentation (*prakashan*) makes actuality evident through an accomplished and meaningful form; communication (*sampreshana*) indicates completeness, including constitutional, activity, and conduct completeness; and expression (*abhivyakti*) is the mental, verbal, and bodily activity through which one's existence is evidenced for all-round resolution (*abhyudaya*) (PS pp. 22, 119, 206). Understanding is thus presented, made understandable, and lived. These activities involve the coherent participation of *jeevan* through the body described in §1.8. Words direct attention to the activity of units and its inherent meaning, which concerns their properties, essential nature, and dharma; their usefulness is fulfilled in understanding and enabling another to understand (MVD pp. 109–110).
 
@@ -391,6 +441,8 @@ Human awakening is evidenced through four goals: resolution, prosperity, fearles
 
 The cumulative correspondence between these goals and the *jeevan* values is set out in §1.9. Their fulfilment rests on the human aim of continuous happiness, recognition of relationships, and the responsibility to make understanding effective in conduct.
 
+A family fulfilling care depends on more than the goodwill of one member. Understanding must be taught, relationships sustained justly, bodily needs attended to, and useful goods produced and made available. The same dependencies recur across families and generations. The institutional account gives these continuing activities an organised social form.
+
 At the social scale, awakened living develops from family to undivided society and universal orderliness. Five social systems support its continuity. These differ from the four dimensions of individual living—realisation, thought, behaviour, and work—introduced in §1.13.1:
 
 | Social system | Function in humane orderliness |
@@ -403,9 +455,13 @@ At the social scale, awakened living develops from family to undivided society a
 
 These are not external institutions added to an otherwise private realisation. They are the public structures through which understanding is transmitted, relationships fulfilled, bodies supported, needs met, and social participation sustained.
 
+The four dimensions and five systems consequently classify different aspects of participation. Realisation, thought, behaviour, and work describe how a person lives. Education, justice, health, production, and exchange describe shared functions through which people make humane living available to one another. Each system requires understanding and conduct from its participants; establishing its name or organisational structure alone does not fulfil its purpose (MVD pp. 259–260).
+
 Humane tradition means continuity across generations. An individual's conduct completeness contributes to this continuity without depending on the prior awakening of the whole society. Social completeness concerns the wider condition in which resolution, prosperity, fearlessness, and coexistence remain available through education, family, work, and orderliness (MVD pp. 15–16).
 
 ### 1.16 Method, evidence, and what Madhyasth Darshan establishes
+
+This connection between understanding and social life explains why evidence in conduct matters to the ontology. If a person claims to understand a relationship, whether that understanding guides fulfilment is a relevant test. A further question asks whether such fulfilment identifies the sentient unit and its constitution. The account needs to distinguish these questions when stating what its methods establish.
 
 Madhyasth Darshan presents its method as study, experiment and practice, followed by realisation and evidence in conduct. These activities do not all warrant the same kind of claim:
 

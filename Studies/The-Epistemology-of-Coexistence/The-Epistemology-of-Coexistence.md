@@ -2,11 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 20, 2026, 9:48 AM IST
+**Edited on:** October 4, 2026, 8:57 AM IST
 **Status:** Released
 **The question:** What is knowledge, who is the knower, and what is it that one can know? How are these concepts grounded in experience, and how does the Co-existentialism of Shri A. Nagraj compare with Advaita Vedanta, modern Western philosophy, and the natural sciences?
 
 This study examines knowledge, the knower, and the knowable in **Madhyasth Darshan** (Co-existentialism), as presented by **Shri A. Nagraj**, and compares its answers with **Advaita Vedanta** and **modern science and philosophy**.
+
+A parent can sincerely believe that providing an expensive meal is good care, while overlooking whether the child is nourished, heard, or treated fairly. Certainty and good intention do not settle whether the parent understands the relationship. What would turn that conviction into knowledge? Madhyasth Darshan connects understanding with its fulfilment in living. Advaita distinguishes valid everyday cognition from liberating Self-knowledge; modern epistemology asks how belief avoids error and luck; science develops public procedures for correction. This study examines those differences. Just conduct can provide evidence of understanding a relationship without independently proving the proposed constitution or persistence of *jeevan* (§§6.1 and 7.6).
 
 [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) supplies the ontological setting: Omnipresence, saturated units, the four orders, constitutional completeness, and the active structure of *jeevan*. The present study asks the specifically epistemological questions the primary texts develop: what knowledge is, what makes *jeevan* the knower, how coexistence becomes the known, and why understanding must become evident in action, relationship, evaluation, and humane tradition. [From Unit Activity to Human Orderliness](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) is used as an interpretive audit of these connections, not as a primary source and not as a source of notation for this paper.
 
@@ -15,6 +17,8 @@ This study examines knowledge, the knower, and the knowable in **Madhyasth Darsh
 Madhyasth Darshan approaches knowledge through a practical question: how does understanding reality enable human beings to live without contradiction? Complete knowledge is neither accumulated information nor detached speculation. It is the realized understanding of reality as coexistence, of the conscious self (*jeevan*), and of humane conduct. The knower is *jeevan*, while an embodied human being—*jeevan* and physical body together—expresses and validates that understanding in daily life. What is known is existence itself: the eternal coexistence of all-pervasive Omnipresence and active units across four orders of nature. Knowing begins in reflective study, guides choices before action, manifests in behavior and productive work, and returns to the knower through evaluation. Knowing is completed only when it becomes evident in living.
 
 ### 1.1 Knowledge, knower, and known
+
+The meal brings three questions together: what realities are involved, who understands them, and what fulfilling the relationship requires. Food has properties that affect nourishment; a person judges and chooses; care has to be understood and carried out. Madhyasth Darshan extends this connection across the whole of existence. Its three domains of knowledge specify the reality, the conscious knower, and humane conduct together.
 
 Complete knowledge (*sampurna gyan*) comprises three canonical, inseparable domains (KD §3.5, p. 69; KD §3.17, pp. 145–150; JV, p. 40; SB, p. 116):
 
@@ -28,6 +32,8 @@ The word *gyan* also names the ever-present, all-pervasive ground in which all u
 
 Nature saturated in Omnipresence is also named Realisation Knowledge (*anubhav jnan*): coexistence is the orderly, intelligible reality available to be known (MVD, p. 11). Realized understanding of this reality belongs to *jeevan* and becomes evident in human living. These connected uses distinguish the pervasive ground, the content of knowledge, and its realization by the knower.
 
+The distinction matters whenever the word knowledge recurs. The ground is ever-present; a person's understanding can still be incomplete. Coexistence is available to be understood, but its availability does not mean that every person already understands it. Learning concerns the knower's realisation of what exists, and conduct concerns how that understanding becomes evident.
+
 The universal availability of knowledge follows from the nature of human life and the shared constitution of *jeevan*. Happiness is the inseparable innate nature (*dharma*) of human beings, and knowledge is its foundation (MVD, p. 115). Every person inherently yearns for happiness, but genuine happiness requires living without internal contradiction—which is possible only through understanding reality as it is. Furthermore, all human beings possess an identical conscious constitution: the strengths and powers of *jeevan* are the same in everyone, and every *jeevan* shares the equal capacity to understand existence and to evidence coexistence (JV, pp. 33–34, 44). Differences in present understanding reflect prior impressions (*sanskar*), environment, and education, not an unequal innate capacity.
 
 Knowledge is ever-present throughout coexistence; it unfolds in realization by *jeevan* and becomes evident in living conduct and expression (MVD, pp. 35, 115–116, 289). *Jeevan* is the bearer of realization, comprehension, contemplation, deliberation, and selection. Yet a living person carries the proof through understanding and conduct: an embodied human being speaks, works, relates, evaluates, teaches, and builds tradition. *Jeevan* knows; the human being presents its living evidence.
@@ -40,13 +46,17 @@ The known (*gyeya*) is existence as coexistence. It encompasses nature across it
 - **Positional / Relational Truth (*Vastu-sthiti Satya*)**: The situational, ecological, and temporal reality of units—their direction, time, place, and mutual complementariness in the order of nature.
 - **Existential Truth (*Sthiti Satya*)**: Existential reality unaffected by time—nature (both insentient and sentient) saturated in all-pervasive Omnipresence, which is coexistence itself.
 
+These three aspects of truth widen the same inquiry. In considering food, one can examine the thing itself and then its situation: where and when it grows, what sustains it, and what depends on it. Existential truth concerns the coexistence in which all such units and relationships are present. Knowing a food's composition answers a genuine question; understanding the whole claimed by the philosophy also includes its relationships and the ground in which it exists.
+
 Measuring physical properties with instruments is only one limited aspect of knowing. Physical, intellectual, and coexistential knowledge are distinguished, expressed through practical skill, professional proficiency, and philosophical wisdom (KD, pp. 3–4). The scope of the known extends into production and ecology: human freedom must protect and rightly use natural abundance rather than disrupt the cyclic balance of the other orders (SB, pp. 111, 121, 149).
 
 The known becomes fully meaningful when awakening fulfills human aspiration through undivided society and universal orderliness (KD §3.17, p. 148). Coexistence is what is known; living with resolution, prosperity, mutual trust, and harmony proves that knowledge has become a living reality. The world does not lose its reality when understood: nature is perpetual (*shashwat*) rather than an illusion cancelled by enlightenment (MVD, pp. 12–13).
 
-Shri A. Nagraj's inquiry began by examining two historical approaches to these questions (KD §3.17, pp. 146–147). Mystical and idealist traditions often treated the world as an illusion or an ineffable divine mystery, leaving human life dependent on supernatural intervention. Materialism, conversely, attempted to derive consciousness from physical compositions of matter, struggling to explain purpose, values, or subjective experience. Neither framework provided a coherent foundation for universal human conduct. Madhyasth Darshan grounds epistemology in the conscious *jeevan* and its living evidence in the world.
+Shri A. Nagraj's inquiry began by examining two historical approaches to these questions (KD §3.17, pp. 146–147). His criticism was that mystical and idealist approaches treated the world as an illusion or an ineffable divine mystery, leaving human life dependent on supernatural intervention, while materialism attempted to derive consciousness from physical compositions of matter without adequately explaining purpose, values, or subjective experience. He judged neither approach to have provided a coherent foundation for universal human conduct. That judgment motivates his proposal; the comparative assessment of these traditions follows in §§2–6. Madhyasth Darshan grounds epistemology in the conscious *jeevan* and its living evidence in the world.
 
 Beside knowledge, knower, and known, the primary texts articulate several parallel operational triads that keep knowing rooted in active human life (KD §3.17, pp. 145–150; §3.18, pp. 151–152). These include coexistential vision, seer *jeevan*, and the scene of coexistence (*darshan–drish–drishya*); focused attention, the human attender, and the goal of awakening (*dhyan–dhyata–dhyeya*); coexistence as cause, *jeevan* as conscious doer, and humane living as effect (*karan–karta–karya*); awakening as aim, the human as seeker, and the joint form of *jeevan* and body as means (*sadhya–sadhak–sadhan*); and seer, doer, and enjoyer (*drishta–karta–bhokta*). In physical nature, units act as self-motivated doers; in animal life, animals act as doers and enjoyers driven by instinct without understanding. In the awakened human, understanding establishes true seer-status (*drishta-pad*), illuminating action so that the human acts as a conscious, righteous doer and experiences enduring fulfillment as the enjoyer.
+
+Each triad asks a different question about that active life. Vision, seer, and scene concern what is understood and by whom. Attention, attender, and goal concern the direction of inquiry. Cause, doer, and effect connect the basis of action with its participant and outcome. Aim, seeker, and means concern the undertaking of awakening. Seer, doer, and enjoyer connect understanding, action, and experienced fulfilment in the person. In the meal example, seeing a responsibility, attending to it, acting, and experiencing the result can be distinguished within one occasion; the example illustrates these relations while the triads retain their full scope in coexistence.
 
 The conscious knower (*jeevan*) is constitutionally complete (*gathan-purna*). Because its atomic constitution neither admits nor expels constituent particles, it does not decompose or decay, persisting across bodily birth and death (JV, pp. 19, 36). Its evidential standing is examined further in §7.4.
 
@@ -75,6 +85,8 @@ To achieve this movement, Madhyasth Darshan distinguishes three connected functi
 
 When science is separated from knowledge and wisdom, it degenerates into consumerism, environmental devastation, and destructive technologies. Guided by wisdom and knowledge, science ensures sustainable production, ecological regeneration, and the material foundations of peace.
 
+A learner must therefore distinguish possessing the capacity to know, bringing that capacity fully into activity, and living consistently from understanding. A person may have the capacity while remaining mistaken; grasping a principle also calls for its expression in conduct. The three completions give these distinctions their precise philosophical form.
+
 This developmental journey involves three distinct completions (*purnata*):
 
 - **Constitutional Completeness (*Gathan-purnata*)**: The physical-chemical atom reaches a stable constitution that neither gains nor loses constituent particles, becoming the conscious unit (*jeevan*). Every *jeevan* already possesses this constitutional completeness.
@@ -82,6 +94,8 @@ This developmental journey involves three distinct completions (*purnata*):
 - **Conduct Completeness (*Acharan-purnata*)**: The unwavering, living expression of awakened understanding in values, character, ethics, and universal orderliness.
 
 ### 1.3 *Jeevan*, body, and the activities of knowing
+
+Choosing a meal involves more than receiving a taste. One selects, compares possibilities, envisages what to do, and acts from whatever understanding and resolve one has. Madhyasth Darshan explains these connected activities through five faculties of the same conscious unit. Each faculty has an inward activity of knowing or receiving meaning and an outward activity through which its content is expressed.
 
 The active knower is *jeevan*, a constitutionally complete sentient unit whose ten activities are organized across five concentric faculties (JV, pp. 72–73, 91, 92–93):
 
@@ -93,12 +107,16 @@ The active knower is *jeevan*, a constitutionally complete sentient unit whose t
 
 These ten activities divide functionally into five inward-looking forces of state (*bal*)—tasting, deliberation, contemplation, comprehension, realization—and five outward-looking powers of motion (*shakti*)—selection, analysis, visualisation, resolve, and authenticity (KD §3.6, pp. 70–71). In human life, the five characteristic powers are hope (*asha* at *mun*), thought (*vichar* at *vritti*), desire (*ichha* at *chitta*), truth-resolve (*ritambhara* at *buddhi*), and evidence (*praman* at *atma*). Selection, analysis, visualisation, resolve, and authenticity are their outward activities (KD §3.16, p. 145; MVD, p. 83; SB, p. 63).
 
+At *mun*, tasting and selection concern what is received and chosen. At *vritti*, deliberation and analysis assess and distinguish possibilities. *Chitta* contemplates meaning and gives it visualised form. *Buddhi* comprehends and resolves, while *atma* realises coexistence and expresses authenticity. The inward and outward activities connect what is understood with what guides expression. Hope, thought, desire, truth-resolve, and evidence name the characteristic powers of those same faculties. An ordinary food choice can make tasting, comparison, and visualisation intelligible; it does not by itself demonstrate complete comprehension or realisation.
+
 When the faculties work in harmony, with each higher faculty guiding the one below it, these relationships yield the four internal values of *jeevan* (*jeevan mulya*) (MVD, pp. 207–208; JV, p. 137):
 
 - **Happiness (*Sukh*)**: Experienced when tasting and selection in the mind (*mun*) accord with thoughtful deliberation (*vritti*).
 - **Peace (*Shanti*)**: Experienced when deliberation and thought (*vritti*) accord with the clarity and values of contemplation (*chitta*).
 - **Contentment (*Santosh*)**: Experienced when contemplation and visualisation (*chitta*) accord with intellectual comprehension (*buddhi*).
 - **Bliss (*Anand*)**: Experienced when intellectual comprehension (*buddhi*) accords with existential realization in *atma*.
+
+Each harmony concerns a particular relation between adjacent faculties. A selection accords with deliberation; deliberation accords with contemplated meaning; contemplation accords with comprehension; comprehension accords with realisation. This makes the source of guidance explicit at each relation. The four names describe the resulting inward fulfilment, while their expression in relationships and work gives that fulfilment a field of evidence.
 
 These activities operate in two coordinated directions:
 
@@ -124,6 +142,8 @@ Awakening does not add a new organ or abolish the senses; it activates the full 
 ### 1.4 Practical judgment and humane order
 
 Humane conduct becomes operational across four connected fields of human activity: bodily propensities, sensory interfaces, social motives, and higher-human beneficence.
+
+The family meal makes the difference between these fields visible. Hunger concerns a bodily propensity; taste and smell concern the channels through which food is encountered. Providing for a family and nurturing a child concern wider human motives. Helping another family develop its own capacity to live well extends participation into beneficence. The following groupings explain the need being served, the bodily contact involved, and the human direction of participation.
 
 - **The Four Bodily Propensities (*Vishayas*)**: Food/nourishment (*ahar*), rest/sleep (*nidra*), defense/fear (*bhaya*), and procreation (*maithun*) (MVD, p. 58). These propensities are shared with animal life and are necessary for physical survival. Understanding regulates them so that they serve life rather than dominate it.
 - **The Five Sensory Modalities**: Sound (*shabda*), touch (*sparsha*), visible form (*roop*), taste (*rasa*), and smell (*gandha*) (MVD, p. 65). These are the sensory channels through which bodily interactions occur.
@@ -156,7 +176,11 @@ Humane conduct (*manaviyata purna acharan*) is structured into three concrete pi
 
 This understanding is lived across the four dimensions of human existence: realization (*anubhav*), thought (*vichar*), behavior (*vyavahar*), and productive work (*karya*). These dimensions express themselves in five universal societal systems (*sarvabhaum vyavastha*): Education and Culture (*Shiksha-Sanskar*), Health and Restraint (*Swasthya-Samyama*), Production and Work (*Utpadan-Karya*), Exchange and Storage (*Vinimaya-Kosh*), and Justice and Protection (*Nyaya-Suraksha*). Epistemology thus directly culminates in universal human orderliness.
 
+The four dimensions describe a person's living: what is realised, thought, expressed in relationships, and done in production. The five systems organise the shared conditions of that living. Feeding a child involves knowledge and thought, care in behaviour, and work with food; it also depends on education, health, production, exchange, and justice. The same action can involve several systems because the systems coordinate distinct responsibilities within a common life.
+
 ### 1.5 Knowing, action, and evaluation
+
+The parent's original confidence now has to face the relationship itself. Believing that a meal constitutes care does not ensure that its needs were understood or fulfilled. The issue is how acceptance becomes grounded in knowing and then guides recognition and action.
 
 In Madhyasth Darshan, the cognitive process is an integrated fourfold progression that defines how units interact with reality (JV, p. 165; MVD, pp. 12, 61–62):
 
@@ -182,6 +206,8 @@ Justice proceeds through recognition of relationship, fulfilment of its values, 
 
 Evaluation is not an external score assigned after conduct ends. It is the continuous self-awareness that examines whether the relationship was rightly recognized, whether appropriate values were expressed, whether adequate means were deployed, and whether both parties attained mutual fulfillment.
 
+In the meal example, expense alone cannot answer these questions. The parent must consider the child's nourishment, the quality of care, the means used, and the actual result. If the result exposes a mistake, inquiry returns to the understanding and decision that guided it. The example shows why fulfilment and evaluation belong to the account of knowing; it does not supply a test of every metaphysical claim.
+
 Evaluation can be accurate, or it can overstate, understate, or misidentify what is evaluated (MVD, pp. 152, 306):
 
 - **Right Evaluation (*Samyak-mulyankan*)**: Accurately assessing capacity, relationship, need, and result as they truly are.
@@ -204,9 +230,13 @@ This evidence operates across three inseparable levels (*tri-vidha pramana*) (MV
 2. **Behavioral Evidence (*Vyavaharatmak Pramana*)**: Relational verification in society—just conduct in human relationships that produces mutual satisfaction (*ubhay-trupti*) and trust.
 3. **Experimental / Practical Evidence (*Prayogatmak Pramana*)**: Practical verification in nature—work, production, and experimentation that utilize physical and natural laws cyclically and sustainably, generating material prosperity without ecological damage.
 
+These are three fields in which the same claimed understanding must become evident: in the knower, in human relationships, and in work with nature. The family's developing understanding, its conduct toward the child, and the practical result of preparing food can each be examined. This everyday illustration leaves full realisation unestablished. Confidence in one field cannot excuse failure in another. The wider philosophical question is how such evidence establishes the reality asserted by the account (§7.6).
+
 This framework reinterprets the classical Indian concept of proof (*pramana*). Shri A. Nagraj's founding inquiry questioned whether ultimate proof resides in the written word or its living bearer, in an authoritative scripture or the person who enunciates it (KD, *Alternative*, point 10). Madhyasth Darshan establishes that a living person carries the proof through understanding and conduct (*pramanik vyakti*), not the recorded text or formal syllogism alone.
 
 In *Manav Karm Darshan* (KD, pp. 20–21), apprehension is analyzed through direct perception (*pratyaksha*), inference (*anuman*), and testimony-activity (*agama-kriya*). Direct perception is the realization of continuous proximity; inference is recognizing the possibility of such continuity; and testimony-activity concerns existence beyond what immediate proximity alone can establish. Apprehension operates across gross (*sthoola*), subtle (*sookshma*), and causal (*karan*) levels, engaging ordinary, special, and particular intellectual capacities (*samanya, vishesh, vishisht buddhi*): gross apprehension grasps form and properties (*roop* and *guna*); subtle apprehension grasps properties and essential nature (*guna* and *swabhav*); and causal apprehension grasps essential nature and *dharma* (*swabhav* and *dharma*).
+
+The classifications here distinguish means of apprehension from the depth of what is apprehended. Direct perception, inference, and testimony-activity concern access to reality; gross, subtle, and causal concern its aspects. Properties occur in gross and subtle apprehension; essential nature occurs in subtle and causal apprehension. The broad phases of learning below concern how a learner develops understanding through study and practice.
 
 Nagraj's autobiographical account records that years of traditional *samadhi* successfully quieted hopes, thoughts, and desires, but left the unknown still unknown; it was through *samyama* that the direct perception of reality as coexistence occurred (KD, *Alternative*, points 1, 5, and 11). He presented the resulting philosophy not as a personal dogma or divine revelation, but as a testable proposal (*prastav*) for systematic study and verification.
 
@@ -224,6 +254,8 @@ Verification requires threefold practice (*abhyas*) (MVD, pp. 143–144):
 - **Work practice (*Karma-abhyas*)**: Engaging in productive labor with nature to experience physical laws and generate family prosperity.
 
 Through study and practice, the meaning behind words is directly apprehended (*sakshatkar*) in *chitta*, leading to intellectual comprehension (*bodh*) in *buddhi*, direct realization of coexistence (*anubhav*) in *atma*, and living authenticity (*pramanikta*).
+
+The three practices connect explanation with two fields of action. Studying what care means can clarify a proposal; practising relationships tests its expression with people; productive work tests one's understanding and skill with nature. The faculty sequence describes the claimed development within the knower. These accounts meet when understood meaning guides living and its results can be examined and conveyed.
 
 Transmission is essential because knowledge is claimed to be universally accessible, not an ineffable private secret. Understanding is proven by the ability to convey it clearly to others without contradiction (JV, p. 25). The learner must be able to explain the philosophy, live it in relationships, evaluate its results, and help establish an awakened cultural tradition (*jagrit parampara*).
 
@@ -259,7 +291,7 @@ Advaita does not reduce every instance of knowledge to mystical realization. Per
 > **“Brahman is truth, knowledge, and infinite.”**
 > — TU, 2.1.1
 
-The *Taittiriya* expression *satyam jnanam anantam brahma* describes Brahman as reality, consciousness or knowledge, and infinitude. It should not be presented as though the Upanishadic sentence were itself the later compact formula Sat-Chit-Ananda. Advaita receives that later formula as a convergent characterization: not three properties added to a substance, but indications of partless reality as existence, consciousness, and fullness. Consciousness is self-revealing (*svaprakasha*); it is not known by a second consciousness, which would generate an infinite regress.
+The *Taittiriya* expression *satyam jnanam anantam brahma* describes Brahman as reality, consciousness or knowledge, and infinitude. The later compact formula Sat-Chit-Ananda characterises Brahman as existence, consciousness, and fullness. Advaita receives the two formulations as convergent characterizations: not three properties added to a substance, but indications of partless reality as existence, consciousness, and fullness. Consciousness is self-revealing (*svaprakasha*); it is not known by a second consciousness, which would generate an infinite regress.
 
 > **"By that alone he comes to know his own Self as Existence-Knowledge-Bliss Absolute and becomes happy."**
 > — VC, v. 152
@@ -333,7 +365,7 @@ First-person discrimination and *neti neti* (BU, 2.3.6) work within this teachin
 
 ### 2.7 Liberation and complete knowledge
 
-Liberating knowledge is not acquisition of a new property or merger of a formerly separate substance into Brahman. It is recognition of the identity taught by *tat tvam asi*, “That thou art” (CU, 6.8.7), through which ignorance of the ever-free Self is removed. BSB 1.1.2 should not be cited as the locus of this identity: it defines Brahman through the origin, continuance, and dissolution of the universe. Shankara's treatment of Upanishadic identity statements occurs across his commentaries and in the later sections of the *Brahma Sutra Bhashya*.
+Liberating knowledge is not acquisition of a new property or merger of a formerly separate substance into Brahman. It is recognition of the identity taught by *tat tvam asi*, “That thou art” (CU, 6.8.7), through which ignorance of the ever-free Self is removed. The teaching concerns the identity of Self and Brahman and the removal of ignorance of that identity.
 
 > **"There is neither death nor birth, neither a bound nor a struggling soul, neither a seeker after Liberation nor a liberated one – this is the ultimate truth."**
 > — VC, v. 574
@@ -369,6 +401,8 @@ Modern Western philosophy offers no single answer to knowledge, knower, and know
 
 ### 3.1 What is knowledge?
 
+If the parent happens to choose nourishing food while relying on a mistaken rule, the meal's success alone does not show that the rule was known to be true. Questions about truth, justification, and luck distinguish a fortunate result from knowledge. Further questions concern who can be trusted, how the belief was formed, and how it can be corrected.
+
 Analytic epistemology usually distinguishes **propositional knowledge**—knowing that something is the case—from knowledge-how, acquaintance, and understanding. The traditional justified-true-belief framework concerns propositional knowledge. Gettier (1963) showed that a belief may be justified and true through epistemic luck without amounting to knowledge, so contemporary accounts add or replace conditions involving reliability, safety, proper function, evidence, or intellectual competence.
 
 Reliabilism locates warrant partly in dependable belief-forming processes rather than only in reasons accessible to reflection (Goldman 1979). Virtue epistemology treats knowledge as a success attributable to the knower's intellectual competence (Sosa 2007). Social epistemology examines testimony, trust, disagreement, institutions, and epistemic injustice, showing why an isolated individual is not the sole unit of assessment (Fricker 2007; Jarczewski and Riggs 2025). These theories compete; “modern Western epistemology” has no single accepted criterion.
@@ -377,6 +411,8 @@ Madhyasth Darshan's *gyan* does not map neatly onto any one of these categories.
 
 ### 3.2 Naturalistic accounts of the knower
 
+A criterion for a well-supported belief leaves another question open: what kind of being has that belief? Accounts of the knower explain how perception, memory, judgment, and action belong to a person and relate to the body.
+
 Physicalist and naturalistic accounts identify knowing with capacities of embodied organisms or with cognitive processes realized by them (Churchland 1986; Dennett 1991). Some theories reduce mental states to physical or functional states; others treat consciousness and selfhood as emergent, embodied, enacted, or distributed across organism and environment. They agree less about consciousness than the label “naturalism” can suggest.
 
 Many physicalists reject a Cartesian inner observer. On representational accounts, the self is a dynamically maintained self-model integrating perception, memory, bodily regulation, action, and social recognition. Enactive and embodied accounts resist the picture of a brain constructing an inner replica for a detached spectator; they locate cognition in skilled organism–environment engagement. Both differ from an indivisible *jeevan*, though for different reasons.
@@ -384,6 +420,8 @@ Many physicalists reject a Cartesian inner observer. On representational account
 The causal closure of the physical is a philosophical thesis used in arguments for physicalism (Kim 2005), not a separately measured law stating that every event already has a sufficient physical cause. Conservation laws constrain physical quantities, but by themselves do not settle the metaphysics of mind or show that intention would have to “inject energy.” The sharper challenge to Madhyasth Darshan is explanatory: if *jeevan* is distinct from the body yet affects neural action, the account needs a publicly assessable relation between its activities and measured brain processes. Without such criteria, physicalism remains contestable while *jeevan* remains empirically underdetermined.
 
 ### 3.3 Scientific realism and the scope of the known
+
+Even when an inquiry works reliably, its success raises a question about what it reveals. Does a successful explanation describe the world's unobserved structure, or does it organise what can be observed? The answer affects how much can be inferred from successful practice to an ontology.
 
 Scientific realism is a philosophical interpretation of successful science: well-confirmed theories aim to describe a mind-independent world, including unobservable entities supported by explanatory and predictive success. Instrumentalists and constructive empiricists grant the practical and empirical success of theories without making the same commitment to their unobservable ontology. Science itself does not decide this dispute by methodological fiat.
 
@@ -422,6 +460,8 @@ Physicalism's answer to post-mortem persistence is typically negative: if person
 Madhyasth Darshan's *jeevan* (§1.1) and Advaita's eternal *Atman* (§§2.4 and 2.7) both reject this outcome on different grounds. Physicalism sets a high evidential bar: without operational criteria for a non-neural knower or independent post-death evidence, immortal *jeevan* remains a metaphysical posit, while the hard problem (§3.4) exposes the incompleteness of current physical explanation without proving either rival view.
 
 ### 3.7 Social, embodied, and perspectival knowing
+
+A person also learns from a particular bodily situation and from other people. The parent's understanding of care depends on attending to the child, judging testimony, and being open to correction. These features raise questions about access to a shared world and the social conditions of knowing.
 
 Phenomenology begins from intentionality: consciousness is consciousness *of* something, and objects are disclosed through embodied, temporal, and perspectival experience. Husserl's suspension of the natural attitude is a methodological refusal to settle metaphysics before describing experience, not the Advaita conclusion that the experienced world is *mithya*. Merleau-Ponty's embodied subject is not a detached witness behind the body; bodily orientation is constitutive of perceptual access to a shared world (SEP Phenomenology).
 
@@ -561,6 +601,8 @@ No view escapes serious objections. Here is where each is strong and where each 
 - The method needs safeguards against circularity when awakening validates the teaching and the teaching identifies awakening, as well as a clearer boundary between structural certitude and corrigible empirical knowledge (§§7.1 and 7.5).
 
 Madhyasth Darshan is best read as an internally integrated epistemology whose decisive tests remain conduct-based and publicly contestable, not as a demonstrated ontology.
+
+The meal example makes the evidential boundary concrete. Better recognition of the child's needs and their fulfilment can support a claim of improved understanding of care. Those observations do not determine whether the knower is an indivisible *jeevan*, nor whether that unit persists after bodily death. Establishing those further claims requires evidence that distinguishes them from alternative explanations of the same humane conduct.
 
 ### 6.2 Advaita Vedanta — disciplined self-inquiry, disputed non-duality
 
@@ -791,6 +833,14 @@ The receptive activity of *chitta* is contemplation (*chintan*), through which d
 
 The error terms in §1.5 follow MVD's Hindi *adhimulyan*, *avamulyan*, and *nirmulyan* (pp. 152, 306), rendered over-evaluation, under-evaluation, and mis-evaluation. *Nirmulyan* names mistaken identification, not simply the absence of evaluation. These running terms agree with [Axiology: Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf), §1.7.
 
+### Upanishadic wording and Sat-Chit-Ananda
+
+Section 2.2 distinguishes the wording *satyam jnanam anantam brahma* at TU 2.1.1 from the later compact formula Sat-Chit-Ananda. They are received as convergent characterisations in Advaita, but the later formula is not quoted as the wording of this Upanishadic sentence.
+
+### Upanishadic identity and the Brahman definition
+
+Section 2.7 cites CU 6.8.7 for *tat tvam asi*, the identity of Self and Brahman. BSB 1.1.2 defines Brahman through the origin, continuance, and dissolution of the universe; it is not the locus of that identity statement. Shankara's treatment of Upanishadic identity statements occurs across his commentaries and in the later sections of the *Brahma Sutra Bhashya*.
+
 ### Attribution of sources
 
 Section 1 states the darshan's own positions in continuous prose, with page-level attribution carried in the parenthetical citations and collected by section in the References below. Where this study has chosen among source formulations or supplied a reading the texts do not state in those words, the choice is recorded in these notes rather than in the exposition. Comparison with other traditions is confined to §§2–5, and critical assessment to §§6–7.
@@ -822,7 +872,7 @@ Section 1 states the darshan's own positions in continuous prose, with page-leve
 - [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) — Omnipresence and saturation (§§1.1–1.2), *jeevan* faculties and projection–reflection (§1.8), realisation and the knowledge–knower–known relation (§1.14), Sat-Chit-Ananda contrast (§5.6), and open evidence problems (§6.2).
 - [From Unit Activity to Human Orderliness](../A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) — process reconstruction of knowing, karma, conduct-evidence, domain-specific verification (§12.6 and Appendix C), and source/model boundaries (Editorial Notes); used conceptually here without its notation.
 - [Human Behavior and Society](../Human-Behavior-And-Society/Human-Behavior-And-Society.pdf) — manifest, effable knowledge versus mystery-based ineffability (§3).
-- *Spiritual-Practice-And-Realization* (Ongoing) — *dhyan*, yoga, six flaws, and the detailed practice path related to §1.6.
+- [Spiritual Practice and Realization](../Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) — spirituality and realisation in coexistence, the distinction between absorption and understanding, study and practice through the activities of *jeevan*, and evidence in conduct and conveyance; develops the practice and verification questions of §1.6.
 
 ### Modern Western philosophy and science
 
