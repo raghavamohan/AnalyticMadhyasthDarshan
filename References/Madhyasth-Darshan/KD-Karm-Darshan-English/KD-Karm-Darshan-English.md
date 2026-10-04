@@ -14,7 +14,7 @@ Natural / Madhyasth Darshan — Coexistentialism
 
 **Working English translation** (unpublished draft for study use)
 
-**Edited on:** August 31, 2026, 9:20 AM IST
+**Edited on:** October 4, 2026, 8:23 AM IST
 
 Shri Bhajanashram, Amarkantak
 
@@ -399,11 +399,11 @@ Karma
 
 Every human being performs karma in nine ways: physically, vocally, and mentally, with each action being done, caused, or intended. Every karma bears a result.
 
-Physical, vocal, and mental karma are evident in human beings across the past, present, and future. Combined with the distinctions of done, caused, and intended action, they form nine kinds. The human field of action encompasses only the natural, the social, and the intellectual, and its desired end (*abhīṣṭa*) is happiness—neither more nor less. Without happiness as its desired end, human endeavour finds no rest. Karma is therefore activity animated by aspiration; complete activity is motion informed by awareness.
+Physical, vocal, and mental karma are evident in human beings across the past, present, and future. Combined with the distinctions of done, caused, and intended action, they form nine kinds. The human field of action encompasses only the natural, the social, and the intellectual, and its desired end (*abhīṣṭa*) is happiness—neither more nor less. Without happiness as its desired end, the human being finds no restfulness from effort. Karma is therefore activity animated by aspiration; complete activity is motion informed by awareness.
 
-Pain (*vedanā*) is the pressure that arises from accepting what is unacceptable. The environment—the relational context of the unit—is what exerts this pressure. Relationality can contribute either to decline or to development.
+Pain (*vedanā*) is the pressure that arises from accepting what is unacceptable. The environment exerts this pressure; it is relative and directly evident. Relativity influences both decline and development.
 
-Every karma has five components: the doer, cause, objective, result, and effect. Contact and relationship arise only for the fulfilment of necessity. Necessity takes the form of desire. It is rooted in society and sociality and expressed through their observance, preservation, practice, and cultivation.
+Every karma has five components: the doer, cause, objective, result, and effect. Contact and relationship arise only for the fulfilment of necessity. Necessity itself is desire. At its root lie society and sociality, together with observance, adherence, conduct, following and cultivation.
 
 Every activity undertaken from a holistic view to determine needs and commit to fulfilling them takes the form of desire. Desire expresses the awareness present in conscious activity.
 
@@ -413,7 +413,7 @@ Human beings expect the fulfilment of every desire and necessity to bring happin
 
 Every act is undertaken in the hope of happiness. Through the realisation-based method, the forms of happiness—happiness, peace, contentment, and joy—become naturally knowable. Desire can be fulfilled only when desire, action, and result are in balance. Human aspiration seeks intellectual, collective, and natural advancement through rules and processes that provide a definite direction.
 
-Human action has proved capable of either sustaining or undermining the happiness people have long sought. It is understood in three parts: righteous action, unrighteous action, and mixed action. Righteous action is directed toward union and awakening; unrighteous action takes the form of offence and retribution; and mixed action takes the form of enjoyment and retaliation. Every act, without exception, is inseparable from its result.
+Human action has proved capable of either sustaining or undermining the happiness people have long sought. It is understood in three parts: righteous action, unrighteous action, and mixed action. Righteous action is directed toward union and awakening; unrighteous action takes the form of offence and reaction; and mixed action takes the form of enjoyment and retaliation. Every karma, without exception, is relative to its result.
 
 The results of karma are understood in four forms: moksha, dharma, *kama* (desire), and wealth (*artha*). There is no karma without desire. Human desires are distinguished as intense, causal, and subtle. Intense desires readily lead to action; causal desires are less likely to do so, and subtle desires less likely still.
 
@@ -429,19 +429,19 @@ Attaining the aim (*sadhya*)—the desired end (*abhīṣṭa*)—requires the s
 
 [p. 3]
 
-Every karma carries a sequence of experiencing and inference. This sequence continues until realisation. Experiencing Truth (*satyanubhūti*) alone is completeness. The existent state, the objective, and the context are in the form of experience; hence the complete meaning of full understanding is realisation itself.
+Every karma carries a sequence of experiencing and inference. This sequence continues until realisation. Experiencing Truth (*satyanubhūti*) alone is completeness. Relative truth, objective truth and absolute truth are naturally known through realisation. Realisation is therefore the full meaning of all meaning (*artha*).
 
-All karma serves the acquisition of wealth, and the purpose of that acquisition is realisation. The acquisition, use, right-use, and distribution of wealth likewise serve the fulfilment of desire. Realisation is the basis of this fulfilment. With awakening, it becomes evident in both the individual and humanity as a whole. Whatever exists can be viewed and known as it is; this holistic view and knowledge constitute realisation.
+All karma serves the acquisition of wealth, and the purpose of that acquisition is realisation. The acquisition, use, right-use, and distribution of wealth likewise serve the fulfilment of desire. Realisation is the basis of this fulfilment. With awakening, it becomes evident in both the individual and humanity as a whole. The holistic view and knowledge concern what exists; this holistic view and knowledge constitute realisation.
 
 For human beings, happiness is the desired state of equilibrium (*abhīṣṭa*). Directing internal and external means toward realisation is full awareness; directing them otherwise is the absence of full awareness. The possibility of either condition accounts for human diversity.
 
 External means are controlled according to the capacity of the internal means—hope, thought, desire, resoluteness, and the evidence of realisation. The totality of the internal means constitutes the conscious. Insentient and sentient nature is contained within knowledge (Omnipotence) and is therefore governed by it. Through such balance and regulation, development and awakening proceed toward realisation.
 
-A life filled with knowledge gives rise to freedom from delusion; its opposite gives rise to delusion. Knowledge comprises realisation, resolve, desire, thought, and hope. Their full expression depends on the conscious unit's capacity and its essential nature, which is oriented toward awakening.
+In jeevan endowed with knowledge, freedom from delusion arises; in the opposite condition, delusion is evident. Knowledge comprises realisation, resolve, desire, thought, and hope. Their full expression depends on the conscious unit's orientation toward awakening and its capacity.
 
-Freedom from delusion is the complete capacity to perform proper and refined karma and thereby fulfil the desired end. Knowledge expressed through the human being takes three forms: (1) physical, (2) intellectual, and (3) spiritual (coexistence). It is manifested as skill, proficiency, and scholarliness.
+The capacity endowed with freedom from delusion fulfils the desired end, because it enables proper and refined karma. Knowledge expressed through the human being takes three forms: (1) physical, (2) intellectual, and (3) spiritual (coexistence). It is manifested as skill, proficiency, and scholarliness.
 
-Material science principally employs the external means, whereas intellectual and spiritual science employ the internal means. Material science and psychology deal in relative knowledge and study, whereas the Spirit (Omnipotence) is absolute and determinate knowledge. Relativity encompasses gain, expenditure, decline, development, and awakening. The right-use of the powers of words produces knowledge, while wasting them produces ignorance. Whoever wastes a capacity becomes deprived of it.
+Material science principally employs the external means, whereas intellectual and spiritual science employ the internal means. Material science and psychology deal in relative knowledge and study, whereas the Spirit (Omnipotence) is absolute and determinate knowledge. Relativity encompasses gain, expenditure, decline, development, and awakening. The right-use of the powers of words produces knowledge, while wasting them produces ignorance. A person becomes deprived of whatever they waste.
 
 [p. 4]
 
@@ -453,7 +453,7 @@ Dharma is all-round resolution. Resources (*artha*) comprise body, mind, and wea
 
 Desire takes seven graded forms:
 
-Wealth in the service of moksha is the highest of the high, while moksha in the service of wealth is the lowest of the low. Wealth in the service of dharma is intermediate-to-high, while dharma in the service of wealth is low. Wealth in the service of *kama* is high, *kama* in the service of wealth is low, and wealth sought for its own sake is intermediate.
+Wealth in the service of moksha is the highest of the high, while moksha in the service of wealth is the lowest of the low. Wealth in the service of dharma is intermediate-to-high, while dharma in the service of wealth is low. Wealth in the service of *kama* is high, *kama* in the service of wealth is low-to-intermediate, and wealth sought for its own sake is intermediate.
 
 Differences in desire lead to different forms of exploration; these lead in turn to destination, realisation, value, sociality, and universal orderliness.
 
@@ -463,13 +463,13 @@ The human being has three kinds of exploratory tendency:
 
 Instincts-oriented exploratory tendencies also occur in animals; the other two belong to the human being alone. Because of this, instincts-oriented exploration remains liable to wrongdoing.
 
-Non-attachment to objects is dispassion, or freedom from vitiations. Non-attachment to desires is supreme-detachment, or the acceptance and observance of right-use.
+Non-attachment to objects is dispassion, or freedom from vitiations. Non-attachment to motives is supreme-detachment, or the acceptance and observance of right-use.
 
 [p. 5]
 
 Instincts-oriented exploration serves self-interest; motive-oriented exploration serves the interests of others; and truth-oriented exploration serves the ultimate good.
 
-Behaviour governed by self-interest is base and antisocial; behaviour directed toward others' interests is socially constructive but intermediate; and behaviour directed toward the ultimate good is the highest, social, and free. The last expresses the mentality of universal wellbeing.
+Behaviour governed by self-interest is base and antisocial; behaviour directed toward others' interests is social and intermediate-to-high; and behaviour directed toward the ultimate good is the highest, social, and free. The last expresses the mentality of universal wellbeing.
 
 Tendencies may be goal-based, value-based, or interest-based.
 
@@ -477,19 +477,19 @@ Human activity arising from righteous or unrighteous action is shaped by unions 
 
 *Kāsā*, *ākūti*, and *medhā* are forms of intellect arising from union; *mati*, *sumati*, and *anumati* arise from righteous action; and *amati*, *kumati*, and *durmati* are tendencies arising from unrighteous action.
 
-*Kāsā*, born of union, is expressed in poets, sages, and artists. *Ākūti* appears in the divine worker who brings about comprehensive resolution; purposeful divine application appears in the undeluded divine knower; and *medhā*, joined with complete knowledge, appears as moksha, or freedom from delusion. These become evident as kindness, grace, and compassion.
+*Kāsā*, born of union, is expressed in poets, learned people, and artists. *Ākṛti* (the source's spelling here) appears in the divine worker who brings about comprehensive resolution; purposeful divine application appears in the undeluded divine knower; and *medhā*, joined with complete knowledge, appears as moksha, or freedom from delusion. These become evident as kindness, grace, and compassion.
 
-*Mati*, born of righteous action, is expressed in socially accepted action, conduct, work, and behaviour. *Sumati* is expressed in action necessary for society; *anumati* in exemplary action worthy of emulation.
+*Mati*, born of righteous action, is expressed in socially accepted action, conduct, work, and behaviour. *Sumati* is expressed in action necessary for society, in conduct, work and behaviour. *Anumati* is expressed in exemplary action worthy of emulation, in conduct, work and behaviour.
 
 Righteous action comprises right intellect, right tendency, right understanding, right science, sociality, and true resolve.
 
-*Amati*, born of unrighteous action, is expressed in socially unacceptable action and conduct. *Kumati* appears as vile or specifically prohibited action. *Durmati* appears as wicked action, such as coveting another's wealth or spouse or inflicting pain on others.
+*Amati*, born of unrighteous action, is expressed in socially unacceptable action, conduct, work and behaviour. *Kumati* appears in vile action—specifically prohibited action—and in conduct, work and behaviour. *Durmati* appears in wicked action, conduct, work and behaviour, such as coveting another's wealth or spouse or inflicting pain on others.
 
 [p. 6]
 
-Instincts-oriented tendencies are absorbed in unrighteous action; motive-oriented intellect in righteous action; and truth-oriented intellect in union—that is, awakening—through sustained endeavour and practice.
+Through endeavour and practice, instincts-oriented tendency remains absorbed in unrighteous action, motive-oriented intellect in righteous action, and truth-oriented intellect in union—that is, awakening.
 
-A person's essential nature reflects the combined influence of environment, study, and *sanskar*.
+The way each person is naturally inclined to act reflects the combined influence of environment, study, and *sanskar*.
 
 The environment is distinguished as natural or human-made.
 
@@ -497,11 +497,11 @@ Education and orderliness constitute the human-made environment.
 
 Human *sanskar* is expressed through the "exploration-trio": instincts-oriented, motive-oriented, and truth-oriented exploration.
 
-The natural environment of a region is determined by its balance of cold, heat, and rainfall and by the presence of the three non-human orders.
+The natural environment of a region is assessed in terms of its balance of cold, heat, and rainfall, together with the three non-human orders.
 
-The natural environment of any land depends on the measure of its minerals and vegetation, which in turn depends on that land's development.
+The natural environment of any land depends on its quantities of minerals and vegetation, which in turn depend on that land's development.
 
-Before human beings of the knowledge order can inhabit any land, animals and plants must be abundant; before they can be abundant, water must be present.
+Before human beings of the knowledge order can inhabit any land, animals and plants must be abundant; before that, water must be present.
 
 Animals and human beings can sustain their life cycles and jeevan programmes only within definite lower and upper limits of cold, heat, and rainfall.
 
@@ -509,37 +509,37 @@ The balance of the natural environment also supports the human being's natural a
 
 A basis is necessary for balance.
 
-Complete Omnipotence (*sattā*) is the basis of balance for the whole of nature, without exception.
+Omnipotence (*sattā*), which is complete, is the basis of balance for the whole of nature, without exception.
 
 [p. 7]
 
-Complete rules sustain balance in activity.
+Complete rules are the basis of balance in every activity.
 
-Complete justice sustains balance in behaviour.
+Complete justice is the basis of balance in every behaviour.
 
-Complete resolution sustains balance in thought.
+Complete resolution is the basis of balance in every thought.
 
-The supreme truth of coexistence sustains realisation in every person.
+The supreme truth of coexistence, which is whole, is the basis of realisation in every person.
 
-The human being is the principal cause of natural and human balance and imbalance. A deluded person is free to act but bound by the consequences. An awakened person remains free both in action and while experiencing its results. Awakened tradition acts after understanding; deluded tradition seeks to understand after acting. Human beings are the primary users of natural splendour.
+The human being is the principal cause of natural and human balance and imbalance. A deluded person is free when acting but dependent when experiencing the results. An awakened person remains free both in action and while experiencing its results. Awakened tradition acts after understanding; deluded tradition seeks to understand after acting. Human beings are the primary users of natural splendour.
 
-Natural law requires using only as much of a region's mineral and forest wealth as necessary, conserving it, and supporting rather than obstructing its production cycle so that seasonal balance is maintained. This is entirely the human being's responsibility.
+To maintain seasonal balance, human beings must use minerals and vegetation (forests) while preserving as much of them in the land as is necessary. They must also support their production process without obstructing it. This is the meaning of natural law and is entirely the human being's responsibility.
 
-Forest and mineral resources should be used only in proportion to their known availability and production cycles; otherwise natural calamities follow.
+Forest and mineral resources should be used in proportion to the known possibility and progression of their production. Otherwise, suffering from natural calamities naturally follows.
 
 Education and orderliness are the sole means of maintaining collective (social) balance.
 
-Social balance rests on a tradition of work and conduct marked by contentment with one's own wealth and spouse and by kindness. Imbalance arises from coveting another's spouse or wealth and desiring another's pain.
+Social balance rests on a tradition of work and behaviour grounded in righteous wealth, marital faithfulness, and kindness. The opposite—pursuing another's spouse or wealth and causing pain to others—creates imbalance.
 
 [p. 8]
 
-Intellectual balance depends on how a person's necessary and unnecessary basic tendencies operate. Understanding and *sanskar* underlie the necessary tendencies; delusion and compulsion underlie the unnecessary ones.
+Intellectual balance depends on the activity of a person's necessary and unnecessary fundamental tendencies. *Sanskar* and understanding underlie the necessary tendencies; delusion and compulsion underlie the unnecessary ones.
 
 The necessary fundamental tendencies manifest, in sequence, as non-accumulation (prosperity), affection, learning, simplicity, and fearlessness (trust in the present); the unnecessary tendencies manifest as convenience, accumulation, malice, ignorance, conceit, and fear.
 
 The rules suited to natural, social, and intellectual balance are the necessary rules. Together, they form the "rule-trio."
 
-Knowing and following the necessary rules depends on their right-use; right-use depends on development and awakening; and development and awakening depend on understanding and observing intellectual, social, and natural rules. Human beings must follow the necessary rules to keep the progression of development and awakening unbroken. This is the practical programme of human jeevan, the awakening progression, and awakened jeevan.
+Knowledge and observance of the necessary rules are determined by their right-use; right-use by development and awakening; and development and awakening by understanding and observing intellectual, social, and natural rules. Human beings must follow the necessary rules to keep the progression of development and awakening unbroken. This is the practical programme of human jeevan, the awakening progression, and awakened jeevan.
 
 Immersion in, observance of, and evaluation of cultural values constitute the human-made environment.
 
@@ -553,21 +553,21 @@ A distorted culture manifests as inhumaneness.
 
 [p. 9]
 
-Humaneness is the visible expression of a social culture. Culture, civilisation, method, and orderliness exist to sustain humaneness.
+A culture imbued with sociality becomes evident through humaneness. Culture, civilisation, method, and orderliness exist to nourish such humaneness.
 
-They form a mutually sustaining cycle: civilisation sustains culture, method sustains civilisation, orderliness sustains method, and culture sustains orderliness.
+They are mutually complementary: civilisation provides nourishment to culture, method to civilisation, orderliness to method, and culture to orderliness.
 
-In awakened tradition, the humane cultural programme gives expression to *sanskar*, for no human being in such a tradition is devoid of it. Deluded human traditions, by contrast, organise themselves into communities and factions. This fragmentation is the source of the entire problem. Problems are not evidence of *sanskar*, since every problem is capable of resolution.
+In awakened tradition, the humane cultural programme gives expression to *sanskar*, for no human being in such a tradition is devoid of it. Deluded human traditions, by contrast, are reckoned as communities. This is the cause of the entire problem. Problems are not evidence of *sanskar*, since all problems are resolved.
 
 Visualisation and thought reveal, respectively, art and usefulness.
 
 Thought grounded in wholesome *sanskar* is awakening.
 
-Humane *sanskar* indicates universal culture. Inhumane tendencies cannot become universal.
+Humane *sanskar* indicates universal culture. Tendencies below this—that is, inhumane tendencies—cannot become universal.
 
 Healthy, universal culture and civilisation arise only through the observance of social rules, thereby establishing the wholeness and continuity of society.
 
-Human beings are not satisfied by personal happiness and convenience alone; they also require conduct and orderliness grounded in understanding. Each person therefore seeks to safeguard and make right-use of the conveniences they acquire. The human being is thus either already a social and justice-oriented unit or is compelled to become one.
+Human beings are not satisfied by their own happiness and convenience alone; they are satisfied through behaviour and orderliness grounded in understanding. Each person therefore seeks to safeguard and make right-use of the conveniences they acquire. This is necessary. The human being is thus either already a social and justice-oriented unit or is compelled to become one.
 
 Sociality combines intellectuality and physicality.
 
@@ -575,33 +575,33 @@ Physical activity is governed by intellectual capacity, since neither production
 
 [p. 10]
 
-People living in animal consciousness assess physical enterprise and its use in terms of the pleasant and unpleasant, beneficial and harmful, and profitable and unprofitable. In awakened human tradition, the perspectives of just and unjust, dharma and un-dharma, and true and untrue prove decisive in behaviour and conduct.
+People living in animal consciousness apply the perspectives of pleasant and unpleasant, beneficial and harmful, and profitable and unprofitable to physical vocation and its use. In awakened human tradition, the perspectives of just and unjust, dharma and un-dharma, and true and untrue prove decisive in behaviour and conduct.
 
-Animal consciousness generates problems; human consciousness demonstrates resolution.
+People living in animal consciousness generate many problems; living in human consciousness, they evidence resolution.
 
-Without studying good scripture, there is no true aspiration; without true aspiration, no true love; without true love, no true fidelity; without true fidelity, no true stability; without true stability, no true conviction; without true conviction, no true realisation; without true realisation, no unveiling of good scripture. And without this unveiling, the study of good scripture is neither complete nor meaningful.
+Without studying good scripture, there is neither aspiration for truth nor a tendency toward it. Without aspiration for truth, there is no love of truth; without love of truth, no dedication to truth. Without dedication to truth, there is no establishment in truth; without establishment in truth, no awareness of truth. Without awareness of truth, there is no realisation of truth; without realisation of truth, no unveiling of good scripture. Without this unveiling, the study of good scripture is neither complete nor meaningful.
 
-True conviction and experiencing ground fidelity to humane conduct and just behaviour.
+Dedication to humane conduct and just behaviour is found only in awareness of truth and experiencing.
 
 Without humane conduct and just behaviour, mutually just exchange and benefit are impossible.
 
 Just exchange and benefit constitute prosperity.
 
-Unjust gain and advantage produce sorrow and problems.
+Unjust gain and advantage manifest as sorrow and problems.
 
-A life grounded in realisation-based enlightenment is expressed as humaneness and higher humaneness.
+A life grounded in realisation-based enlightenment is expressed as humaneness and higher-humaneness.
 
-Without right-use, there can be no true love, right tendency, righteous action, happiness, peace, contentment, or joy.
+Without righteous expenditure, there can be no love of truth, right tendency, righteous action, happiness, peace, contentment, or joy.
 
-Human beings aspire to true knowledge, to study aligned with the vision of truth, and to righteous action and conduct because a lawful life is both possible and necessary.
+Human beings are oriented toward true knowledge, study that enables them to behold truthfulness, and karma and conduct, because such a lawful life is both possible and necessary.
 
 [p. 11]
 
-In a humane life, every programme is organised through method and orderliness. Putting it into practice is civilisation; sustaining the resulting tradition is culture.
+Within humaneness, every programme takes the form of method and orderliness. Putting it into practice is civilisation; sustaining that tradition is culture.
 
 Sorrow, disquiet, and discontent both constitute conflict within the human being and arise from it.
 
-A person's circumstances arise from capacities acquired through karma, upasana, and knowledge; together they form a favourable or unfavourable environment.
+All a human being's circumstances arise solely from their karma, upasana, and capacity for knowledge. These circumstances take the form of a suitable or unsuitable environment.
 
 The conduct and behaviour of the awakened human being constitute orderliness, which is the cause of peace.
 
@@ -611,40 +611,40 @@ Relationship entails the observance of responsibility.
 
 In relationships, duty is governed chiefly by responsibility; in contacts, responsibility is governed chiefly by duty. This is sociality.
 
-An auspicious environment arises through lawful orderliness and an understanding of peace, resolution, and prosperity as values acceptable to all. In such conditions, the study and practice of good scripture become accessible to everyone.
+An auspicious environment is created through lawful processes of orderliness and an understanding of the causes of universally acceptable peace, resolution, and prosperity. In such conditions, the study and practice of good scripture become accessible to everyone.
 
-Undivided society becomes evident when scripture and thought establish undivided sociality, social programmes can be shared, methods are refined, orderliness is governed by law, individuals embody conduct, and families support them. This is humanity's abiding aspiration and evidence—its longing and its possibility.
+The evident form of undivided society consists of scripture and thought capable of establishing undivided sociality; social programmes that are communicated; refined methods and orderliness; law-governed orderliness; individuals who embody conduct; and families capable of encouraging them. This is humanity's abiding aspiration and evidence—its longing and its possibility.
 
-Human beings need peace and stability in every condition of jeevan. Individuals and families attain them through the study, contemplation, and conduct of good scripture.
+Human beings need peace and stability in every condition of jeevan. Individuals and families attain them through the study, ratiocination, and conduct of good scripture.
 
-Only scripture and education can free people from delusion about the whole, clarify the direction and progression of awakening, determine human values universally, and guide the transition from humaneness to higher humaneness.
+Only scripture and an education system capable of providing freedom from delusion about the whole, clarifying the direction and progression of awakening, determining human values universally, and providing appropriate education for the movement from humaneness to higher humaneness
 
 [p. 12]
 
-They can thereby establish a life of peace and stability at every level. Without them, stability and peace in human life are not possible.
+can establish a life of peace and stability at every level. Without them, stability and peace in human life are not possible.
 
-All human action seeks happiness, peace, contentment, and their continuity—goals pursued together with the means to attain them.
+Human beings seek to direct all their actions toward happiness, peace, contentment, and their stability—goals together with the means to attain them.
 
-Because human beings are free to act, their actions may yield happiness or unhappiness. Action undertaken humanely in the intellectual, social, and natural spheres produces happiness; the same action undertaken inhumanely produces sorrow.
+Because human beings are free when acting, they experience happiness or unhappiness through the results of their actions. This is evident. Every action undertaken humanely in the intellectual, social, and natural spheres produces happiness; the same action undertaken inhumanely produces sorrow. This too is evident.
 
-In the present understanding, human beings fall into four categories.
+At present, human beings are reckoned in four categories:
 
 (1) the meritorious soul, (2) the sinful soul, (3) the happy, (4) the unhappy.
 
-The five levels of human organisation—individual, family, society, nation, and international order—relate differently to these four categories. A life grounded in the appropriate policy and manner, together with law, regulation, behaviour, and conduct, succeeds; otherwise it does not. The corresponding relationships are shown below:
+At each of the five levels of human organisation—individual, family, society, nation, and international order—the policies and norms for relating to these four categories have their own distinctive character. In the same order, the individual's responses are reverence, neutrality, contentment, and kindness; the family's are glory, disregard, collaboration, and service; society's are award, refinement, cooperation, and collaborative sentiment; the nation's are respect, punishment (reform), guidance toward resolution, and cooperative sentiment; and the international order's are protection, deliverance, promotion, and a sentiment of refinement. Only a life endowed with these norms and policies, procedures, laws and regulations, behaviour, and conduct succeeds; otherwise it fails. The relationships are shown below:
 
 | | Meritorious soul | Sinful soul | Happy | Unhappy |
 | :---- | :---- | :---- | :---- | :---- |
 | Individual | Reverence | Neutrality | Contentment | Kindness |
-| Family | Pride | Disregard | Cooperation | Service |
+| Family | Glory | Disregard | Collaboration | Service |
 
 [p. 13]
 
 | | Meritorious soul | Sinful soul | Happy | Unhappy |
 | :---- | :---- | :---- | :---- | :---- |
-| Society | Reward | Correction | Collaboration | Cooperative feeling |
-| Nation | Honour | Punishment (reform) | Assurance | Cooperative feeling |
-| International | Protection | Deliverance | Promotion | Refinement feeling |
+| Society | Award | Refinement | Cooperation | Collaborative sentiment |
+| Nation | Respect | Punishment (reform) | Assurance | Cooperative sentiment |
+| International | Protection | Deliverance | Promotion | Sentiment of refinement |
 
 No human value or programme can be realised without society and sociality.
 
@@ -652,47 +652,47 @@ Every human being acts within some programme.
 
 That programme is karma.
 
-Karma alone leads either to decline or to development and awakening.
+Karma alone supports either decline or development and awakening.
 
 Every unit in insentient and sentient nature moves toward either decline or development.
 
-Knowledge, wisdom, and science together provide the sole basis for complete awakening. The inclination toward refined karma develops this capacity, which must find expression across the five levels and four dimensions of human life.
+Knowledge, wisdom, and science together provide the sole basis for complete awakening. One engages in refined karma precisely to become endowed with this capacity. This must extend through the five levels and four dimensions of human life.
 
-An international order without a true holistic view, a programme without resolution, an orderliness without resources, a society devoid of dharma and certainty, a family without righteous character, and an individual without good conduct all remain perpetually anxious.
+An international order without a holistic view of reality, a programme without resolution, an orderliness without reserves, a society fallen from dharma and lacking certainty, a family without righteous character, and an individual without good conduct all remain perpetually anxious.
 
 Sociality is the evident form of dharma; it is culture and civilisation.
 
-*Sanskar*, culture, and civilisation are necessary to sustain non-disparity in the natural mutuality among human beings; herein lies their usefulness.
+Sanskar, culture, and civilisation are necessary to sustain non-disparity in the natural mutuality among human beings; herein lies their usefulness.
 
 [p. 14]
 
-Intense distress afflicts an international order that cannot uphold a transparent holistic view of the whole, a national order that cannot protect and promote truthfulness, a society that cannot propagate it, a family that cannot follow it, and an individual who cannot conduct themselves truthfully.
+Intense distress afflicts an international order that cannot uphold a holistic view of the whole free from mystery, a national order that cannot protect and promote truthfulness, a society that cannot propagate it, a family that cannot follow it, and an individual who cannot conduct themselves truthfully.
 
-Harmful tendencies arise whenever needs exceed what is possible. They principally take the form of exploitation, harming both oneself and others.
+All harmful tendencies take effect when the needs one adopts exceed available opportunity (possibility). They principally take the form of exploitation, harming both oneself and others.
 
-Body, mind, and wealth—the means—define the opportunities available.
+The means—body, mind, and wealth—constitute opportunity.
 
-Means prove insufficient when needs are unrestrained and abundant when needs are restrained. Unrestrained needs entail waste.
+It is natural for means to be insufficient when needs are unrestrained and abundant when needs are restrained. Unrestrained needs entail waste.
 
 Humaneness alone provides the guiding principle of restraint.
 
-Form, strength, intellect, status, wealth, karma, worship, necessity, occasion, and opportunity all have their proper place in the human being.
+Form, strength, intellect, status, wealth, karma, upasana, necessity, occasion, and opportunity all have their proper place in the human being.
 
-Assurances never put into practice, rights exceeding merit, scripture without principle, method without basis, and conduct without direction are all causes of distress.
+Assurances never put into practice, rights exceeding ability, scripture without principle, method without basis, and conduct without direction are all causes of distress.
 
 Methods rest on three bases: (1) truth, (2) karma, and (3) objects.
 
-When laws and regulations are grounded in scripture that clarifies truth, they enable human beings to attain happiness, peace, contentment, and joy—the thread of glory natural to humaneness and higher humaneness.
+When laws and regulations are grounded in scripture capable of clarifying truth as their basis, human beings attain happiness, peace, contentment, and joy—the thread of glory natural to humaneness and higher humaneness.
 
-Law, regulation, and policy grounded in truthfulness unite the international order. They bind states and nations through coexistence and make possible a human life free from individualism, communalism, and factionalism.
+Law, regulation, and policy grounded in truthfulness unite the international order. They bind states and nations in continuous coexistence and make possible a human life free from individualism, communalism, and factionalism.
 
 [p. 15]
 
-In a system governed by laws and regulations grounded in karma, exchange is free from calculations of gain and loss for oneself or others. It is not, however, free from group sentiment.
+In a system governed by laws and regulations grounded in karma, exchange is free from gain and loss for oneself or others. It is not, however, free from class-sentiment.
 
-In a system whose laws and regulations are object-based, considerations of gain and loss dominate. Society itself is not accounted for; the community sets the limit.
+In a system of governance whose laws and regulations are based on objects, there is gain and loss for oneself or others. It offers no account of society; the community is its limit.
 
-Every action guided by wise reflection and the aspiration for upasana is beneficial at every level.
+Every action guided by wise reflection and the desire for upasana is beneficial at every level.
 
 The capacity for the holistic view rests on awakening, which rests on aspiration and conduct. Aspiration and conduct rest on education and study; education and study on orderliness; and orderliness, in turn, on the capacity for the holistic view and understanding.
 
@@ -702,119 +702,121 @@ Human action, from beginning to end, seeks one of three kinds of result.
 
 Every action serves self-interest, the interests of others, or the ultimate good.
 
-When generative intellect is joined with mediating intellect, it engages in righteous action. Within humaneness, this frees the whole range of action from contradiction. Conduct according to the "rule-trio" is the direct evidence of this.
+Mediating intellect is inclined toward union; generative intellect is inclined toward righteous action. Within humaneness, the whole diversity of karma becomes free from contradiction. Conduct according to the "rule-trio" is the direct evidence of this.
 
 In every union and separation, values are recognised and deployed.
 
-Union gives rise to sentiment, sentiment to activity, and activity to union. This is the cycle of relativity and behaviour.
+Conjunction gives rise to sentiment, sentiment to activity, and activity to conjunction. This is the cycle of relativity and behaviour.
 
-The ability to identify and practise social values distinguishes a socially fulfilled person from an asocial one, thereby indicating either human development or decline.
+The capacity to determine and uphold social values distinguishes people with full sociality from those marked by asociality. This indicates human decline or development.
 
 [p. 16]
 
-Mutual relations give rise to higher and lower forms of affective activity, through which the level of development becomes known.
+Mutual relations give rise to higher and lower forms of sentiment-based activity, through which the level of development becomes known.
 
-Universal wellbeing requires families guided by higher sentiments, a society structured by the generative–mediating union, and orderliness and conduct structured by the mediating–generative union.
+Families guided by higher sentiments, a society based on generative–mediating union, and a system of orderliness and behaviour based on mediating–generative union constitute the programme of universal wellbeing.
 
-Righteous action cannot be determined without a clear capacity for the holistic view. This capacity alone determines generative, degenerative, and mediating activity, process, and purpose. It also establishes completeness in conduct, behaviour, orderliness, and the education system.
+Righteous action cannot be determined without a clear capacity for the holistic view. This capacity determines generative, degenerative, and mediating activity, process, and purpose. It also establishes completeness in conduct, behaviour, orderliness, and the education system.
 
-Behaviour requires knowledge, wisdom, and science. Production requires science guided by wisdom, with wisdom itself grounded in knowledge. Each awakened individual manifests and applies them according to their capacity and needs.
+Behaviour requires knowledge, wisdom, and science. Production requires wisdom aligned with knowledge, and knowledge informed by science aligned with wisdom. Such knowledge is manifested and applied according to each awakened individual's capacity and needs.
 
-Practical values can be determined only through deliberation grounded in the immortality of jeevan, the mortality of the body, and the rules of behaviour.
+Practical values are determined through analysis. Such analysis accords with the immortality of jeevan, the mortality of the body, and the rules of behaviour.
 
-Practical values acquire meaning only within humaneness. It is on this basis that the rule-trio (intellectual, social, and natural) has been established.
+Practical values are meaningful in humaneness. On this basis, the rule-trio—intellectual, social, and natural—is established.
 
-Conduct and observance within the natural mutuality of human beings are meaningful through coexistence; through non-coexistence, they become meaningless and problematic.
+Conduct and fulfilment within human mutuality are meaningful through the coexistential method; through the non-coexistential method, they are meaningless and problematic.
 
-Humane conduct is the direct expression of genuine capacity for knowledge.
+Humane conduct is the direct expression of the capacity for true knowledge.
 
-Understanding is the natural disclosure of knowledge within mutuality.
+The capacity to understand is the natural unveiling of knowledge within mutuality.
 
-Understanding is expressibility (*vyanjaniyata*). A unit's fundamental expressibility lies in its inseparable relation to Omnipotence; experiencing that relation is complete expressibility. *Sanskar* is the qualitative refinement of the conscious unit's capacity for expression. This also encompasses the capacities for holistic vision and realisation.
+The capacity to understand is impressionability (*vyanjaniyata*). A unit's fundamental impressionability lies in its saturation in Omnipotence; experiencing this saturation is complete impressionability. Qualitative refinement of the conscious unit's capacity for impression is *sanskar*. This is the capacity for the holistic view and for
 
 [p. 17]
 
-The holistic view of measure and boundary, and realisation in truth, are well known. The development of expressive capacity makes both the progression toward awakening and awakening itself evident.
+realisation. The holistic view of measure and boundary, and realisation in truth, are well known. The progression of impressionability makes both the awakening progression and awakening evident.
 
 The human being is manifest within coexistence as both beholder and beheld; this is the ground of the holistic view.
 
-For anything to be manifested as evidence, a beholder must be present. Expressive capacity establishes the beholder.
+A beholder must be present for a manifestation to be evidenced. The beholder is established through the capacity for impression.
 
 Nature is the collection of infinite units—the totality of what is beheld.
 
-Every beholder is also beheld by another beholder, and every unit is a beholder according to its own awakening.
+Every beholder is also beheld by another beholder. Every unit is a beholder in accordance with its awakening.
 
 The programme and conduct of human jeevan, from beginning to end, are of three kinds: (1) truth-conduct, (2) popular-conduct, and (3) object-conduct. These are reckoned, respectively, as best, middling, and worst.
 
-Humane conduct directly evidences ascertainment. Ascertainment appears as disencumberance (*nivṛtti*), which initiates the following progression: disencumberance leads to impetus and wisdom; these to accordance and adherence; these to unveiling; unveiling to manifestation; manifestation to the evident; the evident to evidence; evidence to experiencing; experiencing to capacity, ability, and receptivity; these to state-fullness; state-fullness to potency; potency to glory; and glory to conduct.
+Humane conduct is the natural evidence of conception. Conception becomes evident in disencumberance (*nivṛtti*). Disencumberance is impetus and wisdom; impetus and wisdom are accordance and adherence; accordance and adherence are unveiling; unveiling is manifestation; manifestation is the evident; the evident is evidence; evidence is experiencing; experiencing is capacity, ability, and receptivity; these are state-fullness; state-fullness is sustainment; sustainment is grandeur; and grandeur is conduct.
 
-Seer-status corresponds to the capacity for the holistic view, and behaviour accords with it. Without thought, no work or behaviour is accomplished or evidenced through the body. Thought therefore lies at the root of all activity carried out through the body. The body is not thought; it is the medium through which thought is propagated. Thought is thus additional to the body and is a conscious activity.
+Seer-status corresponds to the capacity for the holistic view, and behaviour accords with it. Without thought, no work or behaviour is accomplished or evidenced through the body. Thought therefore lies at the root of all activity carried out through the body. The body is not thought; it is the medium through which thought is propagated. Thought is thus distinct from the body and is a conscious activity.
 
-Ideational capacity is present at all five levels of human organisation; for this reason, all human beings are equal in capacity.
+Ideational capacity is present in all five human states.
+
+Therefore, all human beings are equal in capacity.
 
 [p. 18]
 
-The true path and the auspicious study of yoga are established means of refining ideational capacity. Consciousness-development-value education brings a qualitative transformation in *sanskar*; this is universally auspicious and, in turn, refines ideational capacity. This progression forms a complete orderliness until it is fulfilled through humane and higher-humane conduct. It succeeds through the observance, adherence, and cultivation of the "rule-trio"; otherwise it fails.
+The true path and the auspicious study of yoga are established means of refining ideational capacity. Consciousness-development-value education brings a qualitative transformation in *sanskar*; this serves universal wellbeing. This, in turn, is ideational capacity. This progression forms a complete orderliness extending to humane and higher-humane conduct. It succeeds through the observance, adherence, and cultivation of the rule-trio; otherwise it fails.
 
-The study of yoga is the practice of meeting. Once such meeting occurs, acceptance appears as jeevan-awakening, while distortion appears as inhumaneness.
+The study of yoga is the study of meeting. After such meeting, acceptance appears as jeevan-awakening, while distortion appears as inhumaneness.
 
-Every person strives for full awareness, which is expressed in humane conduct. Humaneness and higher humaneness are the fulfilment of complete orderliness.
+Every human being strives for full awareness. Humane conduct is its direct expression. Humaneness and higher humaneness constitute complete grandeur through orderliness.
 
-The programme of jeevan is karma, and karma finds expression in conduct.
+The programme of jeevan is karma, and this itself is conduct.
 
-In a humane person, conduct is directed toward prosperity, art, and understanding.
+In a humane person, conduct is directed toward prosperity, art, and enlightenment.
 
-Humane and divine-humane human beings display conduct grounded in true comprehension and naturalness; this is their essential nature.
+Conduct directed toward enlightenment of truth and naturalness is evident in humane and divine-humane human beings; this is their essential nature.
 
 Only humane and higher-humane conduct is truly useful and necessary for human beings.
 
-The five levels of human organisation complement one another. Their unifying thread is undivided sociality, arising from universal observance of the "rule-trio."
+The five human states complement one another. Their unifying thread is undivided sociality. This arises from universal observance of the rule-trio.
 
-Every discovery and investigation begins as an individual unveiling and becomes universally accessible through education and propagation. This is the process of universal generalisation.
+Every discovery and exploration begins as an individual unveiling and becomes accessible to all through education and propagation. This is the process of universal generalisation.
 
 [p. 19]
 
-A discovery reveals the potency and glory of something not previously understood clearly by humankind. In this sense, and relative to what human communities understood before 2000, Madhyasth Darshan is both a discovery and an investigation.
+A discovery concerns that which has sustainment and grandeur but was not previously known clearly to humankind. In comparison with the understanding present in human communities before the year 2000, Madhyasth Darshan is a discovery and an exploration.
 
-Discovery is the manifestation of what exists within, arises from, and serves coexistence. Education—specifically, consciousness-development-value education—is the process by which a discovery becomes universally accessible.
+Discovery is manifestation in, from, and for coexistence. Education is the process of generalising a discovery; this is consciousness-development-value education.
 
-The human being has as much scope for decline as for ascent. Decline-oriented activity is offence or error, manifested as sorrow, disquiet, discontent, and the delusion of non-coexistence.
+Human beings have as much opportunity for decline as for advancement. Decline-oriented activity is offence or error. Its direct manifestations are sorrow, disquiet, discontent, and the delusion of non-coexistence.
 
-In a life oriented toward decline, wrongdoing has three causes: (1) deficiency, (2) excessive hope, and (3) ignorance. Attachment, malice, untruth, conceit, fear, indolence, disease, and failure accompany them. Human beings have the opportunity to remove, resolve, or avoid these in sequence: deficiency through production and practice; excessive hope through wisdom; ignorance through knowledge; attachment through dispassion; malice through affection; untruth through truth; conceit through simplicity; fear through fearlessness; indolence through endeavour; failure through valour and renewed application; and disease through medicine, diet, and regimen. Having this opportunity is itself a human necessity.
+In a life oriented toward decline, wrongdoing has three causes: (1) deficiency, (2) excessive expectation, and (3) ignorance. Attachment, malice, untruth, conceit, fear, indolence, disease, and failure accompany them. There is a provision for resolving and removing these: deficiency through production and practice; excessive expectation through wisdom; ignorance through knowledge; attachment through dispassion; malice through affection; untruth through truth; conceit through simplicity; fear through fearlessness; indolence through initiative; failure through valour and renewed application; and disease through medicine, diet, and regimen. This is an occasion for human beings and is itself a necessity.
 
 Using scientific capacity without waste prevents wealth from becoming a source of calamity.
 
-Applying wisdom establishes social wholeness—the condition described as heavenliness.
+Applying wisdom establishes an undivided society; this is heavenliness.
 
-Science—proficiency and skill—is the capacity to measure and regulate forms of nature less developed than the human being. It is fully useful in production and partly useful in behaviour. Wisdom, by contrast, clarifies social values through analysis of the human self.
+Science—proficiency and skill—is the capacity to quantify and regulate what is less developed than the human being. It is fully useful in production and partly useful in behaviour. Wisdom clarifies social values through analysis of the human self.
 
 [p. 20]
 
-Within coexistence, knowledge is what is beheld, the human being is the beholder, and human-ness provides the way of seeing. Thus knowledge, behaviour, and resolution are evidenced within coexistence, and orderliness follows.
+In coexistence, knowledge is what is seen, the human being is the seer, and the perspective is based on humaneness. Knowledge, behaviour, and resolution are thus evidenced in coexistence; consequently, orderliness is evidenced.
 
-Practical values are enduring values.
+Practical values are stable values.
 
-Relationships and contacts create occasions for human behaviour.
+Human beings have opportunities for behaviour throughout their relationships and contacts.
 
 There is no contact or relationship devoid of value.
 
-Every mutual relationship carries expectations; these arise from relationality and necessity.
+Every mutual relationship includes expectations. Fundamentally, this is relativity; this is necessity.
 
-Direct perception, inference, and testimony-activity are distinguished according to what can be apprehended through knowledge and sight.
+Direct perception, inference, and testimony-activity (*agam kriya*) are classified and determined according to what is accessible to knowledge and sight.
 
-Direct perception is the realisation of continuous proximity; inference is recognising the possibility of such continuity; testimony-activity concerns existence beyond what proximity alone can establish.
+Direct perception is the realisation of continuity in proximity. Inference is the possibility of continuity in proximity. Testimony-activity is existence beyond the possibility of proximity.
 
-The infinitude of nature and the completeness of Omnipotence provide evidence of an existence that exceeds inference.
+The infinitude of nature and the completeness of Omnipotence provide evidence of existence beyond inference.
 
-Direct perception operates at three levels: gross, subtle, and causal.
+Direct perception takes gross, subtle, and causal forms.
 
-The gross is directly perceptible to ordinary intellect, the subtle to special intellect, and the causal to particular intellect. On this basis, inference and testimony-activity are likewise established in gross, subtle, and causal forms. Form and property are gross; property and essential nature are subtle; essential nature and dharma are causal. Therefore:
+The gross is directly perceptible to ordinary intellect, the subtle to special intellect, and the causal to particular intellect. On this basis, inference and testimony-activity are also established in gross, subtle, and causal forms. Form and property are gross; property and essential nature are subtle; essential nature and dharma are causal. Therefore:
 
-In behaviour and production, action follows three modes: (1) independent, (2) imitative, and (3) adherent.
+In behaviour and production, tendencies take three forms: (1) independent, (2) imitative, and (3) adherent.
 
-Independent activity operates in areas where the person possesses expertise.
+Independent tendencies are active in areas where the person possesses expertise.
 
-Those who wish to become expert engage in imitative activity.
+Those who wish to acquire expertise engage in imitative tendencies.
 
 [p. 21]
 
@@ -834,13 +836,13 @@ Fear obstructs the development of the capacity required for spiritual experienci
 
 The wastage of natural splendour causes seasonal imbalance, from which distress arises.
 
-Contentment with one's own wealth and spouse, together with kindness in work, behaviour, and conduct, brings social happiness and balance. Non-accumulation (prosperity), affection, learning, and simplicity bring intellectual happiness; fearlessness brings the experiencing of spiritual joy. Together, these are the purpose, thought, and experiencing of the person's physical, intellectual, and spiritual dimensions. They also provide the unifying thread, balance, resolution, and prosperity of the individual, family, society, nation, and international order. This is the universal aspiration for equilibrium.
+Righteous wealth and marital faithfulness, together with kindness in work, behaviour, and conduct, bring social happiness and balance. Non-accumulation (prosperity), affection, learning, and simplicity bring intellectual happiness; fearlessness brings the realisation of spiritual joy. Together, these are the purpose, thought, and experiencing of the person's physical, intellectual, and spiritual dimensions. They also provide the unifying thread, balance, resolution, and prosperity of the individual, family, society, nation, and international order. This is the universal aspiration for equilibrium.
 
 [p. 22]
 
-Through all its actions, humanity has sought to experience establishment in truth, steadfastness in dharma, continuity in justice, and the usefulness of things. This aspiration has produced truth-oriented, dharma-oriented, justice-oriented, and object-oriented endeavours.
+Through all its actions, humanity has sought to realise establishment in truth, steadfastness in dharma, continuity in justice, and the usefulness of things. This aspiration has produced truth-oriented, dharma-oriented, justice-oriented, and object-oriented endeavours.
 
-Establishment consists in controlling, acquiring, using, and rightly using physical substances; sustaining social values and conduct; and comprehending and realising truthfulness and truth. Without these, the human being is neither satisfied nor free from delusion.
+Establishment consists in controlling, acquiring, using, and rightly using physical substances; sustaining social values, conduct and their continuity; and attaining enlightenment and realisation of truthfulness and truth. Without these, the human being is neither satisfied nor free from delusion.
 
 The following are well known: wealth acquired through production and service; prosperity through the right-use of wealth; balance through restrained use and right-use; resolution through universal dharma; and realisation and joy through truth and truthfulness.
 
@@ -848,63 +850,63 @@ Experiencing joy is an eternal establishment. Conduct, behaviour, orderliness, m
 
 Activity, karma, substance, process, result, and powers are mutually complementary. Activity is substance; substance is process; process is result; result is powers; and powers are activity and karma. All are evident in substance.
 
-Effort, motion, and result-fullness belong to activity; projection belongs to karma; meaningfulness to status; development to process; and usefulness to result. Wave, pressure, and effect reveal the state in which power is present. They are projections or transformations occurring within the bounds of substance.
+Effort, motion, and continually arising results characterise activity; its projection characterises karma; meaningfulness characterises status; development characterises activity; and usefulness characterises result. Wave, pressure, and effect reveal the state in which power is present. They are projections or transformations occurring within the bounds of substance.
 
-In relative form, material powers are state-bound; conscious powers are state-bound in the form of expectation. In absolute form, the Spirit–Omnipotence is complete in itself.
+In relative form, material powers are state-dynamic; conscious powers are state-dynamic in the form of expectation. In absolute form, the Spirit–Omnipotence is state-complete.
 
 Material powers are known as heat, light, electricity, attraction, and sound; conscious powers as hope, thought, desire, resolve, and experiencing. The Spirit—absolute Omnipotence—is the foundation sustaining insentient and sentient nature.
 
 [p. 23]
 
-In mediating activity, comprehension and experiencing occur within natural Omnipotence.
+In mediating activity, enlightenment and experiencing occur within natural Omnipotence.
 
 *Atma* is the mediating activity, and Omnipotence is the mediating reality.
 
 Material powers are principally kinetic; conscious powers are awareness-endowed.
 
-Sensation is the capacity to apprehend absence, presence, and the dissolution of absence. In sequence, absence is felt as pain; presence as humane sensation; and the dissolution of absence as responsive address. This is right comprehension and a precursor to realisation.
+Sensation is the capacity to accept absence, presence, and the disappearance of absence. In sequence, absence is felt as pain; presence as humane sensation; and the disappearance of absence as responsive address. This is right enlightenment and a precursor to realisation.
 
-Application and production transform absence into presence. Conduct, behaviour, and orderliness bring presence to its natural completeness; presence itself is the dissolution of absence.
+Application and production transform absence into presence. Conduct, behaviour, and orderliness bring presence to its natural completeness; presence itself is the disappearance of absence.
 
 Presence is fundamental distinctiveness, value, and meaning.
 
-The complete meaning of every meaning is realisation. Without awareness, value, presence, and fundamental distinctiveness cannot be determined. Awareness makes it possible to decide and deliberate about direction, time, measure, motion, use, destination, union, separation, decline, awakening, propriety, impropriety, and permitted or prohibited modes of existence. Until such understanding can be taught universally and fully assimilated, doubt, dispute, and delusion persist, leaving the way open to factionalism and conflict.
+The complete meaning of every meaning is realisation. Without awareness, value, presence, and fundamental distinctiveness cannot be determined. Awareness makes it possible to decide and deliberate about an existent state: its direction, time, measure, motion, use, destination, union, separation, decline, awakening, propriety, impropriety, and what is prescribed or prohibited. Until such understanding can be taught universally and fully assimilated, doubt, dispute, and delusion persist, leaving the way open to factionalism and conflict.
 
 Decisive capacity works through causes, properties, and calculation; deliberative capacity is expressed as full awareness of the immortality of *atma*, the mortality of the body, and the rules of behaviour.
 
 Conscious powers are far more capable than material powers. The direct evidence is that no activity can be accomplished through the human body in their absence.
 
-The human being expends more power than can be accounted for by the fuel supplied to the body.
+The human being releases a greater measure of power than the fuel supplied to the body.
 
 [p. 24]
 
-The five conscious powers can be understood and experienced only through their mutual relations. The hope-endowed mind (*mun*) experiences thought-endowed *vritti*; *vritti* beholds the mind and experiences desire-endowed *chitta*; and *chitta* beholds *vritti*.
+The capacity of the five conscious powers is evaluated and realised through their mutual relations. The hope-endowed mind (*mun*) realises thought-endowed *vritti*; *vritti* beholds the mind and realises desire-endowed *chitta*; and *chitta* beholds *vritti*.
 
-Within coexistence, auspicious desire in *chitta* and true resolve in *buddhi* testify to the awakening of the realisation-fulfilled *atma*. The *atma* beholds resolve-endowed *buddhi*. Together they constitute realisation and complete awakening.
+Chitta endowed with auspicious desire, buddhi endowed with true resolve, and atma fulfilled in the realisation of coexistence are the evidence of awakening. The realisation-fulfilled *atma* beholds resolve-endowed *buddhi*. This is the whole of realisation and complete awakening.
 
 The more-awakened beholds the less-awakened; the less-awakened recognises the more-awakened. Therefore the awakened human being recognises the seeker of awakening, and the seeker recognises the awakened.
 
-The awakened person trusts the seeker, and the seeker accepts the awakened person's discipline.
+The awakened person trusts the seeker, and the seeker maintains discipline in their association with the awakened person.
 
 Only human jeevan displays the distinctions of gross, subtle, and causal life. Across these three states, human beings seek happiness, peace, contentment, and joy.
 
-At the gross level, human beings seek happiness and peace; at the subtle level, peace and contentment; and at the causal level, joy and supreme joy. Awakening is the natural evidence of these attainments. The comprehensive programme that fulfils these expectations is awakening, comprising physical, intellectual, and spiritual attainment. It succeeds only through a humane and higher-humane programme.
+At the gross level, human beings seek happiness and peace; at the subtle level, peace and contentment; and at the causal level, joy and supreme joy. Awakening is the natural evidence of these attainments. The comprehensive programme aligned with these expectations is awakening, comprising physical, intellectual, and spiritual attainment. It succeeds only through a humane and higher-humane programme.
 
-The powers of insentient and sentient nature operate only through origination, potency, and dissolution; property has no other mode of operation.
+The powers of insentient and sentient nature operate only through origination, sustainment, and dissolution; property has no other mode of operation.
 
-Every such deployment is ultimately directed toward complete awakening.
+The aim of every deployment, from beginning to end, is complete awakening.
 
 A unit's capacity for responsive address emerges with the natural completeness of its awakening.
 
 [p. 25]
 
-Among origination, potency, and dissolution, potency alone is universally acknowledged; its fullness is attained only in complete awakening. Prior to that, union, separation, and conjunction govern relative behaviour, karma, and activity. These states mark the natural progression toward awakening.
+Among origination, sustainment, and dissolution, sustainment alone is universally acknowledged; it is established only in complete awakening. Prior to that, union, separation, and conjunction govern relative behaviour, karma, and activity. These states mark the natural progression toward awakening.
 
 Karma inevitably bears results, and a deluded person becomes subject to its consequences. This universal law makes freedom from delusion about action and its result-bearing nature imperative.
 
-Actions performed in delusion and their results generate doubt, apprehension, and ignorance, though human beings desire none of these within themselves, from others, or toward others.
+In a deluded state, human beings are uncertain, apprehensive, and ignorant about their karma and its results, although none of these conditions is desired in, from, or for human beings.
 
-When property operates through potency, it is mediating; through dissolution, degenerative; and through origination, generative. These correspond respectively to karma directed toward the ultimate good, self-interest, and the interests of others. In behaviour, they become evident in the undeluded, deluded, and deluded-undeluded conditions.
+When property operates through sustainment, it is mediating; through dissolution, degenerative; and through origination, generative. These correspond respectively to karma directed toward the ultimate good, self-interest, and the interests of others. In behaviour, they become evident in the undeluded, deluded, and deluded-undeluded conditions.
 
 The generative, degenerative, and mediating powers are, in sequence, *rajoguna*, *tamoguna*, and *sattvaguna*.
 
@@ -914,15 +916,15 @@ A person endowed with *rajoguna* makes right-use of science together with patien
 
 A person endowed with *tamoguna* wastes scientific capacity and exhibits envy, malice, conceit, and egotism.
 
-Human beings uphold individual and collective dharma by aligning method, orderliness, thought, conduct, behaviour, education, direction, karma, and social systems with truth.
+Human beings uphold individual and collective dharma by living in accordance with truth-related method and orderliness, thought, conduct, behaviour, education, direction, karma, and methods.
 
 [p. 26]
 
-When human beings uphold their own dharma, it manifests as wholeness, universality, and boundlessness. It encompasses coexistence, sociality, prosperity, balance, control, restraint, fearlessness, non-disparity, simplicity, and generosity. It sustains enduring social values such as kindness, affection, generosity, pride, respect, tenderness, reverence, love, and gratitude. This is humanity's abiding aspiration and the full realisation of healthy sociality.
+When human beings uphold their own dharma, it manifests as wholeness, universality, and boundlessness. It encompasses coexistence, sociality, prosperity, balance, control, restraint, fearlessness, non-disparity, simplicity, and generosity. It sustains enduring social values such as kindness, affection, generosity, glory, respect, guidance, reverence, love, and gratitude. This is humanity's abiding aspiration and the complete attainment of healthy sociality.
 
-World peace becomes possible when righteous individuals are numerous, awakened people cooperate and offer encouragement, education and protection are sound, and circumstances are favourable. The opposite conditions produce unrest.
+Cooperation and encouragement from awakened human beings, sound education and protection, and favourable circumstances—all directed toward increasing the number of people of righteous character—constitute the evident form of world peace. The opposite conditions are unrest, as is clear.
 
-Righteous character consists in observing the "behaviour-trio." It confers dignity across the five levels of human organisation and establishes natural fidelity, allowing science and wisdom to reach fulfilment. A sound system of orderliness and education can then become effective.
+Righteous character consists in observing the "behaviour-trio." It confers dignity across the five human states and establishes natural dedication, allowing science and wisdom to reach fulfilment. A sound system of orderliness and education can then become effective.
 
 The "behaviour-trio" comprises the physical, vocal, and mental conduct of an awakened human being.
 
@@ -930,15 +932,15 @@ Result, refinement, and change occur in five contexts:
 
 (1) existence as coexistence, (2) development progression, (3) development, (4) awakening progression, and (5) completeness of awakening.
 
-The material order fulfils its purpose through results that sustain the existent state. The biological order does so through pulsation, growth, and the complementarity of living compositions. The animal order sustains the existent state through change, result, and the will to live. The human being belongs to the knowledge order, whose tradition advances through refinement toward awakening and complete awakening.
+The material order fulfils its purpose through result, complementing the existent state. The biological order fulfils its purpose through result, with pulsation and nourishment, through composition and complementarity in the existent state. The animal order fulfils its purpose through change, result and the hope to live, complementing the existent state. The human being belongs to the knowledge order, whose tradition advances through refinement toward awakening and complete awakening. This is evidenced as complementarity within the existent state.
 
-A life governed by enjoyment and a culture of excessive enjoyment leave people unable to attain health or educate the next generation toward conduct-based awakening. This pressing fact makes the transformation and refinement of thought essential. Enjoyment is not the basis of culture.
+In a life governed by enjoyment and excessive enjoyment, human beings cannot attain health themselves or educate the next generation toward conduct-based awakening. This pressing fact is the principal reason for transforming and refining thought. Enjoyment is not the basis of culture.
 
 [p. 27]
 
-Without culture, civilisation, methods, and systems of order remain uncertain. The consequences appear as vexation, anguish, agitation, anger, indignation, conflict, rivalry, terror, fear, and distress—none of which human beings desire. Human beings are therefore compelled to move toward what they truly desire. This opens the way to transforming and refining thought and to developing *sanskar* qualitatively.
+Without culture, civilisation, methods, and systems of order remain uncertain. The consequences appear as frustration, anguish, excitation, anger, indignation, conflict, rivalry, terror, fear, and distress—none of which human beings desire. Human beings are therefore compelled to move toward what they truly desire. This opens the way to transforming and refining thought and to developing *sanskar* qualitatively.
 
-Qualitative development in *sanskar* becomes evident through observance of the "rule-trio." Through this method, a restrained tendency capable of sustaining social values becomes part of one's natural essential nature. Such restraint directly evidences universal orderliness and is verified in life.
+Qualitative development in *sanskar* becomes evident through observance of the "rule-trio." Through this method, the capacity to sustain social values through a restrained tendency becomes established in one's essential nature. Such restraint directly evidences universal orderliness and is verified in life.
 
 This is also the universal aspiration.
 
@@ -948,27 +950,27 @@ Every accomplishment arises through application, behaviour, and realisation.
 
 A life governed by enjoyment produces animalistic and demonic human conditions.
 
-A life governed by refined thought produces awakened and divine human conditions.
+A life governed by thought produces awakened and deific-human conditions.
 
 For the divine human, no further result, refinement, or transformation remains; the destination has been reached, and only continuity remains.
 
-A capacity informed by science and wisdom alone can infer the following nested sequence: substance has form; form contains property; property contains effect; effect contains essential nature; essential nature contains capacity; capacity contains motion; motion contains method; method contains orderliness; orderliness contains sovereignty; sovereignty contains Omnipresence; Omnipresence contains potency; potency contains the world; and Omnipotence contains the universe. This is the attainment of the capacity for refinement. Inference precedes evidence.
+A capacity informed by science and wisdom alone can infer the following nested sequence: substance has form; form contains property; property contains effect; effect contains essential nature; essential nature contains capacity; capacity contains motion; motion contains method; method contains orderliness; orderliness contains absoluteness; absoluteness contains Omnipresence; Omnipresence contains sustainment; sustainment contains the world; and Omnipotence contains the world. This is the attainment of the capacity for refinement. Inference precedes evidence.
 
 [p. 28]
 
-Science can be applied toward ascent or decline, whereas wisdom operates only toward ascent. Telecommunication illustrates the upward application of science; mechanised systems of warfare illustrate its downward application. Mineral coal, mineral oil, and radioactive substances used as fuel lie at the root of pollution on earth. When scientific power is applied under the guidance of wisdom, it causes neither fear nor terror nor any other harmful outcome. No harmful effect arises when its purpose accords with wisdom.
+Science can be applied toward ascent or decline, whereas wisdom operates only toward ascent. Telecommunication illustrates the upward application of science; mechanised systems of warfare illustrate its downward application. Mineral coal, mineral oil, and radioactive substances used as fuel lie at the root of pollution on earth. When scientific power aligned with wisdom is correctly applied, harmful events such as fear and terror do not occur. No harmful effect arises when its purpose accords with wisdom.
 
-A wisdom-filled capacity may or may not arise, but once present it is not wasted. Scientific capacity, by contrast, may either be wasted or rightly used. Science is therefore governed by wisdom, not by science alone.
+A wisdom-filled capacity may or may not arise, but once present it is not wasted. Scientific capacity, by contrast, may either be wasted or rightly used. Science is therefore governed by wisdom, not by science itself.
 
 Progress toward development is upward-facing; compulsion toward decline is downward-facing.
 
 Every stage of development leads toward a further stage and therefore points beyond itself.
 
-Progress toward development brings enthusiasm, delight, and joy; movement toward decline brings dejection, discouragement, helplessness, and distress.
+Progress toward development brings enthusiasm, happiness, and joy; movement toward decline brings dejection, discouragement, helplessness, and distress.
 
-Science directed upward expresses pure *rajoguna* together with *sattvaguna* and works toward the fulfilment of potency; this is science's true purpose. Science directed toward destruction and excessive enjoyment expresses tainted *rajoguna* together with *tamoguna* and constitutes its complete misuse.
+Science directed upward expresses pure *rajoguna* together with *sattvaguna* and serves sustainment; this is science's actual fulfilment. Science directed toward destruction and excessive enjoyment expresses tainted *rajoguna* together with *tamoguna* and constitutes its complete misuse.
 
-An upward-oriented life is expressed in the humane human being and culminates in complete awakening. It embodies kindness, simplicity, sacrifice, austerity, benevolence, truth, non-violence, non-stealing, non-possession, and dignity, bringing wellbeing to oneself and others.
+The humane human being and a greater orientation toward awakening are expressions of an upward-oriented life. It embodies kindness, simplicity, renunciation, austerity, benevolence, truth, non-violence, non-stealing, non-possession, and glory, bringing wellbeing to oneself and others.
 
 [p. 29]
 
@@ -980,11 +982,11 @@ No relationship can succeed without trust, and no karma can be fulfilled outside
 
 Trust alone enables social values to be lived successfully.
 
-Just behaviour, thought grounded in resolution, and a life grounded in true realisation are free from affliction; together they constitute universal wellbeing.
+Just behaviour, thought grounded in resolution, and a life fulfilled in Experiencing Truth are free from affliction; together they constitute universal wellbeing.
 
-Only science applied under the guidance of wisdom can make every stage of human life wholly beautiful. Such an orientation to karma and such attainment benefit all humankind and constitute universal wellbeing.
+Only science applied under the guidance of wisdom can make life in every human state wholly beautiful. Such an orientation to karma and such attainment benefit all humankind and constitute universal wellbeing.
 
-A tradition of karma informed by wisdom and by science grounded in knowledge benefits the whole world. This is humanity's abiding hope and aspiration, as well as its necessity and opportunity.
+A tradition of karma endowed with wisdom and science, both aligned with knowledge, alone constitutes karma for universal wellbeing. This is humanity's abiding hope and aspiration, as well as its necessity and occasion.
 
 "May there be universal wellbeing; may there be everlasting wellbeing."
 
@@ -1004,7 +1006,7 @@ Jeevan goal: — happiness, peace, contentment, joy
 
 Upasana is an important part of human jeevan. It is the process of refining and transforming the fundamental tendencies, and this study also transforms *sanskar* and essential nature.
 
-Upasana naturally conceives togetherness attained through proper means, requiring diligence (*pariśram*) and practice. Through practice, diligence, and study, the veracity of the gross, subtle, and causal becomes clear. Research into the relevant matter, the course of destiny, power, magnificence, special powers, and their governing rules—conceived through *anugaman* (the path to realisation)—is thereby established. Research differs across the physical, intellectual, and spiritual domains, and manifests directly as ratiocination, contemplation, resolve, and experiencing.
+Upasana is naturally conceived as attaining togetherness through proper means. This requires diligence (*pariśram*, refined effort) and practice. Through practice, diligence, and study, the veracity of the gross, subtle, and causal becomes clear. Research into the relevant matter, the course of destiny, power, magnificence, special powers, and their governing rules—conceived through *anugaman* (the path to realisation)—is thereby established. Research differs across the physical, intellectual, and spiritual domains, and manifests directly as ratiocination, contemplation, resolve, and experiencing.
 
 The gross, subtle, and causal (the Seer) together mean being endowed with the capacity to see, understand, apply, behave, and realise.
 
@@ -2157,100 +2159,125 @@ Those who recognize time in the meaning of past and future — they too recogniz
 
 [p. 135]
 
-we go on fashioning past, future, and present. On the basis of being imaginative and free in action, the human, dividing the duration of a natural activity into many parts, arrives at the place of time-zero. This one small event is extremely easy for the human. Keep dividing one hour by 60; divide 1 out of that again; after doing this several times, upon being asked how much remains, they say: equal to nothing, or nothing. But this very thing became the basis of the human's going astray. That is why, in the age of science, recognizing time became most complicated. It is not possible — so it seems.
+we construct past, future, and present. Through imaginativeness and freedom of action, human beings divide the duration of a natural activity into many parts until they reach a point at which time is taken to be zero. This small operation is extremely easy: divide an hour into 60 parts, then divide one of those parts again. After several such divisions, ask how much remains, and the answer is "almost nothing" or "nothing." Yet this became a basis for human beings to go astray. Recognising time therefore became exceedingly complicated in the age of science; it even seemed impossible.
 
-If the present becomes zero, where is human conduct to be recognized, where is behaviour to be recognized, where is the place for recognizing human knowledge, science, and wisdom? That is why the human, beset with problems, began to bring problems about. He regarded this as his bravery; in this very thing, human tradition has sunk quite far. The way of escape ahead is this alone — coexistence as the ever-present, the eternal manifestation of development and awakening, and, on the basis of recognizing that the human alone is the one who evidences development and awakening — only on this basis will human-aspiration and jeevan-aspiration be able to be fulfilled.
+If the present becomes zero, where can human conduct and behaviour be recognised? Where can human knowledge, science, and wisdom be recognised? Human beings, beset by problems, therefore began to create further problems and regarded this as bravery. Human tradition has become deeply immersed in this. The only way out is to recognise coexistence as the ever-present, development and awakening as eternally manifest, and the human being as the sole bearer of evidence of development and awakening. Only on this basis can human-aspiration and jeevan-aspiration be fulfilled.
 
 ## 3.16 The Human Being as the Combined Form of the Biological Order, the Human Body, and Jeevan
 
-At the root of the biological order, combinative (*yaugik*) method and tendency occur by the self-motivated method. If study is made regarding the favourable circumstance for this, then it appears, in background, that it lies simply in being enriched, in itself, from cosmic rays and from atoms of many species on the earth. If one thinks about the combinative background on this earth, there is no cause greater than this. In maintaining cosmic favourableness, cosmic ray-radiation alone is the one source. Even today this thing is presented right up to this earth's atmosphere. Whatever the ray manages to reach, all of that becomes more evident in the earth's own light. Along with this, heat's relation too is formed with the earth. The earth, and every atom in the earth, is affected; in such a condition, whatever other sources there are, those radiant sources keep up a circulation of radiativeness produced from, or spread from, many earths as an effect of cosmic activities. This is still ongoing even now. Along with this, this earth, on the basis of being enriched with atoms of many species, also has, within itself, a great many radiant substances at work. In this way it has been the background for the whole of combinative activity to occur, through the combination of ray, radiation, and heat. Combinative events, proceeding from the event of water, into acid and
+At the basis of the biological order, combinative (*yaugik*) method and tendency arise by the self-motivated method. If we study the conditions favourable to this, the background appears to consist solely in enrichment through cosmic rays and atoms of many species on the earth. No greater cause appears when we consider the combinative background on this earth. Cosmic rays and radiation are the sole source maintaining favourable cosmic conditions. They are still present as far as the earth's atmosphere. Whatever the rays reach becomes more evident in the earth's own light. Heat, too, stands in relation to the earth.
+
+The earth and all its atoms are affected. In these conditions, other radiant sources continue to transmit radiativeness produced or spread from many earths through the effects of cosmic activities. This continues even now. The earth itself, being enriched with atoms of many species, also contains many active radiant substances. The combination of rays, radiation, and heat thus provides the background for all combinative activity. This may be accepted as the background for possible combinative events, beginning with the formation of water and continuing into acid and
 
 [p. 136]
-alkaline forms — the background of the possibility of such combinative events occurring may be accepted. Because even now, in another form, acid, alkali, and water combining, in various ratio-sequences, various kinds of chemical substance remain ready before us. Whatever became helpful, in these ratios, for change has always been the help of organic and other species' molecule-atoms. In this way acid, alkali, and water, together with these molecule-atoms, have helped in increasing the number of species of chemical substances.
 
-In this way the activity of chemical substances becoming enriched has been occurring on this earth. Out of the union-combination of these chemical substances, the formation of nourishment-elements and composition-elements — this event, being brought forth from the continued combination of radiant rays and heat, is manifest to this very day. It is seen that in the sum of nourishment-element and composition-element, the composition, presentation, and functionality of prana-sutras comes about. It is this very nourishment-element and composition-element which, becoming enriched in themselves, in the form of the prana-sutra and the composition of the prana-sutra — through this same combination of heat, through the combination of radiation, by force of vibration — bring about, in the prana-sutras, the manifestation of the respiration activity together with the composition-method. Immediately after this, the acceptance of the composition-method in the prana-sutras, for the nature of biological cells to be a composition composed from cells, and for such compositions to be diverse, becomes intelligible. After one kind of composition becomes enriched in itself, acceptance in the prana-sutras for a second kind of composition occurs; as a result, compositions of the second kind, and, in this same sequence, other compositions, have already become evident upon this earth. All of these are together with the seed-tree method. In this same sequence, the sequence of the glory of plants, the sequence of the composition and de-composition of plants, and its continuity, are in the form of the existent state.
+alkali forms. Even now, in another form, combinations of acid, alkali, and water in different ratios produce various chemical substances before us. Changes in these ratios have always been assisted by molecules and atoms of organic and other species. In this way, acid, alkali, and water, together with these molecules and atoms, have helped increase the number of species of chemical substances.
 
-The residue of decomposed plants alone became the basis of the sweat-born world. Even today this matter can be tested. Gather leaves together before the rainy season; those very leaves, at the time of rotting, produce a great many worms and insects. These worms and insects prepare the egg-born world. In such an egg-born tradition, it has remained natural for excellence to occur in the biological cells, or there kept being talk of further excellence, and of further species. The egg-born world, becoming abundant, kept establishing itself in the forms of the water-dweller, the land-dweller, and the sky-dweller. From the biological cells of the egg-born world, the biological cells of the womb-born world developed. In this womb-born world, the majority became land-dwellers, whereas in the egg-born world all three — land-dweller, water-dweller, sky-dweller — occurred. Of these, in the egg-born world the sky-dwellers were more numerous; after this, just as
+Chemical substances have thus continued to become enriched on this earth. Their union and combination form nourishment-elements and composition-elements. This formation, brought about by the continuing combination of radiant rays and heat, remains evident today. The combination of nourishment-elements and composition-elements gives rise to the composition, presentation, and functioning of prana-sutras. These same elements become enriched in themselves as prana-sutras and their composition. Through the combination of heat and radiation, and through vibration, they bring about the manifestation of respiration activity together with the composition-method in prana-sutras.
+
+Immediately after this, the form of biological cells as compositions made from cells becomes intelligible, along with the acceptance of the composition-method in prana-sutras that allows such compositions to be diverse. Once one kind of composition becomes enriched in itself, prana-sutras accept a second kind. As a result, compositions of the second kind, followed by other compositions in the same sequence, have become evident on this earth. All of these occur with the seed-tree method. The glory of plants, their composition and decomposition, and the continuity of this sequence are present as the existent state.
+
+The residue of decomposed plants alone became the basis of the sweat-born world. This can still be tested: gather leaves before the rainy season, and those leaves produce many worms and insects as they rot. These worms and insects prepare the egg-born world. In this egg-born tradition, excellence in biological cells remained natural, or further excellence and further species continued to be spoken of. As the egg-born world became abundant, it established itself in water-dwelling, land-dwelling, and sky-dwelling forms. The biological cells of the womb-born world developed from those of the egg-born world. Most of the womb-born world became land-dwelling, whereas the egg-born world included all three: land-dwellers, water-dwellers, and sky-dwellers. Sky-dwellers were more numerous in the egg-born world. Subsequently, as
 
 [p. 137]
 
-the womb-born world too came, land-dwellers became more numerous. In the sky-dweller and water-dweller, the womb-born world obtained fewer species. After this, in this sequence, as many species developed in the womb-born world, the tradition of the human body-composition developed as the final species.
+the womb-born world emerged, land-dwellers became more numerous. Fewer womb-born species were found among sky-dwellers and water-dwellers. In this sequence, many species developed in the womb-born world, culminating in the tradition of human body-composition as the final species.
 
-In human tradition, jeevan and body being in a combined form, activities different from those of animals began to be accomplished by the human being, by force of imaginativeness and freedom-of-action. Such as felling trees, breaking stone, digging soil; and, starting from this, building houses, making clothes, adopting methods different from those of animals in raising children — these kept coming about by the self-motivated method. Of these, in identifiable form, building houses, making clothes, and producing crops came within the affirmative portion. These three kinds of act became entirely distinct from those of animals.
+In human tradition, the human being is the combined form of jeevan and body. Through imaginativeness and freedom of action, human beings began to carry out activities different from those of animals: felling trees, breaking stone, and digging soil; then building houses, making clothes, and adopting ways of raising children different from those of animals. These activities arose by the self-motivated method. Of these, house-building, clothes-making, and crop production became identifiable as the affirmative portion. These three kinds of activity became entirely distinct from those of animals.
 
-Knowledge of body-composition developed alongside these activities. Through the composition-method inherent in prana sutras and biological cells, excellence increased while the human species remained as it actually is (*yathavat*) from the earliest human to its present principal form; human tendency may also have contributed to this ascending sequence. Today, however, knowledge of body-composition, its fundamental process and measurement, disease testing, and the preparation of medicines has become entangled with commerce. This affirmative knowledge has consequently come under the control of a few and created great difficulty for human beings. Reflection on becoming free from this problem is under way.
+The endeavour to gain knowledge of body-composition continued alongside these activities. Through the composition-method inherent in prana-sutras and biological cells, excellence continued to develop from the earliest human to the present principal form, while the human species remained as it is (*yathavat*). Human tendency may also have contributed to this ascending sequence. Today, however, knowledge of body-composition, its fundamental process and measurement, disease testing, and the preparation of medicines have all become entangled with commerce. This affirmative knowledge has consequently come under the control of a few, causing human beings the greatest difficulty. Reflection on becoming free from this problem is under way.
 
-The principal matter is: the tendency of biological cells in body-composition; in body-composition, the coming-together of the biological cells of two species as a festival; as a result, passing through the embryonic state, body-composition — that is, the composition of limbs and organs, hands, feet, and so on; the completion of the infant's composition within the womb by the time five months are complete; the enriched brain system being present when the infant's composition is complete, with a more enriched, more complete brain system than in the animal order becoming ready — this becomes intelligible. In this same period, jeevan's becoming ready to operate the body — the indication of this becoming understood by the woman who is to become a mother; after the birth of the infant, for its care and nourishment, the attention that used to be given a hundred years ago, the attention given fifty years ago, and being able to give even more precise attention today — in today's condition all of this comes within the human being's study.
+The principal issues are the tendency of biological cells in body-composition and, at the basis of that composition, the "festival" (*utsav*) of biological cells of two species. As a result, body-composition proceeds through the embryonic state, forming limbs and organs, hands, feet, and so on. By the end of five months, the infant's composition within the womb is complete. With this completion, an enriched brain system is present, more enriched and complete than that of the animal order. These matters become intelligible. During this same period, jeevan becomes ready to operate the body, and the woman who is to become a mother understands the indication of this readiness. After the infant's birth, the attention given to its care and nourishment a hundred years ago, the attention given fifty years ago, and the greater precision of care possible today all fall within the human being's present study.
 
 [p. 138]
 
-In this, curiosity is formed regarding the tendency in the prana-sutras for diversity in composition — why does it happen, how does it happen? The need to think about this issue does indeed arise in the human being. The principal matter is precisely colour and form, in which diversity comes about. No particular diversity is possible in the limbs and organs. This fact has already been understood through testing and inspection. Today's human being has already come to recognise many kinds of fluid substance with precision. On the basis of their proportional, various deployment, the colour of the body occurs. Taken altogether, colour becomes known from the condition of the biological cell, half-dried and dried, in the upper part of the body. The blood that is under the skin is red in everybody's body. It is from the upper part that colour is known. What the biological cells display after becoming dry is what we come to know as colour. For this reason, recognising the human being on the basis of colour has not been precise in the sense of recognising the human being. For this reason the attempt to recognise humans mutually with precision has continued. It can also be thought that, from a very long time ago, colour remained predominant for mutual recognition, and other bases too kept being sought. Along with this, race too remained very predominant. For a considerable time, humans made the attempt to keep their identity intact by the method predominated by colour and race. Testimony to this is still found here and there. Although, in mental form, from this ground — that is, from the hereditary method of recognition — colour and race have already become dislodged from consideration.
+This raises curiosity about the tendency toward diversity of composition in prana-sutras: why does it occur, and how? Human beings feel the need to consider this question. The principal differences are in colour and form; no particular diversity is possible in the limbs and organs. This has already been understood through testing and inspection. Human beings today can identify many kinds of fluid matter precisely. Their deployment in different proportions gives rise to the body's colour. Overall, colour becomes known from the condition of the partly dried and dried biological cells in the body's outer part. The blood beneath the skin is red in everyone's body; colour is known from the outer part. What biological cells display after drying is what we recognise as colour.
 
-In this sequence, human imaginativeness and freedom-of-action ran to make themselves meaningful in the discipline of knowledge. Then, because of the weakness of not having studied the diversity of the world, while wishing for the inquiry of knowledge, wishing to become knowledgeable, people kept performing all the austerities, means, yoga, and practice proposed for becoming knowledgeable, but remained empty at the place of being evidenced. To obtain consolation in this, scriptures were taken as the basis, as a remedy. In this way religious texts, books, were taken as evidence. That it is the human being who is the one who presents evidence — this was not accepted. The point to note is just this: that if anyone is to present evidence relating to knowledge, science, and wisdom, it will indeed be the human being. From this fact, the world of knowledge-practitioners, or the coming generation, has not been able to be given meaningful evidence.
+Identifying human beings by colour has therefore failed to identify them precisely as human beings. The endeavour to recognise one another precisely has consequently continued. Colour may have predominated in mutual identification from very early times, while other bases were also sought. Race likewise remained predominant. For a considerable time, humans sought to maintain their identity through methods based primarily on colour and race; evidence of this can still be found in various places. In thought, however, there has already been a departure from this hereditary method of identification based on colour and race.
 
-In the coexistentialist viewpoint, the circulation of knowledge, the circulation of wisdom, alone was presented as the principal matter. Without this, deliverance from the clutches of delusion will not be attained. For this very purpose, the beginning of the application of universalisation — right from the beginning, the complete study of knowledge, science, and wisdom, the thread for taking decisions, the explanation of possibility — all these things are contained in the alternative proposal. Here
+In this sequence, human imaginativeness and freedom of action sought fulfilment through the discipline of knowledge. Yet the diversity of the world had not been studied. Despite this limitation, people sought to investigate knowledge and become knowledgeable. They undertook all the proposed austerities, means, yoga, and practices for becoming knowledgeable, but evidence was still lacking. For consolation, they turned to the scriptures as a remedy and a basis. Religious texts and books were thus accepted as evidence. It was not accepted that the human being is the one who presents evidence. The point to recognise is that anyone who presents evidence concerning knowledge, science, and wisdom must be a human being. On this point, meaningful evidence could not be given to the world of knowledge-practitioners or to the coming generation.
+
+From the coexistentialist viewpoint, the circulation of knowledge and wisdom alone was presented as the principal matter. Without this, there can be no freedom from the clutches of delusion. The alternative proposal therefore includes the beginning of the application of universalisation; a complete study of knowledge, science, and wisdom from the outset; the formula for making decisions; and an explanation of possibility. Here
 
 [p. 139]
 
-the matter worth noting is precisely this: the mention of the human body's journey has been on this earth from time immemorial. Jeevan, in itself, exists as the ever-present — in its eternal form, as the conscious unit, in the form of imperishable power and imperishable strength. With this favourable circumstance persisting, sequential events kept occurring in the family. First of all, human beings thought of taking refuge in divinity, in God as the doer. The final end of this was the condition of dissolution (*tirobhav*) being one of well-being; for this the entire fabric was woven. As a result of not gaining trust in this, the human being ran toward gathering convenience; on the basis that this did not become available to all, the absence of a point of satisfaction in this again led to alternative acceptances; in this same sequence, coexistence was presented before the human being.
+the point worth noting is that the human body's journey on this earth has long been discussed. Jeevan, in itself, is eternally present as a conscious unit with imperishable power and imperishable strength. While these favourable conditions persisted, successive events of coming together continued within the family. Human beings first considered taking refuge in divinity, in God as the doer. The whole framework was woven around its ultimate end: a state of well-being in disappearance (*tirobhav*). Unable to gain trust in this, human beings turned to accumulating conveniences. These were not available to everyone, and the absence of a point of satisfaction again led to the acceptance of alternatives. In this sequence, coexistence was presented to the human being.
 
-The point worth considering here is just this: a great deal of study has already occurred regarding the biological cells, regarding the making of the human body-composition. It has also become acceptable to the human being that one has to live with hope, thought, and desire, and with evidence and resolve. This has already come into the natural process. On this very basis we are set upon examining whether it is the human being's body-composition that has changed, or the activity, or the method of knowledge.
+A great deal of study has already been done on biological cells and the formation of human body-composition. Human beings have also come to accept that they must live with hope, thought, and desire, and with evidence and resolve. This has become part of the natural process. On this basis, we are examining whether the change has occurred in human body-composition, in activity, or in the method of knowledge.
 
-The proper basis of examination is the living human being. Inspecting a dead body reveals how bones, nerves, and muscles are balanced and what difficulties arise when that balance is disturbed. For a living human being to remain balanced, however, mentality and body must be coordinated; knowers, scientists, specialists, and ordinary people all accept this. Mentality recognises and makes clear disease, suffering, and bodily aberration. Instruments are often said to recognise these conditions, but every instrument is designed, produced, and used by one or more human beings and therefore embodies their mentality. An instrument fulfils less than the complete purpose for which it was planned. If its intended purpose is reckoned as 100, trust and use should be limited to 75 or less; the remainder is its safety margin. Moreover, every signal from an instrument must be read by a human being through mentality. From time immemorial
+The basis of this examination must be the living human being. Inspecting and testing a dead body reveals how bones, nerves, and muscles remain balanced and what difficulties arise when their balance is disturbed. For the living human being to remain balanced, however, mentality and body must be coordinated. Knowers, scientists, specialists, and ordinary people all accept this. Mentality reveals and clarifies disease and suffering; it must be applied to recognise bodily difficulties and aberrations. Mentality alone recognises all of these. Yet we claim that instruments recognise them, and health matters have consequently come under the control of instruments. Every instrument, however, is conceived, planned, and produced by one or more human beings, and human mentality is embodied in its planning.
+
+An instrument falls short of the expectations according to which it was planned. To put this mathematically: if its intended purpose is rated at 100, trust and use should be limited to 75 or less. This is also regarded as a provision for the instrument's safety. Every signal from an instrument must still be read by a human being, who reads it through their own mentality. From time immemorial
 
 [p. 140]
 
-it has been believed that trade does not run without dishonesty. If this were indeed the rule, what would the condition of all these enterprises be — this is a matter for research and reflection.
+it has been believed that trade cannot run without dishonesty. If this were indeed the rule, what would become of all these enterprises? This is a matter for research and reflection.
 
-In the second discipline, which is Ayurveda, the Unani method — these are, in their basis, almost one and the same: on the basis of the pulse and the doshas, listening to the throb and the sound of the throb, the attempt to hear the body's voice; on that basis, the inference and acceptance of the body's suffering and aberrations; on that basis, the planning and application of medicines, and placing trust in their success.
+The second discipline comprises Ayurveda and the Unani method, whose bases are almost identical. Taking the pulse and the doshas as their basis, practitioners listen to pulsation and its sound, trying to hear the body's voice. From this they infer and acknowledge bodily suffering and aberrations, plan and apply medicines, and place their trust in successful treatment.
 
-From this application, the desired result — that is, the diagnosis of the form of the disease in the condition of becoming healthy — was determined, on the basis of which the medicine was planned; the earning of trust in this process — this sequence was given the name practical-experiential method (*karma-abhyas*).
+The desired result of this application is becoming healthy. The form of the disease was determined and medicine prescribed accordingly. The sequence through which trust was earned in this process was called the practical-experiential method (*karma-abhyas*).
 
-The Ayurvedic practical-experiential method proceeds systematically from recognising a disease to treating it: recognising the disease's strength; selecting medicines from forests, minerals, or animals; recognising their strength through union, combination, and digestion; and applying a medicine stronger than the disease. Every knower of Ayurveda must therefore exercise diligence. As a result —
+In the Ayurvedic method, the relative strength of a disease is recognised in various ways, and medicines are identified accordingly: medicines from forests, minerals, and animals. Their relative strength is recognised through union, combination, and digestion, and a medicine stronger than the disease is applied. This practical-experiential method thus proceeds systematically from recognising the disease to treating it. Every practitioner of Ayurveda must exercise diligence. As a result:
 
 recognising diseases — recognising medicines
 
-recognising the strength of diseases — recognising the strength of medicines
+recognising the relative strength of diseases — recognising the relative strength of medicines
 
-recognising diet-restriction — recognising the accompanying vehicle (*anupan*)
+recognising the dietary regimen and restrictions — recognising the accompanying vehicle (*anupan*)
 
-— it is those who are able to apply these in combined form that this is called practical-experiential method. It is the whole of this knowledge that, proceeding by the scientific method, is able to reach the accompanying vehicle and diet-restriction, and, on the basis of the result of this, is able to reach the status of evidence in the form of tradition.
+Applying these together is called the practical-experiential method. This entire knowledge, proceeding by the scientific method, extends to the accompanying vehicle and dietary regimen and restrictions. Through its results, it can become evidence in the form of tradition.
 
-The root matter here is precisely this: after the tradition of the understanding human being, whatever practical-experiential method has been carried out, together with knowledge, science, and wisdom, in the discipline of health and restraint, is functioning, and being transformed, in favour of universalisation. In other language, the tradition of the understanding human being — the glory of the endeavours and commitments of living by the humane method is itself, in the sense of universalisation,
+The central point is this: following the establishment of a tradition of understanding human beings, the practical-experiential method undertaken with knowledge, science, and wisdom in the discipline of health and restraint works and develops in support of universalisation. In other words, the glory of this tradition's endeavours and commitments to living by the humane method is, in support of universalisation,
 
 [p. 141]
 
-emerging. The understanding human being, being endowed with knowledge, science, and wisdom by the coexistentialist method, remains, not as an individualist, but as one endowed with participation, from the family, in universal orderliness and the overall orderliness. It is for this reason that the arrangement of work-behaviour occurs only in the sense of undivided society. That is, it was found natural for such an understanding human being to be social, to wish for universal wellbeing, to keep himself propensive toward universal wellbeing, to keep the expectation of being evidenced, and to practise for this. The point worth noting here is that, from the coexistentialist viewpoint, the understanding human being was seen to be multiply useful. Such a desire is indeed present in every human being. For this reason the possibility of such glory becoming meaningful becomes intelligible.
+emerging. Through the coexistentialist method, the understanding human being is endowed with knowledge, science, and wisdom. Such a person is not an individualist but participates, beginning with the family, in universal orderliness and the overall orderliness. Work and behaviour are therefore arranged solely toward undivided society. It is natural for the understanding human being to be social, desire universal wellbeing, remain active toward it, hope to be evidenced, and practise for this. From the coexistentialist viewpoint, such a human being is useful in many ways. This desire is present in every human being, making the possibility of such glory becoming meaningful intelligible.
 
-It is a natural process for the human being, together with understanding, to participate in the discipline of health and restraint. Along with this, it becomes the duty and responsibility of every understanding human being to participate in education-and-culture, justice and security, productive work, and exchange work. Together with understanding, the acceptance of duty and responsibility becomes evidenced in a natural form. After understanding — that is, after being endowed with coexistentialist knowledge, science, and wisdom — there is no delay at all in accepting responsibility and duty; it becomes evidenced, becomes manifest, by the self-motivated method. All of this has been ascertained through thorough testing and inspection. Every man and woman can verify this through testing; this has been an important inspiration for human tradition.
+Participation in the discipline of health and restraint follows naturally from understanding. Every understanding human being also has the duty and responsibility to participate in education and sanskar, justice and security, productive work, and exchange work. Acceptance of duty and responsibility becomes naturally evident with understanding. Once there is understanding—that is, coexistentialist knowledge, science, and wisdom—there is no delay in accepting them: this acceptance is evidenced and made manifest through self-motivation. All of this has been ascertained through thorough testing and inspection. Every man and woman can test and verify it; this has been an important inspiration for human tradition.
 
-Every human being is luminous and existent in the combined form of jeevan and body. Every human being lives by taking decisions only on the basis of his own acceptance. At the root of taking such considered decisions is realising the balance of knowledge, science, and wisdom, accepting it, becoming propensive to evidence it, and evidencing it. The sequence and process of evidencing this occurs only in the form of participation in the overall orderliness. Such a tradition of evidence is indeed the inspiration, from generation to generation, for becoming assured and trusted. Such a necessity remains formed, for ever and ever, in human tradition.
+Every human being is luminous and existent as the combined form of jeevan and body. Each lives by decisions based solely on their own acceptance. At the root of such considered decisions are realising the balance of knowledge, science, and wisdom, accepting it, becoming inclined to evidence it, and doing so. The sequence and process of evidencing it occur only through participation in the overall orderliness. Such a tradition of evidence inspires assurance and trust from generation to generation. This need remains forever in human tradition.
 
-On carrying out testing and inspection by the above method, it becomes known that it is on the basis of jeevan that the operation of the body comes about, and not that the operation of jeevan occurs according to the body. This can also be made clear thus: the understanding human being is found operating the body according to his own understanding, and understanding is the human being's boon, right, and supremacy — it is for this reason that understanding is the goal desired by all. The understanding human being is able to present every act, behaviour, and thought only in the sense of undivided society and universal orderliness. As a result of this, jeevan-expectation and human-expectation are able to succeed. It is for this reason that the human goal,
+Testing and inspection by this method show that jeevan operates the body; jeevan is not operated according to the body. The understanding human being operates the body according to their understanding. Understanding is the human being's boon, right, and supremacy, and is therefore the goal desired by all. The understanding human being can present every act, behaviour, and thought solely toward undivided society and universal orderliness. As a result, jeevan-expectation and human-expectation can be fulfilled. For this reason, once the human goal
 
 [p. 142]
 
-once recognised, whatever number of work-arrangements arise, in the sense of its meaningfulness — through the distinctions of done, caused, and intended — the result of works, in the condition of evidencing the human goal, living within orderliness is natural. It is for this very reason that from the study of the understanding human being it becomes clear that the understanding human being runs the body according to jeevan. In other words, the body is operated on the basis of understanding. Therefore we can trust in this, we can research this: it is only after awakening that the glory of jeevan becomes evident, through the body, within human tradition. This is the flow of resolution for tradition; it is only in the flow of resolution that the glory of human tradition becomes evident in fundamental form. Every understanding human being is indeed desirous of participating in this. Therefore every human being does indeed want to be understanding. In this way, the possibility of universalising the understanding of every human being is fitting.
+has been recognised, work is arranged to fulfil it through actions done, caused, or intended. When the results of these actions evidence the human goal, living within orderliness is natural. Study of the understanding human being therefore makes clear that they operate the body according to jeevan—in other words, on the basis of understanding. We can trust this and research it: after awakening, the glory of jeevan is evidenced through the body in human tradition. This is the flow of resolution for tradition. Only within this flow is the glory of human tradition fundamentally evidenced. Every understanding human being desires to participate in it; every human being therefore wants to understand. The possibility of universalising understanding among all human beings is thus reasonable.
 
-We have already made clear this point before: that the human being's descent upon this earth occurred only after the material order had become enriched into the biological order, and the biological order into the animal order. At the root of this descent, it was made clear that a qualitative change (*gunatmak parivartan*) occurring in the composition-method within the prana-sutra, this change being accomplished by way of a festival, resulted in the human being's descent, according to various countries, times, and circumstances, being accomplished from animal bodies enriched with a brain system different from and richer than that of animals. After being accomplished, the fundamental expression in the human being remained precisely imaginativeness and freedom-of-action, distinct from animals. This was so in the primordial human being as well, and remains so even now. In the process of its exercise, whatever knowledge, whatever attainment has occurred in the tradition, has been naturally adopted by the tradition. In this, usefulness has been accepted, and meaninglessness has been left aside. It is by this very method that the research into the human being's imaginativeness and freedom-of-action has kept occurring. By this method, the body-composition remaining as it actually is — that is, however many times it is repeated, or however much it goes on from generation to generation — the form of body-composition, and, at the root of body-composition, the seven metals (elements), their coordination, has kept remaining as it actually is. On the basis of all these testimonies, even after thousands of years, hundreds of thousands of years have passed, the substance, property, composition-method, limbs, sub-limbs, and organs contained in the body remain as they actually are. The brain system has always kept clarifying imaginativeness and freedom-of-action through the five sensations, through the five kinds of organs of action. From before, the conception and endeavour to attain the point of satisfaction of imaginativeness and freedom-of-action have indeed kept being made. Even now this remains as it actually is. On the basis of this entirely clear condition, the human being has become, in himself, most successful in giving concrete form to ideas according to the definition. The aspect of mental well-being remains, as it actually is, left empty. This is
+As explained earlier, human beings emerged on this earth only after the material order had become enriched into the biological order, and the biological order into the animal order. At the basis of this emergence was a qualitative change (*gunatmak parivartan*) in the composition-method within the prana-sutra. This change occurred by the method of a "festival" (*utsav*). Consequently, in different countries, times, and circumstances, human beings emerged from animal bodies endowed with an enriched brain system distinct from that of animals. Their fundamental expression, distinguishing them from animals, was imaginativeness and freedom of action. This was present in the earliest human beings and remains present today.
+
+As these capacities were applied, whatever knowledge and attainment arose in tradition were naturally adopted by it. What was useful was accepted; what was meaningless was set aside. Research into human imaginativeness and freedom of action has continued in this way. Meanwhile, body-composition has remained as it is: however often it recurs from generation to generation, its form and the coordination of the seven dhatus (*sapt-dhatu*) at its basis remain as they are. All this testifies that, even after thousands and hundreds of thousands of years, the body's substance, property, composition-method, limbs, sub-limbs, and organs remain as they are. The brain system has always expressed imaginativeness and freedom of action through the five sensations and the five kinds of organs of action.
+
+The conception and endeavour to attain the point of satisfaction of imaginativeness and freedom of action have long continued and remain unchanged today. In these clear conditions, human beings have become most successful at giving concrete form to ideas, according to the definition. Mental well-being, however, remains an unfilled field. This is
 
 [p. 143]
 
-the important point of today's research. That the wasteland of mental well-being should flourish — this is the principal matter. The basis of the conception of universal wellbeing too is just this.
+the important question for research today. The principal task is for this barren field of mental well-being to flourish. This is also the basis of the conception of universal wellbeing.
 
-Up to the first decade of this 21st century, the discipline that has been most evidenced for giving concrete form to ideas has, at its root, refinement occurring in the jeevan-natural imaginativeness and freedom-of-action, and not in the body. According to materialism, according to which consciousness is the outcome of body-composition — this has not actually occurred. On this very basis, through great manipulation, in the course of researching change in the body, change in composition, the particularity of body-composition became mangled and got buried under a downpour of questions. Even the Nobel Prize has been determined upon this. This issue was entirely unsuccessful in presenting meaningfulness, evidence, or the possibility of a bright future. From a little while ago, according to the science of body-composition, the number of species of blood became determinate, all the rest having already been determinate before. It also became known that the brain system is equal in all human beings. In this, caste, creed, sect, and colour, race, language, country, and time have no interference at all. All these conclusions have proven wrong the notion held by those who thought that consciousness flows according to body-composition. On this very basis, the root assumption of cloning technology is that, by propagating the prana-sutras of some talented person — whom we call talented — an identical body like theirs can be prepared, and identical consciousness too can be prepared. This too has been proven a delusion. Along with this, in the business world, the declaration made by the specialists in cloning technology — 'obtain your own replica' — has also become meaningless. Previously it was believed that from one inch of skin of some good, intelligent person, thousands, lakhs, billions of good men would be prepared; and once prepared, anyone would adopt them as their own children, because everyone wants to make their children intelligent. In this same sequence, attempt and endeavour were made and observed; in the applications carried out so far — those done with sheep, goats, and animals, and those done with humans — it did not turn out to be exactly identical. Partial deviation remained.
+Up to the first decade of the twenty-first century, the most fully evidenced discipline of giving concrete form to ideas has rested on refinement in the imaginativeness and freedom of action natural to jeevan, rather than refinement in the body. Materialism holds that consciousness arises from body-composition, but this has not actually occurred. Research into changes in the body and its composition proceeded through considerable manipulation; in the process, the distinctiveness of body-composition became distorted and buried beneath a barrage of questions. Even a Nobel Prize decision has been made on this basis. This line of inquiry entirely failed to present meaningfulness, evidence, or the possibility of a bright future.
 
-On this issue, it is not a very important matter that body-composition, as it repeats by the natural method, should be repeated in this way. Nothing is proven merely by this much. Because it has been seen that the children of the learned turn out to be fools, and the children of fools turn out to be learned. It is extremely necessary to keep this in mind.
+Only a short time ago, the science of body-composition established the number of blood types; everything else had already been determined. It also became known that the brain system is the same in every human being. Caste, creed, sect, colour, race, language, country, and time have no effect on this. These conclusions have disproved the view that consciousness flows according to body-composition.
+
+On this same basis, cloning technology assumes that propagating the prana-sutras of a person called talented can produce an identical body and identical consciousness. This too has proved to be a delusion. The commercial declaration of cloning specialists—"obtain your own replica"—has likewise become meaningless. It was previously believed that one inch of skin from a good, intelligent person could produce thousands, hundreds of thousands, and billions of good people. Once produced, anyone would adopt them as their own children, because everyone wants intelligent children. Attempts and endeavours were made and observed along these lines. In the applications carried out so far with sheep, goats, animals, and human beings, exact identity was not achieved: partial deviation remained.
+
+Reproducing body-composition as it recurs naturally is not, in itself, a very important matter. This alone establishes nothing. Children of the learned have been seen to become fools, and children of fools to become learned. It is essential to keep this in mind.
 
 [p. 144]
 
-Until the knowledge of jeevan became available, human beings were compelled to believe that form, property, and culture followed lineage. This supported arguments for caste and lineage superiority, but these have broken down. Brahma-doctrine, self-doctrine, casteism, and racism have all become disputed, strengthening doubt. The claim that consciousness is produced and transmitted through body-composition is also disputed. The central question is therefore where the human being should turn. From the last decade of the twentieth century into the first decade of the twenty-first, an alternative proposal emerged: the coexistentialist worldview and its method of study. It presents humankind as one undivided society; equal in caste and dharma; equal in the capacity for knowledge, science, and wisdom; and, as conscious jeevan, equal in imperishable power, imperishable strength, and the nature of awakening.
+Until knowledge of jeevan became available, we were willing, and compelled, to believe that form, property, and *sanskar* followed lineage. This belief supported arguments and advocacy for caste and lineage superiority. These have now broken down. Brahma-doctrine, self-doctrine, casteism, and racism have all become disputed, and doubt has consequently grown stronger. The assurance that consciousness is produced and transmitted through body-composition has also become disputed. The central question is therefore where the human being should turn.
 
-In this same sequence, there is need to recognise, and need to make meaningful, the uniformity of jeevan-satisfaction and human-satisfaction. By this method — that is, from the coexistentialist viewpoint — the human being exists, is luminous, in the combined form of body and jeevan. In the purport of the whole story told above, there is no development at all occurring in the human body, and none does occur in the body. Whatever glory has been made manifest from the primordial human being up to the most modern human being, this is the expression of the freedom-of-action and imaginativeness found in all humankind — this too has become clear. In researching and investigating the point of satisfaction of this — that is, in researching and investigating freedom-of-action — it is nothing but the aspiration to become happy; in this same sequence, giving concrete form to ideas became meaningful. This expression of imaginativeness and freedom-of-action is the glory of jeevan, not of the body. Because the body has been accomplished only from the material substance and process of the biological order. This entire composition is biological cell predominant. These biological cells cannot be more than their own capacity. Whatever standing became established for human body-composition, it is repeating as it actually is. Freedom-of-action, imaginativeness, mentality, which is seen in all humankind — this mentality, in its root form, is itself one process of jeevan-awakening.
+An alternative proposal emerged from the last decade of the twentieth century into the first decade of the twenty-first: the coexistentialist worldview. Its method of study has been presented to make humanity intelligible as one undivided society. It makes clear the sameness among human beings in caste, dharma, and understanding—that is, knowledge, science, and wisdom—and in jeevan as a conscious unit, as well as sameness in imperishable power, imperishable strength, and the form of awakening.
+
+We need, in this connection, to recognise and make meaningful the uniformity of jeevan-satisfaction and human-satisfaction. From the coexistentialist viewpoint, the human being is present and luminous as the combined form of body and jeevan. The account above shows that development does not take place in the human body. All the glory expressed from the earliest human being to the most modern is an expression of the freedom of action and imaginativeness found in every human being. This, too, has become clear.
+
+Research and investigation into the point of satisfaction of these capacities—into freedom of action—disclose only the aspiration to be happy. In this process, giving concrete form to ideas becomes meaningful. This expression of imaginativeness and freedom of action is the glory of jeevan, not of the body. The body is formed only from the material substance and processes of the biological order. Its entire composition is predominantly made up of biological cells, which cannot exceed their own capacity. The standing established for human body-composition is seen to repeat as it is. Freedom of action, imaginativeness, and mentality are found in every human being; at its root, this mentality is itself a process of jeevan-awakening.
 
 [p. 145]
 
-Five activities are continuously accomplished in jeevan. Mind (*mun*) is the first and vritti, or thought, the second. Chitta, the third, is direct recognition (*sakshatkar*): it accepts a thing according to its meaning — for example, accepting the substance water together with the word "water." Buddhi, the fourth, is enlightenment: the capacity to accept certainty and stability by firmly accepting truth, dharma, and justice. The fifth activity is realisation, which accepts and evidences truth as ever-present resolution, happiness, peace, contentment, and joy, and becomes assured in that joy. These five activities function as the strength of jeevan. Realisation alone is evidence, and its outcome is joy. In evidencing the innateness (*swatva*) of jeevan, the human being projects realisation through resolve, gives resolve form through images, analyses those images, and selects the manner and method by which analysis is put into action. These five projected activities are called power. Strength is state, and the activity that projects it is motion. The awakened human being's state–motion is therefore recognised through jeevan activity, not through body-composition. This directs attention to change in jeevan. Research and investigation have clarified the activities through which such change is realised; what remains is mental well-being. Human-aspiration and jeevan-aspiration become meaningful through the knowledge, science, and wisdom of the coexistentialist viewpoint together with participation in undivided society and universal orderliness. Every man and woman can evidence this through practice.
+Among the activities continuously accomplished in jeevan, the first is mind (*mun*), the second is vritti (thought), and the third is direct recognition (*sakshatkar*, chitta). Chitta functions in understanding something, accepting its meaning, and accepting the thing together with its meaning. For example, accepting the substance water as present in existence together with the word "water" is an activity of chitta. In buddhi, enlightenment is the capacity to accept certainty and stability—in other words, to accept truth, dharma, and justice firmly. The fifth activity is realisation. Its glory lies in accepting and evidencing truth as ever-present resolution, happiness, peace, contentment, and joy, and in being filled with the assurance of joy. These five activities clearly function as the strength of jeevan.
+
+Realisation itself is evidence, and its outcome is joy. In evidencing the innateness (*swatva*) of jeevan, the human being proceeds through resolve; imaging that projects resolve; analysis that makes imaging meaningful; and selection of the ways and methods by which analysis is put into action. The human being can be recognised through this evidence. These five projected activities are called power. Strength is called state, and the activity that projects it is called motion.
+
+The awakened human being's state–motion is thus clearly recognised through jeevan's activities—that is, through the state–motion of jeevan. The human being has never been recognised through body-composition, nor will this ever be possible. We must therefore attend to change in jeevan. The main research and investigation to date have made clear the activities through which change takes concrete form; what remains is mental well-being. With knowledge, science, and wisdom made clear through the coexistentialist viewpoint, and through participation in undivided society and universal orderliness, human-aspiration and jeevan-aspiration can be made meaningful. Every man and woman can present evidence through application.
 
 ## 3.17 Knowledge, Knower, Object of Knowledge (ज्ञान, ज्ञाता, ज्ञेय)
 
@@ -2264,73 +2291,87 @@ Five activities are continuously accomplished in jeevan. Mind (*mun*) is the fir
 
 aim (*sadhya*): the seer-status, awakening; seeker (*sadhak*): the human being; means (*sadhan*): body and jeevan.
 
-Human tradition has long considered knowledge, knower, and object of knowledge through the viewpoints of *Adhyatma-vada*, *Adhidaivika-vada*, and *Adhibhautika-vada*, collectively called idealism (*adarshvad*). Their common ground is mystery: what lies beyond the physical, divinity, and spirituality are all treated as mysterious, making both the basis and destination of idealism mystery. Differences of opinion consequently arise. Many applications and practices were attempted within these disciplines, from exercise, means, yoga, and meditation to worship, recitation, and prayer. Their promised outcomes were moksha and heaven, both themselves mysterious, and these were called the destination.
+Human tradition has long considered knowledge, knower, and object of knowledge from the viewpoints of *Adhyatma-vada*, *Adhidaivika-vada*, and *Adhibhautika-vada*. These three disciplines have collectively been called idealism (*adarshvad*). Mystery is their common ground: that which is beyond the physical is mysterious; the deity is mysterious; and spirituality itself is mysterious. Mystery is therefore both the foundation and the destination of idealism. With mystery as both foundation and destination, differences of opinion necessarily arise. Various methods of application and practice were attempted within these disciplines. These endeavours ranged from practice and the use of means to yoga, meditation, worship, recitation, and prayer. The promised outcomes of all these acts were moksha and heaven. Both remained mysteries, and these were called the destination.
 
-The basis too became a mystery in this way. It is from mystery alone, in mystery alone — from the void, from Brahma — that all this creation, sustenance, and dissolution occurred; or, from some substance beyond physical activity, creation, sustenance, and dissolution occurred. In this way the beginning was from mystery, and the end too was from mystery. The end, an auspicious mystery, was from heaven and moksha. Auspicious, because heaven and moksha bring joy; mystery, because its ending occurs in mystery. According to idealism, which is the combined intent of these three kinds — regarding the scene, the seer, and the worldview: according to the Brahma-doctrinaires, Brahma alone is the seer, Brahma alone, according to his own resolve, is the scene, and Brahma alone is the worldview by which it is beheld. In the same way the god-centred ones too say — as one gets to read according to the documents — that, according to them, three are propounded: Shakti-knowledge, Shiva-knowledge, and Vishnu-knowledge. In Shakti alone is the entirety of the scene, creation, sustenance, dissolution. In the same way, in all three, this is god-dependent. All that is seen exists precisely because it is, in the form of the scene, the resolve of the gods; the gods alone are the seer, and the one who beholds too is the god. In the same way, according to *Adhibhautika-vada* too, it has been said that there is some mysterious seer, scene, and worldview more powerful than the physical. In this same sequence, a statement has also been made regarding knowledge, knower, and object of knowledge. Brahma alone, or the god, is himself, in the forms of knowledge, knower, and object of knowledge, concentration, the one who concentrates, and object of concentration — all of these. In the forms of effect, cause, and doer too, they are ready to accept God or the god. This has been the tenor of the voice up to now.
+The foundation was mysterious in the same way. All creation, sustenance, and dissolution were said to occur from mystery and within mystery—from the void, from Brahma—or from some substance beyond physical activity. Thus mystery was both the beginning and the end. The end was the auspicious mystery of heaven and moksha: auspicious because heaven and moksha bring joy, and mysterious because it ends in mystery.
+
+Idealism, which combines the intent of these three viewpoints, also gives an account of the scene, the seer, and the worldview. According to the proponents of Brahma, Brahma alone is the seer; Brahma alone, according to his own resolve, is the scene; and Brahma alone is the vision through which it is seen. The proponents of *Adhidaivika-vada* offer a similar account. Their documents set out three forms of learning: Shakti-vidya, Shiva-vidya, and Vishnu-vidya. In Shakti alone lie the whole scene and all creation, sustenance, and dissolution. Likewise, in each of these three disciplines, all this depends on the deity. Everything seen exists as the resolve of the deities in the form of the scene; the deity is the seer and also the one who beholds. *Adhibhautika-vada* similarly speaks of a mysterious seer, scene, and worldview more powerful than the physical.
+
+The same account extends to knowledge, knower, and object of knowledge. Brahma or the deity is held to be all of these, as well as concentration, the one who concentrates, and the object of concentration. God or the deity is also accepted as the effect, cause, and doer. This is how the earlier traditions have spoken.
 
 [p. 147]
 
 Materialist thought holds that differences in composition produce differences in consciousness, yet no evidence of this is found. Physical substance alone was taken to be the source of consciousness, but testing stone and soil reveals nothing of the kind.
 
-From the coexistentialist viewpoint, study of the human being as the combined form of jeevan and body makes intelligible the status of jeevan as conscious. Jeevan, as conscious nature, awakens through awakening progression; this awakening must be evidenced in human tradition. The conjunction of body and jeevan — coexistence — is necessary in human tradition. Ten activities are accomplished in jeevan: realisation and evidence; the enlightenment of realisation and resolve; the direct recognition and imaging of resolve; the comparison of images and their analysis; and the tasting and selection of that analysis. These ten activities become evident after jeevan awakens. So long as the body is taken to be jeevan, only four and a half of these activities can be accomplished; the remaining five and a half cannot be evidenced. This crisis torments the human being. Internal contradiction arises because the powers of jeevan cannot be evidenced, while the delusion of taking the body to be jeevan causes problems and leaves the human being agitated and beset by external affliction. Treachery, exploitation, and war have consequently continued to dominate the human family, or have been regarded as unavoidable. It is worth asking what more degraded picture the human family could present, even as human beings continue to regard this very condition as glory.
+From the coexistentialist viewpoint, studying the human being as the combined form of jeevan and body makes jeevan's standing as a conscious unit intelligible. Jeevan, as conscious nature, awakens through awakening progression; this awakening must be evidenced in human tradition. The conjunction of body and jeevan—that is, coexistence—is necessary in human tradition.
 
-The coexistentialist method brings within reach the study of jeevan and body, of coexistence, of jeevan's indivisibility in coexistence, and of all physical and chemical activities occurring within coexistence. It also makes accessible the study of the activities through which chemical and physical substances, the entire plant and animal orders, and human body-compositions are formed. Because the brain system is the most highly developed composition in the human body, the freedom of action and imaginativeness of jeevan are expressed through thought, reflection, activity, and results; those results, in turn, prompt further thought and reflection. Inquiry and investigation are thus directed toward the point at which imaginativeness and freedom of action are satisfied, because we seek freedom from treachery, rebellion, exploitation, and war. This aspiration is presumably accepted by most well-intentioned people. The need for coexistentialist study therefore remains.
+Ten activities are accomplished in jeevan: realisation and evidence; the enlightenment of realisation and resolve; the direct recognition and imaging of resolve; the comparison of images and their analysis; and the tasting and selection of that analysis. These ten activities are evidenced after jeevan awakens. So long as the body is taken to be jeevan, only four and a half of these activities can be accomplished; the remaining five and a half cannot be evidenced. This crisis torments the human being. Internal contradiction and the inability to evidence jeevan's powers cause suffering. The delusion of taking the body to be jeevan likewise causes problems, while external affliction leaves the human being agitated and in distress. As a result, treachery, exploitation, and war have long dominated the human family, or have been regarded as unavoidable. What more degraded picture could the human family present? This calls for reflection, even as human beings continue to regard this very condition as glory.
+
+The coexistentialist method makes readily accessible the study of jeevan and body, of coexistence, of jeevan's indivisibility in coexistence, and of all the physical and chemical activities accomplished within coexistence. It also makes accessible the study of the activities through which chemical and physical substances, the entire plant and animal worlds, and human body-compositions are formed. Because the brain system is the most highly developed composition in the human body, jeevan's freedom of action and imaginativeness are expressed in thought, reflection, activity, and results. These results, in turn, prompt further thought and reflection. Research and investigation are thus directed toward the point at which imaginativeness and freedom of action are satisfied, because we seek freedom from treachery, rebellion, exploitation, and war. This aspiration is presumably accepted by most well-intentioned people. The need for coexistentialist study therefore remains.
 
 [p. 148]
 
-Coexistentialist thinking enables precise study of knowledge, knower, and object of knowledge. Jeevan is the knower. Knowledge comprises the holistic view of coexistence, knowledge of jeevan, and knowledge of humane conduct. The object of knowledge is to make human-aspiration and jeevan-aspiration meaningful through awakening by evidencing the human and jeevan goals within undivided society and universal orderliness.
+Coexistentialist thinking enables precise study of knowledge, knower, and object of knowledge. Jeevan is recognised as the knower. Knowledge comprises knowledge of the holistic view of coexistence, knowledge of jeevan, and knowledge of humane conduct. The object of knowledge is to make human-aspiration and jeevan-aspiration meaningful through awakening. This entails evidencing the human and jeevan goals through undivided society and universal orderliness; this is the evidence that the object of knowledge has been made meaningful.
 
-Seer, scene, and worldview are explained in the same way: jeevan is the seer, existence-as-coexistence is the scene, and the philosophy of existence is the worldview.
+Seer, scene, and worldview are explained in the same way: jeevan is the seer, existence-as-coexistence is the scene, and the holistic view of existence is the worldview.
 
-Concentration, the one who concentrates, and its object follow the same sequence. Awakening is the object, concentration is accomplished through understanding, and the human being who evidences understanding is the one who concentrates, thereby recognising jeevan.
+Concentration, the one who concentrates, and the object of concentration also become clear in this sequence. Awakening is the object of concentration, and concentration is accomplished through understanding. In the process of evidencing understanding, the one who concentrates is recognised as jeevan.
 
-Doer, effect, and cause are likewise clear. Jeevan is the doer; the human being and the establishment of the deific and divine-human statuses are the effect; and ever-present existence-as-coexistence is the cause.
+Doer, effect, and cause are likewise clear. Jeevan is the doer; establishment in the human, deific-human, and divine-human statuses is the effect; and the ever-present standing of existence-as-coexistence is the cause.
 
-Aim, means, and seeker are also purposefully identified. The human being is the seeker and jeevan-awakening is the aim. Awakening establishes human innateness, freedom, and right as understanding, and understanding as knowledge, science, and wisdom; this is the evidence of awakening. Every individual can examine the meaningfulness of this aim. Imaginativeness, freedom of action, and evidence embodied in tradition are the means of research and investigation. When human tradition bears and carries authenticity as evidence, understanding forms the evidence of undivided society and universal orderliness. Participation in universal orderliness keeps that evidence universally accessible. As a constituent part of this orderliness, humane education-and-culture becomes glorious, and universality within human tradition becomes meaningful through knowledge and education-and-culture. This is the meaning of the tradition of evidence. A general
+The coexistentialist viewpoint also makes it easy to identify the seeker in relation to the aim and the means, and connects this identification with purpose. The human being is the seeker, and jeevan-awakening becomes accessible as the aim. Awakening is recognised as human innateness, freedom, and right. These take the form of understanding; understanding as knowledge, science, and wisdom in turn manifests this innateness, freedom, and right. This is the evidence of awakening. Every individual can consider how meaningful the aim of awakening is.
+
+Imaginativeness, freedom of action, and evidence embodied in tradition are the means of research and investigation. When human tradition evidences itself as the bearer and carrier of evidence and authenticity, that very understanding provides the evidence of universal orderliness and undivided society. Participation in evidencing universal orderliness makes this evidence accessible to all. Humane education and *sanskar* flourish as a constituent part of universal orderliness. The grandeur of universality in human tradition becomes meaningful through knowledge, education, and *sanskar*. This is what the tradition of evidence means. A general
 
 [p. 149]
 
-survey reveals it to be so — universal, that is, acceptance in all humankind. It was extremely easy for every man and woman to take to heart, to test within oneself, and to determine the meaningfulness or meaninglessness of, the whole row of evidence formed by the coexistentialist method across all the disciplines of practice, study, work, and behavioural orderliness.
+survey shows universality—that is, acceptance throughout humankind. Across the disciplines of practice, study, work, behaviour, and orderliness, the coexistentialist method forms a connected succession of evidence. Every man and woman can readily take it to heart, examine it within themselves, and determine whether it is meaningful or meaningless.
 
-The human being's aim is awakening. Its innateness, freedom, and right take the form of knowledge, science, and wisdom, whose evidence is the form of undivided society, universal orderliness through work-behaviour, which is linked to one another as a chain. In this, no link can be separated. The aim, as it stands in the form of tradition — human-aspiration, jeevan-aspiration — cannot possibly be evidenced without coexistentialist knowledge, wisdom, and science. It can be evidenced only by the coexistentialist method. Coexistence is no mystery or struggle. In natural form, it is a thing intelligible to, and illumined from, all humankind. Because every human being does indeed want to live and obtain happiness only in mutuality with someone. By this method the glory of coexistence becomes intelligible.
+The human being's aim is awakening. Its innateness, freedom, and right take the form of knowledge, science, and wisdom. Their evidence, through work and behaviour, is undivided society and universal orderliness. These are linked in a chain from which no link can be separated. The aim embodied in tradition—human-aspiration and jeevan-aspiration—cannot be evidenced without coexistentialist knowledge, wisdom, and science. It can be evidenced only through the coexistentialist method.
 
-In living together, another human being first appears through relationship: as mother, then father, followed by brother, sister, friend, teacher (*guru*), preceptor (*acharya*), elders, neighbours, and similar relations maintained in tradition. Living discloses relationships, and through them mutual recognition and carrying-out according to purpose. Neither carrying-out without recognition nor recognition without carrying-out is possible. Purpose is the desired attainment for which relationships are formed and fulfilled; this gives rise to responsibility and duty. Both arise naturally with relationship. Duty determines what is to be done and how; responsibility determines what is to be attained and inclines one toward attaining it. In every relationship, these determinations are joined and are carried out by the self-motivated method. Only through awakening
+Coexistence is neither mystery nor struggle. It is naturally intelligible to all human beings and hoped for by them, because every human being wants to live and find happiness in mutuality with someone. In this way, the glory of coexistence becomes intelligible.
+
+In living together, the first presence we encounter is another human being, who is accepted in one relationship or another: first as mother, immediately afterwards as father, then as brother, sister, friend, teacher (*guru*), preceptor (*acharya*), elder, or neighbour, along with other similar relationships maintained in tradition. In living, nothing becomes clear apart from relationship. Relationship is the basis for mutual recognition and fulfilment according to purpose. Recognition without fulfilment and fulfilment without recognition are both impossible in this method.
+
+Purpose is our desired attainment. Forming and fulfilling relationships for that purpose is inevitable; this is called responsibility and duty. Both arise naturally with relationship. Duty determines what is to be done and how. Responsibility determines what is to be attained and how, together with the inclination to attain it. In relationships, determining what is to be attained and determining what must be done, and how, to attain it are links joined to one another. These are fulfilled through the self-motivated method in most relationships. Only after awakening
 
 [p. 150]
 
-does such fulfilment become clear. In delusion, the purposes and goals of relationships remain obscure, and relationships are governed chiefly by sensation, the accumulation of convenience, and conflict. Having long endured these viewpoints, human tradition has become desolate in respect of mental well-being.
+does such fulfilment become clear. In delusion, the purposes and goals of relationships remain obscure. In deluded tradition, relationships are recognised chiefly through sensation-based tendencies, the accumulation of conveniences, and conflict. Having endured these viewpoints since the distant past, human tradition has been left barren in respect of mental well-being.
 
-Whereas, by the coexistentialist method, the possibility of mental well-being is fitting and accessible for all humankind.
+The coexistentialist method, however, makes mental well-being a viable and accessible possibility for all humankind.
 
-By the coexistentialist method, all relationships can be recognised through meaningful purposes informed by cognisance. Universal orderliness and undivided society provide their social form; human-aspiration and jeevan-aspiration provide their goal. Their evidence, acceptance, and evaluation transform work, behaviour, orderliness, and conduct. This is the outcome of coexistentialist knowledge, science, and wisdom.
+Through this method, we can recognise all relationships in terms of their meaningfulness, their purposes, and purposes informed by cognisance. This becomes clear in universal orderliness and undivided society. Transforming work, behaviour, orderliness, and conduct through acceptance and evaluation of the evidence of human-aspiration and jeevan-aspiration is the outcome of coexistentialist knowledge, science, and wisdom.
 
-Human-aspiration — the natural evidence of resolution, prosperity, fearlessness, coexistence.
+Human-aspiration — the natural evidence of resolution, prosperity, fearlessness, and coexistence.
 
-Jeevan-aspiration — is reckoned in the forms of happiness, peace, contentment, joy.
+Jeevan-aspiration — happiness, peace, contentment, and joy.
 
 ## 3.18 Seer, Doer, Enjoyer
 
-In awakened human tradition, fundamental right is evidenced through the seer, doer, and enjoyer statuses. In most countries, spiritual traditions prepared people to accept God, the Supreme Soul, Brahma, goddesses, and gods. Scriptures were composed, and their teachings were accepted as divine speech, God's speech, or a voice from the sky. Treatises based on this belief gave rise to methods of preaching. These scriptures arose when people in one country had little contact with other countries. Once such contact became possible, communities began to study one another's religious texts and found that teachings accepted in one were rejected in another. This deepened religious disagreements and raised the question of where divine speech was to be found. People naturally expect a religious text to be free of dispute; if dispute does arise,
+In awakened human tradition, fundamental right is evidenced through the seer, doer, and enjoyer statuses. In most countries, spiritual traditions prepared people to accept God, the Supreme Soul, Brahma, goddesses, and gods. Scriptures were composed for this purpose. At the root of all religions, the teachings written in these scriptures were accepted as divine speech, God's speech, or a voice from the sky. Such writings were regarded as sacred texts. This belief gave rise to texts and, through them, methods of preaching. These scriptures were composed when people in one country were unable to establish relationships with people in all other countries. Once they acquired this ability, communities began to study one another's religious texts. They found that teachings accepted according to one religious text were rejected by another. Where, then, was God's speech? Religious disagreements continued to deepen. Everyone naturally accepts that there should be a religious text. Along with this comes the self-motivated expectation that there should be no dispute in religion. If a dispute arises,
 
 [p. 151]
 
-what remains of religion? Yet the idealist method has not provided an undisputed religious text, while materialism sees no need for one. Ordinary human beings have consequently remained tormented by internal contradiction and afflicted in the external world by treachery, rebellion, exploitation, and fear of war. Relief or happiness has been attributed to the grace of God, a god, or a guru, while people continue to endure joy and sorrow without trust in themselves. Yet every person recognises that trust within mutuality brings relief, whether for a moment, a day, or a year. Treating that relief solely as divine or a guru's grace obscures the role of human imaginativeness and freedom of action, through which people have given concrete form to their ideas. This deserves reflection. Within human tradition, resolution is the evidence of mental well-being.
+what remains of religion? There are human beings on this earth who reason in this way. Even so, the idealist method has not provided an undisputed religious text, while materialists see no need for one. We ordinary human beings have consequently remained tormented by internal contradiction and afflicted by conflict in the external world: treachery, rebellion, exploitation, and fear of war. We kept attributing all of this to the grace of God or a deity. Whenever we found relief or happiness in any matter, we regarded it as the grace of God, a deity, or a guru. In this way, ordinary people continued to endure joy and sorrow. Neither those regarded as ordinary nor those regarded as exceptional retained trust in themselves. Yet every human being recognises that trust brings relief, and this remains true today. We find relief in the relationships in which we can trust, whether for a moment, a day, or a year. By attributing this to the grace of God, a deity, or a guru, we have continually obscured our own role. Yet it is through their imaginativeness and freedom of action that human beings have succeeded in giving concrete form to their ideas on this earth. If this is not the human being's own creation, whose is it? Whether or not we understand this, it is necessary to reflect on it. Alongside this, resolution within human tradition is what evidences mental well-being.
 
-The matter to which attention needs to be paid here is just this: whatever is reflected before us — is there, at its root, any doer-status or not, is there one who does or not? If, at its root, there is no doer, then the ascription of the status of universal-doer became wrong. If there is no doer, then what would the enjoyer-status be like? If this is not so, then what became of the seer-status? All these questions have kept arising one after another. The answer to these questions is not to be found by the idealist method.
+Here we need to ask: does whatever appears before us have a doer at its root? Is there someone who does it? If there is no doer at its root, then the ascription of a universal-doer is mistaken. If there is no doer, what could the enjoyer-status be? If that is not so, what becomes of the seer-status? These questions arise one after another. The idealist method does not provide their answers.
 
-When, by the coexistentialist method, thinking and reflection began, and decisions began to be recognised, then it became known that whatever is functioning, in coexistence, in the form of the four orders, all of it is indeed itself in the self-motivated doer-status. For this reason, activity, in itself, is clearly functioning in the sense of the development progression in the forms of effort, motion, and result. In this same sequence, awakening was recognised in the forms of the immortality of result, the restfulness of effort, and the destination of motion. It has become possible to recognise the immortal status of result in the sense of development, the restfulness of effort, and the destination of motion, as awakening and awakening-completeness. In this way the human being himself becomes the knower of the awakening-status,
+When we began to think and reflect through the coexistentialist method, and to recognise decisions, we came to understand that everything functioning in the four orders of coexistence itself occupies the self-motivated doer-status. Activity is therefore seen to function as effort, motion, and result within the development progression. In this same sequence, awakening was recognised through the immortality of result, the restfulness of effort, and the destination of motion. It became possible to recognise the immortal status of result in terms of development, and the restfulness of effort and destination of motion in terms of awakening and awakening-completeness. In this way, the human being is understood to be the knower of the awakening-status,
 
 [p. 152]
 
-the herald (*udghata*), and the unit capable of evidencing it. The preceding study shows that all units are conjoined within coexistence — the omnipresent reality — and function by the self-motivated method because they are energised and forceful; no external agent is required. Every composition, from the smallest to the largest, is functional in itself. This functionality as effort, motion, and result culminates in the development progression as the immortality of result in the developed status. The constitutionally complete atom, which is the conscious status, is its testimony.
+its herald (*udghata*), and the unit capable of evidencing it. The preceding study makes clear that every entity is saturated in coexistence — that is, in the omnipresent reality — and is therefore energised and forceful. Every entity functions by the self-motivated method; no one is needed to make it act. All compositions, from the smallest to the largest, are active in themselves. This activity takes the form of effort, motion, and result. Within the development progression, the immortality of result becomes evident as the developed status. The constitutionally complete atom, which is the conscious status, is its testimony.
 
-The doer-status is clear in the development progression. In the conscious status and awakening progression, the combined form of jeevan and body expresses hope, thought, and desire to live, as seen in the animal order and deluded human tradition. The hope to live brings wanting and not-wanting into evidence; together with it, human beings express the desire to be happy and give concrete form to ideas. The desire for happiness thus manifests as the human being's own mentality. Because the doer-status is already present, the expectation of the enjoyer-status — of enjoying happiness — arises, and with it the seer-status becomes necessary. Establishing the seer-status is evidence of understanding.
+The doer-status is evident in the development progression. In the conscious status, during the awakening progression, jeevan and body together express the hope, thought, and desire to live. This is evident in the animal world and deluded human tradition. The hope to live brings wanting and not-wanting into evidence. Along with the wish to live, human beings express the desire to be happy and become capable of giving concrete form to ideas. The desire for happiness thus manifests as the human being's own mentality. Since the doer-status is already present, the expectation of the enjoyer-status arises: the expectation of enjoying happiness. This makes the emergence of the seer-status necessary. Understanding itself is the evidence of being established in the seer-status.
 
-Understanding establishes the seer-status and, together with knowledge, the knower-status. The human being alone evidences the doer, enjoyer, and seer statuses, and becomes glorious as the combined form of jeevan and body. The conscious unit's grandeur lies in attaining the seer- and knower-status; by evidencing itself within human tradition, it also becomes glorious in the doer- and enjoyer-status. The physical-chemical world occupies the self-motivated doer-status, while awakened jeevan is seer and knower. From this position, the use, right-use, and purposeful deployment of the doer-status enable jeevan-aspiration and human-aspiration to be evidenced; remaining deluded instead brings affliction. In the physical-chemical world, the doer-status becomes clear from results within the existent state and development progression, and the enjoyer-status forms together with it because results appear in many existent states. To see is to understand, and understanding is the complete grandeur present in jeevan. In the conscious world, the seer-status is therefore linked
+Understanding establishes the seer-status and, together with knowledge, the knower-status. The human being alone evidences the seer, doer, and enjoyer statuses. Human beings manifest their grandeur as the combined form of jeevan and body. The conscious unit's grandeur lies in attaining the seer- and knower-status. Consequently, as this is evidenced within human tradition, human beings also manifest their grandeur in the doer- and enjoyer-status.
+
+The physical-chemical world occupies the self-motivated doer-status, while jeevan, in its awakened conscious status, is seer and knower. From the seer- and knower-status, use, right-use, and purposeful deployment of the doer-status make it possible to evidence jeevan-aspiration and human-aspiration. Remaining deluded instead brings affliction through problems. In the chemical and physical world, the doer-status becomes clear through the process of result within the existent state and development progression. The enjoyer-status accompanies the doer-status because result appears in many existent states. To see is to understand; understanding is the complete grandeur present in jeevan. In the conscious world, the seer-status is thus
 
 [p. 153]
 
-to this. This became clear as a result of awakening. This is the main matter. In the whole of chemical and physical activity, in the animal order, and in the deluded human being, testimony to being doer and enjoyer has forever remained formed. For this very reason, it is precisely together with the seer-status that the human being, as doer, has the arrangement for becoming meaningfully successful — not in the deluded condition. So be it: it is natural for the seer-status to be the glory of awakened tradition alone. Therefore, keeping human tradition intact is, for all of us human beings, the all-auspicious thread, the all-auspicious explanation.
+established. This became clear through awakening and is the central point. In all chemical and physical activity, in the animal world, and in the deluded human being, the doer- and enjoyer-status have always been in evidence. Human beings can therefore succeed meaningfully as doers only through the seer-status, not while remaining deluded. Thus, the seer-status is naturally the glory of awakened tradition alone. Maintaining human tradition is therefore, for all of us human beings, an all-auspicious thread and explanation.
 
 *Nityam yātu śubhodayam* [May auspicious dawn come forever]
 
