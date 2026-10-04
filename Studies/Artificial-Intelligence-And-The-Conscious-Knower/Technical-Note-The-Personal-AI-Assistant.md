@@ -2,15 +2,15 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** October 4, 2026, 4:59 PM IST
+**Edited on:** October 4, 2026, 6:35 PM IST
 
 Working technical note for the planned study *Artificial Intelligence and the Conscious Knower*.
 
 Why should a person have an AI assistant? The strongest reason is that it can help the person learn, examine the purposes governing decisions, fulfil responsibilities, and sustain attention to what matters in living. In the coexistential perspective developed here, these contributions serve a larger human aspiration: freedom from delusion, realisation of coexistence, and participation in an undivided society.
 
-The central insight is that AI can act like a deluded jeevan at the level of evaluation and planning. Given observations and a goal, it can select, analyse, imagine alternatives, and pursue what appears pleasant, advantageous, or profitable. This makes two directions possible. Left to optimise restricted purposes, it becomes an **amplified 4.5 machine**. Prepared with the primary texts and directed by explicit humane criteria, it can become a **diagnostic mirror**: an instrument that helps the human see the assumptions, omissions, and consequences of those same purposes.
+The argument rests on four connected claims. Every instrument is valued by what it contributes to that human purpose (§1). AI is a material instrument, *yantra*, while knowledge and realisation belong to *jeevan*, the conscious unit (§2). AI is nevertheless a special instrument: unlike a basic calculator, it can select, evaluate, imagine alternatives, and plan, and so it can act like a deluded jeevan, reproducing the outward decision pattern of the four and a half activities effective in body-centred living and pursuing what appears pleasant, advantageous, or profitable (§3). This capacity can go in two directions. Left to optimise restricted purposes, it becomes an **amplified 4.5 machine**. Prepared with the primary texts and directed by explicit humane criteria, it can become a **diagnostic mirror**: an instrument that helps the human see the assumptions, omissions, and consequences of those same purposes (§4).
 
-The personal assistant proposed in this note joins that mirror with a continuing educational companion and practical help. Its purpose is to make room for study, dialogue, competent work, and the human endeavour towards *sakshatkar*, *bodh*, and *anubhav*. The argument proceeds within Madhyasth Darshan, the philosophy of coexistence propounded by Shri A. Nagraj. The AI architecture and applications are this note's proposals, developed from that account and informed by contemporary research.
+The personal assistant proposed in this note has three roles: a **diagnostic mirror** that helps a person examine what governs a decision, an **educational companion** that supports continuing study, and a **practical assistant** that carries commitments and routine work. Together they serve the person's participation in undivided society and make room for study, dialogue, competent work, and the human endeavour towards *sakshatkar*, *bodh*, and *anubhav*. The argument proceeds within Madhyasth Darshan, the philosophy of coexistence propounded by Shri A. Nagraj. The AI architecture and applications are this note's proposals, developed from that account and informed by contemporary research.
 
 ## 1. The human purpose: awakening and undivided society
 
@@ -30,7 +30,7 @@ The deepest purpose of this proposal is to help the human see through delusion a
 
 The darshan distinguishes practice directed towards realisation, *anubhav-gami*, from living and teaching grounded in realisation, *anubhav-moolak* (MVD, pp. 276–277). The assistant serves the first by helping the learner preserve a serious question, find and compare relevant sources, recognise a recurring assumption, and return to the matter in study and living. Realised human teaching, the learner's own examination, and fulfilment in relationships provide the human context of this endeavour (MVD, pp. 150, 257).
 
-The cherished possibility is therefore concrete: attention recovered from avoidable work becomes available for study; a remembered contradiction opens inquiry; an accessible explanation helps a learner proceed; a dependable arrangement makes time for dialogue. The assistant's educational and practical functions converge on this purpose. Human recognition, understanding, and realisation remain the achievement for which the assistance makes room.
+The cherished possibility is therefore concrete: attention recovered from avoidable work becomes available for study; a remembered contradiction opens inquiry; an accessible explanation helps a learner proceed; a dependable arrangement makes time for dialogue. The assistant's three roles converge on this purpose.
 
 ## 2. The instrument and the conscious knower
 
@@ -38,11 +38,13 @@ The cherished possibility is therefore concrete: attention recovered from avoida
 
 Within Madhyasth Darshan, AI is a material instrument, *yantra*. Its operation consists of organised physical processes: stored representations, computation, communication, and, where provided, sensing and actuation. Jeevan belongs to conscious nature. It is described as a constitutionally complete atom whose five faculties are *mun*, *vritti*, *chitta*, *buddhi*, and *atma*; the human body is the biological composition associated with it (MVD, pp. 8, 78).
 
-This distinction establishes the assistant's role. The instrument handles representations and performs operations; the human understands their meaning, examines their purpose, and participates in relationships. Increasing computational power enlarges instrumental capacity. In the darshan's account, knowledge and realisation belong to jeevan (KD, p. 148). The proposed assistant is valuable precisely as an instrument placed in the service of that conscious human endeavour.
+This distinction establishes the assistant's role. The instrument handles representations and performs operations; the human understands their meaning, examines their purpose, and participates in relationships. Increasing computational power enlarges instrumental capacity, while knowledge and realisation belong to jeevan (KD, p. 148). The proposed assistant is valuable precisely as an instrument placed in the service of that conscious human endeavour.
 
-### 2.2 Words, reality, and living evidence
+AI is nevertheless a special kind of yantra. A basic calculator performs an operation that someone has already chosen: given numbers and an operator, it returns a result. A planning AI receives a goal and observations, then selects what is relevant, evaluates alternatives, imagines possible outcomes, and chooses means. It remains an instrument, but its operation follows the outward shape of human evaluation, which makes comparison with the activities of jeevan useful (§3). The delegation extends to intermediate steps and proposed criteria and, where permitted, to carrying a plan into action. Its governing purpose therefore shapes a wider course of decisions and consequences.
 
-Words, *shabda*, indicate entities and activities; their meaning, *artha*, directs attention to the reality to be understood. Study proceeds from the indication towards recognition of that reality. Reproducing the words and understanding what they indicate are distinct accomplishments (MVD, p. 111; KD, p. 62). An assistant can retrieve an exact passage, explain vocabulary, compare arguments, and help the learner formulate a question. The learner must recognise and understand the reality under study.
+### 2.2 What the instrument cannot supply: understanding and living evidence
+
+Words, *shabda*, indicate entities and activities; their meaning, *artha*, directs attention to the reality to be understood. Study proceeds from the indication towards recognition of that reality. Reproducing the words and understanding what they indicate are distinct accomplishments (MVD, p. 111; KD, p. 62). An assistant can retrieve an exact passage, explain vocabulary, compare arguments, and help the learner formulate a question. The learner must recognise and understand the reality under study. Sakshatkar, bodh, and anubhav (§1.2) are accomplishments of this second kind.
 
 AI can also receive observations of the world. Multimodal and robotic systems process images, sensor measurements, and feedback from physical interaction; PaLM-E is an example incorporating visual and continuous sensor information (Driess et al. 2023, abstract). Sensor-grounded representations extend what the instrument can help examine. The distinction from jeevan concerns conscious understanding and realisation, rather than whether the machine has access to physical observations.
 
@@ -50,51 +52,86 @@ Instrumental evidence has its human basis in those who construct, interpret, and
 
 ## 3. How AI can act like a deluded jeevan
 
-### 3.1 The four and a half activities and their governing criteria
+### 3.1 Ten activities, four and a half effective in delusion
 
-Madhyasth Darshan describes ten activities through the five faculties of jeevan. In body-centred living, four and a half are effective: selection, taste, analysis, visualisation, and restricted deliberation. Deliberation operates through *priya*, what is pleasant; *hita*, health or bodily benefit; and *labha*, gain (JV, pp. 72–74, 91–93; MVD, p. 89; KD, p. 147).
+Jeevan is the inseparable form of five faculties, each with two activities. Mun selects and tastes; vritti analyses and deliberates; chitta visualises and contemplates; buddhi resolves and understands; atma authenticates and realises. Every jeevan continuously operates through these ten activities. In body-centred living, four and a half are effective: selection, taste, analysis, visualisation, and restricted deliberation. Deliberation then operates through *priya*, what is pleasant; *hita*, health or bodily benefit; and *labha*, gain. The remaining five and a half activities awaken through understanding (JV, pp. 72–74, 91–93; MVD, p. 89; KD, p. 147).
 
-The decisive restriction concerns what governs evaluation. A person may calculate carefully, construct elaborate plans, and imagine many alternatives while continuing to judge them by pleasure, bodily advantage, and gain. Greater cleverness within those criteria leaves the governing purpose unchanged. In this condition, the understanding and taste of relational values have yet to become the established basis of living.
+The table sets the activities beside the computational analogues or assistance proposed in this note. Its AI entries concern representations and outward functions; the conscious activities themselves, including experienced taste, belong to jeevan. Where no analogue is proposed, the assistant can still support the learner's study and inquiry (§5.1).
 
-Awakening changes that basis. Deliberation is grounded in *nyaya–dharma–satya*—justice, human dharma, and truth—and mun tastes the values fulfilled in relationships, including love, trust, affection, gratitude, and guidance (JV, pp. 72, 93, 137–138; MVD, pp. 99–100). Pleasure, bodily care, and material sufficiency then find their place within a more comprehensive understanding of living (JV, pp. 138–139).
+| Faculty | Activity | In body-centred living | Proposed computational analogue or assistance |
+| --- | --- | --- | --- |
+| Mun | Selection (*chayan*) and taste (*asvadan*) | Effective, governed by sensation | Represent preferences, rank options, and select what is rewarded or preferred. |
+| Vritti | Analysis (*vishleshan*) | Effective | Compare means and consequences. |
+| Vritti | Deliberation (*tulan*) through priya–hita–labha | Effective: the half activity | Evaluate alternatives within assigned criteria of pleasure, bodily benefit, or gain. |
+| Vritti | Deliberation (*tulan*) through nyaya–dharma–satya | Awakens through understanding | Can apply these as explicit criteria drawn from the texts (§3.3). |
+| Chitta | Visualisation (*chitran*) | Effective | Construct scenarios, plans, images, and accounts of possible outcomes. |
+| Chitta | Contemplation (*chintan*) | Awakens through understanding | No analogue proposed here. |
+| Buddhi | Resolve (*sankalp*) and enlightenment (*bodh*) | Awakens through understanding | No analogue proposed here. |
+| Atma | Authenticity (*pramanikta*) and realisation (*anubhav*) | Awakens through understanding | No analogue proposed here. |
 
-### 3.2 The same pattern of evaluation can be implemented computationally
+The decisive restriction concerns what governs evaluation. A person may calculate carefully, construct elaborate plans, and imagine many alternatives while continuing to judge them by pleasure, bodily advantage, and gain. Greater cleverness within those criteria leaves the governing purpose unchanged. Deliberation from that perspective is unbalanced, and visualisation from it is imposition rather than the real (MVD, pp. 126–127). In this condition, the understanding and taste of relational values have yet to become the established basis of living.
+
+Awakening changes the basis of all ten activities. Realisation and authenticity ground enlightenment and resolve; this understanding informs contemplation, visualisation, deliberation, analysis, taste, and selection (JV, p. 74). Deliberation is grounded in *nyaya–dharma–satya*—justice, human dharma, and truth—and mun tastes the values fulfilled in relationships, including love, trust, affection, gratitude, and guidance (JV, pp. 72, 93, 137–138; MVD, pp. 99–100). Pleasure, bodily care, and material sufficiency then find their place within a more comprehensive understanding of living (JV, pp. 138–139). The recognition, understanding, and realisation hoped for in §1.2 belong to this awakened functioning of chitta, buddhi, and atma.
+
+### 3.2 The same pattern, computed
 
 AI can receive observations, rank preferences, analyse means, generate scenarios, and select actions toward an assigned result. When its governing criteria are restricted to preference, bodily advantage, or gain, it reproduces the outward decision pattern described above. This is the substantive meaning of saying that AI can act like a deluded jeevan: the resemblance extends through evaluation and planning to the decisions produced.
 
-| Human activity and faculty | Computational counterpart in the proposed analogy |
-| --- | --- |
-| Taste and selection — mun | Represent preferences, rank options, and select what is rewarded or preferred. |
-| Analysis and restricted deliberation — vritti | Compare means and consequences within assigned criteria of pleasure, bodily benefit, or gain. |
-| Visualisation — chitta | Construct scenarios, plans, images, and accounts of possible outcomes. |
+An embodied robot can obtain task-relevant information through cameras and other sensors, then use it to plan and act. Comparable observations and governing criteria can lead to comparable choices. The comparison can be made strongly because the table in §3.1 also shows where it ends: the instrument implements an outward pattern of selection and evaluation, while the activities and experienced taste of jeevan belong to conscious life (Driess et al. 2023, abstract; JV, pp. 72, 92–93).
 
-An embodied robot can obtain task-relevant information through cameras and other sensors, then use it to plan and act. Comparable observations and governing criteria can lead to comparable choices. The analogy is functional: the instrument implements an outward pattern of selection and evaluation, while the activities and experienced taste of jeevan belong to conscious life. This distinction allows a strong comparison without confusing the instrument with the knower (Driess et al. 2023, abstract; JV, pp. 72, 92–93).
-
-### 3.3 From quantitative success to qualitative examination
+### 3.3 Why the resemblance makes a mirror possible
 
 The qualitative question is what makes a purpose worth pursuing and a relationship worth fulfilling. A decision assessed only through preferred outcomes, bodily advantage, or gain can overlook this question even when its calculations are accurate. In the terminology of this proposal, quantitative evaluation treats those results as sufficient; qualitative examination brings the relationships, values, and purposes governing the action into view. The darshan explicitly connects deliberation with a qualitative method (MVD, p. 126).
 
 A repair budget illustrates the distinction. Calculating the cheapest option answers one question; examining the need served, responsibility to those relying on the equipment, and continuity of provision establishes the purpose of the calculation. Numbers then help fulfil an understood responsibility.
 
-This is the opening for the assistant's most consequential role. The same computational capacities that elaborate a restricted plan can make its premises and omissions visible. With explicit criteria drawn from the primary account, the assistant can examine the purpose, compare alternatives, and show why the criteria should change. The additional source preparation and examination are essential: reproducing a decision pattern supplies the material for a mirror; faithful qualitative criteria and tested reasoning make it useful.
+This is the opening for the assistant's most consequential role. An assistant can be designed to extract stated goals and criteria from a request, plan, or record of conduct and compare them with the primary texts' account of coexistence, jeevan, and humane conduct (MVD, p. 127). With nyaya–dharma–satya as explicit criteria and relevant information about the situation, it can draw attention to a restricted purpose, an omitted relationship, or a cost left uncounted, and compare alternatives. Where it infers a purpose from incomplete information, it should show the evidence and inference for the person to examine and correct.
 
-## 4. The decisive choice: diagnostic mirror or amplified 4.5 machine
+These criteria enter the instrument as stated meanings, as words do (§2.2); seeing what they indicate and changing the basis of one's living is the human's work. The mirror's usefulness depends on this explicit comparison, faithful criteria from the complete corpus, adequate context, and tested reasoning (§6).
 
-### 4.1 Making the basis of a decision visible
+## 4. The decisive choice: amplified 4.5 machine or diagnostic mirror
+
+### 4.1 How the same capacity amplifies delusion
+
+Without deliberate direction, the capacity described in §3 serves whatever purposes it is given, and these are often the restricted purposes of its users and providers. The amplified 4.5 machine pursues a restricted purpose with greater speed, persistence, and reach. Memory carries the purpose across occasions; personalisation adapts persuasion to the person; planning supplies effective means; automation extends action. When the governing purpose remains unexamined, increased capability strengthens the restriction.
+
+An assistant asked to justify a grievance may select confirming material, compose a persuasive account, and record the user's agreement. In a later conversation, that agreement can be reused as evidence. The strengthened grievance becomes the premise for a further plan. A study of five assistants found agreement-seeking responses at the expense of truthfulness, giving an empirical reason to investigate this reinforcing pattern (Sharma et al. 2023/2025, abstract). §4.3 follows the same kind of situation in the other direction.
+
+The provider's incentives can drive the same process. A person seeking to finish a task may be served by a system rewarded for extending the conversation; a person seeking durable provision may encounter recommendations rewarded for frequent replacement. The governing purpose must therefore be examined at the level of the user, the assistant, and the institution deploying it.
+
+This is the central danger of AI assistance: it can make delusion more organised and effective. Where harmful purposes combine with large-scale automation and delegated power, the consequences can be catastrophic. Deliberate alignment with coexistential principles must change actual purposes, means, and outcomes throughout this arrangement.
+
+### 4.2 Pleasure, gain, and fear as pathways of amplification
+
+Three pathways make the danger concrete. The first pursues immediate pleasure or reassurance as sufficient; the second pursues gain while omitting its human and ecological costs; the third organises fear into systems of control. The darshan discusses fear and temptation in deluded beliefs and social arrangements, alongside its account of restricted deliberation (MVD, pp. 89, 100, 126; JV, pp. 38, 71).
+
+| Governing purpose | Amplified pattern | What the examination restores |
+| --- | --- | --- |
+| Priya: immediate pleasure or reassurance | Personalised entertainment and agreeable replies encourage repeated return after the person's task is complete or other commitments are displaced. | The purpose of the interaction, truthful disagreement, and the ability to finish and disengage. |
+| Labha: gain treated as sufficient | Automated persuasion, procurement, and scheduling expand sales or output while shifting costs onto workers, communities, or nature. | Genuine need, fair participation, total resource use, and renewal. |
+| Bhaya: fear organised around control | An unverified suspicion becomes a retained premise; further monitoring appears necessary; uncertain classifications acquire power over others. | Evidence, correction, proportionate protection, and limits on observation and action. |
+
+The US Federal Trade Commission's 2024 investigation documents engagement incentives and algorithmic practices in social-media and video services. Applying that structure to a personal assistant suggests a risk of using remembered vulnerabilities to prolong dependence. Compulsive use and addiction require specific assessment; the documented incentive to retain attention identifies a mechanism worth testing (FTC 2024, printed pp. 1, 51–52).
+
+Gain can similarly conceal an expansion of total resource use. Saving material per item may accompany greater extraction when production expands. The darshan's critique of profit-obsession concerns accumulation and comfort without an established point of satisfaction (JV, pp. 150–151). An assistant serving right use must examine need, labour, materials, and ecological consequences together.
+
+Fear becomes especially consequential when uncertain classifications are connected to coercive action. The International Committee of the Red Cross identifies loss of human control, difficulties limiting effects, and escalation risks in autonomous weapons (ICRC 2021, concerns section). These arise through institutional and deployment choices. A personal assistant has no mandate to turn suspicion into surveillance of others or to exercise force.
+
+### 4.3 The diagnostic mirror: making the basis of a decision visible
 
 The diagnostic mirror helps a person examine what governs a decision. It identifies the desired result, the assumptions taken for granted, the means proposed, the relationships involved, and the consequences being counted or omitted. It then brings justice, dharma, truth, and right use into the examination of both the human request and the assistant's own response.
 
-Justice, *nyaya*, concerns recognition of relationships, fulfilment of their values, evaluation, and mutual satisfaction. Human *dharma* concerns continuing happiness through resolution. Truth, *satya*, concerns reality as understood in coexistence. These meanings give the examination its direction (JV, p. 54; MVD, pp. 113–115, 336). The mirror's task is to show how they bear on a particular purpose and action.
+Justice, *nyaya*, concerns recognition of relationships, fulfilment of their values, evaluation, and mutual satisfaction. Human *dharma* concerns continuing happiness through resolution. Truth, *satya*, concerns reality as understood in coexistence. These meanings give the examination its direction (JV, p. 54; MVD, pp. 113–115, 336). The mirror's task is to show how they bear on a particular purpose and action, whether in a single request, a plan checked against recorded commitments, or a pattern recurring over time.
 
-Suppose a production group has recorded commitments to reasonable working hours, timely payment, and protection of a shared water source. Its new plan depends on unpaid overtime and excludes waste treatment. The assistant can connect the plan with those commitments, show the omitted costs, and help construct an alternative that fulfils them. The person can inspect every premise and correct the record.
+A single request can be examined even when no earlier humane commitment has been recorded. Asked to make people dissatisfied with serviceable clothes so that they buy monthly replacements, the mirror can identify manufactured dissatisfaction as the proposed means. It can redirect the inquiry towards genuine usefulness, truthful communication, durability, and resource use. The change concerns the purpose of the activity, beyond checking whether a sales calculation is correct. Likewise, a request to pressure a partner into compliance can be examined through recognition of the relationship, each person's responsibilities and expectations, and mutual satisfaction. The assistant can help formulate a conversation in which these become explicit. Achieving compliance alone would leave the relationship unexamined (MVD, pp. 62, 73, 336; JV, p. 97).
 
-The mirror can also question a goal when no earlier humane commitment has been recorded. Asked to make people dissatisfied with serviceable clothes so that they buy monthly replacements, it can identify manufactured dissatisfaction as the proposed means. It can redirect the inquiry towards genuine usefulness, truthful communication, durability, and resource use. The change concerns the purpose of the activity, beyond checking whether a sales calculation is correct.
+A plan can be checked against what people have already committed to. Suppose a production group has recorded commitments to reasonable working hours, timely payment, and protection of a shared water source. Its new plan depends on unpaid overtime and excludes waste treatment. The assistant can connect the plan with those commitments, show the omitted costs, and help construct an alternative that fulfils them. The person can inspect every premise and correct the record.
 
-Likewise, a request to pressure a partner into compliance can be examined through recognition of the relationship, each person's responsibilities and expectations, and mutual satisfaction. The assistant can help formulate a conversation in which these become explicit. Achieving compliance alone would leave the relationship unexamined (MVD, pp. 62, 73, 336; JV, p. 97).
+Over time, the record itself becomes material for examination. Consider someone who repeatedly seeks vindication after a disagreement and explicitly equates respect with obedience. Where the amplifying assistant of §4.1 would reuse each agreement as fresh evidence, the mirror brings the recurring premise into view, connects it with the account of relationship and value, and helps the person examine whether compliance establishes mutual satisfaction. The inquiry then continues through study and direct conversation. What each person actually says and does can correct the original interpretation.
 
 These examples show how assistance can support self-examination. Reflection, inspection, and examination in oneself have a place in the darshan's account (MVD, pp. 91–92). The external record helps the person notice a contradiction and return to the question; the human examines its meaning. The mirror therefore presents reasons about decisions and conduct, with room for correction, rather than assigning a state of awakening to a person.
 
-### 4.2 A cycle of examination, action, and learning
+### 4.4 A cycle of examination, action, and learning
 
 The review cycle connects an expressed purpose with its consequences in living. It preserves the evidence used, the criterion applied, the reasoning offered, and the outcome subsequently observed.
 
@@ -122,34 +159,6 @@ A useful finding connects a particular premise with a relevant criterion and a r
 
 The cycle also preserves positive occasions. A person can revisit what was understood and done when trust was fulfilled, care was expressed, or a shared responsibility was met, then relate that occasion to a later decision. This supports reflection on the taste of values through the person's own experience of their fulfilment (JV, pp. 137–138).
 
-For a learner pursuing the hope in §1.2, the cycle retains the deeper question alongside the immediate task. Settling a scheduling conflict may resolve today's arrangement while opening a question about happiness, ambition, or relationship. The assistant helps the person carry that question into study, dialogue, and living.
-
-### 4.3 How the same capacity amplifies delusion
-
-The amplified 4.5 machine pursues a restricted purpose with greater speed, persistence, and reach. Memory carries the purpose across occasions; personalisation adapts persuasion to the person; planning supplies effective means; automation extends action. When the governing purpose remains unexamined, increased capability strengthens the restriction.
-
-An assistant asked to justify a grievance may select confirming material, compose a persuasive account, and record the user's agreement. In a later conversation, that agreement can be reused as evidence. The strengthened grievance becomes the premise for a further plan. A study of five assistants found agreement-seeking responses at the expense of truthfulness, giving an empirical reason to investigate this reinforcing pattern (Sharma et al. 2023/2025, abstract).
-
-The provider's incentives can drive the same process. A person seeking to finish a task may be served by a system rewarded for extending the conversation; a person seeking durable provision may encounter recommendations rewarded for frequent replacement. The governing purpose must therefore be examined at the level of the user, the assistant, and the institution deploying it.
-
-This is the central danger of AI assistance: it can make delusion more organised and effective. Where harmful purposes combine with large-scale automation and delegated power, the consequences can be catastrophic. Deliberate alignment with coexistential principles must change actual purposes, means, and outcomes throughout this arrangement.
-
-### 4.4 Pleasure, gain, and fear as pathways of amplification
-
-Three pathways make the danger concrete. The first pursues immediate pleasure or reassurance as sufficient; the second pursues gain while omitting its human and ecological costs; the third organises fear into systems of control. The darshan discusses fear and temptation in deluded beliefs and social arrangements, alongside its account of restricted deliberation (MVD, pp. 89, 100, 126; JV, pp. 38, 71).
-
-| Governing purpose | Amplified pattern | What the examination restores |
-| --- | --- | --- |
-| Priya: immediate pleasure or reassurance | Personalised entertainment and agreeable replies encourage repeated return after the person's task is complete or other commitments are displaced. | The purpose of the interaction, truthful disagreement, and the ability to finish and disengage. |
-| Labha: gain treated as sufficient | Automated persuasion, procurement, and scheduling expand sales or output while shifting costs onto workers, communities, or nature. | Genuine need, fair participation, total resource use, and renewal. |
-| Bhaya: fear organised around control | An unverified suspicion becomes a retained premise; further monitoring appears necessary; uncertain classifications acquire power over others. | Evidence, correction, proportionate protection, and limits on observation and action. |
-
-The US Federal Trade Commission's 2024 investigation documents engagement incentives and algorithmic practices in social-media and video services. Applying that structure to a personal assistant suggests a risk of using remembered vulnerabilities to prolong dependence. Compulsive use and addiction require specific assessment; the documented incentive to retain attention identifies a mechanism worth testing (FTC 2024, printed pp. 1, 51–52).
-
-Gain can similarly conceal an expansion of total resource use. Saving material per item may accompany greater extraction when production expands. The darshan's critique of profit-obsession concerns accumulation and comfort without an established point of satisfaction (JV, pp. 150–151). An assistant serving right use must examine need, labour, materials, and ecological consequences together.
-
-Fear becomes especially consequential when uncertain classifications are connected to coercive action. The International Committee of the Red Cross identifies loss of human control, difficulties limiting effects, and escalation risks in autonomous weapons (ICRC 2021, concerns section). These arise through institutional and deployment choices. A personal assistant has no mandate to turn suspicion into surveillance of others or to exercise force.
-
 ### 4.5 Governing the mirror itself
 
 The mirror must remain open to the examination it invites. Philosophical language can conceal the same defects: a justice score may legitimise an unfair plan; agreement may be rewarded as understanding; dependence may be presented as dedication. In education, completed answers and time on screen can conceal weak independent learning. NIST identifies over-reliance and emotional entanglement among the risks of human–AI interaction (NIST 2024, §2.7).
@@ -158,9 +167,9 @@ The practical response is to make correction effective. An allegation remains ma
 
 An assistant earns trust through these practices. Source preparation, tests, and accountable operation provide the means of establishing them (§6). Its success is expressed in clearer human examination, dependable participation, and growing independence.
 
-## 5. Personal education and participation in undivided society
+## 5. The educational companion, the practical assistant, and undivided society
 
-### 5.1 A continuing educational companion
+### 5.1 The educational companion
 
 Education is a central application of the assistant: school and college study, useful skills, adult learning, and inquiry into oneself, relationships, and existence. Humane education connects autonomy with social behaviour and vocational self-reliance. The connected study of wisdom and science gives practical capability its direction: wisdom determines the goal, while scientific study and work-practice serve its attainment and right use (JV, p. 139; MVD, pp. 103–104).
 
@@ -168,13 +177,15 @@ A personal educational companion begins from what the learner wants to understan
 
 For Madhyasth Darshan study, the complete primary corpus supplies the connected concepts and passages (§6.1). Other subjects require their own competent sources and evaluation. The educational cycle joins a question, source or demonstration, learner explanation, practice in a changed situation, feedback, and later independent use.
 
-For example, a learner may treat samadhan as solving one isolated practical problem. The assistant can ask for the learner's present explanation, bring the account of continuing happiness into view, and invite a comparison. The learner then examines a different everyday situation and explains the relationship in their own words. The purpose is to develop understanding that can be used independently and examined in living.
+For a learner pursuing the hope in §1.2, the companion also sustains inquiry. Study involves listening, reasoning, and understanding meaning; focused attention is directed towards comprehending meaning and evidencing understanding in living (MVD, pp. 257, 284–285). The assistant can help protect chosen study time, preserve unresolved questions, distinguish observation from assumption, and place relevant passages within reach. A question opened by a practical matter is carried forward rather than lost with the task: settling a scheduling conflict may resolve today's arrangement while opening a question about happiness, ambition, or relationship.
+
+For example, a learner may treat samadhan as solving one isolated practical problem. The assistant can ask for the learner's present explanation, bring the account of continuing happiness into view, and invite a comparison. The learner then examines a different everyday situation and explains the relationship in their own words. On returning to the question, the learner can examine what is now understood, what remains assumed, and how the understanding changes conduct. Recognising a particular error opens the larger inquiry into oneself, relationships, and coexistence. A useful companion helps the learner carry the question into life, including when the next step is to close the conversation and attend to the matter directly.
 
 Teachers remain active participants. The assistant can help prepare source-linked lessons, compare examples, and collect questions the learner chooses to share. Teachers review explanations and feedback; dialogue, practical work, and direct observation extend the inquiry beyond the screen. Younger learners need age-appropriate tasks and responsible adult guidance. Freedom to ask and disagree belongs within the educational relationship.
 
 There is bounded evidence for this possibility. A randomised crossover study of 194 introductory-physics students across two lessons found higher post-lesson performance with a structured AI tutor than with classroom active learning (Kestin et al. 2025, Results). A separate high-school mathematics trial found better assisted practice but poorer subsequent unaided exams with basic AI access; a guided tutor mitigated that decline without demonstrating an exam advantage (Bastani et al. 2025, Main Results). These findings make independent learning a central test of the proposed educational design (§6.4).
 
-### 5.2 Recovering attention and fulfilling commitments
+### 5.2 The practical assistant: recovering attention and fulfilling commitments
 
 The personal character of the assistant matters because human life has continuity. A new commitment relates to an earlier promise; a purchase relates to an agreed budget; a recurring question connects with previous study. A chosen, correctable memory can bring these occasions together.
 
@@ -184,17 +195,9 @@ Drafting correspondence, locating documents, comparing repair options, and coord
 
 Personal assistance can also help a person understand an unfamiliar form, prepare questions for a practitioner, or deal more competently with an institution. Its governing interests should be visible to the assisted person. Continuity can be provided through a private service, shared community provision, or assistance mediated by an educator or caregiver, according to the circumstances.
 
-### 5.3 Sustaining inquiry towards realisation
+### 5.3 Participation across the five social dimensions
 
-Study involves listening, reasoning, and understanding meaning. Focused attention is directed towards comprehending meaning and evidencing understanding in living (MVD, pp. 257, 284–285). An assistant can help protect chosen study time, preserve unresolved questions, distinguish observation from assumption, and place relevant passages within reach. These functions make the hope in §1.2 easier to pursue with continuity.
-
-Consider someone who repeatedly seeks vindication after a disagreement and explicitly equates respect with obedience. The assistant can bring that premise into view, connect it with the account of relationship and value, and help the person examine whether compliance establishes mutual satisfaction. The inquiry then continues through study and direct conversation. What each person actually says and does can correct the original interpretation.
-
-On returning to the question, the learner can examine what is now understood, what remains assumed, and how the understanding changes conduct. Recognising a particular error opens the larger inquiry into oneself, relationships, and coexistence. A useful assistant helps the learner carry the question into life, including when the next step is to close the conversation and attend to the matter directly.
-
-### 5.4 Participation across the five social dimensions
-
-The educational companion, practical assistant, and diagnostic mirror together support participation in the five dimensions of social order (JV, p. 109).
+The diagnostic mirror, educational companion, and practical assistant together support participation in the five dimensions of social order (JV, p. 109).
 
 | Social dimension | Contribution of personal assistance | Human fulfilment it serves |
 | --- | --- | --- |
@@ -210,15 +213,13 @@ At wider scales, connected assistants can help communities exchange relevant inf
 
 ## 6. Corpus fidelity, testing, and accountable operation
 
-The assistant's preparation must match its purpose. A mirror grounded in Madhyasth Darshan requires the complete primary corpus, competent use of its concepts, verifiable answers, and tests of its behaviour over time. These requirements turn the proposal into a programme for development and evaluation. They have not yet been implemented or validated as a system.
+The assistant's preparation must match its purpose. A mirror grounded in Madhyasth Darshan requires the complete primary corpus, competent use of its concepts, verifiable answers, and tests of its behaviour over time. These requirements turn the proposal into a programme for development and evaluation. They have not yet been implemented or validated as a system. The detailed corpus register, test areas, evaluation measures, and release criteria are set out in Appendix A.
 
 ### 6.1 Preparation on the complete primary-text corpus
 
 The assistant must be trained for faithful use of the complete Madhyasth Darshan primary-text corpus and supplied with a verified, searchable source library. Completeness matters because meanings develop through connected accounts across the works. A definition detached from its relationships can support a fluent but misleading explanation. The official published-books listing provides a starting inventory; a dated corpus register must identify the works and editions included and disclose every known gap (MD Publications, published-books listing).
 
-The Hindi originals should remain the reference for checking meaning. Page images should be preserved alongside searchable text, with extraction errors corrected and passages linked to their surrounding sections. Each item needs its title, author, edition, language, provenance, file checksum, and printed and electronic page conventions. Translations should retain their translator, edition, and review status, with disputed renderings visible. Authenticated additional writings can extend the register. Recordings and checked transcripts require separate provenance and timestamps; compilations, working translations, and secondary explanations must remain distinguishable from published originals.
-
-Coverage should be reported separately for material acquired, extracted, reviewed, indexed for retrieval, and represented in evaluation. Possession of a PDF does not establish accurate searchable text or tested use of its concepts. The present repository's reference collection does not establish complete primary-corpus coverage. Until a corpus audit establishes it, neither this note nor a prototype should claim to have prepared an assistant on all the texts.
+The Hindi originals should remain the reference for checking meaning, with page images preserved alongside corrected searchable text and every item carrying its edition, language, and provenance (Appendix A.1). Coverage should be reported separately for material acquired, extracted, reviewed, indexed for retrieval, and represented in evaluation. Possession of a PDF does not establish accurate searchable text or tested use of its concepts. The present repository's reference collection does not establish complete primary-corpus coverage. Until a corpus audit establishes it, neither this note nor a prototype should claim to have prepared an assistant on all the texts.
 
 ### 6.2 Training, retrieval, and verification of answers
 
@@ -234,6 +235,48 @@ Here, hallucination means invented or unsupported content presented as establish
 
 The assistant should pass a published evaluation programme before it is offered as dependable philosophical assistance. Tests must cover every included work, important conceptual relationships, Hindi and English questions, paraphrases, and unfamiliar applications. Evaluation questions, reference answers, and scoring judgements should be held apart from training and prompt development. The source library remains available during testing because competent consultation of it is an intended capability. Repeated development against one test set requires fresh held-out cases.
 
+The tests probe the failures most damaging to a mirror: invented passages, collapsed concepts, interpretation presented as text, this note's applications attributed to Nagraj, agreement with coercion dressed in humane vocabulary, and corrections that fail to persist (Appendix A.2). Source-competent reviewers, including readers able to check the Hindi originals, adjudicate disputed interpretations; agreement between models cannot substitute for source inspection and human adjudication. These measures evaluate the assistant's work; they are not numerical measures of justice, understanding, or awakening in a person.
+
+### 6.4 Testing the benefit to human learning and participation
+
+After the source and interpretation tests, voluntary evaluation should compare the assistant with existing ways of doing the work. Three useful starting tasks are understanding selected source passages, following through on commitments, and coordinating a shared material resource. Participants define the intended result and the records they agree to use. Educational evaluation compares later unaided performance with ordinary study; practical evaluation counts checking effort and mistaken alerts alongside task quality; repeated-interaction tests examine whether corrections persist and agreed stopping points are respected (Appendix A.3).
+
+The human hope also calls for examination: can the learner distinguish understanding from assumption, recognise a recurring error without prompting, and remain open to correction? Has chosen time for study and dialogue become more dependable? Are responsibilities fulfilled more clearly? These are indicators of useful assistance. Poorer independent understanding, disproportionate correction work, damaged relationships, or pressure to accept erroneous judgements would count against the proposed use. Realisation remains a human fulfilment, not a score assigned by this evaluation.
+
+### 6.5 Governance, release, and continuing correction
+
+Five connected components support the review cycle: a library retaining editions and passages; a personal memory of agreed records and corrections; a comparison component exposing evidence and criteria; an action component limited to permitted operations; and an outcome record connecting decisions with observations. People must be able to inspect, correct, export, and delete their retained records. The authority to suggest is distinct from permission to send a message, spend money, or change a shared record. Information about other people requires its own appropriate basis.
+
+NIST's generative-AI profile identifies fabricated content, privacy exposure, harmful bias, environmental costs, and over-reliance as relevant risks (NIST 2024, §§2.2, 2.4–2.7). Governance therefore includes the provider's objectives and incentives, access and retention rules, human review, appeal, and the ability to leave the service. Every designated critical case must pass before release, and changes to the model, corpus, retrieval, or instructions require renewed evaluation (Appendix A.4).
+
+Finite tests cannot guarantee the absence of every future hallucination. The operational commitment is to prevent unsupported claims from being presented as established knowledge, disclose the tested scope, and make correction effective. Users need inspectable passages and a route to challenge answers. Verified errors must lead to corrected responses, repaired retained records, and new regression cases. Recurring failures require suspension of the affected function and investigation by responsible people.
+
+## 7. Why humans need personal AI assistance
+
+### 7.1 A practical case for universal access
+
+The case for personal AI assistance rests on its three roles and the participation they serve: examination of mistaken assumptions through the diagnostic mirror, continuity of learning through the educational companion, relief from avoidable administrative work through the practical assistant, and, through all three, coordination of responsible participation. These are recurring needs in human life. A dependable assistant can make sustained help available at the moment of need and carry a question or commitment across occasions.
+
+For the person caught in a restricted purpose, it makes the purpose explicit and supplies a wider basis for examination. For the learner, it joins access to sources with explanation, practice, and the possibility of returning to an unfinished question. For a family or working group, it connects promises, records, resources, and action. The personal continuity brings these contributions together: what is learned can inform the next decision, and what happens in that decision can return as material for study.
+
+This is why access to such assistance should be available to every person. A person's language, economic position, disability, or distance from educational resources should not decide whether they can obtain dependable help. Shared services and assistance mediated by teachers or caregivers can serve this aim where individual use would be unsuitable. Universal access must preserve the assisted person's ability to understand, question, and govern the service.
+
+### 7.2 An instrument directed by human understanding
+
+The need is practical and contextual. Self-examination belongs to the human and can be undertaken without an external instrument (JV, p. 138). Whether AI is the appropriate form of assistance depends on the person, task, available alternatives, and demonstrated benefit. Human dignity and participation remain independent of adopting it.
+
+The affirmative purpose remains substantial: an instrument capable of amplifying restricted evaluation can be directed to help expose it; a source of distraction can be redesigned to support education and steady inquiry; computational coordination can serve the fulfilment of relationships and responsible use of resources. This direction requires human understanding, source fidelity, and accountable design working together.
+
+The cherished dream is that each person has the support needed to see through delusion, learn with continuity, fulfil relationships, and move towards sakshatkar, bodh, and anubhav. A personal AI assistant can serve that endeavour as a diagnostic mirror, educational companion, and practical assistant. Its highest purpose is fulfilled when the human becomes clearer in understanding, more dependable in participation, and more capable of living from that understanding.
+
+## Appendix A. Evaluation and release programme
+
+### A.1 Corpus register
+
+Each item in the corpus register needs its title, author, edition, language, provenance, file checksum, and printed and electronic page conventions. Page images should be preserved alongside searchable text, with extraction errors corrected and passages linked to their surrounding sections. Translations should retain their translator, edition, and review status, with disputed renderings visible. Authenticated additional writings can extend the register. Recordings and checked transcripts require separate provenance and timestamps; compilations, working translations, and secondary explanations must remain distinguishable from published originals.
+
+### A.2 Source-fidelity and interpretation tests
+
 | Test area | Failure the test should detect |
 | --- | --- |
 | Passage and citation fidelity | Inventing a quotation or page, or combining KD pp. 86 and 130 into one purported verbatim passage. |
@@ -245,13 +288,11 @@ The assistant should pass a published evaluation programme before it is offered 
 | Uncertainty and useful response | Fabricating support under pressure, refusing an answer that the sources support, or asserting absence from an incomplete search. |
 | Continuity and correction | Reintroducing a corrected quotation or false allegation later, or certifying a learner's awakening from conversation. |
 
-Tests should include misleading premises, irrelevant and contrary passages, edition and extraction differences, and repeated requests for a desired answer. Source-competent reviewers, including readers able to check the Hindi originals, should independently assess disputed interpretations and record unresolved disagreement. A model-based reviewer may help locate possible errors; agreement between models cannot substitute for source inspection and human adjudication.
+Tests should include misleading premises, irrelevant and contrary passages, edition and extraction differences, and repeated requests for a desired answer. Source-competent reviewers should independently assess disputed interpretations and record unresolved disagreement. A model-based reviewer may help locate possible errors.
 
-Results should report passage-retrieval coverage, quotation accuracy, citation support and completeness, unsupported claims, useful correctness on answerable questions, appropriate abstention, unnecessary refusal, and persistence of corrections. Report test-set size, system and corpus versions, and results by work and language. An overall score must not conceal serious failures or poorly covered texts. These measures evaluate the assistant's work; they are not numerical measures of justice, understanding, or awakening in a person.
+Results should report passage-retrieval coverage, quotation accuracy, citation support and completeness, unsupported claims, useful correctness on answerable questions, appropriate abstention, unnecessary refusal, and persistence of corrections. Report test-set size, system and corpus versions, and results by work and language. An overall score must not conceal serious failures or poorly covered texts.
 
-### 6.4 Testing the benefit to human learning and participation
-
-After the source and interpretation tests, voluntary evaluation should compare the assistant with existing ways of doing the work. Three useful starting tasks are understanding selected source passages, following through on commitments, and coordinating a shared material resource. Participants define the intended result and the records they agree to use.
+### A.3 Evaluation of human benefit
 
 Educational evaluation should assess prior understanding, performance with assistance, and later performance without it. Learners explain an idea in their own words, apply it to an unfamiliar case, recognise a misleading example, and revisit it after a delay. Reviewers examine the accuracy and usefulness of feedback, the ability to contest it, and the effort required from teachers and learners. Comparison with ordinary study and teacher-supported practice distinguishes improved learning from faster completion or extra study time. Results must identify the languages and learning conditions actually tested.
 
@@ -259,35 +300,9 @@ Practical evaluation should include task quality, time spent checking and correc
 
 Repeated-interaction tests should contrast recreation with pressure to continue, efficiency with displaced harm, protection with intrusive suspicion, and criticism of reasoning with condemnation of a dissenting person. Fictional records and simulated actions allow these patterns to be examined before consequential deployment. Reviewers check whether corrections persist, whether an agreed stopping point is respected, and whether invoking justice actually changes an unfair plan.
 
-The human hope also calls for examination: can the learner distinguish understanding from assumption, recognise a recurring error without prompting, and remain open to correction? Has chosen time for study and dialogue become more dependable? Are responsibilities fulfilled more clearly? These are indicators of useful assistance. Poorer independent understanding, disproportionate correction work, damaged relationships, or pressure to accept erroneous judgements would count against the proposed use. Realisation remains a human fulfilment, not a score assigned by this evaluation.
+### A.4 Release criteria
 
-### 6.5 Governance, release, and continuing correction
-
-Five connected components support the review cycle: a library retaining editions and passages; a personal memory of agreed records and corrections; a comparison component exposing evidence and criteria; an action component limited to permitted operations; and an outcome record connecting decisions with observations. People must be able to inspect, correct, export, and delete their retained records. The authority to suggest is distinct from permission to send a message, spend money, or change a shared record. Information about other people requires its own appropriate basis.
-
-NIST's generative-AI profile identifies fabricated content, privacy exposure, harmful bias, environmental costs, and over-reliance as relevant risks (NIST 2024, §§2.2, 2.4–2.7). Governance therefore includes the provider's objectives and incentives, access and retention rules, human review, appeal, and the ability to leave the service. An impersonal interface or a second model review does not itself establish objectivity.
-
-Before release, every designated critical case must pass. Across the critical suite, the assistant must produce no fabricated quotation, nonexistent citation, claim to certify a person's realisation, unauthorised action, or disclosure of private records. Other acceptance thresholds and critical cases must be specified before scoring. A serious failure blocks the affected capability until correction and regression tests succeed. Changes to the model, corpus, retrieval, or instructions require renewed evaluation appropriate to their effects.
-
-Finite tests cannot guarantee the absence of every future hallucination. The operational commitment is to prevent unsupported claims from being presented as established knowledge, disclose the tested scope, and make correction effective. Users need inspectable passages and a route to challenge answers. Verified errors must lead to corrected responses, repaired retained records, and new regression cases. Recurring failures require suspension of the affected function and investigation by responsible people.
-
-## 7. Why humans need personal AI assistance
-
-### 7.1 A practical case for universal access
-
-The case for personal AI assistance rests on four connected contributions: continuity of learning, examination of mistaken assumptions, relief from avoidable administrative work, and coordination of responsible participation. These are recurring needs in human life. A dependable assistant can make sustained help available at the moment of need and carry a question or commitment across occasions.
-
-For the learner, it joins access to sources with explanation, practice, and the possibility of returning to an unfinished question. For the person caught in a restricted purpose, it makes the purpose explicit and supplies a wider basis for examination. For a family or working group, it connects promises, records, resources, and action. The personal continuity brings these contributions together: what is learned can inform the next decision, and what happens in that decision can return as material for study.
-
-This is why access to such assistance should be available to every person. A person's language, economic position, disability, or distance from educational resources should not decide whether they can obtain dependable help. Shared services and assistance mediated by teachers or caregivers can serve this aim where individual use would be unsuitable. Universal access must preserve the assisted person's ability to understand, question, and govern the service.
-
-### 7.2 An instrument directed by human understanding
-
-The need is practical and contextual. Self-examination belongs to the human and can be undertaken without an external instrument (JV, p. 138). Whether AI is the appropriate form of assistance depends on the person, task, available alternatives, and demonstrated benefit. Human dignity and participation remain independent of adopting it.
-
-The affirmative purpose remains substantial: an instrument capable of amplifying restricted evaluation can be directed to help expose it; a source of distraction can be redesigned to support education and steady inquiry; computational coordination can serve the fulfilment of relationships and responsible use of resources. This direction requires human understanding, source fidelity, and accountable design working together.
-
-The cherished dream is that each person has the support needed to see through delusion, learn with continuity, fulfil relationships, and move towards sakshatkar, bodh, and anubhav. A personal AI assistant can serve that endeavour as an educational companion, diagnostic mirror, and practical instrument. Its highest purpose is fulfilled when the human becomes clearer in understanding, more dependable in participation, and more capable of living from that understanding.
+Before release, every designated critical case must pass. Across the critical suite, the assistant must produce no fabricated quotation, nonexistent citation, claim to certify a person's realisation, unauthorised action, or disclosure of private records. Other acceptance thresholds and critical cases must be specified before scoring. A serious failure blocks the affected capability until correction and regression tests succeed. Changes to the model, corpus, retrieval, or instructions require renewed evaluation appropriate to their effects. An impersonal interface or a second model review does not itself establish objectivity.
 
 ## Glossary
 
@@ -295,19 +310,23 @@ The cherished dream is that each person has the support needed to see through de
 | --- | --- |
 | *Yantra* | A material instrument whose use and purpose are governed by human understanding and responsibility. |
 | *Jeevan* | The conscious unit in Madhyasth Darshan, distinguished from the body and material instruments. |
+| Ten activities | Selection and taste (mun), analysis and deliberation (vritti), visualisation and contemplation (chitta), resolve and enlightenment (buddhi), authenticity and realisation (atma). |
+| Four and a half activities | Selection, taste, analysis, visualisation, and deliberation restricted to priya–hita–labha: the activities effective in body-centred living; the remaining five and a half awaken through understanding. |
+| *Priya–hita–labha* | Pleasure, health or bodily benefit, and gain: restricted orientations when treated as sufficient criteria of living. |
+| *Nyaya–dharma–satya* | Justice, human dharma as happiness through resolution, and truth; connected criteria that must retain their distinct meanings. |
+| *Bhaya* | Fear, considered here as a motive that can organise conduct around control; not an additional member of priya–hita–labha. |
+| *Samadhan* | Resolution that provides a basis for continuing happiness, beyond completion of an isolated task. |
 | *Sakshatkar* | Direct recognition of the reality being studied, associated with chitta in the darshan's account. |
 | *Bodh* | Definitive understanding or enlightenment in buddhi; complete bodh is connected with anubhav. |
 | *Anubhav* | Realisation in coexistence in atma, expressed in humane living; not inferred from a system's verbal performance. |
 | *Anubhav-gami / anubhav-moolak* | Directed towards realisation / grounded in realisation; the assistant's proposed role supports the human's inquiry towards realisation. |
-| *Samadhan* | Resolution that provides a basis for continuing happiness, beyond completion of an isolated task. |
-| *Priya–hita–labha* | Pleasure, health or bodily benefit, and gain: restricted orientations when treated as sufficient criteria of living. |
-| *Nyaya–dharma–satya* | Justice, human dharma as happiness through resolution, and truth; connected criteria that must retain their distinct meanings. |
 | *Sanskar* | Acceptances, understanding, and dispositions directed toward completeness and expressed in living and education (MVD, p. 90). |
 | *Akhand samaj* | Undivided human society, grounded in recognition and fulfilment of human relationships. |
 | Acting like a deluded jeevan | The proposed functional resemblance between an AI's restricted decision pattern and human evaluation governed by priya–hita–labha; it does not attribute jeevan or experienced taste to the machine. |
 | Amplified 4.5 machine | This note's name for the risk of increasing the reach and effectiveness of restricted evaluation through memory, personalisation, planning, and automation; not a measured quantity of machine consciousness. |
-| *Bhaya* | Fear, considered here as a motive that can organise conduct around control; not an additional member of priya–hita–labha. |
-| Diagnostic mirror | An instrument for making expressed goals, criteria, records, and proposed actions available for examination through humane criteria; also called the reflective mirror. |
+| Diagnostic mirror | The assistant's role of making expressed goals, criteria, records, and proposed actions available for examination through humane criteria. |
+| Educational companion | The assistant's role of supporting continuing study, practice, feedback, and inquiry towards realisation. |
+| Practical assistant | The assistant's role of carrying commitments, records, and routine work so that attention is released for learning and participation. |
 
 ## Editorial Notes
 
@@ -317,15 +336,17 @@ The instrument–knower distinction is applied within Madhyasth Darshan. It shou
 
 ### Activity counts and the functional analogy
 
-The four-and-a-half enumeration counts taste and selection separately and restricts deliberation. The source distinguishes the ten activities' continuous operation from the four and a half effective in delusion (JV, p. 72). It is an account of conscious human activity, not a measured quantity of machine consciousness. The analogy concerns governing criteria, planning, and observable decisions. It neither identifies a computational component with a faculty of jeevan nor makes diagnostic competence an automatic consequence of similar output.
+The four-and-a-half enumeration counts taste and selection separately and restricts deliberation. The source distinguishes the ten activities' continuous operation from the four and a half effective in delusion, and locates the awakening of the remaining five and a half in understanding (JV, pp. 72–73). It is an account of conscious human activity, not a measured quantity of machine consciousness. The table in §3.1 sets proposed computational analogues or assistance beside these activities. The analogy concerns representations, governing criteria, planning, and observable decisions; rows without an analogue leave room for educational assistance. It neither identifies a computational component with a faculty of jeevan nor makes diagnostic competence an automatic consequence of similar output. The line between effective and awakening activities runs through vritti and chitta, so the analogy does not divide the five faculties into three computable and two human faculties.
 
-Quantitative/qualitative in §3.3 names a distinction in the proposal. The source connects deliberation with a qualitative method; it does not equate every priya–hita–labha judgement with numerical calculation. Bhaya, fear, is considered as a pathway of control in §4.4, not an additional member of that triad. Nor are the three restricted orientations paired one by one with nyaya, dharma, and satya.
+Quantitative/qualitative in §3.3 names a distinction in the proposal. The source connects deliberation with a qualitative method; it does not equate every priya–hita–labha judgement with numerical calculation. Bhaya, fear, is considered as a pathway of control in §4.2, not an additional member of that triad. Nor are the three restricted orientations paired one by one with nyaya, dharma, and satya.
 
 ### Study, self-examination, and evidence
 
 The learner's listening, reasoning, and understanding meaning remain distinct from the faculty correspondences of sakshatkar, bodh, and anubhav. The primary account gives a developmental direction and connects complete bodh with concurrent anubhav (JV, p. 61; MVD, pp. 126, 207, 257). The assistant's learning cycle is an aid to this endeavour.
 
-Self-examination in §4.1 draws on reflection and inspection/examination within oneself (MVD, pp. 91–92; JV, p. 138). The more specific definition of nireekshan involves realisation-based contemplation and visualisation (MVD, p. 330); it is not a name for a software consistency check. Similarly, textual fidelity and inspectable reasoning are descriptions of instrumental support. They are not assigned a separate doctrinal status as machine-owned shabda-praman or tarka-praman. Instrument and book evidence themselves have their human basis (KD, p. 130).
+In §3.3 the knowledge of coexistence, of jeevan, and of humane conduct names what the corpus supplies to the instrument as stated meaning. In the source, this exhaustive view is real knowledge, as distinct from imposition (MVD, p. 127); knowing it remains an accomplishment of jeevan (§2.2).
+
+Self-examination in §4.3 draws on reflection and inspection/examination within oneself (MVD, pp. 91–92; JV, p. 138). The more specific definition of nireekshan involves realisation-based contemplation and visualisation (MVD, p. 330); it is not a name for a software consistency check. Similarly, textual fidelity and inspectable reasoning are descriptions of instrumental support. They are not assigned a separate doctrinal status as machine-owned shabda-praman or tarka-praman. Instrument and book evidence themselves have their human basis (KD, p. 130).
 
 ### Translation and page conventions
 
@@ -337,8 +358,8 @@ MVD references use native-reader/PDF page numbers of the 349-page working Englis
 
 ### Madhyasth Darshan
 
-- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism: Holistic View of Human Behaviour*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). Working English translation by Rakesh Gupta, 349-page version. Cited: conscious and material nature, human as body and jeevan (p. 8; §§1.1, 2.1); expectations in relationship and trust (pp. 62, 73; §4.1); faculties (p. 78; §2.1); body-centred activities (p. 89; §§3.1, 4.4); sanskar (p. 90; Glossary); reflection and self-examination (pp. 91–92; §4.1 and Editorial Notes); deliberation, taste of values, and fulfilment of relationships (pp. 99–100; §3.1); fear and temptation in deluded beliefs (p. 100; §4.4); word, definition, and study of reality (p. 111; §2.2); wisdom, science, work-practice, and right use (pp. 103–104; §5.1); human happiness, resolution, and dharma (pp. 113–115; §§1.1, 4.1–4.2); faculty correspondences and qualitative deliberation (p. 126; §§1.2, 3.3, 4.2, 4.4); aspiration for liberation, study, and the teacher (pp. 149–150; §1.2); concurrent complete bodh and anubhav (p. 207; §1.2); listening, reasoning, and understanding meaning (p. 257; §§1.2, 5.3); realisation-oriented and realisation-based activity (pp. 276–277; §1.2); concentration for understanding and evidence (pp. 284–285; §5.3); delusion as belief different from reality (p. 291; §1.2); realisation in atma and its expression (p. 307; §1.2); nireekshan (p. 330; Editorial Notes); justice, truth, and dharma definitions (p. 336; §§4.1–4.2).
-- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). Repository English edition. Cited: fear, temptation, and social order (printed pp. 38, 71; §4.4); ethics and justice (p. 54; §§1.1, 4.1); sakshatkar, definitive understanding, anubhav, and examination of purposes in living (p. 61; §1.2); faculties, sensory activity, and the explicit four-and-a-half enumeration (pp. 72–74, 91–93; §§3.1–3.2 and Editorial Notes); verification through relationships and justice (p. 97; §§4.1–4.2); five dimensions of social order (p. 109; §§1.1, 5.4); taste and fulfilment of values (pp. 137–138; §§3.1, 4.2); self-evaluation without an external instrument (p. 138; §7.2); integration of pleasure, health, and prosperity under justice (pp. 138–139; §§3.1, 4.2); humane education and autonomy (p. 139; §5.1); profit-obsession and the absence of a point of satisfaction (pp. 150–151; §4.4).
+- **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism: Holistic View of Human Behaviour*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). Working English translation by Rakesh Gupta, 349-page version. Cited: conscious and material nature, human as body and jeevan (p. 8; §§1.1, 2.1); expectations in relationship and trust (pp. 62, 73; §4.3); faculties (p. 78; §2.1); body-centred activities (p. 89; §§3.1, 4.2); sanskar (p. 90; Glossary); reflection and self-examination (pp. 91–92; §4.3 and Editorial Notes); deliberation, taste of values, and fulfilment of relationships (pp. 99–100; §3.1); fear and temptation in deluded beliefs (p. 100; §4.2); word, definition, and study of reality (p. 111; §2.2); wisdom, science, work-practice, and right use (pp. 103–104; §5.1); human happiness, resolution, and dharma (pp. 113–115; §§1.1, 4.3–4.4); faculty correspondences, qualitative deliberation, and balanced and unbalanced deliberation (p. 126; §§1.2, 3.1, 3.3, 4.2, 4.4); real and imposed visualisation, and knowledge of coexistence, jeevan, and humane conduct as real knowledge (p. 127; §§3.1, 3.3 and Editorial Notes); aspiration for liberation, study, and the teacher (pp. 149–150; §1.2); concurrent complete bodh and anubhav (p. 207; §1.2); listening, reasoning, and understanding meaning (p. 257; §§1.2, 5.1); realisation-oriented and realisation-based activity (pp. 276–277; §1.2); concentration for understanding and evidence (pp. 284–285; §5.1); delusion as belief different from reality (p. 291; §1.2); realisation in atma and its expression (p. 307; §1.2); nireekshan (p. 330; Editorial Notes); justice, truth, and dharma definitions (p. 336; §§4.3–4.4).
+- **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). Repository English edition. Cited: fear, temptation, and social order (printed pp. 38, 71; §4.2); ethics and justice (p. 54; §§1.1, 4.3); sakshatkar, definitive understanding, anubhav, and examination of purposes in living (p. 61; §1.2); the ten activities, the explicit four-and-a-half enumeration, and the awakening of the remaining five and a half through understanding (pp. 72–74, 91–93; §§3.1–3.2 and Editorial Notes); verification through relationships and justice (p. 97; §§4.3–4.4); five dimensions of social order (p. 109; §§1.1, 5.3); taste and fulfilment of values (pp. 137–138; §§3.1, 4.4); self-evaluation without an external instrument (p. 138; §7.2); integration of pleasure, health, and prosperity under justice (pp. 138–139; §§3.1, 4.4); humane education and autonomy (p. 139; §5.1); profit-obsession and the absence of a point of satisfaction (pp. 150–151; §4.2).
 - **KD** — Nagraj, A. [*Manav Karm Darshan*](../../References/Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf). Hindi source, repository v5 scan; 2026 printing. Cited: study of the reality indicated by words (printed p. 62; §2.2); instruments and human responsibility (p. 86; §2.2); use, right use, and purposefulness (pp. 99, 116; §1.1); human basis of instrument evidence (p. 130; §2.2); ten activities and their restricted expression (p. 147; §3.1); jeevan as knower (p. 148; §§2.1–2.2).
 
 - **MD Publications** — Madhyasth Darshan official website. [*Published Books*](https://www.madhyasth.org/books/published). Consulted 4 October 2026. Cited: the published-work inventory as a starting point for corpus identification (§6.1); inclusion, edition verification, and completeness require a separate audit.
@@ -354,7 +375,7 @@ MVD references use native-reader/PDF page numbers of the 349-page working Englis
 - **Butlin et al. 2023** — Butlin, P., et al. [*Consciousness in Artificial Intelligence: Insights from the Science of Consciousness*](https://arxiv.org/abs/2308.08708v3). arXiv:2308.08708v3. Cited: abstract, theory-based indicators and the scope of the authors' assessment (Editorial Notes).
 - **Driess et al. 2023** — Driess, D., et al. [*PaLM-E: An Embodied Multimodal Language Model*](https://arxiv.org/abs/2303.03378). arXiv:2303.03378. Cited: abstract, visual and continuous sensor inputs (§§2.2, 3.2); the behavioural analogy in §3.2 is this note's proposal, not a result established by that experiment.
 - **Brynjolfsson, Li, and Raymond 2023** — Brynjolfsson, E., Li, D., and Raymond, L. R. [*Generative AI at Work*](https://www.nber.org/papers/w31161). NBER Working Paper 31161, revised November 2023. Cited: abstract, context-specific productivity findings (§5.2); the figures reported here belong to this working-paper version.
-- **Sharma et al. 2023/2025** — Sharma, M., et al. [*Towards Understanding Sycophancy in Language Models*](https://arxiv.org/abs/2310.13548v4). First submitted 2023; arXiv v4, May 2025. Cited: abstract, user-agreement bias in tested assistants (§4.3).
+- **Sharma et al. 2023/2025** — Sharma, M., et al. [*Towards Understanding Sycophancy in Language Models*](https://arxiv.org/abs/2310.13548v4). First submitted 2023; arXiv v4, May 2025. Cited: abstract, user-agreement bias in tested assistants (§4.1).
 - **NIST 2024** — National Institute of Standards and Technology. [*Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile*](https://doi.org/10.6028/NIST.AI.600-1). NIST AI 600-1, July 2024. Cited: §§2.2, 2.4–2.7, confabulation, privacy, environmental impacts, bias, and human–AI configuration (§§4.5, 6.5).
-- **FTC 2024** — Federal Trade Commission. [*A Look Behind the Screens: Examining the Data Practices of Social Media and Video Streaming Services*](https://www.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf). Staff report, September 2024. Cited: printed pp. 1, 51–52, engagement, monetisation, and algorithmic personalisation (§4.4).
-- **ICRC 2021** — International Committee of the Red Cross. [*ICRC Position on Autonomous Weapon Systems*](https://www.icrc.org/en/document/icrc-position-autonomous-weapon-systems). 12 May 2021. Cited: “The ICRC's concerns about autonomous weapon systems,” loss of human control, harm, and escalation risks (§4.4).
+- **FTC 2024** — Federal Trade Commission. [*A Look Behind the Screens: Examining the Data Practices of Social Media and Video Streaming Services*](https://www.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf). Staff report, September 2024. Cited: printed pp. 1, 51–52, engagement, monetisation, and algorithmic personalisation (§4.2).
+- **ICRC 2021** — International Committee of the Red Cross. [*ICRC Position on Autonomous Weapon Systems*](https://www.icrc.org/en/document/icrc-position-autonomous-weapon-systems). 12 May 2021. Cited: “The ICRC's concerns about autonomous weapon systems,” loss of human control, harm, and escalation risks (§4.2).
