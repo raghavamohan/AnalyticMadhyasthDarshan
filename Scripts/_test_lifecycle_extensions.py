@@ -194,9 +194,10 @@ class LifecycleExtensions(unittest.TestCase):
         before = self.snapshot()
         self.assertEqual(restore.restore('A',revision,base='master',root=self.root,dry_run=True),['Studies/A/A.md'])
         self.assertEqual(before,self.snapshot())
+        manifests = {name:(self.root/'Scripts'/name).read_bytes() for name in ('presentation-pipeline.json','companion-pipeline.json')}
         restore.restore('A',revision,base='master',root=self.root)
         self.assertTrue((self.root/'Studies/A/A.md').is_file())
-        self.assertEqual(self.read('Scripts/companion-pipeline.json')['companions'],[])
+        self.assertEqual(manifests,{name:(self.root/'Scripts'/name).read_bytes() for name in manifests})
         body = f'Operation: restore-study\nRestore from: {revision}\n'
         self.assertEqual(restore.restoration_errors('A',body,'master',root=self.root),[])
 
