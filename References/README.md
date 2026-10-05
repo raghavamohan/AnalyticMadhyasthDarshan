@@ -76,7 +76,7 @@ Audit Studies bibliographies first: `python Scripts/_audit_references.py`. Agent
 | [Family-Relationships-And-Values.pdf](../Studies/Family-Relationships-And-Values/Family-Relationships-And-Values.pdf) | MVD, JV, SB, KD |
 | [Spiritual-Practice-And-Realization.pdf](../Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.pdf) | MVD, JV, KD, AVD, SB; Advaita (BSB, BU, CU, MU with Gaudapada Karika, BG, VC); RG (Rakesh Gupta's supplied interpretation, reproduced in the study's Editorial Notes) |
 | [A-State-Dynamic-Model-Of-Coexistence.pdf](../Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf) | MVD, SB, JV, AVD, KD, MSM, JVD; MAD and PS |
-| [Artificial-Intelligence-And-Coexistence.pdf](../Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf) | MVD, SB, JV |
+| [Artificial-Intelligence-And-Coexistence.pdf](../Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf) | MVD, SB, JV, KD; Advaita (DDV, VC, BSB); computing, philosophy of mind, and AI research (Turing 1950, Searle 1980, Amodei et al. 2016, Bender et al. 2021, Butlin et al. 2023, Driess et al. 2023, Sharma et al. 2023/2025, NIST 2024; [external sources](NOT-DOWNLOADED.md#ai-assistant-research--external-only)) |
 <!-- /studies-catalog -->
 
 ## Madhyasth-Darshan/
@@ -139,7 +139,7 @@ The [physical-dynamics technical note](../Studies/A-State-Dynamic-Model-Of-Coexi
 
 ## AI assistant research (external)
 
-The unpublished [personal AI assistant technical note](../Studies/Artificial-Intelligence-And-The-Conscious-Knower/Technical-Note-The-Personal-AI-Assistant.md) uses the registered MVD, JV, and KD primary PDFs. Its eleven external research and guidance sources cover artificial-consciousness indicators, embodied sensor input, workplace assistance, sycophancy, generative-AI risks, engagement incentives, humanitarian concerns about autonomous weapons, retrieval-augmented generation, citation evaluation, and educational outcomes with and without AI assistance. Canonical links are recorded in [AI assistant research](NOT-DOWNLOADED.md#ai-assistant-research--external-only). The separately registered official published-books listing supplies a starting inventory for the proposed primary-corpus audit; the repository collection is not asserted to be complete. No new reference payloads are mirrored.
+The [personal AI assistant technical note](../Studies/Artificial-Intelligence-And-Coexistence/Technical-Note-The-Personal-AI-Assistant.md), a companion to *Artificial Intelligence and Coexistence*, uses the registered MVD, JV, and KD primary PDFs. Its eleven external research and guidance sources cover artificial-consciousness indicators, embodied sensor input, workplace assistance, sycophancy, generative-AI risks, engagement incentives, humanitarian concerns about autonomous weapons, retrieval-augmented generation, citation evaluation, and educational outcomes with and without AI assistance. Canonical links are recorded in [AI assistant research](NOT-DOWNLOADED.md#ai-assistant-research--external-only). The separately registered official published-books listing supplies a starting inventory for the proposed primary-corpus audit; the repository collection is not asserted to be complete. The parent study adds four external works on computing, philosophy of mind, and AI safety (Turing 1950, Searle 1980, Amodei et al. 2016, Bender et al. 2021), recorded in the same section. No new reference payloads are mirrored.
 
 ## Modern-Philosophy/
 

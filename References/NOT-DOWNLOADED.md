@@ -54,6 +54,10 @@ Author-hosted copies kept for quote verification.
 | **NIST 2024** | National Institute of Standards and Technology. *Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile*. NIST AI 600-1, July 2024. | https://doi.org/10.6028/NIST.AI.600-1 |
 | **FTC 2024** | Federal Trade Commission. *A Look Behind the Screens: Examining the Data Practices of Social Media and Video Streaming Services*. Staff report, September 2024. | https://www.ftc.gov/system/files/ftc_gov/pdf/Social-Media-6b-Report-9-11-2024.pdf |
 | **ICRC 2021** | International Committee of the Red Cross. *ICRC Position on Autonomous Weapon Systems*. 12 May 2021. | https://www.icrc.org/en/document/icrc-position-autonomous-weapon-systems |
+| **Amodei et al. 2016** | Amodei, D., Olah, C., Steinhardt, J., Christiano, P., Schulman, J., and Mané, D. "Concrete Problems in AI Safety." arXiv:1606.06565. | https://arxiv.org/abs/1606.06565 |
+| **Bender et al. 2021** | Bender, E. M., Gebru, T., McMillan-Major, A., and Shmitchell, S. "On the Dangers of Stochastic Parrots: Can Language Models Be Too Big?" *FAccT* '21. | https://doi.org/10.1145/3442188.3445922 |
+| **Searle 1980** | Searle, J. R. "Minds, Brains, and Programs." *Behavioral and Brain Sciences*, 3(3), 417–424. | https://doi.org/10.1017/S0140525X00005756 |
+| **Turing 1950** | Turing, A. M. "Computing Machinery and Intelligence." *Mind*, 59(236), 433–460. | https://doi.org/10.1093/mind/LIX.236.433 |
 
 ## Moral psychology and moral science ? external only
 

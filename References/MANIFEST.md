@@ -71,10 +71,10 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 | [Research-Note-Jeevan-Activities-Values-And-Human-Order.md](../Studies/A-State-Dynamic-Model-Of-Coexistence/Research-Note-Jeevan-Activities-Values-And-Human-Order.md) | MVD, AVD, MSM, KD, JV; MAD, PS and MIT quantum numbers | registered primary PDFs; MAD, PS and MIT external |
 | [Technical-Note-Jeevan-Concentric-Architecture-And-The-State-Dynamic-Model.md](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Jeevan-Concentric-Architecture-And-The-State-Dynamic-Model.md) | MVD, AVD, MSM, KD, JV; PS | registered primary PDFs; PS external |
 | [Technical-Note-Physical-Dynamics-And-Unit-Activity.md](../Studies/A-State-Dynamic-Model-Of-Coexistence/Technical-Note-Physical-Dynamics-And-Unit-Activity.md) | MVD, SB; Tong-L, SICM-H, Tong-H, MIT-D, LYAP | registered primary PDFs; mechanics and stability sources external |
-| [Technical-Note-The-Personal-AI-Assistant.md](../Studies/Artificial-Intelligence-And-The-Conscious-Knower/Technical-Note-The-Personal-AI-Assistant.md) (unpublished working note) | MVD, JV, KD; MD Publications; Kestin et al. 2025, Bastani et al. 2025, Lewis et al. 2020, Gao et al. 2023, Butlin et al. 2023, Driess et al. 2023, Brynjolfsson, Li, and Raymond 2023, Sharma et al. 2023/2025, NIST 2024, FTC 2024, ICRC 2021 | registered primary PDFs; publication inventory, AI research and guidance external |
-
-
-| [Artificial-Intelligence-And-Coexistence.pdf](../Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf) | MVD, SB, JV | TBD |
+| [Artificial-Intelligence-And-Coexistence.pdf](../Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf) | MVD, SB, JV, KD | registered primary PDFs |
+| | DDV, VC, BSB | present |
+| | Amodei et al. 2016, Bender et al. 2021, Butlin et al. 2023, Driess et al. 2023, NIST 2024, Searle 1980, Sharma et al. 2023/2025, Turing 1950 | external |
+| [Technical-Note-The-Personal-AI-Assistant.md](../Studies/Artificial-Intelligence-And-Coexistence/Technical-Note-The-Personal-AI-Assistant.md) | MVD, JV, KD; MD Publications; Kestin et al. 2025, Bastani et al. 2025, Lewis et al. 2020, Gao et al. 2023, Butlin et al. 2023, Driess et al. 2023, Brynjolfsson, Li, and Raymond 2023, Sharma et al. 2023/2025, NIST 2024, FTC 2024, ICRC 2021 | registered primary PDFs; publication inventory, AI research and guidance external |
 
 ## By tag
 

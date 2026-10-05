@@ -1,6 +1,6 @@
 # Review of the personal AI assistant proposal
 
-Reviewed on 4 October 2026. The supplied proposal was titled *The AI Assistant in Co-existential Perspective: Ontological Status, Epistemic Limits, and Role in Akhand Samaj*. The resulting [working technical note](../Studies/Artificial-Intelligence-And-The-Conscious-Knower/Technical-Note-The-Personal-AI-Assistant.md) develops its argument in the intended AI study directory.
+Reviewed on 4 October 2026. The supplied proposal was titled *The AI Assistant in Co-existential Perspective: Ontological Status, Epistemic Limits, and Role in Akhand Samaj*. The resulting [working technical note](../Studies/Artificial-Intelligence-And-Coexistence/Technical-Note-The-Personal-AI-Assistant.md) develops its argument; it now sits beside its parent study, *Artificial Intelligence and Coexistence*.
 
 The latest revision responds to the structural review and the author's judgement that the note was too guarded. The current note has seven numbered sections. Earlier entries below retain the section numbers of the revisions they describe; the current organisation and reviewer dispositions are recorded in “Structural review: recovering the central argument.”
 
