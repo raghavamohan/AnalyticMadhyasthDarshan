@@ -11,6 +11,8 @@ export const GENERATED_PDF_KEYS = [
   "Studies/Aesthetics/Aesthetics.pdf",
   "Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf",
   "Studies/Artificial-Intelligence-And-Coexistence/Technical-Note-The-Personal-AI-Assistant.pdf",
+  "Studies/Artificial-Intelligence-And-Coexistence/The-Personal-AI-Assistant-Coexistential-Perspective-notes.pdf",
+  "Studies/Artificial-Intelligence-And-Coexistence/The-Personal-AI-Assistant-Coexistential-Perspective.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan-notes.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory-Madhyasth-Darshan.pdf",
   "Studies/Axiology-Value-Theory/Axiology-Value-Theory.pdf",

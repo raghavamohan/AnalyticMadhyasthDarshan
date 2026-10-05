@@ -80,6 +80,13 @@
       "slidesPdf": "Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization-Madhyasth-Darshan.pdf",
       "notesPdf": "Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization-Madhyasth-Darshan-notes.pdf",
       "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
+      "id": "personal-ai-assistant",
+      "source": "Studies/Artificial-Intelligence-And-Coexistence/The-Personal-AI-Assistant-Coexistential-Perspective.pptx",
+      "slidesPdf": "Studies/Artificial-Intelligence-And-Coexistence/The-Personal-AI-Assistant-Coexistential-Perspective.pdf",
+      "notesPdf": "Studies/Artificial-Intelligence-And-Coexistence/The-Personal-AI-Assistant-Coexistential-Perspective-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
     }
   ]
 }
