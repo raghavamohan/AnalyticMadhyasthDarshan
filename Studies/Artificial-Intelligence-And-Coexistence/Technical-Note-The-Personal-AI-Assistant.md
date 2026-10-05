@@ -2,9 +2,9 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** October 4, 2026, 6:35 PM IST
+**Edited on:** October 4, 2026, 7:21 PM IST
 
-Working technical note for the planned study *Artificial Intelligence and the Conscious Knower*.
+Working technical note for the study [*Artificial Intelligence and Coexistence*](Artificial-Intelligence-And-Coexistence.pdf).
 
 Why should a person have an AI assistant? The strongest reason is that it can help the person learn, examine the purposes governing decisions, fulfil responsibilities, and sustain attention to what matters in living. In the coexistential perspective developed here, these contributions serve a larger human aspiration: freedom from delusion, realisation of coexistence, and participation in an undivided society.
 

@@ -31,7 +31,9 @@
       "slug": "Artificial-Intelligence-And-Coexistence",
       "title": "Artificial Intelligence and Coexistence",
       "root": "Studies",
-      "notes": [],
+      "notes": [
+        "Technical-Note-The-Personal-AI-Assistant.md"
+      ],
       "presentations": [],
       "presenters": [],
       "presenterDecks": {}

@@ -204,7 +204,7 @@ here order, not proposal-number order.
 | ST-DRAFT-12 | Catalog | pending | First draft: [Free Will Choice and Agency](Studies/Free-Will-Choice-And-Agency/) (proposal #24). |
 | ST-DRAFT-13 | Catalog | pending | First draft: [Health Body and Restraint](Studies/Health-Body-And-Restraint/) (proposal #25). |
 | ST-DRAFT-14 | Catalog | pending | First draft: [God Divinity and the Sacred](Studies/God-Divinity-And-The-Sacred/) (proposal #26). |
-| ST-DRAFT-15 | P2 | partial | Planned [Artificial Intelligence and the Conscious Knower](Studies/Artificial-Intelligence-And-The-Conscious-Knower/): the [personal AI assistant technical note](Studies/Artificial-Intelligence-And-The-Conscious-Knower/Technical-Note-The-Personal-AI-Assistant.md) and [proposal review](docs/ai-assistant-proposal-review-2026-10-04.md) are prepared. The parent has no catalog/proposal registration or canonical first draft; complete the normal proposal/first-draft workflow before public companion publication. |
+| ST-DRAFT-15 | P2 | partial | [Artificial Intelligence and Coexistence](Studies/Artificial-Intelligence-And-Coexistence/) restored as a Draft (PR #555) and expanded in a first-draft PR; the [personal AI assistant technical note](Studies/Artificial-Intelligence-And-Coexistence/Technical-Note-The-Personal-AI-Assistant.md) moved beside it with only its parent pointer changed, following the [proposal review](docs/ai-assistant-proposal-review-2026-10-04.md). Remaining: the 31-slide companion deck for the note (speaker notes only, no Presenter's Companion) in its own `study-update` PR once the parent is merged. |
 
 ## Extensions
 
