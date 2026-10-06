@@ -258,9 +258,10 @@ together. Never use `--allow-source-mismatch` for committed page images.
 The imprint reserves all rights to Divyapath Sansthan. Its right-use policy
 (सदुपयोग नीति) states that the book is published for universal good, without
 commercial purpose, that copying for personal study is permitted, and that any
-other use needs the Sansthan's written permission. The source is retained in Git
-as an active-translation exception, like the KD and MSM sources, with rights status
-`review-required` in `References/r2-artifacts.json`; see `REF-AA` in PENDING.md.
+other use needs the Sansthan's written permission. By site-owner decision
+(6 October 2026), the source is retained in Git as an active-translation exception,
+like the KD and MSM sources; `References/r2-artifacts.json` records its rights
+notes and status.
 
 ## Completion gates for each translation batch
 

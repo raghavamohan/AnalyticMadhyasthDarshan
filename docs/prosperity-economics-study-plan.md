@@ -5,7 +5,7 @@
 **Drafted:** October 6, 2026. **Revised:** October 6, 2026. By author decision,
 drafting waits for a working English translation of *Avartansheel Arthshastra*
 (§8, §10).
-**Tracking:** `REF-AA` (acquire the Hindi source), `REF-AA-TR` (working
+**Tracking:** `REF-AA` (acquire the Hindi sources), `REF-AA-TR` (working
 translation) and `ST-DRAFT-06` (first draft, deferred until `REF-AA-TR`) in
 [PENDING.md](../PENDING.md). This plan covers design and method. Open work is
 tracked only in PENDING.md.
@@ -462,8 +462,9 @@ exchange-reserve) and AVD.
   treatise on cyclical economics (JV, p. 31). Acquired October 6, 2026: the
   official download of the 2024 printing is mirrored as
   [`AA-avartanshil-arthashastra.pdf`](../References/Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf)
-  (164 PDF pages; printed page + 10 = PDF position). Its redistribution basis
-  is still to be settled; the imprint reserves all rights to Divyapath Sansthan.
+  (164 PDF pages; printed page + 10 = PDF position). The imprint reserves all
+  rights to Divyapath Sansthan; the site owner approved retaining it in Git for
+  the translation, as for MSM.
 - *Vyavaharvadi Samajshastra* and *Manav Vyavahar Darshan*, for exchange,
   family and the order of the society.
 - Any recorded sessions on *arthshastra*, through the transcription programme.

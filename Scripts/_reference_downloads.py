@@ -34,7 +34,11 @@ DOWNLOADS: tuple[DownloadEntry, ...] = (
         ),
         tag="AA",
         min_bytes=15_000_000,
-        notes="Official published-book download (2024 printing; earlier editions 2001 and 2009).",
+        notes=(
+            "Official published-book download (2024 printing; earlier editions 2001 and 2009). "
+            "Imprint reserves all rights to Divyapath Sansthan; retained in Git for the "
+            "active translation by site-owner decision (6 October 2026)."
+        ),
     ),
     DownloadEntry(
         dest="Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf",
