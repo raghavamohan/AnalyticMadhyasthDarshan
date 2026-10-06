@@ -19,7 +19,7 @@ with the authority that already exists for each term.
 
 ## Decisions
 
-Raghava approved key terms 1-10 and 19-25 on 6 October 2026. Each row names the
+Raghava approved key terms 1-10 and 19-35 on 6 October 2026. Each row names the
 key-term number it settles. The page is where AA defines or first discusses the term.
 
 | Hindi term | Transliteration | English | PDF / printed page | Prior authority | Status | Rationale |
@@ -64,6 +64,24 @@ key-term number it settles. The page is where AA defines or first discusses the 
 | दोहन | *dohan* | **extraction** | PDF 78 / p. 68 | none | approved | Key term 24. |
 | राजगद्दी के कर विधि | *rajgaddi ke kar vidhi* | **taxation by the throne** | PDF 14 / p. 4 | none | approved | Key term 25. |
 | कर वसूली | *kar vasuli* | **tax collection** | PDF 148 / p. 138 | none | approved | Key term 25. |
+| स्वायत्त, स्वायत्त मानव | *swayatt, swayatt manav* | **self-reliant**; **self-reliant human** | PDF 36 / p. 26 | MD: स्वायत्त मानव = autonomous human (older AA edition, p. 76); JV: autonomous | approved | Key term 26. Preferred to "autonomous". Collides with व्यवसाय में स्वावलंबी; see Unresolved items. |
+| स्वायत्तता | *swayattata* | **self-reliance** | PDF 36 / p. 26 | MD: autonomy | approved | Key term 26. Also in व्यक्ति, परिवार and ग्राम मुहल्ला स्वायत्तता (individual, family and village or neighbourhood self-reliance). |
+| व्यवसाय में स्वावलंबी | *vyavsay mein swavalambi* | **self-reliant in occupation** | PDF 36 / p. 26 | MD: self-reliant in occupation; bare व्यवसाय = vocation (MVD p. 259) | approved | Key term 26. |
+| परिवार मूलक स्वराज्य व्यवस्था; परिवार मूलक ग्राम स्वराज्य व्यवस्था | *parivar mulak (gram) swarajya vyavastha* | **family-based self-governing system**; **family-based village self-governing system** | PDF 132, 120 / pp. 122, 110 | MD: family-based self-governance orderliness (MVD p. 19); SB and JV: self-governing system; MD: दस सोपानीय ... = ten-tier family based self-governing system | approved | Key term 27. The chapter 8 and 9 titles and the schemes they set out. Differs from MD-Mapping's row; see Unresolved items. |
+| व्यवस्था | *vyavastha* | **orderliness** (a state); **system** (an arrangement or scheme) | PDF 132, 141 / pp. 122, 131 | MD: orderliness, system | approved | Key term 28. "System" in स्वराज्य व्यवस्था योजना and शिक्षा-संस्कार व्यवस्था; "orderliness" for orderliness as a state, as in समग्र व्यवस्था and सार्वभौम व्यवस्था. |
+| आबंटन | *abantan* | **allotment** | PDF 11 / p. 1 | none | approved | Key term 29. |
+| बंटन | *bantan* | **sharing** | PDF 11 / p. 1 | none | approved | Key term 29. P. 1: "परिवार में आबंटन अथवा बंटन, समुदायों में विनिमय". |
+| वितरण | *vitaran* | **distribution** | PDF 36 / p. 26 | none | approved | Key term 29. |
+| कुटीर उद्योग | *kutir udyog* | **cottage industry** | PDF 81 / p. 71 | none | approved | Key term 30. |
+| ग्राम शिल्प | *gram shilp* | **village crafts** | PDF 81 / p. 71 | none | approved | Key term 30. |
+| ग्रामोद्योग | *gramodyog* | **village industry** | PDF 37 / p. 27 | none | approved | Key term 30. |
+| कृषि | *krishi* | **agriculture** | PDF 81 / p. 71 | none | approved | Key term 30. |
+| गोपालन | *gopalan* | **cattle-rearing** | PDF 81 / p. 71 | none | approved | Key term 30. |
+| सदुपयोग, सुरक्षा, समृद्धि | *sadupyog, suraksha, samriddhi* | **right-use**, **security**, **prosperity** | PDF 35 / p. 25 | MD: right-use, security, prosperity; अर्थ का सदुपयोग = right-use of resources (MVD p. 74) | approved | Key term 31. |
+| प्राकृतिक ऐश्वर्य | *prakritik aishvarya* | **natural abundance** | PDF 35 / p. 25 | MD (MVD p. 236) | approved | Key term 32. |
+| निपुणता, कुशलता, पांडित्य | *nipunta, kushalta, pandity* | **skill**, **proficiency**, **scholarliness** | PDF 35 / p. 25 | MD and MVD | approved | Key term 33. |
+| अर्थोपार्जन | *arthoparjan* | **earning of wealth** | PDF 35 / p. 25 | MD (MVD p. 190) | approved | Key term 34. |
+| ठोस, तरल, विरल वस्तु | *thos, taral, viral vastu* | **solid**, **liquid**, **rarefied (gaseous)** matter | PDF 44 / p. 34 | none for विरल | approved | Key term 35. Chapter 3's natural-science passages. |
 
 ## Key terms for review
 
@@ -124,21 +142,21 @@ which overrides the "For discussion" column.
 
 | # | Hindi (AA page) | Count | Existing authority | Question | For discussion | Pri |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 26 | स्वायत्त मानव, स्वायत्तता (p. 26); व्यवसाय में स्वावलंबी (p. 26) | 51, 13; 5 | MD: स्वायत्त मानव = **autonomous human** (cited from an older AA edition, p. 76), स्वायत्तता = **autonomy**; व्यवसाय में स्वावलंबी = **self-reliant in occupation**, while bare व्यवसाय = **vocation** (MVD p. 259). JV uses "autonomous" | P. 26 defines the स्वायत्त person: trust in oneself, respect for excellence, balance of talent and personality, self-reliant in व्यवसाय, social in behaviour. It also speaks of व्यक्ति, परिवार and ग्राम मुहल्ला स्वायत्तता. Autonomous or self-organised? Vocation or occupation? | autonomous; autonomy; self-reliant in occupation | A |
-| 27 | परिवार मूलक (ग्राम) स्वराज्य व्यवस्था (chapters 8-9) | 43 | MD: **family-based self-governance orderliness** (MVD p. 19). The published English varies: "self-governance orderliness" and "self-organising orderliness" (MVD), "self-organising system" and "self-governing system" (SB, JV) | One rendering is needed for the chapter titles and the whole of chapters 8-9 | family-based (village) self-governance orderliness | A |
-| 28 | व्यवस्था | 450 | MD: **orderliness, system** | AA uses it for orderliness as a state and for an arrangement or scheme (स्वराज्य व्यवस्था योजना, शिक्षा-संस्कार व्यवस्था). Record a rule for when each applies | orderliness (state); system (arrangement) | A |
-| 29 | बंटन, आबंटन (p. 1); वितरण (p. 26) | 3; 3; 2 | No MD rows | P. 1 contrasts "परिवार में आबंटन अथवा बंटन" with "समुदायों में विनिमय". Distinct English for the three? | allotment; sharing; distribution | A |
-| 30 | कुटीर उद्योग, ग्राम शिल्प, ग्रामोद्योग, कृषि, गोपालन (pp. 27, 71) | 11, 10, 10 | No MD rows | Confirm | cottage industry; village crafts; village industry; agriculture; cattle-rearing | B |
+| 26 | स्वायत्त मानव, स्वायत्तता (p. 26); व्यवसाय में स्वावलंबी (p. 26) | 51, 13; 5 | MD: स्वायत्त मानव = **autonomous human** (cited from an older AA edition, p. 76), स्वायत्तता = **autonomy**; व्यवसाय में स्वावलंबी = **self-reliant in occupation**, while bare व्यवसाय = **vocation** (MVD p. 259). JV uses "autonomous" | P. 26 defines the स्वायत्त person: trust in oneself, respect for excellence, balance of talent and personality, self-reliant in व्यवसाय, social in behaviour. It also speaks of व्यक्ति, परिवार and ग्राम मुहल्ला स्वायत्तता. Autonomous or self-organised? Vocation or occupation? | autonomous; autonomy; self-reliant in occupation | Decided |
+| 27 | परिवार मूलक (ग्राम) स्वराज्य व्यवस्था (chapters 8-9) | 43 | MD: **family-based self-governance orderliness** (MVD p. 19). The published English varies: "self-governance orderliness" and "self-organising orderliness" (MVD), "self-organising system" and "self-governing system" (SB, JV) | One rendering is needed for the chapter titles and the whole of chapters 8-9 | family-based (village) self-governance orderliness | Decided |
+| 28 | व्यवस्था | 450 | MD: **orderliness, system** | AA uses it for orderliness as a state and for an arrangement or scheme (स्वराज्य व्यवस्था योजना, शिक्षा-संस्कार व्यवस्था). Record a rule for when each applies | orderliness (state); system (arrangement) | Decided |
+| 29 | बंटन, आबंटन (p. 1); वितरण (p. 26) | 3; 3; 2 | No MD rows | P. 1 contrasts "परिवार में आबंटन अथवा बंटन" with "समुदायों में विनिमय". Distinct English for the three? | allotment; sharing; distribution | Decided |
+| 30 | कुटीर उद्योग, ग्राम शिल्प, ग्रामोद्योग, कृषि, गोपालन (pp. 27, 71) | 11, 10, 10 | No MD rows | Confirm | cottage industry; village crafts; village industry; agriculture; cattle-rearing | Decided |
 
 ### 4. Established terms to confirm in AA's economic sense
 
 | # | Hindi (AA page) | Count | Existing authority | For discussion | Pri |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| 31 | सदुपयोग, सुरक्षा, समृद्धि (p. 25) | 49 | MD: **right-use**, **security**, **prosperity**; अर्थ का सदुपयोग = right-use of resources (MVD p. 74) | right-use, security, prosperity | B |
-| 32 | प्राकृतिक ऐश्वर्य (p. 25) | 17 | MD: **natural abundance** (MVD p. 236) | natural abundance | B |
-| 33 | निपुणता, कुशलता, पांडित्य (p. 25) | 29, 29, 11 | MD and MVD: **skill, proficiency, scholarliness** | skill, proficiency, scholarliness | B |
-| 34 | अर्थोपार्जन (p. 25) | 1 | MD: **earning of wealth** (MVD p. 190) | earning of wealth | B |
-| 35 | ठोस, तरल, विरल वस्तु (p. 34) | 23 (विरल) | No MD row for विरल. Chapter 3's natural-science passages, not economics | solid, liquid, rarefied (gaseous) matter | B |
+| 31 | सदुपयोग, सुरक्षा, समृद्धि (p. 25) | 49 | MD: **right-use**, **security**, **prosperity**; अर्थ का सदुपयोग = right-use of resources (MVD p. 74) | right-use, security, prosperity | Decided |
+| 32 | प्राकृतिक ऐश्वर्य (p. 25) | 17 | MD: **natural abundance** (MVD p. 236) | natural abundance | Decided |
+| 33 | निपुणता, कुशलता, पांडित्य (p. 25) | 29, 29, 11 | MD and MVD: **skill, proficiency, scholarliness** | skill, proficiency, scholarliness | Decided |
+| 34 | अर्थोपार्जन (p. 25) | 1 | MD: **earning of wealth** (MVD p. 190) | earning of wealth | Decided |
+| 35 | ठोस, तरल, विरल वस्तु (p. 34) | 23 (विरल) | No MD row for विरल. Chapter 3's natural-science passages, not economics | solid, liquid, rarefied (gaseous) matter | Decided |
 
 ## Unresolved items
 
@@ -149,4 +167,5 @@ retain a neutral transliteration in the draft until the decision is settled.
 | :--- | :--- | :--- | :--- |
 | धन समृद्धि as a noun | 6 October 2026, key term 4 | "Wealthy" is an adjective, but p. 38 uses धन समृद्धि as a noun: "धन समृद्धि का तात्पर्य ... आवश्यकता से अधिक उत्पादन से है". What noun form should those passages use? | "being wealthy" |
 | उपयोगिता, सदुपयोगिता, प्रयोजनीयता | 6 October 2026, key term 8 | The approved triad is उपयोग, सदुपयोग, प्रयोजनशीलता = use, right-use, purposeful use. Should the parallel -ता triad (p. 26) use the same English, or keep "usefulness" for उपयोगिता to match "usefulness value"? | usefulness, right-use, purposeful use |
-| Shared-glossary alignment | 6 October 2026, key terms 2 and 5 | AA now uses **cyclicity** for आवर्तनशीलता and **value of labour** for श्रम मूल्य, while `../MD-Mapping.xlsx` and the KD glossary have "cyclicality" and "evaluation of labour". Should MD-Mapping and the KD translation adopt the AA choices? | Adopt both project-wide, as an explicit MD-Mapping and KD glossary decision |
+| स्वायत्त and स्वावलंबी both "self-reliant" | 6 October 2026, key term 26 | P. 26 defines the स्वायत्त human as, among other things, "व्यवसाय में स्वावलंबी". With both words rendered "self-reliant", the definition reads "a self-reliant human is ... self-reliant in occupation", and the Hindi distinction is lost. Keep it, or give स्वावलंबी another word? Bare व्यवसाय also stays MD's "vocation" while the compound has "occupation". | "self-supporting in occupation" for व्यवसाय में स्वावलंबी; bare व्यवसाय = occupation in AA's economic passages |
+| Shared-glossary alignment | 6 October 2026, key terms 2, 5, 26 and 27 | AA now uses **cyclicity** (आवर्तनशीलता), **value of labour** (श्रम मूल्य), **self-reliant human** (स्वायत्त मानव) and **family-based self-governing system** (परिवार मूलक स्वराज्य व्यवस्था). `../MD-Mapping.xlsx` has "cyclicality", "evaluation of labour", "autonomous human" and "family-based self-governance orderliness", and the KD glossary has the first two. Should MD-Mapping and the KD translation adopt the AA choices? | Adopt all four project-wide, as an explicit MD-Mapping and KD glossary decision |
