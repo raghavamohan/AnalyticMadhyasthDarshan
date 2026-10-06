@@ -126,10 +126,15 @@ The KD glossary and `../KD-Karm-Darshan-English/KD-Translation-Glossary.xlsx` we
 updated to match. Text that still uses earlier renderings, in the KD translation and
 in Studies, is tracked in PENDING.md (`REF-TERMS`).
 
-### Proposed in translation batches 1-2 (7 October 2026)
+### Proposed in translation batches 1-3 (7 October 2026)
 
-These choices arose while translating the front matter and chapter 1. The draft uses
-them; a `proposed` choice is not settled until approved.
+These choices arose while translating the front matter and chapters 1-2. The draft
+uses them; a `proposed` choice is not settled until approved. Batch 3 (chapter 2)
+otherwise follows MD-Mapping and MVD directly, for example मानवीयता पूर्ण आचरण =
+humane conduct, महिमा = magnificence (kept distinct from वैभव = grandeur), रूप, गुण,
+स्वभाव, धर्म = form, properties, essential nature and dharma, and the five
+dimensions of orderliness: justice-security, production, exchange-reserve,
+health-restraint and education-*sanskar*.
 
 | Hindi term | Transliteration | English | PDF / printed page | Prior authority | Status | Rationale |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -142,6 +147,19 @@ them; a `proposed` choice is not settled until approved.
 | संतुष्टि बिन्दु | *santushti bindu* | **point of contentment** | PDF 17 / p. 7 | none; तृप्ति बिन्दु = satiation point (key term 11) | proposed | Kept distinct from तृप्ति बिन्दु, which follows on p. 8. |
 | उन्मुक्त विधि; नियंत्रित विधि | *unmukt vidhi; niyantrit vidhi* | **the unrestrained method**; **the regulated method** | PDF 15 / p. 5 | MD: नियंत्रित = regulated | proposed | The two methods by which the prevailing economics has been thought out. |
 | व्यापार संघ | *vyapar sangh* | **trade association** | PDF 16 / p. 6 | व्यापार = trade (key term 15) | proposed | The organisation that brings about the imprisonment of objects (p. 6). |
+| प्रवर्तन | *pravartan* | **engagement** | PDF 19-20, 29 / pp. 9-10, 19 | MD: inclined, engaged | proposed | "पारंगत प्रवर्तन", "प्रवर्तन कार्य", "शुभाशुभ प्रवर्तन" (pp. 9-10) and "बोध पूर्वक प्रवर्तन अर्थात् अभिव्यक्ति, संप्रेषणा और प्रकाशन" (p. 19). One noun throughout instead of "implementation" or "putting into practice". |
+| स्वयंस्फूर्त और सर्वस्फूर्त | *svayamsphurt aur sarvasphurt* | **self-motivated, and motivated in all** | PDF 19 / p. 9 | KD: स्वयं स्फूर्त = self-motivated (settled 8 July 2026); MD: spontaneous | proposed | "जिसको जो स्वीकारता है वह दायी होना एक स्वयंस्फूर्त और सर्वस्फूर्त आवश्यकता है". The pair keeps KD's settled rendering for the first word. |
+| विवेचना (beside विश्लेषण) | *vivechana* | **analysis (*vivechana*)** | PDF 22 / p. 12 | MD: विवेचना = analysis; विश्लेषण = analysis | proposed | P. 12 defines both words in one passage. विश्लेषण stays plain "analysis"; विवेचना carries its transliteration so the reader can tell them apart. |
+| दृष्टापद, दृष्टा पद | *drishtapad* | **seer status** | PDF 23, 27 / pp. 13, 17 | MVD: "seer status" (tadavlokan definition); MD: पद = plane | proposed | Follows Rakesh Gupta's MVD wording for this compound only. Other पद compounds stay "plane": देव मानव, दिव्य मानव पद = deific human and divine human planes (p. 13), चैतन्य पद = sentient plane. |
+| अनुभवपूत | *anubhavput* | **realisation-purified** | PDF 27 / p. 17 | none | proposed | Defined on p. 17: expressing and applying hope, thought and desire through the body by a realisation-based method. |
+| सूत्रित; संबंध सूत्र | *sutrit; sambandh sutra* | **linked**; **the links of relationship** | PDF 25 / p. 15 | MD: सूत्र = formula | proposed | The definition of cyclicality (p. 15): "being linked ... back again to the starting point". "Formula" is kept where सूत्र names a principle, as in "this itself is the formula (*sutra*)" (p. 18). |
+| साम्य मूल्य | *samya mulya* | **uniform value** | PDF 30 / p. 20 | MD: साम्य ऊर्जा = uniform energy | proposed | Trust as a value present uniformly in all relationships (pp. 20-21). |
+| शरीर पुष्टि | *sharir pushti* | **sustenance of the body** | PDF 32 / p. 22 | MD: पुष्टि धर्म = growth dharma; पोषण = nourishment | proposed | The definition of right-use (p. 22). Kept distinct from पोषण, which this translation renders "nourishment". |
+| जीवन तंत्रणा | *jeevan tantrana* | **the working mechanism (*tantrana*) of jeevan** | PDF 32 / p. 22 | none | proposed | P. 22 refers back to the account of jeevan's ten activities. |
+| उद्गमन, उद्गमित | *udgaman, udgamit* | **arising** | PDF 28-29, 33 / pp. 18-19, 23 | none | proposed | Of the powers natural to jeevan, which keep arising however much they are used (pp. 18-19), and of the qualification to act with hope (p. 23). |
+| प्रसवन | *prasavan* | **birth (*prasavan*)** | PDF 27 / p. 17 | none | proposed | "अखण्ड समाज और सार्वभौम व्यवस्था का नित्य प्रसवन". |
+| मानव संचेतनावादी मनोविज्ञान | *manav sanchetnavadi manovigyan* | **the psychology of humane consciousness** | PDF 34 / p. 24 | MD: Psychology of Humane Consciousness; KD: संचेतना = awareness | proposed | Named on p. 24 as a discipline beside cyclical economics and behavioural sociology. It keeps MD's title wording, though bare संचेतना is "awareness" elsewhere in this translation. |
+| जय हो! मंगल हो!! कल्याण हो!!! | *jay ho! mangal ho!! kalyan ho!!!* | **May there be victory! May there be welfare!! May there be auspiciousness!!!** | PDF 34 / p. 24 | MD: मंगल = welfare (सर्वमंगल = universal welfare); कल्याण = auspicious | proposed | The closing formula of chapter 2. |
 
 ## Key terms for review
 

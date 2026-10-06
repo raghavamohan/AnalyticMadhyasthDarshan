@@ -5,8 +5,8 @@ This directory prepares a page-aligned working English translation of A. Nagraj'
 follows the working method established in `../KD-Karm-Darshan-English/` and the
 setup already made for `../MSM-Manav-Sanchetnavadi-Manovigyan-English/`.
 
-**Current status:** translation has begun in page order. The front matter (PDF
-pp. 1-10) and chapter 1 (printed pp. 1-8) exist as a first-pass translation in
+**Current status:** translation is under way in page order. The front matter (PDF
+pp. 1-10) and chapters 1-2 (printed pp. 1-24) exist as a first-pass translation in
 [`AA-Avartansheel-Arthshastra-English.md`](AA-Avartansheel-Arthshastra-English.md),
 not yet fidelity-reviewed. This is a machine-assisted working translation, not a
 published translation; verify against the Hindi original before quoting it in a
@@ -117,7 +117,9 @@ Chapters 8 and 9 are largely numbered schemes (committees, village services,
 evaluation criteria). Keep their enumeration and nesting exactly as printed.
 
 **Sub-headings.** These are recorded in the manuscript as each chapter is
-translated. Chapter 1 has none; its closing conclusions are a numbered list (pp. 7-8).
+translated. Chapters 1 and 2 have none. Chapter 1's closing conclusions are a
+numbered list (pp. 7-8); chapter 2 has short numbered lists (pp. 10-13, 20) and
+ends with the formula जय हो! मंगल हो!! कल्याण हो!!! and an ornament (p. 24).
 
 ## Translation authority
 
