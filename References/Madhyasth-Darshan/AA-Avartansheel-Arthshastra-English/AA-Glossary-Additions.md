@@ -126,6 +126,23 @@ The KD glossary and `../KD-Karm-Darshan-English/KD-Translation-Glossary.xlsx` we
 updated to match. Text that still uses earlier renderings, in the KD translation and
 in Studies, is tracked in PENDING.md (`REF-TERMS`).
 
+### Proposed in translation batches 1-2 (7 October 2026)
+
+These choices arose while translating the front matter and chapter 1. The draft uses
+them; they are not settled until approved.
+
+| Hindi term | Transliteration | English | PDF / printed page | Prior authority | Status | Rationale |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| नियतिक्रम | *niyatikram* | **progression of destiny** | PDF 6 | MD: नियति = destiny (MVD p. 14); KD's matching *vikalp* passage: "natural progression" | proposed | Follows MD's नियति = destiny. |
+| लोकमानस | *lokmanas* | **public mind** | PDF 11 / p. 1 | MD: जनमानस = public mindset | proposed | Kept distinct from जनमानस, which also occurs (p. 3). |
+| आस्थावाद | *asthavad* | **doctrine of faith** | PDF 13 / p. 3 | MD: आस्था = faith | proposed | P. 3 defines आस्था as accepting the existence of something without knowing it. |
+| लाभार्जन | *labharjan* | **profit-earning** | PDF 14 / p. 4 | none | proposed | "वस्तु विनिमय प्रणाली में भी लाभार्जन के लिए प्रवृत्त हुआ", the first stage of profit-obsession (p. 4). |
+| धर्म, धर्म शासन, धर्मनीति (religious institutions) | *dharm, dharm shasan, dharmaniti* | **religion**, **religious rule**, **religious policy** | PDF 14, 17 / pp. 4, 7 | MD: धर्मगद्दी = seat of religion; धर्मनीति = moral policy | proposed | Where AA describes religious institutions (धर्मगद्दी, धार्मिक राज्यनीति), "religion" fits. Bare धर्म in the darshan's own sense stays *dharma*, as on p. 3 and in "Dharma cannot prevail by the method of trade" (p. 7), which echoes "धर्म सफल हो". MD's "moral policy" names the darshan's own धर्मनीति. |
+| कृत्रिम अभाव | *kritrim abhav* | **artificial scarcity** | PDF 15-16 / pp. 5-6 | MD: अभाव = deprivation, lacking, absence | proposed | The established economic term for the practice AA describes. |
+| संतुष्टि बिन्दु | *santushti bindu* | **point of contentment** | PDF 17 / p. 7 | none; तृप्ति बिन्दु = satiation point (key term 11) | proposed | Kept distinct from तृप्ति बिन्दु, which follows on p. 8. |
+| उन्मुक्त विधि; नियंत्रित विधि | *unmukt vidhi; niyantrit vidhi* | **the unrestrained method**; **the regulated method** | PDF 15 / p. 5 | MD: नियंत्रित = regulated | proposed | The two methods by which the prevailing economics has been thought out. |
+| व्यापार संघ | *vyapar sangh* | **trade association** | PDF 16 / p. 6 | व्यापार = trade (key term 15) | proposed | The organisation that brings about the imprisonment of objects (p. 6). |
+
 ## Key terms for review
 
 This list was compiled on 6 October 2026 for review with Rakesh Gupta, translator of
