@@ -58,8 +58,13 @@ below). Each row names the key-term number it settles. The page is where AA defi
 | व्यापार; व्यापार विधि; व्यापारोन्मुखी | *vyapar; vyapar vidhi; vyaparonmukhi* | **trade**; **the method of trade**; **trade-oriented** | PDF 17, 56 / pp. 7, 46 | MD: व्यापार गद्दी = seat of commerce; SB and JV use both "trade" and "commerce" | approved | Key term 15. "Trade", not "commerce". |
 | मुद्रा (economic sense) | *mudra* | **currency** | PDF 16 / p. 6 | MD bare row: gesture, gesticulation (another sense); SB: currency | approved | Key term 16. |
 | पत्र मुद्रा; धातु मुद्रा; प्रतीक मुद्रा | *patra mudra; dhatu mudra; prateek mudra* | **paper currency**; **metal currency**; **symbolic currency** | PDF 16, 62 / pp. 6, 52 | MD: प्रतीक मुद्रा = symbolic currency | approved | Key term 16. |
-| राष्ट्रीय कोष | *rashtriya kosh* | **reserve bank** | PDF 61 / p. 51 | none | approved | Key term 17. See Unresolved items for राष्ट्रीय मुद्रा कोष and the international terms. |
-| धातु कोष | *dhatu kosh* | **commodity exchange** | PDF 16 / p. 6 | none | approved | Key term 17. Fit with the p. 6 context is questioned; see Unresolved items. |
+| राष्ट्रीय कोष | *rashtriya kosh* | **national reserve(s)** | PDF 54-55, 61 / pp. 44-45, 51 | none | approved | Key term 17. Revised on 7 October 2026 from "reserve bank" after reading all four occurrences: a nation's reserve or stock, including "हर वस्तु का राष्ट्रीय कोष" (the national stock of every commodity, p. 45), where a bank does not fit. Consistent with कोष = reserve (key term 19). |
+| राष्ट्रीय मुद्रा कोष, राष्ट्रीय मुद्राकोष | *rashtriya mudra kosh* | **reserve bank** | PDF 54-55 / pp. 44-45 | none | approved | Key term 17, approved 7 October 2026. The institution that has primary capital, holds gold and decides the undertaking behind paper currency (pp. 44-45). |
+| अंतर्राष्ट्रीय मुद्रा कोष | *antarrashtriya mudra kosh* | **International Monetary Fund** | PDF 54 / p. 44 | none | approved | Key term 17, approved 7 October 2026. The proper name. |
+| अन्तर्राष्ट्रीय कोष | *antarrashtriya kosh* | **international reserves** | PDF 61 / p. 51 | none | approved | Key term 17, approved 7 October 2026. Parallel to राष्ट्रीय कोष in "राष्ट्रीय कोष, अन्तर्राष्ट्रीय कोष" (p. 51). |
+| मुद्रा कोष | *mudra kosh* | **currency reserve** | PDF 55 / p. 45 | none | approved | Key term 17, approved 7 October 2026. "स्वीकृति मुद्रा कोष के नाम से रहा करता है" (p. 45). |
+| धातु कोष | *dhatu kosh* | **metal reserve** | PDF 16 / p. 6 | none | approved | Key term 17. Revised on 7 October 2026 from "commodity exchange": on p. 6 it is a country's stock of metal, whose decline lowers the value of its paper currency. |
+| धातु कोषालय | *dhatu koshalay* | **metal treasury** | PDF 16 / p. 6 | none | approved | Key term 17, approved 7 October 2026. "धातु संग्रहण अथवा धातु कोषालय प्रत्येक राष्ट्र अथवा राज्य के अधीनस्थ मानी जाती है" (p. 6). |
 | सुवर्ण द्रव्य मूलक मूल्यांकन | *suvarna dravya mulak mulyankan* | **gold-based valuation**; **currency pegged to gold** | PDF 61 / p. 51 | none | approved | Key term 17. "Gold-based valuation" by default; "currency pegged to gold" where the passage concerns a currency's value. |
 | पूँजी; मूल पूँजी | *punji; mul punji* | **capital**; **primary capital** | PDF 54, 62 / pp. 44, 52 | MD: पूंजीवाद = capitalism; SB: capital | approved | Key term 18. |
 | ब्याज प्रथा | *byaj pratha* | **practice of collecting interest** | PDF 62 / p. 52 | none | approved | Key term 18. |
@@ -113,8 +118,7 @@ kept in its notes column:
   production; परिवार मूलक स्वराज्य व्यवस्था = family-based self-governing system;
   शोषण = exploitation; प्रयोजनीयता, प्रयोजनशीलता = purposeful use; मुद्रा and कोष gain
   their economic senses, currency and reserve.
-- 53 new rows, marked "AA glossary addition", for the AA terms MD-Mapping lacked.
-  धातु कोष waits for its open question below.
+- 59 new rows, marked "AA glossary addition", for the AA terms MD-Mapping lacked.
 - Two AA choices were withdrawn in favour of the existing renderings:
   आवर्तनशीलता = cyclicality and स्वायत्त मानव = autonomous human.
 
@@ -199,10 +203,6 @@ which overrides the "For discussion" column.
 
 ## Unresolved items
 
-Add an item here when translation must proceed while a choice remains deferred;
-retain a neutral transliteration in the draft until the decision is settled.
-
-| Item | Raised | Question | Proposal |
-| :--- | :--- | :--- | :--- |
-| International and national currency reserves | 7 October 2026, key term 17 | राष्ट्रीय कोष is approved as "reserve bank". Does राष्ट्रीय मुद्रा कोष (p. 44) take the same English? And are अंतर्राष्ट्रीय मुद्रा कोष (p. 44) and अन्तर्राष्ट्रीय कोष (p. 51) rendered by the proper name, or literally? | राष्ट्रीय मुद्रा कोष = reserve bank; अंतर्राष्ट्रीय मुद्रा कोष and अन्तर्राष्ट्रीय कोष = International Monetary Fund |
-| धातु कोष and धातु कोषालय on p. 6 | 7 October 2026, key term 17 | धातु कोष is approved as "commodity exchange". On p. 6, though, it names a country's stock of metal: "जिस देश में धातु कोष कम होता गया उस देश के पत्र मुद्रा का मूल्य घटता गया" (in whichever country the धातु कोष declined, the value of its paper currency fell), and "धातु संग्रहण अथवा धातु कोषालय प्रत्येक राष्ट्र अथवा राज्य के अधीनस्थ मानी जाती है". A commodity exchange is a market for trading goods, so it may not fit these sentences. Confirm, or use another term here? | "metal reserve" for धातु कोष and "metal treasury" for धातु कोषालय on p. 6 |
+No items are open. Add an item here when translation must proceed while a choice
+remains deferred; retain a neutral transliteration in the draft until the decision
+is settled.

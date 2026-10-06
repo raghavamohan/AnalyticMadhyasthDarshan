@@ -82,7 +82,7 @@ in the notes column (F):
   प्रयोजनीयता, प्रयोजनशीलता (322), कोष (719) and मुद्रा (1427).
 - **Spelling variants** added to four Hindi keys: दूरश्रवण, दूरदर्शन, दूरगमन and
   व्यवसाय में स्वावलंबी.
-- **53 rows appended (2246–2298)**, marked "AA glossary addition", for AA terms the
+- **59 rows appended (2246–2304)**, marked "AA glossary addition", for AA terms the
   workbook lacked.
 
 `../KD-Karm-Darshan-English/KD-Translation-Glossary.xlsx` was rebuilt with
