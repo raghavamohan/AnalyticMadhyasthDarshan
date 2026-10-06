@@ -170,7 +170,7 @@ What kind of democracy is this?
 
 14. Within coexistence itself:- It was understood that the human tradition is the combined form of body and *jeevan*.
 
-    In, from and for coexistence:- It was understood that coexistence is eternally effective. This itself was understood to be the progression of destiny (*niyatikram*).
+    In, from and for coexistence:- It was understood that coexistence is eternally effective. This itself was understood to be the natural progression (*niyatikram*).
 
 15. The method of destiny (*niyati vidhi*):- Only by the method natural to coexistence:-
 

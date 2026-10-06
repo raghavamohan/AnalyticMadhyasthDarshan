@@ -118,7 +118,7 @@ kept in its notes column:
   production; परिवार मूलक स्वराज्य व्यवस्था = family-based self-governing system;
   शोषण = exploitation; प्रयोजनीयता, प्रयोजनशीलता = purposeful use; मुद्रा and कोष gain
   their economic senses, currency and reserve.
-- 59 new rows, marked "AA glossary addition", for the AA terms MD-Mapping lacked.
+- 60 new rows, marked "AA glossary addition", for the AA terms MD-Mapping lacked.
 - Two AA choices were withdrawn in favour of the existing renderings:
   आवर्तनशीलता = cyclicality and स्वायत्त मानव = autonomous human.
 
@@ -129,11 +129,11 @@ in Studies, is tracked in PENDING.md (`REF-TERMS`).
 ### Proposed in translation batches 1-2 (7 October 2026)
 
 These choices arose while translating the front matter and chapter 1. The draft uses
-them; they are not settled until approved.
+them; a `proposed` choice is not settled until approved.
 
 | Hindi term | Transliteration | English | PDF / printed page | Prior authority | Status | Rationale |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| नियतिक्रम | *niyatikram* | **progression of destiny** | PDF 6 | MD: नियति = destiny (MVD p. 14); KD's matching *vikalp* passage: "natural progression" | proposed | Follows MD's नियति = destiny. |
+| नियतिक्रम | *niyatikram* | **natural progression** | PDF 6 | KD's matching *vikalp* passage: natural progression; MVD p. 8 (same passage) and SB: destiny progression | approved | Approved 7 October 2026 to match KD. MVD and SB render this passage "destiny progression", and MVD uses "natural progression" for अनुक्रम. |
 | लोकमानस | *lokmanas* | **public mind** | PDF 11 / p. 1 | MD: जनमानस = public mindset | proposed | Kept distinct from जनमानस, which also occurs (p. 3). |
 | आस्थावाद | *asthavad* | **doctrine of faith** | PDF 13 / p. 3 | MD: आस्था = faith | proposed | P. 3 defines आस्था as accepting the existence of something without knowing it. |
 | लाभार्जन | *labharjan* | **profit-earning** | PDF 14 / p. 4 | none | proposed | "वस्तु विनिमय प्रणाली में भी लाभार्जन के लिए प्रवृत्त हुआ", the first stage of profit-obsession (p. 4). |
