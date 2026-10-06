@@ -1220,6 +1220,12 @@ use PowerShell syntax, never bash. The repo root path contains a space
   `Get-Content`, `Select-String`, `Measure-Object`, `$env:VAR`, `$LASTEXITCODE`.
   Prefer the editor's dedicated file and search tools over shelling out to read, edit, or
   search files.
+- **No unix-only utilities in PowerShell commands.** `tail`, `head`, `grep`, `cat`, `wc`,
+  `sed`, `awk`, `which`, and `touch` do not exist in Windows PowerShell; piping into them
+  fails with "term is not recognized" (the upstream command still runs, but its output is
+  lost). Use `Select-Object -Last N` / `-First N`, `Select-String`, `Get-Content`,
+  `Measure-Object`, `(Get-Command x).Source`, and `New-Item`. If a command needs unix
+  tools, run it deliberately through the Bash tool instead of mixing syntaxes in one call.
 - **Line endings:** author files as **LF** (§8). On Windows some generators still write
   CRLF into the working tree; `.gitattributes` (`* text=auto eol=lf`) normalizes on commit,
   so CRLF churn in `git status` is expected — stage only real content changes and let
@@ -1227,7 +1233,8 @@ use PowerShell syntax, never bash. The repo root path contains a space
 
 ### Check
 
-- No `&&`, `||`, or bash heredocs in commands issued this session.
+- No `&&`, `||`, bash heredocs, or unix-only utilities (`tail`, `head`, `grep`, ...) in
+  PowerShell commands issued this session.
 - Paths containing spaces are wrapped in double quotes.
 
 ---
