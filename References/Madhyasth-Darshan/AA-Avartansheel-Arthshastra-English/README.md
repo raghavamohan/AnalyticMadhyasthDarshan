@@ -53,7 +53,7 @@ The images, not the OCR text, are authoritative for translation and review.
 | File | Purpose |
 | :--- | :--- |
 | [`README.md`](README.md) | Translation method, page map, structural inventory, and commands |
-| [`AA-Glossary-Additions.md`](AA-Glossary-Additions.md) | AA-specific terminology decisions, candidate economic terms, and unresolved terms |
+| [`AA-Glossary-Additions.md`](AA-Glossary-Additions.md) | AA-specific terminology decisions, the 35-term key-term list for review with Rakesh Gupta, and unresolved terms |
 | [`AA-Source-Image-Review-Ledger.md`](AA-Source-Image-Review-Ledger.md) | Direct source-image review coverage and corrections |
 | [`_page-images/`](_page-images/) | Page-by-page Hindi source renders |
 
@@ -139,8 +139,9 @@ effort-motion-result, but **labour** in economic compounds (श्रम मू�
 **evaluation of labour**, श्रम विनिमय = **exchange of labour**), per MD-Mapping
 and the KD glossary. And a bare MD-Mapping row is not enough where the economic
 sense differs from the row's sense: मुद्रा is "gesture" in MD-Mapping but
-"currency" in SB's economic passages. The glossary-additions file lists these
-candidates for the pilot.
+"currency" in SB's economic passages. The glossary-additions file lists these and
+the other key terms, each checked against the page images, for review before the
+pilot.
 
 ## Page-aligned source format
 
