@@ -62,6 +62,7 @@ def rendered_keys_module() -> str:
         and str(row.get("repo_path", "")).lower().endswith(".pdf")
     )
     for prefix in (
+        "References/Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/",
         "References/Madhyasth-Darshan/KD-Karm-Darshan-English/",
         "References/Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/",
     ):

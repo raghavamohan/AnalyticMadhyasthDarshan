@@ -78,6 +78,7 @@ what to run **on that branch** before opening the PR.
 | Verify reference delivery | `python Scripts/_verify_reference_delivery.py --workers-dev --artifact-root <artifact-root>` before routing; then `--public` after routing |
 | Rewrite migrated Markdown links | `python Scripts/_rewrite_manifest_reference_links.py --write`; CI uses `--check` |
 | Render / verify MSM translation source images | `python Scripts/_msm_render_page_images.py`; add `--check` to validate the source hash and all 268 PNGs |
+| Render / verify AA translation source images | `python Scripts/_aa_render_page_images.py`; add `--check` to validate the source hash and all 164 PNGs |
 | Review Rakesh Gupta translation alignment | `python Scripts/_review_rakesh_translations.py` |
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
@@ -133,6 +134,7 @@ by those entry points or run directly only for diagnostics and specialized work.
 | `_verify_reference_delivery.py` | Exercise reference GET/HEAD/range/checksum behavior plus origin pass-through |
 | `_rewrite_manifest_reference_links.py` | Replace Markdown links to migrated payloads with stable R2/external delivery URLs |
 | `_msm_render_page_images.py` | Render the pinned MSM Hindi source to page-aligned PNGs and verify the complete image set |
+| `_aa_render_page_images.py` | Render the pinned AA Hindi source to page-aligned PNGs and verify the complete image set |
 | `_audit_references.py` | Bibliography-only audit of Studies/ `## References` links |
 | `_verify_published_document_links.py` | Enforce study-to-study HTML navigation and manifest-backed reference PDF links |
 | `_check_references.py` | Full reference check suite (bibliography, markdown links, mirror files, PDF links) |

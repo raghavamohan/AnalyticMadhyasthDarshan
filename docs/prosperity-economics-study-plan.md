@@ -459,9 +459,11 @@ exchange-reserve) and AVD.
 **To acquire.** Tracked as `REF-AA`:
 
 - ***Avartansheel Arthshastra*** (AA; A. Nagraj, Hindi) is the darshan's own
-  treatise on cyclical economics (JV, p. 31). It is not in the reference
-  library. Locate the official edition, establish redistribution rights, and
-  mirror it or record it in `NOT-DOWNLOADED.md`.
+  treatise on cyclical economics (JV, p. 31). Acquired October 6, 2026: the
+  official download of the 2024 printing is mirrored as
+  [`AA-avartanshil-arthashastra.pdf`](../References/Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf)
+  (164 PDF pages; printed page + 10 = PDF position). Its redistribution basis
+  is still to be settled; the imprint reserves all rights to Divyapath Sansthan.
 - *Vyavaharvadi Samajshastra* and *Manav Vyavahar Darshan*, for exchange,
   family and the order of the society.
 - Any recorded sessions on *arthshastra*, through the transcription programme.
@@ -472,7 +474,7 @@ Karm Darshan working translation
 ([KD README](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/README.md)):
 
 - **Location.** `References/Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/`,
-  holding the Hindi source, rendered page images
+  beside the Hindi source (as for KD and MSM), holding rendered page images
   (`_page-images/p{pdf}_print{printed}.png`), the English manuscript with
   `[p. NN]` printed-page markers, a glossary-additions file, a source-image
   review ledger, and a README. The README states that this is a

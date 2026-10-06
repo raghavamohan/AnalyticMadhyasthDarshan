@@ -15,6 +15,7 @@ from _reference_artifacts import load_manifest, public_delivery_url
 SITE_ROOT = site_base_url().rstrip("/")
 SITE_HOST = urlsplit(SITE_ROOT).netloc.casefold()
 ACTIVE_TRANSLATION_PREFIXES = (
+    "References/Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/",
     "References/Madhyasth-Darshan/KD-Karm-Darshan-English/",
     "References/Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/",
 )

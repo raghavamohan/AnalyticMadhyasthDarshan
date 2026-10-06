@@ -320,6 +320,7 @@ def rewrite_local_links_for_site(
                     reference_url = public_delivery_url(repo_path)
                     if not reference_url and candidate.suffix.lower() == ".md":
                         active_prefixes = (
+                            REFERENCES / "Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English",
                             REFERENCES / "Madhyasth-Darshan/KD-Karm-Darshan-English",
                             REFERENCES / "Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English",
                         )
