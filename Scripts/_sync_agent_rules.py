@@ -29,6 +29,8 @@ AGENTS = REPO / "AGENTS.md"
 RULES_DIR = REPO / ".cursor" / "rules"
 AGENTS_SKILLS = REPO / ".agents" / "skills"
 CURSOR_SKILLS = REPO / ".cursor" / "skills"
+CLAUDE_SKILLS = REPO / ".claude" / "skills"
+SKILL_MIRRORS = (CURSOR_SKILLS, CLAUDE_SKILLS)
 OPENCODE_SKILLS = REPO / ".opencode" / "skills"
 
 SECTION_PATTERN = re.compile(
@@ -316,19 +318,20 @@ def sync_skills() -> list[str]:
             f"resolved to {OPENCODE_SKILLS.resolve()}"
         )
 
-    CURSOR_SKILLS.mkdir(parents=True, exist_ok=True)
-    for skill_dir in sorted(AGENTS_SKILLS.iterdir()):
-        if not skill_dir.is_dir():
-            continue
-        skill_file = skill_dir / "SKILL.md"
-        if not skill_file.is_file():
-            continue
-        target_dir = CURSOR_SKILLS / skill_dir.name
-        target_dir.mkdir(parents=True, exist_ok=True)
-        content = skill_file.read_text(encoding="utf-8")
-        (target_dir / "SKILL.md").write_text(normalize_text(content), encoding="utf-8", newline="\n")
+    for mirror in SKILL_MIRRORS:
+        mirror.mkdir(parents=True, exist_ok=True)
+        for skill_dir in sorted(AGENTS_SKILLS.iterdir()):
+            if not skill_dir.is_dir():
+                continue
+            skill_file = skill_dir / "SKILL.md"
+            if not skill_file.is_file():
+                continue
+            target_dir = mirror / skill_dir.name
+            target_dir.mkdir(parents=True, exist_ok=True)
+            content = skill_file.read_text(encoding="utf-8")
+            (target_dir / "SKILL.md").write_text(normalize_text(content), encoding="utf-8", newline="\n")
 
-    return [str(CURSOR_SKILLS.relative_to(REPO))]
+    return [str(mirror.relative_to(REPO)) for mirror in SKILL_MIRRORS]
 
 
 def expected_rules() -> dict[Path, str]:
@@ -361,25 +364,26 @@ def check_skills() -> list[str]:
     if not AGENTS_SKILLS.is_dir():
         return [f"missing {AGENTS_SKILLS.relative_to(REPO)}"]
 
-    for skill_dir in sorted(AGENTS_SKILLS.iterdir()):
-        if not skill_dir.is_dir():
-            continue
-        source = skill_dir / "SKILL.md"
-        if not source.is_file():
-            continue
-        target = CURSOR_SKILLS / skill_dir.name / "SKILL.md"
-        expected = normalize_text(source.read_text(encoding="utf-8"))
-        if not target.exists():
-            errors.append(f"missing {target.relative_to(REPO)}")
-            continue
-        actual = normalize_text(target.read_text(encoding="utf-8"))
-        if actual != expected:
-            errors.append(f"stale {target.relative_to(REPO)} (run _sync_agent_rules.py)")
+    for mirror in SKILL_MIRRORS:
+        for skill_dir in sorted(AGENTS_SKILLS.iterdir()):
+            if not skill_dir.is_dir():
+                continue
+            source = skill_dir / "SKILL.md"
+            if not source.is_file():
+                continue
+            target = mirror / skill_dir.name / "SKILL.md"
+            expected = normalize_text(source.read_text(encoding="utf-8"))
+            if not target.exists():
+                errors.append(f"missing {target.relative_to(REPO)}")
+                continue
+            actual = normalize_text(target.read_text(encoding="utf-8"))
+            if actual != expected:
+                errors.append(f"stale {target.relative_to(REPO)} (run _sync_agent_rules.py)")
 
-    for extra in sorted(CURSOR_SKILLS.glob("*/SKILL.md")) if CURSOR_SKILLS.is_dir() else []:
-        name = extra.parent.name
-        if not (AGENTS_SKILLS / name / "SKILL.md").is_file():
-            errors.append(f"orphan {extra.relative_to(REPO)} (remove or add to .agents/skills/)")
+        for extra in sorted(mirror.glob("*/SKILL.md")) if mirror.is_dir() else []:
+            name = extra.parent.name
+            if not (AGENTS_SKILLS / name / "SKILL.md").is_file():
+                errors.append(f"orphan {extra.relative_to(REPO)} (remove or add to .agents/skills/)")
 
     return errors
 
