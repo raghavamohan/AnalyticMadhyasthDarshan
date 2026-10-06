@@ -2,8 +2,11 @@
 
 **Study:** [Prosperity Economics and Right Use](../Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.md)
 (proposal [#17](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/17), `proposal-approved`, pre-catalog).
-**Drafted:** October 6, 2026.
-**Tracking:** `ST-DRAFT-06` (first draft) and `REF-AA` (source acquisition) in
+**Drafted:** October 6, 2026. **Revised:** October 6, 2026. By author decision,
+drafting waits for a working English translation of *Avartansheel Arthshastra*
+(§8, §10).
+**Tracking:** `REF-AA` (acquire the Hindi source), `REF-AA-TR` (working
+translation) and `ST-DRAFT-06` (first draft, deferred until `REF-AA-TR`) in
 [PENDING.md](../PENDING.md). This plan covers design and method. Open work is
 tracked only in PENDING.md.
 
@@ -130,6 +133,13 @@ The term needs care. The study should present cyclicality in three nested
 layers, plus a closure condition that connects them. The citations below are
 working locators from the repository mirrors. Verify page numbers against the
 PDFs before drafting (§9, stage A).
+
+This map is built from MVD, JV, SB and KD only. *Avartansheel Arthshastra*
+(AA) is the treatise in which Nagraj develops cyclical economics in full. Once
+its working translation exists, AA becomes the leading source for this
+section. The three-layer reading, the closure condition and the interpretive
+questions in §3.6 must all be rechecked against it, and revised where AA
+defines the terms differently.
 
 ### 3.1 Layer one: the cyclicality of nature
 
@@ -448,13 +458,46 @@ exchange-reserve) and AVD.
 
 **To acquire.** Tracked as `REF-AA`:
 
-- ***Avartansheel Arthshastra*** (A. Nagraj, Hindi) is the darshan's own
+- ***Avartansheel Arthshastra*** (AA; A. Nagraj, Hindi) is the darshan's own
   treatise on cyclical economics (JV, p. 31). It is not in the reference
   library. Locate the official edition, establish redistribution rights, and
   mirror it or record it in `NOT-DOWNLOADED.md`.
 - *Vyavaharvadi Samajshastra* and *Manav Vyavahar Darshan*, for exchange,
   family and the order of the society.
 - Any recorded sessions on *arthshastra*, through the transcription programme.
+
+**To translate.** Tracked as `REF-AA-TR`. There is no English translation of
+AA. The study needs a working English translation, made the same way as the
+Karm Darshan working translation
+([KD README](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/README.md)):
+
+- **Location.** `References/Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/`,
+  holding the Hindi source, rendered page images
+  (`_page-images/p{pdf}_print{printed}.png`), the English manuscript with
+  `[p. NN]` printed-page markers, a glossary-additions file, a source-image
+  review ledger, and a README. The README states that this is a
+  machine-assisted working translation, not a published one.
+- **Source text.** Translate from the rendered page images. Use a PDF's
+  embedded text layer only after checking it against the images; the KD
+  source PDF's text layer turned out to be silently corrupt.
+- **Terminology.** Rakesh Gupta's MVD, SB and JV translations and
+  `MD-Mapping.xlsx` are the default authority, followed by the settled KD
+  glossary decisions. Note in particular *shram* = "labour" in economic
+  compounds such as *shram mulya*, but "effort" in effort–motion–result.
+  Record each new economic term (*arth*, *vinimay*, *kosh*, *labhonmad*,
+  *avartansheel*, and so on) with its reasoning in the glossary-additions
+  file. Departures from the hierarchy need the author's approval.
+- **Review.** Follow the KD review method: compare clause by clause against
+  the Hindi, read the English continuously, and record exact coverage in the
+  ledger. Do not certify the whole translation from a sample.
+- **Registration.** Register the tag **AA** in `References/README.md`,
+  `References/MANIFEST.md` and the primary-texts table in `CLAUDE.md`, as was
+  done for KD.
+
+**Citation rule for the study.** AA will be an unpublished working
+translation, so the KD caution applies. Paraphrase AA-only claims. Block-quote
+AA only after checking the passage against the Hindi page images, and run
+`_quote_tool.py verify`.
 
 **Comparative sources.** Each source in §5.1 is added to `References/` (open
 access) or to `NOT-DOWNLOADED.md` (external), with a MANIFEST row, when it is
@@ -464,18 +507,21 @@ first cited.
 
 This section describes how-to and gates. Status lives in PENDING.md.
 
-**A. Sources and terms**
-- Acquire or record *Avartansheel Arthshastra* and the related treatises.
+**A. Sources, translation and terms**
+- Acquire AA and the related treatises (`REF-AA`).
+- Produce the AA working translation (`REF-AA-TR`; §8).
 - Verify every locator in §3 against the PDFs.
-- Fix the term list in §3.6(3).
-- *Gate:* the draft may proceed on MVD, JV, SB and KD alone, but **Released
-  status requires reading *Avartansheel Arthshastra*** or recording explicitly
-  why it could not be consulted.
+- Recheck §3 against AA and fix the term list in §3.6(3).
+- *Gate (author decision, October 6, 2026):* **no drafting starts until the
+  complete first-pass working translation of AA exists.** Clause-by-clause
+  source-image review may continue alongside the drafting. Every AA passage
+  the study relies on must be reviewed against the Hindi before the draft PR
+  is opened.
 
 **B. Source dossier**
 - Expand §3 into a full citation dossier: every passage on cycle, need,
   prosperity, accumulation, money, labour, exchange, reserve and right-use
-  across MVD, JV, SB, KD and JVD.
+  across AA, MVD, JV, SB, KD and JVD, with AA leading.
 - Include contrary or qualifying passages.
 - The dossier may be published with the draft as a research note
   (`Research-Note-Avartansheelata-Source-Dossier.md`).
@@ -505,11 +551,15 @@ This section describes how-to and gates. Status lives in PENDING.md.
 
 ## 10. Decisions for the author
 
+Decision 2 is settled. Decisions 1, 3 and 4 remain open and can wait until the
+AA translation is done, since AA may bear on all three.
+
 1. **Title.** Keep *Prosperity Economics and Right Use*, or rename to put
    cyclical economics forward (for example, *Cyclical Economics and
    Prosperity*). A rename uses the `rename-study` skill.
-2. ***Avartansheel Arthshastra* gate.** Draft now and require the treatise
-   only for Released status (recommended), or wait for it before drafting.
+2. ***Avartansheel Arthshastra* gate.** **Decided October 6, 2026:** a
+   working English translation of AA comes first, and drafting waits for it
+   (§8, §9 stage A).
 3. **Formal companion.** Include the stock-flow technical note (§6) in the
    first draft PR, or defer it.
 4. **Scale.** The household, community and nation are in scope. Decide
