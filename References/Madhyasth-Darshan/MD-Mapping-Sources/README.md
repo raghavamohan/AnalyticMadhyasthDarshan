@@ -68,3 +68,22 @@ python gather_new_term_evidence.py candidates_freq2.json mvd_pairs.json sb_pairs
 python phase4_apply_rows.py
 python kd_verify_against_mapping.py
 ```
+
+## AA glossary alignment — done (2026-10-07)
+
+Raghava made the *Avartansheel Arthshastra* (AA) terminology decisions project-wide.
+The decisions and their reasoning are in
+[`../AA-Avartansheel-Arthshastra-English/AA-Glossary-Additions.md`](../AA-Avartansheel-Arthshastra-English/AA-Glossary-Additions.md).
+`MD-Mapping.xlsx` changed in three ways; each changed row keeps its previous value
+in the notes column (F):
+
+- **Twelve rows updated:** श्रम मूल्य (76), तृप्ति बिंदु (314), दूर दर्शन, दूर गमन, दूर श्रवण
+  (669–671), उत्पादन-कार्य (905), परिवार मूलक स्वराज्य व्यवस्था (1322), शोषण (163, 793),
+  प्रयोजनीयता, प्रयोजनशीलता (322), कोष (719) and मुद्रा (1427).
+- **Spelling variants** added to four Hindi keys: दूरश्रवण, दूरदर्शन, दूरगमन and
+  व्यवसाय में स्वावलंबी.
+- **59 rows appended (2246–2304)**, marked "AA glossary addition", for AA terms the
+  workbook lacked.
+
+`../KD-Karm-Darshan-English/KD-Translation-Glossary.xlsx` was rebuilt with
+`python Scripts/_kd_build_glossary_xlsx.py`.

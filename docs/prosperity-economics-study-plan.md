@@ -23,7 +23,7 @@ Economics is already touched in several places in the collection:
   covers usefulness, aesthetic, labour and symbolic value; §3.8 covers Marx;
   §§4.3 and 4.5 cover income, well-being and prices.
 - [How Undivided Society Is Established §3.3 and §5.4](../Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md)
-  covers accumulation and the production-work and exchange-reserve dimensions.
+  covers accumulation and the production and exchange-reserve dimensions.
 - The [Primer](../Primer/madhyasth-darshan-primer.md) introduces cyclical
   production through the family meal.
 
@@ -182,8 +182,8 @@ This is the economic cycle proper.
   on labour" (JV, pp. 154–155).
 - **Resources and wealth.** Resources are body, mind and wealth. Economics that
   leaves any one out is incomplete. Wealth means produced objects of common
-  aspirations (food, shelter, clothing) and special aspirations
-  (telecommunication, transport). Money is a symbolic unit of exchange, not
+  aspirations (food, shelter, adornment) and special aspirations
+  (telephony, broadcasting, transport). Money is a symbolic unit of exchange, not
   wealth (JV, pp. 151–153).
 - **State policy.** State policy names the securities this layer requires:
   - *economic security* "through the principle of producing more than the
@@ -290,7 +290,7 @@ support and synthesis*).
    Society, which use "exchange-reserve".
 4. **Scope of the critique of specialisation.** The critique (JV, p. 153) may
    target non-producing status-consumers rather than the division of labour as
-   such. The texts accept telecommunication and transport, which need highly
+   such. The texts accept telephony, broadcasting and transport, which need highly
    specialised production. Record this as an interpretive choice.
 
 ## 4. Proposed study structure
@@ -322,8 +322,8 @@ comparison in dedicated sections, and critical review with *Strengths* and
 - 2.6 The cyclical economy: labour on natural abundance, use, and renewed
   capacity (layer two)
 - 2.7 Need, family and prosperity (layer three)
-- 2.8 Use, right-use, purposeful-use, and non-accumulation (closure)
-- 2.9 Production-work and exchange-reserve within universal orderliness. Cite
+- 2.8 Use, right-use, purposeful use, and non-accumulation (closure)
+- 2.9 Production and exchange-reserve within universal orderliness. Cite
   Undivided Society §5.4 rather than repeating it; JVD supplies the detail.
 - 2.10 Why economic resolution follows from resolution in *jeevan*
 
@@ -408,8 +408,8 @@ not listed:
    darshan's "money is symbolic value" is correct as ontology but silent on
    macroeconomic mechanics such as growth dependence.
 6. **Productivity and specialisation.** The division of labour underwrites
-   the special aspirations the darshan itself endorses (telecommunication and
-   transport). The critique of specialisation needs a precise scope.
+   the special aspirations the darshan itself endorses (telephony, broadcasting
+   and transport). The critique of specialisation needs a precise scope.
 
 ## 6. Optional formal companion
 

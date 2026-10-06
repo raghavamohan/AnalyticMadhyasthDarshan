@@ -136,7 +136,7 @@ Use this order when making a translation decision:
 
 Two economic rules already follow from this hierarchy. श्रम is **effort** in
 effort-motion-result, but **labour** in economic compounds (श्रम मूल्य =
-**evaluation of labour**, श्रम विनिमय = **exchange of labour**), per MD-Mapping
+**value of labour**, श्रम विनिमय = **exchange of labour**), per MD-Mapping
 and the KD glossary. And a bare MD-Mapping row is not enough where the economic
 sense differs from the row's sense: मुद्रा is "gesture" in MD-Mapping but
 "currency" in SB's economic passages. The glossary-additions file lists these and
