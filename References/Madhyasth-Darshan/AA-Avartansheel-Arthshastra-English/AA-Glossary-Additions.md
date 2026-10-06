@@ -20,33 +20,36 @@ with the authority that already exists for each term.
 ## Decisions
 
 Raghava approved key terms 1-10 and 19-35 on 6 October 2026, and key terms 11-18
-on 7 October 2026. Each row names the key-term number it settles. The page is where AA defines or first discusses the term.
+on 7 October 2026. On 7 October he also revised key terms 2 and 26, settled the
+follow-up questions on key terms 4 and 8, and made the decisions project-wide (see
+below). Each row names the key-term number it settles. The page is where AA defines or first discusses the term.
 
 | Hindi term | Transliteration | English | PDF / printed page | Prior authority | Status | Rationale |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | आवर्तनशील अर्थशास्त्र | *avartansheel arthshastra* | **cyclical economics** | PDF 35 / p. 25 | MD; JV and SB English | approved | Key term 1. The discipline. |
 | आवर्तनशील अर्थव्यवस्था | *avartansheel arthvyavastha* | **cyclical economy** | PDF 58 / p. 48 | MD: अर्थ व्यवस्था = economic system | approved | Key term 1. The working economy, kept distinct from the discipline. |
-| आवर्तनशीलता | *avartansheelta* | **cyclicity** | PDF 35 / p. 25 | MD, KD and JV: cyclicality | approved | Key term 2. Distinct from the circular shape (वर्तुलाकार, चक्राकार). Differs from MD-Mapping and the KD glossary; see Unresolved items. |
-| वर्तुलाकार | *vartulakar* | **circular** (shape) | PDF 35 / p. 25 | none | approved | Key term 2. A circular shape, as of a particle moving round a nucleus in a circular orbit. It is not the same as cyclicity; p. 25 says cyclicity is understood as being वर्तुलाकार. |
-| चक्राकार | *chakrakar* | **circular** (shape) | PDF 25 / p. 15 | none | approved | Key term 2. Also a circular shape, not cyclicity. |
+| आवर्तनशीलता | *avartansheelta* | **cyclicality** | PDF 35 / p. 25 | MD, KD and JV: cyclicality | approved | Key term 2. Revised on 7 October 2026 from "cyclicity" to keep the established project rendering. Distinct from the circular shape (वर्तुलाकार, चक्राकार). |
+| वर्तुलाकार | *vartulakar* | **circular** (shape) | PDF 35 / p. 25 | none | approved | Key term 2. A circular shape, as of a particle moving round a nucleus in a circular orbit. It is not the same as cyclicality; p. 25 says cyclicality is understood as being वर्तुलाकार. |
+| चक्राकार | *chakrakar* | **circular** (shape) | PDF 25 / p. 15 | none | approved | Key term 2. Also a circular shape, not cyclicality. |
 | अर्थ | *arth* | **resources**; **meaning** (by context) | PDF 11, 35-36 / pp. 1, 25-26 | MD: resources (MVD p. 265); KD contextual | approved | Key term 3. In the economic sense अर्थ is a superset of धन: material wealth together with tools and other means. In the semantic sense it is meaning. Where a passage plays on both senses (p. 25, "यही अर्थ सार्थकता है"), keep *artha* with a translator's note. |
 | तन-मन-धन रूपी अर्थ | *tan-man-dhan rupi arth* | **resources in the form of body, mind and wealth** | PDF 36 / p. 26 | MVD and JV: body, mind and wealth | approved | Composed from key terms 3 and 4. |
 | धन | *dhan* | **wealth** | PDF 35 / p. 25 | MD: wealth (MVD p. 265) | approved | Key term 4. AA p. 25 defines धन as goods carrying usefulness and aesthetic value; it is not money. |
-| धन समृद्धि | *dhan samriddhi* | **wealthy** | PDF 48 / p. 38 | none | approved | Key term 4. Preferred to "prosperity of wealth", whose meaning is right but whose English reads poorly. The noun use on p. 38 is open; see Unresolved items. |
-| श्रम मूल्य | *shram mulya* | **value of labour**; **valuing labour** (the act) | PDF 25, 76 / pp. 15, 66 | MD: evaluation of labour (MVD p. 269); MVD running English: labour value | approved | Key term 5. "Value of labour" where it is the basis of a product's value and of exchange (p. 15). "Valuing labour" where AA names the act (p. 66: "इसी मूल्यांकन क्रिया को श्रम मूल्य का नाम"). Differs from MD-Mapping; see Unresolved items. |
+| धन समृद्धि | *dhan samriddhi* | **wealthy**; **being wealthy** (noun use) | PDF 48 / p. 38 | none | approved | Key term 4. Preferred to "prosperity of wealth", whose meaning is right but whose English reads poorly. "Being wealthy" where the text uses it as a noun, as on p. 38 (approved 7 October 2026). |
+| श्रम मूल्य | *shram mulya* | **value of labour**; **valuing labour** (the act) | PDF 25, 76 / pp. 15, 66 | MD: evaluation of labour (MVD p. 269); MVD running English: labour value | approved | Key term 5. "Value of labour" where it is the basis of a product's value and of exchange (p. 15). "Valuing labour" where AA names the act (p. 66: "इसी मूल्यांकन क्रिया को श्रम मूल्य का नाम"). Both renderings apply throughout the project (7 October 2026). |
 | श्रम नियोजन | *shram niyojan* | **utilisation of labour** | PDF 35 / p. 25 | MD (MVD p. 265) | approved | Key term 6. |
 | श्रम नियोजन स्थली | *shram niyojan sthali* | **sites for the utilisation of labour** | PDF 36 / p. 26 | none | approved | Key term 6. Earth, air, water, forest and minerals (p. 26). |
 | उपयोगिता मूल्य | *upyogita mulya* | **usefulness value** | PDF 35 / p. 25 | MD; JV | approved | Key term 7. |
 | कला मूल्य | *kala mulya* | **aesthetic value** | PDF 35 / p. 25 | MD; MVD | approved | Key term 7. |
 | वस्तु मूल्य | *vastu mulya* | **object value** | PDF 35 / p. 25 | MD; JV | approved | Key term 7. |
-| उपयोग, सदुपयोग, प्रयोजनशीलता | *upyog, sadupyog, prayojansheelta* | **use, right-use, purposeful use** | PDF 36 / p. 26 | MD: use; right-use; प्रयोजनशीलता = purposefulness (MVD p. 56) | approved | Key term 8. The parallel उपयोगिता triad is open; see Unresolved items. |
+| उपयोग, सदुपयोग, प्रयोजनशीलता | *upyog, sadupyog, prayojansheelta* | **use, right-use, purposeful use** | PDF 36 / p. 26 | MD: use; right-use; प्रयोजनशीलता = purposefulness (MVD p. 56) | approved | Key term 8. |
+| उपयोगिता, सदुपयोगिता, प्रयोजनीयता | *upyogita, sadupyogita, prayojaniyata* | **usefulness, right-use, purposeful use** | PDF 36 / p. 26 | MD: उपयोगिता = usefulness (MVD p. 112); प्रयोजनीयता = purposeful-use | approved | Key term 8, approved 7 October 2026. "Usefulness" matches "usefulness value". |
 | मूल्य | *mulya* | **value** | PDF 16 / p. 6 | MD: value | approved | Key term 9. "Value" throughout, including monetary contexts such as "पत्र मुद्रा का मूल्य" (p. 6). Do not use "price". |
 | आवश्यकता से अधिक उत्पादन | *avashyakta se adhik utpadan* | **production in excess of need** | PDF 36 / p. 26 | MVD once: "a surplus of production" | approved | Key term 10. Avoids "surplus". |
-| तृप्ति बिन्दु | *tripti bindu* | **satiation point** | PDF 18 / p. 8 | MD: satisfaction point (SB p. 26) | approved | Key term 11. P. 8: accumulation, comfort and profit "have no satiation point". Differs from MD-Mapping; see Unresolved items. |
+| तृप्ति बिन्दु | *tripti bindu* | **satiation point** | PDF 18 / p. 8 | MD: satisfaction point (SB p. 26) | approved | Key term 11. P. 8: accumulation, comfort and profit "have no satiation point". |
 | सामान्य आकांक्षा; महत्वाकांक्षा | *samanya akanksha; mahatvakanksha* | **common aspirations**; **special aspirations** | PDF 76 / p. 66 | MD: special aspirations; JV: common aspiration, special aspiration | approved | Key term 12. |
 | आहार, आवास, अलंकार | *ahar, avas, alankar* | **food, shelter, adornment** | PDF 36 / p. 26 | MD; MVD and SB (SB and JV also print "clothing") | approved | Key term 12. "Adornment" for अलंकार in this context, not "clothing". |
-| दूरश्रवण, दूरदर्शन, दूरगमन | *dursharvan, durdarshan, durgaman* | **telephony**, **broadcasting**, **transport** | PDF 83 / p. 73 | MD: दूर श्रवण and दूर दर्शन = telecommunication, दूर गमन = transportation | approved | Key term 12. Three distinct terms, because AA lists them separately as the content of महत्वाकांक्षा. Differs from MD-Mapping; see Unresolved items. |
-| उत्पादन कार्य | *utpadan karya* | **production** | PDF 36 / p. 26 | MD: Production-Work | approved | Key term 13. "Production" is sufficient; do not add "work". Differs from MD-Mapping; see Unresolved items. |
+| दूरश्रवण, दूरदर्शन, दूरगमन | *dursharvan, durdarshan, durgaman* | **telephony**, **broadcasting**, **transport** | PDF 83 / p. 73 | MD: दूर श्रवण and दूर दर्शन = telecommunication, दूर गमन = transportation | approved | Key term 12. Three distinct terms, because AA lists them separately as the content of महत्वाकांक्षा. |
+| उत्पादन कार्य | *utpadan karya* | **production** | PDF 36 / p. 26 | MD: Production-Work | approved | Key term 13. "Production" is sufficient; do not add "work". |
 | परावर्तन विधि | *paravartan vidhi* | **method of projection**; **projection** | PDF 36 / p. 26 | MD: परावर्तन = projection (MVD p. 328; settled for KD) | approved | Key term 13. |
 | लाभ; लाभ हानि | *labh; labh hani* | **profit**; **profit and loss** | PDF 31 / p. 21 | MD: लाभ-अलाभ, लाभालाभ = profit-loss | approved | Key term 14. |
 | लाभोन्माद; लाभोन्मादी अर्थशास्त्र; लाभोन्मादी अर्थव्यवस्था | *labhonmad; labhonmadi arthshastra / arthvyavastha* | **profit-obsession**; **profit-obsessed economics**; **profit-obsessed economy** | PDF 21, 58 / pp. 11, 48 | MD: profit-obsession, profit-obsessed economics; JV | approved | Key term 14. The economics and economy pair follows key term 1. |
@@ -82,10 +85,10 @@ on 7 October 2026. Each row names the key-term number it settles. The page is wh
 | दोहन | *dohan* | **extraction** | PDF 78 / p. 68 | none | approved | Key term 24. |
 | राजगद्दी के कर विधि | *rajgaddi ke kar vidhi* | **taxation by the throne** | PDF 14 / p. 4 | none | approved | Key term 25. |
 | कर वसूली | *kar vasuli* | **tax collection** | PDF 148 / p. 138 | none | approved | Key term 25. |
-| स्वायत्त, स्वायत्त मानव | *swayatt, swayatt manav* | **self-reliant**; **self-reliant human** | PDF 36 / p. 26 | MD: स्वायत्त मानव = autonomous human (older AA edition, p. 76); JV: autonomous | approved | Key term 26. Preferred to "autonomous". Collides with व्यवसाय में स्वावलंबी; see Unresolved items. |
-| स्वायत्तता | *swayattata* | **self-reliance** | PDF 36 / p. 26 | MD: autonomy | approved | Key term 26. Also in व्यक्ति, परिवार and ग्राम मुहल्ला स्वायत्तता (individual, family and village or neighbourhood self-reliance). |
-| व्यवसाय में स्वावलंबी | *vyavsay mein swavalambi* | **self-reliant in occupation** | PDF 36 / p. 26 | MD: self-reliant in occupation; bare व्यवसाय = vocation (MVD p. 259) | approved | Key term 26. |
-| परिवार मूलक स्वराज्य व्यवस्था; परिवार मूलक ग्राम स्वराज्य व्यवस्था | *parivar mulak (gram) swarajya vyavastha* | **family-based self-governing system**; **family-based village self-governing system** | PDF 132, 120 / pp. 122, 110 | MD: family-based self-governance orderliness (MVD p. 19); SB and JV: self-governing system; MD: दस सोपानीय ... = ten-tier family based self-governing system | approved | Key term 27. The chapter 8 and 9 titles and the schemes they set out. Differs from MD-Mapping's row; see Unresolved items. |
+| स्वायत्त, स्वायत्त मानव | *swayatt, swayatt manav* | **autonomous**; **autonomous human** | PDF 36 / p. 26 | MD: स्वायत्त मानव = autonomous human (older AA edition, p. 76); JV: autonomous | approved | Key term 26. Revised on 7 October 2026 from "self-reliant", which is kept for स्वावलंबी. |
+| स्वायत्तता | *swayattata* | **autonomy** | PDF 36 / p. 26 | MD: autonomy | approved | Key term 26. Revised on 7 October 2026. Also in व्यक्ति, परिवार and ग्राम मुहल्ला स्वायत्तता (individual, family and village or neighbourhood autonomy). |
+| व्यवसाय में स्वावलंबी | *vyavsay mein swavalambi* | **self-reliant in occupation** | PDF 36 / p. 26 | MD: self-reliant in occupation; bare व्यवसाय = vocation (MVD p. 259) | approved | Key term 26. स्वावलंबी = self-reliant (7 October 2026). |
+| परिवार मूलक स्वराज्य व्यवस्था; परिवार मूलक ग्राम स्वराज्य व्यवस्था | *parivar mulak (gram) swarajya vyavastha* | **family-based self-governing system**; **family-based village self-governing system** | PDF 132, 120 / pp. 122, 110 | MD: family-based self-governance orderliness (MVD p. 19); SB and JV: self-governing system; MD: दस सोपानीय ... = ten-tier family based self-governing system | approved | Key term 27. The chapter 8 and 9 titles and the schemes they set out. |
 | व्यवस्था | *vyavastha* | **orderliness** (a state); **system** (an arrangement or scheme) | PDF 132, 141 / pp. 122, 131 | MD: orderliness, system | approved | Key term 28. "System" in स्वराज्य व्यवस्था योजना and शिक्षा-संस्कार व्यवस्था; "orderliness" for orderliness as a state, as in समग्र व्यवस्था and सार्वभौम व्यवस्था. |
 | आबंटन | *abantan* | **allotment** | PDF 11 / p. 1 | none | approved | Key term 29. |
 | बंटन | *bantan* | **sharing** | PDF 11 / p. 1 | none | approved | Key term 29. P. 1: "परिवार में आबंटन अथवा बंटन, समुदायों में विनिमय". |
@@ -100,6 +103,24 @@ on 7 October 2026. Each row names the key-term number it settles. The page is wh
 | निपुणता, कुशलता, पांडित्य | *nipunta, kushalta, pandity* | **skill**, **proficiency**, **scholarliness** | PDF 35 / p. 25 | MD and MVD | approved | Key term 33. |
 | अर्थोपार्जन | *arthoparjan* | **earning of wealth** | PDF 35 / p. 25 | MD (MVD p. 190) | approved | Key term 34. |
 | ठोस, तरल, विरल वस्तु | *thos, taral, viral vastu* | **solid**, **liquid**, **rarefied (gaseous)** matter | PDF 44 / p. 34 | none for विरल | approved | Key term 35. Chapter 3's natural-science passages. |
+
+**Project-wide adoption (7 October 2026).** Raghava made these decisions the
+project standard. `../MD-Mapping.xlsx` now carries them, with each previous value
+kept in its notes column:
+
+- Updated rows: श्रम मूल्य = value of labour; तृप्ति बिन्दु = satiation point;
+  दूरश्रवण, दूरदर्शन, दूरगमन = telephony, broadcasting, transport; उत्पादन-कार्य =
+  production; परिवार मूलक स्वराज्य व्यवस्था = family-based self-governing system;
+  शोषण = exploitation; प्रयोजनीयता, प्रयोजनशीलता = purposeful use; मुद्रा and कोष gain
+  their economic senses, currency and reserve.
+- 53 new rows, marked "AA glossary addition", for the AA terms MD-Mapping lacked.
+  धातु कोष waits for its open question below.
+- Two AA choices were withdrawn in favour of the existing renderings:
+  आवर्तनशीलता = cyclicality and स्वायत्त मानव = autonomous human.
+
+The KD glossary and `../KD-Karm-Darshan-English/KD-Translation-Glossary.xlsx` were
+updated to match. Text that still uses earlier renderings, in the KD translation and
+in Studies, is tracked in PENDING.md (`REF-TERMS`).
 
 ## Key terms for review
 
@@ -183,9 +204,5 @@ retain a neutral transliteration in the draft until the decision is settled.
 
 | Item | Raised | Question | Proposal |
 | :--- | :--- | :--- | :--- |
-| धन समृद्धि as a noun | 6 October 2026, key term 4 | "Wealthy" is an adjective, but p. 38 uses धन समृद्धि as a noun: "धन समृद्धि का तात्पर्य ... आवश्यकता से अधिक उत्पादन से है". What noun form should those passages use? | "being wealthy" |
-| उपयोगिता, सदुपयोगिता, प्रयोजनीयता | 6 October 2026, key term 8 | The approved triad is उपयोग, सदुपयोग, प्रयोजनशीलता = use, right-use, purposeful use. Should the parallel -ता triad (p. 26) use the same English, or keep "usefulness" for उपयोगिता to match "usefulness value"? | usefulness, right-use, purposeful use |
-| स्वायत्त and स्वावलंबी both "self-reliant" | 6 October 2026, key term 26 | P. 26 defines the स्वायत्त human as, among other things, "व्यवसाय में स्वावलंबी". With both words rendered "self-reliant", the definition reads "a self-reliant human is ... self-reliant in occupation", and the Hindi distinction is lost. Keep it, or give स्वावलंबी another word? Bare व्यवसाय also stays MD's "vocation" while the compound has "occupation". | "self-supporting in occupation" for व्यवसाय में स्वावलंबी; bare व्यवसाय = occupation in AA's economic passages |
 | International and national currency reserves | 7 October 2026, key term 17 | राष्ट्रीय कोष is approved as "reserve bank". Does राष्ट्रीय मुद्रा कोष (p. 44) take the same English? And are अंतर्राष्ट्रीय मुद्रा कोष (p. 44) and अन्तर्राष्ट्रीय कोष (p. 51) rendered by the proper name, or literally? | राष्ट्रीय मुद्रा कोष = reserve bank; अंतर्राष्ट्रीय मुद्रा कोष and अन्तर्राष्ट्रीय कोष = International Monetary Fund |
 | धातु कोष and धातु कोषालय on p. 6 | 7 October 2026, key term 17 | धातु कोष is approved as "commodity exchange". On p. 6, though, it names a country's stock of metal: "जिस देश में धातु कोष कम होता गया उस देश के पत्र मुद्रा का मूल्य घटता गया" (in whichever country the धातु कोष declined, the value of its paper currency fell), and "धातु संग्रहण अथवा धातु कोषालय प्रत्येक राष्ट्र अथवा राज्य के अधीनस्थ मानी जाती है". A commodity exchange is a market for trading goods, so it may not fit these sentences. Confirm, or use another term here? | "metal reserve" for धातु कोष and "metal treasury" for धातु कोषालय on p. 6 |
-| Shared-glossary alignment | 6-7 October 2026, key terms 2, 5, 11, 12, 13, 26 and 27 | AA now departs from `../MD-Mapping.xlsx` in seven places: **cyclicity** (MD: cyclicality), **value of labour** (evaluation of labour), **satiation point** (satisfaction point), **telephony**, **broadcasting** and **transport** (telecommunication, telecommunication, transportation), **production** for उत्पादन कार्य (Production-Work), **self-reliant human** (autonomous human) and **family-based self-governing system** (family-based self-governance orderliness). The KD glossary shares the first two. Should MD-Mapping and the KD translation adopt the AA choices? | Adopt all seven project-wide, as an explicit MD-Mapping and KD glossary decision |
