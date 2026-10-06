@@ -26,11 +26,13 @@ MANIFEST_PATH = REFERENCES / "r2-artifacts.json"
 SCHEMA_VERSION = 1
 
 ACTIVE_TRANSLATION_DIRS = (
+    "Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/",
     "Madhyasth-Darshan/KD-Karm-Darshan-English/",
     "Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/",
 )
 ACTIVE_TRANSLATION_SOURCE_PDFS = frozenset(
     {
+        "Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf",
         "Madhyasth-Darshan/KD-karm darshan v5.pdf",
         "Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf",
     }
@@ -296,7 +298,7 @@ def build_initial_manifest() -> dict:
         "schema_version": SCHEMA_VERSION,
         "policy": {
             "public_reference_origin": site_base_url().rstrip("/"),
-            "active_translation_projects": ["KD", "MSM"],
+            "active_translation_projects": ["AA", "KD", "MSM"],
             "original_third_party_html_is_public": False,
             "study_reference_delivery_format": "pdf",
         },

@@ -429,6 +429,33 @@
       }
     },
     {
+      "kind": "active-translation-source-pdf",
+      "repo_path": "References/Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf",
+      "rights": {
+        "notes": "Official published-book download (2024 printing; earlier editions 2001 and 2009). Imprint reserves all rights to Divyapath Sansthan; retained in Git for the active translation by site-owner decision (6 October 2026).",
+        "status": "review-required"
+      },
+      "source": {
+        "bytes": 18644071,
+        "media_type": "application/pdf",
+        "minimum_bytes": 15000000,
+        "notes": "Official published-book download (2024 printing; earlier editions 2001 and 2009). Imprint reserves all rights to Divyapath Sansthan; retained in Git for the active translation by site-owner decision (6 October 2026).",
+        "sha256": "c80b2b6ef1223046d8191bafccda5ad3144f2bd362fb65e44957c0f424c7ca40",
+        "urls": [
+          "https://madhyadarshan-books.s3.ap-south-1.amazonaws.com/%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%95%E0%A4%BE%E0%A4%B6%E0%A4%BF%E0%A4%A4+%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%82%E0%A4%A5+%E2%80%93+%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%AE%E0%A4%BE%E0%A4%A8+%E0%A4%B8%E0%A4%82%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%B0%E0%A4%A3+(Published+books%2C+current+edition)/09_avartanshil_arthashastra_unicode_2024.pdf"
+        ]
+      },
+      "state": "git-retained",
+      "tags": [
+        "AA"
+      ],
+      "target": {
+        "public_url": "https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf",
+        "r2_key": null,
+        "storage": "git-retained-active-translation"
+      }
+    },
+    {
       "kind": "reference-pdf",
       "repo_path": "References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf",
       "rights": {
@@ -849,8 +876,8 @@
         "original_html": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.html",
         "pages": 12,
         "source_markdown": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.md",
-        "text_sha256": "8dc4507fc299b049262fa86a222d4dc02240957703bd55c26f03ffc9fd6b5b54",
-        "source_sha256": "fe449f81fb7deb3074e592a1e58848cc9bd6e6d8cc7a2576af6b43c47beae09c"
+        "source_sha256": "fe449f81fb7deb3074e592a1e58848cc9bd6e6d8cc7a2576af6b43c47beae09c",
+        "text_sha256": "8dc4507fc299b049262fa86a222d4dc02240957703bd55c26f03ffc9fd6b5b54"
       },
       "kind": "normalized-reference-pdf",
       "repo_path": "References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf",
@@ -1727,6 +1754,7 @@
   ],
   "policy": {
     "active_translation_projects": [
+      "AA",
       "KD",
       "MSM"
     ],

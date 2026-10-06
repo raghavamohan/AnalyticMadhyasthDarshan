@@ -7,7 +7,7 @@
 **Current status:** The public cutover is implemented and live for every artifact
 whose redistribution status has been approved, including all eight approved Advaita
 Vedanta PDFs. The remaining large files stay in Git until their rights are resolved.
-The two active translation source PDFs and two generated KD review PDFs also remain
+The three active translation source PDFs and two generated KD review PDFs also remain
 in Git by design. Git history has not been rewritten.
 
 ## Restart checkpoint
@@ -21,10 +21,10 @@ in Git by design. Git history has not been rewritten.
 | Private original HTML | 9 objects, 1.42 MiB |
 | Removed from current Git tree | 36 uploaded payloads plus 1 generated HTML |
 | Retained for rights review | 14 PDFs, 28.78 MiB |
-| Retained active translation PDFs | KD and MSM sources plus 2 generated KD review PDFs, 81.60 MiB |
+| Retained active translation PDFs | KD, MSM and AA sources plus 2 generated KD review PDFs, 107.94 MiB |
 | External-only generated derivatives | 8 PDFs, 3.88 MiB |
 | Generated on demand | 1 transcript HTML, 0.15 MiB |
-| Manifest | `References/r2-artifacts.json`, 61 artifact records |
+| Manifest | `References/r2-artifacts.json`, 62 artifact records |
 | Public verification | All 25 objects passed S3 checks and the full public delivery audit |
 | Fresh-clone proof | All 25 hydrated and checksum-verified without credentials |
 | Next action | Complete rights review for the 14 retained PDFs; defer Git history cleanup until separately approved |
@@ -51,10 +51,10 @@ was sufficient to bind the bucket, deploy the Worker, and attach the route.
   dictated by the manifest.
 - PDFs are never generated during an HTTP request. CI generates and verifies them,
   then publishes immutable outputs.
-- KD and MSM are the two active translation exceptions. Their Hindi source PDFs and
-  editable workspaces remain in Git. The generated KD English and interleaved
-  Hindi-English review PDFs also remain in Git while that translation is active;
-  all four PDFs are explicitly recorded in the artifact manifest.
+- KD, MSM and AA are the three active translation exceptions. Their Hindi source
+  PDFs and editable workspaces remain in Git. The generated KD English and
+  interleaved Hindi-English review PDFs also remain in Git while that translation is
+  active; all five PDFs are explicitly recorded in the artifact manifest.
 
 ## Open follow-ups
 
@@ -76,11 +76,11 @@ This does not require a new bucket.
 
 ### How to complete the translation-workspace exception (R2-KD)
 
-The two immutable source PDFs and two generated KD review PDFs remain explicit
-active translation exceptions. After the hydrator has been used in real KD/MSM
+The three immutable source PDFs and two generated KD review PDFs remain explicit
+active translation exceptions. After the hydrator has been used in real KD/MSM/AA
 translation work, consider moving immutable page images and generated workspace
 renderings to R2. Retain editable Markdown, mappings, glossaries, and ledgers.
-Do not remove any of the four retained PDFs until the user explicitly changes
+Do not remove any of the five retained PDFs until the user explicitly changes
 the exception or the active translation workflow no longer needs them.
 
 ### Git history cleanup (R2-HISTORY)

@@ -137,6 +137,7 @@ def link_inputs(source: Path, root: Path = BASE) -> dict:
             delivery = public_delivery_url(name, {'artifacts': refs})
             records[name] = {'publicUrl': delivery} if delivery else {'exists': target.is_file()}
             if not delivery and target.suffix.lower() == '.md' and name.startswith((
+                'References/Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/',
                 'References/Madhyasth-Darshan/KD-Karm-Darshan-English/',
                 'References/Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/',
             )):

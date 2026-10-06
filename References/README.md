@@ -2,7 +2,7 @@
 
 Reference catalog for sources cited across `Studies/`. Approved large payloads are
 served at their stable `/References/...` URLs from Cloudflare R2; unresolved-rights
-PDFs and the two active translation sources remain in Git. See
+PDFs and the three active translation sources remain in Git. See
 [MANIFEST.md](MANIFEST.md) for the citation audit,
 [r2-artifacts.json](r2-artifacts.json) for the storage/checksum source of truth, and
 [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for works linked externally only.
@@ -10,7 +10,7 @@ PDFs and the two active translation sources remain in Git. See
 **What remains in Git**
 
 - Small, reviewable Markdown, metadata, manifests, mappings, and translation workspaces.
-- The KD and MSM Hindi source PDFs while those translations are active.
+- The KD, MSM and AA Hindi source PDFs while those translations are active.
 - PDFs whose redistribution status is still under review; the R2 Worker passes their
   existing public paths through to GitHub Pages.
 - Cleaned Markdown for the nine retained webpage snapshots. Their original HTML bytes are
@@ -96,8 +96,10 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 | **MD** | [MD-Mapping.xlsx](Madhyasth-Darshan/MD-Mapping.xlsx) | Hindi–English terminology glossary (chapter/page mapping heritage); exhaustively refreshed from MVD/SB pairs in Phase 4 (freq ≥ 2 candidates; see [`MD-Mapping-Sources/`](Madhyasth-Darshan/MD-Mapping-Sources/README.md)) |
 | **KD** | [KD-karm darshan v5.pdf](Madhyasth-Darshan/KD-karm%20darshan%20v5.pdf) | *Manav Karm Darshan* (Hindi, v5); retained with the active [KD translation workspace](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md), including its generated English and interleaved Hindi-English review PDFs; all four active-translation PDFs are recorded in `r2-artifacts.json` and intentionally remain in Git |
 | **MSM** | [MSM-manav-sanchetnavaadi-manovigyan.pdf](Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf) | *Manav Sanchetnavadi Manovigyan* (*मानव संचेतनावादी मनोविज्ञान*; Hindi, 2008 OCR edition) by A. Nagraj; official published-book download |
+| **AA** | [AA-avartanshil-arthashastra.pdf](Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf) | *Avartansheel Arthshastra* (*आवर्तनशील अर्थशास्त्र*, cyclical economics; Hindi, 2024 printing, earlier editions 2001 and 2009; 164 PDF pages; printed page + 10 = PDF position) by A. Nagraj; official published-book download, retained with the active [AA translation workspace](Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/README.md) |
 | **KD-Karm-Darshan-English** | [KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | Full-book working English translation (front matter + ch. 1–3); not a published translation |
 | **MSM-Manav-Sanchetnavadi-Manovigyan-English** | [MSM-Manav-Sanchetnavadi-Manovigyan-English/](Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/README.md) | Page-aligned translation workspace and source images; setup only, with no English translation yet |
+| **AA-Avartansheel-Arthshastra-English** | [AA-Avartansheel-Arthshastra-English/](Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/README.md) | Page-aligned translation workspace, source images, chapter inventory and candidate economic terms; no English translation yet |
 
 ## Advaita-Vedanta/
 

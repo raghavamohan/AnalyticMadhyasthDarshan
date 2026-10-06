@@ -5,7 +5,7 @@
 **Drafted:** October 6, 2026. **Revised:** October 6, 2026. By author decision,
 drafting waits for a working English translation of *Avartansheel Arthshastra*
 (§8, §10).
-**Tracking:** `REF-AA` (acquire the Hindi source), `REF-AA-TR` (working
+**Tracking:** `REF-AA` (acquire the Hindi sources), `REF-AA-TR` (working
 translation) and `ST-DRAFT-06` (first draft, deferred until `REF-AA-TR`) in
 [PENDING.md](../PENDING.md). This plan covers design and method. Open work is
 tracked only in PENDING.md.
@@ -459,9 +459,12 @@ exchange-reserve) and AVD.
 **To acquire.** Tracked as `REF-AA`:
 
 - ***Avartansheel Arthshastra*** (AA; A. Nagraj, Hindi) is the darshan's own
-  treatise on cyclical economics (JV, p. 31). It is not in the reference
-  library. Locate the official edition, establish redistribution rights, and
-  mirror it or record it in `NOT-DOWNLOADED.md`.
+  treatise on cyclical economics (JV, p. 31). Acquired October 6, 2026: the
+  official download of the 2024 printing is mirrored as
+  [`AA-avartanshil-arthashastra.pdf`](../References/Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf)
+  (164 PDF pages; printed page + 10 = PDF position). The imprint reserves all
+  rights to Divyapath Sansthan; the site owner approved retaining it in Git for
+  the translation, as for MSM.
 - *Vyavaharvadi Samajshastra* and *Manav Vyavahar Darshan*, for exchange,
   family and the order of the society.
 - Any recorded sessions on *arthshastra*, through the transcription programme.
@@ -472,7 +475,7 @@ Karm Darshan working translation
 ([KD README](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/README.md)):
 
 - **Location.** `References/Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/`,
-  holding the Hindi source, rendered page images
+  beside the Hindi source (as for KD and MSM), holding rendered page images
   (`_page-images/p{pdf}_print{printed}.png`), the English manuscript with
   `[p. NN]` printed-page markers, a glossary-additions file, a source-image
   review ledger, and a README. The README states that this is a

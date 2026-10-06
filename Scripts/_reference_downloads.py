@@ -22,6 +22,25 @@ class DownloadEntry:
 # Commercial books, paywalled PDFs, and IEP articles belong in NOT-DOWNLOADED.md only.
 DOWNLOADS: tuple[DownloadEntry, ...] = (
     DownloadEntry(
+        dest="Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf",
+        urls=(
+            "https://madhyadarshan-books.s3.ap-south-1.amazonaws.com/"
+            "%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%95%E0%A4%BE%E0%A4%B6%E0%A4%BF%E0%A4%A4+"
+            "%E0%A4%97%E0%A5%8D%E0%A4%B0%E0%A4%82%E0%A4%A5+%E2%80%93+"
+            "%E0%A4%B5%E0%A4%B0%E0%A5%8D%E0%A4%A4%E0%A4%AE%E0%A4%BE%E0%A4%A8+"
+            "%E0%A4%B8%E0%A4%82%E0%A4%B8%E0%A5%8D%E0%A4%95%E0%A4%B0%E0%A4%A3+"
+            "(Published+books%2C+current+edition)/"
+            "09_avartanshil_arthashastra_unicode_2024.pdf",
+        ),
+        tag="AA",
+        min_bytes=15_000_000,
+        notes=(
+            "Official published-book download (2024 printing; earlier editions 2001 and 2009). "
+            "Imprint reserves all rights to Divyapath Sansthan; retained in Git for the "
+            "active translation by site-owner decision (6 October 2026)."
+        ),
+    ),
+    DownloadEntry(
         dest="Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf",
         urls=(
             "https://madhyadarshan-books.s3.ap-south-1.amazonaws.com/"
