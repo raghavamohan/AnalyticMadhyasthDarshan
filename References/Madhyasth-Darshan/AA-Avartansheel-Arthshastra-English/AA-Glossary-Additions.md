@@ -19,8 +19,8 @@ with the authority that already exists for each term.
 
 ## Decisions
 
-Raghava approved key terms 1-10 on 6 October 2026. Each row names the key-term
-number it settles. The page is where AA defines or first discusses the term.
+Raghava approved key terms 1-10 and 19-25 on 6 October 2026. Each row names the
+key-term number it settles. The page is where AA defines or first discusses the term.
 
 | Hindi term | Transliteration | English | PDF / printed page | Prior authority | Status | Rationale |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -42,6 +42,28 @@ number it settles. The page is where AA defines or first discusses the term.
 | उपयोग, सदुपयोग, प्रयोजनशीलता | *upyog, sadupyog, prayojansheelta* | **use, right-use, purposeful use** | PDF 36 / p. 26 | MD: use; right-use; प्रयोजनशीलता = purposefulness (MVD p. 56) | approved | Key term 8. The parallel उपयोगिता triad is open; see Unresolved items. |
 | मूल्य | *mulya* | **value** | PDF 16 / p. 6 | MD: value | approved | Key term 9. "Value" throughout, including monetary contexts such as "पत्र मुद्रा का मूल्य" (p. 6). Do not use "price". |
 | आवश्यकता से अधिक उत्पादन | *avashyakta se adhik utpadan* | **production in excess of need** | PDF 36 / p. 26 | MVD once: "a surplus of production" | approved | Key term 10. Avoids "surplus". |
+| कोष (economic sense) | *kosh* | **reserve** | PDF 37 / p. 27 | MD: *kosha* (repository, reserve, sheath) | approved | Key term 19. Bare कोष in economic passages. मुद्रा कोष stays with key term 17. |
+| कोष (body sheaths) | *kosha* | ***kosha*** | — | MD: अन्नमय कोष and the other sheaths = *annamaya kosha* and so on (MVD p. 48) | approved | Key term 19. Transliterated, as in MD-Mapping. |
+| विनिमय कोष, विनिमय-कोष | *vinimay kosh* | **exchange-reserve** | PDF 37-38 / pp. 27-28 | MD: Exchange-Reserve; JV and SB: exchange-reserve | approved | Key term 19. The images print the term with and without a hyphen; both take the same English. |
+| विनिमय | *vinimay* | **exchange** | PDF 14 / p. 4 | MD: विनिमय-कोष, श्रम विनिमय | approved | Key term 20. |
+| विनिमय प्रणाली | *vinimay pranali* | **exchange system** | PDF 61 / p. 51 | none | approved | Key term 20. |
+| वस्तु विनिमय प्रणाली | *vastu vinimay pranali* | **barter system** | PDF 14 / p. 4 | none | approved | Key term 20. |
+| श्रम विनिमय, श्रम विनिमय प्रणाली | *shram vinimay pranali* | **exchange of labour**; **system of exchange of labour** | PDF 72 / p. 62 | MD: exchange of labour (MVD p. 269) | approved | Key term 20. |
+| संग्रह | *sangrah* | **accumulation** | PDF 18 / p. 8 | MD: accumulation (MVD p. 161); SB and JV often "hoarding" | approved | Key term 21. Use "hoarding" only where the sense is negative: accumulating more than is needed. |
+| संग्रहण | *sangrahan* | **accumulating** (to accumulate) | PDF 16 / p. 6 | none | approved | Key term 21. The act of accumulating, as in धातु संग्रहण (p. 6). Supersedes the list's "stockpiling". |
+| संग्रहवादी | *sangrahvadi* | **accumulation-oriented** | PDF 56 / p. 46 | none | approved | Key term 21. |
+| भोग, अतिभोग, बहुभोग | *bhog, atibhog, bahubhog* | **indulgence**, **over-indulgence**, **multi-indulgence** | PDF 17 / p. 7 | MD: indulgence (SB p. 24), over-indulgence, multi-indulgence; MVD: indulgence | approved | Key term 22. The MD and MVD renderings apply in AA. KD's bare भोग = enjoyment remains a KD-only exception. |
+| भोगोन्माद | *bhogonmad* | **indulgence-obsession** | PDF 21 / p. 11 | MD; SB | approved | Key term 22. |
+| भोगवादी | *bhogvadi* | **indulgence-oriented** | PDF 56 / p. 46 | MD: भोगवाद = hedonism (SB p. 5) | approved | Key term 22. Parallel to संग्रहवादी in "भोगवादी-संग्रहवादी सभ्यता" (p. 46). |
+| उपभोक्तावादी | *upbhoktavadi* | **consumerist** | PDF 71 / p. 61 | SB English: "the consumerist ideal" | approved | Key term 22. |
+| विलासिता | *vilasita* | **luxury** | PDF 71 / p. 61 | none | approved | Key term 22. No MD or MVD row; the list's proposal, confirmed with the row. |
+| सुविधा | *suvidha* | **comfort**, **comforts** | PDF 18 / p. 8 | MD: comfort (MVD p. 63); MVD: comforts | approved | Key term 23. Singular or plural as MVD uses them. |
+| सुविधा संग्रह | *suvidha sangrah* | **accumulation of comforts** | PDF 93 / p. 83 | none | approved | Key term 23. Composed from सुविधा and संग्रह. |
+| सुविधावादी मानसिकता | *suvidhavadi mansikta* | **comfort-oriented mentality** | PDF 85 / p. 75 | MD: मानसिकता = mentality | approved | Key term 23. |
+| शोषण | *shoshan* | **exploitation** | PDF 92 / p. 82 | MD: exploitation, depletion (MVD p. 230) | approved | Key term 24. "Exploitation" throughout, of people and of the earth alike; p. 82: "शोषण का सम्पूर्ण स्वरूप धरती का ही शोषण है". |
+| दोहन | *dohan* | **extraction** | PDF 78 / p. 68 | none | approved | Key term 24. |
+| राजगद्दी के कर विधि | *rajgaddi ke kar vidhi* | **taxation by the throne** | PDF 14 / p. 4 | none | approved | Key term 25. |
+| कर वसूली | *kar vasuli* | **tax collection** | PDF 148 / p. 138 | none | approved | Key term 25. |
 
 ## Key terms for review
 
@@ -90,13 +112,13 @@ which overrides the "For discussion" column.
 | 16 | मुद्रा; पत्र मुद्रा, धातु मुद्रा (p. 6); प्रतीक मुद्रा (p. 52) | 63; 16, 4; 12 | MD's bare मुद्रा row is **gesture, gesticulation**, a different sense. MD: प्रतीक मुद्रा = **symbolic currency**. SB uses "currency" throughout its economic passages | Adopt "currency" for the economic sense? | currency; paper currency; metal currency; symbolic currency | A |
 | 17 | अंतर्राष्ट्रीय / राष्ट्रीय मुद्रा कोष (p. 44); राष्ट्रीय कोष, अन्तर्राष्ट्रीय कोष (p. 51); धातु कोषालय (p. 6); सुवर्ण द्रव्य मूलक मूल्यांकन (p. 51) | 5 | No MD rows | अंतर्राष्ट्रीय मुद्रा कोष is the Hindi name of the International Monetary Fund. Render it as the proper name, or literally as the author's description? | International Monetary Fund; national currency reserve; metal treasury; gold-based valuation | A |
 | 18 | पूँजी, मूल पूँजी (pp. 44, 52); ब्याज प्रथा (p. 52) | 15, 7; 4 | No MD rows (MD: पूंजीवाद = **capitalism**). SB: "Capital takes the form of currency" | Confirm terms for capital and principal | capital; principal capital; the practice of interest | B |
-| 19 | कोष in its several senses: विनिमय कोष (pp. 27, 28), मुद्रा कोष (p. 44), धातु कोष (p. 6) | 86 | MD: bare कोष is transliterated ***kosha*** (repository, reserve, sheath); विनिमय-कोष = **Exchange-Reserve** (JV, SB "exchange-reserve") | Use "reserve" for bare economic कोष, or keep *kosha*? The images print both विनिमय कोष (p. 27) and विनिमय-कोष (p. 28) | reserve (economic); *kosha* (body sheaths) | A |
-| 20 | विनिमय; विनिमय प्रणाली (p. 51); वस्तु विनिमय प्रणाली (p. 4); श्रम विनिमय प्रणाली (p. 62) | 133; 9; 4; 3 | MD: श्रम विनिमय = **exchange of labour** (MVD p. 269); विनिमय सुलभता = **accessibility to exchange** | Confirm; is "barter system" acceptable for वस्तु विनिमय प्रणाली? P. 51 also has मूल्यांकन विनिमय प्रणाली | exchange; exchange system; barter system; system of exchange of labour | B |
-| 21 | संग्रह (p. 8); संग्रहण (p. 6); संग्रहवादी (p. 46) | 74; 22; 4 | MD: **accumulation** (MVD p. 161), असंग्रह = **non-accumulation**. SB and JV often print "hoarding" | AA uses संग्रहण for stockpiling metal (p. 6) and संग्रह for the general drive to accumulate. When is "hoarding" right? | accumulation; stockpiling; accumulation-oriented | A |
-| 22 | भोग, अतिभोग, बहुभोग (p. 7); भोगोन्माद (p. 11); भोगवादी (p. 46); उपभोक्तावादी (p. 61); विलासिता (p. 61) | 18, 3, 6; 2; 2; 1; 1 | MD: **indulgence** (SB p. 24), **over-indulgence**, **multi-indulgence**, **indulgence-obsession**; भोगवाद = **hedonism**; उपभोग = **consumption**. KD approved bare भोग = **enjoyment** as a KD-only exception | AA's critical context ("लाभ शोषण पूर्वक संग्रह, भोग, अतिभोग, बहुभोग", p. 7) fits "indulgence" better than KD's "enjoyment". Confirm MD here? | indulgence; over-indulgence; multiple indulgence; indulgence-obsession; indulgence-oriented; consumerist; luxury | A |
-| 23 | सुविधा (p. 8); सुविधा संग्रह (p. 83); सुविधावादी मानसिकता (p. 75) | 19; 2 | MD: **comfort** (MVD p. 63), noting that सुविधा sometimes means luxury | Comfort, convenience or luxury in AA's critique? | comfort; accumulation of comforts; comfort-oriented mentality | A |
-| 24 | शोषण (pp. 7, 68, 82); दोहन (p. 68) | 33; — | MD: **exploitation, depletion** (MVD p. 230). No MD row for दोहन | AA uses शोषण of people and of the earth, and p. 82 says "शोषण का सम्पूर्ण स्वरूप धरती का ही शोषण है": all exploitation is, in full, exploitation of the earth. Rendering it as "depletion" for nature and "exploitation" for people would break that claim | exploitation throughout; extraction (दोहन) | A |
-| 25 | राजगद्दी के कर विधि (p. 4); कर वसूली | — | No MD rows | Confirm | taxation by the throne; tax collection | B |
+| 19 | कोष in its several senses: विनिमय कोष (pp. 27, 28), मुद्रा कोष (p. 44), धातु कोष (p. 6) | 86 | MD: bare कोष is transliterated ***kosha*** (repository, reserve, sheath); विनिमय-कोष = **Exchange-Reserve** (JV, SB "exchange-reserve") | Use "reserve" for bare economic कोष, or keep *kosha*? The images print both विनिमय कोष (p. 27) and विनिमय-कोष (p. 28) | reserve (economic); *kosha* (body sheaths) | Decided |
+| 20 | विनिमय; विनिमय प्रणाली (p. 51); वस्तु विनिमय प्रणाली (p. 4); श्रम विनिमय प्रणाली (p. 62) | 133; 9; 4; 3 | MD: श्रम विनिमय = **exchange of labour** (MVD p. 269); विनिमय सुलभता = **accessibility to exchange** | Confirm; is "barter system" acceptable for वस्तु विनिमय प्रणाली? P. 51 also has मूल्यांकन विनिमय प्रणाली | exchange; exchange system; barter system; system of exchange of labour | Decided |
+| 21 | संग्रह (p. 8); संग्रहण (p. 6); संग्रहवादी (p. 46) | 74; 22; 4 | MD: **accumulation** (MVD p. 161), असंग्रह = **non-accumulation**. SB and JV often print "hoarding" | AA uses संग्रहण for stockpiling metal (p. 6) and संग्रह for the general drive to accumulate. When is "hoarding" right? | accumulation; stockpiling; accumulation-oriented | Decided |
+| 22 | भोग, अतिभोग, बहुभोग (p. 7); भोगोन्माद (p. 11); भोगवादी (p. 46); उपभोक्तावादी (p. 61); विलासिता (p. 61) | 18, 3, 6; 2; 2; 1; 1 | MD: **indulgence** (SB p. 24), **over-indulgence**, **multi-indulgence**, **indulgence-obsession**; भोगवाद = **hedonism**; उपभोग = **consumption**. KD approved bare भोग = **enjoyment** as a KD-only exception | AA's critical context ("लाभ शोषण पूर्वक संग्रह, भोग, अतिभोग, बहुभोग", p. 7) fits "indulgence" better than KD's "enjoyment". Confirm MD here? | indulgence; over-indulgence; multiple indulgence; indulgence-obsession; indulgence-oriented; consumerist; luxury | Decided |
+| 23 | सुविधा (p. 8); सुविधा संग्रह (p. 83); सुविधावादी मानसिकता (p. 75) | 19; 2 | MD: **comfort** (MVD p. 63), noting that सुविधा sometimes means luxury | Comfort, convenience or luxury in AA's critique? | comfort; accumulation of comforts; comfort-oriented mentality | Decided |
+| 24 | शोषण (pp. 7, 68, 82); दोहन (p. 68) | 33; — | MD: **exploitation, depletion** (MVD p. 230). No MD row for दोहन | AA uses शोषण of people and of the earth, and p. 82 says "शोषण का सम्पूर्ण स्वरूप धरती का ही शोषण है": all exploitation is, in full, exploitation of the earth. Rendering it as "depletion" for nature and "exploitation" for people would break that claim | exploitation throughout; extraction (दोहन) | Decided |
+| 25 | राजगद्दी के कर विधि (p. 4); कर वसूली | — | No MD rows | Confirm | taxation by the throne; tax collection | Decided |
 
 ### 3. The household and village economy
 
