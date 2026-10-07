@@ -86,6 +86,7 @@ export const REFERENCE_PDF_KEYS = [
 ];
 export const RETAINED_REFERENCE_PDF_KEYS = [
   "References/Comparative-Philosophy/SV-Vivekananda-Practical-Vedanta.pdf",
+  "References/Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/AA-Avartansheel-Arthshastra-Hindi-English.pdf",
   "References/Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf",
   "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf",
   "References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf",

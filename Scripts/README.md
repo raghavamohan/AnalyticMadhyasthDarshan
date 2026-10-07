@@ -79,6 +79,8 @@ what to run **on that branch** before opening the PR.
 | Rewrite migrated Markdown links | `python Scripts/_rewrite_manifest_reference_links.py --write`; CI uses `--check` |
 | Render / verify MSM translation source images | `python Scripts/_msm_render_page_images.py`; add `--check` to validate the source hash and all 268 PNGs |
 | Render / verify AA translation source images | `python Scripts/_aa_render_page_images.py`; add `--check` to validate the source hash and all 164 PNGs |
+| Build the AA side-by-side Hindi-English review PDF | `python Scripts/_aa_build_hindi_english_pdf.py` after any manuscript change; it also refreshes the PDF's row in `References/r2-artifacts.json` |
+| Build the KD interleaved Hindi-English review PDF | `python Scripts/_kd_build_hindi_english_pdf.py` after regenerating `KD-Karm-Darshan-English.pdf`; then refresh both rows in `References/r2-artifacts.json` |
 | Review Rakesh Gupta translation alignment | `python Scripts/_review_rakesh_translations.py` |
 | Verify studies index | `python Scripts/_verify_studies_index.py` |
 | Rebuild index.html shell | `python Scripts/_build_studies_index.py` |
@@ -119,6 +121,7 @@ by those entry points or run directly only for diagnostics and specialized work.
 | `_verify_study_svgs.py` | Validate referenced study SVG files before conversion (called by `_regenerate_pdf.py`) |
 | `_convert_to_pdf.py` | MD → HTML; Mermaid fences → `<div class="mermaid">`; `pre-wrap` on fenced code (called by `_regenerate_pdf.py`) |
 | `_html_to_pdf.js` | Render Mermaid, then HTML → PDF via Puppeteer (called by `_regenerate_pdf.py`) |
+| `_html_to_paged_pdf.js` | HTML → PDF at the CSS `@page` size with no header, footer or margins, after an optional in-page layout pass (called by `_aa_build_hindi_english_pdf.py`) |
 | `_verify_pdf_diagrams.py` | Fail if Mermaid source leaked into PDF text (called by `_regenerate_pdf.py`) |
 | `_verify_pdf_fenced_code.py` | Fail if fenced code/spec content clipped in PDF (called by `_regenerate_pdf.py`) |
 | `_verify_pdf_math.py` | Fail if rendered KaTeX output has no embedded KaTeX font (called by `_regenerate_pdf.py`) |
@@ -135,6 +138,8 @@ by those entry points or run directly only for diagnostics and specialized work.
 | `_rewrite_manifest_reference_links.py` | Replace Markdown links to migrated payloads with stable R2/external delivery URLs |
 | `_msm_render_page_images.py` | Render the pinned MSM Hindi source to page-aligned PNGs and verify the complete image set |
 | `_aa_render_page_images.py` | Render the pinned AA Hindi source to page-aligned PNGs and verify the complete image set |
+| `_aa_build_hindi_english_pdf.py` | Pair each translated AA source page with its English, fitted to one column, in a side-by-side review PDF |
+| `_kd_build_hindi_english_pdf.py` | Interleave the KD Hindi source and the page-aligned English PDF (182 pages each) into a review PDF |
 | `_audit_references.py` | Bibliography-only audit of Studies/ `## References` links |
 | `_verify_published_document_links.py` | Enforce study-to-study HTML navigation and manifest-backed reference PDF links |
 | `_check_references.py` | Full reference check suite (bibliography, markdown links, mirror files, PDF links) |

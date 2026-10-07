@@ -99,7 +99,7 @@ For **MVD**, **SB**, and **JV**, Studies bibliographies and quote verification m
 | **AA** | [AA-avartanshil-arthashastra.pdf](Madhyasth-Darshan/AA-avartanshil-arthashastra.pdf) | *Avartansheel Arthshastra* (*आवर्तनशील अर्थशास्त्र*, cyclical economics; Hindi, 2024 printing, earlier editions 2001 and 2009; 164 PDF pages; printed page + 10 = PDF position) by A. Nagraj; official published-book download, retained with the active [AA translation workspace](Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/README.md) |
 | **KD-Karm-Darshan-English** | [KD-Karm-Darshan-English/](Madhyasth-Darshan/KD-Karm-Darshan-English/README.md) | Full-book working English translation (front matter + ch. 1–3); not a published translation |
 | **MSM-Manav-Sanchetnavadi-Manovigyan-English** | [MSM-Manav-Sanchetnavadi-Manovigyan-English/](Madhyasth-Darshan/MSM-Manav-Sanchetnavadi-Manovigyan-English/README.md) | Page-aligned translation workspace and source images; setup only, with no English translation yet |
-| **AA-Avartansheel-Arthshastra-English** | [AA-Avartansheel-Arthshastra-English/](Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/README.md) | Page-aligned translation workspace, source images, chapter inventory and candidate economic terms; no English translation yet |
+| **AA-Avartansheel-Arthshastra-English** | [AA-Avartansheel-Arthshastra-English/](Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/README.md) | Page-aligned working English translation (first pass; front matter and ch. 1–2 so far), source images, glossary, review ledger, and a side-by-side Hindi-English review PDF built by `Scripts/_aa_build_hindi_english_pdf.py`; not a published translation |
 
 ## Advaita-Vedanta/
 

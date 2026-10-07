@@ -39,6 +39,7 @@ ACTIVE_TRANSLATION_SOURCE_PDFS = frozenset(
 )
 ACTIVE_TRANSLATION_OUTPUT_PDFS = frozenset(
     {
+        "Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/AA-Avartansheel-Arthshastra-Hindi-English.pdf",
         "Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf",
         "Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-Hindi-English.pdf",
     }

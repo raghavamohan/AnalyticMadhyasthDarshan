@@ -261,7 +261,7 @@ reintroducing:
 
 ---
 
-## 3. Markdown to PDF — use internal scripts only *(applies when generating a study PDF)*
+## 3. Markdown to PDF — use internal scripts only *(applies when generating a study, deck or working-translation PDF)*
 
 When a canonical study markdown file under `Studies/` or `Applications/` needs
 a PDF, **always** use the repository pipeline. Do not substitute pandoc,
@@ -624,6 +624,38 @@ unless separately edited. Repair inbound links in the same PR.
 
 Deck and companion edits are companion-only changes: they use the `study-update` label
 but do **not** refresh the study's `**Edited on:**` or catalog timestamps (§1, §7).
+
+### Working-translation review PDFs — separate builders
+
+The active translation workspaces under `References/Madhyasth-Darshan/` (KD, AA,
+MSM) keep a page-aligned Markdown manuscript as their source of truth, with one
+page marker and source-image pointer per Hindi page. `_regenerate_pdf.py` does not
+build their PDFs. Each has its own builder, documented in the workspace README and
+in `Scripts/README.md`:
+
+| Output | Builder | Layout |
+|--------|---------|--------|
+| `KD-Karm-Darshan-English.pdf` | `_convert_to_pdf.py`, then `_html_to_pdf.js` | English only, one PDF page per Hindi page |
+| `KD-Karm-Darshan-Hindi-English.pdf` | `python Scripts/_kd_build_hindi_english_pdf.py` | Hindi and English pages interleaved; both PDFs must have 182 pages |
+| `AA-Avartansheel-Arthshastra-Hindi-English.pdf` | `python Scripts/_aa_build_hindi_english_pdf.py` | Side by side: each sheet pairs a Hindi page (left) with the English for that page (right); translated pages only |
+
+- Rebuild the review PDF in the same commit as any manuscript change, so reviewers
+  never compare against stale English. The builders need the one-time setup above,
+  including the pinned Chrome.
+- `_aa_build_hindi_english_pdf.py` fails if the page markers skip a page, a source
+  pointer names the wrong image, or a page's English cannot fit its column; fix the
+  manuscript, never the builder's limits. It renders through
+  `_html_to_paged_pdf.js` and refreshes the output's size and SHA-256 in
+  `References/r2-artifacts.json`. The KD PDFs' manifest rows must be refreshed
+  by hand.
+- These PDFs are Git-retained active-translation outputs. A new one must be added
+  to `ACTIVE_TRANSLATION_OUTPUT_PDFS` in `Scripts/_reference_artifacts.py`, given a
+  manifest row, and followed by
+  `python Scripts/_publish_generated_pdf_worker.py --sync-keys`. Then run
+  `python Scripts/_reference_artifacts.py --check`.
+- Translate and review against the rendered `_page-images/` or the review PDF.
+  Never use the Hindi PDF's text layer, and never hand-assemble a bilingual PDF.
+  When MSM translation begins, give it a builder on the AA pattern.
 
 ---
 

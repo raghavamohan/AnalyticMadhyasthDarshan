@@ -37,7 +37,10 @@ translation or review coverage.
 
 ## Review method
 
-- Read the Hindi from the named rendered source image.
+- Read the Hindi from the named rendered source image, or use
+  [`AA-Avartansheel-Arthshastra-Hindi-English.pdf`](AA-Avartansheel-Arthshastra-Hindi-English.pdf),
+  which pairs each Hindi page with its English on one sheet. Rebuild it first with
+  `python Scripts/_aa_build_hindi_english_pdf.py` if the manuscript has changed.
 - Compare sentence order, negation, enumeration, agency, referents, headings,
   tables, diagrams, and technical terms with the English page.
 - Confirm terminology against MD-Mapping and published MVD/SB/JV usage; use KD only
