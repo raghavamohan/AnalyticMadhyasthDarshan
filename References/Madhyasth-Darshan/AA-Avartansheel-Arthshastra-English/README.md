@@ -5,10 +5,12 @@ This directory prepares a page-aligned working English translation of A. Nagraj'
 follows the working method established in `../KD-Karm-Darshan-English/` and the
 setup already made for `../MSM-Manav-Sanchetnavadi-Manovigyan-English/`.
 
-**Current status:** setup and chapter-level inventory only. No English translation
-has been drafted or implied by the files in this directory. Any translation made
-here will be a machine-assisted working translation, not a published translation;
-verify against the Hindi original before quoting it in a publication.
+**Current status:** translation is under way in page order. The front matter (PDF
+pp. 1-10) and chapters 1-2 (printed pp. 1-24) exist as a first-pass translation in
+[`AA-Avartansheel-Arthshastra-English.md`](AA-Avartansheel-Arthshastra-English.md),
+not yet fidelity-reviewed. This is a machine-assisted working translation, not a
+published translation; verify against the Hindi original before quoting it in a
+publication.
 
 Phase status and the next batch are tracked only in
 [PENDING.md](../../../PENDING.md#references), under `REF-AA-TR`. The
@@ -52,14 +54,14 @@ The images, not the OCR text, are authoritative for translation and review.
 
 | File | Purpose |
 | :--- | :--- |
+| [`AA-Avartansheel-Arthshastra-English.md`](AA-Avartansheel-Arthshastra-English.md) | The page-aligned working translation (canonical source) |
 | [`README.md`](README.md) | Translation method, page map, structural inventory, and commands |
 | [`AA-Glossary-Additions.md`](AA-Glossary-Additions.md) | AA-specific terminology decisions, the 35-term key-term list for review with Rakesh Gupta, and unresolved terms |
 | [`AA-Source-Image-Review-Ledger.md`](AA-Source-Image-Review-Ledger.md) | Direct source-image review coverage and corrections |
 | [`_page-images/`](_page-images/) | Page-by-page Hindi source renders |
 
-The canonical `AA-Avartansheel-Arthshastra-English.md` and its generated HTML/PDF
-do not exist yet. Create them only when the first reviewed translation batch is
-ready; this avoids presenting an empty scaffold as a translation.
+The manuscript is the source of truth. Its HTML and PDF are not generated yet; that
+waits for Phase 6.
 
 ## Structural inventory
 
@@ -114,8 +116,10 @@ record any further cases here when found.
 Chapters 8 and 9 are largely numbered schemes (committees, village services,
 evaluation criteria). Keep their enumeration and nesting exactly as printed.
 
-**Still to inventory.** The sub-heading hierarchy inside each chapter, which is
-needed before the pilot is approved; see `REF-AA-TR` in PENDING.md.
+**Sub-headings.** These are recorded in the manuscript as each chapter is
+translated. Chapters 1 and 2 have none. Chapter 1's closing conclusions are a
+numbered list (pp. 7-8); chapter 2 has short numbered lists (pp. 10-13, 20) and
+ends with the formula जय हो! मंगल हो!! कल्याण हो!!! and an ornament (p. 24).
 
 ## Translation authority
 
@@ -187,7 +191,11 @@ locates *vinimay-kosh*, *shram mulya*, currency and *labhonmad*, two
 table/diagram pages, the opening of the chapter 9 scheme, and the closing page.
 OCR was used only to find candidate pages; each must be read from its image.
 
-### Phase 2 - terminology pilot
+This pilot was superseded on 7 October 2026. The 35-term key-term review of 6-7
+October settled the terminology the pilot was meant to test, so translation began
+in page order instead.
+
+### Phase 2 - terminology pilot (served by the key-term review)
 
 - Translate only the approved pilot pages.
 - Extract recurring technical terms and compare them with MD-Mapping, MVD, SB, JV,
