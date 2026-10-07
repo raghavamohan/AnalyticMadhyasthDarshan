@@ -32,7 +32,7 @@ the root-matching `<Slug>.md` drives the catalog row and main PDF.
 |---|--------|-----------------|
 | §1 | `**Edited on:**`, catalog timestamps, PDF regeneration | Every catalog study content edit |
 | §2 | `Studies/index.html` ↔ `Studies/README.md` ↔ `catalog-*.json` sync | Catalog or index shell changes |
-| §3 | Markdown → PDF pipeline (`Scripts/_regenerate_pdf.py` only), plus the separate companion-deck PDF pipeline | Generating or refreshing study PDFs, or any deck PDF |
+| §3 | Markdown → PDF pipeline (`Scripts/_regenerate_pdf.py` only), plus the separate companion-deck and working-translation review PDF builders | Generating or refreshing study PDFs, any deck PDF, or a translation review PDF |
 | §4 | Study prose style — scholarly essay, not AI scaffold | All topical studies |
 | §5 | Shared approach and study-specific scope | All studies |
 | §6 | Reference checks (`Scripts/_check_references.py`) | Bibliography or `References/` changes |
@@ -70,6 +70,8 @@ Never use pandoc, VS Code export, or ad-hoc converters. One-time setup:
 
 Companion decks are a **separate** pipeline — `_regenerate_pdf.py` does not touch them. Each `<Deck>.pptx` is hand-built and authoritative, and yields three non-interchangeable PDFs: `<Deck>.pdf` (slides only — what `Studies/index.html` links), `<Deck>-notes.pdf` (slide plus read-aloud script per page), and `Presenters-Companion-<Name>.pdf` (script plus background and Q&A). After any deck change run `_pptx_to_pdf.py` then `_build_deck_notes_pdf.py`, in that order. Full rules: [AGENTS.md](AGENTS.md) §3 — Companion deck PDFs.
 
+Working translations under `References/Madhyasth-Darshan/` have their own review PDFs, also outside `_regenerate_pdf.py`. After any change to the AA manuscript, run `python Scripts/_aa_build_hindi_english_pdf.py` in the same commit. It rebuilds `AA-Avartansheel-Arthshastra-Hindi-English.pdf` (each sheet: Hindi page left, its English right) and refreshes the PDF's row in `References/r2-artifacts.json`. KD's interleaved PDF uses `python Scripts/_kd_build_hindi_english_pdf.py`. Full rules: [AGENTS.md](AGENTS.md) §3 — Working-translation review PDFs.
+
 ---
 
 ## Agent skills
@@ -91,8 +93,8 @@ Stored under `References/Madhyasth-Darshan/`:
 | **JV** | *Jeevan Vidya: An Introduction* | Rakesh Gupta |
 | **AVD** | *Adhyatmvad* (Realisation Centred Spiritualism) | Sanjeev Chopra (WIP) |
 | **JVD** | *Janvad* (Behaviour Centred Public Discourse) | Sanjeev Chopra (WIP) |
-| **KD** | *Manav Karm Darshan* (Hindi, v5) | Hindi source PDF; working English translations of section 3 in `KD-Karm-Darshan-English/` (not published translations) |
-| **AA** | *Avartansheel Arthshastra* (Hindi, 2024 printing) | Hindi source PDF; working English translation workspace in `AA-Avartansheel-Arthshastra-English/` (setup only; not a published translation) |
+| **KD** | *Manav Karm Darshan* (Hindi, v5) | Hindi source PDF; working English translations of section 3 in `KD-Karm-Darshan-English/` (not published translations), with an interleaved Hindi-English review PDF |
+| **AA** | *Avartansheel Arthshastra* (Hindi, 2024 printing) | Hindi source PDF; working English translation in `AA-Avartansheel-Arthshastra-English/` (first pass under way; not a published translation), with a side-by-side Hindi-English review PDF |
 | **MD** | `MD-Mapping.xlsx` | Chapter/page mapping spreadsheet |
 
 Other traditions and modern sources live under `References/Advaita-Vedanta/`, `Comparative-Philosophy/`, `Science/`, `Modern-Philosophy/`, and `Applied-Studies/`. See [References/README.md](References/README.md) and [References/MANIFEST.md](References/MANIFEST.md).

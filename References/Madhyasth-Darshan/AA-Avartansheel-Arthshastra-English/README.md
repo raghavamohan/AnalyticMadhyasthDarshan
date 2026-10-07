@@ -8,9 +8,11 @@ setup already made for `../MSM-Manav-Sanchetnavadi-Manovigyan-English/`.
 **Current status:** translation is under way in page order. The front matter (PDF
 pp. 1-10) and chapters 1-2 (printed pp. 1-24) exist as a first-pass translation in
 [`AA-Avartansheel-Arthshastra-English.md`](AA-Avartansheel-Arthshastra-English.md),
-not yet fidelity-reviewed. This is a machine-assisted working translation, not a
-published translation; verify against the Hindi original before quoting it in a
-publication.
+not yet fidelity-reviewed. For review, read the side-by-side
+[`AA-Avartansheel-Arthshastra-Hindi-English.pdf`](AA-Avartansheel-Arthshastra-Hindi-English.pdf)
+(Hindi page left, English right); rebuild it after every manuscript change. This
+is a machine-assisted working translation, not a published translation; verify
+against the Hindi original before quoting it in a publication.
 
 Phase status and the next batch are tracked only in
 [PENDING.md](../../../PENDING.md#references), under `REF-AA-TR`. The
