@@ -55,6 +55,7 @@ The images, not the OCR text, are authoritative for translation and review.
 | File | Purpose |
 | :--- | :--- |
 | [`AA-Avartansheel-Arthshastra-English.md`](AA-Avartansheel-Arthshastra-English.md) | The page-aligned working translation (canonical source) |
+| [`AA-Avartansheel-Arthshastra-Hindi-English.pdf`](AA-Avartansheel-Arthshastra-Hindi-English.pdf) | Generated side-by-side review PDF: each sheet pairs a Hindi source page (left) with the English for that page (right); translated pages only |
 | [`README.md`](README.md) | Translation method, page map, structural inventory, and commands |
 | [`AA-Glossary-Additions.md`](AA-Glossary-Additions.md) | AA-specific terminology decisions, the 35-term key-term list for review with Rakesh Gupta, and unresolved terms |
 | [`AA-Source-Image-Review-Ledger.md`](AA-Source-Image-Review-Ledger.md) | Direct source-image review coverage and corrections |
@@ -252,6 +253,10 @@ python Scripts/_aa_render_page_images.py
 
 # Confirm source identity and the complete 164-image set
 python Scripts/_aa_render_page_images.py --check
+
+# After any manuscript change, rebuild the side-by-side Hindi-English review PDF
+# (needs the pinned Chrome: in Scripts/, npm ci; npx puppeteer browsers install chrome)
+python Scripts/_aa_build_hindi_english_pdf.py
 
 # Once a real translation source exists, generate its HTML and PDF
 python Scripts/_convert_to_pdf.py "References/Madhyasth-Darshan/AA-Avartansheel-Arthshastra-English/AA-Avartansheel-Arthshastra-English.md"
