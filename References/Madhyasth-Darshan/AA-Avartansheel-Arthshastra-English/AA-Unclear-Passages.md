@@ -358,7 +358,7 @@ PDF (`python Scripts/_aa_build_hindi_english_pdf.py`). IDs are never reused.
 
 - **Page:** PDF 39 / p. 29 (chapter 3) — the sequence by which security needs become nil
 - **Hindi (opening):** यह क्रम से क्षेत्र सुरक्षा के अनन्तर ग्राम सुरक्षा की आवश्यकता, प्रधान राज्य के अनन्तर
-- **English (as drafted):** "In this sequence, it is in prospect that, after area security, the need for village security; after the continent state, the secondary status of security up to the region state; and, after the world-state system, the needs for continent security, will become nil."
+- **English (as drafted):** "In this sequence, it is in prospect that, after district security, the need for village security; after the continent state, the secondary status of security up to the region state; and, after the world-state system, the needs for continent security, will become nil."
 - **Issue:** three parallel phrases share one predicate (शून्य होना भावी है), but the middle one names गौणता ("secondary status") rather than आवश्यकता, so it may be its own predicate ("security up to the region becomes secondary after the continent"). अनन्तर may mean "after (the establishment of)" or "beyond". Drafted with one shared predicate.
 
 ### U-028

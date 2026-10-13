@@ -49,6 +49,7 @@ translation or review coverage.
 | 13 Oct 2026 | PDF 6 / *vikalp* item 13 | The draft made "a physical structure" the subject of the sentence | The Hindi (भौतिक रचना रुपी धरती पर ही) describes the earth as a physical formation; the sentence now reads "on this very earth, which is a physical formation, it was understood that formations composed of biological cells … flourished" | Claude (re-read for the unclear-passage index) |
 | 13 Oct 2026 | PDF 24, 31 / pp. 14, 21 | आवर्तनशील अर्थव्यवस्था was rendered "cyclical economic system" | Key term 1 (approved) is "cyclical economy"; both places corrected while harmonising chapters 3–9 | Claude (terminology consistency) |
 | 13 Oct 2026 | PDF 19 / p. 9 | अनुसंधान was rendered "investigation" | MD: अनुसंधान = exploration; "research and exploration" (twice), matching chapters 3–9 | Claude (terminology consistency) |
+| 13 Oct 2026 | whole text | Terminology decided by the author | स्वतंत्रता = independence (MVD; chapter 7 now "Awakening and Independence"; कर्म स्वतंत्रता stays "freedom of action"); कृत, कारित, अनुमोदित = done, caused and intended (the author's KD decision); अस्तित्व दर्शन ज्ञान = knowledge of coexistence (7 places); सुविधा = facilities for village services and संतुष्टि = contentment approved. Recorded in the glossary | Raghava (author review) |
 
 ## Review method
 

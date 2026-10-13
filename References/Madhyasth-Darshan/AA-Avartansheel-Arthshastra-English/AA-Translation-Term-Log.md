@@ -13,7 +13,9 @@ choice becomes settled only when the glossary records it as `approved`.
 follow one rendering: अनुसंधान = exploration (MD; also in chapter 2), मानव कुल =
 humankind, मौलिकता = essentiality (MD), स्वत्व = identity (MVD) in the triad of identity,
 freedom and authority ("own" where it means what is one's own, p. 73), कृत, कारित,
-अनुमोदित = done, got done and consented to (MD/MVD), and अर्थव्यवस्था = economy (with
+अनुमोदित = done, caused and intended (the author's KD decision), स्वतंत्रता =
+independence (MVD; the author's decision), अस्तित्व दर्शन ज्ञान = knowledge of coexistence
+(the author's decision), and अर्थव्यवस्था = economy (with
 key term 1, आवर्तनशील अर्थव्यवस्था = cyclical economy, also corrected in chapter 2).
 
 ## Chapter 3, Cyclical Economics: Concept
@@ -328,12 +330,12 @@ Choices not already in the AA Decisions table, the AA Proposed table or the term
 | अतृप्ति | *atripti* | **dissatisfaction** | PDF 69 / p. 59 | तृप्ति = satisfaction | |
 | अवगाहन | *avagahan* | **comprehension (*avagahan*)** | PDF 69 / p. 59 | none | Defined on p. 59 as the qualification to evidence in comprehensive modes. |
 | सार्वभौमता | *sarvbhaumta* | **universality** | PDF 69 / p. 59 | MD | |
-| स्वतंत्रता | *svatantrata* | **freedom** | PDF 69, 77 / pp. 59, 67 | MD bare row: independence; MD: कर्म स्वतंत्रता = freedom of action; chapter 7 title "Awakening and Freedom" | |
+| स्वतंत्रता | *svatantrata* | **independence** | PDF 69, 77 / pp. 59, 67 | MD bare row: independence; MD: कर्म स्वतंत्रता = freedom of action | Drafted as "freedom"; changed to "independence" by the author's decision (13 October 2026). |
 | सत्यापित | *satyapit* | **verified** | PDF 69 / p. 59 | none | |
 | समग्रतावादी विश्व दृष्टिकोण; समग्र व्यवस्थावादी कार्यप्रणाली | *samagratavadi; samagra vyavasthavadi* | **the holistic worldview**; **the working system of overall orderliness** | PDF 69 / p. 59 | core: विश्व दृष्टिकोण = worldview; समग्र व्यवस्था = overall orderliness | |
 | सापेक्षता विधि; सापेक्षवादी | *sapekshta vidhi; sapekshvadi* | **the method of relativity**; **relativist** | PDF 69-70 / pp. 59-60 | MD: सापेक्षता = relativity | |
 | अबोध | *abodh* | **unenlightened** | PDF 69 / p. 59 | core: बोध = enlightenment | |
-| कायिक, वाचिक, मानसिक; कृत, कारित, अनुमोदित | *kayik, vachik, mansik; krit, karit, anumodit* | **physical, verbal and mental; done, got done and consented to** | PDF 70 / p. 60 | MD: कायिक = physical, वाचिक = verbal, कृत = doing, कारित = getting done | |
+| कायिक, वाचिक, मानसिक; कृत, कारित, अनुमोदित | *kayik, vachik, mansik; krit, karit, anumodit* | **physical, verbal and mental; done, caused and intended** | PDF 70 / p. 60 | MD: कायिक = physical, वाचिक = verbal, कृत = doing, कारित = getting done | |
 | जागृत, स्वप्न, सुषुप्ति | *jagrit, svapna, sushupti* | **waking, dream and deep sleep** | PDF 70 / p. 60 | none | The page prints सुसुप्ति. |
 | संस्कृति, सभ्यता, विधि, व्यवस्था | *sanskriti, sabhyata, vidhi, vyavastha* | **culture, civilisation, law, system** | PDF 71 / p. 61 | chapter 2: "culture, civilisation, law and system" | "विधि, व्यवस्थाएँ" = law and systems. |
 | ईश्वरवाद | *ishvarvad* | **theism** | PDF 71 / p. 61 | none | |
@@ -524,7 +526,7 @@ Choices not already in the AA Decisions table, the AA Proposed table or the term
 | साक्षात्कार; कसौटी | *sakshatkar; kasauti* | **direct recognition**; **touchstone** | PDF 105 / p. 95 | MD: साक्षात्कार = direct recognition; ch. 2 | Follows MD. |
 | समुच्चय; स्वनियंत्रण | *samuchchay; svaniyantran* | **aggregate**; **self-regulation** | PDF 105 / p. 95 | MD: समुच्चय = aggregate; नियंत्रण = regulation | Follows MD. |
 
-## Chapters 6–7, The Basis of Evidence: The Human Being; Awakening and Freedom
+## Chapters 6–7, The Basis of Evidence: The Human Being; Awakening and Independence
 
 *PDF 106–119 / pp. 96–109*
 
@@ -538,7 +540,7 @@ Terminology choices not already in the AA Decisions table, the AA Proposed table
 | व्यवहार-व्यवसाय | *vyavhar-vyavsay* | **behaviour-occupation** | PDF 106 / p. 96 | MD: व्यवहार = behaviour; व्यवसाय = occupation (key term 26) | Composed. |
 | मानव जाति एक, कर्म अनेक; मानव धर्म एक, मत अनेक; धरती एक, ... सीमाएं अनेक; ईश्वर ... एक, देवताएं ... अनेक | — | **the human race is one, actions are many; human dharma is one, opinions are many; the earth is one, human-made boundaries are many; God ... is one, deities ... are many** | PDF 106 / p. 96 | SB: "The human race is one; actions are many", "Human dharma is one; opinions are many" | Follows SB's published wording. |
 | कायिक, वाचिक, मानसिक | *kayik, vachik, mansik* | **physical, verbal and mental** | PDF 106 / p. 96 | MD: physical, verbal; MVD: "physical, verbal, and mental"; KD: physical | Of behaviour. |
-| कृत, कारित, अनुमोदित | *krit, karit, anumodit* | **done, got done and consented to** | PDF 106 / p. 96 | MD: doing, getting done, consenting; MVD: "through doing, getting-done, and consenting"; KD (settled for KD): done, caused, intended | MD and MVD outrank KD in the workspace's authority order. Flag for review: KD's settled "done, caused, intended" differs. |
+| कृत, कारित, अनुमोदित | *krit, karit, anumodit* | **done, caused and intended** | PDF 106 / p. 96 | MD: doing, getting done, consenting; MVD: "through doing, getting-done, and consenting"; KD (settled for KD): done, caused, intended | Drafted as MD/MVD's "done, got done and consented to"; changed to the author's KD decision "done, caused and intended" (13 October 2026). |
 | मौलिक; मौलिकता | *maulik; maulikta* | **fundamental (*maulik*)**; **essentiality (*maulikta*)** | PDF 106 / p. 96 | MD: मौलिक = fundamental; मौलिकता = essentiality | Transliterations kept on p. 96 so the reader sees that "fundamental" and "essentiality" render one root. |
 | प्रजाति | *prajati* | **species** | PDF 106 / p. 96 | MD | |
 | अंश | *ansh* | **particle** | PDF 106 / p. 96 | MD | |
@@ -598,7 +600,7 @@ Terminology choices not already in the AA Decisions table, the AA Proposed table
 | व्यवस्था मानव | *vyavastha manav* | **orderliness human (*vyavastha manav*)** | PDF 110 / p. 100 | MD: transliteration only | Formed like परिवार मानव = family human. |
 | तात्विक, मिश्रण, यौगिक | *tatvik, mishran, yaugik* | **elemental, mixture, compound** | PDF 110 / p. 100 | MD: यौगिक = compound | |
 | पंचकोटि के मानव चित्र | *panchkoti ke manav chitra* | **the chart of the five categories of human** | PDF 110 / p. 100 | none | Refers to the table on p. 101. |
-| स्वत्व, स्वतंत्रता, अधिकार | *svatva, svatantrata, adhikar* | **identity, freedom, authority** | PDF 110, 111, 114–115 / pp. 100, 101, 104–105 | MVD: "in the form of identity, independence, and authority"; MD: स्वत्व = innateness, स्वतंत्रता = independence, अधिकार = right, authority | MD's "innateness" would collide with धारणा = innateness (*dharana*), so MVD's "identity" is used. स्वतंत्रता = "freedom", not MVD's "independence", to match the fixed chapter 7 title "Awakening and Freedom" (जागृति और स्वतंत्रता) and कर्म स्वतंत्रता = freedom of action. |
+| स्वत्व, स्वतंत्रता, अधिकार | *svatva, svatantrata, adhikar* | **identity, independence, authority** | PDF 110, 111, 114–115 / pp. 100, 101, 104–105 | MVD: "in the form of identity, independence, and authority"; MD: स्वत्व = innateness, स्वतंत्रता = independence, अधिकार = right, authority | MD's "innateness" would collide with धारणा = innateness (*dharana*), so MVD's "identity" is used. स्वतंत्रता was drafted as "freedom" and changed to MVD's "independence" by the author's decision (13 October 2026); the chapter 7 title is now "Awakening and Independence". |
 | संबोधन | *sambodhan* | **address (*sambodhan*)** | PDF 110 / p. 100 | MD: addressing | |
 | स्वराज्य (bare) | *swarajya* | **self-governance** | PDF 110 / p. 100 | MD | |
 | नैसर्गिक पर्यावरण; मानवकृत वातावरण | *naisargik paryavaran; manavkrit vatavaran* | **the natural environment; human-made surroundings** | PDF 110 / p. 100 | MD: वातावरण = environment; chapter 2: "surroundings" | Two different words in one phrase, so two English words. |
@@ -629,7 +631,7 @@ Terminology choices not already in the AA Decisions table, the AA Proposed table
 | ममता | *mamata* | **care (*mamata*)** | PDF 112 / p. 102 | MD: Care | |
 | अभिभावक | *abhibhavak* | **guardian** | PDF 112 / p. 102 | MD: guardian ("जो संतानों का अभ्युदय चाहते हैं") | P. 102 gives the same definition. |
 | अक्षय बल, अक्षय शक्ति | *akshay bal, akshay shakti* | **inexhaustible strength, inexhaustible power** | PDF 112 / p. 102 | MD | |
-| कर्म करने की स्वतंत्रता; स्वतंत्र (while acting) | *karm karne ki svatantrata; svatantra* | **the freedom to act; free** | PDF 112 / p. 102 | कर्म स्वतंत्रता = freedom of action (core sheet); SB: "independent while performing actions" | |
+| कर्म करने की स्वतंत्रता; स्वतंत्र (while acting) | *karm karne ki svatantrata; svatantra* | **freedom of action; independent** | PDF 112 / p. 102 | कर्म स्वतंत्रता = freedom of action (core sheet); SB: "independent while performing actions" | |
 | अतृप्ति | *atripti* | **dissatisfaction** | PDF 113 / p. 103 | तृप्ति = satisfaction (उभय तृप्ति = mutual satisfaction, core sheet) | |
 | आदिकाल, प्राचीनकाल, अर्वाचीन काल, आधुनिक, अत्याधुनिक काल | *adikal, prachinkal, arvachin kal, adhunik, atyadhunik kal* | **the primeval age, ancient times, the later age, modern and ultra-modern times** | PDF 113 / p. 103 | none | |
 | संस्कारानुषंगीय इकाई | *sanskaranushangiya ikai* | **a *sanskar*-conformant unit** | PDF 113 / p. 103 | MD: Sanskar conformance | |
