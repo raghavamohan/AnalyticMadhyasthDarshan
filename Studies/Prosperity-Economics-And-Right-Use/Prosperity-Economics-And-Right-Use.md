@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** October 13, 2026, 9:23 AM IST
+**Edited on:** October 13, 2026, 9:35 AM IST
 **Status:** Draft
 **The question:** Why do human economies, unlike every other order of nature, fail to come to rest, and what would an economy look like that begins from definite need, labour on natural abundance, and right use, rather than from scarcity and accumulation?
 
@@ -272,7 +272,7 @@ Several limits follow from the darshan's own account. The instrument must not be
 
 ### 8.5 The scope of this proposal
 
-The use of AI described here is an application of the darshan's distinctions, not a claim found in the texts, which speak of computers only as aids to information and accounting. Whether settled rules can be stated precisely enough for an instrument to apply them, whether flagging a failure changes behaviour, and whether communities can govern such systems without ceding judgement to them are empirical questions. The companion [technical note on a personal AI assistant](../Artificial-Intelligence-And-Coexistence/Technical-Note-The-Personal-AI-Assistant.pdf) sets out tests of source fidelity and human benefit that a system of this kind would also need. These questions are collected in §9.7.
+The use of AI described here is an application of the darshan's distinctions, not a claim found in the texts, which speak of computers only as aids to information and accounting. Whether settled rules can be stated precisely enough for an instrument to apply them, whether flagging a failure changes behaviour, and whether communities can govern such systems without ceding judgement to them are empirical questions, collected with the other open problems in §9.7. The companion [technical note on a personal AI assistant](../Artificial-Intelligence-And-Coexistence/Technical-Note-The-Personal-AI-Assistant.pdf) sets out tests of source fidelity and human benefit that a system of this kind would also need.
 
 ## 9. Critical review
 
