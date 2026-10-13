@@ -126,6 +126,15 @@ The KD glossary and `../KD-Karm-Darshan-English/KD-Translation-Glossary.xlsx` we
 updated to match. Text that still uses earlier renderings, in the KD translation and
 in Studies, is tracked in PENDING.md (`REF-TERMS`).
 
+**Project-wide adoption (13 October 2026).** Raghava also made five decisions from the
+proposed table below project-wide: कृत, कारित, अनुमोदित = done, caused and intended
+(the author's KD rendering); स्वतंत्रता = independence (MVD); अस्तित्व दर्शन ज्ञान =
+knowledge of coexistence; संतुष्टि = contentment, shared with संतोष; and सुविधा =
+facilities in the sense of public or village services. `../MD-Mapping.xlsx` (rows
+1337–1339 updated, notes on rows 238, 870 and 1061, rows 2306–2309 appended), the KD
+glossary and its workbook, and the KD body (where the source images confirm the Hindi)
+now follow them.
+
 ### Proposed in translation batches 1-9 (7–13 October 2026)
 
 These choices arose while translating the front matter and chapters 1-9; the full

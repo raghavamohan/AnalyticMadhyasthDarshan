@@ -14,7 +14,7 @@ Natural / Madhyasth Darshan — Coexistentialism
 
 **Working English translation** (unpublished draft for study use)
 
-**Edited on:** October 4, 2026, 8:23 AM IST
+**Edited on:** October 13, 2026, 7:04 AM IST
 
 Shri Bhajanashram, Amarkantak
 
@@ -196,7 +196,7 @@ Development Progression, Development in Coexistence.
 
 ### 10. The Knowledge
 - Knowledge of jeevan in coexistence.
-- Knowledge of the holistic view of existence in the form of coexistence.
+- Knowledge of coexistence (existence in the form of coexistence).
 - Knowledge of humane conduct.
 - Realisation itself is knowledge.
 
@@ -996,7 +996,7 @@ Chapter Two
 
 Upasana (*upāsanā*) – Wisdom
 
-Knowledge: — knowledge of the holistic view of existence, knowledge of jeevan, knowledge of humane conduct
+Knowledge: — knowledge of coexistence, knowledge of jeevan, knowledge of humane conduct
 
 Wisdom: — the immortality of jeevan, the mortality (*nashwaratva*) of the body, the rules of behaviour — together with knowledge — being evidenced in the human goal and the jeevan goal
 
@@ -1606,7 +1606,7 @@ In the conduct of humankind, dharma predominates; in animal species, essential n
 
 ## 3.5 Coexistence Is Stable; Development and Awakening Are Certain
 
-Existence-as-coexistence is stable, and within coexistence development and awakening are certain. Human beings on earth have reached a condition in which this fact can be studied. The awakened human being alone is the seer, doer, and enjoyer of universal wellbeing, and the bearer and carrier of the knowledge, science, and wisdom rooted in education-and-culture. Through coexistentialist philosophy, knowledge, science, and wisdom, every human being can evidence himself within orderliness and participate in the overall orderliness as universal wellbeing unfolds. This is the reach and manifest form of the programme of universal wellbeing. Study is the sole source of universal knowledge, science, and wisdom. Complete knowledge comprises knowledge of the holistic view of existence-as-coexistence, knowledge of jeevan as conscious nature, knowledge of activity and behaviour as humane conduct, and knowledge of participation in the overall orderliness. Existence-as-coexistence is studied in four orders and four categories (*pad*). At its root, within the omnipresent reality, every single substance
+Existence-as-coexistence is stable, and within coexistence development and awakening are certain. Human beings on earth have reached a condition in which this fact can be studied. The awakened human being alone is the seer, doer, and enjoyer of universal wellbeing, and the bearer and carrier of the knowledge, science, and wisdom rooted in education-and-culture. Through coexistentialist philosophy, knowledge, science, and wisdom, every human being can evidence himself within orderliness and participate in the overall orderliness as universal wellbeing unfolds. This is the reach and manifest form of the programme of universal wellbeing. Study is the sole source of universal knowledge, science, and wisdom. Complete knowledge comprises knowledge of coexistence (existence as coexistence), knowledge of jeevan as conscious nature, knowledge of activity and behaviour as humane conduct, and knowledge of participation in the overall orderliness. Existence-as-coexistence is studied in four orders and four categories (*pad*). At its root, within the omnipresent reality, every single substance
 
 [p. 70]
 
@@ -1948,7 +1948,7 @@ Projection has already been described as making the understood understood, teach
 
 [p. 112]
 
-Happiness is the intent. The human goal is resolution, prosperity, fearlessness, and evidence lived in coexistence; the expectation is universality and undividedness. Intent, goal, and expectation become meaningful through complementarity. When the goal is fulfilled, resolution is realised as happiness; resolution and prosperity as peace; resolution, prosperity, and fearlessness as contentment; and resolution, prosperity, fearlessness, and coexistence as bliss. In this sequence, realisation (*anubhav*) occurs in coexistence and in undivided society and universal orderliness; freedom is realised in production beyond necessity, and resolution in every activity. These are recognised as happiness, peace, contentment, and bliss. Every person can test this against their own realisation. We verified the result only after living it; satisfaction lies in universalising it among people.
+Happiness is the intent. The human goal is resolution, prosperity, fearlessness, and evidence lived in coexistence; the expectation is universality and undividedness. Intent, goal, and expectation become meaningful through complementarity. When the goal is fulfilled, resolution is realised as happiness; resolution and prosperity as peace; resolution, prosperity, and fearlessness as contentment; and resolution, prosperity, fearlessness, and coexistence as bliss. In this sequence, realisation (*anubhav*) occurs in coexistence and in undivided society and universal orderliness; independence is realised in production beyond necessity, and resolution in every activity. These are recognised as happiness, peace, contentment, and bliss. Every person can test this against their own realisation. We verified the result only after living it; satisfaction lies in universalising it among people.
 
 For every person, the realisation-oriented method — study, research, testing, and observation — evidences human-aspiration through realisation and, in projection, through a realisation-based system. Study, enlightenment (*bodh*), the realisation-oriented method, and the realisation-based system thus enable living in accordance with human-aspiration. This is the fundamental aim of study. As the number of people living by this method grows, undivided society and universal orderliness are evidenced, followed by resolution, prosperity, fearlessness, and coexistence; every awakened person can then be recognised. Every man and woman wants to awaken. Universalising education fit for awakening is therefore the only means. Humane education treats every issue necessary in, from, and for the human being as an object of study.
 
@@ -2319,7 +2319,7 @@ Concentration, the one who concentrates, and the object of concentration also be
 
 Doer, effect, and cause are likewise clear. Jeevan is the doer; establishment in the human, deific-human, and divine-human statuses is the effect; and the ever-present standing of existence-as-coexistence is the cause.
 
-The coexistentialist viewpoint also makes it easy to identify the seeker in relation to the aim and the means, and connects this identification with purpose. The human being is the seeker, and jeevan-awakening becomes accessible as the aim. Awakening is recognised as human innateness, freedom, and right. These take the form of understanding; understanding as knowledge, science, and wisdom in turn manifests this innateness, freedom, and right. This is the evidence of awakening. Every individual can consider how meaningful the aim of awakening is.
+The coexistentialist viewpoint also makes it easy to identify the seeker in relation to the aim and the means, and connects this identification with purpose. The human being is the seeker, and jeevan-awakening becomes accessible as the aim. Awakening is recognised as human innateness, independence, and right. These take the form of understanding; understanding as knowledge, science, and wisdom in turn manifests this innateness, independence, and right. This is the evidence of awakening. Every individual can consider how meaningful the aim of awakening is.
 
 Imaginativeness, freedom of action, and evidence embodied in tradition are the means of research and investigation. When human tradition evidences itself as the bearer and carrier of evidence and authenticity, that very understanding provides the evidence of universal orderliness and undivided society. Participation in evidencing universal orderliness makes this evidence accessible to all. Humane education and *sanskar* flourish as a constituent part of universal orderliness. The grandeur of universality in human tradition becomes meaningful through knowledge, education, and *sanskar*. This is what the tradition of evidence means. A general
 
@@ -2327,7 +2327,7 @@ Imaginativeness, freedom of action, and evidence embodied in tradition are the m
 
 survey shows universality—that is, acceptance throughout humankind. Across the disciplines of practice, study, work, behaviour, and orderliness, the coexistentialist method forms a connected succession of evidence. Every man and woman can readily take it to heart, examine it within themselves, and determine whether it is meaningful or meaningless.
 
-The human being's aim is awakening. Its innateness, freedom, and right take the form of knowledge, science, and wisdom. Their evidence, through work and behaviour, is undivided society and universal orderliness. These are linked in a chain from which no link can be separated. The aim embodied in tradition—human-aspiration and jeevan-aspiration—cannot be evidenced without coexistentialist knowledge, wisdom, and science. It can be evidenced only through the coexistentialist method.
+The human being's aim is awakening. Its innateness, independence, and right take the form of knowledge, science, and wisdom. Their evidence, through work and behaviour, is undivided society and universal orderliness. These are linked in a chain from which no link can be separated. The aim embodied in tradition—human-aspiration and jeevan-aspiration—cannot be evidenced without coexistentialist knowledge, wisdom, and science. It can be evidenced only through the coexistentialist method.
 
 Coexistence is neither mystery nor struggle. It is naturally intelligible to all human beings and hoped for by them, because every human being wants to live and find happiness in mutuality with someone. In this way, the glory of coexistence becomes intelligible.
 
