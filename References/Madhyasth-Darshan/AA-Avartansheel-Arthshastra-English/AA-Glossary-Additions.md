@@ -133,7 +133,9 @@ knowledge of coexistence; संतुष्टि = contentment, shared with �
 facilities in the sense of public or village services. `../MD-Mapping.xlsx` (rows
 1337–1339 updated, notes on rows 238, 870 and 1061, rows 2306–2309 appended), the KD
 glossary and its workbook, and the KD body (where the source images confirm the Hindi)
-now follow them.
+now follow them. The same day Raghava settled bare अस्तित्व दर्शन, without ज्ञान, as "the
+holistic view of existence", the rendering KD and MD already use; AA now follows it
+(row 2310 of `../MD-Mapping.xlsx`).
 
 ### Proposed in translation batches 1-9 (7–13 October 2026)
 
@@ -177,7 +179,8 @@ health-restraint and education-*sanskar*.
 | कृत, कारित, अनुमोदित | *krit, karit, anumodit* | **done, caused and intended** | pp. 60, 99 | KD: "done, caused, intended" (settled by the author, 8 July 2026); MD: doing, getting done, consenting | approved | The author's KD decision, applied to AA on 13 October 2026; it overrides MD and MVD here. |
 | मानव अधिकार | *manav adhikar* | **human authority (*manav adhikar*)** | chapter 7 | MD: अधिकार = right, authority | proposed | Ordinary Hindi for "human rights"; kept "authority" to match the identity–independence–authority triad on the same page. |
 | सुविधा (village services) | *suvidha* | **facilities** | chapter 9 | Decision 23: सुविधा = comfort(s) | approved | Approved by the author on 13 October 2026. Where the page means drinking water, school, roads, post office and bank, "comforts" misleads. Elsewhere Decision 23 stands. |
-| अस्तित्व दर्शन ज्ञान | *astitva darshan gyan* | **knowledge of coexistence** | pp. 12, 19, 47, 99, 102, 113, 121 | MD: सह-अस्तित्व दर्शन ज्ञान = knowledge of holistic view of coexistence | approved | Decided by the author on 13 October 2026 ("use 'knowledge of coexistence' everywhere"), following the author's p. 12 wording. Bare अस्तित्व दर्शन, without ज्ञान, stays "the darshan of existence", and सहअस्तित्व दर्शन ज्ञान stays "knowledge of the darshan of coexistence". |
+| अस्तित्व दर्शन ज्ञान | *astitva darshan gyan* | **knowledge of coexistence** | pp. 12, 19, 47, 99, 102, 113, 121 | MD: सह-अस्तित्व दर्शन ज्ञान = knowledge of holistic view of coexistence | approved | Decided by the author on 13 October 2026 ("use 'knowledge of coexistence' everywhere"), following the author's p. 12 wording. Bare अस्तित्व दर्शन, without ज्ञान, is "the holistic view of existence" (row below); सहअस्तित्व दर्शन ज्ञान stays "knowledge of the darshan of coexistence". |
+| अस्तित्व दर्शन (bare, without ज्ञान) | *astitva darshan* | **the holistic view of existence** | pp. 14, 15, 23, 38, 47 (twice), 65, 66, 76, 82, 85 (twice), 94, 95, 99, 108, 115 | KD: दर्शन = the holistic view (of X) (settled 8 July 2026); MD: दर्शन = holistic view; MVD p. 259 | approved | Decided by the author on 13 October 2026 ("the KD version is good; use it"); replaces "the darshan of existence" in all 17 places, each checked against the page image. Bare दर्शन beside it ("the ultimate darshan", pp. 14 and 38; "knowledge and darshan", p. 99) is not covered by the decision and is unchanged. |
 | परावर्तन (physical heat) | *paravartan* | **projection** | pp. 30, 33 | Key term 13: projection; प्रत्यावर्तन = reflection | proposed | On p. 30 the earth throwing back the sun's heat is physically reflection; kept "projection" for consistency with key term 13. |
 | परिकल्पना | *parikalpana* | **hypothesis** (science); **envisaging**, **notion**, **conceive** (otherwise) | chapters 3, 5, 8 | MD: conception | proposed | MD's "conception" already renders अवधारणा. |
 | सत्ता (political) | *satta* | **power** | pp. 82–83 | MD: Omnipotence | proposed | Struggle for power, power of authority. सत्ता in the darshan's sense stays Omnipotence. |

@@ -102,6 +102,9 @@ translation (recorded in the AA glossary's proposed table, now `approved`):
 - **Four rows appended (2306–2309):** अस्तित्व दर्शन ज्ञान = knowledge of coexistence,
   कृत, कारित, अनुमोदित = done, caused, intended, संतुष्टि = contentment (shared with
   संतोष), and सुविधा (public services) = facilities.
+- **Bare अस्तित्व दर्शन = holistic view of existence** (without ज्ञान), the rendering
+  KD and row 566 already use; row 2310 appended, and the note on row 2306 now points
+  to it. AA's earlier "the darshan of existence" was replaced in all 17 places.
 
 The KD glossary records the same decisions, `KD-Translation-Glossary.xlsx` was
 rebuilt, and the KD body was updated where the source images confirm the Hindi.

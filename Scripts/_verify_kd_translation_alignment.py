@@ -210,6 +210,11 @@ EXPECTED_TERMS: list[tuple[str, str, list[str]]] = [
         "knowledge of coexistence (project-wide author decision, 13 October 2026)",
         ["knowledge of the holistic view of existence"],
     ),
+    (
+        "अस्तित्व दर्शन",
+        "the holistic view of existence (author decision, 13 October 2026)",
+        ["darshan of existence"],
+    ),
 ]
 
 

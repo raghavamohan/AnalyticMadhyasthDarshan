@@ -15,7 +15,8 @@ humankind, मौलिकता = essentiality (MD), स्वत्व = ident
 freedom and authority ("own" where it means what is one's own, p. 73), कृत, कारित,
 अनुमोदित = done, caused and intended (the author's KD decision), स्वतंत्रता =
 independence (MVD; the author's decision), अस्तित्व दर्शन ज्ञान = knowledge of coexistence
-(the author's decision), and अर्थव्यवस्था = economy (with
+(the author's decision), bare अस्तित्व दर्शन = the holistic view of existence (the
+author's decision, following KD), and अर्थव्यवस्था = economy (with
 key term 1, आवर्तनशील अर्थव्यवस्था = cyclical economy, also corrected in chapter 2).
 
 ## Chapter 3, Cyclical Economics: Concept
@@ -471,7 +472,7 @@ Choices not already in the AA Decisions table, the AA Proposed table or the term
 | ऋतुकाल; ऋतुमान; ऋतुक्रम | *ritukal; ritumaan; ritukram* | **seasons**; **the measure of the seasons**; **the seasonal cycle** | PDF 89-90 / pp. 79-80 | none | Plain sense. |
 | परिणामानुषंगीय विधि | *parinamanushangiya vidhi* | **the method of constitutional conformance** | PDF 89 / p. 79 | MD: परिणाम अनुषंगीयता = constitutional conformance | Third of the triad with seed-conformance and species-conformance. |
 | उन्माद त्रय, उन्मादत्रय | *unmad tray* | **the triad of obsessions** | PDF 89-90, 92 / pp. 79-80, 82 | core sheet: उन्माद = obsession | Profit-, indulgence- and sex-obsession. |
-| ध्रुव (geographic); ध्रुवता | *dhruv; dhruvta* | **pole**; **polarity** | PDF 89-91, 105 / pp. 79-81, 95 | none | The earth's poles; also "दो ध्रुव" for knowledge of jeevan and the darshan of existence (p. 95). Kept apart from the "fixed point (*dhruv*)" of p. 72. |
+| ध्रुव (geographic); ध्रुवता | *dhruv; dhruvta* | **pole**; **polarity** | PDF 89-91, 105 / pp. 79-81, 95 | none | The earth's poles; also "दो ध्रुव" for knowledge of jeevan and the holistic view of existence (p. 95). Kept apart from the "fixed point (*dhruv*)" of p. 72. |
 | सर्वांग सुन्दर | *sarvang sundar* | **beautiful in every part** | PDF 90-91 / pp. 80-81 | none | Of a body and of the earth. |
 | ह्रास विधि | *hraas vidhi* | **the method of decline** | PDF 90 / p. 80 | MD: ह्रास = decline | "ह्रासविधि ज्ञान रूपी विज्ञान". |
 | भारबल; तंत्रण द्रव्य | *bharbal; tantran dravya* | **weight-force**; **working substances** | PDF 90 / p. 80 | core sheet: भार बंधन = weight-bondage | Plain sense. |
