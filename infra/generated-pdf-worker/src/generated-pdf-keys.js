@@ -24,6 +24,8 @@ export const GENERATED_PDF_KEYS = [
   "Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf",
   "Studies/Human-Behavior-And-Society/Human-Behavior-And-Society.pdf",
   "Studies/Nature-Of-Time/Nature-Of-Time.pdf",
+  "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use-Madhyasth-Darshan-notes.pdf",
+  "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use-Madhyasth-Darshan.pdf",
   "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.pdf",
   "Studies/Spiritual-Practice-And-Realization/Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session.pdf",
   "Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization-Madhyasth-Darshan-notes.pdf",

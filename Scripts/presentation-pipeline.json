@@ -87,6 +87,13 @@
       "slidesPdf": "Studies/Artificial-Intelligence-And-Coexistence/The-Personal-AI-Assistant-Coexistential-Perspective.pdf",
       "notesPdf": "Studies/Artificial-Intelligence-And-Coexistence/The-Personal-AI-Assistant-Coexistential-Perspective-notes.pdf",
       "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
+      "id": "prosperity-economics",
+      "source": "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use-Madhyasth-Darshan.pptx",
+      "slidesPdf": "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use-Madhyasth-Darshan.pdf",
+      "notesPdf": "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use-Madhyasth-Darshan-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
     }
   ]
 }
