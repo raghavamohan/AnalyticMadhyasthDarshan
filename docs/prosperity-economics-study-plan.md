@@ -28,7 +28,7 @@ Economics is already touched in several places in the collection:
 - The [Primer](../Primer/madhyasth-darshan-primer.md) introduces cyclical
   production through the family meal.
 
-None of these explains *why* human economies fail to come to rest. That is
+None of these explains *why* human economies fail to reach balance (*santulan*). That is
 the question this study should own.
 
 ## 2. Central thesis
@@ -300,7 +300,7 @@ The structure follows AGENTS.md §4: a continuous essay in the exposition,
 comparison in dedicated sections, and critical review with *Strengths* and
 *Weaknesses*. The headings below are working titles.
 
-**§1. Why human economies do not come to rest**
+**§1. Why human economies do not reach balance**
 - 1.1 The question: every other order reaches balance; why does the human
   economy not?
 - 1.2 What an adequate account must explain:

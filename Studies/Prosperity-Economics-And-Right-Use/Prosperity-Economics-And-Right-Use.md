@@ -2,11 +2,11 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** October 13, 2026, 9:35 AM IST
+**Edited on:** October 14, 2026, 3:47 AM IST
 **Status:** Draft
-**The question:** Why do human economies, unlike every other order of nature, fail to come to rest, and what would an economy look like that begins from definite need, labour on natural abundance, and right use, rather than from scarcity and accumulation?
+**The question:** Why do human economies, unlike every other order of nature, fail to reach balance (*santulan*), and what would an economy look like that begins from definite need, labour on natural abundance, and right use, rather than from scarcity and accumulation?
 
-A forest, a herd, or a field left to itself settles into a definite balance with its surroundings. Soil feeds plants, plants return to soil, and animals take what their bodies need and then stop. The human body belongs to the same nature. Its requirements for food, shelter, and protection are definite and can be counted, and in principle they could be met and then held in balance like those of any other organism. Human economies nevertheless behave differently. They extract more each generation, accumulate wealth that no one can use, and treat a continuing rise in consumption as the measure of success. Mainstream economics takes this restlessness as its starting point: wants are assumed to be unlimited and means scarce, so economic life becomes the permanent allocation of what is never enough.
+A forest, a herd, or a field left to itself settles into a definite balance with its surroundings. Soil feeds plants, plants return to soil, and animals take what their bodies need and then stop. The human body belongs to the same nature. Its requirements for food, shelter, and protection are definite and can be counted, and in principle they could be met and then held in balance like those of any other organism. Human economies nevertheless behave differently. They extract more each generation, accumulate wealth that no one can use, and treat a continuing rise in consumption as the measure of success. Mainstream economics takes this imbalance as its starting point: wants are assumed to be unlimited and means scarce, so economic life becomes the permanent allocation of what is never enough.
 
 Madhyasth Darshan locates the problem elsewhere. The human being is a joint form of a body and *jeevan*, the conscious unit. The body's needs are definite; *jeevan* seeks continuity of happiness, which only understanding fulfils. In delusion, *jeevan* works through a fraction of its activities and evaluates by pleasure, bodily advantage, and gain. The dissatisfaction of its unexpressed faculties is then taken for a shortage that more sensation and more possession can remove. Because sensory satisfaction is transient and the need it is asked to meet is not material, demand loses its stopping point. Accumulation, above all of money, which alone escapes use and decay, becomes the organising aim of production and exchange.
 
@@ -14,7 +14,7 @@ Shri A. Nagraj set out the darshan's alternative in *Avartansheel Arthshastra*, 
 
 The treatise is read here through a complete first-pass working translation that is still under the author's review (Editorial Notes). Its claims are therefore paraphrased with page citations, published translations of the darshan's other texts carry the block quotations, and passages whose Hindi structure remains unsettled are marked where the argument depends on them.
 
-## 1. Why human economies do not come to rest
+## 1. Why human economies do not reach balance
 
 ### 1.1 Balance in every order
 
@@ -32,7 +32,7 @@ The quantities involved can therefore be assessed. For a village of a hundred fa
 
 ### 1.3 What an account must explain
 
-If the body's needs are definite and the rest of nature is balanced, the restlessness of human economies needs an explanation. An adequate account must say why human want becomes insatiable when bodily need does not; how need is to be distinguished from want in practice; how production can be held within the balances on which it depends; how exchange can be just when producers differ in skill and circumstance; what evidence would show that such an economy is working; and how a society could move towards it from the present money economy. The darshan's answer to the first question supplies the ground for the others, so the study begins there.
+If the body's needs are definite and the rest of nature is balanced, the imbalance of human economies needs an explanation. An adequate account must say why human want becomes insatiable when bodily need does not; how need is to be distinguished from want in practice; how production can be held within the balances on which it depends; how exchange can be just when producers differ in skill and circumstance; what evidence would show that such an economy is working; and how a society could move towards it from the present money economy. The darshan's answer to the first question supplies the ground for the others, so the study begins there.
 
 ## 2. The joint form and the source of insatiability
 
@@ -148,7 +148,7 @@ Aristotle distinguished the art of household management, which acquires what is 
 
 ### 4.2 Classical political economy and the stationary state
 
-The classical economists located the source of wealth in labour and expected growth eventually to give way to a stationary state of capital and population. John Stuart Mill declined to regard that prospect with the aversion of his predecessors. A stationary condition of capital and population, he argued, implies no stationary state of human improvement, and might leave more room for culture, moral progress, and the preservation of nature than a society absorbed in getting on (Mill, *Principles* IV.6). Mill's stationary state is a resting point for accumulation, chosen for the sake of a better life; it lacks the darshan's account of why the restlessness arises in the first place.
+The classical economists located the source of wealth in labour and expected growth eventually to give way to a stationary state of capital and population. John Stuart Mill declined to regard that prospect with the aversion of his predecessors. A stationary condition of capital and population, he argued, implies no stationary state of human improvement, and might leave more room for culture, moral progress, and the preservation of nature than a society absorbed in getting on (Mill, *Principles* IV.6). Mill's stationary state halts accumulation by choice, for the sake of a better life; it lacks the darshan's account of why accumulation outruns need in the first place.
 
 ### 4.3 Marx: use, accumulation, and the value of labour
 
@@ -294,7 +294,7 @@ The use of AI described here is an application of the darshan's distinctions, no
 - The critique of specialisation (AA, pp. 70–71) sits uneasily with the special aspirations the darshan endorses, telephony, broadcasting, and transport, which depend on highly specialised production; the treatise's own allowance for large industries at higher tiers suggests the objection is to specialisation severed from wholeness, but this is not made explicit.
 - Several of the treatise's natural-science claims, on the earth's magnetic current and on cosmic rays and water, go beyond present evidence and weaken its ecological argument where its general claims are well supported.
 
-Madhyasth Darshan gives the most complete account of why human economies do not come to rest, and its institutional proposal is more specific than most alternatives, but its practicability depends on conditions it has yet to evidence beyond small communities.
+Madhyasth Darshan gives the most complete account of why human economies do not reach balance, and its institutional proposal is more specific than most alternatives, but its practicability depends on conditions it has yet to evidence beyond small communities.
 
 ### 9.2 Neoclassical economics — coordination without a stopping point
 
@@ -374,7 +374,7 @@ Several questions remain unsettled.
 
 ## 10. Conclusion
 
-Human economies do not come to rest because the need they are asked to meet is not the need they can meet. The body's requirements are definite, and the rest of nature shows what balance with them looks like. *Jeevan* seeks continuity of happiness, and in delusion it pursues that continuity through the transient satisfactions of selection and taste, reading each failure as a shortage of objects. Accumulation, especially of money, gives this pursuit an object that never decays and never satisfies, and an economy organised around it extracts from the earth without limit and calls its restlessness growth.
+Human economies do not reach balance because the need they are asked to meet is not the need they can meet. The body's requirements are definite, and the rest of nature shows what balance with them looks like. *Jeevan* seeks continuity of happiness, and in delusion it pursues that continuity through the transient satisfactions of selection and taste, reading each failure as a shortage of objects. Accumulation, especially of money, gives this pursuit an object that never decays and never satisfies, and an economy organised around it extracts from the earth without limit and calls its imbalance growth.
 
 Cyclical economics answers by closing the cycle at the points where it now runs open. Need is assessed and made definite within the family; labour applied to natural abundance produces objects for use; the objects nourish and protect the body and sustain social life, which renews the capacity to produce; exchange follows the value of labour, so that remuneration equals production and leaves no room for profit; production stays within the proportions of natural regeneration; and the remainder flows into right use. The economy is one dimension of a self-governing order of families and villages, and it cannot be separated from education, health, and justice.
 
@@ -398,6 +398,7 @@ Economic theory has much to teach this proposal about coordination, measurement,
 - **Symbolic currency (*prateek mudra*):** metal or paper currency standing for objects; its value is symbolic value.
 - **Satiation point (*tripti bindu*):** the point at which an activity is fulfilled; accumulation, comfort, and profit have none.
 - **Autonomous human (*swayatt manav*):** a person who trusts in oneself, respects excellence, is balanced in talent and personality, social in behaviour, and self-reliant in occupation.
+- **Balance (*santulan*):** the definite, mutually sustaining condition that each order maintains in its existent state; for the human order it is evidenced as resolution, prosperity, fearlessness, and coexistence.
 - **Law, regulation, and balance (*niyam*, *niyantran*, *santulan*):** the orderliness evident in nature, which humans understand and maintain.
 - **Justice, *dharma*, and truth (*nyaya*, *dharma*, *satya*):** the human evaluations of relationship, of participation in universal orderliness, and of coexistence.
 
@@ -441,7 +442,7 @@ The texts do not discuss artificial intelligence. §8 applies the darshan's dist
 
 ### Terminology
 
-The English renderings of AA's economic vocabulary follow the decisions approved for the translation and adopted project-wide in October 2026: cyclical economics and cyclical economy for *avartansheel arthshastra* and *arthvyavastha*, cyclicality for *avartansheelta*, value of labour for *shram mulya*, production in excess of need for *avashyakta se adhik utpadan*, satiation point for *tripti bindu*, exchange-reserve for *vinimay kosh*, and food, shelter, and adornment for *ahar*, *avas*, *alankar*. Where the published JV translation uses "clothing" for *alankar* in a quotation, the quotation keeps its wording.
+*Santulan* is rendered as balance throughout, following MVD's account of each order as balanced in its existent state (MVD, p. 105). "Stability" was considered for the study's question but would suggest mere persistence, whereas *santulan* names a mutually sustaining relation with the rest of nature. The English renderings of AA's economic vocabulary follow the decisions approved for the translation and adopted project-wide in October 2026: cyclical economics and cyclical economy for *avartansheel arthshastra* and *arthvyavastha*, cyclicality for *avartansheelta*, value of labour for *shram mulya*, production in excess of need for *avashyakta se adhik utpadan*, satiation point for *tripti bindu*, exchange-reserve for *vinimay kosh*, and food, shelter, and adornment for *ahar*, *avas*, *alankar*. Where the published JV translation uses "clothing" for *alankar* in a quotation, the quotation keeps its wording.
 
 ## References
 
