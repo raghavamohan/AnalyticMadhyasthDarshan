@@ -5,10 +5,10 @@ This directory prepares a page-aligned working English translation of A. Nagraj'
 follows the working method established in `../KD-Karm-Darshan-English/` and the
 setup already made for `../MSM-Manav-Sanchetnavadi-Manovigyan-English/`.
 
-**Current status:** translation is under way in page order. The front matter (PDF
-pp. 1-10) and chapters 1-2 (printed pp. 1-24) exist as a first-pass translation in
-[`AA-Avartansheel-Arthshastra-English.md`](AA-Avartansheel-Arthshastra-English.md),
-not yet fidelity-reviewed. For review, read the side-by-side
+**Current status:** the whole book (PDF pp. 1-164) exists as a first-pass translation
+in [`AA-Avartansheel-Arthshastra-English.md`](AA-Avartansheel-Arthshastra-English.md),
+not yet fidelity-reviewed. The author's review began on 13 October 2026; passages whose
+Hindi structure is unclear are listed in [`AA-Unclear-Passages.md`](AA-Unclear-Passages.md). For review, read the side-by-side
 [`AA-Avartansheel-Arthshastra-Hindi-English.pdf`](AA-Avartansheel-Arthshastra-Hindi-English.pdf)
 (Hindi page left, English right); rebuild it after every manuscript change. This
 is a machine-assisted working translation, not a published translation; verify
@@ -61,6 +61,8 @@ The images, not the OCR text, are authoritative for translation and review.
 | [`README.md`](README.md) | Translation method, page map, structural inventory, and commands |
 | [`AA-Glossary-Additions.md`](AA-Glossary-Additions.md) | AA-specific terminology decisions, the 35-term key-term list for review with Rakesh Gupta, and unresolved terms |
 | [`AA-Source-Image-Review-Ledger.md`](AA-Source-Image-Review-Ledger.md) | Direct source-image review coverage and corrections |
+| [`AA-Translation-Term-Log.md`](AA-Translation-Term-Log.md) | Chapter-by-chapter record of the terminology choices made in translating chapters 3–9, with authorities; not decisions |
+| [`AA-Unclear-Passages.md`](AA-Unclear-Passages.md) | Index of passages whose Hindi structure is unclear, awaiting the author's re-reading; each is marked `<!-- unclear U-nnn -->` in the manuscript and tagged in the review PDF |
 | [`_page-images/`](_page-images/) | Page-by-page Hindi source renders |
 
 The manuscript is the source of truth. Its HTML and PDF are not generated yet; that
@@ -122,7 +124,10 @@ evaluation criteria). Keep their enumeration and nesting exactly as printed.
 **Sub-headings.** These are recorded in the manuscript as each chapter is
 translated. Chapters 1 and 2 have none. Chapter 1's closing conclusions are a
 numbered list (pp. 7-8); chapter 2 has short numbered lists (pp. 10-13, 20) and
-ends with the formula जय हो! मंगल हो!! कल्याण हो!!! and an ornament (p. 24).
+ends with the formula जय हो! मंगल हो!! कल्याण हो!!! and an ornament (p. 24). Chapter 3
+has two unnumbered sub-headings (pp. 30, 34), chapter 5 one (p. 94), chapter 8 one
+(p. 116), and chapter 9 eight numbered sections (from p. 122). The running heads of
+chapter 8 (pp. 111-121) misprint "(अध्याय – 9)"; running heads are not translated.
 
 ## Translation authority
 

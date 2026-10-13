@@ -126,10 +126,22 @@ The KD glossary and `../KD-Karm-Darshan-English/KD-Translation-Glossary.xlsx` we
 updated to match. Text that still uses earlier renderings, in the KD translation and
 in Studies, is tracked in PENDING.md (`REF-TERMS`).
 
-### Proposed in translation batches 1-3 (7 October 2026)
+**Project-wide adoption (13 October 2026).** Raghava also made five decisions from the
+proposed table below project-wide: कृत, कारित, अनुमोदित = done, caused and intended
+(the author's KD rendering); स्वतंत्रता = independence (MVD); अस्तित्व दर्शन ज्ञान =
+knowledge of coexistence; संतुष्टि = contentment, shared with संतोष; and सुविधा =
+facilities in the sense of public or village services. `../MD-Mapping.xlsx` (rows
+1337–1339 updated, notes on rows 238, 870 and 1061, rows 2306–2309 appended), the KD
+glossary and its workbook, and the KD body (where the source images confirm the Hindi)
+now follow them. The same day Raghava settled bare अस्तित्व दर्शन, without ज्ञान, as "the
+holistic view of existence", the rendering KD and MD already use; AA now follows it
+(row 2310 of `../MD-Mapping.xlsx`).
 
-These choices arose while translating the front matter and chapters 1-2. The draft
-uses them; a `proposed` choice is not settled until approved. Batch 3 (chapter 2)
+### Proposed in translation batches 1-9 (7–13 October 2026)
+
+These choices arose while translating the front matter and chapters 1-9; the full
+record of the chapter 3–9 choices is in [`AA-Translation-Term-Log.md`](AA-Translation-Term-Log.md).
+The draft uses them; a `proposed` choice is not settled until approved. Batch 3 (chapter 2)
 otherwise follows MD-Mapping and MVD directly, for example मानवीयता पूर्ण आचरण =
 humane conduct, महिमा = magnificence (kept distinct from वैभव = grandeur), रूप, गुण,
 स्वभाव, धर्म = form, properties, essential nature and dharma, and the five
@@ -149,7 +161,8 @@ health-restraint and education-*sanskar*.
 | व्यापार संघ | *vyapar sangh* | **trade association** | PDF 16 / p. 6 | व्यापार = trade (key term 15) | proposed | The organisation that brings about the imprisonment of objects (p. 6). |
 | प्रवर्तन | *pravartan* | **engagement** | PDF 19-20, 29 / pp. 9-10, 19 | MD: inclined, engaged | proposed | "पारंगत प्रवर्तन", "प्रवर्तन कार्य", "शुभाशुभ प्रवर्तन" (pp. 9-10) and "बोध पूर्वक प्रवर्तन अर्थात् अभिव्यक्ति, संप्रेषणा और प्रकाशन" (p. 19). One noun throughout instead of "implementation" or "putting into practice". |
 | स्वयंस्फूर्त और सर्वस्फूर्त | *svayamsphurt aur sarvasphurt* | **self-motivated, and motivated in all** | PDF 19 / p. 9 | KD: स्वयं स्फूर्त = self-motivated (settled 8 July 2026); MD: spontaneous | proposed | "जिसको जो स्वीकारता है वह दायी होना एक स्वयंस्फूर्त और सर्वस्फूर्त आवश्यकता है". The pair keeps KD's settled rendering for the first word. |
-| विवेचना (beside विश्लेषण) | *vivechana* | **analysis (*vivechana*)** | PDF 22 / p. 12 | MD: विवेचना = analysis; विश्लेषण = analysis | proposed | P. 12 defines both words in one passage. विश्लेषण stays plain "analysis"; विवेचना carries its transliteration so the reader can tell them apart. |
+| विवेचना (beside विश्लेषण) | *vivechana* | **analysis** / **analyses** | PDF 22 / p. 12 | MD: विवेचना = analysis; विश्लेषण = analysis | approved | Settled 13 October 2026 by the author's rewording of the p. 12 definitions, which renders both words as "analysis/analyses" without a transliteration ("Analyses means the procedure that provides expansive logic …"). |
+| मीमांसा (p. 11) | *meemansa* | **hermeneutics** | PDF 21 / p. 11 | MD: systematic inquiry, reasoned investigation | approved | The author's rewording of p. 11, item 3 (13 October 2026) renders "तर्क, मीमांसा और प्रतिपादनों" as "logic, hermeneutics or postulations". Elsewhere मीमांसा stays "systematic inquiry" (MD) until the author decides otherwise. |
 | दृष्टापद, दृष्टा पद | *drishtapad* | **seer status** | PDF 23, 27 / pp. 13, 17 | MVD: "seer status" (tadavlokan definition); MD: पद = plane | proposed | Follows Rakesh Gupta's MVD wording for this compound only. Other पद compounds stay "plane": देव मानव, दिव्य मानव पद = deific human and divine human planes (p. 13), चैतन्य पद = sentient plane. |
 | अनुभवपूत | *anubhavput* | **realisation-purified** | PDF 27 / p. 17 | none | proposed | Defined on p. 17: expressing and applying hope, thought and desire through the body by a realisation-based method. |
 | सूत्रित; संबंध सूत्र | *sutrit; sambandh sutra* | **linked**; **the links of relationship** | PDF 25 / p. 15 | MD: सूत्र = formula | proposed | The definition of cyclicality (p. 15): "being linked ... back again to the starting point". "Formula" is kept where सूत्र names a principle, as in "this itself is the formula (*sutra*)" (p. 18). |
@@ -160,6 +173,24 @@ health-restraint and education-*sanskar*.
 | प्रसवन | *prasavan* | **birth (*prasavan*)** | PDF 27 / p. 17 | none | proposed | "अखण्ड समाज और सार्वभौम व्यवस्था का नित्य प्रसवन". |
 | मानव संचेतनावादी मनोविज्ञान | *manav sanchetnavadi manovigyan* | **the psychology of humane consciousness** | PDF 34 / p. 24 | MD: Psychology of Humane Consciousness; KD: संचेतना = awareness | proposed | Named on p. 24 as a discipline beside cyclical economics and behavioural sociology. It keeps MD's title wording, though bare संचेतना is "awareness" elsewhere in this translation. |
 | जय हो! मंगल हो!! कल्याण हो!!! | *jay ho! mangal ho!! kalyan ho!!!* | **May there be victory! May there be welfare!! May there be auspiciousness!!!** | PDF 34 / p. 24 | MD: मंगल = welfare (सर्वमंगल = universal welfare); कल्याण = auspicious | proposed | The closing formula of chapter 2. |
+| संतुष्टि vs संतोष | *santushti*, *santosh* | **contentment** for both | chapters 3–9 (e.g. p. 48) | MD: संतोष = contentment; संतुष्टि not in MD; संतुष्टि बिन्दु = point of contentment | approved | Approved by the author on 13 October 2026 with this note: one English word covers both संतुष्टि and the jeevan value संतोष (happiness, peace, contentment, bliss). Where the distinction matters, the Hindi word is the guide; तृप्ति stays "satisfaction". |
+| स्वतंत्रता | *swatantrata* | **independence** | chapter 7 title (p. 104); pp. 59, 67, 71, 100–105 | MD and MVD: independence (MVD triad "identity, independence, and authority") | approved | Approved by the author on 13 October 2026, as in MVD. The chapter 7 title is now "Awakening and Independence". कर्म स्वतंत्रता stays "freedom of action" (MD), and so does its paraphrase कर्म करने की स्वतंत्रता (p. 102). |
+| स्वत्व | *svatva* | **identity** (triad); **own** (what is one's own, p. 73) | pp. 54, 73, 96–108 | MD: innateness; MVD: identity | proposed | MD's "innateness" already renders धारणा (*dharana*). |
+| कृत, कारित, अनुमोदित | *krit, karit, anumodit* | **done, caused and intended** | pp. 60, 99 | KD: "done, caused, intended" (settled by the author, 8 July 2026); MD: doing, getting done, consenting | approved | The author's KD decision, applied to AA on 13 October 2026; it overrides MD and MVD here. |
+| मानव अधिकार | *manav adhikar* | **human authority (*manav adhikar*)** | chapter 7 | MD: अधिकार = right, authority | proposed | Ordinary Hindi for "human rights"; kept "authority" to match the identity–independence–authority triad on the same page. |
+| सुविधा (village services) | *suvidha* | **facilities** | chapter 9 | Decision 23: सुविधा = comfort(s) | approved | Approved by the author on 13 October 2026. Where the page means drinking water, school, roads, post office and bank, "comforts" misleads. Elsewhere Decision 23 stands. |
+| अस्तित्व दर्शन ज्ञान | *astitva darshan gyan* | **knowledge of coexistence** | pp. 12, 19, 47, 99, 102, 113, 121 | MD: सह-अस्तित्व दर्शन ज्ञान = knowledge of holistic view of coexistence | approved | Decided by the author on 13 October 2026 ("use 'knowledge of coexistence' everywhere"), following the author's p. 12 wording. Bare अस्तित्व दर्शन, without ज्ञान, is "the holistic view of existence" (row below); सहअस्तित्व दर्शन ज्ञान stays "knowledge of the darshan of coexistence". |
+| अस्तित्व दर्शन (bare, without ज्ञान) | *astitva darshan* | **the holistic view of existence** | pp. 14, 15, 23, 38, 47 (twice), 65, 66, 76, 82, 85 (twice), 94, 95, 99, 108, 115 | KD: दर्शन = the holistic view (of X) (settled 8 July 2026); MD: दर्शन = holistic view; MVD p. 259 | approved | Decided by the author on 13 October 2026 ("the KD version is good; use it"); replaces "the darshan of existence" in all 17 places, each checked against the page image. Bare दर्शन beside it ("the ultimate darshan", pp. 14 and 38; "knowledge and darshan", p. 99) is not covered by the decision and is unchanged. |
+| परावर्तन (physical heat) | *paravartan* | **projection** | pp. 30, 33 | Key term 13: projection; प्रत्यावर्तन = reflection | proposed | On p. 30 the earth throwing back the sun's heat is physically reflection; kept "projection" for consistency with key term 13. |
+| परिकल्पना | *parikalpana* | **hypothesis** (science); **envisaging**, **notion**, **conceive** (otherwise) | chapters 3, 5, 8 | MD: conception | proposed | MD's "conception" already renders अवधारणा. |
+| सत्ता (political) | *satta* | **power** | pp. 82–83 | MD: Omnipotence | proposed | Struggle for power, power of authority. सत्ता in the darshan's sense stays Omnipotence. |
+| विषय (p. 101 table) | *vishay* | **pursuits (*vishay*)** | p. 101 | MD: instincts | proposed | The higher kinds of human have the three motives, benevolence and resolution in this column, which "instincts" would misdescribe. |
+| Council names where AA omits परिवार; ग्राम क्षेत्र; राज्य सभा | — | e.g. **district council**, **world council**; **village-district**; **state council** | chapters 3, 7–9 | MD's ten-tier council names (family council … world family council) | proposed | The English follows MD's pattern but drops "family" where the page does; ग्राम क्षेत्र (no named tier) is "village-district"; the p. 109 diagram's lower half has राज्य सभा = "state council". |
+| प्रौद्योगिकी | *praudyogiki* | **industrial technology** | chapter 4 | none | proposed | Kept apart from तकनीकी = technology. |
+| अधिमूल्यन, अवमूल्यन, निर्मूल्यन | *adhimulyan, avamulyan, nirmulyan* | **over-evaluation**, **under-evaluation**, **mis-evaluation** | pp. 52–53 | MD | proposed | Used even for currency (rather than "devaluation") so that p. 53's definition of delusion stays intact. |
+| सजग, सतर्क, जागरूक | *sajag, satark, jagruk* | **vigilant**, **alert**, **aware** | chapter 9 | none | proposed | "Aware" may be confused with संचेतना = awareness. |
+| परिभाषा संहिता; आरोग्य शतक | *Paribhasha Samhita*; *Arogya Shatak* | ***Code of Definitions***; ***A Hundred Verses on Health*** | p. 151 (list of works) | none | proposed | English titles supplied for the publisher's list; no project precedent. |
+| शुभेच्छा | *shubhechha* | **good wish** | chapter 5 | MD: greeting | proposed | Follows MD's own definition; "greeting" does not fit the context. |
 
 ## Key terms for review
 

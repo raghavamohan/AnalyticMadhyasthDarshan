@@ -205,6 +205,16 @@ EXPECTED_TERMS: list[tuple[str, str, list[str]]] = [
         ],
     ),
     ("X-त्रय", "X-trio", ["triad of"]),
+    (
+        "अस्तित्व दर्शन ज्ञान",
+        "knowledge of coexistence (project-wide author decision, 13 October 2026)",
+        ["knowledge of the holistic view of existence"],
+    ),
+    (
+        "अस्तित्व दर्शन",
+        "the holistic view of existence (author decision, 13 October 2026)",
+        ["darshan of existence"],
+    ),
 ]
 
 

@@ -48,6 +48,9 @@ FRONT_MARKER_RE = re.compile(r"^\[PDF p\. (\d+) - front matter\]$")
 BODY_MARKER_RE = re.compile(r"^\[p\. (\d+)\]$")
 SOURCE_RE = re.compile(r"^<!-- source: _page-images/(\S+) -->$")
 CHAPTER_RE = re.compile(r"^## (Chapter \d+: .+)$", re.MULTILINE)
+# Passages listed in AA-Unclear-Passages.md carry `<!-- unclear U-nnn -->` in the
+# manuscript; the review PDF shows each as a visible tag.
+UNCLEAR_RE = re.compile(r"<!-- unclear (U-\d{3}) -->")
 
 MAX_FONT_PT = 10.5
 MIN_FONT_PT = 7.5
@@ -109,6 +112,7 @@ def render_markdown(text: str) -> str:
     # sane_lists keeps a list's printed start number (a list resumed after a
     # page break starts at 3, not 1).
     rendered = markdown.markdown(text, extensions=["tables", "smarty", "sane_lists"])
+    rendered = UNCLEAR_RE.sub(r'<span class="unclear">\1</span>', rendered)
     # Relative links would resolve against the build's scratch directory.
     return re.sub(r"<a\b[^>]*>(.*?)</a>", r"\1", rendered, flags=re.DOTALL)
 
@@ -137,7 +141,10 @@ def build_html(header_md: str, pages: list[SourcePage], width: float, height: fl
         "<p>Each sheet shows one page of the Hindi source on the left and the English "
         "first-pass translation of that page on the right. Sentences are split where "
         "the Hindi page breaks. Bold passages follow the source. Terms still marked "
-        "<em>proposed</em> in <code>AA-Glossary-Additions.md</code> are not settled.</p>"
+        "<em>proposed</em> in <code>AA-Glossary-Additions.md</code> are not settled. "
+        "A yellow tag such as <span class=\"unclear\">U-001</span> marks a passage whose "
+        "Hindi structure is unclear; each is listed, with the issue, in "
+        "<code>AA-Unclear-Passages.md</code>.</p>"
         "</div></section>"
     ]
     for page in pages:
@@ -197,6 +204,7 @@ body {{
 .body th, .body td {{ border: 0.5pt solid #bbb; padding: 2pt 4pt; text-align: left; vertical-align: top; }}
 .body hr {{ border: none; border-top: 0.5pt solid #ccc; margin: 0.6em 0; }}
 .body code {{ font-family: monospace; font-size: 0.9em; }}
+.unclear {{ display: inline-block; font-size: 0.72em; font-weight: 700; line-height: 1.2; background: #fde68a; color: #7c2d12; border: 0.5pt solid #d97706; border-radius: 2pt; padding: 0 2pt; margin-right: 2pt; vertical-align: 0.1em; }}
 </style>
 <script>
 window.__layoutPages = function () {{
@@ -254,6 +262,11 @@ def compose(hindi: PdfReader, english: PdfReader, pages: list[SourcePage],
             parent = writer.add_outline_item(page.chapter, number)
         writer.add_outline_item(page.label, number, parent=parent)
 
+    # Merging decompresses every page's content; recompress it, and drop the
+    # superseded streams and the font copies merged into each sheet.
+    for sheet in writer.pages:
+        sheet.compress_content_streams(level=9)
+    writer.compress_identical_objects(remove_duplicates=True, remove_unreferenced=True)
     writer.add_metadata({
         "/Title": "Avartansheel Arthshastra: Hindi-English review (working translation)",
         "/Author": "A. Nagraj (Hindi); working English translation, Analytic Madhyasth Darshan",
