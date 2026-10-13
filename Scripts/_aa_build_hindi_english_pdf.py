@@ -262,6 +262,11 @@ def compose(hindi: PdfReader, english: PdfReader, pages: list[SourcePage],
             parent = writer.add_outline_item(page.chapter, number)
         writer.add_outline_item(page.label, number, parent=parent)
 
+    # Merging decompresses every page's content; recompress it, and drop the
+    # superseded streams and the font copies merged into each sheet.
+    for sheet in writer.pages:
+        sheet.compress_content_streams(level=9)
+    writer.compress_identical_objects(remove_duplicates=True, remove_unreferenced=True)
     writer.add_metadata({
         "/Title": "Avartansheel Arthshastra: Hindi-English review (working translation)",
         "/Author": "A. Nagraj (Hindi); working English translation, Analytic Madhyasth Darshan",

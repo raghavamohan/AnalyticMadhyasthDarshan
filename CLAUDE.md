@@ -94,7 +94,7 @@ Stored under `References/Madhyasth-Darshan/`:
 | **AVD** | *Adhyatmvad* (Realisation Centred Spiritualism) | Sanjeev Chopra (WIP) |
 | **JVD** | *Janvad* (Behaviour Centred Public Discourse) | Sanjeev Chopra (WIP) |
 | **KD** | *Manav Karm Darshan* (Hindi, v5) | Hindi source PDF; working English translations of section 3 in `KD-Karm-Darshan-English/` (not published translations), with an interleaved Hindi-English review PDF |
-| **AA** | *Avartansheel Arthshastra* (Hindi, 2024 printing) | Hindi source PDF; working English translation in `AA-Avartansheel-Arthshastra-English/` (first pass under way; not a published translation), with a side-by-side Hindi-English review PDF |
+| **AA** | *Avartansheel Arthshastra* (Hindi, 2024 printing) | Hindi source PDF; working English translation in `AA-Avartansheel-Arthshastra-English/` (complete first pass, under author review; not a published translation), with a side-by-side Hindi-English review PDF |
 | **MD** | `MD-Mapping.xlsx` | Chapter/page mapping spreadsheet |
 
 Other traditions and modern sources live under `References/Advaita-Vedanta/`, `Comparative-Philosophy/`, `Science/`, `Modern-Philosophy/`, and `Applied-Studies/`. See [References/README.md](References/README.md) and [References/MANIFEST.md](References/MANIFEST.md).

@@ -126,10 +126,11 @@ The KD glossary and `../KD-Karm-Darshan-English/KD-Translation-Glossary.xlsx` we
 updated to match. Text that still uses earlier renderings, in the KD translation and
 in Studies, is tracked in PENDING.md (`REF-TERMS`).
 
-### Proposed in translation batches 1-3 (7 October 2026)
+### Proposed in translation batches 1-9 (7–13 October 2026)
 
-These choices arose while translating the front matter and chapters 1-2. The draft
-uses them; a `proposed` choice is not settled until approved. Batch 3 (chapter 2)
+These choices arose while translating the front matter and chapters 1-9; the full
+record of the chapter 3–9 choices is in [`AA-Translation-Term-Log.md`](AA-Translation-Term-Log.md).
+The draft uses them; a `proposed` choice is not settled until approved. Batch 3 (chapter 2)
 otherwise follows MD-Mapping and MVD directly, for example मानवीयता पूर्ण आचरण =
 humane conduct, महिमा = magnificence (kept distinct from वैभव = grandeur), रूप, गुण,
 स्वभाव, धर्म = form, properties, essential nature and dharma, and the five
@@ -161,6 +162,22 @@ health-restraint and education-*sanskar*.
 | प्रसवन | *prasavan* | **birth (*prasavan*)** | PDF 27 / p. 17 | none | proposed | "अखण्ड समाज और सार्वभौम व्यवस्था का नित्य प्रसवन". |
 | मानव संचेतनावादी मनोविज्ञान | *manav sanchetnavadi manovigyan* | **the psychology of humane consciousness** | PDF 34 / p. 24 | MD: Psychology of Humane Consciousness; KD: संचेतना = awareness | proposed | Named on p. 24 as a discipline beside cyclical economics and behavioural sociology. It keeps MD's title wording, though bare संचेतना is "awareness" elsewhere in this translation. |
 | जय हो! मंगल हो!! कल्याण हो!!! | *jay ho! mangal ho!! kalyan ho!!!* | **May there be victory! May there be welfare!! May there be auspiciousness!!!** | PDF 34 / p. 24 | MD: मंगल = welfare (सर्वमंगल = universal welfare); कल्याण = auspicious | proposed | The closing formula of chapter 2. |
+| संतुष्टि vs संतोष | *santushti*, *santosh* | **contentment** for both | chapters 3–9 (e.g. p. 48) | MD: संतोष = contentment; संतुष्टि not in MD; proposed संतुष्टि बिन्दु = point of contentment | proposed | One English word now covers संतुष्टि and the jeevan value संतोष (happiness, peace, contentment, bliss). If they must stay apart, संतुष्टि needs another word; तृप्ति already has "satisfaction". |
+| स्वतंत्रता | *swatantrata* | **freedom** | chapter 7 title (p. 104); pp. 100–101 | MD: independence; MVD triad "identity, independence, and authority"; कर्म स्वतंत्रता = freedom of action | proposed | Keeps the chapter 7 title "Awakening and Freedom" and कर्म स्वतंत्रता. The alternative is MVD's "independence" throughout, including the title. |
+| स्वत्व | *svatva* | **identity** (triad); **own** (what is one's own, p. 73) | pp. 54, 73, 96–108 | MD: innateness; MVD: identity | proposed | MD's "innateness" already renders धारणा (*dharana*). |
+| कृत, कारित, अनुमोदित | *krit, karit, anumodit* | **done, got done and consented to** | pp. 60, 96–108 | MD: अनुमोदित = consenting; MVD; KD: "done, caused, intended" (settled by the author for KD, 8 July 2026) | proposed | AA follows MD/MVD by the workspace's authority order; the author's KD choice differs. One of the two should apply project-wide. |
+| मानव अधिकार | *manav adhikar* | **human authority (*manav adhikar*)** | chapter 7 | MD: अधिकार = right, authority | proposed | Ordinary Hindi for "human rights"; kept "authority" to match the identity–freedom–authority triad on the same page. |
+| सुविधा (village services) | *suvidha* | **facilities** | chapter 9 | Decision 23: सुविधा = comfort(s) | proposed | Where the page means drinking water, school, roads, post office and bank, "comforts" misleads. Elsewhere Decision 23 stands. |
+| परावर्तन (physical heat) | *paravartan* | **projection** | pp. 30, 33 | Key term 13: projection; प्रत्यावर्तन = reflection | proposed | On p. 30 the earth throwing back the sun's heat is physically reflection; kept "projection" for consistency with key term 13. |
+| परिकल्पना | *parikalpana* | **hypothesis** (science); **envisaging**, **notion**, **conceive** (otherwise) | chapters 3, 5, 8 | MD: conception | proposed | MD's "conception" already renders अवधारणा. |
+| सत्ता (political) | *satta* | **power** | pp. 82–83 | MD: Omnipotence | proposed | Struggle for power, power of authority. सत्ता in the darshan's sense stays Omnipotence. |
+| विषय (p. 101 table) | *vishay* | **pursuits (*vishay*)** | p. 101 | MD: instincts | proposed | The higher kinds of human have the three motives, benevolence and resolution in this column, which "instincts" would misdescribe. |
+| Council names where AA omits परिवार; ग्राम क्षेत्र; राज्य सभा | — | e.g. **district council**, **world council**; **village-district**; **state council** | chapters 3, 7–9 | MD's ten-tier council names (family council … world family council) | proposed | The English follows MD's pattern but drops "family" where the page does; ग्राम क्षेत्र (no named tier) is "village-district"; the p. 109 diagram's lower half has राज्य सभा = "state council". |
+| प्रौद्योगिकी | *praudyogiki* | **industrial technology** | chapter 4 | none | proposed | Kept apart from तकनीकी = technology. |
+| अधिमूल्यन, अवमूल्यन, निर्मूल्यन | *adhimulyan, avamulyan, nirmulyan* | **over-evaluation**, **under-evaluation**, **mis-evaluation** | pp. 52–53 | MD | proposed | Used even for currency (rather than "devaluation") so that p. 53's definition of delusion stays intact. |
+| सजग, सतर्क, जागरूक | *sajag, satark, jagruk* | **vigilant**, **alert**, **aware** | chapter 9 | none | proposed | "Aware" may be confused with संचेतना = awareness. |
+| परिभाषा संहिता; आरोग्य शतक | *Paribhasha Samhita*; *Arogya Shatak* | ***Code of Definitions***; ***A Hundred Verses on Health*** | p. 151 (list of works) | none | proposed | English titles supplied for the publisher's list; no project precedent. |
+| शुभेच्छा | *shubhechha* | **good wish** | chapter 5 | MD: greeting | proposed | Follows MD's own definition; "greeting" does not fit the context. |
 
 ## Key terms for review
 
