@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** October 14, 2026, 3:54 AM IST
+**Edited on:** October 14, 2026, 3:56 AM IST
 **Status:** Draft
 **The question:** Why do human economies, unlike every other order of nature, fail to reach balance (*santulan*), and what would an economy look like that gives human labour its true value, judged by the usefulness it establishes for human living and for the wider order of nature, rather than by scarcity, accumulation, and price?
 
@@ -15,8 +15,6 @@ Shri A. Nagraj set out the darshan's alternative in *Avartansheel Arthshastra*, 
 At the centre of this alternative is a different valuation of human labour. In the darshan, the value (*mulya*) of anything is its participation in the order of the whole, what its activity fulfils for others ([Axiology: Value Theory](../Axiology-Value-Theory/Axiology-Value-Theory.pdf) §1.1). Labour establishes usefulness and beauty in what nature provides, so the true value of labour lies in the usefulness it establishes: in nourishing and protecting the body, in sustaining social life, and, through right use, in the orderliness of family, society, and nature (Axiology §§1.5–1.6). The money economy values labour instead by the price it can command. Labour is bought and sold like any other commodity, the accumulation of currency becomes the measure of a person's standing, and the producer of useful objects has generally remained poor (AA, pp. 7, 45, 52, 73).
 
 The study reconstructs this account from the treatise and the darshan's other texts (§§1–3), compares it with economic theory, with Indian and Advaita teaching on desire, and with the sciences of satiation and natural limits (§§4–7), and asks what measurement and artificial intelligence can contribute to such an economy, and what they must leave to people (§8). Its central claim, assessed in the critical review (§9), is that the darshan explains the insatiability that mainstream economics postulates, while it still needs from economics a theory of coordination beyond the village, measurable criteria of need and balance, and an account of money and credit as they actually operate.
-
-The treatise is read here through a complete first-pass working translation that is still under the author's review (Editorial Notes). Its claims are therefore paraphrased with page citations, published translations of the darshan's other texts carry the block quotations, and passages whose Hindi structure remains unsettled are marked where the argument depends on them.
 
 ## 1. Why human economies do not reach balance
 
@@ -413,7 +411,7 @@ Economic theory has much to teach this proposal about coordination, measurement,
 
 ### Source status of *Avartansheel Arthshastra*
 
-*Avartansheel Arthshastra* (AA) is cited from the project's working English translation of the 2024 printing, a complete first pass that is under the author's review and not yet fidelity-reviewed against the Hindi page by page. Following the practice adopted for the Karm Darshan working translation, AA is paraphrased with page citations and is not block-quoted; the block quotations come from Rakesh Gupta's published translations of *Jeevan Vidya* and *Madhyasth Darshan*. Page numbers are the printed pages of the book body. Passages whose Hindi structure is unclear are indexed in the translation workspace. Before this study is released, every AA passage it relies on should be checked against the page images and its paraphrase revised where the review changes the reading.
+*Avartansheel Arthshastra* (AA) is cited from the project's working English translation of the 2024 printing, a complete first pass that is under the author's review and not yet fidelity-reviewed against the Hindi page by page. Following the practice adopted for the Karm Darshan working translation, AA is paraphrased with page citations and is not block-quoted; the block quotations come from Rakesh Gupta's published translation of *Jeevan Vidya*. Page numbers are the printed pages of the book body. Passages whose Hindi structure is unclear are indexed in the translation workspace; where the argument depends on one, the reading adopted is recorded in the notes below, on the definition of cyclicality and on the pairings of use with justice, resolution, and authenticity. Before this study is released, every AA passage it relies on should be checked against the page images and its paraphrase revised where the review changes the reading.
 
 ### The definition of cyclicality
 
