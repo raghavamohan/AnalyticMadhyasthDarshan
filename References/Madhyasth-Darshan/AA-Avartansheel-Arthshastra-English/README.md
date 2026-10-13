@@ -61,6 +61,7 @@ The images, not the OCR text, are authoritative for translation and review.
 | [`README.md`](README.md) | Translation method, page map, structural inventory, and commands |
 | [`AA-Glossary-Additions.md`](AA-Glossary-Additions.md) | AA-specific terminology decisions, the 35-term key-term list for review with Rakesh Gupta, and unresolved terms |
 | [`AA-Source-Image-Review-Ledger.md`](AA-Source-Image-Review-Ledger.md) | Direct source-image review coverage and corrections |
+| [`AA-Unclear-Passages.md`](AA-Unclear-Passages.md) | Index of passages whose Hindi structure is unclear, awaiting the author's re-reading; each is marked `<!-- unclear U-nnn -->` in the manuscript and tagged in the review PDF |
 | [`_page-images/`](_page-images/) | Page-by-page Hindi source renders |
 
 The manuscript is the source of truth. Its HTML and PDF are not generated yet; that

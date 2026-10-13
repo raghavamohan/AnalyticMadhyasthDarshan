@@ -34,6 +34,9 @@ translation or review coverage.
 | :--- | :--- | :--- | :--- | :--- |
 | 7 Oct 2026 | PDF 13 / p. 3 | First draft had people surrendering their acquisitions to the seat of state | The Hindi makes सुरक्षा govern the acquisitions, body and family: people surrendered to the seat of state on assurances of the security of these | Claude (translator's re-read) |
 | 7 Oct 2026 | PDF 12 / p. 2 | महिमावश was rendered "inspired by the glory of" | MD: महिमा = magnificence; changed to "inspired by the magnificence of" so that महिमा stays distinct from वैभव (grandeur), as chapter 2 requires | Claude (terminology consistency) |
+| 13 Oct 2026 | PDF 21 / p. 11 | Item 3 opening: the relation between the source of awareness, the joint system of body and jeevan, and their goal and study was unclear | Revised wording supplied by the author: "The fact that the fundamental source of awareness is the formation and functioning of the body and jeevan as a joint system, the goals and the method of study of awareness, have not become studiable …"; मीमांसा rendered "hermeneutics" here | Raghava (author review) |
+| 13 Oct 2026 | PDF 22 / p. 12 | The bold definitions of science-wisdom, knowledge, wisdom and analysis (*vivechana*) did not read clearly | Revised wording supplied by the author ("Science-wisdom are meant to bring about consistency between all analyses and knowledge. …"); bold kept as in the source | Raghava (author review) |
+| 13 Oct 2026 | PDF 6 / *vikalp* item 13 | The draft made "a physical structure" the subject of the sentence | The Hindi (भौतिक रचना रुपी धरती पर ही) describes the earth as a physical formation; the sentence now reads "on this very earth, which is a physical formation, it was understood that formations composed of biological cells … flourished" | Claude (re-read for the unclear-passage index) |
 
 ## Review method
 

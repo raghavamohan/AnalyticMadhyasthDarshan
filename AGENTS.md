@@ -653,6 +653,11 @@ in `Scripts/README.md`:
   manifest row, and followed by
   `python Scripts/_publish_generated_pdf_worker.py --sync-keys`. Then run
   `python Scripts/_reference_artifacts.py --check`.
+- Passages whose Hindi structure is unclear are listed in the workspace's
+  `AA-Unclear-Passages.md` and marked `<!-- unclear U-nnn -->` in the manuscript,
+  and the AA review PDF shows each marker as a yellow tag. When a passage is
+  settled, remove its marker and move its entry to Resolved; a test keeps markers
+  and open entries in step.
 - Translate and review against the rendered `_page-images/` or the review PDF.
   Never use the Hindi PDF's text layer, and never hand-assemble a bilingual PDF.
   When MSM translation begins, give it a builder on the AA pattern.

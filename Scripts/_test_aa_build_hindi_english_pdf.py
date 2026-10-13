@@ -1,9 +1,12 @@
 """Tests for splitting the AA manuscript into page-aligned review sheets."""
 from __future__ import annotations
 
+import re
 import unittest
 
-from _aa_build_hindi_english_pdf import MANUSCRIPT, parse_manuscript, render_markdown
+from _aa_build_hindi_english_pdf import MANUSCRIPT, UNCLEAR_RE, parse_manuscript, render_markdown
+
+UNCLEAR_INDEX = MANUSCRIPT.parent / "AA-Unclear-Passages.md"
 
 SAMPLE = """# Title
 
@@ -66,6 +69,19 @@ class AaHindiEnglishTests(unittest.TestCase):
     def test_resumed_list_keeps_number_and_links_are_unwrapped(self) -> None:
         self.assertIn('<ol start="3">', render_markdown("3. three\n4. four"))
         self.assertEqual(render_markdown("[ledger](x.md)"), "<p>ledger</p>")
+
+    def test_unclear_marker_becomes_visible_tag(self) -> None:
+        self.assertEqual(
+            render_markdown("A. <!-- unclear U-007 -->B."),
+            '<p>A. <span class="unclear">U-007</span>B.</p>',
+        )
+
+    def test_unclear_markers_match_open_index_entries(self) -> None:
+        marked = UNCLEAR_RE.findall(MANUSCRIPT.read_text(encoding="utf-8"))
+        self.assertEqual(len(marked), len(set(marked)), "an unclear-passage ID is marked twice")
+        open_part = UNCLEAR_INDEX.read_text(encoding="utf-8").split("\n## Resolved", 1)[0]
+        listed = re.findall(r"^### (U-\d{3})$", open_part, re.MULTILINE)
+        self.assertEqual(sorted(marked), sorted(listed))
 
     def test_canonical_manuscript_parses(self) -> None:
         _, pages = parse_manuscript(MANUSCRIPT.read_text(encoding="utf-8"))
