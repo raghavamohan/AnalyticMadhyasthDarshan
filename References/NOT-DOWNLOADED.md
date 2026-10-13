@@ -108,6 +108,9 @@ These sources are cited through their canonical links in Prosperity Economics an
 | **Max-Neef et al. 1989** | Max-Neef, M., Elizalde, A., and Hopenhayn, M. "Human Scale Development: An Option for the Future." *Development Dialogue* 1989:1. | https://www.daghammarskjold.se/wp-content/uploads/1989/05/89_1.pdf |
 | **Doyal and Gough 1991** | Doyal, L., and Gough, I. *A Theory of Human Need*. London: Macmillan, 1991. | https://doi.org/10.1007/978-1-349-21500-3 |
 | **Hayek 1945** | Hayek, F. A. "The Use of Knowledge in Society." *American Economic Review* 35(4), 519–530. | https://www.jstor.org/stable/1809376 |
+| **Leontief 1936** | Leontief, W. W. "Quantitative Input and Output Relations in the Economic System of the United States." *The Review of Economics and Statistics* 18(3), 105–125. | https://doi.org/10.2307/1927837 |
+| **Cockshott and Cottrell 1993** | Cockshott, W. P., and Cottrell, A. *Towards a New Socialism*. Nottingham: Spokesman, 1993. | https://users.wfu.edu/cottrell/socialism_book/new_socialism.pdf |
+| **Cottrell and Cockshott 1993** | Cottrell, A., and Cockshott, W. P. "Calculation, Complexity and Planning: The Socialist Calculation Debate Once Again." *Review of Political Economy* 5(1). | https://users.wfu.edu/cottrell/socialism_book/calculation_debate.pdf |
 | **Manu 2.94** | *The Laws of Manu*, Chapter II, translated by G. Bühler (Sacred Books of the East 25). | https://www.sacred-texts.com/hin/manu/manu02.htm |
 | **Morton et al. 2006** | Morton, G. J., et al. "Central nervous system control of food intake and body weight." *Nature* 443, 289–295. | https://doi.org/10.1038/nature05026 |
 | **Berridge and Robinson 2016** | Berridge, K. C., and Robinson, T. E. "Liking, wanting, and the incentive-sensitization theory of addiction." *American Psychologist* 71(8), 670–679. | https://doi.org/10.1037/amp0000059 |
