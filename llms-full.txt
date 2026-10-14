@@ -136,8 +136,8 @@ Madhyasth Darshan's account of how undivided society is established through coex
 
 Where artificial intelligence belongs in coexistence: whether a machine can know or evaluate, and how AI as a material instrument is to be used in the knowledge order
 
-- Collection: topical · Status: draft
-- Edited on: Oct 5, 2026, 5:48 AM IST
+- Collection: topical · Status: released
+- Edited on: Oct 14, 2026, 7:32 AM IST
 - HTML: https://analyticmadhyasthdarshan.org/Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.html
 - Markdown: https://analyticmadhyasthdarshan.org/Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.md
 - PDF: https://analyticmadhyasthdarshan.org/Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf
