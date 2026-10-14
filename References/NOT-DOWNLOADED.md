@@ -89,8 +89,11 @@ These sources are cited through their canonical links in Prosperity Economics an
 |-----|----------------|-------------------|
 | **Aristotle *Politics*** | Aristotle. *Politics*, Book I, translated by Benjamin Jowett. MIT Internet Classics Archive. | http://classics.mit.edu/Aristotle/politics.1.one.html |
 | **SEP-AP** | Miller, F. "Aristotle's Political Theory." *Stanford Encyclopedia of Philosophy*. | https://plato.stanford.edu/entries/aristotle-politics/ |
+| **Ricardo 1817** | Ricardo, D. *On the Principles of Political Economy and Taxation*, Chapter II, "On Rent" (1817). Library of Economics and Liberty. | https://www.econlib.org/library/Ricardo/ricP.html?chapter_num=2 |
 | **Mill *Principles*** | Mill, J. S. *Principles of Political Economy*, Book IV, Chapter VI, "Of the Stationary State." | https://business.baylor.edu/Steve_Gardner/Mill2.html |
 | **Marx *Capital*** | Marx, K. *Capital*, Volume I, Chapter 4, "The General Formula for Capital." Marxists Internet Archive. | https://www.marxists.org/archive/marx/works/1867-c1/ch04.htm |
+| **Marx *Gotha Programme*** | Marx, K. *Critique of the Gotha Programme*, Part I (1875). Marxists Internet Archive. | https://www.marxists.org/archive/marx/works/1875/gotha/ch01.htm |
+| **Jevons 1871** | Jevons, W. S. *The Theory of Political Economy*, Chapter III, "Theory of Utility" (1871). Library of Economics and Liberty. | https://www.econlib.org/library/YPDBooks/Jevons/jvnPE.html |
 | **Robbins 1932** | Robbins, L. *An Essay on the Nature and Significance of Economic Science*. London: Macmillan, 1932. | https://mises.org/library/book/essay-nature-and-significance-economic-science |
 | **SEP-PE** | Hausman, D. M. "Philosophy of Economics." *Stanford Encyclopedia of Philosophy*. | https://plato.stanford.edu/entries/economics/ |
 | **Keynes 1930** | Keynes, J. M. "Economic Possibilities for our Grandchildren" (1930). | http://www.econ.yale.edu/smith/econ116a/keynes1.pdf |
@@ -98,6 +101,7 @@ These sources are cited through their canonical links in Prosperity Economics an
 | **Hirsch 1976** | Hirsch, F. *Social Limits to Growth*. Cambridge, MA: Harvard University Press, 1976. | https://doi.org/10.4159/harvard.9780674497900 |
 | **BoE 2014** | McLeay, M., Radia, A., and Thomas, R. "Money creation in the modern economy." *Bank of England Quarterly Bulletin* 2014 Q1. | https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy |
 | **Gesell *Natural Economic Order*** | Gesell, S. *The Natural Economic Order*, translated by Philip Pye. London: Peter Owen, 1958. | https://www.silvio-gesell.de/the-natural-economic-order.html |
+| **Stodder 2009** | Stodder, J. "Complementary credit networks and macroeconomic stability: Switzerland's *Wirtschaftsring*." *Journal of Economic Behavior & Organization* 72(1), 79–95. | https://doi.org/10.1016/j.jebo.2009.03.021 |
 | **Georgescu-Roegen 1971** | Georgescu-Roegen, N. *The Entropy Law and the Economic Process*. Cambridge, MA: Harvard University Press, 1971. | https://doi.org/10.4159/harvard.9780674281653 |
 | **Daly 1974** | Daly, H. E. "The Economics of the Steady State." *American Economic Review* 64(2), 15–21. | https://www.jstor.org/stable/1816010 |
 | **Raworth 2017** | Raworth, K. "A Doughnut for the Anthropocene: humanity's compass in the 21st century." *The Lancet Planetary Health* 1(2), e48–e49. | https://doi.org/10.1016/S2542-5196(17)30028-1 |
@@ -107,6 +111,8 @@ These sources are cited through their canonical links in Prosperity Economics an
 | **Schumacher 1973** | Schumacher, E. F. "Buddhist Economics," from *Small Is Beautiful* (1973). Schumacher Center for a New Economics. | https://centerforneweconomics.org/publications/buddhist-economics/ |
 | **Max-Neef et al. 1989** | Max-Neef, M., Elizalde, A., and Hopenhayn, M. "Human Scale Development: An Option for the Future." *Development Dialogue* 1989:1. | https://www.daghammarskjold.se/wp-content/uploads/1989/05/89_1.pdf |
 | **Doyal and Gough 1991** | Doyal, L., and Gough, I. *A Theory of Human Need*. London: Macmillan, 1991. | https://doi.org/10.1007/978-1-349-21500-3 |
+| **Sen 1999** | Sen, A. *Development as Freedom*. Oxford: Oxford University Press, 1999. | https://global.oup.com/academic/product/development-as-freedom-9780192893307 |
+| **Polanyi 1944** | Polanyi, K. *The Great Transformation: The Political and Economic Origins of Our Time*. New York: Farrar & Rinehart, 1944. | https://archive.org/details/in.ernet.dli.2015.202664 |
 | **Hayek 1945** | Hayek, F. A. "The Use of Knowledge in Society." *American Economic Review* 35(4), 519–530. | https://www.jstor.org/stable/1809376 |
 | **Leontief 1936** | Leontief, W. W. "Quantitative Input and Output Relations in the Economic System of the United States." *The Review of Economics and Statistics* 18(3), 105–125. | https://doi.org/10.2307/1927837 |
 | **Cockshott and Cottrell 1993** | Cockshott, W. P., and Cottrell, A. *Towards a New Socialism*. Nottingham: Spokesman, 1993. | https://users.wfu.edu/cottrell/socialism_book/new_socialism.pdf |

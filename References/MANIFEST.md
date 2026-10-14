@@ -78,7 +78,7 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 
 | [Prosperity-Economics-And-Right-Use.pdf](../Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.pdf) | AA (working translation, first pass), MVD, JV, SB, KD, JVD, AVD | registered primary PDFs |
 | | BG, BU | present |
-| | Aristotle *Politics*, SEP-AP, Mill *Principles*, Marx *Capital*, Robbins 1932, SEP-PE, Keynes 1930, Veblen 1899, Hirsch 1976, BoE 2014, Gesell *Natural Economic Order*, Georgescu-Roegen 1971, Daly 1974, Raworth 2017, Jackson 2017, Richardson et al. 2023, Kumarappa 1945, Schumacher 1973, Max-Neef et al. 1989, Doyal and Gough 1991, Hayek 1945, Ostrom 2010, Leontief 1936, Cockshott and Cottrell 1993, Cottrell and Cockshott 1993, Manu 2.94 | external |
+| | Aristotle *Politics*, SEP-AP, Ricardo 1817, Mill *Principles*, Marx *Capital*, Marx *Gotha Programme*, Jevons 1871, Robbins 1932, SEP-PE, Keynes 1930, Veblen 1899, Hirsch 1976, BoE 2014, Gesell *Natural Economic Order*, Stodder 2009, Georgescu-Roegen 1971, Daly 1974, Raworth 2017, Jackson 2017, Richardson et al. 2023, Kumarappa 1945, Schumacher 1973, Max-Neef et al. 1989, Doyal and Gough 1991, Sen 1999, Polanyi 1944, Hayek 1945, Ostrom 2010, Leontief 1936, Cockshott and Cottrell 1993, Cottrell and Cockshott 1993, Manu 2.94 | external |
 | | Morton et al. 2006, Berridge and Robinson 2016, Lowe and Butryn 2007, Diener et al. 2006, Easterlin 1974, Kahneman and Deaton 2010, Killingsworth 2021, Killingsworth, Kahneman, and Mellers 2023 | external |
 
 ## By tag
