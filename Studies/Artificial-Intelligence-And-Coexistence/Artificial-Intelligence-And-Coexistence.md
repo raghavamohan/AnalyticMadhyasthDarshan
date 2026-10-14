@@ -2,8 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy.
 
-**Edited on:** October 5, 2026, 5:48 AM IST
-**Status:** Draft
+**Edited on:** October 14, 2026, 7:31 AM IST
+**Status:** Released
 
 **The question:** What kind of thing is artificial intelligence in Madhyasth Darshan's coexistential ontology, and what follows for knowing, work, and right use?
 
