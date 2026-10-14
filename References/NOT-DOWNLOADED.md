@@ -81,6 +81,44 @@ These articles are cited through their publisher links in Axiology Value Theory;
 | **Killingsworth 2021** | Killingsworth, M. A. "Experienced well-being rises with income, even above $75,000 per year." *PNAS*, 118(4), e2016976118. | https://doi.org/10.1073/pnas.2016976118 |
 | **Killingsworth, Kahneman, and Mellers 2023** | Killingsworth, M. A., Kahneman, D., and Mellers, B. "Income and emotional well-being: A conflict resolved." *PNAS*, 120(10), e2208661120. | https://doi.org/10.1073/pnas.2208661120 |
 
+## Economics, needs, and satiation — external only
+
+These sources are cited through their canonical links in Prosperity Economics and Right Use; no local mirror has been added. Killingsworth 2021, Killingsworth, Kahneman, and Mellers 2023, and Ostrom 2010 are recorded in their own sections.
+
+| Tag | Full reference | Original location |
+|-----|----------------|-------------------|
+| **Aristotle *Politics*** | Aristotle. *Politics*, Book I, translated by Benjamin Jowett. MIT Internet Classics Archive. | http://classics.mit.edu/Aristotle/politics.1.one.html |
+| **SEP-AP** | Miller, F. "Aristotle's Political Theory." *Stanford Encyclopedia of Philosophy*. | https://plato.stanford.edu/entries/aristotle-politics/ |
+| **Mill *Principles*** | Mill, J. S. *Principles of Political Economy*, Book IV, Chapter VI, "Of the Stationary State." | https://business.baylor.edu/Steve_Gardner/Mill2.html |
+| **Marx *Capital*** | Marx, K. *Capital*, Volume I, Chapter 4, "The General Formula for Capital." Marxists Internet Archive. | https://www.marxists.org/archive/marx/works/1867-c1/ch04.htm |
+| **Robbins 1932** | Robbins, L. *An Essay on the Nature and Significance of Economic Science*. London: Macmillan, 1932. | https://mises.org/library/book/essay-nature-and-significance-economic-science |
+| **SEP-PE** | Hausman, D. M. "Philosophy of Economics." *Stanford Encyclopedia of Philosophy*. | https://plato.stanford.edu/entries/economics/ |
+| **Keynes 1930** | Keynes, J. M. "Economic Possibilities for our Grandchildren" (1930). | http://www.econ.yale.edu/smith/econ116a/keynes1.pdf |
+| **Veblen 1899** | Veblen, T. *The Theory of the Leisure Class*. Project Gutenberg. | https://www.gutenberg.org/ebooks/833 |
+| **Hirsch 1976** | Hirsch, F. *Social Limits to Growth*. Cambridge, MA: Harvard University Press, 1976. | https://doi.org/10.4159/harvard.9780674497900 |
+| **BoE 2014** | McLeay, M., Radia, A., and Thomas, R. "Money creation in the modern economy." *Bank of England Quarterly Bulletin* 2014 Q1. | https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy |
+| **Gesell *Natural Economic Order*** | Gesell, S. *The Natural Economic Order*, translated by Philip Pye. London: Peter Owen, 1958. | https://www.silvio-gesell.de/the-natural-economic-order.html |
+| **Georgescu-Roegen 1971** | Georgescu-Roegen, N. *The Entropy Law and the Economic Process*. Cambridge, MA: Harvard University Press, 1971. | https://doi.org/10.4159/harvard.9780674281653 |
+| **Daly 1974** | Daly, H. E. "The Economics of the Steady State." *American Economic Review* 64(2), 15–21. | https://www.jstor.org/stable/1816010 |
+| **Raworth 2017** | Raworth, K. "A Doughnut for the Anthropocene: humanity's compass in the 21st century." *The Lancet Planetary Health* 1(2), e48–e49. | https://doi.org/10.1016/S2542-5196(17)30028-1 |
+| **Jackson 2017** | Jackson, T. *Prosperity without Growth: Foundations for the Economy of Tomorrow*, second edition. London: Routledge. | https://doi.org/10.4324/9781315677453 |
+| **Richardson et al. 2023** | Richardson, K., et al. "Earth beyond six of nine planetary boundaries." *Science Advances* 9(37), eadh2458. | https://doi.org/10.1126/sciadv.adh2458 |
+| **Kumarappa 1945** | Kumarappa, J. C. *Economy of Permanence*. Sarva Seva Sangh Prakashan. | https://www.mkgandhi.org/ebks/economy-of-permanence.pdf |
+| **Schumacher 1973** | Schumacher, E. F. "Buddhist Economics," from *Small Is Beautiful* (1973). Schumacher Center for a New Economics. | https://centerforneweconomics.org/publications/buddhist-economics/ |
+| **Max-Neef et al. 1989** | Max-Neef, M., Elizalde, A., and Hopenhayn, M. "Human Scale Development: An Option for the Future." *Development Dialogue* 1989:1. | https://www.daghammarskjold.se/wp-content/uploads/1989/05/89_1.pdf |
+| **Doyal and Gough 1991** | Doyal, L., and Gough, I. *A Theory of Human Need*. London: Macmillan, 1991. | https://doi.org/10.1007/978-1-349-21500-3 |
+| **Hayek 1945** | Hayek, F. A. "The Use of Knowledge in Society." *American Economic Review* 35(4), 519–530. | https://www.jstor.org/stable/1809376 |
+| **Leontief 1936** | Leontief, W. W. "Quantitative Input and Output Relations in the Economic System of the United States." *The Review of Economics and Statistics* 18(3), 105–125. | https://doi.org/10.2307/1927837 |
+| **Cockshott and Cottrell 1993** | Cockshott, W. P., and Cottrell, A. *Towards a New Socialism*. Nottingham: Spokesman, 1993. | https://users.wfu.edu/cottrell/socialism_book/new_socialism.pdf |
+| **Cottrell and Cockshott 1993** | Cottrell, A., and Cockshott, W. P. "Calculation, Complexity and Planning: The Socialist Calculation Debate Once Again." *Review of Political Economy* 5(1). | https://users.wfu.edu/cottrell/socialism_book/calculation_debate.pdf |
+| **Manu 2.94** | *The Laws of Manu*, Chapter II, translated by G. Bühler (Sacred Books of the East 25). | https://www.sacred-texts.com/hin/manu/manu02.htm |
+| **Morton et al. 2006** | Morton, G. J., et al. "Central nervous system control of food intake and body weight." *Nature* 443, 289–295. | https://doi.org/10.1038/nature05026 |
+| **Berridge and Robinson 2016** | Berridge, K. C., and Robinson, T. E. "Liking, wanting, and the incentive-sensitization theory of addiction." *American Psychologist* 71(8), 670–679. | https://doi.org/10.1037/amp0000059 |
+| **Lowe and Butryn 2007** | Lowe, M. R., and Butryn, M. L. "Hedonic hunger: A new dimension of appetite?" *Physiology & Behavior* 91(4), 432–439. | https://doi.org/10.1016/j.physbeh.2007.04.006 |
+| **Diener et al. 2006** | Diener, E., Lucas, R. E., and Scollon, C. N. "Beyond the hedonic treadmill: Revising the adaptation theory of well-being." *American Psychologist* 61(4), 305–314. | https://doi.org/10.1037/0003-066X.61.4.305 |
+| **Easterlin 1974** | Easterlin, R. A. "Does Economic Growth Improve the Human Lot? Some Empirical Evidence." In P. A. David and M. W. Reder (eds.), *Nations and Households in Economic Growth*. New York: Academic Press. | https://doi.org/10.1016/B978-0-12-205050-3.50008-7 |
+| **Kahneman and Deaton 2010** | Kahneman, D., and Deaton, A. "High income improves evaluation of life but not emotional well-being." *PNAS* 107(38), 16489–16493. | https://doi.org/10.1073/pnas.1011492107 |
+
 ## Human sentience and consciousness — external only
 
 These works are cited in *Why Humans Are Not Just Material* and link to the publisher, author, or public bibliographic record. They are external references. The COGITATE article uses the existing archive listed under **Melloni et al. 2025** in [MANIFEST.md](MANIFEST.md).

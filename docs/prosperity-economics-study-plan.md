@@ -2,13 +2,14 @@
 
 **Study:** [Prosperity Economics and Right Use](../Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.md)
 (proposal [#17](https://github.com/raghavamohan/AnalyticMadhyasthDarshan/issues/17), `proposal-approved`, pre-catalog).
-**Drafted:** October 6, 2026. **Revised:** October 6, 2026. By author decision,
-drafting waits for a working English translation of *Avartansheel Arthshastra*
-(§8, §10).
-**Tracking:** `REF-AA` (acquire the Hindi sources), `REF-AA-TR` (working
-translation) and `ST-DRAFT-06` (first draft, deferred until `REF-AA-TR`) in
-[PENDING.md](../PENDING.md). This plan covers design and method. Open work is
-tracked only in PENDING.md.
+**Drafted:** October 6, 2026. **Revised:** October 13, 2026. By author decision,
+drafting waited for a working English translation of *Avartansheel Arthshastra*
+(§8, §10). The first draft was written on 13 October 2026 from the complete first
+pass. It adds a section on measurement and AI in the cyclical economy at the
+author's request, and its structure departs from §4 accordingly.
+**Tracking:** `REF-AA` (Hindi sources), `REF-AA-TR` (working translation) and
+`ST-PE-01` (pre-release checks for the study) in [PENDING.md](../PENDING.md).
+This plan covers design and method. Open work is tracked only in PENDING.md.
 
 ## 1. Present state
 
@@ -27,7 +28,7 @@ Economics is already touched in several places in the collection:
 - The [Primer](../Primer/madhyasth-darshan-primer.md) introduces cyclical
   production through the family meal.
 
-None of these explains *why* human economies fail to come to rest. That is
+None of these explains *why* human economies fail to reach balance (*santulan*). That is
 the question this study should own.
 
 ## 2. Central thesis
@@ -299,7 +300,7 @@ The structure follows AGENTS.md §4: a continuous essay in the exposition,
 comparison in dedicated sections, and critical review with *Strengths* and
 *Weaknesses*. The headings below are working titles.
 
-**§1. Why human economies do not come to rest**
+**§1. Why human economies do not reach balance**
 - 1.1 The question: every other order reaches balance; why does the human
   economy not?
 - 1.2 What an adequate account must explain:
