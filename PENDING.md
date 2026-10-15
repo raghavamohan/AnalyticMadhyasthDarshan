@@ -4,12 +4,13 @@ This is the **only** project backlog. Plans, review notes, and implementation
 docs keep design, history, and how-to. They do not keep a second remaining-work
 table.
 
-Reviewed: 18 September 2026 against `master` `4f471bf4` and live
+Reviewed: 15 October 2026 against `master` `852bf0c3` and live
 [analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org).
 
 Editorial follow-ups added on 26 September 2026 from the
 [studies readability review](docs/studies-readability-review-2026-09-26.md);
-this was not a new audit of the other categories.
+landing-page consistency and philosophical orientation (Phases 1 & 2) completed on
+15 October 2026.
 
 CI R1–R8 completed on 27 September 2026 after the public and isolated deployed acceptance exercises.
 
@@ -30,7 +31,7 @@ When an item is finished, remove the row and add a one-line note under
 1. Accept wording and check timed delivery of the revised Start here audio transcripts, beginning with
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
-2. Website next: accept the deployed smaller sign-in/recovery scope (`AUTH-02` / `UX-05`). Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later.
+2. Website next: accept the deployed smaller sign-in/recovery scope (`AUTH-02` / `UX-05`), then implement Phase 3 in-reader scaffolding (`UX-07`: glossary expansion for realisation/value/prosperity terms and persistent 5-stage path orientation for direct/search arrivals). Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later.
 3. `R2-RIGHTS` (fourteen retained third-party PDFs).
 4. `TR-PILOT` (listen through the five-video transcription pilot).
 
@@ -48,8 +49,8 @@ Design and evaluation matrix:
 | UX-04 | P1 | later | Device/AT matrix (Safari/iOS, Firefox, TalkBack/VoiceOver/NVDA). Mobile read-aloud shipped; that does not close the evaluation. |
 | UX-06 | P1 | later | Fresh Cloudflare RUM sample, segmented by catalog / large reader / search / portal and mobile / desktop. Saved baseline is still 30 August 2026 (45 views, catalog LCP p75 2.6 s, TTFB 1.3 s, CLS p75 1.0, INP p75 0). That sample predates `amd-site` cutover. Live catalog HTML is Worker-served (`cfOrigin` 0). Investigate CLS/INP before optimizing. Re-run `python Scripts/_cloudflare_performance.py --export-rum-baseline`. Related: `CF-PDF-CACHE`. |
 | AUTH-01 | P1 | deferred | Full [unified email sign-in migration](docs/unified-email-sign-in-plan.md), including email-owned contributions, website review replies/corrections and OAuth retirement. Owner chose the smaller existing-login scope on 27 September 2026. Start only on an explicit decision to resume. |
-| UX-08 | P2 | partial | Homepage first-reading action, tool hierarchy and shared introduction implemented; local desktop/narrow, keyboard, accessible-label and title/passage search checks pass. Remaining: a brief reader exercise asking a newcomer where to begin and why, and a returning reader to find a known title and passage; see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
-| UX-07 | P2 | later | Reading-time cues, argument routes, public reference-library browser. Include persistent path orientation for direct/search arrivals, meaningful stage names, and distinct satellite/formal-study placement; see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
+| UX-08 | P2 | partial | Landing-page consistency and philosophical orientation (Phases 1 & 2) completed on 15 October 2026: all 28 studies represented across the 5-stage `#start-here` path, canonical titles/links/statuses and `proposal-registry.json` synced, legacy `"sepia"` theme and initial scroll-spy state fixed, and the 5-stage path plus `#approach` explicitly framed around why finite bodily needs versus continuous *jeevan* needs turn physicalism into open-ended material accumulation and how systematic study (*adhyayan*) → realisation (*anubhav*) grounds definite values and shared prosperity (*samriddhi*). Remaining: a brief reader exercise asking a newcomer where to begin and why, and a returning reader to find a known title and passage; see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
+| UX-07 | P2 | later | **Phase 3 (In-Reader Comprehension & Path Orientation):** (1) Expand `GLOSSARY` in `Assets/reader/reader.js` to cover core realisation, value, and prosperity terms (*adhyayan*, *shravan*, *manan*, *sakshatkar*, *bodh*, *samyama*, *upasana*, *samriddhi*, *akhand samaj*, *sarvabhaum vyavastha*, *priya–hita–labh*, *nyaya–dharma–satya*, *ruchi-mulak*, *mulya-mulak*, *avartansheel*, *sanyam*, *ahar-vihar*) so readers get hover/tap definitions inside studies; (2) add a compact 5-stage path-context banner/drawer in `Assets/reader/reader.js` for direct/search arrivals showing the current study's stage, previous/next stage anchors, and companion studies; (3) reading-time cues, argument routes, public reference-library browser, and minor `Studies/submit.html` / `Scripts/_build_discussion_pages.py` polish (`"sepia"` theme fallback and dynamic catalog counts); see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
 | WEB-P6 | P3 | deferred | Optional semantic retrieval. Start only if lexical search shows unmet need. |
 
 ## Audio
@@ -189,10 +190,7 @@ here order, not proposal-number order.
 | --- | --- | --- | --- |
 | ST-READ-01 | P1 | partial | Independent prose pilot completed in Why Humans and Axiology: six-perspective definitions, all value/faculty tables, source support and qualifications retained; caregiver explanations and content-retention review complete. Reader feedback collection is ongoing; assess the original/revised passages with those responses before claiming comprehension improvement. See the [implementation record](docs/studies-readability-review-2026-09-26.md#11-independent-implementation-on-4-october-2026). |
 | ST-READ-02 | P1 | partial | Independent Ontology and Epistemology revisions completed: full exposition retained, conceptual connections and examples explained, section identifiers preserved, and affected references/companions repaired and rebuilt. Reader-dependent assessment and any resulting iteration remain deferred while feedback collection continues, as requested on 4 October 2026. See the [implementation record](docs/studies-readability-review-2026-09-26.md#11-independent-implementation-on-4-october-2026). |
-| ST-FIX-01 | P2 | done | Updated Epistemology’s Spiritual Practice and Realization link/scope. Verified and corrected the Activity Anatomy Pass One §5 MVD locators against printed pp. 339–348, including the originally flagged bhakti/tanmayata and mamta/udarta entries. Rebuilt affected outputs. |
-| ST-FIX-02 | P2 | done | Corrected Ethics §3.2 to whole-group guidance of priya–hita–labha by nyaya–dharma–satya, preserving the distinct behaviour/thought/realisation correspondence. Aligned criticism, Editorial Notes and bibliography; repaired two quotation mismatches found during verification and rebuilt outputs. |
-| ST-ILL-01 | P2 | done | Added the shared-water neighbourhood/group-boundary illustration to Undivided Society §3.2, distinguishing practical differences from exclusion from justice and participation. Rebuilt outputs and reconciled the existing audio review note. |
-| ST-READ-03 | P2 | pending | Extend the validated explanatory and comparative-fairness approach to the other released studies, including Nature of Time, Self-Sustaining Organizations, Undivided Society, and the formal reconstruction; preserve all substantive and formal information, verify content retention, and inspect companion/audio consequences under the [review](docs/studies-readability-review-2026-09-26.md#4-recommended-changes-by-study). |
+| ST-READ-03 | P2 | pending | **Phase 4 (Study Readability & Comparative Fairness Rollout):** Extend the validated explanatory and comparative-fairness approach (`ST-READ-01` / `ST-READ-02`) to the remaining released and draft studies — including Nature of Time, Self-Sustaining Organizations, Undivided Society, Spiritual Practice and Realization, Artificial Intelligence and Coexistence, and the formal reconstruction — ensuring every study makes explicit how its analysis supports comprehension (*adhyayan* → *anubhav*) and right-use (*samriddhi*) rather than blind accumulation; preserve all substantive and formal information, verify content retention, and inspect companion/audio consequences under the [review](docs/studies-readability-review-2026-09-26.md#4-recommended-changes-by-study). |
 | ST-PE-01 | P2 | pending | Before releasing [Prosperity Economics and Right Use](Studies/Prosperity-Economics-And-Right-Use/) (first draft 13 October 2026, from the AA first pass): re-check every AA passage the study relies on against the page images as `REF-AA-TR` review proceeds, especially the unclear passages U-011 (definition of cyclicality), U-129 and U-147, and revise the paraphrases where readings change; add the two cyclical-economy figures proposed in the [plan](docs/prosperity-economics-study-plan.md#6-optional-formal-companion); settle the open author decisions (title, stock-flow technical note, treatment of trade and supply chains); consult *Vyavaharvadi Samajshastra* and *Manav Vyavahar Darshan* once located (`REF-AA`). |
 | ST-DRAFT-01 | Catalog | pending | First draft: [Philosophy of Mind and Jeevan](Studies/Philosophy-Of-Mind-And-Jeevan/) (proposal #11). |
 | ST-DRAFT-02 | Catalog | pending | First draft: [Chitta, the Brain, and the Architecture of Memory](Studies/Chitta-Brain-And-Memory/) (proposal #27). |
@@ -207,7 +205,6 @@ here order, not proposal-number order.
 | ST-DRAFT-12 | Catalog | pending | First draft: [Free Will Choice and Agency](Studies/Free-Will-Choice-And-Agency/) (proposal #24). |
 | ST-DRAFT-13 | Catalog | pending | First draft: [Health Body and Restraint](Studies/Health-Body-And-Restraint/) (proposal #25). |
 | ST-DRAFT-14 | Catalog | pending | First draft: [God Divinity and the Sacred](Studies/God-Divinity-And-The-Sacred/) (proposal #26). |
-| ST-DRAFT-15 | P2 | done | [Artificial Intelligence and Coexistence](Studies/Artificial-Intelligence-And-Coexistence/) restored as a Draft (PR #555) and expanded in first-draft PR #556; the [personal AI assistant technical note](Studies/Artificial-Intelligence-And-Coexistence/Technical-Note-The-Personal-AI-Assistant.md) moved beside it with only its parent pointer changed, following the [proposal review](docs/ai-assistant-proposal-review-2026-10-04.md). Its 31-slide companion deck (speaker notes only, no Presenter's Companion) is registered as `personal-ai-assistant` in its own `study-update` PR. |
 
 ## Extensions
 
@@ -225,6 +222,12 @@ Projects that extend the collection beyond the site's catalog studies.
 - Session-only agent TodoWrite lists.
 
 ## Done in the same registers (do not reopen)
+
+- Website `UX-08` Phases 1 & 2 (15 October 2026): aligned `Studies/index.html`, `Studies/README.md`, and `Studies/proposal-registry.json` across all 28 studies; added the 5 missing studies (`Artificial-Intelligence-And-Coexistence`, `Spiritual-Practice-And-Realization`, `Prosperity-Economics-And-Right-Use`, `Governance-Justice-And-Undivided-Society`, `Health-Body-And-Restraint`) to `#start-here`; fixed `Family-Relationships-And-Values` direct reader link, `"sepia"` theme migration, and initial `#start-here` scroll-spy state; and deepened the 5-stage inquiry and `#approach` orientation around *adhyayan* → *anubhav* and *samriddhi* (prosperity without accumulation). Reader-exercise verification remains in `UX-08`.
+
+- Studies `ST-DRAFT-15` (14 October 2026): [Artificial Intelligence and Coexistence](Studies/Artificial-Intelligence-And-Coexistence/) restored as a Draft (PR #555), expanded in first-draft PR #556, and released; the [personal AI assistant technical note](Studies/Artificial-Intelligence-And-Coexistence/Technical-Note-The-Personal-AI-Assistant.md) moved beside it with only its parent pointer changed, following the [proposal review](docs/ai-assistant-proposal-review-2026-10-04.md), and its 31-slide companion deck is registered as `personal-ai-assistant`.
+
+- Studies `ST-FIX-01`, `ST-FIX-02`, and `ST-ILL-01` (4 October 2026): updated Epistemology's Spiritual Practice link/scope and verified Activity Anatomy Pass One §5 MVD locators against printed pp. 339–348 (`ST-FIX-01`); corrected Ethics §3.2 to whole-group guidance of *priya–hita–labha* by *nyaya–dharma–satya* and aligned criticism, Editorial Notes, and bibliography (`ST-FIX-02`); added the shared-water neighbourhood/group-boundary illustration to Undivided Society §3.2 (`ST-ILL-01`); rebuilt affected outputs.
 
 - Studies `ST-DECK-01` (14 October 2026): removed the 18 SOURCE ACCOUNT badges from the Personal AI Assistant deck, as in the Prosperity Economics deck; untagged content now presents the primary texts. The slide 3 legend and the slide 1 and 3 notes were updated to match; THIS NOTE'S PROPOSAL and RESEARCH badges remain.
 

@@ -104,7 +104,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
 {"@context":"https://schema.org","@type":"CollectionPage","name":"Studies of Madhyasth Darshan","description":"An open comparative study of Madhyasth Darshan, following a path from the human question through existence, knowledge, value, lived participation, and formal synthesis.","url":"https://analyticmadhyasthdarshan.org/Studies/index.html","isPartOf":{"@type":"WebSite","name":"AnalyticMadhyasthDarshan.org","url":"https://analyticmadhyasthdarshan.org/"},"image":"https://analyticmadhyasthdarshan.org/Assets/Social/og-default.png","license":"https://creativecommons.org/licenses/by/4.0/"}
 </script>
 <script>
-(function(){try{var t=localStorage.getItem("amd-theme");if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
+(function(){try{var t=localStorage.getItem("amd-theme");if(t==="sepia")t="light";if(t!=="light"&&t!=="dark"){t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";}document.documentElement.setAttribute("data-theme",t);}catch(e){document.documentElement.setAttribute("data-theme","light");}})();
 </script>
 <script>
 (function(){
@@ -1715,7 +1715,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
   <div class="start-here" id="start-here">
     <p class="start-here-kicker">A guided path through the collection</p>
     <h2>Start here: the study path we are following</h2>
-    <p class="start-here-intro">We begin with the human being, then examine existence, knowledge, value, and social life. Each study asks what the different accounts explain and what remains unresolved.</p>
+    <p class="start-here-intro">We begin with the human being, then examine existence, knowledge, value, and social life. Across these five stages, the path tests a central diagnostic claim of Madhyasth Darshan: that treating a human as only a physical body turns finite bodily needs into open-ended material accumulation, whereas understanding the conscious self (<em>jeevan</em>) and coexistence grounds lasting resolution, definite human values, and shared prosperity. Each study asks what the competing accounts explain and what remains unresolved.</p>
 
     <div class="study-path">
       <div class="path-rail" role="radiogroup" aria-label="Five stages in the study path">
@@ -1753,7 +1753,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-human.webp" width="480" height="480" alt="A person reflecting beside an open window." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html" title="Read the study">Why Humans Are Not Just Material</a></p>
-            <p class="path-study-blurb">This study tests whether a human is exhausted by a physicochemical body and brain, comparing a physicalist reading of the sciences with Advaita Vedanta and Madhyasth Darshan&rsquo;s body-and-jeevan account.</p>
+            <p class="path-study-blurb">This study tests whether a human is exhausted by a physicochemical body and brain, comparing a physicalist reading of the sciences with Advaita Vedanta and Madhyasth Darshan&rsquo;s body-and-jeevan account &mdash; including why finite physical goods satisfy the body while the conscious self (<em>jeevan</em>) seeks continuous understanding and relationship.</p>
             <div class="path-core-actions">
               <a class="path-action" data-study-link href="Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
               <a class="path-action" data-study-action href="Why-Humans-Are-Not-Just-Material/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
@@ -1762,28 +1762,29 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <details class="path-related">
               <summary>Related studies</summary>
               <ul>
+                <li data-study-slug="Artificial-Intelligence-And-Coexistence"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Artificial-Intelligence-And-Coexistence"></span><a data-study-link href="Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.html">Artificial Intelligence and Coexistence</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="Artificial-Intelligence-And-Coexistence"></p></li>
                 <li data-study-slug="Philosophy-Of-Mind-And-Jeevan"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Philosophy-Of-Mind-And-Jeevan"></span><a data-study-link href="Philosophy-Of-Mind-And-Jeevan/discussion.html">Philosophy of Mind and Jeevan</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Philosophy-Of-Mind-And-Jeevan"></p></li>
-                <li data-study-slug="Chitta-Brain-And-Memory"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Chitta-Brain-And-Memory"></span><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, Brain, and Memory</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Chitta-Brain-And-Memory"></p></li>
-                <li data-study-slug="Death-Continuity-And-Rebirth"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Death-Continuity-And-Rebirth"></span><a data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death, Continuity, and Rebirth</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Death-Continuity-And-Rebirth"></p></li>
+                <li data-study-slug="Chitta-Brain-And-Memory"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Chitta-Brain-And-Memory"></span><a data-study-link href="Chitta-Brain-And-Memory/discussion.html">Chitta, the Brain, and the Architecture of Memory</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Chitta-Brain-And-Memory"></p></li>
+                <li data-study-slug="Death-Continuity-And-Rebirth"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Death-Continuity-And-Rebirth"></span><a data-study-link href="Death-Continuity-And-Rebirth/discussion.html">Death Continuity and Rebirth</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Death-Continuity-And-Rebirth"></p></li>
               </ul>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="2" aria-label="Continue to Existence">
             <span class="path-continue-stage">Next: 2 &middot; Existence <span aria-hidden="true">&rarr;</span></span>
-            <span class="path-continue-text">If the body does not already answer what a human is, the leftover questions are about existence: what is there, and where we stand in it.</span>
+            <span class="path-continue-text">If a human is a conscious jeevan together with a physical body, the next question is about existence: what kind of reality encompasses both, and where human beings stand in it.</span>
           </button>
         </div>
       </article>
 
       <article class="path-panel" data-stage="2">
         <div class="path-panel-head"><span class="path-number">2</span><span class="path-domain">Existence</span></div>
-        <h3>What exists&mdash;and what are we?</h3>
+        <h3>What exists&mdash;and where do humans stand in it?</h3>
         <div class="path-core-layout">
           <div class="path-core" data-study-slug="The-Ontology-of-Coexistence" data-presentation-pdf="The-Ontology-of-Coexistence/The-Ontology-of-Existence-Madhyasth-Darshan.pdf">
             <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-existence.webp" width="480" height="480" alt="A person, deer, tree and river stones sharing a landscape." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html" title="Read the study">The Ontology of Coexistence</a></p>
-            <p class="path-study-blurb">This study asks what exists: coexistence of omnipresence and units, the four orders of nature, and the claim that the human belongs to the knowledge order rather than being only a material organism.</p>
+            <p class="path-study-blurb">This study asks what exists: coexistence of omnipresence and active units, the four orders of nature, and the claim that human beings belong to the knowledge order within an already self-organized reality rather than an indifferent material cosmos or an illusion.</p>
             <div class="path-core-actions">
               <a class="path-action" data-study-link href="The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
               <a class="path-action" data-study-action href="The-Ontology-of-Coexistence/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
@@ -1793,27 +1794,27 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
               <summary>Related studies</summary>
               <ul>
                 <li data-study-slug="Nature-Of-Time"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Nature-Of-Time"></span><a data-study-link href="Nature-Of-Time/Nature-Of-Time.html">Nature of Time</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="Nature-Of-Time"></p></li>
-                <li data-study-slug="Nature-Ecology-And-Right-Use"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Nature-Ecology-And-Right-Use"></span><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature, Ecology, and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Nature-Ecology-And-Right-Use"></p></li>
-                <li data-study-slug="God-Divinity-And-The-Sacred"><div class="related-study-title"><span class="related-study-icon" data-related-icon="God-Divinity-And-The-Sacred"></span><a data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God, Divinity, and the Sacred</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="God-Divinity-And-The-Sacred"></p></li>
+                <li data-study-slug="Nature-Ecology-And-Right-Use"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Nature-Ecology-And-Right-Use"></span><a data-study-link href="Nature-Ecology-And-Right-Use/discussion.html">Nature Ecology and Right Use</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Nature-Ecology-And-Right-Use"></p></li>
+                <li data-study-slug="God-Divinity-And-The-Sacred"><div class="related-study-title"><span class="related-study-icon" data-related-icon="God-Divinity-And-The-Sacred"></span><a data-study-link href="God-Divinity-And-The-Sacred/discussion.html">God Divinity and the Sacred</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="God-Divinity-And-The-Sacred"></p></li>
               </ul>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="3" aria-label="Continue to Knowledge">
             <span class="path-continue-stage">Next: 3 &middot; Knowledge <span aria-hidden="true">&rarr;</span></span>
-            <span class="path-continue-text">Once that picture of existence is stated, the next study asks how it can be known, and what the knower must know.</span>
+            <span class="path-continue-text">Once that picture of existence is stated, the next stage asks how reality can be known &mdash; and how study moves from verbal information to lived realisation.</span>
           </button>
         </div>
       </article>
 
       <article class="path-panel" data-stage="3">
         <div class="path-panel-head"><span class="path-number">3</span><span class="path-domain">Knowledge</span></div>
-        <h3>What must the knower know?</h3>
+        <h3>What must the knower know &mdash; and how is it realised?</h3>
         <div class="path-core-layout">
           <div class="path-core" data-study-slug="The-Epistemology-of-Coexistence" data-presentation-pdf="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence-Madhyasth-Darshan.pdf">
             <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-knowledge.webp" width="480" height="480" alt="Two people observing a plant and studying together." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html" title="Read the study">The Epistemology of Coexistence</a></p>
-            <p class="path-study-blurb">This study asks what knowledge is, who the knower is, and how understanding of coexistence must become evident in evaluation, conduct, and tradition rather than remaining unused information.</p>
+            <p class="path-study-blurb">This study asks what knowledge is, who the knower is, and how systematic study (<em>adhyayan</em>) of coexistence progresses to direct realisation (<em>anubhav</em>) and becomes evident in conduct rather than remaining unexamined belief or unused information.</p>
             <div class="path-core-actions">
               <a class="path-action" data-study-link href="The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
               <a class="path-action" data-study-action href="The-Epistemology-of-Coexistence/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
@@ -1822,16 +1823,17 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <details class="path-related">
               <summary>Related studies</summary>
               <ul>
+                <li data-study-slug="Spiritual-Practice-And-Realization"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Spiritual-Practice-And-Realization"></span><a data-study-link href="Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html">Spiritual Practice and Realization</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="Spiritual-Practice-And-Realization"></p></li>
                 <li data-study-slug="Methodology-And-Hermeneutics"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Methodology-And-Hermeneutics"></span><a data-study-link href="Methodology-And-Hermeneutics/discussion.html">Methodology and Hermeneutics</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Methodology-And-Hermeneutics"></p></li>
-                <li data-study-slug="Work-Action-And-Karma"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Work-Action-And-Karma"></span><a data-study-link href="Work-Action-And-Karma/discussion.html">Work, Action, and Karma</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Work-Action-And-Karma"></p></li>
-                <li data-study-slug="Free-Will-Choice-And-Agency"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Free-Will-Choice-And-Agency"></span><a data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will, Choice, and Agency</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Free-Will-Choice-And-Agency"></p></li>
-                <li data-study-slug="Language-Meaning-And-Definition"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Language-Meaning-And-Definition"></span><a data-study-link href="Language-Meaning-And-Definition/discussion.html">Language, Meaning, and Definition</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Language-Meaning-And-Definition"></p></li>
+                <li data-study-slug="Work-Action-And-Karma"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Work-Action-And-Karma"></span><a data-study-link href="Work-Action-And-Karma/discussion.html">Work Action and Karma</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Work-Action-And-Karma"></p></li>
+                <li data-study-slug="Free-Will-Choice-And-Agency"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Free-Will-Choice-And-Agency"></span><a data-study-link href="Free-Will-Choice-And-Agency/discussion.html">Free Will Choice and Agency</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Free-Will-Choice-And-Agency"></p></li>
+                <li data-study-slug="Language-Meaning-And-Definition"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Language-Meaning-And-Definition"></span><a data-study-link href="Language-Meaning-And-Definition/discussion.html">Language Meaning and Definition</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Language-Meaning-And-Definition"></p></li>
               </ul>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="4" aria-label="Continue to Value">
             <span class="path-continue-stage">Next: 4 &middot; Value <span aria-hidden="true">&rarr;</span></span>
-            <span class="path-continue-text">If understanding must show itself in evaluation, the next study asks what a value is, and what makes relationship definite.</span>
+            <span class="path-continue-text">If awakening transforms how a human evaluates, the next stage asks what a value is, and how evaluation shifts from self-centred gain to definite relationship.</span>
           </button>
         </div>
       </article>
@@ -1844,7 +1846,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-value.webp" width="480" height="480" alt="Two people offering and receiving a cup with care." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html" title="Read the study">Axiology: Value Theory</a></p>
-            <p class="path-study-blurb">This study asks what a value is, whether it is conferred by preference or already present in participation, and how evaluation can be correct or mistaken in relationship and conduct.</p>
+            <p class="path-study-blurb">This study asks what a value is, whether it is conferred by preference or already present in participation, and how waking up to human nature shifts evaluation from sensory pleasure and acquisitive gain (<em>priya&ndash;hita&ndash;labh</em>) to justice, intrinsic relational values, and right-use.</p>
             <div class="path-core-actions">
               <a class="path-action" data-study-link href="Axiology-Value-Theory/Axiology-Value-Theory.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
               <a class="path-action" data-study-action href="Axiology-Value-Theory/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
@@ -1854,27 +1856,27 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
               <summary>Related studies</summary>
               <ul>
                 <li data-study-slug="Ethics-And-Morals-In-Human-Beings"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Ethics-And-Morals-In-Human-Beings"></span><a data-study-link href="Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html">Ethics and Morals in Human Beings</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Ethics-And-Morals-In-Human-Beings"></p></li>
-                <li data-study-slug="Family-Relationships-And-Values"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Family-Relationships-And-Values"></span><a data-study-link href="Family-Relationships-And-Values/discussion.html">Family Relationships and Values</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Family-Relationships-And-Values"></p></li>
+                <li data-study-slug="Family-Relationships-And-Values"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Family-Relationships-And-Values"></span><a data-study-link href="Family-Relationships-And-Values/Family-Relationships-And-Values.html">Family Relationships and Values</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Family-Relationships-And-Values"></p></li>
                 <li data-study-slug="Aesthetics"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Aesthetics"></span><a data-study-link href="Aesthetics/Aesthetics.html">Aesthetics</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Aesthetics"></p></li>
               </ul>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="5" aria-label="Continue to Living">
             <span class="path-continue-stage">Next: 5 &middot; Living <span aria-hidden="true">&rarr;</span></span>
-            <span class="path-continue-text">Values that are definite still have to be lived. The next study asks how coexistence is established in family, education, and society.</span>
+            <span class="path-continue-text">Values that are definite still have to be lived. The final stage asks how understanding replaces blind accumulation with shared prosperity, self-sustaining institutions, and an undivided society.</span>
           </button>
         </div>
       </article>
 
       <article class="path-panel" data-stage="5">
         <div class="path-panel-head"><span class="path-number">5</span><span class="path-domain">Living</span></div>
-        <h3>How is coexistence lived?</h3>
+        <h3>How is coexistence lived in prosperity and society?</h3>
         <div class="path-core-layout">
           <div class="path-core" data-study-slug="How-Undivided-Society-Is-Established" data-presentation-pdf="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established-presentation.pdf">
             <img class="path-study-image" src="../Assets/Theme/illustrations/start-here-living.webp" width="480" height="480" alt="People gardening, repairing and reading in a shared courtyard." loading="lazy" decoding="async">
             <div class="path-core-meta"><span class="path-core-label">Core study</span><span class="path-status released" data-study-status>Released</span></div>
             <p class="path-study-title"><a data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html" title="Read the study">How Undivided Society Is Established</a></p>
-            <p class="path-study-blurb">This study asks what would make humankind an undivided society, and how that is established through family, education, organisations, and institutions as the test of the earlier understanding.</p>
+            <p class="path-study-blurb">This study asks what would make humankind an undivided society, and how understanding and prosperity (<em>samriddhi</em> &mdash; producing and having more than one&rsquo;s finite bodily needs) are established through family, education, cyclical economics, and self-sustaining institutions.</p>
             <div class="path-core-actions">
               <a class="path-action" data-study-link href="How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html">@amd-ui:learning@<span class="path-action-label">Read the study</span></a>
               <a class="path-action" data-study-action href="How-Undivided-Society-Is-Established/discussion.html">@amd-ui:discussion@<span class="path-action-label">Discuss this stage</span></a>
@@ -1883,15 +1885,18 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
             <details class="path-related">
               <summary>Related studies</summary>
               <ul>
-                <li data-study-slug="Human-Behavior-And-Society"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Human-Behavior-And-Society"></span><a data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Human-Behavior-And-Society"></p></li>
+                <li data-study-slug="Prosperity-Economics-And-Right-Use"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Prosperity-Economics-And-Right-Use"></span><a data-study-link href="Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.html">Prosperity Economics and Right Use</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Prosperity-Economics-And-Right-Use"></p></li>
                 <li data-study-slug="How-To-Form-Self-Sustaining-Organizations"><div class="related-study-title"><span class="related-study-icon" data-related-icon="How-To-Form-Self-Sustaining-Organizations"></span><a data-study-link href="How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html">How to Form Self-Sustaining Organizations</a><br><span class="path-status released" data-study-status>Released</span></div><p class="related-study-description" data-related-description="How-To-Form-Self-Sustaining-Organizations"></p></li>
+                <li data-study-slug="Human-Behavior-And-Society"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Human-Behavior-And-Society"></span><a data-study-link href="Human-Behavior-And-Society/Human-Behavior-And-Society.html">Human Behavior and Society</a><br><span class="path-status draft" data-study-status>Draft</span></div><p class="related-study-description" data-related-description="Human-Behavior-And-Society"></p></li>
                 <li data-study-slug="Education-And-Sanskar"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Education-And-Sanskar"></span><a data-study-link href="Education-And-Sanskar/discussion.html">Education and Sanskar</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Education-And-Sanskar"></p></li>
+                <li data-study-slug="Governance-Justice-And-Undivided-Society"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Governance-Justice-And-Undivided-Society"></span><a data-study-link href="Governance-Justice-And-Undivided-Society/discussion.html">Governance Justice and Undivided Society</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Governance-Justice-And-Undivided-Society"></p></li>
+                <li data-study-slug="Health-Body-And-Restraint"><div class="related-study-title"><span class="related-study-icon" data-related-icon="Health-Body-And-Restraint"></span><a data-study-link href="Health-Body-And-Restraint/discussion.html">Health Body and Restraint</a><br><span class="path-status planned" data-study-status>In progress</span></div><p class="related-study-description" data-related-description="Health-Body-And-Restraint"></p></li>
               </ul>
             </details>
           </div>
           <button type="button" class="path-continue" data-go-stage="1" aria-label="Return to Human">
             <span class="path-continue-stage">Return to Human <span aria-hidden="true">&rarr;</span></span>
-            <span class="path-continue-text">The path does not continue to another stage. Understanding is tested in living, and can be walked again from the human question.</span>
+            <span class="path-continue-text">The path does not end in abstract theory. Understanding is tested in relationships, right-use of material resources, and social participation &mdash; and can be walked again from the human question.</span>
           </button>
         </div>
       </article>
@@ -1899,8 +1904,8 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
       <div class="path-alongside">
         <span class="path-alongside-label">Also across the path</span>
         <div class="path-alongside-studies">
-          <div class="parallel-study" data-study-slug="A-State-Dynamic-Model-Of-Coexistence" data-presentation-pdf="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf"><a data-study-link href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" title="Read the study">From Unit Activity to Human Orderliness</a><span class="path-status draft" data-study-status>Draft</span><a class="path-slides" data-study-slides href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a></div>
-          <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science, Technology, and Human Purpose</a><span class="path-status planned" data-study-status>In progress</span></div>
+          <div class="parallel-study" data-study-slug="A-State-Dynamic-Model-Of-Coexistence" data-presentation-pdf="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf"><a data-study-link href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html" title="Read the study">From Unit Activity to Human Orderliness</a><span class="path-status released" data-study-status>Released</span><a class="path-slides" data-study-slides href="A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence-Madhyasth-Darshan.pdf" title="Open presentation slides">@amd-ui:slides@<span class="path-action-label">Slides</span></a></div>
+          <div class="parallel-study" data-study-slug="Science-Technology-And-Human-Purpose"><a data-study-link href="Science-Technology-And-Human-Purpose/discussion.html">Science Technology and Human Purpose</a><span class="path-status planned" data-study-status>In progress</span></div>
         </div>
       </div>
 
@@ -2013,7 +2018,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     </ol>
 
     <h3 class="section-heading"><span class="section-heading-icon" aria-hidden="true">@amd-topic:coexistence@</span>From study to understanding</h3>
-    <p>Reading and logical reconstruction are the beginning, not the endpoint. This path treats understanding as something to be tested in observation, relationships, decisions, and participation in family and society. Practice does not replace argument or evidence; it is where claims about value and conduct encounter lived consequences.</p>
+    <p>Reading and logical reconstruction are the beginning, not the endpoint. Madhyasth Darshan presents its claims as proposals for rational scrutiny (<em>adhyayan</em>) and direct realisation (<em>anubhav</em>), not doctrines for sectarian belief or world-negating renunciation. This path treats understanding as something to be tested in first-person observation, in the shift from open-ended material accumulation to recognised sufficiency (<em>samriddhi</em>), and in relationships, decisions, and participation in family and society. Lived practice does not replace argument or evidence; it is where claims about reality, value, and conduct encounter their real consequences.</p>
   </div>
 </section>
 
@@ -2876,7 +2881,7 @@ INDEX_TEMPLATE = """<!DOCTYPE html>
     }
 
     const marker = scrollMarker();
-    let currentId = "topical-studies";
+    let currentId = "start-here";
 
     mainSpyIds.forEach(id => {
       const el = document.getElementById(id);
@@ -3392,10 +3397,10 @@ def verify_start_here_sync() -> list[str]:
 
 
 def start_here_sync_errors(html: str, status_by_slug: dict[str, str]) -> list[str]:
-    """Validate Start-here slugs and pills against catalog-derived statuses."""
+    """Validate Start-here slugs, pills, and static links against catalog-derived statuses."""
     errors = []
     for match in START_HERE_PILL_RE.finditer(html):
-        _head, slug, cls, _mid, label, _tail = match.groups()
+        head, slug, cls, _mid, label, _tail = match.groups()
         expected = status_by_slug.get(slug)
         if expected is None:
             errors.append(
@@ -3410,6 +3415,14 @@ def start_here_sync_errors(html: str, status_by_slug: dict[str, str]) -> list[st
                 f"{START_HERE_STATUS_WORDS[expected]!r}. "
                 "Run python Scripts/_build_studies_index.py."
             )
+        link_match = re.search(r'<a\b[^>]*\bdata-study-link\b[^>]*\bhref="([^"]+)"', head)
+        if link_match and expected in ("draft", "released"):
+            href = link_match.group(1)
+            if href.endswith("/discussion.html") or href.startswith("#study-"):
+                errors.append(
+                    f"Studies/index.html: Start-here link for available study {slug} points to "
+                    f"{href!r} instead of '{slug}/{slug}.html'. Update INDEX_TEMPLATE and rebuild."
+                )
     return errors
 
 
