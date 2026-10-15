@@ -24,7 +24,17 @@ Browse the published collection at **[analyticmadhyasthdarshan.org](https://anal
 
 ## Start here
 
-We begin with the human being, then examine existence, knowledge, value, and social life. Each study asks what the different accounts explain and what remains unresolved.
+We begin with the human being, then examine existence, knowledge, value, and social life. Across these five stages, the path tests a central diagnostic claim of Madhyasth Darshan: that treating a human as only a physical body turns finite bodily needs into open-ended material accumulation, whereas understanding the conscious self (*jeevan*) and coexistence grounds lasting resolution, definite human values, and shared prosperity. Each study asks what the competing accounts explain and what remains unresolved.
+
+| Stage | Guiding question | Core study | Related studies in this stage |
+|-------|------------------|------------|-------------------------------|
+| **1 · Human** | Is a human only a body? | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html) | [Artificial Intelligence and Coexistence](Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.html) · *Philosophy of Mind and Jeevan* · *Chitta, the Brain, and the Architecture of Memory* · *Death Continuity and Rebirth* |
+| **2 · Existence** | What exists—and where do humans stand in it? | [The Ontology of Coexistence](The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.html) | [Nature of Time](Nature-Of-Time/Nature-Of-Time.html) · *Nature Ecology and Right Use* · *God Divinity and the Sacred* |
+| **3 · Knowledge** | What must the knower know — and how is it realised? | [The Epistemology of Coexistence](The-Epistemology-of-Coexistence/The-Epistemology-of-Coexistence.html) | [Spiritual Practice and Realization](Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization.html) · *Methodology and Hermeneutics* · *Work Action and Karma* · *Free Will Choice and Agency* · *Language Meaning and Definition* |
+| **4 · Value** | What makes value and relationship definite? | [Axiology: Value Theory](Axiology-Value-Theory/Axiology-Value-Theory.html) | [Ethics and Morals in Human Beings](Ethics-And-Morals-In-Human-Beings/Ethics-And-Morals-In-Human-Beings.html) · [Family Relationships and Values](Family-Relationships-And-Values/Family-Relationships-And-Values.html) · [Aesthetics](Aesthetics/Aesthetics.html) |
+| **5 · Living** | How is coexistence lived in prosperity and society? | [How Undivided Society Is Established](How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html) | [Prosperity Economics and Right Use](Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.html) · [How to Form Self-Sustaining Organizations](How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html) · [Human Behavior and Society](Human-Behavior-And-Society/Human-Behavior-And-Society.html) · *Education and Sanskar* · *Governance Justice and Undivided Society* · *Health Body and Restraint* |
+
+**Also across the path:** [From Unit Activity to Human Orderliness](A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html) · *Science Technology and Human Purpose*
 
 Follow the stages in order, question the order, or [take up a stage that is still unwritten](#how-to-contribute). To read outside the path, [browse the full collection](#the-studies).
 
@@ -119,7 +129,7 @@ See [AGENTS.md](../AGENTS.md) §4 for writing standards.
 
 ### From study to understanding
 
-Reading and logical reconstruction are the beginning, not the endpoint. This path treats understanding as something to be tested in observation, relationships, decisions, and participation in family and society. Practice does not replace argument or evidence; it is where claims about value and conduct encounter lived consequences.
+Reading and logical reconstruction are the beginning, not the endpoint. In Madhyasth Darshan, systematic study (*adhyayan*) prepares the ground for direct comprehension and realisation (*anubhav*) — seeing coexistence as it is rather than taking assertions on authority or reducing human purpose to material accumulation. Understanding is then tested and evidenced in observation, relationships, decisions, right-use of resources (*samriddhi*), and participation in family and society. Practice does not replace argument or evidence; it is where claims about knowledge, value, and conduct encounter lived consequences.
 
 ## How to contribute
 
