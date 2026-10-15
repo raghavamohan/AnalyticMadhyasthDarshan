@@ -6,6 +6,27 @@
   "description": "Draft and released studies, newest Edited-on timestamp first. In-progress (ongoing) rows are omitted.",
   "items": [
     {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.html",
+      "title": "Prosperity Economics and Right Use",
+      "content_text": "Prosperity without accumulation: production, cyclical economics, right-use of wealth, and the limits of accumulation",
+      "tags": [
+        "topical",
+        "draft"
+      ],
+      "date_modified": "2026-10-15T05:02:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/Artificial-Intelligence-And-Coexistence/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.html",
       "title": "Artificial Intelligence and Coexistence",
@@ -22,27 +43,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/Artificial-Intelligence-And-Coexistence/Artificial-Intelligence-And-Coexistence.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.html",
-      "title": "Prosperity Economics and Right Use",
-      "content_text": "Prosperity without accumulation: production, cyclical economics, right-use of wealth, and the limits of accumulation",
-      "tags": [
-        "topical",
-        "draft"
-      ],
-      "date_modified": "2026-10-14T04:19:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.pdf",
           "mime_type": "application/pdf"
         }
       ]
