@@ -84,11 +84,13 @@ python Scripts/_check_deck_layout.py --all
 ```
 
 It fails on rendered text colliding with other rendered text, text spilling off
-the canvas, wrong `N / M` footer numbering, and out-of-range slide
-cross-references. Everything it is less sure about — hairline overlaps, boxes
-holding more lines than they were sized for, single lines at ≥95% of box
-width — it prints as a note for you to eyeball. Notes are not noise to be
-ignored; they are the cases where the model defers to your eyes.
+the canvas, wrong `N / M` footer numbering, out-of-range slide
+cross-references, and corrupted Unicode / `?` encoding fallbacks (`·`, `§`,
+`–`, `—` replaced by `?` or `U+FFFD`). Everything it is less sure about —
+hairline overlaps, boxes holding more lines than they were sized for, single
+lines at ≥95% of box width — it prints as a note for you to eyeball. Notes are
+not noise to be ignored; they are the cases where the model defers to your
+eyes.
 
 ### A too-long title reads as *overlap*, not as overflow
 
@@ -101,6 +103,19 @@ too long. Fix the length, not the eyebrow.
 
 The same mechanic makes a wrapped one-line footer orphan its page number below
 the footer band.
+
+When creating or editing textboxes in `python-pptx`, explicitly set
+`tf.auto_size = MSO_AUTO_SIZE.NONE`. `slide.shapes.add_textbox()` defaults to
+`MSO_AUTO_SIZE.SHAPE_TO_FIT_TEXT` (`<a:spAutoFit/>`), which does **not** shrink
+text (`TEXT_TO_FIT_SHAPE` / `<a:normAutofit/>` does); it keeps the full font
+size and grows the box vertically from its anchor. `_check_deck_layout.py`
+measures both `NONE` and `SHAPE_TO_FIT_TEXT` boxes, and you should also verify
+rendered line bounding boxes in the generated `.pdf` whenever adding new slides.
+
+Never pipe or rewrite Python/PPTX generator scripts through PowerShell
+`Set-Content` or `Out-File` without `-Encoding utf8` (prefer editor file tools
+or `python -X utf8` with `encoding="utf-8"`), as Windows PowerShell 5.1
+silently turns `·`, `§`, `–`, `—`, `→`, and `›` into literal `?` (`0x3F`).
 
 ### Keep single-line boxes to one line
 

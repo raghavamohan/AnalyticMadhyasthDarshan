@@ -31,6 +31,11 @@ use PowerShell syntax, never bash. The repo root path contains a space
   lost). Use `Select-Object -Last N` / `-First N`, `Select-String`, `Get-Content`,
   `Measure-Object`, `(Get-Command x).Source`, and `New-Item`. If a command needs unix
   tools, run it deliberately through the Bash tool instead of mixing syntaxes in one call.
+- **UTF-8 encoding:** never rewrite source files, Markdown, or Python/PPTX generator scripts
+  with PowerShell `Set-Content` or `Out-File` without `-Encoding utf8` (and prefer the
+  editor's file tools or `python -X utf8` with `encoding="utf-8"`). Windows PowerShell 5.1
+  defaults to the system ANSI/ASCII codepage and silently replaces Unicode punctuation
+  (`·`, `§`, `–`, `—`, `→`, `›`) and Devanagari with literal `?` (`0x3F`).
 - **Line endings:** author files as **LF** (§8). On Windows some generators still write
   CRLF into the working tree; `.gitattributes` (`* text=auto eol=lf`) normalizes on commit,
   so CRLF churn in `git status` is expected — stage only real content changes and let
@@ -40,6 +45,8 @@ use PowerShell syntax, never bash. The repo root path contains a space
 
 - No `&&`, `||`, bash heredocs, or unix-only utilities (`tail`, `head`, `grep`, ...) in
   PowerShell commands issued this session.
+- No unencoded `Set-Content` / `Out-File` calls on UTF-8 files; use editor file tools or
+  `python -X utf8` with `encoding="utf-8"`.
 - Paths containing spaces are wrapped in double quotes.
 
 ---

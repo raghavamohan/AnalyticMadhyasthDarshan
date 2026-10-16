@@ -215,6 +215,18 @@
       "match": ["gyan avastha", "gyanavastha"],
       "display": "gyanavastha (knowledge order)",
       "definition": "Knowledge order — the human order, whose distinctive capacity is study, understanding, evaluation, and evidence of awakening."
+    },
+    {
+      "id": "samaj-gati",
+      "match": ["samaj gati", "samaj-gati"],
+      "display": "samaj gati (social participation)",
+      "definition": "Social participation — the contribution and movement of a person and family towards society and orderliness; paired with the nourishment and protection of the body as the domain in which produced objects are useful."
+    },
+    {
+      "id": "samajhdar-parivar",
+      "match": ["samajhdar parivar", "samajdar parivar"],
+      "display": "samajhdar parivar (wise family)",
+      "definition": "Wise family — a family endowed with understanding, living with justice and mutual satisfaction, in which two to four members may produce beyond the family's whole necessity."
     }
   ]
 }

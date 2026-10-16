@@ -13,7 +13,7 @@
       "type": "skill-md",
       "description": "Add and register a new companion PowerPoint deck under Studies/ or Applications/, declare its slides/notes PDF outputs, optionally register a Presenter's Companion, and use the same staged renderer and checks as CI. Use when adding a first or additional teaching deck to an existing study.",
       "url": "/.well-known/agent-skills/add-study-presentation/SKILL.md",
-      "digest": "sha256:0e74c0f0088482c957afcc10ad818080815b1337019cd3d63645754935f0cfa5"
+      "digest": "sha256:fb9cd0112fe472386745026b27020f0bfc71e5e5957fd0dd06707295f04d98e2"
     },
     {
       "name": "add-technical-note",
@@ -132,7 +132,7 @@
       "type": "skill-md",
       "description": "Update an existing study companion PowerPoint deck under Studies/ or Applications/, preserve its established design, regenerate its slides PDF and read-aloud notes PDF, and verify every format. Use for PPTX content edits, figure replacements, slide additions or removals, slide reordering, presentation reviews that require fixes, and PPTX-to-PDF refreshes. The PPTX is the source of truth; this repository does not use a slides-YAML generation workflow.",
       "url": "/.well-known/agent-skills/update-study-presentation/SKILL.md",
-      "digest": "sha256:bb4db1e8093e1db3ff1f0bcda84df13e35a0f6ae34d538bcaff3a6ebcea66f4d"
+      "digest": "sha256:7bc9723e518f5c7d7ae48b746b660f3449de766455e7b69dcf676195ead45903"
     }
   ]
 }
