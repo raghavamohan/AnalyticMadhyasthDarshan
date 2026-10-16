@@ -137,6 +137,14 @@ now follow them. The same day Raghava settled bare अस्तित्व द�
 holistic view of existence", the rendering KD and MD already use; AA now follows it
 (row 2310 of `../MD-Mapping.xlsx`).
 
+**Project-wide adoption (16 October 2026).** Raghava also settled two renderings during
+review of *Prosperity Economics and Right Use*: समाज गति (*samaj gati*) = **social
+participation** (matching Rakesh Gupta's JV p. 154 rendering and replacing "the motion of
+society" / "societal participation"), and समझदार परिवार (*samajhdar parivar*) = **wise
+family** (replacing "understanding family" / "understanding-endowed family"). `../MD-Mapping.xlsx`
+(row 650 updated, row 2311 appended), the KD glossary and its workbook, and the study
+glossary now record them.
+
 ### Proposed in translation batches 1-9 (7–13 October 2026)
 
 These choices arose while translating the front matter and chapters 1-9; the full
@@ -191,6 +199,8 @@ health-restraint and education-*sanskar*.
 | सजग, सतर्क, जागरूक | *sajag, satark, jagruk* | **vigilant**, **alert**, **aware** | chapter 9 | none | proposed | "Aware" may be confused with संचेतना = awareness. |
 | परिभाषा संहिता; आरोग्य शतक | *Paribhasha Samhita*; *Arogya Shatak* | ***Code of Definitions***; ***A Hundred Verses on Health*** | p. 151 (list of works) | none | proposed | English titles supplied for the publisher's list; no project precedent. |
 | शुभेच्छा | *shubhechha* | **good wish** | chapter 5 | MD: greeting | proposed | Follows MD's own definition; "greeting" does not fit the context. |
+| समाज गति | *samaj gati* | **social participation** | pp. 72, 75, 94, 114, 116 | JV p. 154: social participation; MD: societal participation | approved | Settled by the author on 16 October 2026, aligning with Rakesh Gupta's JV p. 154 rendering ("nourishment and protection of our body and social participation") and replacing "the motion of society" / "societal participation". |
+| समझदार परिवार | *samajhdar parivar* | **wise family** | pp. 27, 120; KD p. 115 | MD: समझदारी = understanding (notes: wisdom, probity) | approved | Settled by the author on 16 October 2026 ("use 'wise family' instead of 'understanding family'"). |
 
 ## Key terms for review
 

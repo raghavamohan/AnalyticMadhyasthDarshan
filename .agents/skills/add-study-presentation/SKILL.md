@@ -16,6 +16,13 @@ description: >-
    available presentation authoring skill. The PPTX is the visible-slide source.
    Follow [update-study-presentation](../update-study-presentation/SKILL.md) for
    typography, source support, notes ownership, slide order and visual QA.
+   When building slides with `python-pptx`, set `tf.auto_size = MSO_AUTO_SIZE.NONE`
+   on every textbox (`add_textbox()` defaults to `SHAPE_TO_FIT_TEXT`, which keeps
+   full font size and expands vertically from the anchor), keep single-line titles
+   and card headers under 90% width fill so centered titles never wrap into the top
+   eyebrow, write all generator scripts in UTF-8 (never via unencoded PowerShell
+   `Set-Content`), and run `python Scripts/_check_deck_layout.py` plus a rendered
+   PDF bounding-box check.
 3. Add one entry to the authored `decks` array in
    `Scripts/presentation-pipeline.json`. Keep its renderer profiles and production
    profile unchanged. Use a unique ID and noncolliding sibling output paths:

@@ -94,6 +94,13 @@
       "slidesPdf": "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use-Madhyasth-Darshan.pdf",
       "notesPdf": "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use-Madhyasth-Darshan-notes.pdf",
       "requiredFonts": ["Calibri", "Cambria"]
+    },
+    {
+      "id": "prosperity-economics-primer",
+      "source": "Studies/Prosperity-Economics-And-Right-Use/Modern-Economic-Concepts-For-Madhyasth-Darshan-Readers.pptx",
+      "slidesPdf": "Studies/Prosperity-Economics-And-Right-Use/Modern-Economic-Concepts-For-Madhyasth-Darshan-Readers.pdf",
+      "notesPdf": "Studies/Prosperity-Economics-And-Right-Use/Modern-Economic-Concepts-For-Madhyasth-Darshan-Readers-notes.pdf",
+      "requiredFonts": ["Calibri", "Cambria"]
     }
   ]
 }

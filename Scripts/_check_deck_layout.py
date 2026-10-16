@@ -90,6 +90,9 @@ COLLISION_FATAL_IN = 0.08
 
 SLIDE_REF = re.compile(r"\bslides?\s+(\d+)\b", re.IGNORECASE)
 PAGE_NUMBER = re.compile(r"(\d+)\s*/\s*(\d+)\s*$")
+ENCODING_CORRUPTION = re.compile(
+    r"\ufffd|[\x80-\x9f]|  \?  |\?\?(?=\d)|(?<=\d)\?(?=\d)|(?<![\s(])\?(?=[A-Za-z])"
+)
 
 _font_cache: dict[tuple[str, int], ImageFont.FreeTypeFont] = {}
 _missing_fonts: set[str] = set()
@@ -201,8 +204,10 @@ def rendered_text(shape) -> Rendered | None:
     # A lone glyph in a tiny box is decoration (arrows, bullets), not copy.
     if len(text) <= 2 and not any(ch.isalnum() for ch in text):
         return None
-    # normAutofit shrinks text to fit; PowerPoint owns that decision, not us.
-    if frame.auto_size is not None and "NONE" not in str(frame.auto_size):
+    # normAutofit (TEXT_TO_FIT_SHAPE) shrinks text to fit; PowerPoint owns that
+    # decision, not us. SHAPE_TO_FIT_TEXT (spAutoFit, python-pptx's default on
+    # add_textbox) keeps full font size and expands the box, so it must be measured.
+    if frame.auto_size is not None and "TEXT_TO_FIT_SHAPE" in str(frame.auto_size):
         return None
     # A rotated label's real extent is not its stored box, so the geometry below
     # would be wrong. Rotated axis captions read as collisions when they are not.
@@ -347,9 +352,24 @@ def check_deck(pptx: Path, warn_fill: float) -> list[Finding]:
                 ))
 
         bodies = [(sh.text_frame.text, "text") for sh in slide.shapes if sh.has_text_frame]
+        for sh in slide.shapes:
+            if sh.has_table:
+                for row in sh.table.rows:
+                    for cell in row.cells:
+                        bodies.append((cell.text, "table"))
         if slide.has_notes_slide:
             bodies.append((slide.notes_slide.notes_text_frame.text, "notes"))
         for body, where in bodies:
+            body_no_urls = re.sub(r"https?://\S+", "", body)
+            bad = ENCODING_CORRUPTION.search(body_no_urls)
+            if bad:
+                start = max(0, bad.start() - 18)
+                end = min(len(body_no_urls), bad.end() + 18)
+                snippet = body_no_urls[start:end].replace("\n", " ")
+                findings.append(Finding(
+                    index, "encoding",
+                    "%s has likely corrupted Unicode / '?' fallback near %r" % (where, snippet),
+                ))
             for ref in SLIDE_REF.finditer(body):
                 target = int(ref.group(1))
                 if not 1 <= target <= total:

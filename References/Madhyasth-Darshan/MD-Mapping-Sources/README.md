@@ -108,3 +108,17 @@ translation (recorded in the AA glossary's proposed table, now `approved`):
 
 The KD glossary records the same decisions, `KD-Translation-Glossary.xlsx` was
 rebuilt, and the KD body was updated where the source images confirm the Hindi.
+
+## Author decisions of 16 October 2026 — done
+
+Raghava settled two more renderings project-wide while reviewing *Prosperity Economics
+and Right Use*:
+
+- **समाज गति = social participation**, aligning with Rakesh Gupta's *Jeevan Vidya* p. 154
+  rendering ("nourishment and protection of our body and social participation") and
+  replacing "the motion of society", "societal motion", and "societal participation".
+  Row 650 in `MD-Mapping.xlsx` updated (old value kept in column F).
+- **समझदार परिवार = wise family**, replacing "understanding family" and
+  "understanding-endowed family" (KD p. 115; AA pp. 27, 120). Row 2311 appended to
+  `MD-Mapping.xlsx`.
+
