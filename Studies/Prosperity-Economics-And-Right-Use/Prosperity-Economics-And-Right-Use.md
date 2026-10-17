@@ -2,8 +2,8 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** October 17, 2026, 5:13 PM IST
-**Status:** Draft
+**Edited on:** October 17, 2026, 6:14 PM IST
+**Status:** Released
 **The question:** Why do human economies, unlike every other order of nature, fail to reach balance (*santulan*), and what would an economy look like that gives human labour its true value, judged by the usefulness it establishes for human living and for the wider order of nature, rather than by scarcity, accumulation, and price?
 
 A forest, a herd, or a field left to itself settles into a definite balance with its surroundings. Soil feeds plants, plants return to soil, and animals take what their bodies need and then stop. The human body belongs to the same nature. Its requirements for food, shelter, and protection are definite and can be counted, and in principle they could be met and then held in balance like those of any other organism. Human economies nevertheless behave differently. They extract more each generation, accumulate wealth that no one can use, and treat a continuing rise in consumption as the measure of success. Mainstream economics takes this imbalance as its starting point: wants are assumed to be unlimited and means scarce, so economic life becomes the permanent allocation of what is never enough.
