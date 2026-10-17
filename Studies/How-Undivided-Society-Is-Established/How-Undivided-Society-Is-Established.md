@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** October 4, 2026, 8:57 AM IST
+**Edited on:** October 17, 2026, 7:26 AM IST
 **Status:** Released
 **The question:** What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?
 
@@ -56,11 +56,11 @@ This makes justice prior to statutory legality in the order of explanation. Law 
 
 ### 2.3 Rule, justice, resolution, and truth
 
-Karm Darshan states the grounding sequence with unusual clarity. Omnipresence is the basis of balance in nature; rule is the basis of balanced activity; justice is the basis of balanced behaviour; resolution is the basis of balanced thought; and coexistence as supreme truth is the basis of realisation (KD, pp. 7-8). These are not interchangeable levels. A physical regularity does not by itself become a norm of human conduct, and a norm does not become socially effective merely by being written into law.
+The grounding sequence links nature, activity, behaviour, thought, and realisation step by step: Omnipresence is the basis of balance in nature; rule is the basis of balanced activity; justice is the basis of balanced behaviour; resolution is the basis of balanced thought; and coexistence as supreme truth is the basis of realisation (KD, pp. 7-8). These are not interchangeable levels. A physical regularity does not by itself become a norm of human conduct, and a norm does not become socially effective merely by being written into law.
 
 The sequence corrects two opposite reductions. Society cannot be derived by scaling physical regulation upward, because human beings evaluate and can depart from humane conduct. Nor can social order be produced from moral exhortation alone, because conduct occurs through bodies, resources, production, ecosystems, and institutions. Madhyasth Darshan proposes continuity without collapse: nature provisions order and mutuality; human understanding recognises their meaning; justice closes relationships; resolution stabilises thought; and conduct makes the understanding publicly evident.
 
-Karm Darshan describes awakened tradition as doing after understanding, while deluded tradition learns only after acting and undergoing consequences (KD, p. 7). This distinction turns education into more than information transfer. Humane education must develop the capacity to anticipate relational and ecological consequences, examine desire, and act from understood purpose. Social continuity depends on making such understanding ordinarily available, not on waiting for exceptional saints or rulers.
+In this account, awakened tradition acts after understanding, whereas deluded tradition learns only after acting and undergoing consequences (KD, p. 7). This distinction turns education into more than information transfer. Humane education must develop the capacity to anticipate relational and ecological consequences, examine desire, and act from understood purpose. Social continuity depends on making such understanding ordinarily available, not on waiting for exceptional saints or rulers.
 
 ### 2.4 Provision and achievement
 
@@ -76,7 +76,7 @@ Madhyasth Darshan locates the root disorder in taking the body to be the whole s
 
 The diagnosis should not be reduced to one psychological slogan. Body-identification becomes socially consequential through several mechanisms: desires expand without a criterion of sufficiency; wealth becomes accumulation rather than assurance; inherited affiliation becomes defensive identity; authority substitutes for understanding; and institutions reward short-term advantage while distributing consequences to others. Internal contradiction and external conflict reinforce one another.
 
-Karm Darshan contrasts necessary tendencies of non-accumulation through prosperity, affection, learning, simplicity, and fearlessness with convenience, accumulation, hatred, ignorance, conceit, and fear (KD, p. 8). The contrast is not an attack on comfort, property, or knowledge. It asks whether they remain means within humane purpose or become organising ends that fragment relationships.
+The primary account contrasts necessary tendencies of non-accumulation through prosperity, affection, learning, simplicity, and fearlessness with convenience, accumulation, hatred, ignorance, conceit, and fear (KD, p. 8). The contrast is not an attack on comfort, property, or knowledge. It asks whether they remain means within humane purpose or become organising ends that fragment relationships.
 
 ### 3.2 From difference to division
 
@@ -92,7 +92,7 @@ Material need is finite enough to assess at the family level, while desire under
 
 Coercion can preserve an institution for a time, but endurance alone is not humane orderliness. An assembly sustained by fear, dependency, or information control has not internalised its own purpose. The relevant test is whether members can understand the cause and goal, participate in evaluation, fulfil responsibilities without permanent compulsion, and transmit the method to new members.
 
-## 4. Why influential alternatives are insufficient by themselves
+## 4. How influential alternatives approach social order
 
 ### 4.1 Science-only materialism
 
@@ -100,7 +100,7 @@ Modern science is indispensable for an undivided society. It provides discipline
 
 Science as an empirical method does not, however, determine its own ultimate ends. Measurements can compare outcomes after an aim has been selected; they cannot by measurement alone establish why universal wellbeing should outrank national advantage, why mutual satisfaction should outrank aggregate preference, or why a person must never be treated merely as a resource. Facts constrain action, but a description of what occurs does not by itself yield a complete account of what ought to be fulfilled.
 
-Science-only materialism adds a philosophical claim to scientific method: the human being is exhaustively a bodily system and values are products of biology, preference, or social construction. That claim remains contested by the hard problem of consciousness, first-person awareness, personal identity, and the apparent normativity of truth and justice. Even a sophisticated optimisation system must receive objectives, weights, and constraints from an account of the human good. Once justice, relationship, ecological responsibility, and universal human dignity enter the objective, value-neutral science is no longer the whole basis.
+Science-only materialism adds a philosophical claim to scientific method: the human being is exhaustively a bodily system. Physicalist philosophers pair this ontology with diverse accounts of value — including evolutionary and constructivist ethics, contractualism, and forms of moral realism that affirm human dignity, cooperation, and impartial welfare — so physicalism as an ontology does not entail ethical egoism or indifference to justice ([*Why Humans Are Not Just Material*](../Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) §3). The specific philosophical question Madhyasth Darshan presses lies elsewhere: along with the contested problems of conscious experience and personal identity, a body-only anthropology lacks a structural distinction between the finite material needs of the body and the continuous qualitative requirement of the conscious knower (*jeevan*) for resolution and relationship-values (§3.1). Even a sophisticated optimisation system must receive objectives, weights, and constraints from an account of the human good; once justice, relationship, ecological responsibility, and universal human dignity enter the objective, value-neutral science is no longer the whole basis.
 
 Science is therefore a necessary means and a continuing corrective, but not a sufficient social foundation by itself. Madhyasth Darshan's contrast is with scientism, not with careful empirical inquiry. Its own claims about *jeevan*, atomic development, education, and social effects must remain open to conceptual criticism and empirical examination wherever evidence is possible.
 
@@ -118,7 +118,7 @@ Madhyasth Darshan takes a different route. Persons, units, relationships, and th
 
 That plurality is precisely why Hinduism as a general label cannot function as one determinate universal foundation. Appeals to revelation, deity, guru, caste duty, inherited custom, or sacred law do not command equal acceptance across Hindu traditions, much less across all humankind. Where moral authority rests finally on a community's scripture or lineage, disagreement between communities has no shared method of resolution except interpretation, conversion, accommodation, or power.
 
-Karm Darshan's critique targets this authority structure rather than every religious insight. It argues that spiritualism, god-centred thought, and other idealisms have often retained mystery at both their basis and destination, while materialism removes the need for sacred authority without supplying a complete humane end (KD, pp. 146-151). The proposed alternative is not hostility to devotion. It is to make claims about self, relationship, justice, and social purpose available for study and verification in conduct, so that humane identity does not depend on accepting one community's revelation.
+Madhyasth Darshan's critique targets this authority structure rather than every religious insight: spiritualism, god-centred thought, and other idealisms have often retained mystery at both their basis and destination, while materialism removes the need for sacred authority without supplying a complete humane end (KD, pp. 146-151). The proposed alternative is not hostility to devotion. It is to make claims about self, relationship, justice, and social purpose available for study and verification in conduct, so that humane identity does not depend on accepting one community's revelation.
 
 Religious traditions can therefore contribute practices of restraint, care, service, gratitude, and intergenerational meaning. They become inadequate as the sole basis when obedience replaces understanding, promised otherworldly outcomes displace present relationship-fulfilment, or inherited community identity limits universal responsibility.
 
@@ -172,7 +172,7 @@ Jeevan Vidya names five dimensions through which social purpose becomes institut
 
 These dimensions constrain one another. Production without ecological and bodily restraint destroys its own conditions. Security without justice becomes domination. Education without productive competence becomes abstraction. Exchange without prosperity encourages debt and accumulation. Health without resolution can become another market in anxiety. Universal orderliness means their coordinated functioning toward the same human goal.
 
-Karm Darshan adds natural responsibility to the social account. Mineral, forest, water, and climatic balances must be understood, and use must remain proportionate to regenerative processes (KD, p. 7). Coexistence with nature is therefore not a ceremonial fifth goal after human prosperity; it is a condition of production and the wider test of right-use.
+Natural responsibility is integral to this social account: mineral, forest, water, and climatic balances must be understood, and use must remain proportionate to regenerative processes (KD, p. 7). Coexistence with nature is therefore not a ceremonial fifth goal after human prosperity; it is a condition of production and the wider test of right-use.
 
 ### 5.5 Policy, protection, and public dialogue
 
@@ -196,7 +196,7 @@ The four human goals provide a disciplined but still incomplete evidential frame
 
 Evidence cannot be only self-certification. Claims of resolution or awakening must remain answerable to those affected by the claimant's conduct. Family members, co-workers, neighbours, and institutions must be able to evaluate whether values are actually fulfilled. Quantitative indicators can assist this evaluation, but no single metric substitutes for relational judgement; both first-person and public evidence are required.
 
-Education carries whatever has genuinely been evidenced. Karm Darshan calls education and orderliness the means of maintaining collective balance (KD, p. 8). A tradition becomes humane when each generation receives not merely conclusions but the capacity to investigate, understand, practise, evaluate, and improve them.
+Education carries whatever has genuinely been evidenced. Education and orderliness serve as the means of maintaining collective balance (KD, p. 8). A tradition becomes humane when each generation receives not merely conclusions but the capacity to investigate, understand, practise, evaluate, and improve them.
 
 ## 6. The establishment architecture
 
@@ -204,7 +204,7 @@ The full movement can now be stated without treating society as an enlarged atom
 
 ![The establishment of undivided society: coexistence provisions mutuality; human understanding and justice establish fulfilled relationships; family, institutions, dialogue, and education carry humane orderliness toward humankind](1-undivided-society-architecture.svg)
 
-The existing figure should be read as dependency, not deterministic ascent. Ontology does not cause awakened society without human understanding, and individual awakening does not automatically create just institutions. Each passage has its own work: inquiry at the person, fulfilment in relationships, production and evaluation in family, coordination and safeguards in institutions, and transmission in tradition.
+The architecture diagram above represents dependency rather than deterministic ascent. Ontology does not cause awakened society without human understanding, and individual awakening does not automatically create just institutions. Each passage has its own work: inquiry at the person, fulfilment in relationships, production and evaluation in family, coordination and safeguards in institutions, and transmission in tradition.
 
 The decisive reversal is from acting first and understanding only through consequences to understanding, acting, and evaluating in a continuing cycle. This is how the darshan proposes to replace fear-bound organisation without replacing it with doctrinal command. Its strongest claim is not that harmony will happen automatically, but that a non-coercive order has an intelligible basis and a reproducible path.
 

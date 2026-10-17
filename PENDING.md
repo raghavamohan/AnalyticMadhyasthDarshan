@@ -9,8 +9,8 @@ Reviewed: 15 October 2026 against `master` `a6f82bff` and live
 
 Editorial follow-ups added on 26 September 2026 from the
 [studies readability review](docs/studies-readability-review-2026-09-26.md);
-landing-page consistency, philosophical orientation, and in-reader comprehension/path
-scaffolding (Phases 1, 2 & 3) completed on 15 October 2026.
+landing-page consistency, philosophical orientation, in-reader comprehension/path
+scaffolding, and study readability rollout (Phases 1–4) completed on 17 October 2026.
 
 CI R1–R8 completed on 27 September 2026 after the public and isolated deployed acceptance exercises.
 
@@ -31,7 +31,7 @@ When an item is finished, remove the row and add a one-line note under
 1. Accept wording and check timed delivery of the revised Start here audio transcripts, beginning with
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
-2. Website next: accept the deployed smaller sign-in/recovery scope (`AUTH-02` / `UX-05`) and complete Phase 4 (`ST-READ-03`) study readability & comparative fairness rollout across the remaining studies. Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later.
+2. Website next: accept the deployed smaller sign-in/recovery scope (`AUTH-02` / `UX-05`) and complete the remaining reader-comprehension exercises across `UX-08` and `ST-READ-01`–`ST-READ-03`. Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later.
 3. `R2-RIGHTS` (fourteen retained third-party PDFs).
 4. `TR-PILOT` (listen through the five-video transcription pilot).
 
@@ -190,7 +190,7 @@ here order, not proposal-number order.
 | --- | --- | --- | --- |
 | ST-READ-01 | P1 | partial | Independent prose pilot completed in Why Humans and Axiology: six-perspective definitions, all value/faculty tables, source support and qualifications retained; caregiver explanations and content-retention review complete. Reader feedback collection is ongoing; assess the original/revised passages with those responses before claiming comprehension improvement. See the [implementation record](docs/studies-readability-review-2026-09-26.md#11-independent-implementation-on-4-october-2026). |
 | ST-READ-02 | P1 | partial | Independent Ontology and Epistemology revisions completed: full exposition retained, conceptual connections and examples explained, section identifiers preserved, and affected references/companions repaired and rebuilt. Reader-dependent assessment and any resulting iteration remain deferred while feedback collection continues, as requested on 4 October 2026. See the [implementation record](docs/studies-readability-review-2026-09-26.md#11-independent-implementation-on-4-october-2026). |
-| ST-READ-03 | P2 | pending | **Phase 4 (Study Readability & Comparative Fairness Rollout):** Extend the validated explanatory and comparative-fairness approach (`ST-READ-01` / `ST-READ-02`) to the remaining released and draft studies — including Nature of Time, Self-Sustaining Organizations, Undivided Society, Spiritual Practice and Realization, Artificial Intelligence and Coexistence, and the formal reconstruction — ensuring every study makes explicit how its analysis supports comprehension (*adhyayan* → *anubhav*) and right-use (*samriddhi*) rather than blind accumulation; preserve all substantive and formal information, verify content retention, and inspect companion/audio consequences under the [review](docs/studies-readability-review-2026-09-26.md#4-recommended-changes-by-study). |
+| ST-READ-03 | P2 | partial | **Phase 4 (Study Readability & Comparative Fairness Rollout):** Independent readability and comparative-fairness rollout completed across *Nature of Time*, *How to Form Self-Sustaining Organizations*, *How Undivided Society Is Established*, *Spiritual Practice and Realization*, *Artificial Intelligence and Coexistence*, and *From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence*: meaning-first openings and technical glosses added, source-as-speaker phrasing replaced with direct philosophical claims and parenthetical citations, comparative sections and normative-vs-empirical qualifications aligned, and 100% of substantive and formal content retained. Reader-dependent comprehension assessment remains deferred alongside `ST-READ-01` / `ST-READ-02`. See the [implementation record](docs/studies-readability-review-2026-09-26.md#12-phase-4-rollout-on-17-october-2026). |
 | ST-PE-01 | P2 | pending | Before releasing [Prosperity Economics and Right Use](Studies/Prosperity-Economics-And-Right-Use/) (first draft 13 October 2026, from the AA first pass): re-check every AA passage the study relies on against the page images as `REF-AA-TR` review proceeds, especially the unclear passages U-011 (definition of cyclicality), U-129 and U-147, and revise the paraphrases where readings change; add the two cyclical-economy figures proposed in the [plan](docs/prosperity-economics-study-plan.md#6-optional-formal-companion); settle the open author decisions (title, stock-flow technical note, treatment of trade and supply chains); consult *Vyavaharvadi Samajshastra* and *Manav Vyavahar Darshan* once located (`REF-AA`). |
 | ST-DRAFT-01 | Catalog | pending | First draft: [Philosophy of Mind and Jeevan](Studies/Philosophy-Of-Mind-And-Jeevan/) (proposal #11). |
 | ST-DRAFT-02 | Catalog | pending | First draft: [Chitta, the Brain, and the Architecture of Memory](Studies/Chitta-Brain-And-Memory/) (proposal #27). |
@@ -222,6 +222,8 @@ Projects that extend the collection beyond the site's catalog studies.
 - Session-only agent TodoWrite lists.
 
 ## Done in the same registers (do not reopen)
+
+- Studies `ST-READ-03` Phase 4 Rollout (17 October 2026): extended meaning-first openings, technical-term glosses, direct philosophical exposition without source-as-speaker phrasing, and comparative fairness across [Nature of Time](Studies/Nature-Of-Time/), [How to Form Self-Sustaining Organizations](Studies/How-To-Form-Self-Sustaining-Organizations/), [How Undivided Society Is Established](Studies/How-Undivided-Society-Is-Established/), [Spiritual Practice and Realization](Studies/Spiritual-Practice-And-Realization/), [Artificial Intelligence and Coexistence](Studies/Artificial-Intelligence-And-Coexistence/), and [From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence](Studies/A-State-Dynamic-Model-Of-Coexistence/), preserving 100% of substantive and formal content and rebuilding all affected readers and catalogs. Reader-exercise evaluation remains tracked in `ST-READ-01`–`ST-READ-03`.
 
 - Website `UX-07` Phase 3 (15 October 2026): expanded `Studies/glossary.json` from 32 to 53 terms with 21 core realisation, evaluation, value, and prosperity definitions and synced inline tooltips across all 38 tracked study/companion reader HTML files; added reading-time cues (`~N min read`), a persistent 5-stage `.reader-path-context` banner in `.reader-opening`, and stage/next-stage progression links in `.reader-ending` in `Assets/reader/reader.js` and `Assets/reader/study-tools.css`; and aligned `Studies/start-here.json` with all 28 studies in `#start-here`.
 

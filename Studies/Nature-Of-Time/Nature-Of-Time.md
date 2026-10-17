@@ -2,11 +2,13 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** September 20, 2026, 9:59 AM IST
+**Edited on:** October 17, 2026, 7:26 AM IST
 **Status:** Released
 **The question:** What is the nature of time (*kaal*)? How does Madhyasth Darshan relate timeless Omnipresence (*satta*) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?
 
-This study develops the comparative treatment begun in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) (§1.4, §2.7, §4.3). That paper states Madhyasth Darshan's core claim — *kaal* as duration of activity, timeless *satta*, numerical reckoning within existence — and defers past/present/future structure, JVD on "activity eternally present," Advaita *trikaal* language, and systematic comparison with McTaggart, eternalism/presentism, and spacetime physics to this study (Ontology §1.4).
+When water comes to the boil, a seed grows into a tree, or the Earth completes an orbit around the sun, two things are easy to conflate: the ongoing activity itself, which takes a definite span to unfold, and the clock or calendar numbers humans use to compare one span with another. If the clock reading is mistaken for a separate cosmic container through which things travel, time seems to exist on its own even apart from activity; if temporal change is treated as mere appearance, the reality of growth, responsibility, and human action is undercut.
+
+This study develops the comparative treatment begun in [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) (§1.4, §2.7, §4.3). That paper states Madhyasth Darshan's core claim — time (*kaal*) as the duration of activity, timeless Omnipresence (*satta*), and numerical reckoning within existence — and defers four connected questions to this study (Ontology §1.4): how past, present, and future arise from activity that is eternally present; how coexistence and the central faculty of the conscious self (*atma*) remain valid across all three times without cancelling the world; how this account compares with Advaita Vedanta's three-time (*trikaal*) language; and how it stands beside McTaggart's A- and B-series, presentism and eternalism, and modern physics (spacetime, cosmology, and entropy). Together these questions bear directly on human living: because present activity is where change actually occurs and where past configurations are carried forward, study (*adhyayan*), realisation (*anubhav*), and responsible conduct take place in an active present rather than a predetermined block or an illusory appearance.
 
 ## 1. The Madhyasth Darshan Answer
 
@@ -14,12 +16,12 @@ Madhyasth Darshan holds that time (*kaal*) belongs to the activity of units, not
 
 ### 1.1 Time as the duration of activity
 
-Madhyasth Darshan does not posit time as an independent dimension, substance, or background framework. It derives time directly from the motion and transformation of units:
+Madhyasth Darshan does not posit time as an independent dimension, substance, or background framework. Instead, whenever any bounded unit acts, moves, or transforms, that ongoing activity has a continuance or span, and that duration is what the darshan calls time (*kaal*):
 
 > **"Time (*kaal*): Duration of an activity is referred to as time."**
 > - MVD, p. 34
 
-Because every physical (*jada*) and sentient (*chaitanya*) unit in existence is eternally active through the single triad *shram–gati–parinam* (effort–motion–result) — in sentient *jeevan* read toward completeness through projection, reflection, and *samadhan* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.2) — activity is perpetual. Time is the inseparable duration of this activity. It is not something units "move through"; it is a property of their motion and state.
+Because every physical (*jada*) and sentient (*chaitanya*) unit in existence is eternally active through the single triad of effort, motion, and result (*shram–gati–parinam*) — in sentient *jeevan* read toward completeness through projection, reflection, and resolution (*samadhan*; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.2) — activity is perpetual. Time is the inseparable duration of this activity. It is not something units "move through"; it is a feature of their ongoing motion and state.
 
 > **"Time is measured by the duration of an activity."**
 > - SB, p. 65
@@ -28,81 +30,81 @@ Where there is no transforming activity, there is no time in this sense. That re
 
 ### 1.2 *Kaal*, *rachna*, and *vistar* — a duration taxonomy
 
-Madhyasth Darshan does not treat "duration" as one undifferentiated category. MVD groups three related terms:
+In ordinary language, the span of an activity and the persistence or extent of a physical object are often run together. Madhyasth Darshan does not treat "duration" as one undifferentiated category; it distinguishes the duration of an activity from the boundedness and span of a material composition:
 
 > **"Time (*kaal*): Duration of an activity is referred to as time."**
 > **"Composition (*rachna*): The bounds of matter is referred to as composition or object, which is measured."**
 > **"Expanse (*vistar*): The span of a composition is referred to as expanse."**
 > - MVD, p. 196
 
-*Kaal* belongs to **activity** — the ongoing *shram–gati–parinam* of units. *Rachna* and *vistar* belong to **bounded matter**: how long a composition lasts as a counted object and how far that composition extends. MVD adds that the duration of matter's existential measure and form depends on its **organisation and state** (MVD, p. 41) — not on a freestanding temporal container.
+Time (*kaal*) belongs to **activity** — the ongoing effort–motion–result (*shram–gati–parinam*) of units. Composition (*rachna*) and expanse (*vistar*) belong to **bounded matter**: how a composition holds together as a counted object and how far that composition extends. The duration of matter's existential measure and form depends on its **organisation and state** (MVD, p. 41) — not on a freestanding temporal container.
 
-Absolute energy (*satta* as uniform energy) is present in every time, place, and object; no place or object lacks it. Places devoid of matter are acknowledged, but no time devoid of that energy is proven (MVD, p. 41). *Kaal* in the strict sense still applies only where **activity** occurs; matter-duration (*rachna*, *vistar*) tracks bounded configurations, not the ground.
+Absolute energy (*satta* as uniform energy) is present in every time, place, and object; no place or object lacks it. Places devoid of matter are acknowledged, but no time devoid of that energy is proven (MVD, p. 41). Time (*kaal*) in the strict sense still applies only where **activity** occurs; matter-duration (*rachna*, *vistar*) tracks bounded configurations, not the ground.
 
 ### 1.3 The timelessness of Omnipresence (*satta*)
 
-Existence (*astitva*) is the inseparable coexistence of units and Omnipresence. While units are formful and ceaselessly active, *satta* is formless, all-pervasive, and entirely non-transforming (*kriya-shunya*).
+Existence (*astitva*) is the inseparable coexistence of units and Omnipresence. While units have form and are ceaselessly active, Omnipresence (*satta*) is formless, all-pervasive, and entirely devoid of activity (*kriya-shunya*).
 
-Because *satta* performs no actions and undergoes no change, duration in the sense of *kaal* does not apply to it. MVD describes Omnipresence as existing "at all places and times, and … eternally present" (MVD, p. 34). That "all times" language names **omnipresence**, not temporal becoming in *satta*: there is no place or time where formless existence is absent (SB, p. 69). Omnipotence is present everywhere and at all times, and all unit-activities are encompassed within it — indivisible from it as regulation and supreme cause (*mahakaran*), not as efficient trigger of particular change (MVD, p. 296; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.4).
+Because *satta* performs no actions and undergoes no change, duration in the sense of *kaal* does not apply to it. Omnipresence exists "at all places and times, and … [is] eternally present" (MVD, p. 34). That "all times" language names **omnipresence**, not temporal becoming in *satta*: there is no place or time where formless existence is absent (SB, p. 69). Omnipotence is present everywhere and at all times, and all unit-activities are encompassed within it — indivisible from it as regulation and supreme cause (*mahakaran*), not as an efficient trigger of particular change (MVD, p. 296; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.4).
 
-At the level of units (*ikai*), time is real as the duration of *shram–gati–parinam*. At the level of the ground (*satta*), there is absolute timelessness as *kriya-shunya* stasis. The two levels are not contradictory because *kaal* is defined only through *kriya*, not as a freestanding dimension in which *satta* sits.
+At the level of units (*ikai*), time is real as the duration of *shram–gati–parinam*. At the level of the ground (*satta*), there is absolute timelessness as actionless (*kriya-shunya*) completeness. The two levels are not contradictory because *kaal* is defined only through activity (*kriya*), not as a freestanding dimension in which *satta* sits.
 
-MVD uses *kaal* in a second, **contextual** sense for awakened humans: omnipresent *satta* appears as law at the **time of vocation**, resolution at the **time of thinking**, bliss at the **time of realisation**, and justice at the **time of behaviour** (MVD, p. 34). These are modalities of human activity, not independent cosmic time — the same ground expressed in distinct phases of work, thought, experience, and conduct.
+In awakened human living, *kaal* also carries a second, **contextual** sense naming the occasion of an activity: omnipresent *satta* becomes evident as law at the **time of vocation**, resolution at the **time of thinking**, bliss at the **time of realisation**, and justice at the **time of behaviour** (MVD, p. 34). These are modalities of human activity, not independent cosmic time — the same ground expressed in distinct phases of work, thought, experience, and conduct.
 
 ### 1.4 *Trikaalabadh*, *atma*, and timeless coexistence
 
-SB states that the harmony of consciousness and matter is:
+If units are constantly active while the ground is actionless, what remains constant across past, present, and future? The harmony of consciousness and matter in coexistence holds across all three times:
 
 > **"…a timeless truth valid across all three times."**
 > - SB, p. 48
 
-The Sanskrit *trikaalabadh* (binding across past, present, and future) applies to **coexistence as a whole** — not to prove that unit-activity is illusory, but to show that what is understood about coexistence does not come and go with a moment. Existence does not begin and does not end; *satta* is atemporal as ground, yet coexistence is valid across the three times. *Kaal* as duration belongs to the activity of units, not to *satta* as efficient cause ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.4).
+The Sanskrit term *trikaalabadh* — uncontradicted or binding across past, present, and future — applies to **coexistence as a whole** (SB, p. 48), not to prove that unit-activity is illusory, but to show that what is understood about coexistence does not come and go with a passing moment. Existence does not begin and does not end; *satta* is atemporal as ground, yet coexistence holds across the three times. Time (*kaal*) as duration belongs to the activity of units, not to *satta* as an efficient cause ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.4).
 
-MVD adds a **sentient-level** three-time claim distinct from SB's binding of coexistence:
+At the **sentient level**, the central faculty of the conscious unit (*atma*) likewise remains constant across all three times:
 
 > **"Atma exists in the form of mediative activity across all three times. Existence is unchanging; its realisation happens in atma, and enlightenment happens in buddhi."**
 > - MVD, p. 299
 
-*Atma* is mediative activity — free from generative and degenerative pressure (MVD, p. 296). Its presence across the three times names the **unchanging existential element** in sentient nature, realised in *atma* and enlightened in *buddhi*, while unit-activity and *kaal* as duration continue in transforming nature. SB's *trikaalabadh* binds **coexistence**; MVD's formula binds **atma** as the mediative pole through which existence is experienced as unchanging. Both affirm three-time validity without sublating the world.
+*Atma* is mediative activity — free from generative and degenerative pressure (MVD, p. 296). Its presence across the three times names the **unchanging existential element** in sentient nature, realised in *atma* and understood in *buddhi*, while unit-activity and *kaal* as duration continue in transforming nature. Uncontradicted validity across the three times (*trikaalabadh*) thus holds both for **coexistence** as the whole reality and for ***atma*** as the mediative core through which unchanging existence is realised, affirming three-time validity without sublating the world (SB, p. 48; MVD, p. 299).
 
-This is Madhyasth Darshan's answer to a question Advaita also faces with *trikaal* language: how can the absolute be related to past, present, and future without being swallowed by temporal becoming? Madhyasth Darshan's reply is bifurcated ontology — timeless ground, temporally active units, coexistence and *atma* binding truth across the three times without sublating the world.
+This is Madhyasth Darshan's answer to a question Advaita also faces with three-time (*trikaal*) language: how can the absolute be related to past, present, and future without being swallowed by temporal becoming? Madhyasth Darshan's reply is a two-aspect ontology of coexistence — a timeless ground and temporally active units, with coexistence and *atma* holding true across the three times without cancelling the world.
 
 ### 1.5 Relative truth, measurement, and numerical reckoning
 
-SB and MVD sort truth into three kinds. Through awakening, one recognises **absolute truth** as nature saturated in Omnipotence, **relative truth** as direction, time, and place, and **objective truth** as form, properties, essential nature, and *dharma* (SB, p. 65). *Kaal* enters as **relative truth** — alongside direction and place, not as absolute or objective truth in its own right:
+To explain how time can be both an objective feature of activity and a human system of clocks and calendars, the darshan distinguishes three kinds of truth. Through awakening, one recognises **absolute truth** as nature saturated in Omnipotence, **relative truth** as direction, time, and place, and **objective truth** as form, properties, essential nature, and *dharma* (SB, p. 65). Time (*kaal*) enters as **relative truth** — alongside direction and place, not as absolute or objective truth in its own right:
 
 > **"Relative truth is evident in the form of direction, time, and place. … The duration of activity, as time, is a humanly devised numerical reckoning within existence."**
 > - SB, p. 251
 
-MVD defines **satya** (truth) as uniformly perceivable, existent, and realisable **at all three times** — the eternal presence (*nitya vartaman*) of absolute, relative, and objective truth in existence (MVD, p. 336). Time as relative truth is therefore real within coexistence — humans measure and coordinate activity-duration — but its **numerical** form is conventional:
+Truth (**satya**) is defined as what is uniformly perceivable, existent, and realisable **at all three times** — the eternal presence (*nitya vartaman*) of absolute, relative, and objective truth in existence (MVD, p. 336). Time as relative truth is therefore real within coexistence — humans measure and coordinate activity-duration — while its **numerical** expression is a human convention:
 
 > **"The measurement of time, expanse and different compositions is through mathematics."**
 > - MVD, p. 195
 
-JVD adds that every duration appears in numerical form and that purposes can be recognised on the basis of time or activity (JVD, p. 85). Science, in JVD's public-discourse vocabulary, offers a mechanism to associate time with activity once comprehensive object-knowledge is established through analysis (JVD, pp. 191–192). Time-reckoning compares one activity against a standard reference activity (such as the Earth's rotation). The underlying duration is real; quantification and coordinate systems belong to human epistemology within the human order (*gyan avastha*), not to the fundamental ontology of *satta*.
+Every duration appears in numerical form when measured, and human purposes can be organised on the basis of time or activity (JVD, p. 85). In scientific and practical inquiry, time is associated with activity once comprehensive object-knowledge is established through analysis (JVD, pp. 191–192). Time-reckoning compares one activity against a standard reference activity (such as the Earth's rotation or an atomic oscillation). The underlying duration of the activity is real; quantification and coordinate systems belong to human measurement within the knowledge order (*gyan avastha*), not to the fundamental ontology of *satta*.
 
 ### 1.6 Activity eternally present and the three times
 
-Madhyasth Darshan emphasises the present as the locus of causal reality. JVD states the central passage deferred from [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.4:
+Madhyasth Darshan emphasises the present as the locus of causal reality, addressing the question deferred from [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.4 of how past and future relate to present activity:
 
 > **"Every numerical moment of time, which is taken to be past or future, is found to be present in the form of activity. Thus, it becomes studiable that activity is eternally present."**
 > - JVD, p. 85
 
-Read carefully, this is not a denial that humans **experience** past and future. We remember, anticipate, and plan; numerical reckoning distinguishes earlier and later durations. The claim is ontological and pedagogical: whatever moment we label past or future, **studiable** reality appears as **present activity**. In insentient nature, anticipated change appears as the projected **result (*parinam*)** of current *shram–gati–parinam* activity; in sentient *jeevan*, the same triad continues but toward *samadhan* (resolution) through projection and reflection rather than physicochemical *parinam* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.2). Only present activity possesses causal efficacy in the darshan's order of nature.
+Read carefully, this is not a denial that humans **experience** past and future. We remember, anticipate, and plan; numerical reckoning distinguishes earlier and later durations. The claim is ontological and pedagogical: whatever moment we label past or future, **studiable** reality appears as **present activity**. In insentient nature, anticipated change appears as the projected **result (*parinam*)** of current effort–motion–result (*shram–gati–parinam*) activity; in sentient *jeevan*, the same triad continues toward resolution (*samadhan*) through projection and reflection rather than physicochemical *parinam* ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.2). Only present activity possesses causal efficacy in the darshan's order of nature.
 
 Where does the "past" survive if it is not an independent temporal place? In Madhyasth Darshan it persists in present forms at two levels. **Physically**, as inherited structural traces and configurations within material units (*jada ikai*) — consistent with conservation through transformation, not annihilation ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §1.4). **In the human order**, through the faculties of ***jeevan***: *chitta* (*sahaj chitran* — natural visualisation) includes **time (*kaal*)** among its eight reckoning activities — form, property, count, time, expanse, effort, motion, and result (MVD, p. 327); *buddhi*'s innateness is enlightenment of **time, activity, and truth** (MVD, p. 204); *sanskar* carries acceptances and knowledge forward across cycles (MVD, p. 90; [The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §§1.6.1, 1.8). Through *chitta* and *buddhi*, past and future become **numerically distinguishable** categories for humans — not because duration ceases for insentient units, which have *kaal* as activity-duration without *chitta*, but because human study compares visualised durations against present activity (JVD, p. 85). The full map of *mun*, *vritti*, *chitta*, *buddhi*, and *atma* belongs in the ongoing study *Philosophy-Of-Mind-And-Jeevan*; this paper notes only what time requires from that structure.
 
-"Activity eternally present" therefore names two related truths: (1) units never cease their *kriya*; (2) the human study of time, activity, and present becomes coherent when we stop treating past and future as independent places and instead trace them to ongoing activity now. This is closer to **present-centred process ontology** than to eternalism, but it is not identical to Western presentism, because the past is real as completed activity (trace, configuration, and human reckoning through *chitta*, *buddhi*, and *sanskar*) rather than as sheer non-being.
+"Activity eternally present" therefore names two related truths: (1) units never cease their activity (*kriya*); (2) the human study of time, activity, and the present becomes coherent when we stop treating past and future as independent places and instead trace them to ongoing activity now. This is closer to **present-centred process ontology** than to eternalism, but it is not identical to Western presentism, because the past is real as completed activity (trace, configuration, and human reckoning through *chitta*, *buddhi*, and *sanskar*) rather than as sheer non-being.
 
 ### 1.7 Place, time, and eternal presence
 
-Questions that treat place and time as **containers** into which existence must be fitted — for example, where the four orders "were" before Earth — rely on constructs that SB rejects at the level of existential grandeur. In the intrinsic magnificence of existence, characterised by eternal presence, place and time **do not interfere** (SB, p. 103). Existence is not limited to place or time; its magnificence is beyond those constraints, even though humans express reality through words and imagine places and times speculatively (SB, p. 138).
+Questions that treat place and time as **containers** into which existence must be fitted — for example, asking where the four orders "were" before Earth formed — rely on container constructs that do not apply to existence as a whole. In the intrinsic magnificence of existence, characterised by eternal presence (*nitya vartaman*), place and time **do not interfere** (SB, p. 103). Existence is not limited to place or time; its magnificence is beyond those constraints, even though humans express reality through words and imagine places and times speculatively (SB, p. 138).
 
-That claim complements, rather than contradicts, the reality of *kaal* as activity-duration and of relative truth as direction, time, and place. At the **unit** level, direction, place, and measured duration are operationally valid — mutual reference points among *ikai*, numerical reckoning of activity (SB, p. 65). At the **existential** level, *astitva* is eternally present (*nitya vartaman*): what was, continues to be; what was not, does not happen (SB, p. 103). Place and time as **human reckoning frameworks** coordinate activity within coexistence; they do not bound or originate existence itself.
+That claim complements, rather than contradicts, the reality of *kaal* as activity-duration and of relative truth as direction, time, and place. At the **unit** level, direction, place, and measured duration are operationally valid — mutual reference points among units (*ikai*) and numerical reckoning of activity (SB, p. 65). At the **existential** level, existence (*astitva*) is eternally present (*nitya vartaman*): what was, continues to be; what was not, does not happen (SB, p. 103). Place and time as **human reckoning frameworks** coordinate activity within coexistence; they do not bound or originate existence itself.
 
 ### 1.8 The primacy of the present
 
-Because units are always in *shram–gati–parinam* **now**, the present is the actualised state of existence. Madhyasth Darshan refuses both the Advaitic sublation of temporal becoming at the highest truth and the block-universe picture on which all moments are equally real and static. Change is ontologically real; the present is where transformation occurs. Numerical time is how humans coordinate that reality across scales — from atomic cycles to cosmic epochs — without reifying time as a container independent of activity.
+Because units are always in effort–motion–result (*shram–gati–parinam*) **now**, the present is the actualised state of existence. Madhyasth Darshan refuses both the Advaitic sublation of temporal becoming at the highest truth and the block-universe picture on which all moments are equally real and static. Change is ontologically real; the present is where transformation occurs. Numerical time is how humans coordinate that reality across scales — from atomic cycles to cosmic epochs — without reifying time as a container independent of activity.
 
 ## 2. The Advaita Vedanta Answer
 
@@ -129,7 +131,7 @@ At ***paramartha***, however, the entire universe of names and forms (*nama-roop
 
 Advaita's *trikaal* formulas (as in MU, v. 1) serve a non-dual purpose: Brahman is not confined to one temporal phase because Brahman is the truth of all phases and also beyond them. Temporal succession belongs to *vyavahara*; at liberation, the Self is discovered as never truly bound by birth, death, or succession ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §2.7).
 
-Madhyasth Darshan uses parallel *trikaal* vocabulary with a different ontological commitment. SB's *trikaalabadh* binds **coexistence** across the three times while **affirming** perpetual unit-activity and world-realness (*jagat satat*). Advaita validates time operationally but finally sublates it; Madhyasth Darshan validates time as real duration of real activity and denies that realization cancels the world. The dispute is not over whether humans live in past–present–future structure, but over whether temporal becoming has **final** ontological weight.
+Madhyasth Darshan uses parallel *trikaal* vocabulary with a different ontological commitment. In the coexistential account, *trikaalabadh* binds **coexistence** across the three times while **affirming** perpetual unit-activity and world-realness (*jagat satat*; SB, p. 48). Advaita validates time operationally but finally sublates it; Madhyasth Darshan validates time as real duration of real activity and denies that realization cancels the world. The dispute is not over whether humans live in past–present–future structure, but over whether temporal becoming has **final** ontological weight.
 
 ## 3. Modern Physics and Philosophy of Time
 
@@ -186,7 +188,7 @@ The three frameworks agree that humans live with past–present–future structu
 
 ### 5.1 Madhyasth Darshan — activity-based time, present-centred realism
 
-**Strengths.** The definition of *kaal* through *kriya* is internally consistent with the darshan's coexistential ontology: timeless *satta*, active *ikai*, no freestanding temporal container. The three-truth framework situates *kaal* as relative truth alongside direction and place while preserving real activity-duration. *Trikaalabadh* on coexistence and *atma*'s mediative presence across the three times answer part of the Advaita challenge without sublating the world. JVD's "activity eternally present" gives a distinctive present-centred account that resists both block eternalism and world-denying non-dualism. Numerical reckoning as convention aligns measurement with human epistemology while preserving real duration.
+**Strengths.** The definition of *kaal* through *kriya* is internally consistent with the darshan's coexistential ontology: timeless *satta*, active *ikai*, no freestanding temporal container. The three-truth framework situates *kaal* as relative truth alongside direction and place while preserving real activity-duration. *Trikaalabadh* on coexistence and *atma*'s mediative presence across the three times answer part of the Advaita challenge without sublating the world. The account of "activity eternally present" (JVD, p. 85) gives a distinctive present-centred perspective that resists both block eternalism and world-denying non-dualism. Numerical reckoning as convention aligns measurement with human epistemology while preserving real duration.
 
 **Weaknesses.** The relation between "every numerical moment is present as activity" and ordinary memory, anticipation, and historical record needs tighter formalisation — especially versus eternalism and versus Advaita's *turiya* witness of temporal states ([The Ontology of Coexistence](../The-Ontology-of-Coexistence/The-Ontology-of-Coexistence.pdf) §2.2). The darshan suggests directional structure through *vikas* and the activity triads but does not derive thermodynamic asymmetry from them or fully reconcile activity-based *kaal* with relativistic spacetime and cosmological horizons. Public evidence standards remain those of metaphysics, not laboratory physics.
 
@@ -212,7 +214,7 @@ Modern science is indispensable for measurement and dynamical law; it does not b
 
 1. **The mechanisms of the past in *jeevan* and *jada*.** While the past survives physically in *jada* configurations and, in humans, is reckoned through *chitta* (MVD, p. 327) and carried forward through *sanskar*, formalising how *jeevan* accesses physical traces without dualism requires deeper work — to be developed alongside *Philosophy-Of-Mind-And-Jeevan* — particularly when comparing against block-universe models that treat the past as statically real rather than dependent.
 
-2. ***Trikaalabadh*, *atma*, and Advaita *trikaal*.** Both traditions use three-time language. SB's *trikaalabadh* binds coexistence; MVD's *atma* is mediative activity across the three times (p. 299). A fuller treatment must state whether these claims are logically independent of Advaita's sublation, or whether the vocabularies only appear parallel in English.
+2. ***Trikaalabadh*, *atma*, and Advaita *trikaal*.** Both traditions use three-time language. In the coexistential account, *trikaalabadh* binds coexistence across the three times (SB, p. 48) and *atma* exists as mediative activity across the three times (MVD, p. 299). A fuller treatment must state whether these claims are logically independent of Advaita's sublation, or whether the vocabularies only appear parallel in English.
 
 3. **Relativity and activity-based *kaal*.** If *kaal* is duration of unit-activity and numerical reckoning is conventional, how should one read coordinate time in General Relativity, horizon effects, and the block-universe interpretation? Is spacetime a useful human reckoning on large-scale activity, or a rival ontology?
 
@@ -235,7 +237,7 @@ Key terms from §§1–3 are collected here for quick reference. Each term is al
 | **Time (*kaal*)** | The duration of unit-activity (*kriya*). Not an independent cosmic dimension or container. |
 | **Composition (*rachna*)** | The bounds or duration of matter as a measured object — distinct from *kaal* as activity-duration (MVD, p. 196). |
 | **Expanse (*vistar*)** | The span of a composition — duration at the level of bounded matter, not freestanding space-time (MVD, p. 196). |
-| **Relative truth** | One of three truth kinds in SB/MVD: direction, time, and place — with *kaal* as human numerical reckoning of activity-duration (SB, pp. 65, 251). |
+| **Relative truth** | One of three truth kinds in Madhyasth Darshan: direction, time, and place — with *kaal* as human numerical reckoning of activity-duration (SB, pp. 65, 251). |
 | **Omnipresence (*satta*)** | The all-pervasive, formless, non-transforming ground. Timeless because actionless (*kriya-shunya*). |
 | **Unit (*ikai*)** | A countable, bounded entity in nature. All units are active; hence duration applies to them. |
 | **Existence (*astitva*)** | Coexistence (*saha-astitva*) of formless *satta* and active units (*ikai*). Beginningless and endless. |
@@ -255,6 +257,11 @@ Key terms from §§1–3 are collected here for quick reference. Each term is al
 | **A-theory / B-theory** | McTaggart's A-series (past/present/future) and B-series (earlier/later). A-theories privilege a moving or objective present; B-theories treat temporal order without an ontologically special "now." |
 | **Eternalism / presentism** | Eternalism: past, present, and future events are equally real (often linked to block-universe readings). Presentism: only the present exists; past and future are unreal or dependent. |
 | **Block universe** | Interpretation of relativity on which past, present, and future coexist statically in four-dimensional spacetime. |
+
+## Editorial Notes
+
+- **Three-time formulations across primary sources (§1.4, §2.2, §6.2).** *Samadhanatmak Bhautikvad* (SB, p. 48) applies *trikaalabadh* (uncontradicted across the three times) to the harmony of consciousness and matter in coexistence as a whole, while *Madhyasth Darshan — Co-existentialism* (MVD, p. 299) locates unchanging mediative activity across the three times in *atma*, realised in *atma* and understood in *buddhi*. Section 1.4 presents these as complementary levels of the same coexistential account — cosmic coexistence and the sentient core through which unchanging existence is realised — rather than treating them as competing definitions.
+- **Present-centred activity and numerical duration (§1.5, §1.6).** The exposition synthesises the definition of *kaal* as activity-duration (MVD, pp. 34, 196; SB, p. 65), relative truth as direction, time, and place (SB, pp. 65, 251), and the public-discourse formulation that every numerical moment taken as past or future is studiable as present activity (JVD, p. 85).
 
 ## References
 
