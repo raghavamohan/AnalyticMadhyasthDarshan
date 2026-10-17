@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import { createRequire } from 'node:module';
 const require = createRequire(import.meta.url);
-const { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex, passagePlace } = require('../Assets/reader/reader.js');
+const { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex, passagePlace, readingMinutes, studyStageInfo } = require('../Assets/reader/reader.js');
 
 assert.deepEqual(preferences({ fontSize: '900px', lineHeight: -1, width: 10000, sidebar: 'false' }),
   { fontSize: 18, lineHeight: 1.75, width: 68, sidebar: true });
@@ -106,4 +106,25 @@ for (const [index, section] of sections.entries()) {
   }
 }
 assert.equal(readingIndex(sections, 40000), 2);
+assert.equal(readingMinutes([]), 0);
+assert.equal(readingMinutes([{ text: 'short passage' }]), 1);
+assert.equal(readingMinutes([
+  { node: { tagName: 'H2' }, text: 'Heading words ignored '.repeat(200) },
+  { node: { tagName: 'P' }, text: 'word '.repeat(440).trim() },
+]), 2);
+const stage1Core = studyStageInfo('/Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.html');
+assert.equal(stage1Core?.stage, 1);
+assert.equal(stage1Core?.isCore, true);
+assert.equal(stage1Core?.isCompanion, false);
+assert.equal(stage1Core?.nextStage, 2);
+assert.equal(stage1Core?.stageHref, '../index.html?stage=1#path-study-Why-Humans-Are-Not-Just-Material');
+const companionNote = studyStageInfo('/Studies/Nature-Of-Time/Research-Note-Time.html');
+assert.equal(companionNote?.stage, 2);
+assert.equal(companionNote?.isCompanion, true);
+assert.equal(companionNote?.isCore, false);
+assert.match(companionNote?.label || '', /Companion note/);
+const parallelStudy = studyStageInfo('/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html');
+assert.equal(parallelStudy?.stage, 0);
+assert.match(parallelStudy?.label || '', /Across all 5 stages/);
+assert.equal(studyStageInfo('/Studies/index.html'), null);
 console.log('Reader preference, storage validation, passage recovery and navigation tests passed.');

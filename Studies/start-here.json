@@ -1,18 +1,19 @@
 {
   "title": "Start here: the study path I am following",
-  "intro": "I start by asking whether a human is just matter, rather than assuming that the body already answers it. The questions that remain require an understanding of existence, then of how knowledge enters the picture, then of how values come about. Only with that understanding does the path ask how we should live, and how social structures should be designed. Follow the same sequence, question it, or contribute where the work is incomplete.",
+  "intro": "We begin with the human being, then examine existence, knowledge, value, and social life. Across these five stages, the path tests a central diagnostic claim of Madhyasth Darshan: that treating a human as only a physical body turns finite bodily needs into open-ended material accumulation, whereas understanding the conscious self (jeevan) and coexistence grounds lasting resolution, definite human values, and shared prosperity. Follow the same sequence, question it, or contribute where the work is incomplete.",
   "stages": [
     {
       "number": 1,
       "domain": "Human",
       "question": "Is a human only a body?",
       "reason": "Test whether a human is exhausted by the body by comparing scientific accounts and their physicalist interpretation with Advaita Vedanta and Madhyasth Darshan.",
-      "blurb": "This study tests whether a human is exhausted by a physicochemical body and brain, comparing a physicalist reading of the sciences with Advaita Vedanta and Madhyasth Darshan's body-and-jeevan account.",
+      "blurb": "This study tests whether a human is exhausted by a physicochemical body and brain, comparing a physicalist reading of the sciences with Advaita Vedanta and Madhyasth Darshan's body-and-jeevan account — including why finite physical goods satisfy the body while the conscious self (jeevan) seeks continuous understanding and relationship.",
       "core": {
         "slug": "Why-Humans-Are-Not-Just-Material",
         "role": "Core study"
       },
       "related": [
+        { "slug": "Artificial-Intelligence-And-Coexistence" },
         { "slug": "Philosophy-Of-Mind-And-Jeevan" },
         { "slug": "Chitta-Brain-And-Memory" },
         { "slug": "Death-Continuity-And-Rebirth" }
@@ -21,15 +22,15 @@
         "number": 2,
         "domain": "Existence",
         "action": "Continue to Existence",
-        "prompt": "If the body does not already answer what a human is, the leftover questions are about existence: what is there, and where we stand in it."
+        "prompt": "If a human is a conscious jeevan together with a physical body, the next question is about existence: what kind of reality encompasses both, and where human beings stand in it."
       }
     },
     {
       "number": 2,
       "domain": "Existence",
-      "question": "What exists—and what are we?",
+      "question": "What exists—and where do humans stand in it?",
       "reason": "Examine coexistence, units, and nature's orders, including Madhyasth Darshan's claim that the human belongs to the knowledge order.",
-      "blurb": "This study asks what exists: coexistence of omnipresence and units, the four orders of nature, and the claim that the human belongs to the knowledge order rather than being only a material organism.",
+      "blurb": "This study asks what exists: coexistence of omnipresence and active units, the four orders of nature, and the claim that human beings belong to the knowledge order within an already self-organized reality rather than an indifferent material cosmos or an illusion.",
       "core": {
         "slug": "The-Ontology-of-Coexistence",
         "role": "Core study"
@@ -43,20 +44,21 @@
         "number": 3,
         "domain": "Knowledge",
         "action": "Continue to Knowledge",
-        "prompt": "Once that picture of existence is stated, the next study asks how it can be known, and what the knower must know."
+        "prompt": "Once that picture of existence is stated, the next stage asks how reality can be known — and how study moves from verbal information to lived realisation."
       }
     },
     {
       "number": 3,
       "domain": "Knowledge",
-      "question": "What must the knower know?",
-      "reason": "Ask what knowledge is, what must be known, and how understanding of coexistence and humane conduct guides action toward lasting fulfilment.",
-      "blurb": "This study asks what knowledge is, who the knower is, and how understanding of coexistence must become evident in evaluation, conduct, and tradition rather than remaining unused information.",
+      "question": "What must the knower know — and how is it realised?",
+      "reason": "Ask what knowledge is, what must be known, and how systematic study (adhyayan) of coexistence progresses to direct realisation (anubhav) and guides humane conduct.",
+      "blurb": "This study asks what knowledge is, who the knower is, and how systematic study (adhyayan) of coexistence progresses to direct realisation (anubhav) and becomes evident in conduct rather than remaining unexamined belief or unused information.",
       "core": {
         "slug": "The-Epistemology-of-Coexistence",
         "role": "Core study"
       },
       "related": [
+        { "slug": "Spiritual-Practice-And-Realization" },
         { "slug": "Methodology-And-Hermeneutics" },
         { "slug": "Work-Action-And-Karma" },
         { "slug": "Free-Will-Choice-And-Agency" },
@@ -66,15 +68,15 @@
         "number": 4,
         "domain": "Value",
         "action": "Continue to Value",
-        "prompt": "If understanding must show itself in evaluation, the next study asks what a value is, and what makes relationship definite."
+        "prompt": "If awakening transforms how a human evaluates, the next stage asks what a value is, and how evaluation shifts from self-centred gain to definite relationship."
       }
     },
     {
       "number": 4,
       "domain": "Value",
       "question": "What makes value and relationship definite?",
-      "reason": "Study whether values and relationships have a definite structure, and how understanding is tested and deepened through conduct.",
-      "blurb": "This study asks what a value is, whether it is conferred by preference or already present in participation, and how evaluation can be correct or mistaken in relationship and conduct.",
+      "reason": "Study whether values and relationships have a definite structure, and how understanding shifts evaluation from sensory and acquisitive gain to relationship and right-use.",
+      "blurb": "This study asks what a value is, whether it is conferred by preference or already present in participation, and how waking up to human nature shifts evaluation from sensory pleasure and acquisitive gain (priya–hita–labh) to justice, intrinsic relational values, and right-use.",
       "core": {
         "slug": "Axiology-Value-Theory",
         "role": "Core study"
@@ -88,29 +90,32 @@
         "number": 5,
         "domain": "Living",
         "action": "Continue to Living",
-        "prompt": "Values that are definite still have to be lived. The next study asks how coexistence is established in family, education, and society."
+        "prompt": "Values that are definite still have to be lived. The final stage asks how understanding replaces blind accumulation with shared prosperity, self-sustaining institutions, and an undivided society."
       }
     },
     {
       "number": 5,
       "domain": "Living",
-      "question": "How is coexistence lived?",
-      "reason": "Begin with family and extend participation through education, society, governance, economy, ecology, and spiritual practice. This widening participation is where understanding is tested in living.",
-      "blurb": "This study asks what would make humankind an undivided society, and how that is established through family, education, organisations, and institutions as the test of the earlier understanding.",
+      "question": "How is coexistence lived in prosperity and society?",
+      "reason": "Begin with family and extend participation through education, cyclical economics, self-sustaining organisations, and undivided society. This widening participation is where understanding is tested in living.",
+      "blurb": "This study asks what would make humankind an undivided society, and how understanding and prosperity (samriddhi — producing and having more than one's finite bodily needs) are established through family, education, cyclical economics, and self-sustaining institutions.",
       "core": {
         "slug": "How-Undivided-Society-Is-Established",
         "role": "Core study"
       },
       "related": [
-        { "slug": "Human-Behavior-And-Society" },
+        { "slug": "Prosperity-Economics-And-Right-Use" },
         { "slug": "How-To-Form-Self-Sustaining-Organizations" },
-        { "slug": "Education-And-Sanskar" }
+        { "slug": "Human-Behavior-And-Society" },
+        { "slug": "Education-And-Sanskar" },
+        { "slug": "Governance-Justice-And-Undivided-Society" },
+        { "slug": "Health-Body-And-Restraint" }
       ],
       "next": {
         "number": 1,
         "domain": "Human",
         "action": "Return to Human",
-        "prompt": "The path does not continue to another stage. Understanding is tested in living, and can be walked again from the human question."
+        "prompt": "The path does not end in abstract theory. Understanding is tested in relationships, right-use of material resources, and social participation — and can be walked again from the human question."
       }
     }
   ],
