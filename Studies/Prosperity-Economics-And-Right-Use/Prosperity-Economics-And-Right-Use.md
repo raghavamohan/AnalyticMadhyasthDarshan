@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** October 17, 2026, 6:13 PM IST
+**Edited on:** October 17, 2026, 6:14 PM IST
 **Status:** Released
 **The question:** Why do human economies, unlike every other order of nature, fail to reach balance (*santulan*), and what would an economy look like that gives human labour its true value, judged by the usefulness it establishes for human living and for the wider order of nature, rather than by scarcity, accumulation, and price?
 
