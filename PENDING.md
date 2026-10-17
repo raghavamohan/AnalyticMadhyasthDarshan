@@ -4,13 +4,13 @@ This is the **only** project backlog. Plans, review notes, and implementation
 docs keep design, history, and how-to. They do not keep a second remaining-work
 table.
 
-Reviewed: 15 October 2026 against `master` `852bf0c3` and live
+Reviewed: 15 October 2026 against `master` `a6f82bff` and live
 [analyticmadhyasthdarshan.org](https://analyticmadhyasthdarshan.org).
 
 Editorial follow-ups added on 26 September 2026 from the
 [studies readability review](docs/studies-readability-review-2026-09-26.md);
-landing-page consistency and philosophical orientation (Phases 1 & 2) completed on
-15 October 2026.
+landing-page consistency, philosophical orientation, and in-reader comprehension/path
+scaffolding (Phases 1, 2 & 3) completed on 15 October 2026.
 
 CI R1–R8 completed on 27 September 2026 after the public and isolated deployed acceptance exercises.
 
@@ -31,7 +31,7 @@ When an item is finished, remove the row and add a one-line note under
 1. Accept wording and check timed delivery of the revised Start here audio transcripts, beginning with
    [Why Humans Are Not Just Material](Audio/Why-Humans-Are-Not-Just-Material/en/transcript.md)
    (`AUD-01`).
-2. Website next: accept the deployed smaller sign-in/recovery scope (`AUTH-02` / `UX-05`), then implement Phase 3 in-reader scaffolding (`UX-07`: glossary expansion for realisation/value/prosperity terms and persistent 5-stage path orientation for direct/search arrivals). Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later.
+2. Website next: accept the deployed smaller sign-in/recovery scope (`AUTH-02` / `UX-05`) and complete Phase 4 (`ST-READ-03`) study readability & comparative fairness rollout across the remaining studies. Contributions retain GitHub sign-in; discussions retain email sign-in. The full `AUTH-01` migration is deferred unless explicitly resumed. `UX-04`/`UX-06` remain later.
 3. `R2-RIGHTS` (fourteen retained third-party PDFs).
 4. `TR-PILOT` (listen through the five-video transcription pilot).
 
@@ -50,7 +50,7 @@ Design and evaluation matrix:
 | UX-06 | P1 | later | Fresh Cloudflare RUM sample, segmented by catalog / large reader / search / portal and mobile / desktop. Saved baseline is still 30 August 2026 (45 views, catalog LCP p75 2.6 s, TTFB 1.3 s, CLS p75 1.0, INP p75 0). That sample predates `amd-site` cutover. Live catalog HTML is Worker-served (`cfOrigin` 0). Investigate CLS/INP before optimizing. Re-run `python Scripts/_cloudflare_performance.py --export-rum-baseline`. Related: `CF-PDF-CACHE`. |
 | AUTH-01 | P1 | deferred | Full [unified email sign-in migration](docs/unified-email-sign-in-plan.md), including email-owned contributions, website review replies/corrections and OAuth retirement. Owner chose the smaller existing-login scope on 27 September 2026. Start only on an explicit decision to resume. |
 | UX-08 | P2 | partial | Landing-page consistency and philosophical orientation (Phases 1 & 2) completed on 15 October 2026: all 28 studies represented across the 5-stage `#start-here` path, canonical titles/links/statuses and `proposal-registry.json` synced, legacy `"sepia"` theme and initial scroll-spy state fixed, and the 5-stage path plus `#approach` explicitly framed around why finite bodily needs versus continuous *jeevan* needs turn physicalism into open-ended material accumulation and how systematic study (*adhyayan*) → realisation (*anubhav*) grounds definite values and shared prosperity (*samriddhi*). Remaining: a brief reader exercise asking a newcomer where to begin and why, and a returning reader to find a known title and passage; see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
-| UX-07 | P2 | later | **Phase 3 (In-Reader Comprehension & Path Orientation):** (1) Expand `GLOSSARY` in `Assets/reader/reader.js` to cover core realisation, value, and prosperity terms (*adhyayan*, *shravan*, *manan*, *sakshatkar*, *bodh*, *samyama*, *upasana*, *samriddhi*, *akhand samaj*, *sarvabhaum vyavastha*, *priya–hita–labh*, *nyaya–dharma–satya*, *ruchi-mulak*, *mulya-mulak*, *avartansheel*, *sanyam*, *ahar-vihar*) so readers get hover/tap definitions inside studies; (2) add a compact 5-stage path-context banner/drawer in `Assets/reader/reader.js` for direct/search arrivals showing the current study's stage, previous/next stage anchors, and companion studies; (3) reading-time cues, argument routes, public reference-library browser, and minor `Studies/submit.html` / `Scripts/_build_discussion_pages.py` polish (`"sepia"` theme fallback and dynamic catalog counts); see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
+| UX-07 | P2 | partial | **Phase 3 (In-Reader Comprehension & Path Orientation)** completed on 15 October 2026: expanded `Studies/glossary.json` with 21 core realisation, evaluation, value, and prosperity terms (*anubhav*, *adhyayan*, *shravan*, *manan*, *sakshatkar*, *bodh*, *samyama*/*sanyam*, *upasana*, *jagruti*, *priya–hita–labh*, *nyaya–dharma–satya*, *ruchi-mulak*, *mulya-mulak*, *eshana*, *samriddhi*, *sadupayog*, *avartansheel*, *akhand samaj*, *sarvabhaum vyavastha*, *abhay*, *ahar–vihar*) and synced inline tooltip wrappers across all 38 tracked reader HTML files; added reading-time cues (`~N min read`), a persistent 5-stage `.reader-path-context` banner in `.reader-opening`, and stage/next-stage progression links in `.reader-ending` for direct/search arrivals; and aligned `Studies/start-here.json` (`/api/start-here`). Remaining later items: optional argument routes and public reference-library browser; see the [readability review](docs/studies-readability-review-2026-09-26.md#7-homepage-and-reader-improvements). |
 | WEB-P6 | P3 | deferred | Optional semantic retrieval. Start only if lexical search shows unmet need. |
 
 ## Audio
@@ -222,6 +222,8 @@ Projects that extend the collection beyond the site's catalog studies.
 - Session-only agent TodoWrite lists.
 
 ## Done in the same registers (do not reopen)
+
+- Website `UX-07` Phase 3 (15 October 2026): expanded `Studies/glossary.json` from 32 to 53 terms with 21 core realisation, evaluation, value, and prosperity definitions and synced inline tooltips across all 38 tracked study/companion reader HTML files; added reading-time cues (`~N min read`), a persistent 5-stage `.reader-path-context` banner in `.reader-opening`, and stage/next-stage progression links in `.reader-ending` in `Assets/reader/reader.js` and `Assets/reader/study-tools.css`; and aligned `Studies/start-here.json` with all 28 studies in `#start-here`.
 
 - Website `UX-08` Phases 1 & 2 (15 October 2026): aligned `Studies/index.html`, `Studies/README.md`, and `Studies/proposal-registry.json` across all 28 studies; added the 5 missing studies (`Artificial-Intelligence-And-Coexistence`, `Spiritual-Practice-And-Realization`, `Prosperity-Economics-And-Right-Use`, `Governance-Justice-And-Undivided-Society`, `Health-Body-And-Restraint`) to `#start-here`; fixed `Family-Relationships-And-Values` direct reader link, `"sepia"` theme migration, and initial `#start-here` scroll-spy state; and deepened the 5-stage inquiry and `#approach` orientation around *adhyayan* → *anubhav* and *samriddhi* (prosperity without accumulation). Reader-exercise verification remains in `UX-08`.
 

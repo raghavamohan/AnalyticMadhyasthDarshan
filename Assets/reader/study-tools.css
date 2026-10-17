@@ -9,6 +9,11 @@
   .reader-opening h1 { display: flex; gap: 16px; align-items: center; font: 600 clamp(26px,3vw,34px)/1.25 Georgia,serif; border: 0; padding: 0; margin: 0 0 14px; color: var(--reader-ink); }
   .reader-opening h1 > svg { width: 40px; height: 40px; flex-basis: 40px; }
   .reader-opening .reader-byline, .reader-opening .reader-about { font: 13px/1.6 'Segoe UI',sans-serif; color: var(--reader-muted); text-align: left; overflow-wrap: anywhere; }
+  .reader-path-context { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 12px; margin: 12px 0 6px; padding: 10px 14px; border-left: 3px solid var(--reader-accent); border-radius: 0 8px 8px 0; background: color-mix(in srgb, var(--reader-accent) 7%, var(--reader-surface)); font: 13px/1.55 'Segoe UI',sans-serif; color: var(--reader-muted); }
+  .reader-path-badge { font-weight: 600; color: var(--reader-accent); text-decoration: none; white-space: nowrap; }
+  .reader-path-badge:hover, .reader-path-parent:hover { text-decoration: underline; }
+  .reader-path-summary { flex: 1 1 260px; color: var(--reader-ink); }
+  .reader-path-parent { font-weight: 600; color: var(--reader-accent); text-decoration: none; white-space: nowrap; }
   .reader-opening .reader-about { margin: 8px 0 0; }
   .reader-opening .reader-about summary { padding: 4px 0; font-weight: 400; }
   .reader-opening .reader-about p { font: inherit; text-align: left; }

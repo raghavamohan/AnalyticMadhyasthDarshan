@@ -73,7 +73,60 @@
       label: headings.find(h => h.id === subheading)?.text || 'Introduction',
       fraction: Math.max(0,Math.min(1,fraction)) };
   }
-  const Core = { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex, passagePlace };
+  const STAGE_META = {
+    1: { domain: 'Human', question: 'Is a human only a body?', core: 'Why-Humans-Are-Not-Just-Material', nextStage: 2, nextDomain: 'Existence',
+      summary: 'Tests whether a human is exhausted by the physical body or is a conscious self (jeevan) acting through the body.' },
+    2: { domain: 'Existence', question: 'What exists — and where do humans stand in it?', core: 'The-Ontology-of-Coexistence', nextStage: 3, nextDomain: 'Knowledge',
+      summary: 'Examines existence as coexistence (satta and active units across four orders) and human beings as the knowledge order.' },
+    3: { domain: 'Knowledge', question: 'What must the knower know — and how is it realised?', core: 'The-Epistemology-of-Coexistence', nextStage: 4, nextDomain: 'Value',
+      summary: 'Examines how systematic study (adhyayan) moves from verbal information to direct realisation (anubhav) and lived conduct.' },
+    4: { domain: 'Value', question: 'What makes value and relationship definite?', core: 'Axiology-Value-Theory', nextStage: 5, nextDomain: 'Living',
+      summary: 'Examines how awakening shifts evaluation from sensory pleasure and gain (priya–hita–labh) to definite relationship and justice.' },
+    5: { domain: 'Living', question: 'How is coexistence lived in prosperity and society?', core: 'How-Undivided-Society-Is-Established', nextStage: 1, nextDomain: 'Human',
+      summary: 'Examines how understanding and sufficiency (samriddhi) replace blind accumulation across family, cyclical economics, and undivided society.' },
+    0: { domain: 'Across the path', question: 'Can the pieces form a coherent framework?', core: 'A-State-Dynamic-Model-Of-Coexistence', nextStage: 1, nextDomain: 'Human',
+      summary: 'Synthesizes unit activity, jeevan faculties, values, and universal human order across all five stages of the study path.' },
+  };
+  const SLUG_STAGE = {
+    'Why-Humans-Are-Not-Just-Material': 1, 'Artificial-Intelligence-And-Coexistence': 1, 'Philosophy-Of-Mind-And-Jeevan': 1,
+    'Chitta-Brain-And-Memory': 1, 'Death-Continuity-And-Rebirth': 1,
+    'The-Ontology-of-Coexistence': 2, 'Nature-Of-Time': 2, 'Nature-Ecology-And-Right-Use': 2, 'God-Divinity-And-The-Sacred': 2,
+    'The-Epistemology-of-Coexistence': 3, 'Spiritual-Practice-And-Realization': 3, 'Methodology-And-Hermeneutics': 3,
+    'Work-Action-And-Karma': 3, 'Free-Will-Choice-And-Agency': 3, 'Language-Meaning-And-Definition': 3,
+    'Axiology-Value-Theory': 4, 'Ethics-And-Morals-In-Human-Beings': 4, 'Family-Relationships-And-Values': 4, 'Aesthetics': 4,
+    'How-Undivided-Society-Is-Established': 5, 'Prosperity-Economics-And-Right-Use': 5, 'How-To-Form-Self-Sustaining-Organizations': 5,
+    'Human-Behavior-And-Society': 5, 'Education-And-Sanskar': 5, 'Governance-Justice-And-Undivided-Society': 5, 'Health-Body-And-Restraint': 5,
+    'A-State-Dynamic-Model-Of-Coexistence': 0, 'Science-Technology-And-Human-Purpose': 0,
+  };
+  function readingMinutes(items) {
+    if (!Array.isArray(items) || !items.length) return 0;
+    let words = 0;
+    for (const item of items) {
+      const tag = item?.node?.tagName || '';
+      if (/^(H[1-6]|TABLE|PRE)$/.test(tag)) continue;
+      const text = cleanText(item?.text || '');
+      if (text) words += text.split(' ').length;
+    }
+    return words > 0 ? Math.max(1, Math.round(words / 220)) : 0;
+  }
+  function studyStageInfo(pathname) {
+    const match = String(pathname || '').match(/(?:^|\/)(?:Studies|Applications)\/([^/]+)\/([^/?#]+)\.html$/i);
+    if (!match) return null;
+    const [, slug, fileStem] = match;
+    const stage = SLUG_STAGE[slug];
+    if (stage === undefined) return null;
+    const meta = STAGE_META[stage];
+    const isCompanion = fileStem.toLowerCase() !== slug.toLowerCase();
+    const isCore = meta.core === slug && !isCompanion;
+    const label = stage > 0
+      ? `Stage ${stage} of 5 · ${meta.domain}${isCompanion ? ' · Companion note' : (isCore ? ' · Core study' : '')}`
+      : `Across all 5 stages · ${isCompanion ? 'Companion note' : 'Formal synthesis'}`;
+    const stageHref = stage > 0 ? `../index.html?stage=${stage}#path-study-${slug}` : `../index.html#path-study-${slug}`;
+    const nextHref = `../index.html?stage=${meta.nextStage}#path-stage-${meta.nextStage}`;
+    return { slug, isCompanion, isCore, stage, domain: meta.domain, label, question: meta.question,
+      summary: meta.summary, stageHref, nextStage: meta.nextStage, nextDomain: meta.nextDomain, nextHref };
+  }
+  const Core = { preferences, passageKey, cursor, state, resolvePlace, lastBefore, readingIndex, passagePlace, readingMinutes, studyStageInfo };
   if (typeof module !== 'undefined' && module.exports) module.exports = Core;
   if (typeof document === 'undefined') return;
 
@@ -629,6 +682,8 @@
     const mark = template.content.cloneNode(true);
     node.prepend(mark); node.classList.add('reader-icon-label');
   }
+  const stageInfo = studyStageInfo(location.pathname);
+  const mins = readingMinutes(passages);
   const title = main.querySelector('h1');
   if (title) {
     const header = document.createElement('header'); header.className = 'reader-opening reader-chrome';
@@ -638,8 +693,22 @@
     const line = document.createElement('p'); line.className = 'reader-byline';
     line.textContent = [JSON.parse($('reader-document-visual').textContent).status, ...metadata.map(node => node.textContent.trim().startsWith('Author:')
       ? (node.querySelector('a')?.textContent || node.textContent.replace(/^Author:\s*/, '').split('(')[0]).trim()
-      : node.textContent.replace(/^Edited on:/,'Updated'))].filter(Boolean).join(' · ');
+      : node.textContent.replace(/^Edited on:/,'Updated')), mins ? `~${mins} min read` : ''].filter(Boolean).join(' · ');
     if (line.textContent) header.append(line);
+    if (stageInfo) {
+      const pathBar = document.createElement('div'); pathBar.className = 'reader-path-context';
+      const badge = document.createElement('a'); badge.className = 'reader-path-badge';
+      badge.href = stageInfo.stageHref; badge.textContent = stageInfo.label;
+      const summary = document.createElement('span'); summary.className = 'reader-path-summary';
+      summary.textContent = `${stageInfo.question} — ${stageInfo.summary}`;
+      pathBar.append(badge, summary);
+      if (stageInfo.isCompanion) {
+        const parentLink = document.createElement('a'); parentLink.className = 'reader-path-parent';
+        parentLink.href = `${stageInfo.slug}.html`; parentLink.textContent = 'Main study →';
+        pathBar.append(parentLink);
+      }
+      header.append(pathBar);
+    }
     if (metadata.length) {
       const about = document.createElement('details'); about.className = 'reader-about';
       const summary = document.createElement('summary'); summary.textContent = 'About this study'; about.append(summary);
@@ -727,6 +796,17 @@
     const next = document.createElement('a'), destination = new URL(back.href);
     const stage = Number(origin.get('stage')) + 1; destination.searchParams.set('stage',stage); destination.hash = 'path-stage-' + stage;
     next.href = destination.href; next.textContent = `Continue to stage ${stage} →`; ending.append(next);
+  } else if (stageInfo) {
+    const stageLink = document.createElement('a');
+    stageLink.href = stageInfo.stageHref;
+    stageLink.textContent = stageInfo.stage > 0 ? `Stage ${stageInfo.stage} · ${stageInfo.domain} in Start here` : 'View in Start here';
+    ending.append(stageLink);
+    if (stageInfo.stage >= 1 && stageInfo.stage <= 4) {
+      const next = document.createElement('a');
+      next.href = stageInfo.nextHref;
+      next.textContent = `Continue to stage ${stageInfo.nextStage} · ${stageInfo.nextDomain} →`;
+      ending.append(next);
+    }
   }
   main.after(ending);
   renderBookmarks(); opener.hidden = false;

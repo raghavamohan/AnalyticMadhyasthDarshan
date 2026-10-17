@@ -10,6 +10,26 @@ from pathlib import Path
 from _common import BASE, configure_utf8_stdio, write_text_lf
 from _glossary_tooltips import load_glossary, refresh_document_tooltips
 
+import hashlib
+import re
+
+READER_ASSET_URL_RE = re.compile(r"(Assets/reader/([a-z-]+\.(?:js|css))\?v=)[0-9a-f]{16}")
+
+
+def refresh_reader_asset_urls(document_html: str, root: Path = BASE) -> str:
+    assets_dir = root / "Assets" / "reader"
+    if not assets_dir.is_dir():
+        return document_html
+    hashes = {
+        path.name: hashlib.sha256(path.read_bytes()).hexdigest()[:16]
+        for path in assets_dir.iterdir()
+        if path.is_file()
+    }
+    return READER_ASSET_URL_RE.sub(
+        lambda match: f"{match.group(1)}{hashes.get(match.group(2), match.group(0)[-16:])}",
+        document_html,
+    )
+
 
 def tracked_reader_html(root: Path = BASE) -> tuple[Path, ...]:
     completed = subprocess.run(
@@ -35,7 +55,7 @@ def stale_reader_html(root: Path = BASE, *, write: bool = False) -> tuple[Path, 
     stale: list[Path] = []
     for path in tracked_reader_html(root):
         original = path.read_text(encoding="utf-8")
-        refreshed = refresh_document_tooltips(original, terms)
+        refreshed = refresh_reader_asset_urls(refresh_document_tooltips(original, terms), root)
         if refreshed == original:
             continue
         stale.append(path)

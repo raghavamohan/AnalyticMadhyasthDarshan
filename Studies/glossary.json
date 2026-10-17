@@ -217,16 +217,130 @@
       "definition": "Knowledge order — the human order, whose distinctive capacity is study, understanding, evaluation, and evidence of awakening."
     },
     {
-      "id": "samaj-gati",
-      "match": ["samaj gati", "samaj-gati"],
-      "display": "samaj gati (social participation)",
-      "definition": "Social participation — the contribution and movement of a person and family towards society and orderliness; paired with the nourishment and protection of the body as the domain in which produced objects are useful."
+      "id": "anubhav",
+      "match": ["anubhav", "Anubhav"],
+      "display": "anubhav (realisation)",
+      "definition": "Realisation — direct, steady experience of existence as coexistence in atma, completing comprehension (bodh) and ending delusion (bhram)."
     },
     {
-      "id": "samajhdar-parivar",
-      "match": ["samajhdar parivar", "samajdar parivar"],
-      "display": "samajhdar parivar (wise family)",
-      "definition": "Wise family — a family endowed with understanding, living with justice and mutual satisfaction, in which two to four members may produce beyond the family's whole necessity."
+      "id": "adhyayan",
+      "match": ["adhyayan", "Adhyayan"],
+      "display": "adhyayan (systematic study)",
+      "definition": "Systematic study — disciplined inquiry through listening (shravan), reflection (manan), and living-in-practice (abhyas) aimed at direct realisation rather than verbal memorisation."
+    },
+    {
+      "id": "shravan",
+      "match": ["shravan", "Shravan"],
+      "display": "shravan (receiving the proposal)",
+      "definition": "Attentive listening — receiving philosophical definitions and proposals accurately as testable hypotheses rather than dogmas for blind belief."
+    },
+    {
+      "id": "manan",
+      "match": ["manan", "Manan"],
+      "display": "manan (rational reflection)",
+      "definition": "Rational reflection — examining whether a proposal holds consistently across logic, existential reality, and lived human experience."
+    },
+    {
+      "id": "sakshatkar",
+      "match": ["sakshatkar", "Sakshatkar"],
+      "display": "sakshatkar (direct perception)",
+      "definition": "Direct perception — clear recognition in chitta of a unit’s real form, properties, innate nature, and dharma without projection or sensory distortion."
+    },
+    {
+      "id": "bodh",
+      "match": ["bodh", "Bodh"],
+      "display": "bodh (comprehension)",
+      "definition": "Comprehension — settled intellectual conviction in buddhi of reality as known through direct perception (sakshatkar), preceding full realisation in atma."
+    },
+    {
+      "id": "samyama",
+      "match": ["samyama", "Samyama", "sanyam", "Sanyam"],
+      "display": "samyama / sanyam (restraint and equipoise)",
+      "definition": "In cognitive practice (samyama), the disciplined quietening of unexamined imagination so reality can be perceived directly; in bodily living (sanyam), self-regulation for health."
+    },
+    {
+      "id": "upasana",
+      "match": ["upasana", "Upasana"],
+      "display": "upasana (devoted alignment)",
+      "definition": "Devoted alignment — orienting thought, evaluation, and action toward human and divine conduct on the basis of understanding rather than ritual appeasement."
+    },
+    {
+      "id": "jagruti",
+      "match": ["jagruti", "Jagruti", "jagriti", "Jagriti"],
+      "display": "jagruti (awakening)",
+      "definition": "Awakening — the transition of jeevan from delusion (bhram) to complete understanding of coexistence, jeevan, and humane conduct, evidenced in relationships and living."
+    },
+    {
+      "id": "priya-hita-labh",
+      "match": ["priya-hita-labh", "priya–hita–labh", "priya, hita, and labh"],
+      "display": "priya–hita–labh (pleasure, convenience, gain)",
+      "definition": "Pre-awakening evaluative perspectives — evaluating things and people by sensory pleasantness (priya), bodily convenience (hita), or acquisitive advantage (labh)."
+    },
+    {
+      "id": "nyaya-dharma-satya",
+      "match": ["nyaya-dharma-satya", "nyaya–dharma–satya", "nyaya, dharma, and satya"],
+      "display": "nyaya–dharma–satya (justice, resolution, truth)",
+      "definition": "Awakened evaluative perspectives — evaluating conduct and reality through relational justice (nyaya), all-round resolution (dharma), and existential truth (satya)."
+    },
+    {
+      "id": "ruchi-mulak",
+      "match": ["ruchi-mulak", "ruchimulak"],
+      "display": "ruchi-mulak (taste-driven)",
+      "definition": "Taste-driven — action and consumption guided by shifting sensory preferences and impulse rather than definite human purpose and value."
+    },
+    {
+      "id": "mulya-mulak",
+      "match": ["mulya-mulak", "mulyamulak"],
+      "display": "mulya-mulak (value-grounded)",
+      "definition": "Value-grounded — evaluation, production, and conduct anchored in definite human values and participation in orderliness."
+    },
+    {
+      "id": "eshana",
+      "match": ["eshana", "Eshana", "putreshana", "vitteshana", "lokeshana"],
+      "display": "eshana (three worldly desires)",
+      "definition": "The three bounded human aspirations — progeny (putreshana), wealth (vitteshana), and social recognition (lokeshana) — fulfilled through resolution and prosperity rather than accumulation."
+    },
+    {
+      "id": "samriddhi",
+      "match": ["samriddhi", "Samriddhi"],
+      "display": "samriddhi (prosperity)",
+      "definition": "Prosperity — the settled recognition and experience of producing and having more physical goods than one’s finite family needs, freeing human effort for relationship and understanding."
+    },
+    {
+      "id": "sadupayog",
+      "match": ["sadupayog", "Sadupayog"],
+      "display": "sadupayog (right-use)",
+      "definition": "Right-use — deploying body, mind, and material wealth for nurturing, protection, and societal order rather than indulgence, hoarding, or domination."
+    },
+    {
+      "id": "avartansheel",
+      "match": ["avartansheel", "Avartansheel", "avartanshil"],
+      "display": "avartansheel (cyclical)",
+      "definition": "Cyclical — production and resource use in which every transformation returns to and enriches nature’s regenerative cycles without depletion or pollution."
+    },
+    {
+      "id": "akhand-samaj",
+      "match": ["akhand samaj", "Akhand Samaj", "akhand-samaj"],
+      "display": "akhand samaj (undivided society)",
+      "definition": "Undivided society — humankind living without sectarian, class, or national division through shared understanding, family-based order, and mutual trust."
+    },
+    {
+      "id": "sarvabhaum-vyavastha",
+      "match": ["sarvabhaum vyavastha", "Sarvabhaum Vyavastha", "sarvabhaum-vyavastha"],
+      "display": "sarvabhaum vyavastha (universal order)",
+      "definition": "Universal human order — self-governing social coordination extending across ten stages from the family to the entire planet across education, justice, production, health, and exchange."
+    },
+    {
+      "id": "abhay",
+      "match": ["abhay", "Abhay"],
+      "display": "abhay (fearlessness / trust)",
+      "definition": "Fearlessness — mutual trust and security in society arising when justice and right-use replace exploitation and conflict."
+    },
+    {
+      "id": "ahar-vihar",
+      "match": ["ahar-vihar", "ahar–vihar", "Ahar-vihar"],
+      "display": "ahar–vihar (diet and daily conduct)",
+      "definition": "Regulated intake and bodily conduct — nourishing and exercising the body in accord with physiological order so it serves as a healthy instrument of jeevan."
     }
   ]
 }
