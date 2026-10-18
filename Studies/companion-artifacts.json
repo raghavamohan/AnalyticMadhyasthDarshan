@@ -111,7 +111,9 @@
       "slug": "Prosperity-Economics-And-Right-Use",
       "title": "Prosperity Economics and Right Use",
       "root": "Studies",
-      "notes": [],
+      "notes": [
+        "Technical-Note-Ten-Tier-Agentic-Infrastructure.md"
+      ],
       "presentations": [
         "Modern-Economic-Concepts-For-Madhyasth-Darshan-Readers.pptx",
         "Prosperity-Economics-And-Right-Use-Madhyasth-Darshan.pptx"
