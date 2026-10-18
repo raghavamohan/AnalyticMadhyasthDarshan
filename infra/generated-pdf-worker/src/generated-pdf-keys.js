@@ -29,6 +29,7 @@ export const GENERATED_PDF_KEYS = [
   "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use-Madhyasth-Darshan-notes.pdf",
   "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use-Madhyasth-Darshan.pdf",
   "Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.pdf",
+  "Studies/Prosperity-Economics-And-Right-Use/Technical-Note-Ten-Tier-Agentic-Infrastructure.pdf",
   "Studies/Spiritual-Practice-And-Realization/Research-Note-Sakshatkar-Bodh-Anubhav-Praman-Session.pdf",
   "Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization-Madhyasth-Darshan-notes.pdf",
   "Studies/Spiritual-Practice-And-Realization/Spiritual-Practice-And-Realization-Madhyasth-Darshan.pdf",
