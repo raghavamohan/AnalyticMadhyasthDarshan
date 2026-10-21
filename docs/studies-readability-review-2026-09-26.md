@@ -296,7 +296,7 @@ Ethics §3.2 now states the whole-group relation supported by MVD printed pp. 58
 
 The Activity Anatomy Pass One correction was extended across the same local pagination defect in §5: all 29 mun-pair source-check locators were compared with MVD printed/PDF pp. 339–348. Pair definitions, table contents, AVD locators and the research method remain unchanged. The note now links the research template to its tracked GitHub source because the template is intentionally excluded from public-site publication. Epistemology's Related studies entry now links the released Spiritual Practice and Realization study and describes its actual scope.
 
-Undivided Society §3.2 develops the shared-water neighbourhood scene already present in the audio script. Families may differ in language, worship, income and practical contribution; exclusion from fair access or deliberation marks the group boundary at issue. Shared needs, maintenance, contribution and justice make the alternative concrete. The hypothetical example illustrates the study's account (JVD PDF pp. 49, 157); it is not an empirical demonstration of the philosophy.
+Undivided Society §3.2 develops the shared-water neighbourhood scene already present in the audio script. Families may differ in language, worship, income and practical contribution; exclusion from fair access or deliberation marks the group boundary at issue. Shared needs, maintenance, contribution and justice make the alternative concrete. The hypothetical example illustrates the study's account (JVD PDF pp. 49, 151); it is not an empirical demonstration of the philosophy.
 
 ### Companion and verification scope
 

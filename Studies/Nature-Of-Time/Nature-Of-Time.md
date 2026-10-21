@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** October 17, 2026, 7:26 AM IST
+**Edited on:** October 22, 2026, 3:58 AM IST
 **Status:** Released
 **The question:** What is the nature of time (*kaal*)? How does Madhyasth Darshan relate timeless Omnipresence (*satta*) to the duration of unit-activity, numerical reckoning, and the past–present–future structure — and how does that compare with Advaita Vedanta, philosophy of time, and modern physics (spacetime, cosmology, entropy)?
 
@@ -81,7 +81,7 @@ Truth (**satya**) is defined as what is uniformly perceivable, existent, and rea
 > **"The measurement of time, expanse and different compositions is through mathematics."**
 > - MVD, p. 195
 
-Every duration appears in numerical form when measured, and human purposes can be organised on the basis of time or activity (JVD, p. 85). In scientific and practical inquiry, time is associated with activity once comprehensive object-knowledge is established through analysis (JVD, pp. 191–192). Time-reckoning compares one activity against a standard reference activity (such as the Earth's rotation or an atomic oscillation). The underlying duration of the activity is real; quantification and coordinate systems belong to human measurement within the knowledge order (*gyan avastha*), not to the fundamental ontology of *satta*.
+Every duration appears in numerical form when measured, and human purposes can be organised on the basis of time or activity (JVD, p. 85). In scientific and practical inquiry, time is associated with activity once comprehensive object-knowledge is established through analysis (JVD, pp. 160–161). Time-reckoning compares one activity against a standard reference activity (such as the Earth's rotation or an atomic oscillation). The underlying duration of the activity is real; quantification and coordinate systems belong to human measurement within the knowledge order (*gyan avastha*), not to the fundamental ontology of *satta*.
 
 ### 1.6 Activity eternally present and the three times
 
@@ -269,7 +269,7 @@ Key terms from §§1–3 are collected here for quick reference. Each term is al
 
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: time (*kaal*) as duration of activity (pp. 34, 196); *rachna* and *vistar* (p. 196); absolute energy in every time and place (p. 41); four contextual times of awakened human (p. 34); *satta* at all times indivisible from activities (p. 296); *atma* mediative across three times (p. 299); *satya* at all three times (p. 336); *buddhi* enlightenment of time (p. 204); measurement of time through mathematics (p. 195); *sanskar* definition (p. 90); eight activities of *chitta* including time (p. 327).
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad* (*Resolution Centred Materialism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: timeless truth across three times (p. 48); no place or time without formless existence (p. 69); three truths and time as relative truth (pp. 65, 251); place/time constructs vs eternal presence (pp. 103, 138); effort–motion–result triad (p. 58); give–take complementarity (pp. 52–53); time measured by duration of activity (p. 65).
-- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: time as duration of activity; numerical duration; activity eternally present (p. 85); science associating time with activity (pp. 191–192).
+- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: time as duration of activity; numerical duration; activity eternally present (p. 85); science associating time with activity (pp. 160–161).
 
 ### Advaita Vedanta (primary texts)
 

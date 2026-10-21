@@ -14,7 +14,7 @@
         "topical",
         "released"
       ],
-      "date_modified": "2026-10-19T07:29:00+05:30",
+      "date_modified": "2026-10-22T03:58:00+05:30",
       "attachments": [
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.md",
@@ -22,6 +22,69 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-And-Right-Use/Prosperity-Economics-And-Right-Use.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html",
+      "title": "Nature of Time",
+      "content_text": "What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-10-22T03:58:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html",
+      "title": "How Undivided Society Is Established",
+      "content_text": "Madhyasth Darshan's account of how undivided society is established through coexistence, justice, family, institutions, and education — compared with science-only materialism, Advaita Vedanta, and Hindu religious authority",
+      "tags": [
+        "topical",
+        "released"
+      ],
+      "date_modified": "2026-10-22T03:58:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf",
+          "mime_type": "application/pdf"
+        }
+      ]
+    },
+    {
+      "id": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/",
+      "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html",
+      "title": "From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence",
+      "content_text": "A synthesis of coexistence as unit activity, connecting ontology with Jeevan's concentric faculties, evaluation, values, justice, and continuous realised fulfilment. It explains how humane living extends through five social functions, universal participation, and awakened tradition, with the formal model developed in appendices.",
+      "tags": [
+        "formal",
+        "released"
+      ],
+      "date_modified": "2026-10-22T03:58:00+05:30",
+      "attachments": [
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md",
+          "mime_type": "text/markdown"
+        },
+        {
+          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf",
           "mime_type": "application/pdf"
         }
       ]
@@ -48,27 +111,6 @@
       ]
     },
     {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.html",
-      "title": "Nature of Time",
-      "content_text": "What time (kaal) is: the duration of unit-activity against timeless satta, numerical reckoning, and the past–present–future structure — compared with Advaita Vedanta, the philosophy of time, and physics (spacetime, cosmology, entropy)",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-10-17T07:26:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/Nature-Of-Time/Nature-Of-Time.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
       "id": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/",
       "url": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.html",
       "title": "How to Form Self-Sustaining Organizations",
@@ -85,48 +127,6 @@
         },
         {
           "url": "https://analyticmadhyasthdarshan.org/Studies/How-To-Form-Self-Sustaining-Organizations/How-To-Form-Self-Sustaining-Organizations.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.html",
-      "title": "How Undivided Society Is Established",
-      "content_text": "Madhyasth Darshan's account of how undivided society is established through coexistence, justice, family, institutions, and education — compared with science-only materialism, Advaita Vedanta, and Hindu religious authority",
-      "tags": [
-        "topical",
-        "released"
-      ],
-      "date_modified": "2026-10-17T07:26:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf",
-          "mime_type": "application/pdf"
-        }
-      ]
-    },
-    {
-      "id": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/",
-      "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.html",
-      "title": "From Unit Activity to Human Orderliness: A State-Dynamic Reconstruction of Coexistence",
-      "content_text": "A synthesis of coexistence as unit activity, connecting ontology with Jeevan's concentric faculties, evaluation, values, justice, and continuous realised fulfilment. It explains how humane living extends through five social functions, universal participation, and awakened tradition, with the formal model developed in appendices.",
-      "tags": [
-        "formal",
-        "released"
-      ],
-      "date_modified": "2026-10-17T07:26:00+05:30",
-      "attachments": [
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.md",
-          "mime_type": "text/markdown"
-        },
-        {
-          "url": "https://analyticmadhyasthdarshan.org/Studies/A-State-Dynamic-Model-Of-Coexistence/A-State-Dynamic-Model-Of-Coexistence.pdf",
           "mime_type": "application/pdf"
         }
       ]

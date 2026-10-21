@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** October 17, 2026, 7:26 AM IST
+**Edited on:** October 22, 2026, 3:58 AM IST
 **Status:** Released
 **The question:** What basis could make humankind an undivided society, why are influential contemporary alternatives insufficient by themselves, and how does Madhyasth Darshan propose that such a society be established and evidenced?
 
@@ -16,8 +16,8 @@ This study asks what would make that claim more than an aspiration. It develops 
 
 Madhyasth Darshan describes society as humane only when it is undivided. This does not erase families, languages, cultures, functions, or local institutions. Division in the relevant sense occurs when such differences become ultimate identities whose security or advantage is pursued against other human beings. Undividedness instead makes human identity primary and treats every smaller association as participation in the wellbeing of the whole.
 
-> **"Society is humane only when it is undivided. Societal functioning means participation for undivided society, in other words participation in universal orderliness."**
-> - JVD, p. 157
+> **"Human society is essentially one undivided society. Societal participation means - participation in the sense of undivided society, i.e., participation in universal orderliness."**
+> - JVD, p. 151
 
 Undivided society and universal orderliness name two aspects of one achievement. The first concerns recognition: humankind is one society, and every person enters an already present field of human relationships. The second concerns functioning: education, justice, health, production, and exchange must be organised so that this recognition can be lived. Recognition without institutions remains sentiment; institutions without recognition readily become systems of control, competition, or group advantage.
 
@@ -80,7 +80,7 @@ The primary account contrasts necessary tendencies of non-accumulation through p
 
 ### 3.2 From difference to division
 
-Human diversity does not itself produce division. Division arises when colour, caste, creed, ideology, nationality, or economic position becomes a final boundary of responsibility. Communities then organise trust internally and fear externally. Cooperation may remain strong within the group while the human whole is treated as a field of rivals, converts, markets, subjects, or threats (JVD, pp. 49, 157).
+Human diversity does not itself produce division. Division arises when colour, caste, creed, ideology, nationality, or economic position becomes a final boundary of responsibility. Communities then organise trust internally and fear externally. Cooperation may remain strong within the group while the human whole is treated as a field of rivals, converts, markets, subjects, or threats (JVD, pp. 49, 151).
 
 Consider a neighbourhood whose families share a water source while differing in language, belief, and income. If each group reserves access for its own members and excludes other households from decisions about supply and maintenance, strong cooperation within each group can sustain injustice between neighbours. The division lies in where responsibility stops. A humane response begins by recognising every household that depends on the source, examining their needs together, agreeing responsibilities for maintenance, and checking whether the arrangement fulfils those needs without exhausting the supply. Families can retain their languages, beliefs, and cultural associations while accepting responsibility for this shared provision. Trust then has a basis in conduct that everyone affected can evaluate. The neighbourhood's differences remain, but group membership no longer decides whose needs count.
 
@@ -336,7 +336,7 @@ Terms such as composition and closure are analogical when applied to families an
 - **MVD** — Nagraj, A. [*Madhyasth Darshan — Co-existentialism*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/MVD-Madhyasth-Darshan-Coexistentialism.pdf). English translation by Rakesh Gupta. Cited: coexistence and the four orders; *jeevan* and the human joint form; six perspectives; relationship, value, justice, awakening, family order, undivided society, and universal orderliness.
 - **SB** — Nagraj, A. [*Samadhanatmak Bhautikvad*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/SB-Samadhanatmak-Bhautikvad.pdf). English translation by Rakesh Gupta. Cited: saturation, complementarity, natural and excited states, composition and development, completeness, and societal evidence.
 - **JV** — Nagraj, A. [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf). English translation by Rakesh Gupta. Cited: the study process, relationship values, justice, the human goals, prosperity, and five dimensions of orderliness.
-- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: sectarian organisation and the boundary between insiders and outsiders (p. 49; §3.2); humane society as undivided and participation in universal orderliness (p. 157; §§1.1, 3.2); public dialogue, family council, and participation (§§5.2–5.5).
+- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra (WIP). Cited: sectarian organisation and the boundary between insiders and outsiders (p. 49; §3.2); humane society as undivided and participation in universal orderliness (p. 151; §§1.1, 3.2); public dialogue, family council, and participation (§§5.2–5.5).
 - **AVD** — Nagraj, A. [*Adhyatmvad* (*Realisation Centred Spiritualism*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/AVD-Adhyatmvad.docx.pdf). English translation by Sanjeev Chopra (WIP). Cited: awakening, activity and conduct completeness, humane tradition, community, and sources of undivided society.
 - **KD** — Nagraj, A. [*Karm Darshan*](../References/Madhyasth-Darshan/KD-Karm-Darshan-English/KD-Karm-Darshan-English.pdf). Working English translation. Cited: humane orderliness and universal wellbeing (introductory principles); rule, justice, resolution, truth, social and natural balance (pp. 7-8); knowledge, knower, known and the critique of idealist and materialist foundations (pp. 146-153).
 

@@ -1122,7 +1122,7 @@ When Harish returns in the third week, he finds not a backlog of crises, but a c
 
 On a Sunday after the harvest, Ravi, Meera, and Iqbal travel to a neighbouring settlement for a **village-group (*Gram-Samuh*) forum** bringing together representatives from ten nearby villages. Each settlement has strengths and gaps. Two hillside villages produce surplus millet, pulses, oilseeds, and dairy, and maintain rich timber groves, but lack a machine-repair shop and high-school science teachers. Ravi and Meera's settlement has skilled carpenters, mechanics, weavers, and teachers, yet imports half its grain and cooking oil—losing nearly a third of its labour's value each year to wholesale middlemen and price swings in the distant town market.
 
-The forum has gathered to take two practical steps described in *Avartansheel Arthshastra* and *Vyavaharatmak Janvad*: conducting a shared **village survey (*gram sarvekshan*)** of every family's annual needs and productive capacities (*AA* pp. 122–125), and establishing a cooperative **exchange-reserve (*vinimay kosh*)** so the villages can exchange goods and services directly on the basis of equal **value of labour (*shram mulya*)** (*AA* pp. 136–138; *JVD* pp. 274–277).
+The forum has gathered to take two practical steps described in *Avartansheel Arthshastra* and *Vyavaharatmak Janvad*: conducting a shared **village survey (*gram sarvekshan*)** of every family's annual needs and productive capacities (*AA* pp. 122–125), and establishing a cooperative **exchange-reserve (*vinimay kosh*)** so the villages can exchange goods and services directly on the basis of equal **value of labour (*shram mulya*)** (*AA* pp. 136–138; *JVD* pp. 187–188).
 
 Behind these practical steps lies a far-reaching question: where do the boundaries of human belonging actually lie, and how can an entire society organise itself without coercion, exploitation, or war?
 
@@ -1182,7 +1182,7 @@ Because the **exchange-reserve (*vinimay kosh*)** records credits and debits in 
 
 ### How Do Ten Council Levels Connect the Household to the World-Family?
 
-Some needs—like daily cooking, primary schooling, and seasonal grain storage—belong naturally to the family and village. Others—like watershed management, regional hospitals, metallurgy, railway transport, and global ecological treaties—require wider coordination. *Vyavaharatmak Janvad* proposes **ten nested council tiers** through which self-governance scales from the household to the entire planet (*JVD* pp. 237–328):
+Some needs—like daily cooking, primary schooling, and seasonal grain storage—belong naturally to the family and village. Others—like watershed management, regional hospitals, metallurgy, railway transport, and global ecological treaties—require wider coordination. *Vyavaharatmak Janvad* proposes **ten nested council tiers** through which self-governance scales from the household to the entire planet (*JVD* pp. 175–225):
 
 | Level | Council | Reach of participation |
 |---|---|---|
@@ -1199,9 +1199,9 @@ Some needs—like daily cooking, primary schooling, and seasonal grain storage�
 
 Two features keep this ten-tier architecture grounded and non-bureaucratic:
 
-First, **the five social functions recur at every tier, with scale matched to the task** (*AA* pp. 29–30, 115; *JVD* pp. 279–328). Households, villages, and village-groups handle agriculture, dairy, textiles, housing, and everyday craft repairs directly, so no family is dependent on a distant corporation for daily necessities. Wider regional and national councils (*Kshetra* through *Pradhan-rajya*) coordinate higher education, specialist healthcare, clean energy grids, public transport, and telecommunications, while the **World-Family Council (*Vishva-parivar-rajya sabha*)** stewards planetary ecological balance and universal human solidarity.
+First, **the five social functions recur at every tier, with scale matched to the task** (*AA* pp. 29–30, 115; *JVD* pp. 189–225). Households, villages, and village-groups handle agriculture, dairy, textiles, housing, and everyday craft repairs directly, so no family is dependent on a distant corporation for daily necessities. Wider regional and national councils (*Kshetra* through *Pradhan-rajya*) coordinate higher education, specialist healthcare, clean energy grids, public transport, and telecommunications, while the **World-Family Council (*Vishva-parivar-rajya sabha*)** stewards planetary ecological balance and universal human solidarity.
 
-Second, **representation is bottom-up and rooted in lived conduct** (*JVD* pp. 250–256, 327–328). Each family chooses one member to represent it in a ten-family group (*Parivar-samuh*); each council selects trusted members—recognised for their understanding, family harmony, and productive contribution—to serve on the five functional committees and the next wider council. Representatives are not career politicians campaigning for power; they remain rooted in productive community life, and decisions flow in both directions between local realities and wider coordination.
+Second, **representation is bottom-up and rooted in lived conduct** (*JVD* pp. 179–182, 223–225). Each family chooses one member to represent it in a ten-family group (*Parivar-samuh*); each council selects trusted members—recognised for their understanding, family harmony, and productive contribution—to serve on the five functional committees and the next wider council. Representatives are not career politicians campaigning for power; they remain rooted in productive community life, and decisions flow in both directions between local realities and wider coordination.
 
 ### How Can Communities Transition Step by Step—and How Do Digital Tools Help?
 
@@ -1561,7 +1561,7 @@ The following primary works underlie the chapter notes. Hindi sources govern dec
 | JV | A. Nagraj, [*Jeevan Vidya: An Introduction*](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JV-Jeevan-Vidya-An-Introduction.pdf), translated by Rakesh Gupta, dated 14 January 2023; compare the [Hindi reader](https://db.madhyasth.org/books/read/107/) | Printed pages; add one for the PDF position in the passages cited. |
 | PS | A. Nagraj, *Paribhasha Samhita*, Hindi, third edition 2012, printing dated 14 January 2016, Jeevan Vidya Prakashan / Divya Path Sansthan; [official source collection](https://originals.madhyasth.org/granth/published) | Printed pages; add eight for the PDF position in the consulted 234-page scan (`15_paribhasha_sanhita_2015_ocr.pdf`). |
 | MAD | A. Nagraj, [*Manav Abhyas Darshan*, Hindi online reader](https://db.madhyasth.org/books/read/144/?page=30) | Displayed reader page; p. 30 supplies the paired relationship values. |
-| JVD | A. Nagraj, [*Vyavaharatmak Janvad*, bilingual working translation](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf), dated 12 June 2026, from the January 2017 source | One-based PDF positions in that translation. |
+| JVD | A. Nagraj, [*Vyavaharatmak Janvad*, bilingual working translation](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf), dated 21 October 2026, from the January 2017 source | One-based PDF positions in that translation. |
 | AA | A. Nagraj, *Avartansheel Arthshastra*, Hindi, third edition 2010, Jeevan Vidya Prakashan / Divya Path Sansthan; [official source collection](https://originals.madhyasth.org/granth/published) | Printed pages in the Hindi edition, cross-referenced in [*Prosperity, Economics, and Right Use in Madhyasth Darshan*](https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-and-Right-Use/Prosperity-Economics-and-Right-Use.html). |
 | KD | A. Nagraj, *Karm Darshan*, Hindi, third edition 2011, Jeevan Vidya Prakashan / Divya Path Sansthan; [official source collection](https://originals.madhyasth.org/granth/published) | Printed pages in the Hindi edition, cross-referenced in [*Prosperity, Economics, and Right Use in Madhyasth Darshan*](https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-and-Right-Use/Prosperity-Economics-and-Right-Use.html). |
 
@@ -1711,7 +1711,7 @@ The definitions of bodily health (*swasthya*) and mental restraint or self-regul
 This chapter integrates the core economic principles of *Avartansheel Arthshastra* (`AA`), *Karm Darshan* (`KD`), *Manav Vyavahar Darshan* (`MVD`), *Jeevan Vidya: An Introduction* (`JV`), *Paribhasha Samhita* (`PS`), and *Vyavaharatmak Janvad* (`JVD`), as synthesised in [*Prosperity, Economics, and Right Use in Madhyasth Darshan*](https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-and-Right-Use/Prosperity-Economics-and-Right-Use.html):
 
 - **Definition of prosperity (*samriddhi*) and the point of satisfaction (*tripti bindu*):** `JV` printed pp. 127–128 (PDF pp. 128–129); `MVD` pp. 265–267, 342; `PS` printed pp. 38–39, 191, 222–223 (PDF pp. 46–47, 199, 230–231); and `AA` pp. 95, 106, 116, and 142 (establishing that bounded material needs can be assessed and met with surplus through *utpadan + sadupyog*, bringing mental rest *vishram* at the *tripti bindu*).
-- **Real wealth (*artha / dhan*) vs. symbolic currency (*prateek mudra*):** `AA` pp. 20–21, 136–138; `JVD` PDF pp. 274–277.
+- **Real wealth (*artha / dhan*) vs. symbolic currency (*prateek mudra*):** `AA` pp. 20–21, 136–138; `JVD` PDF pp. 187–188.
 - **Why nature is abundant (*samriddha*) and scarcity is man-made:** `AA` pp. 26, 29–30, 146; `KD` p. 7 (tracing scarcity to weapons, hoarding, waste, and speculative middlemen rather than Earth's insufficiency).
 - **The four-stage lifecycle of material goods (*utpadan, vinimay, sadupyog, avartansheel punar-viniyog*) and fivefold right use (*ahar, aushadhi, avas, alankaran, durlabhata-mukti*):** `AA` pp. 57, 106, 133–138; `MVD` pp. 56–57, 171.
 - **Consumption mania (*bhogunmad*), profit mania (*labhonmad*), and multifaceted deprivation (*daridrata*):** `PS` printed pp. 48, 140, 163; `JVD` PDF pp. 139–140; `AA` pp. 30–31.
@@ -1754,23 +1754,23 @@ The institutional and economic architecture of **undivided society (*akhand sama
 
 - **The five paired social functions (*panch-sutriya vyavastha*):** *shiksha–sanskar* (education and humane dispositions), *nyaya–suraksha* (justice and protection), *utpadan–karya* (production and work), *vinimay–kosh* (exchange and reserves), and *swasthya–sanyam* (health and restraint), in source order (`JVD` PDF pp. 133–134; `MVD` pp. 260–261; `AA` pp. 126–138; Figure 4).
 - **The nine practical branches of village industry (*gramodhyog*):** agriculture, dairy/animal husbandry, forestry/medicinal flora, textiles, housing construction, household vessels, food processing, energy/mechanical repair, and local transport/communications (`AA` pp. 133–136).
-- **Village surveys (*gram sarvekshan*), need-based family sharing, and equal labour-value (*shram mulya*) exchange via the *vinimay kosh*:** `AA` pp. 66, 76, 119, 122–125, 136–138, and 145, and `JVD` PDF pp. 274–277, establish how need-based sharing inside the household pairs with profit-free *shram mulya* exchange between families and villages (evaluated across skill, proficiency, pace, time, and means).
-- **The ten council levels (*dash-sopaniya vyavastha*) and industrial scale across tiers:** `AA` pp. 29–30, 115, and `JVD` PDF pp. 237–328:
+- **Village surveys (*gram sarvekshan*), need-based family sharing, and equal labour-value (*shram mulya*) exchange via the *vinimay kosh*:** `AA` pp. 66, 76, 119, 122–125, 136–138, and 145, and `JVD` PDF pp. 187–188, establish how need-based sharing inside the household pairs with profit-free *shram mulya* exchange between families and villages (evaluated across skill, proficiency, pace, time, and means).
+- **The ten council levels (*dash-sopaniya vyavastha*) and industrial scale across tiers:** `AA` pp. 29–30, 115, and `JVD` PDF pp. 175–225:
 
 | Council level | Janvad PDF pages |
 |---|---|
-| Family | 237–238, 249 |
-| Family group | 250–253 |
-| Village or neighbourhood | 253–256, 280 |
-| Village group | 280–281 |
-| Kshetra | 292–298 |
-| Mandal | 298–304 |
-| Mandal group | 305–315 |
-| Mukhya-rajya | 315–321 |
-| Pradhan-rajya | 321–327 |
-| World-family | 327–328 |
+| Family | 175, 179 |
+| Family group | 179–181 |
+| Village or neighbourhood | 180–182, 189 |
+| Village group | 189–190 |
+| Kshetra | 193–195 |
+| Mandal | 195–199 |
+| Mandal group | 199–211 |
+| Mukhya-rajya | 211–217 |
+| Pradhan-rajya | 217–223 |
+| World-family | 223–225 |
 
-- **Representative qualifications and flexibility:** `JVD` PDF pp. 250–256, 279–280, 327–328, and 342–343 describe the ten-person council pattern, locally determined functional committee sizes, and bidirectional communication between local and world-family levels.
+- **Representative qualifications and flexibility:** `JVD` PDF pp. 179–182, 189, 223–225, and 238–239 describe the ten-person council pattern, locally determined functional committee sizes, and bidirectional communication between local and world-family levels.
 - **The three-stage transition to *shram mulya* and digital/intelligent coordination instruments:** `AA` pp. 142–143 sets out the three-stage transition (from wholesale-benchmark accounting stripped of speculative markups, to internal labour-value parity across allied village groups, to full cyclical exchange). `AA` pp. 132 and 138 explicitly provide for connected computers and information systems to aggregate surveys and exchange ledgers across councils; read with `KD` p. 139 (and [*Prosperity, Economics, and Right Use in Madhyasth Darshan*](https://analyticmadhyasthdarshan.org/Studies/Prosperity-Economics-and-Right-Use/Prosperity-Economics-and-Right-Use.html), §7–§8), digital and intelligent assistants serve as bounded calculation and matching instruments while all normative judgements remain in human hands. For humane *lokeshana*, see `MVD` pp. 65 and 321.
 
 The ten-village *Gram-Samuh* survey and *vinimay kosh* forum (`E18`) illustrates these arrangements in action.
