@@ -119,5 +119,6 @@ from an extraction failure.
 ## Related
 
 - Download workflow: [download-references](../download-references/SKILL.md)
+- Ongoing translation updates (`JVD`, `AVD`, `SB`, `AA`, `KD`): [update-reference-translation](../update-reference-translation/SKILL.md)
 - Agent rules: [AGENTS.md](../../../AGENTS.md) §6
 - Scripts overview: [Scripts/README.md](../../../Scripts/README.md)

@@ -27,14 +27,14 @@
       "type": "skill-md",
       "description": "Run full reference integrity checks on Studies/ bibliographies, local ../References/ links, References/ mirror files, and study PDF links using Scripts/_check_references.py. Use when adding or editing study references, after downloading references, before committing bibliography changes, or when a user asks to verify reference links work. Includes direct companion-note checks outside the canonical-study suite's coverage.",
       "url": "/.well-known/agent-skills/check-references/SKILL.md",
-      "digest": "sha256:898349ed236b60d4dfa0da6cb6569439f967c4955751942389ff861dce4f778e"
+      "digest": "sha256:c47c8ca8a9fe797073e0c2c4fec547ceaf337f903757c2463b2802ebb4f8b166"
     },
     {
       "name": "download-references",
       "type": "skill-md",
       "description": "Audit Studies/ bibliographies and download redistributable references into References/ using Scripts/_audit_references.py and _download_references.py. Use when reviewing study citations, mirroring open-access papers, refreshing local reference files, or updating NOT-DOWNLOADED.md and study reference links.",
       "url": "/.well-known/agent-skills/download-references/SKILL.md",
-      "digest": "sha256:90872c26648273782260ecf10e28f01478897403408e8bda09683ccdc352b049"
+      "digest": "sha256:ad5ae63743106c9eb57aa33e5aa8ec0d8807d3ccb9cf957ec6821d6e628f3f05"
     },
     {
       "name": "manage-studies",
@@ -126,6 +126,13 @@
       "description": "Update a study Presenter's Companion (slide-by-slide delivery notes) under Studies/ or Applications/: keep the companion markdown as source of truth, rebuild DOCX/PDF, and sync PowerPoint speaker notes from a JSON map. Use when the teaching deck gains/loses slides, companion notes drift from the deck, or regenerating Presenters-Companion-*.docx/.pdf/.notes.json.",
       "url": "/.well-known/agent-skills/update-presenters-companion/SKILL.md",
       "digest": "sha256:dcf67f7f6d02d71d34fc5b4f6e7b048303d324503acf057743621d24f1171696"
+    },
+    {
+      "name": "update-reference-translation",
+      "type": "skill-md",
+      "description": "Update an ongoing primary-text translation PDF (such as JVD, AVD, SB, AA, or KD) from a Google Doc or local PDF, map shifted page numbers across Studies/, Applications/, Primer/, and .pptx decks using Scripts/_sync_reference_translation.py, publish the updated reference to Cloudflare R2, and finalize all affected studies and companion artifacts.",
+      "url": "/.well-known/agent-skills/update-reference-translation/SKILL.md",
+      "digest": "sha256:ec1d3bb7746d7c71080a37c0cb30c5e8648823be19eef5f9dd70cc3861f09900"
     },
     {
       "name": "update-study-presentation",

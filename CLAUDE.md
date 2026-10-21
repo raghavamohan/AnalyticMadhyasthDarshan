@@ -78,7 +78,7 @@ Working translations under `References/Madhyasth-Darshan/` have their own review
 
 Skills in `.agents/skills/` orchestrate `Scripts/_*.py` and defer content/style rules to AGENTS.md:
 
-`manage-studies` · `add-study` · `remove-study` · `rename-study` · `set-study-status` · `download-references` · `check-references` · `regenerate-study-pdf` · `refine-studies-index` · `update-study-presentation` · `update-presenters-companion` · `transcribe-recording` · `sync-master-clean-branches` · `review-study`
+`manage-studies` · `add-study` · `remove-study` · `rename-study` · `set-study-status` · `download-references` · `check-references` · `update-reference-translation` · `regenerate-study-pdf` · `refine-studies-index` · `update-study-presentation` · `update-presenters-companion` · `transcribe-recording` · `sync-master-clean-branches` · `review-study`
 
 ---
 

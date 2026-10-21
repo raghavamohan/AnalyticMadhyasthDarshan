@@ -147,6 +147,7 @@ External-only tags are skipped during verify. HTML snapshots are not PDF-cached.
 ## Related
 
 - Full checks: [check-references](../check-references/SKILL.md)
+- Ongoing translation updates (`JVD`, `AVD`, `SB`, `AA`, `KD`): [update-reference-translation](../update-reference-translation/SKILL.md)
 - Quote verification: `python Scripts/_quote_tool.py verify`
 - Study lifecycle: [manage-studies](../manage-studies/SKILL.md)
 - Agent rules: [AGENTS.md](../../../AGENTS.md); contributor overview [References/README.md](../../../References/README.md)

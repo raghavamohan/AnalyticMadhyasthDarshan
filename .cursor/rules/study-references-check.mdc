@@ -39,7 +39,10 @@ The check suite (`Scripts/_check_references.py`) verifies:
    usable local files
 
 Supporting scripts: `_audit_references.py` (bibliography-only), `_download_references.py`
-(mirrors), `_quote_tool.py verify` (blockquotes against local PDFs).
+(mirrors), `_sync_reference_translation.py` (Google Doc export, `.md`/`.pptx` citation
+inventory, 5-word shingle page mapping, and side-by-side text diff when an ongoing
+translation such as `JVD`, `AVD`, `SB`, `AA`, or `KD` is updated), `_quote_tool.py verify`
+(blockquotes against local PDFs).
 
 These checks establish reference integrity and quotation matches, not whether a
 paraphrase, translation, or synthesis is conceptually supported. Use the review
@@ -48,7 +51,8 @@ the question. A failed or partial OCR match requires inspection of the source pa
 before deciding that a quotation or concept is wrong.
 
 Agent skill: [check-references](.agents/skills/check-references/SKILL.md). Download
-workflow: [download-references](.agents/skills/download-references/SKILL.md).
+workflow: [download-references](.agents/skills/download-references/SKILL.md). Ongoing
+translation updates: [update-reference-translation](.agents/skills/update-reference-translation/SKILL.md).
 
 ## When adding a new local mirror
 
