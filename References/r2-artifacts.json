@@ -538,11 +538,11 @@
         "status": "existing-site-publication-approved"
       },
       "source": {
-        "bytes": 3859408,
+        "bytes": 3185193,
         "media_type": "application/pdf",
         "minimum_bytes": 500,
         "notes": "",
-        "sha256": "b03fce9fa8689284c89bf7a6740a16acb1d6e5629549595a7b0ec3c6c98aca31",
+        "sha256": "8448aa6f89ebe5c58085075b276f1155f89302c9e9a1d47188a7db5e207887ea",
         "urls": []
       },
       "state": "r2-published",

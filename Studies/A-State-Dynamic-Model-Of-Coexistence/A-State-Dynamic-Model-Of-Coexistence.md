@@ -2,7 +2,7 @@
 
 **Author:** [AnalyticMadhyasthDarshan.org](https://github.com/raghavamohan/AnalyticMadhyasthDarshan) — a group of people studying Madhyasth Darshan philosophy. Source repository: [raghavamohan/AnalyticMadhyasthDarshan](https://github.com/raghavamohan/AnalyticMadhyasthDarshan).
 
-**Edited on:** October 17, 2026, 7:26 AM IST
+**Edited on:** October 22, 2026, 3:58 AM IST
 **Status:** Released
 **The question:** How does continuous unit activity in coexistence scale through the conscious self (*jeevan*) to values, evaluation, family living, and universal human orderliness — and how can that connected process be stated both in plain philosophical language and as an explicit state-dynamic model?
 
@@ -652,7 +652,7 @@ The ordering of values gives these functions their direction. Useful provision s
 
 ### 11.5 Wider coordination and the ten-tier proposal
 
-Family-based self-governance extends responsibility from the family to the world family. The ten-tier proposal gives this extension an institutional form, with councils for deliberation, representation, and coordination. At the first tier, the family council undertakes decisions and the family carries them into living and work. Wider councils connect the responsibilities of their participating families and councils (MVD, pp. 18–19, 161, 253; JVD, PDF pp. 237–238).
+Family-based self-governance extends responsibility from the family to the world family. The ten-tier proposal gives this extension an institutional form, with councils for deliberation, representation, and coordination. At the first tier, the family council undertakes decisions and the family carries them into living and work. Wider councils connect the responsibilities of their participating families and councils (MVD, pp. 18–19, 161, 253; JVD, PDF p. 175).
 
 Self-governance, *svarajya*, is understanding expressed through responsible and independent living. Self-trust, respect for excellence, agreement between understanding and conduct, productive self-reliance, and social participation make this freedom effective in the five functions of human orderliness (JVD, PDF pp. 147–148). Family-based self-governance takes wise and benevolent participation as the basis of shared arrangements (JVD, PDF pp. 138–139).
 
@@ -660,18 +660,18 @@ Humane authority, *adhikar*, is the developed capacity to guide, refine, and nur
 
 | Tier | Council or participating body | Source location |
 |---|---|---|
-| 1 | Family and family council | JVD, PDF pp. 237, 249 |
-| 2 | *Parivar samuh sabha*: family-cluster council | JVD, PDF p. 250 |
-| 3 | *Gram parivar sabha*: village-family council | JVD, PDF pp. 255–256 |
-| 4 | *Gram/mohalla samuh parivar sabha*: village or neighbourhood-cluster family council | JVD, PDF p. 281 |
-| 5 | *Kshetra parivar sabha* | JVD, PDF p. 292 |
-| 6 | *Mandal parivar sabha* | JVD, PDF p. 298 |
-| 7 | *Mandal samuh parivar sabha* | JVD, PDF p. 305 |
-| 8 | *Mukhya rajya sabha* | JVD, PDF p. 315 |
-| 9 | *Pradhan rajya sabha* | JVD, PDF p. 321 |
-| 10 | *Vishva parivar rajya sabha*: world-family council | JVD, PDF pp. 327–328 |
+| 1 | Family and family council | JVD, PDF pp. 175, 179 |
+| 2 | *Parivar samuh sabha*: family-cluster council | JVD, PDF pp. 179–180 |
+| 3 | *Gram parivar sabha*: village-family council | JVD, PDF pp. 181–182 |
+| 4 | *Gram/mohalla samuh parivar sabha*: village or neighbourhood-cluster family council | JVD, PDF pp. 189–190 |
+| 5 | *Kshetra parivar sabha* | JVD, PDF p. 193 |
+| 6 | *Mandal parivar sabha* | JVD, PDF p. 195 |
+| 7 | *Mandal samuh parivar sabha* | JVD, PDF p. 199 |
+| 8 | *Mukhya rajya sabha* | JVD, PDF p. 211 |
+| 9 | *Pradhan rajya sabha* | JVD, PDF p. 217 |
+| 10 | *Vishva parivar rajya sabha*: world-family council | JVD, PDF pp. 223–225 |
 
-Dialogue and unanimous agreement, *sarvasammati*, govern the stated account of family-council decisions. Representation carries participation into wider councils, while tenure is determined locally in the village-council account. The world-council proposal also provides for drawing representatives from lower councils when the requisite principal state councils are unavailable (JVD, PDF pp. 238, 255, 328). These arrangements connect wider deliberation with the people who bear and fulfil responsibilities.
+Dialogue and unanimous agreement, *sarvasammati*, govern the stated account of family-council decisions. Representation carries participation into wider councils, while tenure is determined locally in the village-council account. The world-council proposal also provides for drawing representatives from lower councils when the requisite principal state councils are unavailable (JVD, PDF pp. 175, 181, 224). These arrangements connect wider deliberation with the people who bear and fulfil responsibilities.
 
 For the garden, wider coordination becomes necessary when families share a water source, need a common storage facility, or organise learning beyond one household. The participants must explain needs, identify the people affected, agree appropriate contributions, and evaluate the resulting provision. The ten-tier proposal supplies a setting for this widening responsibility. Questions about its operation under disagreement and incomplete participation are developed in §12.7. Its detailed social treatment belongs with the account of [how undivided society is established](../How-Undivided-Society-Is-Established/How-Undivided-Society-Is-Established.pdf).
 
@@ -679,7 +679,7 @@ For the garden, wider coordination becomes necessary when families share a water
 
 An awakened tradition makes understanding available through education and expresses it continuously in humane living. Education–sanskar, humane constitution, and family-based self-governance function together. Humane constitution, *samvidhan*, articulates values, character, and ethics for living in family, society, vocation, and nature. These shared responsibilities guide arrangements for their fulfilment and provide content for education. The constitution is carried into practice through people who understand its purpose and can examine how their conduct fulfils it (MVD, p. 19; SB, pp. 19–20, 240; JV, p. 126).
 
-The tradition sustains four mutually supporting aspects of humane life: culture, *sanskriti*; civilisation, *sabhyata*; humane code, *vidhi*; and orderliness, *vyavastha*. Culture carries work, behaviour, and shared expression toward completeness and undivided society. Civilisation makes that understanding evident in humane relationships and participation in universal orderliness. The humane code articulates the conduct to be fulfilled, while orderliness provides the arrangements through which people fulfil it together. Education enables each generation to understand and continue all four (MVD, pp. 107–108, 314–315; JVD, PDF pp. 168–170).
+The tradition sustains four mutually supporting aspects of humane life: culture, *sanskriti*; civilisation, *sabhyata*; humane code, *vidhi*; and orderliness, *vyavastha*. Culture carries work, behaviour, and shared expression toward completeness and undivided society. Civilisation makes that understanding evident in humane relationships and participation in universal orderliness. The humane code articulates the conduct to be fulfilled, while orderliness provides the arrangements through which people fulfil it together. Education enables each generation to understand and continue all four (MVD, pp. 107–108, 314–315; JVD, PDF p. 154).
 
 Learning begins through contact, explanation, inquiry, and participation. The learner receives and assimilates value-conduct, *aapyayan*, and refines hope, thought, desire, and resolve through *parimarjan*. Wholesome *sanskar* develops through doing, enabling others to do, and consenting to humane activity. Its continuity becomes evident when a learner can recognise a responsibility independently, fulfil it in changed circumstances, and help another person understand. In this way, the example of an awakened person becomes a growing tradition of awakening (MAD, reader p. 45; MVD, pp. 90, 94, 315).
 
@@ -1907,7 +1907,7 @@ This source account does not supply a complete evolution law, a common metric, a
 
 Universal orderliness, *sarvabhaum vyavastha*, names the shared achievement. Self-governance, *svarajya*, and qualified authority, *adhikar*, describe how persons and institutions participate in it. The account of authority includes qualification to guide and nurture, together with rights and duties arising through relationships, conferral, and circumstances (MVD, pp. 86–87, 190–191). The contrast between family-based self-governance and power-centred rule belongs to the social proposal in JVD pp. 138–139; it is not a definition of every use of the word *shasan*.
 
-The four complementary aspects enumerated at MVD pp. 107–108 are culture, civilisation, humane code, and orderliness. Culture includes work and behaviour toward completeness, and civilisation concerns humane behaviour through which universal orderliness is evidenced (MVD, pp. 314–315). These aspects work together across thought, behaviour, and work. Humane constitution articulates values, character, and ethics, together with ways of recognising humane conduct; it does not replace *vidhi* in this particular fourfold enumeration (JV, printed p. 126; JVD, PDF pp. 168–170).
+The four complementary aspects enumerated at MVD pp. 107–108 are culture, civilisation, humane code, and orderliness. Culture includes work and behaviour toward completeness, and civilisation concerns humane behaviour through which universal orderliness is evidenced (MVD, pp. 314–315). These aspects work together across thought, behaviour, and work. Humane constitution articulates values, character, and ethics, together with ways of recognising humane conduct; it does not replace *vidhi* in this particular fourfold enumeration (JV, printed p. 126; JVD, PDF p. 154).
 
 ### Operational status of activity and conduct completeness
 
@@ -1981,7 +1981,7 @@ The Status column distinguishes kinds of claim. A **direct textual claim** is st
 - **MSM** — Nagraj, A. [*Manav Sanchetnavadi Manovigyan*](../../References/Madhyasth-Darshan/MSM-manav-sanchetnavaadi-manovigyan.pdf). Hindi, 2008 OCR edition. Printed page plus twelve gives the one-based PDF position. Cited: tasting all values (p. 43; §7.8); care and generosity within deluded parental conduct (p. 49; §7.5); apprehension and representation of values (p. 243; §7.8). These passages also inform the treatment of partial fulfilment in §8.5 and the Editorial Notes.
 - **MAD** — Nagraj, A. [*Manav Abhyas Darshan*](https://db.madhyasth.org/books/read/144/). Hindi native reader, 222-page version; cited by displayed reader page. Cited: established and expressed relationship values, trust, and love ([p. 30](https://db.madhyasth.org/books/read/144/?page=30); §7.8); dedication and the ordering of values and means ([p. 34](https://db.madhyasth.org/books/read/144/?page=34); §§7.9, 11.4); reception and qualitative refinement ([p. 45](https://db.madhyasth.org/books/read/144/?page=45); §§7.7, 11.6); definite faculty harmonies ([p. 47](https://db.madhyasth.org/books/read/144/?page=47); §10.1); enduring value and continuity of realisation as paramanand ([p. 51](https://db.madhyasth.org/books/read/144/?page=51); §§7.9, 10.1, 11.6, Conclusion).
 - **PS** — Nagraj, A. [*Paribhasha Samhita*](https://originals.madhyasth.org/granth/published). Hindi, third edition 2012, printed 14 January 2016. Jeevan Vidya Prakashan, Divyapath Sansthan. The [official source collection](https://u.pcloud.link/publink/show?code=kZ6Gm05ZfUbbDBW8fKmKB9ejvrO6cSRnRRH7) contains `15_paribhasha_sanhita_2015_ocr.pdf`, 234 PDF pages. Printed page plus eight gives PDF position. Cited: preference-, value-, and goal-based tasting (pp. 40–41; §§7.6, 8.3); four dimensions of human living (p. 149; §7.8); four jeevan, six human, nine established, nine expressed, and two object values (pp. 151, 154; §7.8, Appendix A, Editorial Notes).
-- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra, work in progress; citations use PDF pages. Cited: family-based self-governance, responsible independence, and five-function participation (pp. 138–139, 147–148; §11.5); humane tradition, culture, civilisation, and constitution (pp. 168–170; §11.6 and Editorial Notes); family council, dialogue, agreement, representation, and tenure (pp. 237–238, 249–250, 255–256; §11.5); successive council tiers (pp. 281, 292, 298, 305, 315, 321, 327–328; §11.5); provision for representation from lower councils when principal state councils are unavailable (p. 328; §11.5). Operational questions are developed in §12.7.
+- **JVD** — Nagraj, A. [*Janvad* (*Behaviour Centred Public Discourse*)](https://analyticmadhyasthdarshan.org/References/Madhyasth-Darshan/JVD-Janvad.pdf). English translation by Sanjeev Chopra, work in progress; citations use PDF pages. Cited: family-based self-governance, responsible independence, and five-function participation (pp. 138–139, 147–148; §11.5); humane tradition, culture, civilisation, and constitution (p. 154; §11.6 and Editorial Notes); family council, dialogue, agreement, representation, and tenure (pp. 175, 179–180, 181–182; §11.5); successive council tiers (pp. 189–190, 193, 195, 199, 211, 217, 223–225; §11.5); provision for representation from lower councils when principal state councils are unavailable (p. 224; §11.5). Operational questions are developed in §12.7.
 
 ### Related studies in this collection
 
