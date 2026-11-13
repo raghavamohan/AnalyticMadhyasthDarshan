@@ -13,7 +13,7 @@ final length. Titles and review notes are not spoken.
 
 | Order | Stage | Transcript | Spoken words | Estimated time | Review notes |
 | --- | --- | --- | ---: | ---: | --- |
-| 1 | Human | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/en/transcript.md) | 641 | 5:00 | [Sources and review](Why-Humans-Are-Not-Just-Material/en/review-notes.md) |
+| 1 | Human | [Why Humans Are Not Just Material](Why-Humans-Are-Not-Just-Material/en/transcript.md) | 614 | 4:48 | [Sources and review](Why-Humans-Are-Not-Just-Material/en/review-notes.md) |
 | 2 | Existence | [The Ontology of Coexistence](The-Ontology-of-Coexistence/en/transcript.md) | 610 | 4:46 | [Sources and review](The-Ontology-of-Coexistence/en/review-notes.md) |
 | 3 | Knowledge | [The Epistemology of Coexistence](The-Epistemology-of-Coexistence/en/transcript.md) | 627 | 4:54 | [Sources and review](The-Epistemology-of-Coexistence/en/review-notes.md) |
 | 4 | Value | [Axiology: Value Theory](Axiology-Value-Theory/en/transcript.md) | 622 | 4:51 | [Sources and review](Axiology-Value-Theory/en/review-notes.md) |
@@ -33,7 +33,9 @@ fulfilment; Living connects universal relationships to councils and institutions
 through the neighbourhood example. Each review file records the current source
 map, consequential changes, and source/transcript hashes, while retaining earlier
 provenance. This establishes alignment with the studies, not a fresh independent
-audit of all their primary references.
+audit of all their primary references. Revision 4 (November 13, 2026) updates the
+Human episode to match its expanded study's distinction between animal and human
+joint forms and its survey of wider philosophical viewpoints.
 
 Status remains `Draft — awaiting author review`; wording acceptance, pronunciation,
 and timed delivery remain in [PENDING.md](../PENDING.md#audio) (`AUD-01`).

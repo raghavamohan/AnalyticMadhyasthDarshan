@@ -22,8 +22,9 @@ Audit of reference tags cited in `Studies/`. Earlier collection audit: 2026-09-0
 | | Curry, Mullins, and Whitehouse 2019, Graham et al. 2013, Greene et al. 2001, Haidt 2001, Tomasello and Vaish 2013 | external |
 | [Why-Humans-Are-Not-Just-Material.pdf](../Studies/Why-Humans-Are-Not-Just-Material/Why-Humans-Are-Not-Just-Material.pdf) | MVD, SB, JV | present |
 | | BU, TU, MU, CU, KU, BG, BSB, VC, DDV | present |
+| | Aquinas ST, IEP Ramanuja, Samkhya Karika, SEP Aristotle Psychology, SEP Jaina Philosophy, SEP Mind in Indian Buddhism, SN 22.59 | external |
 | | Chalmers 1995, Strawson 2006, Cogitate Consortium 2025 (same archive as Melloni et al. 2025) | present |
-| | Churchland 1986, Dennett 1991, Goff 2019, Kandel et al. 2021, Kim 2005, Tomasello 2014 | external |
+| | Churchland 1986, Dennett 1991, Goff 2019, IEP Enactivism, Kandel et al. 2021, Kant 1785, Kim 2005, SEP Dualism, SEP Emergent Properties, SEP Existentialism, Tomasello 2014 | external |
 | | Bodien et al. 2024, Bridges et al. 2024, Friston et al. 2015, Geraci et al. 2025, Lockwood et al. 2024, Lucca et al. 2025, Lyu et al. 2023, Pinto et al. 2017, Pinto et al. 2023, Ross et al. 2025, Wong et al. 2025 | external |
 | | Bayne and Chalmers 2003, Chalmers 2003, Graziano 2024, Papineau 2016, Papineau 2020, Sterelny 2025 | external |
 | | Ostrom 2010, Prabhakar et al. 2012 | external |
@@ -159,11 +160,12 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Baehni 2019** | [Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf](Science/Baehni-2019-Mathematical-Aspects-Classical-Mechanics.pdf) | (none — review MANIFEST.md) |
 | **Scholarpedia PLA**, **Landau SE**, **particle future SE**, **Reddit PLA**, **Gray and Taylor astonishment**, **Apeiron biological action**, **Emergent Mind PLA**, **ResearchGate teleology**, **Gromov 1989**, **path integrals blog**, **Milewski 2015**, **Baez week292**, **Baez week296**, **Baez maximum principles**, **Baez and Fong 2015**, **Baez and Weingarten 2020**, **nLab prequantized Lagrangian**, **Weinstein Lagrangian**, **Math SE modules** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | (none — review MANIFEST.md) |
 | **Metzinger 2003**, **Penrose 2010**, **Weinberg 1995** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
-| **Ishvarakrishna** / **Samkhya Karika** | [Rutgers source collection](https://sites.rutgers.edu/edwin-bryant/wp-content/uploads/sites/169/2020/11/Samkhya-Karika-Gaudapada1.pdf); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence (Samkhya Karika tag) |
+| **Ishvarakrishna** / **Samkhya Karika** | [Rutgers source collection](https://sites.rutgers.edu/edwin-bryant/wp-content/uploads/sites/169/2020/11/Samkhya-Karika-Gaudapada1.pdf); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence, Why-Humans (Samkhya Karika tag) |
 | **Nagarjuna** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Retained external reference, no longer cited in The-Ontology-of-Coexistence |
 | **Hashemi 2025** | [Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf](Modern-Philosophy/Hashemi-2025-How-to-Understand-Russellian-Panpsychism.pdf) | Knowledge-Knower |
 | **McTaggart 1908** | [Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf](https://analyticmadhyasthdarshan.org/References/Modern-Philosophy/McTaggart-1908-The-Unreality-of-Time.pdf) | Nature-Of-Time |
-| **Gettier 1963**, **IEP Enactivism**, **Jarczewski and Riggs 2025**, **Kuhn 2024**, **Massimi 2022**, **Piredda 2024**, **Wiese 2024** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
+| **Gettier 1963**, **Jarczewski and Riggs 2025**, **Kuhn 2024**, **Massimi 2022**, **Piredda 2024**, **Wiese 2024** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower |
+| **IEP Enactivism** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Knowledge-Knower, Why-Humans |
 | **Rovelli 2018** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Nature-Of-Time |
 | **Keating 2008**, **Mind and Creativity Rasa** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Aesthetics |
 | **Curry, Mullins, and Whitehouse 2019**, **Graham et al. 2013**, **Greene et al. 2001**, **Haidt 2001**, **Tomasello and Vaish 2013** | [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) | Ethics-And-Morals |
@@ -180,7 +182,7 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Baker 2000** | [Persons and Bodies: A Constitution View](https://www.cambridge.org/core/books/persons-and-bodies/37247AC7286CDEA6C82DFF25B1805911); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
 | **Schechtman 1996** | [The Constitution of Selves](https://www.cornellpress.cornell.edu/book/9780801484844/the-constitution-of-selves/); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
 | **van Fraassen 1980** | [The Scientific Image](https://global.oup.com/academic/product/the-scientific-image-9780198244271); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
-| **Aquinas ST** | [q. 75](https://www.newadvent.org/summa/1075.htm) · [q. 76](https://www.newadvent.org/summa/1076.htm); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
+| **Aquinas ST** | [q. 75](https://www.newadvent.org/summa/1075.htm) · [q. 76](https://www.newadvent.org/summa/1076.htm); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence, Why-Humans |
 | **Spinoza Ethics** | [Ethics](https://www.gutenberg.org/files/3800/3800-h/3800-h.htm); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
 | **Leibniz Monadology** | [Monadology](https://dss-sites.ucsd.edu/drutherford/Leibniz/translations/Monadology.pdf); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
 | **Berkeley Principles** | [A Treatise Concerning the Principles of Human Knowledge](https://www.gutenberg.org/cache/epub/4723/pg4723-images.html); [external-reference record](NOT-DOWNLOADED.md) | The-Ontology-of-Coexistence |
@@ -207,6 +209,8 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Friston et al. 2015** | [Original source](https://pubmed.ncbi.nlm.nih.gov/25689102/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Geraci et al. 2025** | [Original source](https://www.nature.com/articles/s41467-025-61517-3); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Graziano 2024** | [Original source](https://pmc.ncbi.nlm.nih.gov/articles/PMC11521794/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **IEP Ramanuja** | [IEP entry](https://iep.utm.edu/ramanuja/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **Kant 1785** | [Project Gutenberg edition](https://www.gutenberg.org/ebooks/5682); [external-reference record](NOT-DOWNLOADED.md) | Axiology-Value-Theory, Why-Humans |
 | **Lockwood et al. 2024** | [Original source](https://www.nature.com/articles/s41562-024-01899-4); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Lucca et al. 2025** | [Original source](https://doi.org/10.1111/desc.13581); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Lyu et al. 2023** | [Original source](https://pubmed.ncbi.nlm.nih.gov/37295420/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
@@ -217,6 +221,13 @@ For **MVD**, **SB**, and **JV**, the PDF is the file Studies must cite and that 
 | **Pinto et al. 2023** | [Original source](https://www.frontiersin.org/journals/human-neuroscience/articles/10.3389/fnhum.2023.1278025/full); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Prabhakar et al. 2012** | [Publisher article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1002670); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Ross et al. 2025** | [Original source](https://link.springer.com/article/10.1186/s13019-025-03484-w); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **SEP Aristotle Psychology** | [SEP entry](https://plato.stanford.edu/entries/aristotle-psychology/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **SEP Dualism** | [SEP entry](https://plato.stanford.edu/entries/dualism/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **SEP Emergent Properties** | [SEP entry](https://plato.stanford.edu/entries/properties-emergent/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **SEP Existentialism** | [SEP entry](https://plato.stanford.edu/entries/existentialism/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **SEP Jaina Philosophy** | [SEP entry](https://plato.stanford.edu/entries/jaina-philosophy/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **SEP Mind in Indian Buddhism** | [SEP entry](https://plato.stanford.edu/entries/mind-indian-buddhism/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
+| **SN 22.59** | [SuttaCentral edition](https://suttacentral.net/sn22.59/en/sujato); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Sterelny 2025** | [Original source](https://gavindavidyounglectures.au/index.php/gdylp/article/download/3/8/); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 | **Wong et al. 2025** | [Original source](https://www.nature.com/articles/s41467-025-61945-1); [external-reference record](NOT-DOWNLOADED.md) | Why-Humans |
 
@@ -228,6 +239,6 @@ External physics clarification: **MIT quantum numbers**, Donald R. Sadoway, *Int
 
 The tables above record citation coverage; [r2-artifacts.json](r2-artifacts.json) records storage and rights for reference artifacts. A citation tag is not a file count: several tags can identify one volume, and one work can have more than one citation tag.
 
-The science and modern-philosophy bibliography of *Why Humans Are Not Just Material* contains 28 entries: three use existing repository reference links and 25 link externally. The Lucca correction is linked with its original article.
+The comparative, scientific, and modern-philosophy bibliography of *Why Humans Are Not Just Material* contains 40 entries outside the Madhyasth Darshan and Advaita canons: three use existing repository reference links and 37 link externally. The Lucca correction is linked with its original article.
 
 Works not stored locally are linked from each paper's References section. See [NOT-DOWNLOADED.md](NOT-DOWNLOADED.md) for original URLs.
